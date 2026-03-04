@@ -1,0 +1,35 @@
+.header {
+	position: fixed;
+	z-index: 1;
+	background: transparent;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 20px;
+
+	a {
+		color: #fff;
+	}
+}
+
+.header__logo {
+	font-size: 1.6rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.header-nav {
+	display: flex;
+	gap: 40px;
+	margin-left: auto;
+}
+
+.header__btn {
+	color: #fff;
+	margin-left: 40px;
+	background: #1875ff;
+	padding: 10px;
+}
