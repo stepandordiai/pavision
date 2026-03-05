@@ -13,6 +13,16 @@
 	}
 }
 
+.header--active {
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+	background: #ffffff45;
+
+	a {
+		color: #000;
+	}
+}
+
 .header__logo {
 	font-size: 1.6rem;
 	display: flex;
