@@ -425,18 +425,3 @@ h2 {
 	font-weight: 200;
 	transform: translateX(-50%);
 }
-
-.footer {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	padding: 10px;
-	color: #fff;
-	min-height: 400px;
-	background: #000;
-	margin: 20px;
-
-	a {
-		color: #fff;
-	}
-}
