@@ -1,30 +1,34 @@
 .header {
 	position: fixed;
-	z-index: 1;
-	background: transparent;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-	padding: 20px;
-
-	a {
-		color: #fff;
-	}
+	top: 10px;
+	left: 10px;
+	right: 10px;
+	z-index: 999;
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+	background: rgba(0, 0, 0, 0.311);
+	border-radius: 10px;
+	transition: all 0.5s;
 }
 
 .header--active {
-	-webkit-backdrop-filter: blur(10px);
-	backdrop-filter: blur(10px);
-	background: #ffffff45;
+	border-radius: 0px;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: rgb(0, 0, 0);
+}
 
-	a {
-		color: #000;
-	}
+.header-inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 12px;
 }
 
 .header__logo {
-	font-size: 1.6rem;
+	color: #fff;
+	font-size: 20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -34,12 +38,200 @@
 .header-nav {
 	display: flex;
 	gap: 40px;
-	margin-left: auto;
 }
 
-.header__btn {
+.header-nav__link {
+	position: relative;
+	color: rgba(255, 255, 255, 0.496);
+	padding-left: 10px;
+	transition: color 0.24s;
+
+	&::before {
+		content: "";
+		position: absolute;
+		height: 100%;
+		width: 2px;
+		left: 0;
+		background: rgba(255, 255, 255, 0.478);
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		height: 100%;
+		width: 2px;
+		left: 0;
+		background: #fff;
+		transform: scaleY(0);
+		transform-origin: bottom;
+		transition: transform 0.24s;
+	}
+
+	&:hover {
+		color: #fff;
+
+		&::after {
+			transform: scaleY(1);
+		}
+	}
+}
+
+.header__link {
+	position: relative;
 	color: #fff;
-	margin-left: 40px;
-	background: #1875ff;
-	padding: 10px;
+	padding-bottom: 5px;
+
+	&::before {
+		content: "";
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		background: rgba(255, 255, 255, 0.478);
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		background: #fff;
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 0.24s;
+	}
+
+	&:hover {
+		color: #fff;
+
+		&::after {
+			transform: scaleX(1);
+		}
+	}
+}
+
+// Menu btn
+
+.menu-btn {
+	position: relative;
+	width: 30px;
+	padding: 15px 0;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+.menu-btn::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(90deg, transparent 50%, #fff 50%);
+	transform: translate(-15px, -8px);
+	transition: transform 0.5s;
+}
+
+.menu-btn__center-line {
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background: #fff;
+	transition: transform 0.5s;
+}
+
+.menu-btn::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(90deg, #fff 50%, transparent 50%);
+	transform: translate(15px, 8px);
+	transition: transform 0.5s;
+}
+
+.menu-btn--active::before {
+	transform: translate(0px, 0px) rotate(-135deg);
+}
+
+.menu-btn__center-line--active {
+	transform: rotate(-45deg);
+}
+
+.menu-btn--active::after {
+	transform: translate(0px, 0px) rotate(-135deg);
+}
+
+// Menu
+
+.menu {
+	display: grid;
+	grid-template-rows: 0fr;
+	padding: 0 12px;
+	transition: all 0.5s;
+}
+
+.menu--active {
+	grid-template-rows: 1fr;
+	padding: 12px;
+}
+
+.menu-nav {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.menu-nav__link {
+	font-size: 18px;
+	position: relative;
+	color: rgba(255, 255, 255, 0.496);
+	padding-left: 10px;
+	transition: color 0.24s;
+
+	&::before {
+		content: "";
+		position: absolute;
+		height: 100%;
+		width: 2px;
+		left: 0;
+		background: rgba(255, 255, 255, 0.478);
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		height: 100%;
+		width: 2px;
+		left: 0;
+		background: #fff;
+		transform: scaleY(0);
+		transform-origin: bottom;
+		transition: transform 0.24s;
+	}
+
+	&:hover {
+		color: #fff;
+
+		&::after {
+			transform: scaleY(1);
+		}
+	}
+}
+
+@media screen and (width < 800px) {
+	.header-nav {
+		display: none;
+	}
+
+	.header__link {
+		display: none;
+	}
+
+	.menu-btn {
+		display: flex;
+	}
 }
