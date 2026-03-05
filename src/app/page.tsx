@@ -36,8 +36,7 @@ export default function Home() {
 								<span></span>
 							</button>
 							<div>
-								Interior lights (Status:{" "}
-								{interiorLight ? "turned on" : "turned off"})
+								Vnitřní osvětlení ({interiorLight ? "Zapnuto" : "Vypnuto"})
 							</div>
 						</div>
 						<div className="exterior-btn-wrapper">
@@ -48,8 +47,7 @@ export default function Home() {
 								<span></span>
 							</button>
 							<div>
-								Exterior lights (Status:{" "}
-								{exteriorLight ? "turned on" : "turned off"})
+								Vnější osvětlení ({exteriorLight ? "Zapnuto" : "Vypnuto"})
 							</div>
 						</div>
 						<div
@@ -80,9 +78,7 @@ export default function Home() {
 							>
 								<span></span>
 							</button>
-							<div>
-								Garage door (Status: {garageOpen ? "opened" : "closed"})
-							</div>
+							<div>Garážová vrata ({garageOpen ? "Otevřeno" : "Zavřeno"})</div>
 						</div>
 						<div className="garage">
 							<div
@@ -96,19 +92,19 @@ export default function Home() {
 					</div>
 				</div>
 
-				<p className="hero-scroll">Scroll to exlore more</p>
+				<p className="hero-scroll">Posuňte dolů a objevte</p>
 			</section>
 			<section className="section">
-				<h2>About us</h2>
+				<h2>Kdo jsme</h2>
 			</section>
 			<section className="section">
-				<h2>What we do</h2>
+				<h2>Co děláme</h2>
 			</section>
 			<section className="section">
-				<h2>Technologies</h2>
+				<h2>Technologie</h2>
 			</section>
 			<section className="section">
-				<h2>Products</h2>
+				<h2>Produkty</h2>
 			</section>
 		</main>
 	);
