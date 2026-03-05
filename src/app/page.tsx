@@ -11,9 +11,16 @@ export default function Home() {
 	return (
 		<main>
 			<section className="hero">
-				<h1 className="hero__title">
-					Elevate your life with smart home solutions
-				</h1>
+				<div className="hero-container">
+					<h1 className="hero__title">
+						Kvalita, design a technologie v dokonalé rovnováze.
+					</h1>
+					<p className="hero__desc">
+						Tvoříme chytré domy, audio & video systémy, automatizaci a
+						energeticky efektivní řešení.
+					</p>
+				</div>
+
 				{/* ── 3D Platform ── */}
 				<div className="sh-plat-wrap">
 					<div className="sh-plat-3d" />

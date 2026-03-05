@@ -52,13 +52,13 @@ const Header = () => {
 				</svg>
 				<span>P&A Vision</span>
 			</a>
-			<nav className="header-nav">
+			{/* <nav className="header-nav">
 				<a href="">Ůvod</a>
 				<a href="">O nás</a>
 				<a href="">Služby</a>
 				<a href="">Kontakt</a>
 			</nav>
-			<button className="header__btn">Order now</button>
+			<button className="header__btn">Order now</button> */}
 		</header>
 	);
 };
