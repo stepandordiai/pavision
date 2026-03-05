@@ -4,9 +4,9 @@
 	left: 10px;
 	right: 10px;
 	z-index: 999;
-	-webkit-backdrop-filter: blur(10px);
-	backdrop-filter: blur(10px);
-	background: rgba(0, 0, 0, 0.311);
+	-webkit-backdrop-filter: blur(25px);
+	backdrop-filter: blur(25px);
+	background: rgba(0, 0, 0, 0.2);
 	border-radius: 10px;
 	transition: all 0.5s;
 }
@@ -73,6 +73,14 @@
 		&::after {
 			transform: scaleY(1);
 		}
+	}
+}
+
+.header-nav__link--active {
+	color: #fff;
+
+	&::after {
+		transform: scaleY(1);
 	}
 }
 
@@ -219,6 +227,14 @@
 		&::after {
 			transform: scaleY(1);
 		}
+	}
+}
+
+.menu-nav__link--active {
+	color: #fff;
+
+	&::after {
+		transform: scaleY(1);
 	}
 }
 

@@ -1,13 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import "./Header.scss";
-import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import "./Header.scss";
 
 const Header = () => {
 	const [calcRotation, setCalRotation] = useState(0);
 	const [headerActive, setHeaderActive] = useState(false);
+
+	const pathname = usePathname();
 
 	useEffect(() => {
 		const changeHeader = () => {
@@ -62,21 +64,33 @@ const Header = () => {
 					<span>P&A Vision</span>
 				</a>
 				<nav className="header-nav">
-					<Link className="header-nav__link" href="/">
+					<Link
+						className={`header-nav__link ${pathname === "/" ? "header-nav__link--active" : ""}`}
+						href="/"
+					>
 						Ůvod
 					</Link>
-					<Link className="header-nav__link" href="/o-nas">
+					<Link
+						className={`header-nav__link ${pathname === "/o-nas" ? "header-nav__link--active" : ""}`}
+						href="/o-nas"
+					>
 						O nás
 					</Link>
-					<Link className="header-nav__link" href="/sluzby">
+					<Link
+						className={`header-nav__link ${pathname === "/sluzby" ? "header-nav__link--active" : ""}`}
+						href="/sluzby"
+					>
 						Služby
 					</Link>
-					<Link className="header-nav__link" href="/kontakt">
+					<Link
+						className={`header-nav__link ${pathname === "/kontakt" ? "header-nav__link--active" : ""}`}
+						href="/kontakt"
+					>
 						Kontakt
 					</Link>
 				</nav>
-				<a className="header__link" href="">
-					+420722001016
+				<a className="header__link" href="tel:+420775632426">
+					+420 775 632 426
 				</a>
 				<button
 					onClick={toggleMenu}
@@ -89,16 +103,28 @@ const Header = () => {
 			</div>
 			<div className={`menu ${menuOpen ? "menu--active" : ""}`}>
 				<nav className="menu-nav">
-					<Link className="menu-nav__link" href="/">
+					<Link
+						className={`menu-nav__link ${pathname === "/" ? "menu-nav__link--active" : ""}`}
+						href="/"
+					>
 						Ůvod
 					</Link>
-					<Link className="menu-nav__link" href="/o-nas">
+					<Link
+						className={`menu-nav__link ${pathname === "/o-nas" ? "menu-nav__link--active" : ""}`}
+						href="/o-nas"
+					>
 						O nás
 					</Link>
-					<Link className="menu-nav__link" href="/sluzby">
+					<Link
+						className={`menu-nav__link ${pathname === "/sluzby" ? "menu-nav__link--active" : ""}`}
+						href="/sluzby"
+					>
 						Služby
 					</Link>
-					<Link className="menu-nav__link" href="/kontakt">
+					<Link
+						className={`menu-nav__link ${pathname === "/kontakt" ? "menu-nav__link--active" : ""}`}
+						href="/kontakt"
+					>
 						Kontakt
 					</Link>
 				</nav>

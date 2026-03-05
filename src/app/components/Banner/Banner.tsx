@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import "./Banner.scss";
+import EnvelopeIcon from "@/app/icons/EnvelopeIcon";
+import TelIcon from "@/app/icons/TelIcon";
 
 const Banner = () => {
 	const [bannerVisible, setBannerVisible] = useState(false);
@@ -56,6 +58,18 @@ const Banner = () => {
 			<p>
 				IČO <button>23654341</button>
 			</p>
+			<a className="banner__link" href="mailto:info@pavision.cz">
+				<EnvelopeIcon />
+				<span>info@pavision.cz</span>
+			</a>
+			<a className="banner__link" href="tel:+420775632426">
+				<TelIcon />
+				<span>+420 775 632 426</span>
+			</a>
+			<a className="banner__link" href="tel:+420777049617">
+				<TelIcon />
+				<span>+420 777 049 617</span>
+			</a>
 		</div>
 	);
 };
