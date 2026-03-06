@@ -1,5 +1,5 @@
 import "./Services.scss";
 
 export default function Services() {
-	return <div>Services</div>;
+	return <main className="services">Tato stránka se právě připravuje.</main>;
 }

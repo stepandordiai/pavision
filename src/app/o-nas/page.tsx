@@ -1,5 +1,5 @@
 import "./AboutUs.scss";
 
 export default function AboutUs() {
-	return <div>AboutUs</div>;
+	return <main className="about-us">Tato stránka se právě připravuje.</main>;
 }

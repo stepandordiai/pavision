@@ -34,6 +34,18 @@ const Header = () => {
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
+	useEffect(() => {
+		const closeMenuOnEsc = (e: KeyboardEvent) => {
+			if (e.key === "Escape") {
+				setMenuOpen(false);
+			}
+		};
+
+		document.addEventListener("keydown", closeMenuOnEsc);
+
+		return () => document.removeEventListener("keydown", closeMenuOnEsc);
+	}, []);
+
 	// menu-btn
 
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -83,8 +95,8 @@ const Header = () => {
 						Služby
 					</Link>
 					<Link
-						className={`header-nav__link ${pathname === "/kontakt" ? "header-nav__link--active" : ""}`}
-						href="/kontakt"
+						className={`header-nav__link ${pathname === "/kontakty" ? "header-nav__link--active" : ""}`}
+						href="/kontakty"
 					>
 						Kontakt
 					</Link>
@@ -104,26 +116,30 @@ const Header = () => {
 			<div className={`menu ${menuOpen ? "menu--active" : ""}`}>
 				<nav className="menu-nav">
 					<Link
+						onClick={() => setMenuOpen(false)}
 						className={`menu-nav__link ${pathname === "/" ? "menu-nav__link--active" : ""}`}
 						href="/"
 					>
 						Ůvod
 					</Link>
 					<Link
+						onClick={() => setMenuOpen(false)}
 						className={`menu-nav__link ${pathname === "/o-nas" ? "menu-nav__link--active" : ""}`}
 						href="/o-nas"
 					>
 						O nás
 					</Link>
 					<Link
+						onClick={() => setMenuOpen(false)}
 						className={`menu-nav__link ${pathname === "/sluzby" ? "menu-nav__link--active" : ""}`}
 						href="/sluzby"
 					>
 						Služby
 					</Link>
 					<Link
-						className={`menu-nav__link ${pathname === "/kontakt" ? "menu-nav__link--active" : ""}`}
-						href="/kontakt"
+						onClick={() => setMenuOpen(false)}
+						className={`menu-nav__link ${pathname === "/kontakty" ? "menu-nav__link--active" : ""}`}
+						href="/kontakty"
 					>
 						Kontakt
 					</Link>
