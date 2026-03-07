@@ -3,8 +3,25 @@
 	padding: 20px;
 }
 
+.img-wrapper {
+	position: relative;
+	overflow: hidden;
+}
+
+.img {
+	border-radius: 10px;
+	clip-path: inset(0% 100% 100% 0%);
+	animation: animateImg 1.5s forwards cubic-bezier(0.4, 0.8, 0.2, 1);
+}
+
+@keyframes animateImg {
+	to {
+		clip-path: inset(0%);
+	}
+}
+
 h2 {
-	font-size: 2rem;
+	// font-size: 2rem;
 }
 
 .hero {

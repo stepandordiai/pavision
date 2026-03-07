@@ -17,6 +17,7 @@ a,
 a:link,
 a:visited {
 	text-decoration: none;
+	color: #fff;
 }
 
 a:hover {
@@ -74,6 +75,10 @@ select {
 	font-size: inherit;
 	color: inherit;
 	background-color: transparent;
+
+	&:focus {
+		outline: none;
+	}
 }
 
 input::-ms-clear {

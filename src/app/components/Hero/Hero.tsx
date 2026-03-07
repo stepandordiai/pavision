@@ -14,8 +14,8 @@ const Hero = () => {
 					Kvalita, design a technologie v dokonalé rovnováze.
 				</h1>
 				<p className="hero__desc">
-					Tvoříme chytré domy, audio & video systémy, automatizaci a energeticky
-					efektivní řešení.
+					Zdůrazníme elektroinstalace, síťovou infrastrukturu, domácí
+					automatizaci a audio/video systémy.
 				</p>
 			</div>
 

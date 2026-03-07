@@ -14,6 +14,22 @@ export default function Home() {
 			<Hero />
 			<section className="section">
 				<h2>Kdo jsme</h2>
+				<div className="img-wrapper">
+					<img
+						className="img"
+						src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-health.jpg"
+						width={500}
+						alt=""
+					/>
+				</div>
+				<p>
+					Máme 15 let zkušeností (montáže v Británii, automatizace, AV
+					instalace). Zabezpečením se zabýváme komplexně. Nabízíme zabezpečovací
+					systémy od značek Jablotron, Paradox a Risco, přístupové systémy jako
+					Salto, a kamerové i přístupové systémy od Ubiquiti. Díky tomu
+					poskytujeme bezpečnostní řešení na míru s flexibilními a ověřenými
+					technologiemi.
+				</p>
 			</section>
 			<section className="section">
 				<h2>Co děláme</h2>
