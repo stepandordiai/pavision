@@ -1,12 +1,17 @@
 @use "./scss/reset";
 
+:root {
+	--bg-clr-base: linear-gradient(90deg, #000, rgb(43, 75, 133), #000);
+	--bg-clr: #333;
+}
+
 ::-webkit-scrollbar {
 	display: none;
 }
 
 body {
 	font-family: var(--font-poppins);
-	background: #333;
+	background: var(--bg-clr-base);
 	// overflow: hidden;
 	color: #fff;
 }
