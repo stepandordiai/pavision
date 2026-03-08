@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import EnvelopeIcon from "../icons/EnvelopeIcon";
-import TelIcon from "../icons/TelIcon";
+import EnvelopeIcon from "@/app/icons/EnvelopeIcon";
+import TelIcon from "@/app/icons/TelIcon";
 import "./Contacts.scss";
 
 export default function Contacts() {

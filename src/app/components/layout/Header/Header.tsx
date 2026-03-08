@@ -1,11 +1,15 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Lng from "../../Lng/Lng";
 import "./Header.scss";
 
 const Header = () => {
+	const t = useTranslations();
+
 	const [calcRotation, setCalRotation] = useState(0);
 	const [headerActive, setHeaderActive] = useState(false);
 
@@ -55,97 +59,113 @@ const Header = () => {
 	}
 
 	return (
-		<header className={`header ${menuOpen ? "header--active" : ""}`}>
-			<div className="header-inner">
-				<a className="header__logo" href="">
-					<svg
-						width="30"
-						height="30"
-						viewBox="0 0 256 256"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
+		<>
+			<header className={`header ${menuOpen ? "header--active" : ""}`}>
+				<div className="header-inner">
+					<Link className="header__logo" href="/">
+						<svg
+							width="30"
+							height="30"
+							viewBox="0 0 256 256"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+							style={{
+								transform: `rotate(${calcRotation}deg)`,
+							}}
+						>
+							<path
+								d="M128.001 0C139.977 64.8783 191.122 116.025 256 128.001C191.123 139.978 139.978 191.123 128.001 256C116.025 191.122 64.8783 139.977 0 128.001C64.8791 116.026 116.026 64.8791 128.001 0Z"
+								fill="currentColor"
+							/>
+						</svg>
+						<span>P&A Vision</span>
+					</Link>
+					<nav className="header-nav">
+						<Link
+							className={`header-nav__link ${pathname === "/" ? "header-nav__link--active" : ""}`}
+							href="/"
+						>
+							{t("homeTitle")}
+						</Link>
+						<Link
+							className={`header-nav__link ${pathname === "/o-nas" ? "header-nav__link--active" : ""}`}
+							href="/o-nas"
+						>
+							{t("aboutUsTitle")}
+						</Link>
+						<Link
+							className={`header-nav__link ${pathname === "/produkty" ? "header-nav__link--active" : ""}`}
+							href="/produkty"
+						>
+							{t("productsTitle")}
+						</Link>
+						<Link
+							className={`header-nav__link ${pathname === "/kontakty" ? "header-nav__link--active" : ""}`}
+							href="/kontakty"
+						>
+							{t("contactsTitle")}
+						</Link>
+					</nav>
+					<div
 						style={{
-							transform: `rotate(${calcRotation}deg)`,
+							display: "flex",
+							justifyContent: "center",
+							alignItems: "center",
+							gap: 20,
 						}}
 					>
-						<path
-							d="M128.001 0C139.977 64.8783 191.122 116.025 256 128.001C191.123 139.978 139.978 191.123 128.001 256C116.025 191.122 64.8783 139.977 0 128.001C64.8791 116.026 116.026 64.8791 128.001 0Z"
-							fill="currentColor"
-						/>
-					</svg>
-					<span>P&A Vision</span>
-				</a>
-				<nav className="header-nav">
-					<Link
-						className={`header-nav__link ${pathname === "/" ? "header-nav__link--active" : ""}`}
-						href="/"
-					>
-						Ůvod
-					</Link>
-					<Link
-						className={`header-nav__link ${pathname === "/o-nas" ? "header-nav__link--active" : ""}`}
-						href="/o-nas"
-					>
-						O nás
-					</Link>
-					<Link
-						className={`header-nav__link ${pathname === "/sluzby" ? "header-nav__link--active" : ""}`}
-						href="/sluzby"
-					>
-						Služby
-					</Link>
-					<Link
-						className={`header-nav__link ${pathname === "/kontakty" ? "header-nav__link--active" : ""}`}
-						href="/kontakty"
-					>
-						Kontakt
-					</Link>
-				</nav>
-				<a className="header__link" href="tel:+420775632426">
-					+420 775 632 426
-				</a>
-				<button
-					onClick={toggleMenu}
-					className={`menu-btn ${menuOpen ? "menu-btn--active" : ""}`}
-				>
-					<span
-						className={`menu-btn__center-line ${menuOpen ? "menu-btn__center-line--active" : ""}`}
-					></span>
-				</button>
-			</div>
-			<div className={`menu ${menuOpen ? "menu--active" : ""}`}>
-				<nav className="menu-nav">
-					<Link
-						onClick={() => setMenuOpen(false)}
-						className={`menu-nav__link ${pathname === "/" ? "menu-nav__link--active" : ""}`}
-						href="/"
-					>
-						Ůvod
-					</Link>
-					<Link
-						onClick={() => setMenuOpen(false)}
-						className={`menu-nav__link ${pathname === "/o-nas" ? "menu-nav__link--active" : ""}`}
-						href="/o-nas"
-					>
-						O nás
-					</Link>
-					<Link
-						onClick={() => setMenuOpen(false)}
-						className={`menu-nav__link ${pathname === "/sluzby" ? "menu-nav__link--active" : ""}`}
-						href="/sluzby"
-					>
-						Služby
-					</Link>
-					<Link
-						onClick={() => setMenuOpen(false)}
-						className={`menu-nav__link ${pathname === "/kontakty" ? "menu-nav__link--active" : ""}`}
-						href="/kontakty"
-					>
-						Kontakt
-					</Link>
-				</nav>
-			</div>
-		</header>
+						<Lng />
+						<a className="header__link" href="tel:+420775632426">
+							+420 775 632 426
+						</a>
+						<button
+							onClick={toggleMenu}
+							className={`menu-btn ${menuOpen ? "menu-btn--active" : ""}`}
+						>
+							<span
+								className={`menu-btn__center-line ${menuOpen ? "menu-btn__center-line--active" : ""}`}
+							></span>
+						</button>
+					</div>
+				</div>
+				<div className={`menu ${menuOpen ? "menu--active" : ""}`}>
+					<nav className="menu-nav">
+						<Link
+							onClick={() => setMenuOpen(false)}
+							className={`menu-nav__link ${pathname === "/" ? "menu-nav__link--active" : ""}`}
+							href="/"
+						>
+							{t("homeTitle")}
+						</Link>
+						<Link
+							onClick={() => setMenuOpen(false)}
+							className={`menu-nav__link ${pathname === "/o-nas" ? "menu-nav__link--active" : ""}`}
+							href="/o-nas"
+						>
+							{t("aboutUsTitle")}
+						</Link>
+						<Link
+							onClick={() => setMenuOpen(false)}
+							className={`menu-nav__link ${pathname === "/produkty" ? "menu-nav__link--active" : ""}`}
+							href="/produkty"
+						>
+							{t("productsTitle")}
+						</Link>
+						<Link
+							onClick={() => setMenuOpen(false)}
+							className={`menu-nav__link ${pathname === "/kontakty" ? "menu-nav__link--active" : ""}`}
+							href="/kontakty"
+						>
+							{t("contactsTitle")}
+						</Link>
+					</nav>
+				</div>
+			</header>
+			<div
+				onClick={() => setMenuOpen(false)}
+				className={`curtain ${menuOpen ? "curtain--active" : ""}`}
+			></div>
+		</>
 	);
 };
 

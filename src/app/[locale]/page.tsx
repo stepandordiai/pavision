@@ -1,9 +1,8 @@
 "use client";
 
 import type { Metadata } from "next";
-import Hero from "./components/Hero/Hero";
+import Hero from "../components/Hero/Hero";
 import "./Home.scss";
-import LightbulbIcon from "./icons/LightbulbIcon";
 
 // import React, { useRef, useState } from "react";
 // Import Swiper React components
@@ -55,6 +54,34 @@ const technologies = [
 	},
 ];
 
+const whatWeDo = [
+	{
+		title: "Automatizace",
+		desc: "Nabízíme Crestron, Loxone, Lutron. Crestron je vysoce individualizovatelný, Loxone cenově efektivní – řešení na míru pro klienta.",
+		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/control-touch-screens.jpg",
+		icon: "/technology.png",
+	},
+	{
+		title: "Audio/Video",
+		desc: "Montáž Hi-Fi techniky (Denon, Marantz, LG, Sonos, Bowers & Wilkins).",
+		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-video-consoles.jpg",
+		icon: "/sound-wave.png",
+	},
+
+	{
+		title: "Síťová infrastruktura",
+		desc: "Návrh a instalace metalických i optických sítí (Ubiquiti, MikroTik, Cisco).",
+		img: "https://images.pexels.com/photos/159304/network-cable-ethernet-computer-159304.jpeg",
+		icon: "/wifi.png",
+	},
+	{
+		title: "Elektroinstalace",
+		desc: "Návrh a realizace elektroinstalací včetně rozvaděčů a zásuvek.",
+		img: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
+		icon: "/electric-panel.png",
+	},
+];
+
 export default function Home() {
 	const handleSlideChange = (swiper: any) => {
 		const bullets = document.querySelectorAll(
@@ -84,16 +111,18 @@ export default function Home() {
 		<main>
 			<Hero />
 			<section className="section">
-				<h2>Kdo jsme</h2>
-				<div className="img-wrapper">
+				<h2 className="section__title" id="who-we-are">
+					Kdo jsme
+				</h2>
+				{/* <div className="img-wrapper">
 					<img
 						className="img"
 						src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-health.jpg"
 						width={500}
 						alt=""
 					/>
-				</div>
-				<p>
+				</div> */}
+				<p style={{ textAlign: "center", fontSize: "1.6rem", margin: "auto" }}>
 					Máme 15 let zkušeností (montáže v Británii, automatizace, AV
 					instalace). Zabezpečením se zabýváme komplexně. Nabízíme zabezpečovací
 					systémy od značek Jablotron, Paradox a Risco, přístupové systémy jako
@@ -103,7 +132,49 @@ export default function Home() {
 				</p>
 			</section>
 			<section className="section">
-				<h2>Co děláme</h2>
+				<h2 style={{ position: "sticky", top: 75 }} className="section__title">
+					Co děláme
+				</h2>
+				<div className="what-we-do">
+					{whatWeDo.map((item, i) => {
+						return (
+							<div key={i} className="what-we-do-container">
+								<div style={{ width: "100%" }}>
+									<div
+										style={{
+											display: "flex",
+											justifyContent: "flex-start",
+											alignItems: "center",
+											gap: 5,
+											marginBottom: 10,
+										}}
+									>
+										<div
+											style={{
+												background: "#000",
+												padding: 10,
+												borderRadius: 10,
+											}}
+										>
+											<img src={item.icon} width={22} alt="" />{" "}
+										</div>
+										<span style={{ fontSize: "18px" }}>{item.title}</span>
+									</div>
+									<p>{item.desc}</p>
+								</div>
+								<div
+									style={{
+										width: "100%",
+										borderRadius: 10,
+										overflow: "hidden",
+									}}
+								>
+									<img src={item.img} alt="" />
+								</div>
+							</div>
+						);
+					})}
+				</div>
 			</section>
 			<section className="section">
 				<h2 className="section__title">Technologie</h2>
@@ -117,7 +188,7 @@ export default function Home() {
 								slidesPerView: 3.25, // tablet+
 							},
 						}}
-						spaceBetween={20}
+						spaceBetween={10}
 						pagination={{
 							clickable: true,
 							renderBullet: (index, className) => {
@@ -158,9 +229,6 @@ export default function Home() {
 						})}
 					</Swiper>
 				</div>
-			</section>
-			<section className="section">
-				<h2>Produkty</h2>
 			</section>
 		</main>
 	);

@@ -238,6 +238,17 @@
 	}
 }
 
+.curtain {
+	position: fixed;
+	inset: 0;
+	z-index: 3;
+	transition: background-color 0.5s;
+
+	&--active {
+		background: rgba(0, 0, 0, 0.5);
+	}
+}
+
 @media screen and (width < 800px) {
 	.header-nav {
 		display: none;

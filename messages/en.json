@@ -1,0 +1,11 @@
+{
+	"homeTitle": "Home",
+	"aboutUsTitle": "About us",
+	"productsTitle": "Products",
+	"contactsTitle": "Contacts",
+
+	"hero": {
+		"title": "Quality, design, and technology in perfect balance.",
+		"subtitle": "Highlighting electrical installations, network infrastructure, home automation, and audio/video systems."
+	}
+}

@@ -1,18 +1,19 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import "./Hero.scss";
 
 const Hero = () => {
+	const t = useTranslations();
+
 	const [garageOpen, setGarageOpen] = useState(false);
 	const [interiorLight, setInteriorLight] = useState(false);
 	const [exteriorLight, setExteriorLight] = useState(false);
 	return (
 		<section className="hero">
 			<div className="hero-container">
-				<h1 className="hero__title">
-					Kvalita, design a technologie v dokonalé rovnováze.
-				</h1>
+				<h1 className="hero__title">{t("hero.title")}</h1>
 				<p className="hero__desc">
 					Zdůrazníme elektroinstalace, síťovou infrastrukturu, domácí
 					automatizaci a audio/video systémy.
@@ -87,8 +88,9 @@ const Hero = () => {
 					</div>
 				</div>
 			</div>
-
-			<p className="hero-scroll">Posuňte dolů a objevte</p>
+			<a className="hero-scroll" href="/#who-we-are">
+				Posuňte dolů a objevte
+			</a>
 		</section>
 	);
 };
