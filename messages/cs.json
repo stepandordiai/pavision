@@ -6,6 +6,24 @@
 
 	"hero": {
 		"title": "Kvalita, design a technologie v dokonalé rovnováze.",
-		"subtitle": "Zdůrazníme elektroinstalace, síťovou infrastrukturu, domácí automatizaci a audio/video systémy."
+		"subtitle": "Zdůrazníme elektroinstalace, síťovou infrastrukturu, domácí automatizaci a audio/video systémy.",
+		"scroll": "Posuňte dolů a objevte"
+	},
+	"home": {
+		"whoWeAreTitle": "Kdo jsme",
+		"whoWeAreDesc": "Máme 15 let zkušeností (montáže v Británii, automatizace, AV instalace). Zabezpečením se zabýváme komplexně. Nabízíme zabezpečovací systémy od značek Jablotron, Paradox a Risco, přístupové systémy jako Salto, a kamerové i přístupové systémy od Ubiquiti. Díky tomu poskytujeme bezpečnostní řešení na míru s flexibilními a ověřenými technologiemi.",
+		"whatWeDoTitle": "Co děláme",
+		"whatWeDo": {
+			"title1": "Automatizace",
+			"desc1": "Nabízíme Crestron, Loxone, Lutron. Crestron je vysoce individualizovatelný, Loxone cenově efektivní – řešení na míru pro klienta.",
+			"title2": "Audio/Video",
+			"desc2": "Montáž Hi-Fi techniky (Denon, Marantz, LG, Sonos, Bowers & Wilkins).",
+			"title3": "Síťová infrastruktura",
+			"desc3": "Návrh a instalace metalických i optických sítí (Ubiquiti, MikroTik, Cisco).",
+			"title4": "Elektroinstalace",
+			"desc4": "Návrh a realizace elektroinstalací včetně rozvaděčů a zásuvek."
+		},
+
+		"technologies": "Technologie"
 	}
 }

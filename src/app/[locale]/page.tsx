@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import type { Metadata } from "next";
 import Hero from "../components/Hero/Hero";
 import "./Home.scss";
@@ -20,6 +21,34 @@ import { Autoplay, Pagination } from "swiper/modules";
 // 	description:
 // 		"Tvoříme chytré domy, audio & video systémy, automatizaci a energeticky efektivní řešení.",
 // };
+
+const whatWeDo = [
+	{
+		title: "home.whatWeDo.title1",
+		desc: "home.whatWeDo.desc1",
+		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/control-touch-screens.jpg",
+		icon: "/technology.png",
+	},
+	{
+		title: "home.whatWeDo.title2",
+		desc: "home.whatWeDo.desc2",
+		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-video-consoles.jpg",
+		icon: "/sound-wave.png",
+	},
+
+	{
+		title: "home.whatWeDo.title3",
+		desc: "home.whatWeDo.desc3",
+		img: "https://images.pexels.com/photos/159304/network-cable-ethernet-computer-159304.jpeg",
+		icon: "/wifi.png",
+	},
+	{
+		title: "home.whatWeDo.title4",
+		desc: "home.whatWeDo.desc2",
+		img: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
+		icon: "/electric-panel.png",
+	},
+];
 
 const technologies = [
 	{
@@ -54,35 +83,9 @@ const technologies = [
 	},
 ];
 
-const whatWeDo = [
-	{
-		title: "Automatizace",
-		desc: "Nabízíme Crestron, Loxone, Lutron. Crestron je vysoce individualizovatelný, Loxone cenově efektivní – řešení na míru pro klienta.",
-		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/control-touch-screens.jpg",
-		icon: "/technology.png",
-	},
-	{
-		title: "Audio/Video",
-		desc: "Montáž Hi-Fi techniky (Denon, Marantz, LG, Sonos, Bowers & Wilkins).",
-		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-video-consoles.jpg",
-		icon: "/sound-wave.png",
-	},
-
-	{
-		title: "Síťová infrastruktura",
-		desc: "Návrh a instalace metalických i optických sítí (Ubiquiti, MikroTik, Cisco).",
-		img: "https://images.pexels.com/photos/159304/network-cable-ethernet-computer-159304.jpeg",
-		icon: "/wifi.png",
-	},
-	{
-		title: "Elektroinstalace",
-		desc: "Návrh a realizace elektroinstalací včetně rozvaděčů a zásuvek.",
-		img: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
-		icon: "/electric-panel.png",
-	},
-];
-
 export default function Home() {
+	const t = useTranslations();
+
 	const handleSlideChange = (swiper: any) => {
 		const bullets = document.querySelectorAll(
 			".custom-bullet",
@@ -112,7 +115,7 @@ export default function Home() {
 			<Hero />
 			<section className="section">
 				<h2 className="section__title" id="who-we-are">
-					Kdo jsme
+					{t("home.whoWeAreTitle")}
 				</h2>
 				{/* <div className="img-wrapper">
 					<img
@@ -122,18 +125,13 @@ export default function Home() {
 						alt=""
 					/>
 				</div> */}
-				<p style={{ textAlign: "center", fontSize: "1.6rem", margin: "auto" }}>
-					Máme 15 let zkušeností (montáže v Británii, automatizace, AV
-					instalace). Zabezpečením se zabýváme komplexně. Nabízíme zabezpečovací
-					systémy od značek Jablotron, Paradox a Risco, přístupové systémy jako
-					Salto, a kamerové i přístupové systémy od Ubiquiti. Díky tomu
-					poskytujeme bezpečnostní řešení na míru s flexibilními a ověřenými
-					technologiemi.
-				</p>
+				<p
+					style={{ textAlign: "center", fontSize: "1.6rem", margin: "auto" }}
+				></p>
 			</section>
 			<section className="section">
 				<h2 style={{ position: "sticky", top: 75 }} className="section__title">
-					Co děláme
+					{t("home.whatWeDoTitle")}
 				</h2>
 				<div className="what-we-do">
 					{whatWeDo.map((item, i) => {
@@ -158,9 +156,9 @@ export default function Home() {
 										>
 											<img src={item.icon} width={22} alt="" />{" "}
 										</div>
-										<span style={{ fontSize: "18px" }}>{item.title}</span>
+										<span style={{ fontSize: "18px" }}>{t(item.title)}</span>
 									</div>
-									<p>{item.desc}</p>
+									<p>{t(item.desc)}</p>
 								</div>
 								<div
 									style={{
@@ -177,7 +175,7 @@ export default function Home() {
 				</div>
 			</section>
 			<section className="section">
-				<h2 className="section__title">Technologie</h2>
+				<h2 className="section__title">{t("home.technologies")}</h2>
 				<div className="technologies">
 					<Swiper
 						breakpoints={{

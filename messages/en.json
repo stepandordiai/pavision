@@ -6,6 +6,23 @@
 
 	"hero": {
 		"title": "Quality, design, and technology in perfect balance.",
-		"subtitle": "Highlighting electrical installations, network infrastructure, home automation, and audio/video systems."
+		"subtitle": "Highlighting electrical installations, network infrastructure, home automation, and audio/video systems.",
+		"scroll": "Scroll down to explore"
+	},
+	"home": {
+		"whoWeAreTitle": "Who We Are",
+		"whoWeAreDesc": "We have 15 years of experience (installations in the UK, automation, AV installations). We take a comprehensive approach to security, offering systems from brands like Jablotron, Paradox, and Risco, access control systems such as Salto, and camera and access solutions from Ubiquiti. This allows us to provide tailor-made security solutions using flexible and proven technologies.",
+		"whatWeDoTitle": "What We Do",
+		"whatWeDo": {
+			"title1": "Automation",
+			"desc1": "We offer Crestron, Loxone, and Lutron. Crestron is highly customizable, while Loxone is cost-effective—providing tailor-made solutions for every client.",
+			"title2": "Audio/Video",
+			"desc2": "Installation of Hi-Fi equipment (Denon, Marantz, LG, Sonos, Bowers & Wilkins).",
+			"title3": "Network Infrastructure",
+			"desc3": "Design and installation of metallic and optical networks (Ubiquiti, MikroTik, Cisco).",
+			"title4": "Electrical Installations",
+			"desc4": "Design and implementation of electrical installations, including switchboards and sockets."
+		},
+		"technologies": "Technologies"
 	}
 }
