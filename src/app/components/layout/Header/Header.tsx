@@ -3,9 +3,28 @@
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/i18n/navigation";
 import Lng from "../../Lng/Lng";
 import "./Header.scss";
+
+const navLinks = [
+	{
+		label: "homeTitle",
+		path: "/",
+	},
+	{
+		label: "aboutUsTitle",
+		path: "/o-nas",
+	},
+	{
+		label: "productsTitle",
+		path: "/produkty",
+	},
+	{
+		label: "contactsTitle",
+		path: "/kontakty",
+	},
+];
 
 const Header = () => {
 	const t = useTranslations();
@@ -81,30 +100,17 @@ const Header = () => {
 						<span>P&A Vision</span>
 					</Link>
 					<nav className="header-nav">
-						<Link
-							className={`header-nav__link ${pathname === "/" ? "header-nav__link--active" : ""}`}
-							href="/"
-						>
-							{t("homeTitle")}
-						</Link>
-						<Link
-							className={`header-nav__link ${pathname === "/o-nas" ? "header-nav__link--active" : ""}`}
-							href="/o-nas"
-						>
-							{t("aboutUsTitle")}
-						</Link>
-						<Link
-							className={`header-nav__link ${pathname === "/produkty" ? "header-nav__link--active" : ""}`}
-							href="/produkty"
-						>
-							{t("productsTitle")}
-						</Link>
-						<Link
-							className={`header-nav__link ${pathname === "/kontakty" ? "header-nav__link--active" : ""}`}
-							href="/kontakty"
-						>
-							{t("contactsTitle")}
-						</Link>
+						{navLinks.map((navLink, i) => {
+							return (
+								<Link
+									key={i}
+									className={`header-nav__link ${pathname === navLink.path ? "header-nav__link--active" : ""}`}
+									href={navLink.path}
+								>
+									{t(navLink.label)}
+								</Link>
+							);
+						})}
 					</nav>
 					<div
 						style={{
@@ -129,36 +135,49 @@ const Header = () => {
 					</div>
 				</div>
 				<div className={`menu ${menuOpen ? "menu--active" : ""}`}>
-					<nav className="menu-nav">
-						<Link
-							onClick={() => setMenuOpen(false)}
-							className={`menu-nav__link ${pathname === "/" ? "menu-nav__link--active" : ""}`}
-							href="/"
-						>
-							{t("homeTitle")}
-						</Link>
-						<Link
-							onClick={() => setMenuOpen(false)}
-							className={`menu-nav__link ${pathname === "/o-nas" ? "menu-nav__link--active" : ""}`}
-							href="/o-nas"
-						>
-							{t("aboutUsTitle")}
-						</Link>
-						<Link
-							onClick={() => setMenuOpen(false)}
-							className={`menu-nav__link ${pathname === "/produkty" ? "menu-nav__link--active" : ""}`}
-							href="/produkty"
-						>
-							{t("productsTitle")}
-						</Link>
-						<Link
-							onClick={() => setMenuOpen(false)}
-							className={`menu-nav__link ${pathname === "/kontakty" ? "menu-nav__link--active" : ""}`}
-							href="/kontakty"
-						>
-							{t("contactsTitle")}
-						</Link>
-					</nav>
+					<div className="menu-inner">
+						<nav className="menu-nav">
+							{navLinks.map((navLink, i) => {
+								return (
+									<div key={i} className="menu-nav__link-wrapper">
+										<Link
+											onClick={() => setMenuOpen(false)}
+											// TODO: learn this
+											style={
+												menuOpen
+													? {
+															transition: `transform 1s cubic-bezier(0.16, 1, 0.3, 1) ${0.25 + i * 0.05}s `,
+														}
+													: undefined
+											}
+											className={`menu-nav__link ${pathname === navLink.path ? "menu-nav__link--active" : ""} ${menuOpen ? "menu-nav__link--visible" : ""}`}
+											href={navLink.path}
+										>
+											{t(navLink.label)}
+										</Link>
+									</div>
+								);
+							})}
+						</nav>
+						<div>
+							<div style={{ overflow: "hidden" }}>
+								<a
+									style={
+										menuOpen
+											? {
+													transition: `color 0.24s, transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s`,
+												}
+											: undefined
+									}
+									className={`menu__link ${menuOpen ? "menu__link--active" : ""}`}
+									href="https://www.instagram.com/pa_vision.cz"
+									target="_blank"
+								>
+									Instagram
+								</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			</header>
 			<div
