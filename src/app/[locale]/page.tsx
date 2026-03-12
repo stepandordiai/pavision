@@ -83,6 +83,23 @@ const technologies = [
 	},
 ];
 
+const brands = [
+	"Crestron",
+	"Loxone",
+	"Lutron",
+	"Denon",
+	"Marantz",
+	"LG",
+	"Sonos",
+	"Bowers & Wilkins",
+	"Ubiquiti",
+	"MicroTik",
+	"Cisco",
+	"Jablotron",
+	"Paradox",
+	"Risco",
+];
+
 export default function Home() {
 	const t = useTranslations();
 
@@ -226,6 +243,14 @@ export default function Home() {
 							);
 						})}
 					</Swiper>
+				</div>
+			</section>
+			<section className="section">
+				<h2 className="section__title">Trusted Brands. Smarter Homes.</h2>
+				<div className="brands">
+					{brands.map((brand, i) => {
+						return <p key={i}>{brand}</p>;
+					})}
 				</div>
 			</section>
 		</main>

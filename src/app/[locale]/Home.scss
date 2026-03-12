@@ -172,6 +172,20 @@
 	}
 }
 
+.brands {
+	display: flex;
+	gap: 20px;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	p {
+		font-size: 1.5rem;
+		padding: 10px;
+		background: rgba(255, 255, 255, 0.1);
+		border-radius: 5px;
+	}
+}
+
 @media screen and (width < 1200px) {
 	.products-grid {
 		grid-template-columns: repeat(3, 1fr);
