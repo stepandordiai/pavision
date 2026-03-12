@@ -4,7 +4,6 @@
 	background: #333;
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
 }
 
 .section__title {
@@ -14,6 +13,7 @@
 	border-left: 2px solid white;
 	padding-left: 5px;
 	margin-bottom: 20px;
+	margin-top: 80px;
 }
 
 .img-wrapper {
@@ -37,138 +37,24 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	gap: 40px;
+	gap: 500px;
 }
 
 .what-we-do-container {
 	position: sticky;
-	top: 138px;
+	top: 148px;
 	display: flex;
 	align-items: flex-start;
 	gap: 40px;
 	background: #fff;
 	color: #333;
-	height: calc(100svh - 138px - 20px);
+	height: calc(100svh - 148px - 20px);
 	padding: 20px;
 	border-radius: 10px;
 	box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);
 
 	&:nth-of-type(even) {
 		flex-direction: row-reverse;
-	}
-}
-
-.technology {
-	background: rgba(255, 255, 255, 0.1);
-	border-radius: 10px;
-	padding: 20px;
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-	cursor: pointer;
-	transition: background-color 0.25s ease;
-
-	&:hover {
-		background: rgba(255, 255, 255, 0.15);
-
-		.technology__img-wrapper {
-			img {
-				transform: scale(1.1);
-			}
-		}
-	}
-}
-
-.technology__img-wrapper {
-	min-height: 0;
-	display: flex;
-	border-radius: 10px;
-	overflow: hidden;
-
-	img {
-		aspect-ratio: 1/1;
-		max-height: 100%;
-		object-fit: cover;
-		object-position: center;
-		width: 100%;
-		pointer-events: none;
-		user-select: none;
-		transition: transform 0.5s ease;
-	}
-}
-
-.technology__title {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	gap: 10px;
-}
-
-.technology__icon-container {
-	background: rgb(0, 0, 0);
-	padding: 10px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 5px;
-}
-
-.mySwiper {
-	padding-bottom: 40px !important;
-	overflow: visible !important;
-
-	.swiper-pagination {
-		display: flex;
-		gap: 5px;
-		justify-content: center;
-	}
-
-	.custom-bullet {
-		width: min(100%, 50px);
-		height: 2px;
-		border-radius: 0;
-		background: rgba(255, 255, 255, 0.1);
-		opacity: 1;
-		position: relative;
-		cursor: pointer;
-
-		&:hover {
-			background: rgba(255, 255, 255, 0.15);
-		}
-
-		&::after {
-			content: "";
-			position: absolute;
-			left: 0;
-			top: 0;
-			height: 100%;
-			width: 100%;
-			transform: scaleX(0);
-			transform-origin: left;
-			background: white;
-			border-radius: 2px;
-			border-radius: 0;
-		}
-	}
-
-	// Active bullet fills up over delay duration
-	.swiper-pagination-bullet-active {
-		&::after {
-			animation: fillBullet 5000ms linear forwards; // match your delay
-		}
-	}
-}
-
-@keyframes fillBullet {
-	to {
-		transform: scaleX(1);
-	}
-}
-
-.custom-bullet--filled {
-	&::after {
-		transform: scaleX(1) !important;
-		animation: none !important; // stop animation, just stay full
 	}
 }
 
@@ -196,10 +82,7 @@
 	.what-we-do-container {
 		flex-direction: column !important;
 		justify-content: space-between;
-	}
-
-	.technology {
-		padding: 10px;
+		gap: 20px;
 	}
 
 	.products-grid {

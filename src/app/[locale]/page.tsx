@@ -1,37 +1,43 @@
-"use client";
-
-import { useTranslations } from "next-intl";
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import Hero from "../components/Hero/Hero";
 import "./Home.scss";
+import Technologies from "../components/home/Technologies/Technologies";
 
-// import React, { useRef, useState } from "react";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+	const { locale } = await params;
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-
-// import required modules
-import { Autoplay, Pagination } from "swiper/modules";
-
-// export const metadata: Metadata = {
-// 	title: "P&A Vision | Kvalita, design a technologie v dokonalé rovnováze",
-// 	description:
-// 		"Tvoříme chytré domy, audio & video systémy, automatizaci a energeticky efektivní řešení.",
-// };
+	return {
+		title: "P&A Vision | Kvalita, design a technologie v dokonalé rovnováze",
+		description:
+			"Tvoříme chytré domy, audio & video systémy, automatizaci a energeticky efektivní řešení.",
+		alternates: {
+			canonical: `/${locale}`,
+			languages: {
+				cs: "/cs",
+				en: "/en",
+				"x-default": "/cs",
+			},
+		},
+	};
+}
 
 const whatWeDo = [
 	{
 		title: "home.whatWeDo.title1",
 		desc: "home.whatWeDo.desc1",
+		brands: ["Crestron", "Loxone", "Lutron"],
 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/control-touch-screens.jpg",
 		icon: "/technology.png",
 	},
 	{
 		title: "home.whatWeDo.title2",
 		desc: "home.whatWeDo.desc2",
+		brands: ["Denon", "Marantz", "LG", "Sonos", "Bowers & Wilkins"],
 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-video-consoles.jpg",
 		icon: "/sound-wave.png",
 	},
@@ -39,47 +45,16 @@ const whatWeDo = [
 	{
 		title: "home.whatWeDo.title3",
 		desc: "home.whatWeDo.desc3",
+		brands: ["Ubiquiti", "MikroTik", "Cisco"],
 		img: "https://images.pexels.com/photos/159304/network-cable-ethernet-computer-159304.jpeg",
 		icon: "/wifi.png",
 	},
 	{
 		title: "home.whatWeDo.title4",
-		desc: "home.whatWeDo.desc2",
+		desc: "home.whatWeDo.desc4",
+		brands: [],
 		img: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
 		icon: "/electric-panel.png",
-	},
-];
-
-const technologies = [
-	{
-		title: "Lightning",
-		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-dimmer-3.jpg",
-		icon: "light-bulb.png",
-	},
-	{
-		title: "Shading",
-		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-shades-roller.jpg",
-		icon: "blinds.png",
-	},
-	{
-		title: "Audio",
-		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/audio-products-speakers-image.jpg",
-		icon: "light-bulb.png",
-	},
-	{
-		title: "Video",
-		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-video-hero.jpg",
-		icon: "blinds.png",
-	},
-	{
-		title: "Home access",
-		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/partner%20pages/integrated%20partners/2n/photo1_desktop.png",
-		icon: "light-bulb.png",
-	},
-	{
-		title: "Thermostats",
-		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-thermostat-thumn.jpg",
-		icon: "blinds.png",
 	},
 ];
 
@@ -100,40 +75,13 @@ const brands = [
 	"Risco",
 ];
 
-export default function Home() {
-	const t = useTranslations();
-
-	const handleSlideChange = (swiper: any) => {
-		const bullets = document.querySelectorAll(
-			".custom-bullet",
-		) as NodeListOf<HTMLSpanElement>;
-		bullets.forEach((bullet, i) => {
-			if (i < swiper.realIndex) {
-				bullet.classList.add("custom-bullet--filled");
-				bullet.classList.remove("custom-bullet--animating");
-			} else if (i > swiper.realIndex) {
-				// Future bullets — fully reset
-				bullet.classList.remove("custom-bullet--filled");
-				bullet.classList.remove("custom-bullet--animating");
-			} else {
-				// Current — restart animation
-				bullet.classList.remove("custom-bullet--filled");
-				bullet.classList.remove("custom-bullet--animating");
-
-				// Force reflow then re-add
-				void bullet.offsetWidth;
-				bullet.classList.add("custom-bullet--animating");
-			}
-		});
-	};
-
+export default async function Home() {
+	const t = await getTranslations();
 	return (
 		<main>
 			<Hero />
-			<section className="section">
-				<h2 className="section__title" id="who-we-are">
-					{t("home.whoWeAreTitle")}
-				</h2>
+			<section className="section" id="who-we-are">
+				<h2 className="section__title">{t("home.whoWeAreTitle")}</h2>
 				{/* <div className="img-wrapper">
 					<img
 						className="img"
@@ -147,14 +95,21 @@ export default function Home() {
 				</p>
 			</section>
 			<section className="section">
-				<h2 style={{ position: "sticky", top: 75 }} className="section__title">
+				<h2 style={{ position: "sticky", top: 80 }} className="section__title">
 					{t("home.whatWeDoTitle")}
 				</h2>
 				<div className="what-we-do">
 					{whatWeDo.map((item, i) => {
 						return (
 							<div key={i} className="what-we-do-container">
-								<div style={{ width: "100%" }}>
+								<div
+									style={{
+										width: "100%",
+										display: "flex",
+										flexDirection: "column",
+										height: "100%",
+									}}
+								>
 									<div
 										style={{
 											display: "flex",
@@ -176,6 +131,29 @@ export default function Home() {
 										<span style={{ fontSize: "18px" }}>{t(item.title)}</span>
 									</div>
 									<p>{t(item.desc)}</p>
+									<div
+										style={{
+											display: "flex",
+											flexWrap: "wrap",
+											gap: 10,
+											marginTop: "auto",
+										}}
+									>
+										{item.brands.map((brand, i) => {
+											return (
+												<span
+													style={{
+														padding: 10,
+														borderRadius: 5,
+														background: "rgba(0, 0, 0, 0.05)",
+													}}
+													key={i}
+												>
+													{brand}
+												</span>
+											);
+										})}
+									</div>
 								</div>
 								<div
 									style={{
@@ -191,60 +169,7 @@ export default function Home() {
 					})}
 				</div>
 			</section>
-			<section style={{ overflow: "hidden" }} className="section">
-				<h2 className="section__title">{t("home.technologies")}</h2>
-				<div className="technologies">
-					<Swiper
-						breakpoints={{
-							0: {
-								slidesPerView: 1.25, // mobile
-							},
-							768: {
-								slidesPerView: 3.25, // tablet+
-							},
-						}}
-						spaceBetween={10}
-						pagination={{
-							clickable: true,
-							renderBullet: (index, className) => {
-								return `<span key={${index} class="${className} custom-bullet"></span>`;
-							},
-						}}
-						speed={1000}
-						autoplay={{
-							delay: 5000,
-							disableOnInteraction: false,
-						}}
-						modules={[Pagination, Autoplay]}
-						className="mySwiper"
-						onSlideChange={handleSlideChange}
-					>
-						{technologies.map((technology, i) => {
-							return (
-								<SwiperSlide>
-									<div key={i} className="technology">
-										<div className="technology__img-wrapper">
-											<img src={technology.img} alt="" />
-										</div>
-										<div className="technology__title">
-											<div className="technology__icon-container">
-												{/* <LightbulbIcon size={24} /> */}
-												<img
-													src={technology.icon}
-													width={24}
-													height={24}
-													alt=""
-												/>
-											</div>
-											<h3>{technology.title}</h3>
-										</div>
-									</div>
-								</SwiperSlide>
-							);
-						})}
-					</Swiper>
-				</div>
-			</section>
+			<Technologies />
 			<section className="section">
 				<h2 className="section__title">Trusted Brands. Smarter Homes.</h2>
 				<div className="brands">

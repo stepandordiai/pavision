@@ -1,4 +1,5 @@
 import { Poppins } from "next/font/google";
+import { Metadata } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import Header from "../components/layout/Header/Header";
 import Footer from "../components/layout/Footer/Footer";
@@ -13,6 +14,10 @@ const poppins = Poppins({
 	weight: ["300", "400", "500", "600"],
 	subsets: ["latin"],
 });
+
+export const metadata: Metadata = {
+	metadataBase: new URL("https://www.pavision.cz"),
+};
 
 export default async function LocaleLayout({
 	children,
