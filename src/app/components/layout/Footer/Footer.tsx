@@ -81,7 +81,7 @@ const Footer = () => {
 			</Link>
 			<div style={{ display: "flex", gap: 40, flexWrap: "wrap" }}>
 				<div>
-					<p style={{ marginBottom: 10 }}>Navigation</p>
+					<p style={{ marginBottom: 10 }}>{t("navigation")}</p>
 					<ul>
 						{navLinks.map((navLink, i) => {
 							return (
@@ -114,13 +114,44 @@ const Footer = () => {
 						})}
 					</ul>
 				</div>
+				<div>
+					<p style={{ marginBottom: 10 }}>{t("contactUs")}</p>
+					<ul>
+						<li>P&A Vision s.r.o.</li>
+						<li>
+							<a
+								className="footer__link"
+								href="https://maps.app.goo.gl/s5ke4cSpSFbSJHpWA"
+								target="_blank"
+							>
+								Soběslavova 1381, Kročehlavy, 272 01 Kladno
+							</a>
+						</li>
+						<li>IČO 23654341</li>
+						<li>
+							<a className="footer__link" href="tel:+420775632426">
+								+420 775 632 426
+							</a>
+						</li>
+						<li>
+							<a className="footer__link" href="tel:+420777049617">
+								+420 777 049 617
+							</a>
+						</li>
+						<li>
+							<a className="footer__link" href="mailto:info@pavision.cz">
+								info@pavision.cz
+							</a>
+						</li>
+					</ul>
+				</div>
 			</div>
 			<div className="footer__author">
 				<p>&copy; 2026 P&A Vision s.r.o. Všechna práva vyhrazena.</p>
 				<p>
 					Website created by{" "}
 					<a
-						className="footer__author-link"
+						className="footer__link"
 						href="https://www.heeeyooo.studio/cs"
 						target="_blank"
 					>
