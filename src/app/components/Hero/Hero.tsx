@@ -88,7 +88,7 @@ const Hero = () => {
 					</div>
 				</div>
 			</div>
-			<a className="hero-scroll" href="/#who-we-are">
+			<a className="hero-scroll" href="#who-we-are">
 				Posuňte dolů a objevte
 			</a>
 		</section>

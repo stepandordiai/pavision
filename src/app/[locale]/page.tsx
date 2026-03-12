@@ -125,9 +125,9 @@ export default function Home() {
 						alt=""
 					/>
 				</div> */}
-				<p
-					style={{ textAlign: "center", fontSize: "1.6rem", margin: "auto" }}
-				></p>
+				<p style={{ textAlign: "center", fontSize: "1.6rem", margin: "auto" }}>
+					{t("home.whoWeAreDesc")}
+				</p>
 			</section>
 			<section className="section">
 				<h2 style={{ position: "sticky", top: 75 }} className="section__title">
@@ -174,7 +174,7 @@ export default function Home() {
 					})}
 				</div>
 			</section>
-			<section className="section">
+			<section style={{ overflow: "hidden" }} className="section">
 				<h2 className="section__title">{t("home.technologies")}</h2>
 				<div className="technologies">
 					<Swiper

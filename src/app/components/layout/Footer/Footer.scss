@@ -1,20 +1,10 @@
 .footer {
-	margin: 20px;
-}
-
-.footer-top {
 	padding: 20px;
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	align-items: flex-start;
-	min-height: 400px;
-	background: #000;
-
-	color: #fff;
-
-	a {
-		color: #fff;
-	}
+	gap: 20px;
 }
 
 .footer__logo {
@@ -22,6 +12,10 @@
 	justify-content: center;
 	align-items: center;
 	gap: 5px;
+
+	span {
+		font-size: 24px;
+	}
 }
 
 .footer__author {
@@ -33,32 +27,82 @@
 	column-gap: 10px;
 }
 
-.footer-ul {
+.footer-nav__link {
+	display: block;
 	position: relative;
+	padding-left: 10px;
+	color: rgba(255, 255, 255, 0.5) !important;
+	transition: color 0.24s;
+
 	&::before {
 		content: "";
 		position: absolute;
-		left: -10px;
 		height: 100%;
 		width: 2px;
-		background: rgba(255, 255, 255, 0.5);
+		left: 0;
+		background: rgba(255, 255, 255, 0.478);
 	}
 
-	li {
-		position: relative;
-		&::before {
-			content: "";
-			position: absolute;
-			left: -10px;
-			height: 100%;
-			width: 2px;
-			z-index: 2;
-		}
+	&::after {
+		content: "";
+		position: absolute;
+		height: 100%;
+		width: 2px;
+		left: 0;
+		background: #fff;
+		transform: scaleY(0);
+		transform-origin: bottom;
+		transition: transform 0.24s;
+	}
 
-		&:hover {
-			&::before {
-				background: rgb(255, 255, 255);
-			}
+	&:hover {
+		color: #fff !important;
+
+		&::after {
+			transform: scaleY(1);
+		}
+	}
+
+	&--active {
+		color: #fff !important;
+
+		&::after {
+			transform: scaleY(1);
+		}
+	}
+}
+
+.footer__author-link {
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		background: rgba(255, 255, 255, 0.478);
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		background: #fff;
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 0.24s;
+	}
+
+	&:hover {
+		color: #fff;
+
+		&::after {
+			transform: scaleX(1);
 		}
 	}
 }
