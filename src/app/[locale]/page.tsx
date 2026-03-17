@@ -1,30 +1,34 @@
-import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+"use client";
+
+// import type { Metadata } from "next";
+// import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import Hero from "../components/Hero/Hero";
 import "./Home.scss";
 import Technologies from "../components/home/Technologies/Technologies";
+import { useState } from "react";
 
-export async function generateMetadata({
-	params,
-}: {
-	params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-	const { locale } = await params;
+// export async function generateMetadata({
+// 	params,
+// }: {
+// 	params: Promise<{ locale: string }>;
+// }): Promise<Metadata> {
+// 	const { locale } = await params;
 
-	return {
-		title: "P&A Vision | Kvalita, design a technologie v dokonalé rovnováze",
-		description:
-			"Tvoříme chytré domy, audio & video systémy, automatizaci a energeticky efektivní řešení.",
-		alternates: {
-			canonical: `/${locale}`,
-			languages: {
-				cs: "/cs",
-				en: "/en",
-				"x-default": "/cs",
-			},
-		},
-	};
-}
+// 	return {
+// 		title: "P&A Vision | Kvalita, design a technologie v dokonalé rovnováze",
+// 		description:
+// 			"Tvoříme chytré domy, audio & video systémy, automatizaci a energeticky efektivní řešení.",
+// 		alternates: {
+// 			canonical: `/${locale}`,
+// 			languages: {
+// 				cs: "/cs",
+// 				en: "/en",
+// 				"x-default": "/cs",
+// 			},
+// 		},
+// 	};
+// }
 
 const whatWeDo = [
 	{
@@ -33,6 +37,7 @@ const whatWeDo = [
 		brands: ["Crestron", "Loxone", "Lutron"],
 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/control-touch-screens.jpg",
 		icon: "/technology.png",
+		lightning: true,
 	},
 	{
 		title: "home.whatWeDo.title2",
@@ -75,8 +80,12 @@ const brands = [
 	"Risco",
 ];
 
-export default async function Home() {
-	const t = await getTranslations();
+export default function Home() {
+	const t = useTranslations();
+
+	const [lightning, setLightning] = useState(false);
+	const [lightningIntencity, setLightningIntencity] = useState(50);
+
 	return (
 		<main>
 			<Hero />
@@ -131,7 +140,46 @@ export default async function Home() {
 										<span style={{ fontSize: "18px" }}>{t(item.title)}</span>
 									</div>
 									<p>{t(item.desc)}</p>
-									<div
+									{item.lightning && (
+										<div
+											style={{
+												background: "#000",
+												padding: 5,
+												color: "#fff",
+												width: "min(100%, 500px)",
+												borderRadius: 10,
+												marginTop: "auto",
+											}}
+										>
+											<div
+												style={{
+													display: "flex",
+													justifyContent: "space-between",
+												}}
+											>
+												<span>Lightning</span>
+												<button onClick={() => setLightning((prev) => !prev)}>
+													Off
+												</button>
+											</div>
+											<div>
+												<input
+													onChange={(e) =>
+														setLightningIntencity(Number(e.target.value))
+													}
+													value={lightningIntencity}
+													type="range"
+													min={0}
+													max={100}
+													name=""
+													id=""
+												/>
+												<span>{lightningIntencity}%</span>
+											</div>
+										</div>
+									)}
+
+									{/* <div
 										style={{
 											display: "flex",
 											flexWrap: "wrap",
@@ -153,17 +201,37 @@ export default async function Home() {
 												</span>
 											);
 										})}
+									</div> */}
+								</div>
+								{item.lightning && (
+									<div
+										style={{
+											height: "100%",
+											width: "100%",
+											borderRadius: 10,
+											overflow: "hidden",
+											background: "#333",
+										}}
+									>
+										<div className="lamp">
+											<div className="top"></div>
+											<div className="base"></div>
+											<div className="bottom"></div>
+											<div
+												style={
+													lightning
+														? {
+																background: `rgb(255, 243, 117)`,
+																boxShadow: `0 10px ${lightningIntencity}px rgb(255, 243, 117)`,
+															}
+														: {}
+												}
+												className={`bulb ${lightning ? "bulb--active" : ""}`}
+											></div>
+										</div>
 									</div>
-								</div>
-								<div
-									style={{
-										width: "100%",
-										borderRadius: 10,
-										overflow: "hidden",
-									}}
-								>
-									<img src={item.img} alt="" />
-								</div>
+								)}
+								{/* <img src={item.img} alt="" /> */}
 							</div>
 						);
 					})}
