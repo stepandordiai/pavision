@@ -98,6 +98,164 @@
 	background: rgba(152, 164, 164, 0.525);
 }
 
+.audio {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #000;
+	color: #fff;
+	margin: 10px;
+	padding: 5px 5px 5px 10px;
+	border-radius: 10px;
+
+	span {
+		display: block;
+	}
+
+	button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: #fff;
+		border-radius: 10px;
+		padding: 0 5px;
+	}
+}
+
+.equalizer {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 5;
+	transform: translate(-50%, -50%);
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	height: 100px;
+	padding: 0 8px;
+}
+
+.equalizer span {
+	display: block;
+	width: 6px;
+	border-radius: 2px;
+	background: #fff;
+	transform-origin: center;
+	animation: equalize 1.2s ease-in-out infinite;
+}
+
+/* Center bars (8-13) scale the most, tapering out to the sides */
+.equalizer span:nth-child(1) {
+	animation-delay: 0s;
+	height: 20%;
+	--scale: 0.25;
+}
+.equalizer span:nth-child(2) {
+	animation-delay: 0.1s;
+	height: 25%;
+	--scale: 0.3;
+}
+.equalizer span:nth-child(3) {
+	animation-delay: 0.2s;
+	height: 30%;
+	--scale: 0.4;
+}
+.equalizer span:nth-child(4) {
+	animation-delay: 0.05s;
+	height: 35%;
+	--scale: 0.5;
+}
+.equalizer span:nth-child(5) {
+	animation-delay: 0.15s;
+	height: 40%;
+	--scale: 0.6;
+}
+.equalizer span:nth-child(6) {
+	animation-delay: 0.25s;
+	height: 45%;
+	--scale: 0.65;
+}
+.equalizer span:nth-child(7) {
+	animation-delay: 0.08s;
+	height: 50%;
+	--scale: 0.72;
+}
+.equalizer span:nth-child(8) {
+	animation-delay: 0.18s;
+	height: 55%;
+	--scale: 0.8;
+}
+.equalizer span:nth-child(9) {
+	animation-delay: 0.12s;
+	height: 60%;
+	--scale: 0.88;
+}
+.equalizer span:nth-child(10) {
+	animation-delay: 0.22s;
+	height: 65%;
+	--scale: 0.94;
+}
+.equalizer span:nth-child(11) {
+	animation-delay: 0.03s;
+	height: 65%;
+	--scale: 1;
+}
+.equalizer span:nth-child(12) {
+	animation-delay: 0.17s;
+	height: 60%;
+	--scale: 1;
+}
+.equalizer span:nth-child(13) {
+	animation-delay: 0.09s;
+	height: 55%;
+	--scale: 0.94;
+}
+.equalizer span:nth-child(14) {
+	animation-delay: 0.19s;
+	height: 50%;
+	--scale: 0.88;
+}
+.equalizer span:nth-child(15) {
+	animation-delay: 0.06s;
+	height: 45%;
+	--scale: 0.8;
+}
+.equalizer span:nth-child(16) {
+	animation-delay: 0.14s;
+	height: 40%;
+	--scale: 0.72;
+}
+.equalizer span:nth-child(17) {
+	animation-delay: 0.24s;
+	height: 35%;
+	--scale: 0.65;
+}
+.equalizer span:nth-child(18) {
+	animation-delay: 0.11s;
+	height: 30%;
+	--scale: 0.6;
+}
+.equalizer span:nth-child(19) {
+	animation-delay: 0.21s;
+	height: 25%;
+	--scale: 0.5;
+}
+.equalizer span:nth-child(20) {
+	animation-delay: 0.07s;
+	height: 20%;
+	--scale: 0.4;
+}
+
+@keyframes equalize {
+	0%,
+	100% {
+		transform: scaleY(var(--scale));
+	}
+	50% {
+		transform: scaleY(1);
+	}
+}
+
 .brands {
 	display: flex;
 	gap: 20px;

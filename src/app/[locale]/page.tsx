@@ -6,7 +6,8 @@ import { useTranslations } from "next-intl";
 import Hero from "../components/Hero/Hero";
 import "./Home.scss";
 import Technologies from "../components/home/Technologies/Technologies";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import PlayIcon from "../icons/PlayIcon";
 
 // export async function generateMetadata({
 // 	params,
@@ -45,6 +46,7 @@ const whatWeDo = [
 		brands: ["Denon", "Marantz", "LG", "Sonos", "Bowers & Wilkins"],
 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-video-consoles.jpg",
 		icon: "/sound-wave.png",
+		audio: true,
 	},
 
 	{
@@ -85,6 +87,21 @@ export default function Home() {
 
 	const [lightning, setLightning] = useState(false);
 	const [lightningIntencity, setLightningIntencity] = useState(50);
+	const [playing, setPlaying] = useState(false);
+
+	const audioRef = useRef<HTMLAudioElement>(null);
+
+	const handlePlaying = () => {
+		if (!audioRef.current) return;
+
+		if (!playing) {
+			audioRef.current.play();
+		} else {
+			audioRef.current.pause();
+		}
+
+		setPlaying((prev) => !prev);
+	};
 
 	return (
 		<main>
@@ -229,6 +246,45 @@ export default function Home() {
 												className={`bulb ${lightning ? "bulb--active" : ""}`}
 											></div>
 										</div>
+									</div>
+								)}
+								{item.audio && (
+									<div
+										style={{
+											position: "relative",
+											height: "100%",
+											width: "100%",
+											borderRadius: 10,
+											overflow: "hidden",
+											background: "#333",
+										}}
+									>
+										<div className="audio">
+											<span>
+												Intro
+												<br />
+												The xx
+											</span>
+											<button onClick={handlePlaying}>
+												<PlayIcon size={30} />
+											</button>
+										</div>
+										<div className="equalizer">
+											{Array.from({ length: 20 }).map((_, i) => {
+												return <span key={i}></span>;
+											})}
+										</div>
+										<img
+											style={{
+												position: "absolute",
+												left: "50%",
+												bottom: 0,
+												transform: "translate(-50%, 50%)",
+											}}
+											src="/vinyl-record.png"
+											alt=""
+										/>
+										<audio ref={audioRef} src="/intro.mp3"></audio>
 									</div>
 								)}
 								{/* <img src={item.img} alt="" /> */}
