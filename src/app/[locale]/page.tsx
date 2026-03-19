@@ -8,6 +8,7 @@ import "./Home.scss";
 import Technologies from "../components/home/Technologies/Technologies";
 import { useRef, useState } from "react";
 import PlayIcon from "../icons/PlayIcon";
+import PauseIcon from "../icons/PauseIcon";
 
 // export async function generateMetadata({
 // 	params,
@@ -55,6 +56,7 @@ const whatWeDo = [
 		brands: ["Ubiquiti", "MikroTik", "Cisco"],
 		img: "https://images.pexels.com/photos/159304/network-cable-ethernet-computer-159304.jpeg",
 		icon: "/wifi.png",
+		internet: true,
 	},
 	{
 		title: "home.whatWeDo.title4",
@@ -160,10 +162,13 @@ export default function Home() {
 									{item.lightning && (
 										<div
 											style={{
+												display: "flex",
+												flexDirection: "column",
+												gap: "5px",
 												background: "#000",
-												padding: 5,
+												padding: 10,
 												color: "#fff",
-												width: "min(100%, 500px)",
+												width: "100%",
 												borderRadius: 10,
 												marginTop: "auto",
 											}}
@@ -175,15 +180,17 @@ export default function Home() {
 												}}
 											>
 												<span>Lightning</span>
-												<button onClick={() => setLightning((prev) => !prev)}>
-													Off
-												</button>
+												<button
+													className={`lightning__btn ${lightning ? "lightning__btn--active" : ""}`}
+													onClick={() => setLightning((prev) => !prev)}
+												></button>
 											</div>
-											<div>
+											<div style={{ display: "flex", gap: 5 }}>
 												<input
 													onChange={(e) =>
 														setLightningIntencity(Number(e.target.value))
 													}
+													className="lightning__range"
 													value={lightningIntencity}
 													type="range"
 													min={0}
@@ -239,7 +246,7 @@ export default function Home() {
 													lightning
 														? {
 																background: `rgb(255, 243, 117)`,
-																boxShadow: `0 10px ${lightningIntencity}px rgb(255, 243, 117)`,
+																boxShadow: `0 0 ${lightningIntencity}px rgb(255, 243, 117), 0 0 ${lightningIntencity}px rgb(255, 243, 117), 0 0 ${lightningIntencity}px rgb(255, 243, 117), 0 0 ${lightningIntencity}px rgb(255, 243, 117)`,
 															}
 														: {}
 												}
@@ -260,34 +267,66 @@ export default function Home() {
 										}}
 									>
 										<div className="audio">
-											<span>
-												Intro
-												<br />
-												The xx
-											</span>
+											<div style={{ display: "flex" }}>
+												<span>
+													Intro
+													<br />
+													<span style={{ fontWeight: 600 }}>The xx</span>
+												</span>
+											</div>
 											<button onClick={handlePlaying}>
-												<PlayIcon size={30} />
+												{playing ? (
+													<PauseIcon size={30} />
+												) : (
+													<PlayIcon size={30} />
+												)}
 											</button>
 										</div>
 										<div className="equalizer">
 											{Array.from({ length: 20 }).map((_, i) => {
-												return <span key={i}></span>;
+												return (
+													<span
+														style={
+															playing
+																? {
+																		animation:
+																			"equalize 1.2s ease-in-out infinite",
+																	}
+																: { animation: "none" }
+														}
+														key={i}
+													></span>
+												);
 											})}
 										</div>
-										<img
-											style={{
-												position: "absolute",
-												left: "50%",
-												bottom: 0,
-												transform: "translate(-50%, 50%)",
-											}}
-											src="/vinyl-record.png"
-											alt=""
-										/>
-										<audio ref={audioRef} src="/intro.mp3"></audio>
+										<audio
+											preload="auto"
+											ref={audioRef}
+											src="/intro.mp3"
+										></audio>
 									</div>
 								)}
-								{/* <img src={item.img} alt="" /> */}
+								{item.internet && (
+									<div
+										style={{
+											position: "relative",
+											height: "100%",
+											width: "100%",
+											borderRadius: 10,
+											display: "flex",
+											justifyContent: "center",
+											alignItems: "center",
+										}}
+									>
+										<div>
+											<div style={{ display: "flex" }}>
+												<div className="room1"></div>
+												<div className="room2"></div>
+											</div>
+											<div className="room"></div>
+										</div>
+									</div>
+								)}
 							</div>
 						);
 					})}
