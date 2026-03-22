@@ -109,7 +109,136 @@ export default function Home() {
 		<main>
 			<Hero />
 			<section className="section" id="our-solutions">
-				<h2 className="section__title">Our solutions</h2>
+				<h2 className="section__title">Our solutions with Crestron Home</h2>
+				<div className="our-solutions">
+					<div className="our-solutions-container">
+						<div>
+							<h3
+								style={{
+									background: "#000",
+									padding: 10,
+									borderRadius: 10,
+									width: "max-content",
+								}}
+							>
+								Security
+							</h3>
+							<p style={{ fontSize: "2rem" }}>Peace of mind for your home</p>
+							<br />
+							<p>
+								You can’t put a price on the peace of mind that comes with
+								knowing your loved ones are safe and what’s most precious and
+								treasured are secure whether you are at home or away.
+							</p>
+						</div>
+						<div>
+							<img src="/01.jpg" alt="" />
+							<br />
+							<br />
+							<p>
+								Continuous system feedback on our mobile device confirms the
+								status of door locks and alarms, the exact positions of gates
+								and garages, and provides real-time views of cameras.
+							</p>
+						</div>
+					</div>
+
+					<div className="our-solutions-container">
+						<div>
+							<h3
+								style={{
+									background: "#000",
+									padding: 10,
+									borderRadius: 10,
+									width: "max-content",
+								}}
+							>
+								Security
+							</h3>
+							<p style={{ fontSize: "2rem" }}>Peace of mind for your home</p>
+							<br />
+							<p>
+								You can’t put a price on the peace of mind that comes with
+								knowing your loved ones are safe and what’s most precious and
+								treasured are secure whether you are at home or away.
+							</p>
+							<br />
+							<p>
+								Continuous system feedback on our mobile device confirms the
+								status of door locks and alarms, the exact positions of gates
+								and garages, and provides real-time views of cameras.
+							</p>
+						</div>
+						<div>
+							<img src="/02.jpg" alt="" />
+						</div>
+					</div>
+					<div className="our-solutions-container">
+						<div>
+							<h3
+								style={{
+									background: "#000",
+									padding: 10,
+									borderRadius: 10,
+									width: "max-content",
+								}}
+							>
+								Comfort
+							</h3>
+							<p style={{ fontSize: "2rem" }}>Your home is your sanctuary</p>
+							<br />
+							<p>
+								It’s the one place that is truly your own. Everything is
+								impeccably suited to you.
+							</p>
+							<p>
+								The cushions are just as soft or firm as you like. The fixtures
+								and finishes are carefully selected. The light and temperature
+								in every space are always perfectly adjusted for every hour and
+								every occasion.
+							</p>
+						</div>
+						<div>
+							<img src="/02.jpg" alt="" />
+						</div>
+					</div>
+					<div className="our-solutions-container">
+						<div>
+							<h3
+								style={{
+									background: "#000",
+									padding: 10,
+									borderRadius: 10,
+									width: "max-content",
+								}}
+							>
+								Convenience
+							</h3>
+							<p style={{ fontSize: "2rem" }}>Peace of mind for your home</p>
+							<br />
+							<p>
+								The Crestron Home® OS makes the complex simple: The monotonous
+								automatic; the tedious quick. Whatever you want, wherever you
+								are, it’s a tap. Everything simply works the way you want it to
+								every time.
+							</p>
+							<br />
+							<p>
+								Continuous system feedback on our mobile device confirms the
+								status of door locks and alarms, the exact positions of gates
+								and garages, and provides real-time views of cameras.
+							</p>
+							<p>
+								No hoping. No stressing: Watch content and play video games on
+								any TV; Listen to your favorite streaming service or playlist
+								throughout the house.
+							</p>
+						</div>
+						<div>
+							<img src="/02.jpg" alt="" />
+						</div>
+					</div>
+				</div>
 			</section>
 			<section className="section">
 				<h2 style={{ position: "sticky", top: 80 }} className="section__title">

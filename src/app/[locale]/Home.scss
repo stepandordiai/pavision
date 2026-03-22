@@ -16,6 +16,35 @@
 	margin-top: 80px;
 }
 
+.our-solutions {
+	display: flex;
+	flex-direction: column;
+	gap: 100px;
+}
+
+.our-solutions-container {
+	display: flex;
+	gap: 20px;
+
+	&:nth-last-of-type(even) {
+		flex-direction: row-reverse;
+	}
+
+	div {
+		width: 100%;
+
+		img {
+			border-radius: 10px;
+		}
+	}
+}
+
+@media screen and (width < 808px) {
+	.our-solutions-container {
+		flex-direction: column !important;
+	}
+}
+
 .img-wrapper {
 	position: relative;
 	overflow: hidden;
