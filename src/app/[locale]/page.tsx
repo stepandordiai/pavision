@@ -108,19 +108,8 @@ export default function Home() {
 	return (
 		<main>
 			<Hero />
-			<section className="section" id="who-we-are">
-				<h2 className="section__title">{t("home.whoWeAreTitle")}</h2>
-				{/* <div className="img-wrapper">
-					<img
-						className="img"
-						src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-health.jpg"
-						width={500}
-						alt=""
-					/>
-				</div> */}
-				<p style={{ textAlign: "center", fontSize: "1.6rem", margin: "auto" }}>
-					{t("home.whoWeAreDesc")}
-				</p>
+			<section className="section" id="our-solutions">
+				<h2 className="section__title">Our solutions</h2>
 			</section>
 			<section className="section">
 				<h2 style={{ position: "sticky", top: 80 }} className="section__title">
