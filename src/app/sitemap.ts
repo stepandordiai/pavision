@@ -1,11 +1,11 @@
+import { routing } from "@/i18n/routing";
 import type { MetadataRoute } from "next";
 
-const locales = ["cs", "en"];
 const pages = ["/", "/o-nas", "/produkty", "/kontakty"];
 const BASE_URL = "https://www.pavision.cz";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-	return locales.flatMap((locale) =>
+	return routing.locales.flatMap((locale) =>
 		pages.map((page) => ({
 			url: `${BASE_URL}/${locale}${page === "/" ? "" : page}`,
 			lastModified: new Date(),
@@ -14,12 +14,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			alternates: {
 				languages: {
 					...Object.fromEntries(
-						locales.map((l) => [
+						routing.locales.map((l) => [
 							l,
 							`${BASE_URL}/${l}${page === "/" ? "" : page}`,
 						]),
 					),
-					"x-default": `${BASE_URL}/cs${page === "/" ? "" : page}`,
+					"x-default": `${BASE_URL}/${routing.defaultLocale}${page === "/" ? "" : page}`,
 				},
 			},
 		})),
