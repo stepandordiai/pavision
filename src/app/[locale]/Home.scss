@@ -56,6 +56,16 @@
 	animation: animateImg 1.5s forwards cubic-bezier(0.4, 0.8, 0.2, 1);
 }
 
+.cont {
+	color: #000;
+	transition: all 0.2s;
+
+	&:hover {
+		background: #000 !important;
+		color: #fff !important;
+	}
+}
+
 @keyframes animateImg {
 	to {
 		clip-path: inset(0%);

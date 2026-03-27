@@ -106,6 +106,34 @@ export default function HomeClient() {
 								knowing your loved ones are safe and what’s most precious and
 								treasured are secure whether you are at home or away.
 							</p>
+							<br />
+							<div
+								style={{
+									display: "flex",
+									justifyContent: "flex-center",
+									alignItems: "center",
+									gap: 5,
+									width: "max-content",
+									background: "#fff",
+									borderRadius: 10,
+									padding: "2px 5px 2px 2px",
+								}}
+							>
+								<div
+									style={{
+										display: "flex",
+										justifyContent: "center",
+										alignItems: "center",
+										background: "#000",
+										width: "40px",
+										height: "40px",
+										borderRadius: 10,
+									}}
+								>
+									<img src="/home-access.png" width={22} alt="" />
+								</div>
+								<span style={{ color: "#000" }}>Home Access</span>
+							</div>
 						</div>
 						<div>
 							<img src="/01.jpg" alt="" />
@@ -143,6 +171,119 @@ export default function HomeClient() {
 								home interacts with the outside world to create an oasis that
 								enhances your life.
 							</p>
+							<br />
+							<div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+								<div
+									style={{
+										display: "flex",
+										justifyContent: "flex-center",
+										alignItems: "center",
+										gap: 5,
+										width: "max-content",
+										background: "#fff",
+										borderRadius: 10,
+										padding: "2px 5px 2px 2px",
+									}}
+								>
+									<div
+										style={{
+											display: "flex",
+											justifyContent: "center",
+											alignItems: "center",
+											background: "#000",
+											width: "40px",
+											height: "40px",
+											borderRadius: 10,
+										}}
+									>
+										<img src="/lightning.png" width={22} alt="" />
+									</div>
+									<span style={{ color: "#000" }}>Lightning</span>
+								</div>
+								<div
+									style={{
+										display: "flex",
+										justifyContent: "flex-center",
+										alignItems: "center",
+										gap: 5,
+										width: "max-content",
+										background: "#fff",
+										borderRadius: 10,
+										padding: "2px 5px 2px 2px",
+									}}
+								>
+									<div
+										style={{
+											display: "flex",
+											justifyContent: "center",
+											alignItems: "center",
+											background: "#000",
+											width: "40px",
+											height: "40px",
+											borderRadius: 10,
+										}}
+									>
+										<img src="/audio.png" width={22} alt="" />
+									</div>
+									<span style={{ color: "#000" }}>Audio</span>
+								</div>
+								<div
+									className="cont"
+									style={{
+										display: "flex",
+										justifyContent: "flex-center",
+										alignItems: "center",
+										gap: 5,
+										width: "max-content",
+										background: "#fff",
+										borderRadius: 10,
+										padding: "2px 10px 2px 2px",
+									}}
+								>
+									<div
+										style={{
+											display: "flex",
+											justifyContent: "center",
+											alignItems: "center",
+											background: "#000",
+											width: "40px",
+											height: "40px",
+											borderRadius: 10,
+										}}
+									>
+										<img src="/shades.png" width={22} alt="" />
+									</div>
+									<span>Shades</span>
+								</div>
+								<div
+									className="cont"
+									style={{
+										display: "flex",
+										justifyContent: "flex-center",
+										alignItems: "center",
+										gap: 5,
+										width: "max-content",
+										background: "#fff",
+										borderRadius: 10,
+										padding: "2px 10px 2px 2px",
+									}}
+								>
+									<div
+										style={{
+											display: "flex",
+											justifyContent: "center",
+											alignItems: "center",
+											background: "#000",
+											width: "40px",
+											height: "40px",
+											borderRadius: 10,
+										}}
+									>
+										<img src="/thermostat.png" width={22} alt="" />
+									</div>
+									<span>Thermostat</span>
+								</div>
+							</div>
 						</div>
 						<div>
 							<img src="/02.jpg" alt="" />
@@ -166,12 +307,70 @@ export default function HomeClient() {
 								It’s the one place that is truly your own. Everything is
 								impeccably suited to you.
 							</p>
+							<br />
 							<p>
 								The cushions are just as soft or firm as you like. The fixtures
 								and finishes are carefully selected. The light and temperature
 								in every space are always perfectly adjusted for every hour and
 								every occasion.
 							</p>
+							<br />
+							<div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+								<div
+									style={{
+										display: "flex",
+										justifyContent: "flex-center",
+										alignItems: "center",
+										gap: 5,
+										width: "max-content",
+										background: "#fff",
+										borderRadius: 10,
+										padding: "2px 5px 2px 2px",
+									}}
+								>
+									<div
+										style={{
+											display: "flex",
+											justifyContent: "center",
+											alignItems: "center",
+											background: "#000",
+											width: "40px",
+											height: "40px",
+											borderRadius: 10,
+										}}
+									>
+										<img src="/lightning.png" width={22} alt="" />
+									</div>
+									<span style={{ color: "#000" }}>Lightning</span>
+								</div>
+								<div
+									style={{
+										display: "flex",
+										justifyContent: "flex-center",
+										alignItems: "center",
+										gap: 5,
+										width: "max-content",
+										background: "#fff",
+										borderRadius: 10,
+										padding: "2px 5px 2px 2px",
+									}}
+								>
+									<div
+										style={{
+											display: "flex",
+											justifyContent: "center",
+											alignItems: "center",
+											background: "#000",
+											width: "40px",
+											height: "40px",
+											borderRadius: 10,
+										}}
+									>
+										<img src="/thermostat.png" width={22} alt="" />
+									</div>
+									<span style={{ color: "#000" }}>Thermostat</span>
+								</div>
+							</div>
 						</div>
 						<div>
 							<img
@@ -208,6 +407,90 @@ export default function HomeClient() {
 								any TV; Listen to your favorite streaming service or playlist
 								throughout the house.
 							</p>
+							<br />
+							<div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+								<div
+									style={{
+										display: "flex",
+										justifyContent: "flex-center",
+										alignItems: "center",
+										gap: 5,
+										width: "max-content",
+										background: "#fff",
+										borderRadius: 10,
+										padding: "2px 5px 2px 2px",
+									}}
+								>
+									<div
+										style={{
+											display: "flex",
+											justifyContent: "center",
+											alignItems: "center",
+											background: "#000",
+											width: "40px",
+											height: "40px",
+											borderRadius: 10,
+										}}
+									>
+										<img src="/shades.png" width={32} alt="" />
+									</div>
+									<span style={{ color: "#000" }}>Shades</span>
+								</div>
+								<div
+									style={{
+										display: "flex",
+										justifyContent: "flex-center",
+										alignItems: "center",
+										gap: 5,
+										width: "max-content",
+										background: "#fff",
+										borderRadius: 10,
+										padding: "2px 5px 2px 2px",
+									}}
+								>
+									<div
+										style={{
+											display: "flex",
+											justifyContent: "center",
+											alignItems: "center",
+											background: "#000",
+											width: "40px",
+											height: "40px",
+											borderRadius: 10,
+										}}
+									>
+										<img src="/video.png" width={22} alt="" />
+									</div>
+									<span style={{ color: "#000" }}>Video</span>
+								</div>
+								<div
+									style={{
+										display: "flex",
+										justifyContent: "flex-center",
+										alignItems: "center",
+										gap: 5,
+										width: "max-content",
+										background: "#fff",
+										borderRadius: 10,
+										padding: "2px 5px 2px 2px",
+									}}
+								>
+									<div
+										style={{
+											display: "flex",
+											justifyContent: "center",
+											alignItems: "center",
+											background: "#000",
+											width: "40px",
+											height: "40px",
+											borderRadius: 10,
+										}}
+									>
+										<img src="/audio.png" width={22} alt="" />
+									</div>
+									<span style={{ color: "#000" }}>Audio</span>
+								</div>
+							</div>
 						</div>
 						<div>
 							<img
