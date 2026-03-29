@@ -7,6 +7,7 @@ import { useRef, useState } from "react";
 import PlayIcon from "../icons/PlayIcon";
 import PauseIcon from "../icons/PauseIcon";
 import "./Home.scss";
+import { Link } from "@/i18n/navigation";
 
 const whatWeDo = [
 	{
@@ -107,19 +108,8 @@ export default function HomeClient() {
 								treasured are secure whether you are at home or away.
 							</p>
 							<br />
-							<div
-								style={{
-									display: "flex",
-									justifyContent: "flex-center",
-									alignItems: "center",
-									gap: 5,
-									width: "max-content",
-									background: "#fff",
-									borderRadius: 10,
-									padding: "2px 5px 2px 2px",
-								}}
-							>
-								<div
+							<Link className="our-solutions__link" href={"/"}>
+								<span
 									style={{
 										display: "flex",
 										justifyContent: "center",
@@ -131,12 +121,15 @@ export default function HomeClient() {
 									}}
 								>
 									<img src="/home-access.png" width={22} alt="" />
-								</div>
-								<span style={{ color: "#000" }}>Home Access</span>
-							</div>
+								</span>
+								<span>Home Access</span>
+							</Link>
 						</div>
 						<div>
-							<img src="/01.jpg" alt="" />
+							<div style={{ position: "relative" }}>
+								<img className="our-solutions__ss" src="/01.png" alt="" />
+								<img src="/01.jpg" alt="" />
+							</div>
 							<br />
 							<br />
 							<p>
@@ -173,18 +166,7 @@ export default function HomeClient() {
 							</p>
 							<br />
 							<div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-								<div
-									style={{
-										display: "flex",
-										justifyContent: "flex-center",
-										alignItems: "center",
-										gap: 5,
-										width: "max-content",
-										background: "#fff",
-										borderRadius: 10,
-										padding: "2px 5px 2px 2px",
-									}}
-								>
+								<Link href={"/"} className="our-solutions__link">
 									<div
 										style={{
 											display: "flex",
@@ -198,20 +180,9 @@ export default function HomeClient() {
 									>
 										<img src="/lightning.png" width={22} alt="" />
 									</div>
-									<span style={{ color: "#000" }}>Lightning</span>
-								</div>
-								<div
-									style={{
-										display: "flex",
-										justifyContent: "flex-center",
-										alignItems: "center",
-										gap: 5,
-										width: "max-content",
-										background: "#fff",
-										borderRadius: 10,
-										padding: "2px 5px 2px 2px",
-									}}
-								>
+									<span>Lightning</span>
+								</Link>
+								<Link href={"/"} className="our-solutions__link">
 									<div
 										style={{
 											display: "flex",
@@ -225,21 +196,9 @@ export default function HomeClient() {
 									>
 										<img src="/audio.png" width={22} alt="" />
 									</div>
-									<span style={{ color: "#000" }}>Audio</span>
-								</div>
-								<div
-									className="cont"
-									style={{
-										display: "flex",
-										justifyContent: "flex-center",
-										alignItems: "center",
-										gap: 5,
-										width: "max-content",
-										background: "#fff",
-										borderRadius: 10,
-										padding: "2px 10px 2px 2px",
-									}}
-								>
+									<span>Audio</span>
+								</Link>
+								<Link href={"/"} className="our-solutions__link">
 									<div
 										style={{
 											display: "flex",
@@ -254,20 +213,8 @@ export default function HomeClient() {
 										<img src="/shades.png" width={22} alt="" />
 									</div>
 									<span>Shades</span>
-								</div>
-								<div
-									className="cont"
-									style={{
-										display: "flex",
-										justifyContent: "flex-center",
-										alignItems: "center",
-										gap: 5,
-										width: "max-content",
-										background: "#fff",
-										borderRadius: 10,
-										padding: "2px 10px 2px 2px",
-									}}
-								>
+								</Link>
+								<Link href={"/"} className="our-solutions__link">
 									<div
 										style={{
 											display: "flex",
@@ -282,10 +229,11 @@ export default function HomeClient() {
 										<img src="/thermostat.png" width={22} alt="" />
 									</div>
 									<span>Thermostat</span>
-								</div>
+								</Link>
 							</div>
 						</div>
-						<div>
+						<div style={{ position: "relative" }}>
+							<img className="our-solutions__ss" src="/04.png" alt="" />
 							<img src="/02.jpg" alt="" />
 						</div>
 					</div>
@@ -316,18 +264,7 @@ export default function HomeClient() {
 							</p>
 							<br />
 							<div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-								<div
-									style={{
-										display: "flex",
-										justifyContent: "flex-center",
-										alignItems: "center",
-										gap: 5,
-										width: "max-content",
-										background: "#fff",
-										borderRadius: 10,
-										padding: "2px 5px 2px 2px",
-									}}
-								>
+								<Link className="our-solutions__link" href={"/"}>
 									<div
 										style={{
 											display: "flex",
@@ -341,20 +278,9 @@ export default function HomeClient() {
 									>
 										<img src="/lightning.png" width={22} alt="" />
 									</div>
-									<span style={{ color: "#000" }}>Lightning</span>
-								</div>
-								<div
-									style={{
-										display: "flex",
-										justifyContent: "flex-center",
-										alignItems: "center",
-										gap: 5,
-										width: "max-content",
-										background: "#fff",
-										borderRadius: 10,
-										padding: "2px 5px 2px 2px",
-									}}
-								>
+									<span>Lightning</span>
+								</Link>
+								<Link href={"/"} className="our-solutions__link">
 									<div
 										style={{
 											display: "flex",
@@ -368,11 +294,12 @@ export default function HomeClient() {
 									>
 										<img src="/thermostat.png" width={22} alt="" />
 									</div>
-									<span style={{ color: "#000" }}>Thermostat</span>
-								</div>
+									<span>Thermostat</span>
+								</Link>
 							</div>
 						</div>
-						<div>
+						<div style={{ position: "relative" }}>
+							<img className="our-solutions__ss" src="/02.png" alt="" />
 							<img
 								src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-thermostat-thumn.jpg"
 								alt=""
@@ -409,18 +336,7 @@ export default function HomeClient() {
 							</p>
 							<br />
 							<div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-								<div
-									style={{
-										display: "flex",
-										justifyContent: "flex-center",
-										alignItems: "center",
-										gap: 5,
-										width: "max-content",
-										background: "#fff",
-										borderRadius: 10,
-										padding: "2px 5px 2px 2px",
-									}}
-								>
+								<Link href={"/"} className="our-solutions__link">
 									<div
 										style={{
 											display: "flex",
@@ -434,20 +350,9 @@ export default function HomeClient() {
 									>
 										<img src="/shades.png" width={32} alt="" />
 									</div>
-									<span style={{ color: "#000" }}>Shades</span>
-								</div>
-								<div
-									style={{
-										display: "flex",
-										justifyContent: "flex-center",
-										alignItems: "center",
-										gap: 5,
-										width: "max-content",
-										background: "#fff",
-										borderRadius: 10,
-										padding: "2px 5px 2px 2px",
-									}}
-								>
+									<span>Shades</span>
+								</Link>
+								<Link href={"/"} className="our-solutions__link">
 									<div
 										style={{
 											display: "flex",
@@ -461,20 +366,9 @@ export default function HomeClient() {
 									>
 										<img src="/video.png" width={22} alt="" />
 									</div>
-									<span style={{ color: "#000" }}>Video</span>
-								</div>
-								<div
-									style={{
-										display: "flex",
-										justifyContent: "flex-center",
-										alignItems: "center",
-										gap: 5,
-										width: "max-content",
-										background: "#fff",
-										borderRadius: 10,
-										padding: "2px 5px 2px 2px",
-									}}
-								>
+									<span>Video</span>
+								</Link>
+								<Link href={"/"} className="our-solutions__link">
 									<div
 										style={{
 											display: "flex",
@@ -488,11 +382,12 @@ export default function HomeClient() {
 									>
 										<img src="/audio.png" width={22} alt="" />
 									</div>
-									<span style={{ color: "#000" }}>Audio</span>
-								</div>
+									<span>Audio</span>
+								</Link>
 							</div>
 						</div>
-						<div>
+						<div style={{ position: "relative" }}>
+							<img className="our-solutions__ss" src="/03.png" alt="" />
 							<img
 								src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-shades-hero.jpg"
 								alt=""
