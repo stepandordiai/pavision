@@ -459,21 +459,27 @@
 }
 
 .brands {
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
 	gap: 20px;
-	flex-wrap: wrap;
-	justify-content: center;
 
-	p {
+	div {
 		font-size: 1.5rem;
-		padding: 10px;
-		background: rgba(255, 255, 255, 0.1);
-		border-radius: 5px;
+		height: 100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 2px solid rgba(255, 255, 255, 0.5);
+		border-radius: 10px;
 	}
 }
 
 @media screen and (width < 1200px) {
 	.products-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.brands {
 		grid-template-columns: repeat(3, 1fr);
 	}
 }
@@ -488,10 +494,18 @@
 	.products-grid {
 		grid-template-columns: repeat(2, 1fr);
 	}
+
+	.brands {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
 @media screen and (width < 600px) {
 	.products-grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	.brands {
 		grid-template-columns: repeat(1, 1fr);
 	}
 }

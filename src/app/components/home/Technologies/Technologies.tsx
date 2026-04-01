@@ -17,32 +17,32 @@ const technologies = [
 	{
 		title: "Lightning",
 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-dimmer-3.jpg",
-		icon: "light-bulb.png",
+		icon: "lightning.png",
 	},
 	{
 		title: "Shading",
 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-shades-roller.jpg",
-		icon: "blinds.png",
+		icon: "shades.png",
 	},
 	{
 		title: "Audio",
 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/audio-products-speakers-image.jpg",
-		icon: "light-bulb.png",
+		icon: "audio.png",
 	},
 	{
 		title: "Video",
 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-video-hero.jpg",
-		icon: "blinds.png",
+		icon: "video.png",
 	},
 	{
 		title: "Home access",
 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/partner%20pages/integrated%20partners/2n/photo1_desktop.png",
-		icon: "light-bulb.png",
+		icon: "home-access.png",
 	},
 	{
 		title: "Thermostats",
 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-thermostat-thumn.jpg",
-		icon: "blinds.png",
+		icon: "thermostat.png",
 	},
 ];
 

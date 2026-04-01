@@ -6,8 +6,8 @@ import Technologies from "../components/home/Technologies/Technologies";
 import { useRef, useState } from "react";
 import PlayIcon from "../icons/PlayIcon";
 import PauseIcon from "../icons/PauseIcon";
-import "./Home.scss";
 import { Link } from "@/i18n/navigation";
+import "./Home.scss";
 
 const whatWeDo = [
 	{
@@ -23,7 +23,7 @@ const whatWeDo = [
 		desc: "home.whatWeDo.desc2",
 		brands: ["Denon", "Marantz", "LG", "Sonos", "Bowers & Wilkins"],
 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-video-consoles.jpg",
-		icon: "/sound-wave.png",
+		icon: "/audio.png",
 		audio: true,
 	},
 
@@ -33,7 +33,7 @@ const whatWeDo = [
 		brands: ["Ubiquiti", "MikroTik", "Cisco"],
 		img: "https://images.pexels.com/photos/159304/network-cable-ethernet-computer-159304.jpeg",
 		icon: "/wifi.png",
-		internet: true,
+		video: "/video-02.mp4",
 	},
 	{
 		title: "home.whatWeDo.title4",
@@ -41,6 +41,7 @@ const whatWeDo = [
 		brands: [],
 		img: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
 		icon: "/electric-panel.png",
+		video: "/video-01.mp4",
 	},
 ];
 
@@ -655,26 +656,43 @@ export default function HomeClient() {
 										></audio>
 									</div>
 								)}
-								{item.internet && (
-									<div
-										style={{
-											position: "relative",
-											height: "100%",
-											width: "100%",
-											borderRadius: 10,
-											display: "flex",
-											justifyContent: "center",
-											alignItems: "center",
-										}}
-									>
-										<div>
-											<div style={{ display: "flex" }}>
-												<div className="room1"></div>
-												<div className="room2"></div>
-											</div>
-											<div className="room"></div>
-										</div>
+								{item.video && (
+									<div style={{ height: "100%", width: "100%" }}>
+										<video
+											style={{
+												width: "100%",
+												height: "100%",
+												objectFit: "cover",
+												borderRadius: 10,
+											}}
+											playsInline
+											loop
+											controls={false}
+											autoPlay
+											muted
+										>
+											<source src={item.video} />
+										</video>
 									</div>
+									// <div
+									// 	style={{
+									// 		position: "relative",
+									// 		height: "100%",
+									// 		width: "100%",
+									// 		borderRadius: 10,
+									// 		display: "flex",
+									// 		justifyContent: "center",
+									// 		alignItems: "center",
+									// 	}}
+									// >
+									// 	<div>
+									// 		<div style={{ display: "flex" }}>
+									// 			<div className="room1"></div>
+									// 			<div className="room2"></div>
+									// 		</div>
+									// 		<div className="room"></div>
+									// 	</div>
+									// </div>
 								)}
 							</div>
 						);
@@ -686,7 +704,7 @@ export default function HomeClient() {
 				<h2 className="section__title">Trusted Brands. Smarter Homes.</h2>
 				<div className="brands">
 					{brands.map((brand, i) => {
-						return <p key={i}>{brand}</p>;
+						return <div key={i}>{brand}</div>;
 					})}
 				</div>
 			</section>

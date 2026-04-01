@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import "./Hero.scss";
+import ChevronIcon from "@/app/icons/ChevronIcon";
 
 const Hero = () => {
 	const t = useTranslations();
@@ -89,7 +90,7 @@ const Hero = () => {
 				</div>
 			</div>
 			<a className="hero-scroll" href="#our-solutions">
-				Posuňte dolů a objevte
+				<ChevronIcon size={32} />
 			</a>
 		</section>
 	);
