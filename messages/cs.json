@@ -27,5 +27,35 @@
 		},
 
 		"technologies": "Technologie"
+	},
+	"ourSolutions": {
+		"title": "Naše řešení s Crestron Home",
+		"security": {
+			"title": "Zabezpečení",
+			"subtitle": "Klid a bezpečí pro váš domov",
+			"desc": "Pocit jistoty, že jsou vaši blízcí v bezpečí a to nejcennější je chráněno – ať už jste doma nebo mimo něj – je k nezaplacení.",
+			"desc1": "Nepřetržitá zpětná vazba systému ve vašem mobilním zařízení potvrzuje stav zámků a alarmů, přesnou polohu bran a garáží a poskytuje živý náhled z kamer."
+		},
+		"wellness": {
+			"title": "Wellness",
+			"subtitle": "Ano, váš domov může prospívat vašemu zdraví",
+			"desc": "Váš spánek. Vaše energie. Vaše nálada. Vaše fyzické i duševní zdraví. Chytrá domácnost může všechny tyto oblasti podpořit a zlepšit. Světlo, akustika, teplota i kvalita vody hrají důležitou roli. Systém Crestron Home® OS vám umožňuje snadno řídit prostředí vašeho domova i jeho interakci s okolním světem a vytvořit tak oázu, která obohacuje váš život."
+		},
+		"comfort": {
+			"title": "Komfort",
+			"subtitle": "Váš domov je vaše útočiště",
+			"desc": "Je to jediné místo, které je skutečně vaše. Vše je dokonale přizpůsobeno vašim potřebám.",
+			"desc1": "Polštáře jsou přesně tak měkké nebo pevné, jak máte rádi. Vybavení i materiály jsou pečlivě vybrané. Světlo i teplota v každé místnosti jsou vždy ideálně nastavené pro každou hodinu i příležitost."
+		},
+		"convenience": {
+			"title": "Pohodlí",
+			"subtitle": "Váš domov by měl pracovat pro vás, ne naopak",
+			"desc": "Crestron Home® OS dělá složité věci jednoduchými: rutinní automatickými a zdlouhavé rychlými. Ať už chcete cokoliv a odkudkoliv, stačí jedno klepnutí. Vše funguje přesně tak, jak chcete – pokaždé.",
+			"desc1": "Bez čekání. Bez stresu: Sledujte obsah a hrajte videohry na jakékoli televizi; poslouchejte oblíbenou hudbu nebo playlist v celém domě."
+		}
+	},
+	"crestronApp": {
+		"title": "Stáhněte si aplikaci Crestron Home® pro svá zařízení.",
+		"hint": "Demo režim je dostupný pouze na iOS, pro Android je vyžadován systém."
 	}
 }

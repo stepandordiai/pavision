@@ -5,7 +5,6 @@
 	"contactsTitle": "Contacts",
 	"contactUs": "Contact us",
 	"navigation": "Navigation",
-
 	"hero": {
 		"title": "Quality, design, and technology in perfect balance.",
 		"subtitle": "Highlighting electrical installations, network infrastructure, home automation, and audio/video systems.",
@@ -26,5 +25,35 @@
 			"desc4": "Design and implementation of electrical installations, including switchboards and sockets."
 		},
 		"technologies": "Technologies"
+	},
+	"ourSolutions": {
+		"title": "Our solutions with Crestron Home",
+		"security": {
+			"title": "Security",
+			"subtitle": "Peace of mind for your home",
+			"desc": "You can’t put a price on the peace of mind that comes with knowing your loved ones are safe and what’s most precious and treasured are secure whether you are at home or away.",
+			"desc1": "Continuous system feedback on our mobile device confirms the status of door locks and alarms, the exact positions of gates and garages, and provides real-time views of cameras."
+		},
+		"wellness": {
+			"title": "Wellness",
+			"subtitle": "Yes. Your home can benefit your health",
+			"desc": "Your sleep. Your energy. Your mood. Your emotional and physical health. A smart home can improve and support these, and other, aspects of wellness. Lighting, acoustics, temperature, and water quality all play a role. The Crestron Home® OS allows you to easily orchestrate your home’s environment, as well as how your home interacts with the outside world to create an oasis that enhances your life."
+		},
+		"comfort": {
+			"title": "Comfort",
+			"subtitle": "Your home is your sanctuary",
+			"desc": "It’s the one place that is truly your own. Everything is impeccably suited to you.",
+			"desc1": "The cushions are just as soft or firm as you like. The fixtures and finishes are carefully selected. The light and temperature in every space are always perfectly adjusted for every hour and every occasion."
+		},
+		"convenience": {
+			"title": "Convenience",
+			"subtitle": "Your home should work for you, not the other way around",
+			"desc": "The Crestron Home® OS makes the complex simple: The monotonous automatic; the tedious quick. Whatever you want, wherever you are, it’s a tap. Everything simply works the way you want it to every time.",
+			"desc1": "No hoping. No stressing: Watch content and play video games on any TV; Listen to your favorite streaming service or playlist throughout the house."
+		}
+	},
+	"crestronApp": {
+		"title": "Download Crestron Home® app for your devices.",
+		"hint": "Demo Mode Available on iOS Only, System is Required on Android"
 	}
 }
