@@ -1,0 +1,323 @@
+.what-we-do {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 500px;
+}
+
+.what-we-do-container {
+	position: sticky;
+	top: 148px;
+	display: flex;
+	align-items: flex-start;
+	gap: 40px;
+	background: #fff;
+	color: #333;
+	height: calc(100dvh - 148px - 20px);
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);
+
+	&:nth-of-type(even) {
+		flex-direction: row-reverse;
+	}
+}
+
+.lightning__btn {
+	position: relative;
+	background: rgb(182, 182, 182);
+	width: 40px;
+	height: 20px;
+	border-radius: 10px;
+	transition: background-color 0.2s;
+
+	&::before {
+		position: absolute;
+		content: "";
+		background-color: #000;
+		height: 16px;
+		width: 16px;
+		left: 2px;
+		top: 2px;
+		border-radius: 50%;
+		transition: all 0.2s;
+	}
+
+	&--active {
+		background: rgb(47, 255, 231);
+
+		&::before {
+			transform: translateX(calc(100% + 4px));
+		}
+	}
+}
+
+.lightning__range {
+	width: 100%;
+}
+
+.lamp {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.top {
+	width: 5px;
+	height: 20%;
+	background: #000000;
+}
+
+.base {
+	width: 20px;
+	height: 50px;
+	background: #000000;
+	z-index: 2;
+}
+
+.bottom {
+	transform: translateY(-14px);
+	width: 150px;
+	height: 100px;
+	background: #000000;
+	clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+	z-index: 1;
+}
+
+.bulb {
+	transform: translateY(calc(-50% - 14px));
+	z-index: 0;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: rgba(152, 164, 164, 0.525);
+}
+
+.audio {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #000;
+	color: #fff;
+	margin: 10px;
+	padding: 5px 10px;
+	border-radius: 10px;
+
+	span {
+		display: block;
+	}
+
+	button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: #fff;
+		border-radius: 10px;
+	}
+}
+
+.equalizer {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 5;
+	transform: translate(-50%, -50%);
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	height: 100px;
+	padding: 0 8px;
+}
+
+.equalizer span {
+	display: block;
+	width: 6px;
+	border-radius: 2px;
+	background: #fff;
+	transform-origin: center;
+}
+
+@keyframes rotate {
+	to {
+		rotate: 360deg;
+	}
+}
+
+.room {
+	position: relative;
+	width: 220px;
+	height: 80px;
+	border: 2px solid #333;
+	overflow: hidden;
+
+	&::before {
+		content: "Living room";
+		color: #333;
+		font-size: 12px;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: rgba(0, 242, 255, 0.501);
+		border-radius: 50%;
+		width: 2px;
+		height: 2px;
+		animation: animateRouter 3s infinite;
+	}
+
+	@keyframes animateRouter {
+		to {
+			opacity: 0;
+			transform: translate(-50%, -50%) scale(100);
+		}
+	}
+}
+
+.room1 {
+	width: 100%;
+	height: 100px;
+	border: 2px solid #333;
+	&::before {
+		content: "Bedroom";
+		color: #333;
+
+		font-size: 12px;
+	}
+}
+
+.room2 {
+	width: 100%;
+	height: 100px;
+	border: 2px solid #333;
+
+	&::before {
+		content: "Bathroom";
+		color: #333;
+		font-size: 12px;
+	}
+}
+
+/* Center bars (8-13) scale the most, tapering out to the sides */
+.equalizer span:nth-child(1) {
+	animation-delay: 0s !important;
+	height: 20%;
+	--scale: 0.25;
+}
+.equalizer span:nth-child(2) {
+	animation-delay: 0.1s !important;
+	height: 25%;
+	--scale: 0.3;
+}
+.equalizer span:nth-child(3) {
+	animation-delay: 0.2s !important;
+	height: 30%;
+	--scale: 0.4;
+}
+.equalizer span:nth-child(4) {
+	animation-delay: 0.05s !important;
+	height: 35%;
+	--scale: 0.5;
+}
+.equalizer span:nth-child(5) {
+	animation-delay: 0.15s !important;
+	height: 40%;
+	--scale: 0.6;
+}
+.equalizer span:nth-child(6) {
+	animation-delay: 0.25s !important;
+	height: 45%;
+	--scale: 0.65;
+}
+.equalizer span:nth-child(7) {
+	animation-delay: 0.08s !important;
+	height: 50%;
+	--scale: 0.72;
+}
+.equalizer span:nth-child(8) {
+	animation-delay: 0.18s !important;
+	height: 55%;
+	--scale: 0.8;
+}
+.equalizer span:nth-child(9) {
+	animation-delay: 0.12s !important;
+	height: 60%;
+	--scale: 0.88;
+}
+.equalizer span:nth-child(10) {
+	animation-delay: 0.22s !important;
+	height: 65%;
+	--scale: 0.94;
+}
+.equalizer span:nth-child(11) {
+	animation-delay: 0.03s !important;
+	height: 65%;
+	--scale: 1;
+}
+.equalizer span:nth-child(12) {
+	animation-delay: 0.17s !important;
+	height: 60%;
+	--scale: 1;
+}
+.equalizer span:nth-child(13) {
+	animation-delay: 0.09s !important;
+	height: 55%;
+	--scale: 0.94;
+}
+.equalizer span:nth-child(14) {
+	animation-delay: 0.19s !important;
+	height: 50%;
+	--scale: 0.88;
+}
+.equalizer span:nth-child(15) {
+	animation-delay: 0.06s !important;
+	height: 45%;
+	--scale: 0.8;
+}
+.equalizer span:nth-child(16) {
+	animation-delay: 0.14s !important;
+	height: 40%;
+	--scale: 0.72;
+}
+.equalizer span:nth-child(17) {
+	animation-delay: 0.24s !important;
+	height: 35%;
+	--scale: 0.65;
+}
+.equalizer span:nth-child(18) {
+	animation-delay: 0.11s !important;
+	height: 30%;
+	--scale: 0.6;
+}
+.equalizer span:nth-child(19) {
+	animation-delay: 0.21s !important;
+	height: 25%;
+	--scale: 0.5;
+}
+.equalizer span:nth-child(20) {
+	animation-delay: 0.07s !important;
+	height: 20%;
+	--scale: 0.4;
+}
+
+@keyframes equalize {
+	0%,
+	100% {
+		transform: scaleY(var(--scale));
+	}
+	50% {
+		transform: scaleY(1);
+	}
+}
+
+@media screen and (width < 1000px) {
+	.what-we-do-container {
+		padding: 10px;
+	}
+}
