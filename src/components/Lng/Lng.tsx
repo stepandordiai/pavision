@@ -1,7 +1,7 @@
 "use client";
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
-import GlobeIcon from "@/app/icons/GlobeIcon";
+import GlobeIcon from "@/components/icons/GlobeIcon";
 import "./Lng.scss";
 
 const languages = [

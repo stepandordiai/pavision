@@ -152,7 +152,7 @@ const Footer = () => {
 					Website created by{" "}
 					<a
 						className="footer__link"
-						href="https://www.heeeyooo.studio/cs"
+						href="https://www.heeeyooo.com"
 						target="_blank"
 					>
 						heeeyooo studio

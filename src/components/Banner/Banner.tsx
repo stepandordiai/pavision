@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import EnvelopeIcon from "@/components/icons/EnvelopeIcon";
+import TelIcon from "@/components/icons/TelIcon";
 import "./Banner.scss";
-import EnvelopeIcon from "@/app/icons/EnvelopeIcon";
-import TelIcon from "@/app/icons/TelIcon";
 
 const Banner = () => {
 	const [bannerVisible, setBannerVisible] = useState(false);

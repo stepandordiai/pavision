@@ -2,8 +2,8 @@
 
 import { useTranslations } from "next-intl";
 import { useRef, useState } from "react";
-import PlayIcon from "@/app/icons/PlayIcon";
-import PauseIcon from "@/app/icons/PauseIcon";
+import PlayIcon from "@/components/icons/PlayIcon";
+import PauseIcon from "@/components/icons/PauseIcon";
 import "./styles.scss";
 
 const whatWeDo = [

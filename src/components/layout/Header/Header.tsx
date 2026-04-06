@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "@/i18n/navigation";
-import Lng from "../../Lng/Lng";
+import Lng from "@/components/Lng/Lng";
 import "./Header.scss";
 
 const navLinks = [

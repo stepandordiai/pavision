@@ -2,8 +2,8 @@
 
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import ChevronIcon from "@/components/icons/ChevronIcon";
 import "./Hero.scss";
-import ChevronIcon from "@/app/icons/ChevronIcon";
 
 const Hero = () => {
 	const t = useTranslations();

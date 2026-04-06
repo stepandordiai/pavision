@@ -1,10 +1,10 @@
 "use client";
 
-import Hero from "../components/Hero/Hero";
-import Technologies from "../components/home/Technologies/Technologies";
-import OurSolutions from "../components/home/OurSolutions/OurSolutions";
-import CrestronApp from "../components/CrestronApp/CrestronApp";
-import WhatWeDo from "../components/WhatWeDo/WhatWeDo";
+import Hero from "@/components/Hero/Hero";
+import Technologies from "@/components/home/Technologies/Technologies";
+import OurSolutions from "@/components/home/OurSolutions/OurSolutions";
+import CrestronApp from "@/components/CrestronApp/CrestronApp";
+import WhatWeDo from "@/components/WhatWeDo/WhatWeDo";
 import "./Home.scss";
 
 const brands = [

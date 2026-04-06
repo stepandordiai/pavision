@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import ArrowRightUpIcon from "@/app/icons/ArrowRightUpIcon";
+import ArrowRightUpIcon from "@/components/icons/ArrowRightUpIcon";
 import "./Products.scss";
 
 const products = [

@@ -1,13 +1,13 @@
 import { Poppins } from "next/font/google";
 import { Metadata } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import Header from "../components/layout/Header/Header";
-import Footer from "../components/layout/Footer/Footer";
-import Banner from "../components/Banner/Banner";
-import ScrollToTop from "../utils/ScrollToTop";
+import Header from "@/components/layout/Header/Header";
+import Footer from "@/components/layout/Footer/Footer";
+import Banner from "@/components/Banner/Banner";
+import ScrollToTop from "@/utils/ScrollToTop";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import "./../scss/globals.scss";
+import "@/scss/globals.scss";
 
 const poppins = Poppins({
 	variable: "--font-poppins",
