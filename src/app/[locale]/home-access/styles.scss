@@ -1,0 +1,15 @@
+.technology__title {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 10px;
+}
+
+.technology__icon-container {
+	background: rgb(0, 0, 0);
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+}

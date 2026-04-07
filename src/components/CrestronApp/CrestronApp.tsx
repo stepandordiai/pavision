@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import "./CrestronApp.scss";
 
 const CrestronApp = () => {
 	const t = useTranslations("crestronApp");

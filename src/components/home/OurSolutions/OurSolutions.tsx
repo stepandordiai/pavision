@@ -24,7 +24,7 @@ const OurSolutions = () => {
 						<br />
 						<p>{t("security.desc")}</p>
 						<br />
-						<Link className="our-solutions__link" href={"/"}>
+						<Link className="our-solutions__link" href={"/home-access"}>
 							<span
 								style={{
 									display: "flex",
@@ -68,7 +68,7 @@ const OurSolutions = () => {
 						<p>{t("wellness.desc")}</p>
 						<br />
 						<div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-							<Link href={"/"} className="our-solutions__link">
+							<Link href="/lightning" className="our-solutions__link">
 								<div
 									style={{
 										display: "flex",
@@ -84,7 +84,7 @@ const OurSolutions = () => {
 								</div>
 								<span>Lightning</span>
 							</Link>
-							<Link href={"/"} className="our-solutions__link">
+							<Link href="/audio" className="our-solutions__link">
 								<div
 									style={{
 										display: "flex",
@@ -100,7 +100,7 @@ const OurSolutions = () => {
 								</div>
 								<span>Audio</span>
 							</Link>
-							<Link href={"/"} className="our-solutions__link">
+							<Link href="/shades" className="our-solutions__link">
 								<div
 									style={{
 										display: "flex",
@@ -116,7 +116,7 @@ const OurSolutions = () => {
 								</div>
 								<span>Shades</span>
 							</Link>
-							<Link href={"/"} className="our-solutions__link">
+							<Link href="/thermostat" className="our-solutions__link">
 								<div
 									style={{
 										display: "flex",
@@ -158,7 +158,7 @@ const OurSolutions = () => {
 						<p>{t("comfort.desc1")}</p>
 						<br />
 						<div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-							<Link className="our-solutions__link" href={"/"}>
+							<Link className="our-solutions__link" href="/lightning">
 								<div
 									style={{
 										display: "flex",
@@ -174,7 +174,7 @@ const OurSolutions = () => {
 								</div>
 								<span>Lightning</span>
 							</Link>
-							<Link href={"/"} className="our-solutions__link">
+							<Link href="/thermostat" className="our-solutions__link">
 								<div
 									style={{
 										display: "flex",
@@ -219,7 +219,7 @@ const OurSolutions = () => {
 						<p>{t("convenience.desc1")}</p>
 						<br />
 						<div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-							<Link href={"/"} className="our-solutions__link">
+							<Link href="/shades" className="our-solutions__link">
 								<div
 									style={{
 										display: "flex",
@@ -235,7 +235,7 @@ const OurSolutions = () => {
 								</div>
 								<span>Shades</span>
 							</Link>
-							<Link href={"/"} className="our-solutions__link">
+							<Link href="/video" className="our-solutions__link">
 								<div
 									style={{
 										display: "flex",
@@ -251,7 +251,7 @@ const OurSolutions = () => {
 								</div>
 								<span>Video</span>
 							</Link>
-							<Link href={"/"} className="our-solutions__link">
+							<Link href="/audio" className="our-solutions__link">
 								<div
 									style={{
 										display: "flex",
