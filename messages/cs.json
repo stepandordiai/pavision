@@ -12,6 +12,10 @@
 		"scroll": "Posuňte dolů a objevte"
 	},
 	"home": {
+		"meta": {
+			"title": "P&A Vision | Luxusní chytré domy, automatizace a moderní technologie",
+			"desc": "Navrhujeme a realizujeme chytré domácnosti, audio & video systémy a automatizaci na míru. Zvyšte komfort, bezpečnost i úsporu energie ve svém domově."
+		},
 		"whoWeAreTitle": "Kdo jsme",
 		"whoWeAreDesc": "Máme 15 let zkušeností (montáže v Británii, automatizace, AV instalace). Zabezpečením se zabýváme komplexně. Nabízíme zabezpečovací systémy od značek Jablotron, Paradox a Risco, přístupové systémy jako Salto, a kamerové i přístupové systémy od Ubiquiti. Díky tomu poskytujeme bezpečnostní řešení na míru s flexibilními a ověřenými technologiemi.",
 		"whatWeDoTitle": "Co děláme",
@@ -27,6 +31,54 @@
 		},
 
 		"technologies": "Technologie"
+	},
+	"products": {
+		"meta": {
+			"title": "Produkty chytré domácnosti a automatizace | Inovativní řešení pro moderní bydlení",
+			"desc": "Objevte pokročilé produkty chytré domácnosti a automatizační systémy. Ovládejte osvětlení, zabezpečení, klima a další prvky pomocí inteligentních řešení pro moderní život."
+		}
+	},
+	"aboutUs": {
+		"meta": {
+			"title": "O nás | Odborníci na chytré domácnosti a automatizaci",
+			"desc": "Poznejte náš tým specialistů na chytré domácnosti. Navrhujeme a realizujeme inovativní automatizační řešení přizpůsobená vašemu životnímu stylu a potřebám."
+		}
+	},
+	"audio": {
+		"meta": {
+			"title": "Dokonalý zvuk pro váš chytrý domov | P&A Vision",
+			"desc": "Zažijte hudbu v každé místnosti. Navrhujeme inteligentní audio řešení od multiroom systémů po domácí kina přesně podle vašeho životního stylu."
+		}
+	},
+	"homeAccess": {
+		"meta": {
+			"title": "Luxusní chytrý přístup do domácnosti a automatizace | P&A Vision",
+			"desc": "Zažijte novou úroveň pohodlí s inteligentními systémy přístupu do domácnosti. Ovládejte vstup, zabezpečení i automatizaci odkudkoli."
+		}
+	},
+	"lightning": {
+		"meta": {
+			"title": "Advanced Smart Lighting Systems | Automated & Energy Efficient",
+			"desc": "Upgrade to smart lighting with automated control, dimming, and scene customization. Improve comfort, efficiency, and ambiance in every room."
+		}
+	},
+	"shades": {
+		"meta": {
+			"title": "Luxusní chytré stínění a žaluzie | Elegantní domácí automatizace",
+			"desc": "Vylepšete svůj domov pomocí automatizovaného stínění a žaluzií. Užijte si dokonalé světlo, soukromí a energetickou úspornost díky inteligentnímu ovládání."
+		}
+	},
+	"thermostat": {
+		"meta": {
+			"title": "Luxusní chytré řízení klimatu | Inteligentní termostatické systémy",
+			"desc": "Zažijte dokonalý komfort v interiéru díky pokročilým chytrým termostatům. Ovládejte teplotu, snižte náklady na energii a automatizujte svůj domov bez námahy."
+		}
+	},
+	"video": {
+		"meta": {
+			"title": "Chytré video a domácí kino | Špičková obrazová řešení",
+			"desc": "Vylepšete svou zábavu pomocí chytrých video systémů, 4K/8K obrazovek a integrovaných řešení domácího kina navržených pro maximální výkon a pohodlí."
+		}
 	},
 	"ourSolutions": {
 		"title": "Naše řešení s Crestron Home",

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HomeClient from "./HomeClient";
 import { routing } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({
 	params,
@@ -8,14 +9,14 @@ export async function generateMetadata({
 	params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
 	const { locale } = await params;
+	const t = await getTranslations({ locale, namespace: "home.meta" });
 	const languages = Object.fromEntries(
 		routing.locales.map((l) => [l, `/${l}`]),
 	);
 
 	return {
-		title: "P&A Vision | Kvalita, design a technologie v dokonalé rovnováze",
-		description:
-			"Tvoříme chytré domy, audio & video systémy, automatizaci a energeticky efektivní řešení.",
+		title: t("title"),
+		description: t("desc"),
 		alternates: {
 			canonical: `/${locale}`,
 			languages: {
