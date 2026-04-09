@@ -32,3 +32,38 @@ body {
 	margin-bottom: 20px;
 	margin-top: 80px;
 }
+
+.link {
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		background: rgba(255, 255, 255, 0.478);
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		background: #fff;
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 0.24s;
+	}
+
+	&:hover {
+		color: #fff;
+
+		&::after {
+			transform: scaleX(1);
+		}
+	}
+}

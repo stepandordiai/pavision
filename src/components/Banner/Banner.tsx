@@ -23,6 +23,7 @@ const Banner = () => {
 					display: "flex",
 					justifyContent: "space-between",
 					alignItems: "center",
+					width: "100%",
 				}}
 			>
 				<p className="banner__logo">
@@ -58,15 +59,15 @@ const Banner = () => {
 			<p>
 				IČO <button>23654341</button>
 			</p>
-			<a className="banner__link" href="mailto:info@pavision.cz">
+			<a className="banner__link link" href="mailto:info@pavision.cz">
 				<EnvelopeIcon />
 				<span>info@pavision.cz</span>
 			</a>
-			<a className="banner__link" href="tel:+420775632426">
+			<a className="banner__link link" href="tel:+420775632426">
 				<TelIcon />
 				<span>+420 775 632 426</span>
 			</a>
-			<a className="banner__link" href="tel:+420777049617">
+			<a className="banner__link link" href="tel:+420777049617">
 				<TelIcon />
 				<span>+420 777 049 617</span>
 			</a>
