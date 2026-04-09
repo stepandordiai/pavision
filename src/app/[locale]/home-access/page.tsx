@@ -1,5 +1,3 @@
-"use client";
-
 import CrestronApp from "@/components/CrestronApp/CrestronApp";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import type { Metadata } from "next";
