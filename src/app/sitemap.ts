@@ -1,8 +1,8 @@
 import { routing } from "@/i18n/routing";
 import type { MetadataRoute } from "next";
+import { BASE_URL } from "@/lib/constants";
 
 const pages = ["/", "/o-nas", "/produkty", "/kontakty"];
-const BASE_URL = "https://www.pavision.cz";
 
 export default function sitemap(): MetadataRoute.Sitemap {
 	return routing.locales.flatMap((locale) =>

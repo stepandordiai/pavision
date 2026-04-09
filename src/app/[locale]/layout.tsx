@@ -7,6 +7,7 @@ import Banner from "@/components/Banner/Banner";
 import ScrollToTop from "@/utils/ScrollToTop";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { BASE_URL } from "@/lib/constants";
 import "@/scss/globals.scss";
 
 const poppins = Poppins({
@@ -16,7 +17,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://www.pavision.cz"),
+	metadataBase: new URL(BASE_URL),
 };
 
 export default async function LocaleLayout({
