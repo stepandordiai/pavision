@@ -11,6 +11,7 @@ const Hero = () => {
 	const [garageOpen, setGarageOpen] = useState(false);
 	const [interiorLight, setInteriorLight] = useState(false);
 	const [exteriorLight, setExteriorLight] = useState(false);
+
 	return (
 		<section className="hero">
 			<div className="hero-container">

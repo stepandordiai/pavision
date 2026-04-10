@@ -1,15 +1,12 @@
 .hero {
 	position: relative;
+	z-index: 1;
 	min-height: 100svh;
 	background: radial-gradient(ellipse at 50% -10%, #172d56 0%, #050c18 70%);
 }
 
 .hero-container {
-	position: absolute;
-	z-index: 1;
-	left: 20px;
-	top: 100px;
-	padding: 10px;
+	padding: 80px 20px 0 20px;
 }
 
 .hero__title {
@@ -29,6 +26,7 @@
 	right: 0;
 	left: 0;
 	bottom: 0;
+	z-index: -1;
 	height: 400px;
 	// TODO: ?
 	perspective: 550px;
@@ -72,6 +70,7 @@
 	left: 50%;
 	transform: translate(-50%, 0);
 	bottom: 100px;
+	z-index: -1;
 	display: flex;
 }
 
@@ -295,11 +294,11 @@
 
 .interior-btn-wrapper {
 	position: absolute;
-	bottom: 95%;
-	left: -200px;
+	bottom: 80%;
+	left: 400px;
 	z-index: 2;
 	display: flex;
-	flex-direction: row-reverse;
+	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
@@ -307,7 +306,7 @@
 	background: rgba(255, 255, 255, 0.1);
 	-webkit-backdrop-filter: blur(10px);
 	backdrop-filter: blur(10px);
-	padding: 5px 5px 5px 15px;
+	padding: 5px 15px 5px 5px;
 	border-radius: 30px;
 
 	&::before {
@@ -316,10 +315,10 @@
 		width: 100px;
 		height: 1px;
 		background: #fff;
-		right: 0;
+		left: 0;
 		bottom: 0;
-		transform: translate(100%, 50%) rotate(45deg);
-		transform-origin: left bottom;
+		transform: translate(-100%, 50%) rotate(-45deg);
+		transform-origin: right bottom;
 	}
 }
 
@@ -424,6 +423,387 @@
 
 @media screen and (width < 1000px) {
 	.house {
-		display: none;
+		// display: none;
+	}
+}
+
+.house {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0);
+	bottom: 100px;
+	z-index: -1;
+	display: flex;
+}
+
+.left-side {
+	position: relative;
+	height: 400px;
+	width: 800px;
+	background: #626be6;
+}
+
+.left-wall {
+	position: absolute;
+	left: 0;
+	transform: translate(-100%, 0);
+	background: #626be6;
+	width: 50px;
+	height: 100%;
+	box-shadow: 10px 0 10px rgba(0, 0, 0, 0.2);
+
+	&::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 50px;
+		height: 50px;
+		transform: translate(0, -100%);
+		background: #626be6;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		left: 15px;
+		top: 50%;
+		width: 20px;
+		height: 40px;
+		transform: translate(0, -100%);
+		background: #99a3a3;
+	}
+}
+
+.left-wall--on {
+	&:after {
+		box-shadow:
+			0 10px 5px rgb(225, 225, 166),
+			0 20px 10px rgb(225, 225, 166),
+			0 50px 50px rgb(225, 225, 166),
+			0 -10px 5px rgb(225, 225, 166),
+			0 -20px 10px rgb(225, 225, 166),
+			0 -50px 50px rgb(225, 225, 166);
+	}
+}
+
+.top-wall {
+	position: absolute;
+	top: 0;
+	transform: translate(0, -100%);
+	background: #626be6;
+	width: 100%;
+	height: 50px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.window {
+	position: absolute;
+	bottom: 100px;
+	left: 50px;
+	width: 300px;
+	height: 200px;
+	background: rgb(51, 51, 106, 0.5);
+	border: 10px solid black;
+	z-index: 1;
+
+	&::before {
+		position: absolute;
+		content: "";
+		left: 25%;
+		background: #000;
+		height: 100%;
+		width: 10px;
+	}
+
+	&::after {
+		position: absolute;
+		content: "";
+		right: 25%;
+		background: #000;
+		height: 100%;
+		width: 10px;
+	}
+}
+
+.window-light {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+}
+
+.window-light--on {
+	background: linear-gradient(rgb(225, 225, 166) 50%, rgb(51, 51, 106));
+	box-shadow: 0 0 50px rgba(225, 225, 166, 0.5);
+}
+
+.door {
+	position: absolute;
+	right: 50px;
+	bottom: 0;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	height: 300px;
+	width: 100px;
+	border: 10px solid black;
+	z-index: 1;
+}
+
+.door-light {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+}
+
+.door-light--on {
+	background: linear-gradient(rgb(225, 225, 166) 50%, rgb(51, 51, 106));
+	box-shadow: 0 0 50px rgba(225, 225, 166, 0.5);
+}
+
+.door-panel {
+	width: 100%;
+	height: 100%;
+	background: rgba(51, 51, 106, 0.5);
+	border: 2px solid black;
+}
+
+.right-side {
+	position: relative;
+	height: 400px;
+	width: 500px;
+	background: #626be6;
+	box-shadow: -10px 0 10px rgba(0, 0, 0, 0.2);
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 15px;
+		transform: translate(0, -50%);
+		background: #99a3a3;
+		width: 20px;
+		height: 40px;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		right: 15px;
+		transform: translate(0, -50%);
+		background: #99a3a3;
+		width: 20px;
+		height: 40px;
+	}
+}
+
+.right-side--on {
+	&::before {
+		box-shadow:
+			0 10px 5px rgb(225, 225, 166),
+			0 20px 10px rgb(225, 225, 166),
+			0 50px 50px rgb(225, 225, 166),
+			0 -10px 5px rgb(225, 225, 166),
+			0 -20px 10px rgb(225, 225, 166),
+			0 -50px 50px rgb(225, 225, 166);
+	}
+
+	&::after {
+		box-shadow:
+			0 10px 5px rgb(225, 225, 166),
+			0 20px 10px rgb(225, 225, 166),
+			0 50px 50px rgb(225, 225, 166),
+			0 -10px 5px rgb(225, 225, 166),
+			0 -20px 10px rgb(225, 225, 166),
+			0 -50px 50px rgb(225, 225, 166);
+	}
+}
+
+.garage {
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	transform: translate(-50%, 0);
+	overflow: hidden;
+	background-color: #000;
+}
+
+.garage-door {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	width: 400px;
+	height: 300px;
+	border-top: 10px solid black;
+	border-right: 10px solid black;
+	border-left: 10px solid black;
+	transition: transform 2s;
+}
+
+.garage-door--open {
+	transform: translate(0, -100%);
+}
+
+.garage-panel {
+	width: 100%;
+	height: 100%;
+	background: rgb(64, 24, 165);
+	border: 2px solid black;
+
+	&:nth-last-child(1) {
+		background: #99a3a3;
+	}
+}
+
+.interior-btn-wrapper {
+	position: absolute;
+	bottom: 80%;
+	left: 400px;
+	z-index: 2;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	color: #fff;
+	background: rgba(255, 255, 255, 0.1);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+	padding: 5px 15px 5px 5px;
+	border-radius: 30px;
+
+	&::before {
+		content: "";
+		position: absolute;
+		width: 100px;
+		height: 1px;
+		background: #fff;
+		left: 0;
+		bottom: 0;
+		transform: translate(-100%, 50%) rotate(-45deg);
+		transform-origin: right bottom;
+	}
+}
+
+.exterior-btn-wrapper {
+	position: absolute;
+	bottom: 15%;
+	right: 8%;
+	z-index: 2;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	color: #fff;
+	background: rgba(255, 255, 255, 0.1);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+	padding: 5px 5px 5px 15px;
+	border-radius: 30px;
+
+	&::before {
+		content: "";
+		position: absolute;
+		width: 100px;
+		height: 1px;
+		background: #fff;
+		right: 0;
+		top: 0;
+		transform: translate(100%, 50%) rotate(-45deg);
+		transform-origin: left bottom;
+	}
+}
+
+.garage-btn-wrapper {
+	position: absolute;
+	top: -40px;
+	right: -100px;
+	z-index: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	color: #fff;
+	background: rgba(255, 255, 255, 0.1);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+	padding: 5px 15px 5px 5px;
+	border-radius: 30px;
+
+	&::before {
+		content: "";
+		position: absolute;
+		width: 100px;
+		height: 1px;
+		background: #fff;
+		left: 0;
+		bottom: 0;
+		transform: translate(-100%, -50%) rotate(-45deg);
+		transform-origin: right top;
+	}
+}
+
+.garage-btn {
+	width: 50px;
+	border-radius: 50%;
+	aspect-ratio: 1/1;
+	border: 1px solid #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	span {
+		display: block;
+		width: 2px;
+		border-radius: 50%;
+		aspect-ratio: 1/1;
+		background: #fff;
+		animation: animateSpan 2s infinite linear;
+	}
+}
+
+/* ============================================================
+   RESPONSIVE
+   The house is a fixed-pixel illustration so the right
+   approach is scale() on the whole container — all internal
+   proportions, shadows, and connector lines stay perfect.
+   We counter-scale the button labels so text stays sharp.
+   ============================================================ */
+
+@media (max-width: 1400px) {
+	.house {
+		transform: translate(-50%, 0) scale(0.85);
+		transform-origin: bottom center;
+	}
+}
+
+@media (max-width: 1200px) {
+	.house {
+		transform: translate(-50%, 0) scale(0.72);
+		transform-origin: bottom center;
+	}
+}
+
+@media (max-width: 1024px) {
+	.house {
+		transform: translate(-50%, 0) scale(0.58);
+		transform-origin: bottom center;
+		bottom: 60px;
+	}
+}
+
+@media (max-width: 768px) {
+	.house {
+		transform: translate(-50%, 0) scale(0.4);
+		transform-origin: bottom center;
+		bottom: 40px;
+	}
+}
+
+@media (max-width: 480px) {
+	.house {
+		transform: translate(-50%, 0) scale(0.26);
+		transform-origin: bottom center;
+		bottom: 20px;
 	}
 }
