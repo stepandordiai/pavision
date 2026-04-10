@@ -11,14 +11,19 @@ type HeroParallaxProps = {
 
 const HeroParallax = ({ heading, subheading, imgSrc }: HeroParallaxProps) => {
 	const [scrollY, setScrollY] = useState(0);
+	const [clientHeight, setClientHeight] = useState(800);
 
 	useEffect(() => {
+		setClientHeight(document.documentElement.clientHeight);
+
 		const handleScrollY = () => setScrollY(window.scrollY);
 
 		window.addEventListener("scroll", handleScrollY);
+
+		return () => window.removeEventListener("scroll", handleScrollY);
 	}, []);
 
-	const darkness = Math.min(scrollY / 700, 1);
+	const darkness = Math.min(scrollY / clientHeight, 1);
 
 	const parallax = scrollY * 0.5;
 
