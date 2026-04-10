@@ -9,6 +9,7 @@ import "./styles.scss";
 import { useState } from "react";
 import ArrowRightUpIcon from "@/components/icons/ArrowRightUpIcon";
 import { Swiper, SwiperSlide } from "swiper/react";
+import products from "@/data/products.json";
 
 // Import Swiper styles
 import "swiper/css";
@@ -72,7 +73,7 @@ export default function Lightning() {
 	const [productBrand, setProductBrand] = useState("Crestron");
 
 	return (
-		<main>
+		<main className="main">
 			<HeroParallax
 				heading="Lightning"
 				subheading="Technology"
@@ -185,10 +186,13 @@ export default function Lightning() {
 				<Swiper
 					breakpoints={{
 						0: {
-							slidesPerView: 2.25, // mobile
+							slidesPerView: 1.25, // mobile
 						},
-						768: {
-							slidesPerView: 4.25, // tablet+
+						600: {
+							slidesPerView: 2.25, // tablet+
+						},
+						900: {
+							slidesPerView: 3.25, // tablet+
 						},
 					}}
 					spaceBetween={10}
