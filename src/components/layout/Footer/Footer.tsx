@@ -132,7 +132,7 @@ const Footer = () => {
 					Privacy Policy
 				</Link>
 				<a
-					className={`footer-nav__link ${pathname === "/privacy-policy" ? "footer-nav__link--active" : ""}`}
+					className="footer-nav__link"
 					href="https://vimeo.com/showcase/6204726"
 					target="_blank"
 				>
