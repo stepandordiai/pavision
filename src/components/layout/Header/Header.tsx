@@ -121,7 +121,7 @@ const Header = () => {
 						}}
 					>
 						<Lng />
-						<a className="header__link" href="tel:+420775632426">
+						<a className="link header__link" href="tel:+420775632426">
 							+420 775 632 426
 						</a>
 						<button

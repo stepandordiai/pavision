@@ -1,9 +1,5 @@
 @use "./reset";
-
-:root {
-	--bg-clr-base: #000;
-	--bg-clr: #333;
-}
+@use "./variables";
 
 html {
 	scroll-behavior: smooth;
