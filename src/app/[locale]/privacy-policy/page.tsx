@@ -4,7 +4,7 @@ export default function PrivacyPolicy() {
 	return (
 		<main className="main">
 			<h1 className="main__title">Privacy Policy</h1>
-			<p style={{ marginTop: 10 }}>Last updated: 10 April 2026</p>
+			<p>Last updated: 10 April 2026</p>
 			<br />
 			<ol className="privacy-policy-ol">
 				<li>

@@ -63,3 +63,17 @@ body {
 		}
 	}
 }
+
+.main {
+	padding: 100px 20px;
+	background: var(--bg-clr);
+	min-height: 100svh;
+}
+
+.main__title {
+	font-size: 2rem;
+	font-weight: 500;
+	border-left: 2px solid white;
+	padding-left: 5px;
+	margin-bottom: 20px;
+}

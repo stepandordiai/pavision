@@ -32,8 +32,13 @@ export default async function AboutUs() {
 	const t = await getTranslations();
 
 	return (
-		<main className="about-us">
-			<h1>{t("home.whoWeAreDesc")}</h1>
+		<main className="main">
+			<h1 className="main__title">{t("aboutUsTitle")}</h1>
+			<div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+				{t.raw("home.whoWeAreDesc").map((txt: string, i: number) => {
+					return <p key={i}>{txt}</p>;
+				})}
+			</div>
 		</main>
 	);
 }

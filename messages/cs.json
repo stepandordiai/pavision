@@ -17,7 +17,13 @@
 			"desc": "Navrhujeme a realizujeme chytré domácnosti, audio & video systémy a automatizaci na míru. Zvyšte komfort, bezpečnost i úsporu energie ve svém domově."
 		},
 		"whoWeAreTitle": "Kdo jsme",
-		"whoWeAreDesc": "Máme 15 let zkušeností (montáže v Británii, automatizace, AV instalace). Zabezpečením se zabýváme komplexně. Nabízíme zabezpečovací systémy od značek Jablotron, Paradox a Risco, přístupové systémy jako Salto, a kamerové i přístupové systémy od Ubiquiti. Díky tomu poskytujeme bezpečnostní řešení na míru s flexibilními a ověřenými technologiemi.",
+		"whoWeAreDesc": [
+			"Stojíme za více než 15 lety mezinárodních zkušeností (Velká Británie) v oblasti inteligentních domů, špičkových AV instalací a pokročilé automatizace budov.",
+			"Navrhujeme a realizujeme exkluzivní řešení, která propojují technologie do dokonale sladěného celku – s důrazem na komfort, design a absolutní spolehlivost. Pracujeme s prémiovými platformami jako Crestron, Crestron Home, Loxone a Lutron, které umožňují intuitivní řízení osvětlení, audia, videa, stínění i kompletního prostředí nemovitosti.",
+			"Integrujeme všechny technologie – od multimédií přes osvětlení až po řízení energií – do jedné elegantní a snadno ovladatelné platformy. Výsledkem je prostor, který reaguje na potřeby uživatele a přináší jedinečný uživatelský zážitek.",
+			"Součástí našich realizací je i pokročilé zabezpečení objektů. Implementujeme profesionální systémy od značek Jablotron, Paradox a Risco, přístupové řešení jako Salto a moderní kamerové a síťové technologie od Ubiquiti.",
+			"Každý projekt je pro nás individuální – vytváříme řešení na míru, která splňují nejvyšší nároky na bezpečnost, estetiku a technologickou úroveň."
+		],
 		"whatWeDoTitle": "Co děláme",
 		"whatWeDo": {
 			"title1": "Automatizace",
