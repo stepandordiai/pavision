@@ -9,50 +9,51 @@ const OurSolutions = () => {
 			<h2 className="section__title">{t("title")}</h2>
 			<div className="our-solutions">
 				<div className="our-solutions-container">
-					<div>
-						<h3
-							style={{
-								background: "#000",
-								padding: 10,
-								borderRadius: 10,
-								width: "max-content",
-							}}
-						>
-							{t("security.title")}
-						</h3>
-						<p style={{ fontSize: "2rem" }}>{t("security.subtitle")}</p>
-						<br />
-						<p>{t("security.desc")}</p>
-						<br />
-						<Link className="our-solutions__link" href={"/home-access"}>
-							<span
+					<div
+						style={{
+							display: "flex",
+							flexDirection: "column",
+							gap: 20,
+						}}
+					>
+						<div>
+							<h3
 								style={{
-									display: "flex",
-									justifyContent: "center",
-									alignItems: "center",
 									background: "#000",
-									width: "40px",
-									height: "40px",
+									padding: 10,
 									borderRadius: 10,
+									width: "max-content",
 								}}
 							>
+								{t("security.title")}
+							</h3>
+							<p style={{ fontSize: "2rem" }}>{t("security.subtitle")}</p>
+						</div>
+						<div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+							{t.raw("security.description")?.map((txt: string, i: number) => (
+								<p key={i}>{txt}</p>
+							))}
+						</div>
+						<Link className="our-solutions__link" href="/home-access">
+							<span>
 								<img src="/home-access.png" width={22} alt="" />
 							</span>
 							<span>Home Access</span>
 						</Link>
 					</div>
-					<div>
-						<div style={{ position: "relative" }}>
-							<img className="our-solutions__ss" src="/01.png" alt="" />
-							<img src="/01.jpg" alt="" />
-						</div>
-						<br />
-						<br />
-						<p>{t("security.desc1")}</p>
+					<div style={{ position: "relative" }}>
+						<img className="our-solutions__ss" src="/01.png" alt="" />
+						<img src="/01.jpg" alt="" />
 					</div>
 				</div>
 				<div className="our-solutions-container">
-					<div>
+					<div
+						style={{
+							display: "flex",
+							flexDirection: "column",
+							gap: 20,
+						}}
+					>
 						<h3
 							style={{
 								background: "#000",
@@ -64,72 +65,34 @@ const OurSolutions = () => {
 							{t("wellness.title")}
 						</h3>
 						<p style={{ fontSize: "2rem" }}>{t("wellness.subtitle")}</p>
-						<br />
-						<p>{t("wellness.desc")}</p>
-						<br />
-						<div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+						<div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+							{t.raw("wellness.description")?.map((txt: string, i: number) => {
+								return <p key={i}>{txt}</p>;
+							})}
+						</div>
+						<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
 							<Link href="/lightning" className="our-solutions__link">
-								<div
-									style={{
-										display: "flex",
-										justifyContent: "center",
-										alignItems: "center",
-										background: "#000",
-										width: "40px",
-										height: "40px",
-										borderRadius: 10,
-									}}
-								>
+								<span>
 									<img src="/lightning.png" width={22} alt="" />
-								</div>
+								</span>
 								<span>Lightning</span>
 							</Link>
 							<Link href="/audio" className="our-solutions__link">
-								<div
-									style={{
-										display: "flex",
-										justifyContent: "center",
-										alignItems: "center",
-										background: "#000",
-										width: "40px",
-										height: "40px",
-										borderRadius: 10,
-									}}
-								>
+								<span>
 									<img src="/audio.png" width={22} alt="" />
-								</div>
+								</span>
 								<span>Audio</span>
 							</Link>
 							<Link href="/shades" className="our-solutions__link">
-								<div
-									style={{
-										display: "flex",
-										justifyContent: "center",
-										alignItems: "center",
-										background: "#000",
-										width: "40px",
-										height: "40px",
-										borderRadius: 10,
-									}}
-								>
+								<span>
 									<img src="/shades.png" width={22} alt="" />
-								</div>
+								</span>
 								<span>Shades</span>
 							</Link>
 							<Link href="/thermostat" className="our-solutions__link">
-								<div
-									style={{
-										display: "flex",
-										justifyContent: "center",
-										alignItems: "center",
-										background: "#000",
-										width: "40px",
-										height: "40px",
-										borderRadius: 10,
-									}}
-								>
+								<span>
 									<img src="/thermostat.png" width={22} alt="" />
-								</div>
+								</span>
 								<span>Thermostat</span>
 							</Link>
 						</div>
@@ -140,7 +103,13 @@ const OurSolutions = () => {
 					</div>
 				</div>
 				<div className="our-solutions-container">
-					<div>
+					<div
+						style={{
+							display: "flex",
+							flexDirection: "column",
+							gap: 20,
+						}}
+					>
 						<h3
 							style={{
 								background: "#000",
@@ -152,42 +121,23 @@ const OurSolutions = () => {
 							{t("comfort.title")}
 						</h3>
 						<p style={{ fontSize: "2rem" }}>{t("comfort.subtitle")}</p>
-						<br />
-						<p>{t("comfort.desc")}</p>
-						<br />
-						<p>{t("comfort.desc1")}</p>
-						<br />
+						<div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+							{/* TODO: learn this */}
+							{t.raw("comfort.description")?.map((txt: string, i: number) => {
+								return <p key={i}>{txt}</p>;
+							})}
+						</div>
 						<div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
 							<Link className="our-solutions__link" href="/lightning">
-								<div
-									style={{
-										display: "flex",
-										justifyContent: "center",
-										alignItems: "center",
-										background: "#000",
-										width: "40px",
-										height: "40px",
-										borderRadius: 10,
-									}}
-								>
+								<span>
 									<img src="/lightning.png" width={22} alt="" />
-								</div>
+								</span>
 								<span>Lightning</span>
 							</Link>
 							<Link href="/thermostat" className="our-solutions__link">
-								<div
-									style={{
-										display: "flex",
-										justifyContent: "center",
-										alignItems: "center",
-										background: "#000",
-										width: "40px",
-										height: "40px",
-										borderRadius: 10,
-									}}
-								>
+								<span>
 									<img src="/thermostat.png" width={22} alt="" />
-								</div>
+								</span>
 								<span>Thermostat</span>
 							</Link>
 						</div>
@@ -201,7 +151,13 @@ const OurSolutions = () => {
 					</div>
 				</div>
 				<div className="our-solutions-container">
-					<div>
+					<div
+						style={{
+							display: "flex",
+							flexDirection: "column",
+							gap: 20,
+						}}
+					>
 						<h3
 							style={{
 								background: "#000",
@@ -213,58 +169,31 @@ const OurSolutions = () => {
 							{t("convenience.title")}
 						</h3>
 						<p style={{ fontSize: "2rem" }}>{t("convenience.subtitle")}</p>
-						<br />
-						<p>{t("convenience.desc")}</p>
-						<br />
-						<p>{t("convenience.desc1")}</p>
-						<br />
+						<div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+							{/* TODO: learn this */}
+							{t
+								.raw("convenience.description")
+								?.map((txt: string, i: number) => {
+									return <p key={i}>{txt}</p>;
+								})}
+						</div>
 						<div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
 							<Link href="/shades" className="our-solutions__link">
-								<div
-									style={{
-										display: "flex",
-										justifyContent: "center",
-										alignItems: "center",
-										background: "#000",
-										width: "40px",
-										height: "40px",
-										borderRadius: 10,
-									}}
-								>
+								<span>
 									<img src="/shades.png" width={32} alt="" />
-								</div>
+								</span>
 								<span>Shades</span>
 							</Link>
 							<Link href="/video" className="our-solutions__link">
-								<div
-									style={{
-										display: "flex",
-										justifyContent: "center",
-										alignItems: "center",
-										background: "#000",
-										width: "40px",
-										height: "40px",
-										borderRadius: 10,
-									}}
-								>
+								<span>
 									<img src="/video.png" width={22} alt="" />
-								</div>
+								</span>
 								<span>Video</span>
 							</Link>
 							<Link href="/audio" className="our-solutions__link">
-								<div
-									style={{
-										display: "flex",
-										justifyContent: "center",
-										alignItems: "center",
-										background: "#000",
-										width: "40px",
-										height: "40px",
-										borderRadius: 10,
-									}}
-								>
+								<span>
 									<img src="/audio.png" width={22} alt="" />
-								</div>
+								</span>
 								<span>Audio</span>
 							</Link>
 						</div>

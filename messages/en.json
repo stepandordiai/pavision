@@ -83,25 +83,49 @@
 		"security": {
 			"title": "Security",
 			"subtitle": "Peace of mind for your home",
-			"desc": "You can’t put a price on the peace of mind that comes with knowing your loved ones are safe and what’s most precious and treasured are secure whether you are at home or away.",
-			"desc1": "Continuous system feedback on our mobile device confirms the status of door locks and alarms, the exact positions of gates and garages, and provides real-time views of cameras."
+			"description": [
+				"Protect what matters most with smart home security solutions powered by Crestron Home. Gain peace of mind knowing your family, property, and valuables are secure whether you're at home or away.",
+				"Stay informed with real-time system feedback directly on your mobile device. Instantly check the status of smart locks, alarms, garage doors, and gates, and view live security camera feeds from anywhere.",
+				"Our advanced home automation system gives you complete control over your home's security. Manage door locks, garage doors, gates, and surveillance cameras through a single intuitive app, with instant alerts and remote access at your fingertips.",
+				"With seamless smart home integration, automate security routines, lock or unlock doors remotely, and monitor every entry point with ease. Crestron Home delivers reliable, intelligent security designed for modern living.",
+				"From smart locks and video surveillance to full remote access control, transform your home into a connected, secure environment tailored to your lifestyle. Experience the future of smart home security with Crestron Home."
+			]
 		},
 		"wellness": {
 			"title": "Wellness",
 			"subtitle": "Yes. Your home can benefit your health",
-			"desc": "Your sleep. Your energy. Your mood. Your emotional and physical health. A smart home can improve and support these, and other, aspects of wellness. Lighting, acoustics, temperature, and water quality all play a role. The Crestron Home® OS allows you to easily orchestrate your home’s environment, as well as how your home interacts with the outside world to create an oasis that enhances your life."
+			"description": [
+				"Your sleep. Your energy. Your mood. Your physical and mental well-being. A smart home can actively support and enhance all of these areas. Lighting, acoustics, temperature, and water quality all play a key role in how you feel every day.",
+				"The Crestron Home® OS system allows you to effortlessly control your home environment and its interaction with the outside world. Create a space that aligns with your lifestyle and naturally supports your well-being.",
+				"Your home can adapt to your needs in real time. With intelligent automation, you can easily optimize lighting, sound, temperature, and indoor environmental quality for maximum comfort.",
+				"Automated scenes allow you to wake up with natural light, relax with perfectly tuned audio, or create the ideal conditions for both work and rest. Your home responds to your habits and supports your overall health.",
+				"Crestron Home gives you full control over lighting, shading, climate, and audio systems through a single intuitive app. Simple, efficient, and always within reach.",
+				"Transform your home into an environment that reduces stress, enhances your quality of life, and actively supports your health. Discover the true potential of a smart home."
+			]
 		},
 		"comfort": {
 			"title": "Comfort",
 			"subtitle": "Your home is your sanctuary",
-			"desc": "It’s the one place that is truly your own. Everything is impeccably suited to you.",
-			"desc1": "The cushions are just as soft or firm as you like. The fixtures and finishes are carefully selected. The light and temperature in every space are always perfectly adjusted for every hour and every occasion."
+			"description": [
+				"Your home should be more than just a place to live—it should be a sanctuary of comfort tailored to your lifestyle. With smart home climate control powered by Crestron Home, every detail of your environment is designed around your personal preferences.",
+				"Experience perfect comfort in every room with intelligent temperature control, automated lighting, and seamless home automation. From soft ambient lighting to precisely balanced indoor climate, your home adapts to you throughout the day.",
+				"Advanced smart thermostats and climate systems ensure that every space is always set to the ideal temperature. Whether you're relaxing, working, or sleeping, your home maintains the perfect atmosphere automatically.",
+				"With fully integrated smart home technology, you can control lighting, shading, and temperature from a single intuitive app. Adjust settings instantly or create automated scenes that respond to your daily routines.",
+				"Enjoy a living space where comfort, design, and technology work together effortlessly. Crestron Home transforms your house into a personalized environment that enhances relaxation, efficiency, and everyday living.",
+				"Discover a new standard of comfort with smart home automation—where every detail is perfectly tuned to you, every moment of the day."
+			]
 		},
 		"convenience": {
 			"title": "Convenience",
 			"subtitle": "Your home should work for you, not the other way around",
-			"desc": "The Crestron Home® OS makes the complex simple: The monotonous automatic; the tedious quick. Whatever you want, wherever you are, it’s a tap. Everything simply works the way you want it to every time.",
-			"desc1": "No hoping. No stressing: Watch content and play video games on any TV; Listen to your favorite streaming service or playlist throughout the house."
+			"description": [
+				"With smart home automation powered by Crestron Home, everyday tasks become effortless, intuitive, and perfectly aligned with your lifestyle.",
+				"Control your entire home from a single app, whether you're in the next room or across the world. Adjust lighting, shades, audio, video, and more with just a tap, or let your home respond automatically to your daily routines.",
+				"Simplify your day with intelligent automation that handles the details for you. From lowering shades at sunset to setting the perfect ambiance for movie night, your home anticipates your needs and responds instantly.",
+				"Enjoy seamless whole-home entertainment with integrated audio and video systems. Watch your favorite content on any screen, stream music throughout your home, and create personalized experiences in every room.",
+				"Crestron Home transforms complex technology into a simple, unified experience. Everything works together smoothly, giving you total control without effort or distraction.",
+				"Experience a smarter way of living—where convenience, comfort, and control come together to make every moment at home easier, more enjoyable, and completely yours."
+			]
 		}
 	},
 	"crestronApp": {

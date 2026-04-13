@@ -85,25 +85,50 @@
 		"security": {
 			"title": "Zabezpečení",
 			"subtitle": "Klid a bezpečí pro váš domov",
-			"desc": "Pocit jistoty, že jsou vaši blízcí v bezpečí a to nejcennější je chráněno – ať už jste doma nebo mimo něj – je k nezaplacení.",
-			"desc1": "Nepřetržitá zpětná vazba systému ve vašem mobilním zařízení potvrzuje stav zámků a alarmů, přesnou polohu bran a garáží a poskytuje živý náhled z kamer."
+			"description": [
+				"Chraňte to nejdůležitější pomocí chytrých bezpečnostních řešení pro domácnost od Crestron Home. Získejte klid díky jistotě, že vaše rodina, majetek i cennosti jsou v bezpečí, ať už jste doma nebo mimo něj.",
+				"Mějte neustálý přehled díky zpětné vazbě systému v reálném čase přímo ve vašem mobilním zařízení. Okamžitě zkontrolujte stav chytrých zámků, alarmů, garážových vrat a bran a sledujte živý přenos z bezpečnostních kamer odkudkoliv.",
+				"Náš pokročilý systém domácí automatizace vám poskytuje plnou kontrolu nad zabezpečením vašeho domova. Ovládejte dveřní zámky, garážová vrata, brány i kamery prostřednictvím jediné intuitivní aplikace, s okamžitými upozorněními a vzdáleným přístupem na dosah ruky.",
+				"Díky bezproblémové integraci chytré domácnosti můžete automatizovat bezpečnostní scénáře, na dálku zamykat či odemykat dveře a snadno kontrolovat všechny vstupní body. Crestron Home přináší spolehlivé a inteligentní zabezpečení pro moderní život.",
+				"Od chytrých zámků a kamerových systémů až po plnou vzdálenou kontrolu přístupu – proměňte svůj domov v propojené a bezpečné prostředí přizpůsobené vašemu životnímu stylu. Zažijte budoucnost chytré domácí bezpečnosti s Crestron Home."
+			]
 		},
 		"wellness": {
 			"title": "Wellness",
 			"subtitle": "Ano, váš domov může prospívat vašemu zdraví",
-			"desc": "Váš spánek. Vaše energie. Vaše nálada. Vaše fyzické i duševní zdraví. Chytrá domácnost může všechny tyto oblasti podpořit a zlepšit. Světlo, akustika, teplota i kvalita vody hrají důležitou roli. Systém Crestron Home® OS vám umožňuje snadno řídit prostředí vašeho domova i jeho interakci s okolním světem a vytvořit tak oázu, která obohacuje váš život."
+			"desc": "",
+			"description": [
+				"Váš spánek. Vaše energie. Vaše nálada. Vaše fyzické i duševní zdraví. Chytrá domácnost může všechny tyto oblasti aktivně podporovat a zlepšovat. Světlo, akustika, teplota i kvalita vody hrají klíčovou roli v tom, jak se každý den cítíte.",
+				"Systém Crestron Home® OS vám umožňuje jednoduše řídit prostředí vašeho domova a jeho interakci s okolním světem. Vytvořte si prostor, který funguje v souladu s vaším životním stylem a přirozeně podporuje vaši pohodu.",
+				"Váš domov se může přizpůsobit vašim potřebám v reálném čase. Díky inteligentní automatizaci snadno optimalizujete osvětlení, zvuk, teplotu i kvalitu vnitřního prostředí pro maximální komfort.",
+				"Automatizované scénáře vám umožní probouzet se s přirozeným světlem, relaxovat při jemně nastavené hudbě nebo vytvořit ideální podmínky pro práci i odpočinek. Domov tak reaguje na vaše návyky a podporuje vaše zdraví.",
+				"Systém Crestron Home vám dává plnou kontrolu nad osvětlením, stíněním, klimatizací i audio systémem prostřednictvím jediné intuitivní aplikace. Jednoduše, efektivně a kdykoliv.",
+				"Proměňte svůj domov v prostředí, které snižuje stres, zvyšuje kvalitu života a aktivně podporuje vaše zdraví. Objevte skutečný potenciál chytré domácnosti."
+			]
 		},
 		"comfort": {
 			"title": "Komfort",
 			"subtitle": "Váš domov je vaše útočiště",
-			"desc": "Je to jediné místo, které je skutečně vaše. Vše je dokonale přizpůsobeno vašim potřebám.",
-			"desc1": "Polštáře jsou přesně tak měkké nebo pevné, jak máte rádi. Vybavení i materiály jsou pečlivě vybrané. Světlo i teplota v každé místnosti jsou vždy ideálně nastavené pro každou hodinu i příležitost."
+			"description": [
+				"Váš domov by měl být víc než jen místo k bydlení – měl by být oázou komfortu přizpůsobenou vašemu životnímu stylu. Díky chytrému řízení klimatu od Crestron Home je každý detail vašeho prostředí navržen podle vašich osobních preferencí.",
+				"Zažijte dokonalé pohodlí v každé místnosti díky inteligentní regulaci teploty, automatizovanému osvětlení a bezproblémové domácí automatizaci. Od jemného ambientního světla až po přesně vyvážené vnitřní klima – váš domov se vám přizpůsobuje po celý den.",
+				"Pokročilé chytré termostaty a klimatické systémy zajišťují, že každý prostor je vždy nastaven na ideální teplotu. Ať už odpočíváte, pracujete nebo spíte, váš domov automaticky udržuje perfektní atmosféru.",
+				"Díky plně integrované technologii chytré domácnosti můžete ovládat osvětlení, stínění i teplotu prostřednictvím jediné intuitivní aplikace. Okamžitě upravujte nastavení nebo vytvářejte automatizované scénáře podle vašich každodenních návyků.",
+				"Užijte si prostor, kde komfort, design a technologie fungují v dokonalé harmonii. Crestron Home promění váš domov v personalizované prostředí, které podporuje relaxaci, efektivitu i každodenní pohodu.",
+				"Objevte nový standard komfortu s chytrou domácností – kde je každý detail dokonale vyladěn pro vás, v každém okamžiku dne."
+			]
 		},
 		"convenience": {
 			"title": "Pohodlí",
 			"subtitle": "Váš domov by měl pracovat pro vás, ne naopak",
-			"desc": "Crestron Home® OS dělá složité věci jednoduchými: rutinní automatickými a zdlouhavé rychlými. Ať už chcete cokoliv a odkudkoliv, stačí jedno klepnutí. Vše funguje přesně tak, jak chcete – pokaždé.",
-			"desc1": "Bez čekání. Bez stresu: Sledujte obsah a hrajte videohry na jakékoli televizi; poslouchejte oblíbenou hudbu nebo playlist v celém domě."
+			"description": [
+				"S chytrou domácností Crestron Home se každodenní činnosti stávají snadnými, intuitivními a dokonale sladěnými s vaším životním stylem.",
+				"Ovládejte celý svůj domov z jediné aplikace, ať už jste ve vedlejší místnosti nebo na druhém konci světa. Nastavujte osvětlení, stínění, audio, video a další prvky jedním klepnutím, nebo nechte svůj domov reagovat automaticky na vaše každodenní návyky.",
+				"Zjednodušte si den díky inteligentní automatizaci, která se postará o detaily za vás. Od automatického zatažení žaluzií při západu slunce až po vytvoření ideální atmosféry pro filmový večer – váš domov předvídá vaše potřeby a okamžitě reaguje.",
+				"Užijte si bezproblémovou zábavu v celém domě díky integrovaným audio a video systémům. Sledujte oblíbený obsah na jakékoliv obrazovce, poslouchejte hudbu v celém domě a vytvářejte personalizované zážitky v každé místnosti.",
+				"Crestron Home proměňuje komplexní technologie v jednoduchý a sjednocený zážitek. Vše funguje hladce a bez námahy, takže máte plnou kontrolu bez zbytečných komplikací.",
+				"Objevte chytřejší způsob bydlení – kde se pohodlí, komfort a kontrola spojují, aby byl každý okamžik doma jednodušší, příjemnější a skutečně váš."
+			]
 		}
 	},
 	"crestronApp": {
