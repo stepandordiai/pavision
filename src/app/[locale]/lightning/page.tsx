@@ -73,7 +73,7 @@ export default function Lightning() {
 	const [productBrand, setProductBrand] = useState("Crestron");
 
 	return (
-		<main className="main">
+		<main style={{ overflow: "hidden" }}>
 			<HeroParallax
 				heading="Lightning"
 				subheading="Technology"
