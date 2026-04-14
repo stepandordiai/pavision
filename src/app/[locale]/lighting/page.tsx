@@ -1,8 +1,8 @@
-import ProductsClient from "./ProductsClient";
-import { routing } from "@/i18n/routing";
-import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
-import "./Products.scss";
+import { getTranslations } from "next-intl/server";
+import { routing } from "@/i18n/routing";
+import LightingClient from "./LightingClient";
+import "./styles.scss";
 
 export async function generateMetadata({
 	params,
@@ -10,8 +10,8 @@ export async function generateMetadata({
 	params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
 	const { locale } = await params;
-	const t = await getTranslations({ locale, namespace: "products.meta" });
-	const page = "products";
+	const t = await getTranslations({ locale, namespace: "lighting.meta" });
+	const page = "lighting";
 	const languages = Object.fromEntries(
 		routing.locales.map((l) => [l, `/${l}/${page}`]),
 	);
@@ -29,6 +29,6 @@ export async function generateMetadata({
 	};
 }
 
-export default function Products() {
-	return <ProductsClient />;
+export default function Lightning() {
+	return <LightingClient />;
 }

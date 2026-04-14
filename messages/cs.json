@@ -62,7 +62,7 @@
 			"desc": "Zažijte novou úroveň pohodlí s inteligentními systémy přístupu do domácnosti. Ovládejte vstup, zabezpečení i automatizaci odkudkoli."
 		}
 	},
-	"lightning": {
+	"lighting": {
 		"meta": {
 			"title": "Advanced Smart Lighting Systems | Automated & Energy Efficient",
 			"desc": "Upgrade to smart lighting with automated control, dimming, and scene customization. Improve comfort, efficiency, and ambiance in every room."
@@ -140,5 +140,11 @@
 	"crestronApp": {
 		"title": "Stáhněte si aplikaci Crestron Home® pro svá zařízení.",
 		"hint": "Demo režim je dostupný pouze na iOS, pro Android je vyžadován systém."
+	},
+	"contacts": {
+		"meta": {
+			"title": "Kontaktujte nás | P&A Vision chytrá domácnost",
+			"desc": "Chcete vylepšit svůj domov? Kontaktujte P&A Vision pro chytrou domácnost, audio-video systémy a technologická řešení na míru."
+		}
 	}
 }

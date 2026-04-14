@@ -2,10 +2,6 @@
 
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import CrestronApp from "@/components/CrestronApp/CrestronApp";
-import { routing } from "@/i18n/routing";
-import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
-import "./styles.scss";
 import { useState } from "react";
 import ArrowRightUpIcon from "@/components/icons/ArrowRightUpIcon";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,31 +10,6 @@ import products from "@/data/products.json";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-
-// export async function generateMetadata({
-// 	params,
-// }: {
-// 	params: Promise<{ locale: string }>;
-// }): Promise<Metadata> {
-// 	const { locale } = await params;
-// 	const t = await getTranslations({ locale, namespace: "lightning.meta" });
-// 	const page = "/lightning";
-// 	const languages = Object.fromEntries(
-// 		routing.locales.map((l) => [l, `/${l}/${page}`]),
-// 	);
-
-// 	return {
-// 		title: t("title"),
-// 		description: t("desc"),
-// 		alternates: {
-// 			canonical: `/${locale}/${page}`,
-// 			languages: {
-// 				...languages,
-// 				"x-default": `/${routing.defaultLocale}/${page}`,
-// 			},
-// 		},
-// 	};
-// }
 
 const data = [
 	{
@@ -68,7 +39,7 @@ const data = [
 	},
 ];
 
-export default function Lightning() {
+export default function LightingClient() {
 	const [interiorState, setInteriorState] = useState(data[0]);
 	const [productBrand, setProductBrand] = useState("Crestron");
 

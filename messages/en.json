@@ -60,7 +60,7 @@
 			"desc": "Experience next-level convenience with intelligent home access systems. Control entry, security, and automation effortlessly from anywhere."
 		}
 	},
-	"lightning": {
+	"lighting": {
 		"meta": {
 			"title": "Advanced Smart Lighting Systems | Automated & Energy Efficient",
 			"desc": "Upgrade to smart lighting with automated control, dimming, and scene customization. Improve comfort, efficiency, and ambiance in every room."
@@ -137,5 +137,11 @@
 	"crestronApp": {
 		"title": "Download Crestron Home® app for your devices.",
 		"hint": "Demo Mode Available on iOS Only, System is Required on Android"
+	},
+	"contacts": {
+		"meta": {
+			"title": "Contact Us | P&A Vision Smart Home Solutions",
+			"desc": "Ready to upgrade your home? Contact P&A Vision for smart home automation, audio-video systems, and tailored technology solutions."
+		}
 	}
 }
