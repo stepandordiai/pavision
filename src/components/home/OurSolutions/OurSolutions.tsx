@@ -71,11 +71,11 @@ const OurSolutions = () => {
 							})}
 						</div>
 						<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
-							<Link href="/lightning" className="our-solutions__link">
+							<Link href="/lighting" className="our-solutions__link">
 								<span>
-									<img src="/lightning.png" width={22} alt="" />
+									<img src="/lighting.png" width={22} alt="" />
 								</span>
-								<span>Lightning</span>
+								<span>Lighting</span>
 							</Link>
 							<Link href="/audio" className="our-solutions__link">
 								<span>
@@ -128,11 +128,11 @@ const OurSolutions = () => {
 							})}
 						</div>
 						<div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-							<Link className="our-solutions__link" href="/lightning">
+							<Link className="our-solutions__link" href="/lighting">
 								<span>
-									<img src="/lightning.png" width={22} alt="" />
+									<img src="/lighting.png" width={22} alt="" />
 								</span>
-								<span>Lightning</span>
+								<span>Lighting</span>
 							</Link>
 							<Link href="/thermostat" className="our-solutions__link">
 								<span>

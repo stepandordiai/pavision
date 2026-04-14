@@ -4,26 +4,8 @@ import { usePathname } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import technologies from "@/data/technologies.json";
+import navLinks from "@/data/nav-links.json";
 import "./Footer.scss";
-
-const navLinks = [
-	{
-		label: "homeTitle",
-		path: "/",
-	},
-	{
-		label: "aboutUsTitle",
-		path: "/o-nas",
-	},
-	{
-		label: "productsTitle",
-		path: "/produkty",
-	},
-	{
-		label: "contactsTitle",
-		path: "/kontakty",
-	},
-];
 
 const Footer = () => {
 	const t = useTranslations();

@@ -32,8 +32,6 @@ export default async function LocaleLayout({
 		return notFound();
 	}
 
-	console.log(locale);
-
 	return (
 		<html lang={locale}>
 			<body className={poppins.variable}>

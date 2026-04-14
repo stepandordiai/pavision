@@ -1,0 +1,18 @@
+[
+	{
+		"label": "homeTitle",
+		"path": "/"
+	},
+	{
+		"label": "aboutUsTitle",
+		"path": "/about-us"
+	},
+	{
+		"label": "productsTitle",
+		"path": "/products"
+	},
+	{
+		"label": "contactsTitle",
+		"path": "/contacts"
+	}
+]

@@ -5,26 +5,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "@/i18n/navigation";
 import Lng from "@/components/Lng/Lng";
+import navLinks from "@/data/nav-links.json";
 import "./Header.scss";
-
-const navLinks = [
-	{
-		label: "homeTitle",
-		path: "/",
-	},
-	{
-		label: "aboutUsTitle",
-		path: "/o-nas",
-	},
-	{
-		label: "productsTitle",
-		path: "/produkty",
-	},
-	{
-		label: "contactsTitle",
-		path: "/kontakty",
-	},
-];
 
 const Header = () => {
 	const t = useTranslations();
