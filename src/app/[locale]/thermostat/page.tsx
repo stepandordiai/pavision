@@ -30,15 +30,17 @@ export async function generateMetadata({
 	};
 }
 
-export default function Thermostat() {
+export default async function Thermostat() {
+	const t = await getTranslations();
+
 	return (
 		<main>
 			<HeroParallax
-				heading="Thermostat"
-				subheading="Technology"
+				heading={t("thermostat.title")}
+				subheading={t("thermostat.subtitle")}
 				imgSrc="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-thermostat-thumn.jpg"
 			/>
-			<section className="section">
+			<section className="section" id="section">
 				<h2 className="section__title">Peace of mind.</h2>
 				<div
 					style={{

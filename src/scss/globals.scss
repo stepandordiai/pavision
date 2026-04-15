@@ -21,10 +21,8 @@ body {
 
 .section__title {
 	position: relative;
-	font-size: 2rem;
+	font-size: 2.5rem;
 	font-weight: 500;
-	border-left: 2px solid white;
-	padding-left: 5px;
 	margin-bottom: 20px;
 	margin-top: 80px;
 }
@@ -76,4 +74,23 @@ body {
 	border-left: 2px solid white;
 	padding-left: 5px;
 	margin-bottom: 20px;
+}
+
+.technology-section {
+	padding: 20px;
+	background: #333;
+	display: flex;
+	flex-direction: column;
+}
+
+.technology-section-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+}
+
+@media screen and (width < 1000px) {
+	.technology-section-container {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }

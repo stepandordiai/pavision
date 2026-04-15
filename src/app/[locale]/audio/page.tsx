@@ -31,17 +31,19 @@ export async function generateMetadata({
 	};
 }
 
-export default function Audio() {
+export default async function Audio() {
+	const t = await getTranslations();
+
 	return (
 		<main>
 			<HeroParallax
-				heading="Audio"
-				subheading="Technology"
-				imgSrc="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/audio-products-speakers-image.jpg"
+				heading={t("audio.title")}
+				subheading={t("audio.subtitle")}
+				imgSrc="https://www.bowerswilkins.com/on/demandware.static/-/Sites-master-catalog-soundunited/default/dw0b413071/bowers/Rich-Content/bandw_formationbar_be_desktop.jpg"
 			/>
-			<section className="section">
-				<h2 className="section__title">Soothing sounds</h2>
-				<div className="audio-section-container">
+			<section className="technology-section" id="section">
+				<h2 className="section__title">| Soothing sounds</h2>
+				<div className="technology-section-container">
 					<p>
 						With a Crestron audio system, every room of your home can be filled
 						with the sounds of nature. This can help reduce anxiety, blood
@@ -57,7 +59,7 @@ export default function Audio() {
 					/>
 				</div>
 			</section>
-			<section className="section">
+			<section className="technology-section">
 				<h2 className="section__title">
 					Listen passively or take control of your musical experience.
 				</h2>
@@ -65,7 +67,7 @@ export default function Audio() {
 					style={{
 						display: "grid",
 						gridTemplateColumns: "repeat(1, 1fr)",
-						gap: 40,
+						gap: 20,
 					}}
 				>
 					<img

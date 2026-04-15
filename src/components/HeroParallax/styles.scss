@@ -14,21 +14,22 @@
 	}
 }
 
+.main__subtitle {
+	font-size: 18px;
+}
+
 .main-heading {
-	font-size: clamp(2rem, 4vw, 4rem);
+	font-size: clamp(3rem, 7vw, 6rem);
+	font-weight: 500;
 }
 
 .hero-parallax-container {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+	gap: 20px;
 	width: 100%;
 	flex-wrap: wrap;
 	padding: 20px;
-
-	span {
-		width: 100%;
-		text-align: right;
-	}
 }
 
 @media screen and (width < 500px) {

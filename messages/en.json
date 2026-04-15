@@ -52,37 +52,49 @@
 		"meta": {
 			"title": "Immersive Smart Home Audio Solutions | P&A Vision",
 			"desc": "Transform your home with immersive audio technologies. From seamless multiroom music to cinematic experiences, we create sound that fits your life."
-		}
+		},
+		"title": "Audio",
+		"subtitle": "Automatically playing what you want, when you want"
 	},
 	"homeAccess": {
 		"meta": {
 			"title": "Luxury Smart Home Access & Automation | P&A Vision",
 			"desc": "Experience next-level convenience with intelligent home access systems. Control entry, security, and automation effortlessly from anywhere."
-		}
+		},
+		"title": "Home Access",
+		"subtitle": "Effortless entry and peace of mind, wherever you are"
 	},
 	"lighting": {
 		"meta": {
 			"title": "Advanced Smart Lighting Systems | Automated & Energy Efficient",
 			"desc": "Upgrade to smart lighting with automated control, dimming, and scene customization. Improve comfort, efficiency, and ambiance in every room."
-		}
+		},
+		"title": "Lighting",
+		"subtitle": "Lighting that adapts to your mood and routine"
 	},
 	"shades": {
 		"meta": {
 			"title": "Luxury Smart Shades & Blinds | Elegant Home Automation",
 			"desc": "Enhance your living space with automated shades and blinds. Enjoy perfect lighting, privacy, and energy efficiency with sophisticated smart control."
-		}
+		},
+		"title": "Shades",
+		"subtitle": "Automatic shading that adapts to your day"
 	},
 	"thermostat": {
 		"meta": {
 			"title": "Luxury Smart Climate Control | Intelligent Thermostat Systems",
 			"desc": "Experience perfect indoor comfort with advanced smart thermostat solutions. Control temperature, reduce energy costs, and automate your home effortlessly."
-		}
+		},
+		"title": "Thermostat",
+		"subtitle": "Perfect temperature, exactly when you need it"
 	},
 	"video": {
 		"meta": {
 			"title": "Smart Home Video & Cinema Systems | High-End Visual Solutions",
 			"desc": "Upgrade your entertainment with smart video systems, 4K/8K displays, and integrated home cinema setups designed for ultimate performance and convenience."
-		}
+		},
+		"title": "Video",
+		"subtitle": "Easy video control"
 	},
 	"ourSolutions": {
 		"title": "Our solutions with Crestron Home",

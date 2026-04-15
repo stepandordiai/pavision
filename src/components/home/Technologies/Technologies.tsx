@@ -11,47 +11,9 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Autoplay, Pagination } from "swiper/modules";
+import { TransitionLink } from "@/components/TransitionLink";
+import technologies from "@/data/technologies.json";
 import "./Technologies.scss";
-import { Link } from "@/i18n/navigation";
-
-const technologies = [
-	{
-		title: "Lightning",
-		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-dimmer-3.jpg",
-		icon: "lightning.png",
-		path: "/lightning",
-	},
-	{
-		title: "Shading",
-		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-shades-roller.jpg",
-		icon: "shades.png",
-		path: "/shades",
-	},
-	{
-		title: "Audio",
-		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/audio-products-speakers-image.jpg",
-		icon: "audio.png",
-		path: "/audio",
-	},
-	{
-		title: "Video",
-		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-video-hero.jpg",
-		icon: "video.png",
-		path: "/video",
-	},
-	{
-		title: "Home access",
-		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/partner%20pages/integrated%20partners/2n/photo1_desktop.png",
-		icon: "home-access.png",
-		path: "/home-access",
-	},
-	{
-		title: "Thermostats",
-		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-thermostat-thumn.jpg",
-		icon: "thermostat.png",
-		path: "/thermostat",
-	},
-];
 
 const Technologies = () => {
 	const t = useTranslations();
@@ -112,7 +74,11 @@ const Technologies = () => {
 					{technologies.map((technology, i) => {
 						return (
 							<SwiperSlide>
-								<Link href={technology.path} key={i} className="technology">
+								<TransitionLink
+									href={technology.path}
+									key={i}
+									className="technology"
+								>
 									<div className="technology__img-wrapper">
 										<img src={technology.img} alt="" />
 									</div>
@@ -128,7 +94,7 @@ const Technologies = () => {
 										</div>
 										<h3>{technology.title}</h3>
 									</div>
-								</Link>
+								</TransitionLink>
 							</SwiperSlide>
 						);
 					})}

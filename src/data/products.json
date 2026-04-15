@@ -171,28 +171,28 @@
 		"name": "Yale",
 		"img": "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-home-access-locks-yale.png",
 		"type": "Locks",
-		"technology": "Home access",
+		"technology": "Home Access",
 		"brand": "Crestron"
 	},
 	{
 		"name": "2N",
 		"img": "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-home-access-itercoms-2n.png",
 		"type": "Intercoms and door stations",
-		"technology": "Home access",
+		"technology": "Home Access",
 		"brand": "Crestron"
 	},
 	{
 		"name": "eKey",
 		"img": "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-home-access-itercoms-ekey.png",
 		"type": "Intercoms and door stations",
-		"technology": "Home access",
+		"technology": "Home Access",
 		"brand": "Crestron"
 	},
 	{
 		"name": "AVLINKPRO",
 		"img": "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/home-access-product-avlinkpro.png",
 		"type": "Intercoms and door stations",
-		"technology": "Home access",
+		"technology": "Home Access",
 		"brand": "Crestron"
 	},
 	{

@@ -6,6 +6,7 @@ import { Link } from "@/i18n/navigation";
 import technologies from "@/data/technologies.json";
 import navLinks from "@/data/nav-links.json";
 import "./Footer.scss";
+import { TransitionLink } from "@/components/TransitionLink";
 
 const Footer = () => {
 	const t = useTranslations();
@@ -14,7 +15,7 @@ const Footer = () => {
 
 	return (
 		<footer className="footer">
-			<Link className="footer__logo" href="/">
+			<TransitionLink className="footer__logo" href="/">
 				<svg
 					width="30"
 					height="30"
@@ -28,7 +29,7 @@ const Footer = () => {
 					/>
 				</svg>
 				<span>P&A Vision</span>
-			</Link>
+			</TransitionLink>
 			<div style={{ display: "flex", gap: 40, flexWrap: "wrap" }}>
 				<div>
 					<p style={{ marginBottom: 10 }}>{t("navigation")}</p>
@@ -36,12 +37,12 @@ const Footer = () => {
 						{navLinks.map((navLink, i) => {
 							return (
 								<li key={i}>
-									<Link
+									<TransitionLink
 										className={`footer-nav__link ${pathname === navLink.path ? "footer-nav__link--active" : ""}`}
 										href={navLink.path}
 									>
 										{t(navLink.label)}
-									</Link>
+									</TransitionLink>
 								</li>
 							);
 						})}
@@ -53,12 +54,12 @@ const Footer = () => {
 						{technologies.map((technology, i) => {
 							return (
 								<li key={i}>
-									<Link
+									<TransitionLink
 										className={`footer-nav__link ${pathname === technology.path ? "footer-nav__link--active" : ""}`}
 										href={technology.path}
 									>
 										{technology.title}
-									</Link>
+									</TransitionLink>
 								</li>
 							);
 						})}
@@ -107,12 +108,12 @@ const Footer = () => {
 			</div>
 			<div className="footer__divider"></div>
 			<div style={{ display: "flex", gap: 10 }}>
-				<Link
+				<TransitionLink
 					className={`footer-nav__link ${pathname === "/privacy-policy" ? "footer-nav__link--active" : ""}`}
 					href="/privacy-policy"
 				>
 					Privacy Policy
-				</Link>
+				</TransitionLink>
 				<a
 					className="footer-nav__link"
 					href="https://vimeo.com/showcase/6204726"

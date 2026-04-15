@@ -9,6 +9,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { BASE_URL } from "@/lib/constants";
 import "@/scss/globals.scss";
+import { TransitionProvider } from "@/providers/TransitionProvider";
 
 const poppins = Poppins({
 	variable: "--font-poppins",
@@ -38,9 +39,11 @@ export default async function LocaleLayout({
 				<ScrollToTop />
 				<NextIntlClientProvider locale={locale}>
 					<Banner />
-					<Header />
-					{children}
-					<Footer />
+					<TransitionProvider>
+						<Header />
+						{children}
+						<Footer />
+					</TransitionProvider>
 				</NextIntlClientProvider>
 			</body>
 		</html>

@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import "./styles.scss";
+import HomeAccessClient from "./HomeAccessClient";
+import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
 
 export async function generateMetadata({
 	params,
@@ -30,29 +32,25 @@ export async function generateMetadata({
 	};
 }
 
-export default function HomeAccess() {
+export default async function HomeAccess() {
+	const t = await getTranslations();
+
 	return (
 		<main>
 			<HeroParallax
-				heading="Home Access"
-				subheading="Technology"
-				imgSrc="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/partner%20pages/integrated%20partners/2n/photo1_desktop.png"
+				heading={t("homeAccess.title")}
+				subheading={t("homeAccess.subtitle")}
+				imgSrc="https://www.lavishautomation.com/images/client/brands/security-header%201.jpg"
 			/>
-			<section className="section">
+			<section className="technology-section" id="section">
 				<h2 className="section__title">Peace of mind.</h2>
-				<div
-					style={{
-						display: "grid",
-						gridTemplateColumns: "repeat(2, 1fr)",
-						gap: 40,
-					}}
-				>
+				<div className="technology-section-container">
 					<p>
 						The greatest stress reliever is knowing your home is safe and secure
 						for you and your loved ones. Crestron Home unifies the technologies
 						that make it a reality, from security systems to power and energy
 						management that prevents service disruption. No matter what happens
-						– storms, heat waves, equipment failures – your home will work
+						- storms, heat waves, equipment failures - your home will work
 						exactly as it was designed to.
 					</p>
 					<img
@@ -64,15 +62,7 @@ export default function HomeAccess() {
 					/>
 				</div>
 			</section>
-			<section style={{ minHeight: "100svh", background: "#333", padding: 20 }}>
-				<div className="technology__title">
-					<div className="technology__icon-container">
-						<img src="/home-access.png" width={24} height={24} alt="" />
-					</div>
-					<p>Home Access</p>
-				</div>
-				<p style={{ fontSize: "2rem" }}>Products</p>
-			</section>
+			<TechnologyProducts technology="Home Access" />
 			<CrestronApp />
 		</main>
 	);

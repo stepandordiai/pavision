@@ -54,37 +54,49 @@
 		"meta": {
 			"title": "Dokonalý zvuk pro váš chytrý domov | P&A Vision",
 			"desc": "Zažijte hudbu v každé místnosti. Navrhujeme inteligentní audio řešení od multiroom systémů po domácí kina přesně podle vašeho životního stylu."
-		}
+		},
+		"title": "Audio",
+		"subtitle": "Automaticky přehrává to, co chcete, kdy chcete"
 	},
 	"homeAccess": {
 		"meta": {
 			"title": "Luxusní chytrý přístup do domácnosti a automatizace | P&A Vision",
 			"desc": "Zažijte novou úroveň pohodlí s inteligentními systémy přístupu do domácnosti. Ovládejte vstup, zabezpečení i automatizaci odkudkoli."
-		}
+		},
+		"title": "Přístup do domácnosti",
+		"subtitle": "Snadný vstup a klid na duši, ať jste kdekoliv"
 	},
 	"lighting": {
 		"meta": {
 			"title": "Advanced Smart Lighting Systems | Automated & Energy Efficient",
 			"desc": "Upgrade to smart lighting with automated control, dimming, and scene customization. Improve comfort, efficiency, and ambiance in every room."
-		}
+		},
+		"title": "Osvětlení",
+		"subtitle": "Osvětlení, které se přizpůsobí vaší náladě a denní rutině"
 	},
 	"shades": {
 		"meta": {
 			"title": "Luxusní chytré stínění a žaluzie | Elegantní domácí automatizace",
 			"desc": "Vylepšete svůj domov pomocí automatizovaného stínění a žaluzií. Užijte si dokonalé světlo, soukromí a energetickou úspornost díky inteligentnímu ovládání."
-		}
+		},
+		"title": "Žaluzie",
+		"subtitle": "Automatické stínění, které se přizpůsobí vašemu dni"
 	},
 	"thermostat": {
 		"meta": {
 			"title": "Luxusní chytré řízení klimatu | Inteligentní termostatické systémy",
 			"desc": "Zažijte dokonalý komfort v interiéru díky pokročilým chytrým termostatům. Ovládejte teplotu, snižte náklady na energii a automatizujte svůj domov bez námahy."
-		}
+		},
+		"title": "Termostat",
+		"subtitle": "Ideální teplota přesně tehdy, kdy ji potřebujete"
 	},
 	"video": {
 		"meta": {
 			"title": "Chytré video a domácí kino | Špičková obrazová řešení",
 			"desc": "Vylepšete svou zábavu pomocí chytrých video systémů, 4K/8K obrazovek a integrovaných řešení domácího kina navržených pro maximální výkon a pohodlí."
-		}
+		},
+		"title": "Video",
+		"subtitle": "Snadné ovládání videa"
 	},
 	"ourSolutions": {
 		"title": "Naše řešení s Crestron Home",

@@ -7,6 +7,7 @@ import { usePathname } from "@/i18n/navigation";
 import Lng from "@/components/Lng/Lng";
 import navLinks from "@/data/nav-links.json";
 import "./Header.scss";
+import { TransitionLink } from "@/components/TransitionLink";
 
 const Header = () => {
 	const t = useTranslations();
@@ -63,7 +64,7 @@ const Header = () => {
 		<>
 			<header className={`header ${menuOpen ? "header--active" : ""}`}>
 				<div className="header-inner">
-					<Link className="header__logo" href="/">
+					<TransitionLink className="header__logo" href="/">
 						<svg
 							width="30"
 							height="30"
@@ -80,17 +81,17 @@ const Header = () => {
 							/>
 						</svg>
 						<span>P&A Vision</span>
-					</Link>
+					</TransitionLink>
 					<nav className="header-nav">
 						{navLinks.map((navLink, i) => {
 							return (
-								<Link
+								<TransitionLink
 									key={i}
 									className={`header-nav__link ${pathname === navLink.path ? "header-nav__link--active" : ""}`}
 									href={navLink.path}
 								>
 									{t(navLink.label)}
-								</Link>
+								</TransitionLink>
 							);
 						})}
 					</nav>
@@ -122,7 +123,7 @@ const Header = () => {
 							{navLinks.map((navLink, i) => {
 								return (
 									<div key={i} className="menu-nav__link-wrapper">
-										<Link
+										<TransitionLink
 											onClick={() => setMenuOpen(false)}
 											// TODO: learn this
 											style={
@@ -136,7 +137,7 @@ const Header = () => {
 											href={navLink.path}
 										>
 											{t(navLink.label)}
-										</Link>
+										</TransitionLink>
 									</div>
 								);
 							})}

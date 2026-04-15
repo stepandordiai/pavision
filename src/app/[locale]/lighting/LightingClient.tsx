@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import CrestronApp from "@/components/CrestronApp/CrestronApp";
 import { useState } from "react";
@@ -40,17 +41,19 @@ const data = [
 ];
 
 export default function LightingClient() {
+	const t = useTranslations();
+
 	const [interiorState, setInteriorState] = useState(data[0]);
 	const [productBrand, setProductBrand] = useState("Crestron");
 
 	return (
 		<main style={{ overflow: "hidden" }}>
 			<HeroParallax
-				heading="Lightning"
-				subheading="Technology"
+				heading={t("lighting.title")}
+				subheading={t("lighting.subtitle")}
 				imgSrc="/07.jpg"
 			/>
-			<section className="section">
+			<section className="section" id="section">
 				<h2 className="section__title">
 					Lighting is directly linked to physical and emotional well-being
 				</h2>

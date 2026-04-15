@@ -30,12 +30,20 @@ export async function generateMetadata({
 	};
 }
 
-export default function Video() {
+export default async function Video() {
+	const t = await getTranslations();
 	return (
 		<main>
-			<HeroParallax heading="Video" subheading="Technology" imgSrc="/06.jpg" />
-			<section className="section">
-				<h2 className="section__title">Peace of mind.</h2>
+			<HeroParallax
+				heading={t("video.title")}
+				subheading={t("video.subtitle")}
+				imgSrc="https://images.pexels.com/photos/27562214/pexels-photo-27562214.png"
+			/>
+			<section className="section" id="section">
+				<h2 className="section__title">
+					Video is rapidly evolving, and with every new update simply watching
+					TV or playing a video game becomes increasingly complicated.
+				</h2>
 				<div
 					style={{
 						display: "grid",
@@ -44,18 +52,41 @@ export default function Video() {
 					}}
 				>
 					<p>
-						The greatest stress reliever is knowing your home is safe and secure
-						for you and your loved ones. Crestron Home unifies the technologies
-						that make it a reality, from security systems to power and energy
-						management that prevents service disruption. No matter what happens
-						– storms, heat waves, equipment failures – your home will work
-						exactly as it was designed to.
+						The stack of boxes and the web of wires at the TV, plus the multiple
+						remotes and apps needed to control everything is frustrating.
+						Crestron DigitalMedia™ technology cleans up that mess and ensures
+						that everything simply works. It’s the gold standard video
+						processing and distribution platform, delivering the very best video
+						quality, smoothest channel and source selection, and field-tested
+						reliability.
 					</p>
 					<img
 						style={{
 							borderRadius: 10,
 						}}
-						src="/05.jpg"
+						src="https://images.pexels.com/photos/4009398/pexels-photo-4009398.jpeg"
+						alt=""
+					/>
+				</div>
+			</section>
+			<section className="section">
+				<h2 className="section__title">Watch any content anywhere.</h2>
+				<div
+					style={{
+						display: "grid",
+						gridTemplateColumns: "repeat(2, 1fr)",
+						gap: 40,
+					}}
+				>
+					<p>
+						In full 4K without any special wiring. Plus, everyone gets their own
+						favorite pre-set channels.
+					</p>
+					<img
+						style={{
+							borderRadius: 10,
+						}}
+						src="https://images.pexels.com/photos/4009398/pexels-photo-4009398.jpeg"
 						alt=""
 					/>
 				</div>

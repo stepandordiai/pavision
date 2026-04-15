@@ -1,8 +1,9 @@
+import { getTranslations } from "next-intl/server";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import CrestronApp from "@/components/CrestronApp/CrestronApp";
 import { routing } from "@/i18n/routing";
-import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
+import ShadesClient from "./ShadesClient";
 import "./styles.scss";
 
 export async function generateMetadata({
@@ -30,48 +31,66 @@ export async function generateMetadata({
 	};
 }
 
-export default function Shades() {
+export default async function Shades() {
+	const t = await getTranslations();
+
 	return (
-		<main>
+		<main style={{ overflow: "hidden" }}>
 			<HeroParallax
-				heading="Shades"
-				subheading="Technology"
-				imgSrc="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-shades-roller.jpg"
+				heading={t("shades.title")}
+				subheading={t("shades.subtitle")}
+				imgSrc="https://images.pexels.com/photos/36353407/pexels-photo-36353407.png"
 			/>
-			<section className="section">
-				<h2 className="section__title">Peace of mind.</h2>
-				<div
-					style={{
-						display: "grid",
-						gridTemplateColumns: "repeat(2, 1fr)",
-						gap: 40,
-					}}
-				>
+			<section className="section" id="section">
+				<h2 className="section__title">Get closer to nature</h2>
+				<div className="shades-section-container">
 					<p>
-						The greatest stress reliever is knowing your home is safe and secure
-						for you and your loved ones. Crestron Home unifies the technologies
-						that make it a reality, from security systems to power and energy
-						management that prevents service disruption. No matter what happens
-						– storms, heat waves, equipment failures – your home will work
-						exactly as it was designed to.
+						Being in nature feels good. Crestron automated shades can work in
+						concert with our lighting solutions to help you control light in
+						your home in a way that mimics the patterns of nature and uses
+						natural light to awaken your senses.
 					</p>
+					<video
+						style={{ width: "100%", borderRadius: 10 }}
+						autoPlay
+						playsInline
+						muted
+						loop
+					>
+						<source src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-shading-video.mp4" />
+					</video>
+				</div>
+			</section>
+			<section className="section">
+				<h2 className="section__title">
+					Flexibilní ochrana před sluncem pro všechny potřeby
+				</h2>
+				<div className="shades-section-container">
 					<img
 						style={{
 							borderRadius: 10,
 						}}
-						src="/05.jpg"
+						src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-shades-reliable.jpg"
 						alt=""
 					/>
+					<p>
+						Ať už jde o žaluzie, rolety, markýzy nebo plisé – jakýkoli typ
+						stínění lze snadno integrovat do celého systému. Řešení na míru se
+						flexibilně přizpůsobí architektuře budovy, jejímu využití i
+						individuálním požadavkům. Právě tak mohou fungovat nejen automatické
+						venkovní žaluzie.
+					</p>
 				</div>
 			</section>
 			<section style={{ minHeight: "100svh", background: "#333", padding: 20 }}>
 				<div className="technology__title">
 					<div className="technology__icon-container">
-						<img src="/home-access.png" width={24} height={24} alt="" />
+						<img src="/shades.png" width={24} height={24} alt="" />
 					</div>
-					<p>Home Access</p>
+					<p>{t("shades.title")}</p>
 				</div>
 				<p style={{ fontSize: "2rem" }}>Products</p>
+				<ShadesClient />
 			</section>
 			<CrestronApp />
 		</main>

@@ -2,37 +2,37 @@
 	{
 		"title": "Lighting",
 		"img": "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-dimmer-3.jpg",
-		"icon": "light-bulb.png",
+		"icon": "lighting.png",
 		"path": "/lighting"
 	},
 	{
 		"title": "Shading",
 		"img": "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-shades-roller.jpg",
-		"icon": "blinds.png",
+		"icon": "shades.png",
 		"path": "/shades"
 	},
 	{
 		"title": "Audio",
 		"img": "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/audio-products-speakers-image.jpg",
-		"icon": "light-bulb.png",
+		"icon": "audio.png",
 		"path": "/audio"
 	},
 	{
 		"title": "Video",
 		"img": "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-video-hero.jpg",
-		"icon": "blinds.png",
+		"icon": "video.png",
 		"path": "/video"
 	},
 	{
 		"title": "Home access",
 		"img": "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/partner%20pages/integrated%20partners/2n/photo1_desktop.png",
-		"icon": "light-bulb.png",
+		"icon": "home-access.png",
 		"path": "/home-access"
 	},
 	{
 		"title": "Thermostat",
 		"img": "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-thermostat-thumn.jpg",
-		"icon": "blinds.png",
+		"icon": "thermostat.png",
 		"path": "/thermostat"
 	}
 ]

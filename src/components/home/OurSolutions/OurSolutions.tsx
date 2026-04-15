@@ -1,5 +1,8 @@
+"use client";
+
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { TransitionLink } from "@/components/TransitionLink";
+import { AnimatedImage } from "@/components/AnimatedImg";
 
 const OurSolutions = () => {
 	const t = useTranslations("ourSolutions");
@@ -34,16 +37,16 @@ const OurSolutions = () => {
 								<p key={i}>{txt}</p>
 							))}
 						</div>
-						<Link className="our-solutions__link" href="/home-access">
+						<TransitionLink className="our-solutions__link" href="/home-access">
 							<span>
 								<img src="/home-access.png" width={22} alt="" />
 							</span>
 							<span>Home Access</span>
-						</Link>
+						</TransitionLink>
 					</div>
 					<div style={{ position: "relative" }}>
 						<img className="our-solutions__ss" src="/01.png" alt="" />
-						<img src="/01.jpg" alt="" />
+						<AnimatedImage src="/01.jpg" alt="" />
 					</div>
 				</div>
 				<div className="our-solutions-container">
@@ -71,35 +74,38 @@ const OurSolutions = () => {
 							})}
 						</div>
 						<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
-							<Link href="/lighting" className="our-solutions__link">
+							<TransitionLink href="/lighting" className="our-solutions__link">
 								<span>
 									<img src="/lighting.png" width={22} alt="" />
 								</span>
 								<span>Lighting</span>
-							</Link>
-							<Link href="/audio" className="our-solutions__link">
+							</TransitionLink>
+							<TransitionLink href="/audio" className="our-solutions__link">
 								<span>
 									<img src="/audio.png" width={22} alt="" />
 								</span>
 								<span>Audio</span>
-							</Link>
-							<Link href="/shades" className="our-solutions__link">
+							</TransitionLink>
+							<TransitionLink href="/shades" className="our-solutions__link">
 								<span>
 									<img src="/shades.png" width={22} alt="" />
 								</span>
 								<span>Shades</span>
-							</Link>
-							<Link href="/thermostat" className="our-solutions__link">
+							</TransitionLink>
+							<TransitionLink
+								href="/thermostat"
+								className="our-solutions__link"
+							>
 								<span>
 									<img src="/thermostat.png" width={22} alt="" />
 								</span>
 								<span>Thermostat</span>
-							</Link>
+							</TransitionLink>
 						</div>
 					</div>
 					<div style={{ position: "relative" }}>
 						<img className="our-solutions__ss" src="/04.png" alt="" />
-						<img src="/02.jpg" alt="" />
+						<AnimatedImage src="/02.jpg" alt="" />
 					</div>
 				</div>
 				<div className="our-solutions-container">
@@ -128,23 +134,26 @@ const OurSolutions = () => {
 							})}
 						</div>
 						<div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-							<Link className="our-solutions__link" href="/lighting">
+							<TransitionLink className="our-solutions__link" href="/lighting">
 								<span>
 									<img src="/lighting.png" width={22} alt="" />
 								</span>
 								<span>Lighting</span>
-							</Link>
-							<Link href="/thermostat" className="our-solutions__link">
+							</TransitionLink>
+							<TransitionLink
+								href="/thermostat"
+								className="our-solutions__link"
+							>
 								<span>
 									<img src="/thermostat.png" width={22} alt="" />
 								</span>
 								<span>Thermostat</span>
-							</Link>
+							</TransitionLink>
 						</div>
 					</div>
 					<div style={{ position: "relative" }}>
 						<img className="our-solutions__ss" src="/02.png" alt="" />
-						<img
+						<AnimatedImage
 							src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-thermostat-thumn.jpg"
 							alt=""
 						/>
@@ -178,29 +187,29 @@ const OurSolutions = () => {
 								})}
 						</div>
 						<div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-							<Link href="/shades" className="our-solutions__link">
+							<TransitionLink href="/shades" className="our-solutions__link">
 								<span>
 									<img src="/shades.png" width={32} alt="" />
 								</span>
 								<span>Shades</span>
-							</Link>
-							<Link href="/video" className="our-solutions__link">
+							</TransitionLink>
+							<TransitionLink href="/video" className="our-solutions__link">
 								<span>
 									<img src="/video.png" width={22} alt="" />
 								</span>
 								<span>Video</span>
-							</Link>
-							<Link href="/audio" className="our-solutions__link">
+							</TransitionLink>
+							<TransitionLink href="/audio" className="our-solutions__link">
 								<span>
 									<img src="/audio.png" width={22} alt="" />
 								</span>
 								<span>Audio</span>
-							</Link>
+							</TransitionLink>
 						</div>
 					</div>
 					<div style={{ position: "relative" }}>
 						<img className="our-solutions__ss" src="/03.png" alt="" />
-						<img
+						<AnimatedImage
 							src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-shades-hero.jpg"
 							alt=""
 						/>
