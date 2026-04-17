@@ -37,12 +37,27 @@ const OurSolutions = () => {
 								<p key={i}>{txt}</p>
 							))}
 						</div>
-						<TransitionLink className="our-solutions__link" href="/home-access">
-							<span>
-								<img src="/home-access.png" width={22} alt="" />
-							</span>
-							<span>Home Access</span>
-						</TransitionLink>
+						<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
+							<TransitionLink
+								className="our-solutions__link"
+								href="/home-access"
+							>
+								<span>
+									<img
+										src="/technology-icons/home-access.png"
+										width={22}
+										alt=""
+									/>
+								</span>
+								<span>Home Access</span>
+							</TransitionLink>
+							<TransitionLink className="our-solutions__link" href="/security">
+								<span>
+									<img src="/technology-icons/security.png" width={22} alt="" />
+								</span>
+								<span>Security</span>
+							</TransitionLink>
+						</div>
 					</div>
 					<div style={{ position: "relative" }}>
 						<img className="our-solutions__ss" src="/01.png" alt="" />
@@ -76,19 +91,19 @@ const OurSolutions = () => {
 						<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
 							<TransitionLink href="/lighting" className="our-solutions__link">
 								<span>
-									<img src="/lighting.png" width={22} alt="" />
+									<img src="/technology-icons/lighting.png" width={22} alt="" />
 								</span>
 								<span>Lighting</span>
 							</TransitionLink>
 							<TransitionLink href="/audio" className="our-solutions__link">
 								<span>
-									<img src="/audio.png" width={22} alt="" />
+									<img src="/technology-icons/audio.png" width={22} alt="" />
 								</span>
 								<span>Audio</span>
 							</TransitionLink>
 							<TransitionLink href="/shades" className="our-solutions__link">
 								<span>
-									<img src="/shades.png" width={22} alt="" />
+									<img src="/technology-icons/shades.png" width={22} alt="" />
 								</span>
 								<span>Shades</span>
 							</TransitionLink>
@@ -97,7 +112,11 @@ const OurSolutions = () => {
 								className="our-solutions__link"
 							>
 								<span>
-									<img src="/thermostat.png" width={22} alt="" />
+									<img
+										src="/technology-icons/thermostat.png"
+										width={22}
+										alt=""
+									/>
 								</span>
 								<span>Thermostat</span>
 							</TransitionLink>
@@ -136,7 +155,7 @@ const OurSolutions = () => {
 						<div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
 							<TransitionLink className="our-solutions__link" href="/lighting">
 								<span>
-									<img src="/lighting.png" width={22} alt="" />
+									<img src="/technology-icons/lighting.png" width={22} alt="" />
 								</span>
 								<span>Lighting</span>
 							</TransitionLink>
@@ -145,7 +164,11 @@ const OurSolutions = () => {
 								className="our-solutions__link"
 							>
 								<span>
-									<img src="/thermostat.png" width={22} alt="" />
+									<img
+										src="/technology-icons/thermostat.png"
+										width={22}
+										alt=""
+									/>
 								</span>
 								<span>Thermostat</span>
 							</TransitionLink>
@@ -189,19 +212,19 @@ const OurSolutions = () => {
 						<div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
 							<TransitionLink href="/shades" className="our-solutions__link">
 								<span>
-									<img src="/shades.png" width={32} alt="" />
+									<img src="/technology-icons/shades.png" width={32} alt="" />
 								</span>
 								<span>Shades</span>
 							</TransitionLink>
 							<TransitionLink href="/video" className="our-solutions__link">
 								<span>
-									<img src="/video.png" width={22} alt="" />
+									<img src="/technology-icons/video.png" width={22} alt="" />
 								</span>
 								<span>Video</span>
 							</TransitionLink>
 							<TransitionLink href="/audio" className="our-solutions__link">
 								<span>
-									<img src="/audio.png" width={22} alt="" />
+									<img src="/technology-icons/audio.png" width={22} alt="" />
 								</span>
 								<span>Audio</span>
 							</TransitionLink>

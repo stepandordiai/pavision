@@ -96,6 +96,14 @@
 		"title": "Video",
 		"subtitle": "Easy video control"
 	},
+	"security": {
+		"meta": {
+			"title": "Smart Home Security Automation | Intelligent Protection",
+			"desc": "Enhance your home security with smart automation systems. Monitor, control, and protect your home with real-time alerts, sensors, and intelligent integrations."
+		},
+		"title": "Smart Security Automation",
+		"subtitle": "Automated protection with real-time monitoring, smart sensors, and seamless control—keeping your home safe anytime, anywhere."
+	},
 	"ourSolutions": {
 		"title": "Our solutions with Crestron Home",
 		"security": {

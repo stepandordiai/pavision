@@ -49,6 +49,11 @@ const pages = [
 		priority: 0.8,
 	},
 	{
+		path: "/security",
+		changeFrequency: "weekly",
+		priority: 0.8,
+	},
+	{
 		path: "/privacy-policy",
 		changeFrequency: "yearly",
 		priority: 0.3,

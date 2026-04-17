@@ -98,6 +98,14 @@
 		"title": "Video",
 		"subtitle": "Snadné ovládání videa"
 	},
+	"security": {
+		"meta": {
+			"title": "Automatizace zabezpečení chytré domácnosti | Inteligentní ochrana",
+			"desc": "Zvyšte bezpečnost svého domova pomocí chytré automatizace. Sledujte, ovládejte a chraňte svůj domov díky upozorněním v reálném čase, senzorům a inteligentním integracím."
+		},
+		"title": "Chytré zabezpečení domácnosti",
+		"subtitle": "Automatická ochrana s monitorováním v reálném čase, chytrými senzory a bezproblémovým ovládáním – váš domov v bezpečí kdykoli a odkudkoli."
+	},
 	"ourSolutions": {
 		"title": "Naše řešení s Crestron Home",
 		"security": {

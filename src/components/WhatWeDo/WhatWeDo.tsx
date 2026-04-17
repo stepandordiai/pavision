@@ -20,7 +20,7 @@ const whatWeDo = [
 		desc: "home.whatWeDo.desc2",
 		brands: ["Denon", "Marantz", "LG", "Sonos", "Bowers & Wilkins"],
 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-video-consoles.jpg",
-		icon: "/audio.png",
+		icon: "/technology-icons/audio.png",
 		audio: true,
 	},
 
