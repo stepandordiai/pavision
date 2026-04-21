@@ -1,0 +1,91 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import ArrowRightUpIcon from "@/components/icons/ArrowRightUpIcon";
+import { getProducts } from "@/lib/api/products";
+
+interface Product {
+	id: number;
+	img: string;
+	name: string;
+	type: string;
+	technology: string;
+	brand: string;
+}
+
+export default function ProductsClient() {
+	const [products, setProducts] = useState<Product[]>([]);
+
+	useEffect(() => {
+		getProducts().then(setProducts);
+	}, []);
+
+	const uniqueTechnologies = [
+		...new Set(products.map((product) => product.technology)),
+	];
+
+	const [activeTechnology, setActiveTechnology] = useState<string | null>(null);
+
+	useEffect(() => {
+		if (products.length > 0) {
+			setActiveTechnology(uniqueTechnologies[0]);
+		}
+	}, [products]);
+
+	const filteredProducts = products.filter(
+		(product) => product.technology === activeTechnology,
+	);
+
+	const uniqueTypes = [...new Set(filteredProducts.flatMap((p) => p.type))];
+
+	return (
+		<main className="products">
+			<h2 className="section__title">Produkty</h2>
+			<div className="btn-container">
+				{uniqueTechnologies.map((technology, i) => {
+					return (
+						<button
+							key={i}
+							onClick={() => setActiveTechnology(technology)}
+							className={`btn ${technology === activeTechnology ? "btn--active" : ""}`}
+						>
+							{technology}
+						</button>
+					);
+				})}
+			</div>
+			{uniqueTypes.map((type, i) => {
+				return (
+					<div key={i}>
+						<p style={{ marginBottom: 20 }}>{type}</p>
+						<div className="products-grid">
+							{filteredProducts
+								.filter((product) => product.type.includes(type))
+								.map((product, i) => {
+									return (
+										<div key={i} className="product-container">
+											<p className="product__title">{product.name}</p>
+											<img src={product.img} alt="" />
+											<p
+												style={{
+													display: "flex",
+													justifyContent: "flex-end",
+													alignItems: "center",
+													gap: 5,
+												}}
+											>
+												<span>Zjistěte více</span>
+												<span className="product-icon-wrapper">
+													<ArrowRightUpIcon />
+												</span>
+											</p>
+										</div>
+									);
+								})}
+						</div>
+					</div>
+				);
+			})}
+		</main>
+	);
+}
