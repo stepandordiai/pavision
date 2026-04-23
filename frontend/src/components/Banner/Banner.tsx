@@ -9,12 +9,18 @@ const Banner = () => {
 	const [bannerVisible, setBannerVisible] = useState(false);
 
 	useEffect(() => {
+		if (localStorage.getItem("banner") === "hidden") return;
 		const timeout = setTimeout(() => {
 			setBannerVisible(true);
 		}, 2000);
 
 		return () => clearTimeout(timeout);
 	}, []);
+
+	const hideBanner = () => {
+		setBannerVisible(false);
+		localStorage.setItem("banner", "hidden");
+	};
 
 	return (
 		<div className={`banner ${bannerVisible ? "banner--visible" : ""}`}>
@@ -41,10 +47,7 @@ const Banner = () => {
 					</svg>
 					<span>P&A Vision</span>
 				</p>
-				<button
-					onClick={() => setBannerVisible(false)}
-					className="banner__close-btn"
-				>
+				<button onClick={hideBanner} className="banner__close-btn">
 					Zavřít
 				</button>
 			</div>
