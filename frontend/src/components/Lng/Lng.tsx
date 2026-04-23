@@ -1,4 +1,5 @@
 "use client";
+
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
 import GlobeIcon from "@/components/icons/GlobeIcon";
@@ -8,12 +9,12 @@ const languages = [
 	{
 		label: "Čeština",
 		code: "cs",
-		icon: "/cs.png",
+		icon: "/lng-icons/cs.png",
 	},
 	{
 		label: "English",
 		code: "en",
-		icon: "/en.png",
+		icon: "/lng-icons/en.png",
 	},
 ];
 
