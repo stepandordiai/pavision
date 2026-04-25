@@ -133,3 +133,9 @@ body {
 	color: rgb(110, 150, 0);
 	width: max-content;
 }
+
+@media screen and (width < 800px) {
+	.hide {
+		display: none;
+	}
+}

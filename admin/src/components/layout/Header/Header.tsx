@@ -9,7 +9,7 @@ type HeaderProps = {
 const Header = ({ productsLength, setBannerVisible }: HeaderProps) => {
 	return (
 		<header className="header">
-			<p>All products: {productsLength}</p>
+			<p>All products: {productsLength ? productsLength : "Loading..."}</p>
 			<button className="header__btn" onClick={() => setBannerVisible(true)}>
 				Add product
 			</button>

@@ -5,162 +5,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import TrashIcon from "./components/icons/TrashIcon";
 import PencilIcon from "./components/icons/PencilIcon";
-import CheckIcon from "./components/icons/CheckIcon";
 import SpinLoading from "./components/SpinLoading/SpinLoading";
 import SwitchBtn from "./components/SwitchBtn/SwitchBtn";
-
-// const products = [
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// 	{
-// 		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-keypads-1b.png",
-// 		name: "Loxone",
-// 		createdAt: new Date(),
-// 		isActive: true,
-// 	},
-// ];
 
 function App() {
 	const [visibleLength, setVisibleLength] = useState(10);
@@ -187,38 +33,35 @@ function App() {
 		type: [] as string[],
 		technology: "",
 		brand: "",
+		isActive: true,
 	});
-	const [img, setImg] = useState("");
-	const [name, setName] = useState("");
-	const [type, setType] = useState<string[]>([]);
-	const [technology, setTechnology] = useState("");
-	const [brand, setBrand] = useState("");
-	const [isActive, setIsActive] = useState<boolean | null>(null);
-	// const [isActive, setIsActive] = useState(false);
-
 	const toggleIsActive = () => {
-		setIsActive((prev) => !prev);
+		setFormData((prev) => ({ ...prev, isActive: !prev.isActive }));
 	};
 
 	const handleFormData = (name: string, value: string) => {
 		setFormData((prev) => ({ ...prev, [name]: value }));
 	};
 
-	const createTodo = async (e: React.FormEvent) => {
+	const handleForm = (e: React.FormEvent) => {
 		e.preventDefault();
 
+		if (productEditable && productId) {
+			editTodo(productId);
+		} else {
+			createTodo();
+		}
+	};
+
+	const createTodo = async () => {
 		if (!formData.name) {
 			return;
 		}
 
 		try {
 			const res = await axios.post(
-				// FIXME:
 				"https://pavision-backend.onrender.com/products",
-				{
-					...formData,
-					type,
-				},
+				formData,
 			);
 
 			setProducts((prev) => [...prev, res.data]);
@@ -230,47 +73,39 @@ function App() {
 				type: [],
 				technology: "",
 				brand: "",
+				isActive: true,
 			});
-			setType([]);
 		} catch (err) {
 		} finally {
 		}
 	};
 
-	const handleEditTodo = (id: number) => {
+	const handleEditTodo = (product: Product) => {
 		setProductEditable(true);
-		setProductId(id);
+		setProductId(product.id);
 
-		const product = products.find((product) => product.id === id);
-
-		if (!product) return;
-
-		setImg(product.img);
-		setName(product.name);
-		setType(product.type);
-		setTechnology(product.technology);
-		setBrand(product.brand);
-		setIsActive(product.is_active);
+		setFormData({
+			img: product.img,
+			name: product.name,
+			type: product.type,
+			technology: product.technology,
+			brand: product.brand,
+			isActive: product.is_active,
+		});
 	};
 
 	const editTodo = async (id: number) => {
 		try {
 			const res = await axios.put(
 				`https://pavision-backend.onrender.com/products/${id}`,
-				{
-					img,
-					name,
-					type,
-					technology,
-					brand,
-					isActive,
-				},
+				formData,
 			);
 
 			setProducts((prev) =>
 				prev.map((todo) => (todo.id === id ? res.data : todo)),
 			);
 			setProductEditable(false);
+			setProductId(null);
 		} catch (error) {
 		} finally {
 		}
@@ -310,28 +145,41 @@ function App() {
 	const uniqueProductTypes = [...new Set(products.flatMap((p) => p.type))];
 
 	const addType = (value: string) => {
-		if (!value || type.includes(value)) return;
-		setType((prev) => [...prev, value]);
+		if (!value || formData.type.includes(value)) return;
+		setFormData((prev) => ({ ...prev, type: [...prev.type, value] }));
 		setTypeInput("");
 	};
-
 	const removeType = (value: string) => {
-		setType((prev) => prev.filter((t) => t !== value));
+		setFormData((prev) => ({
+			...prev,
+			type: prev.type.filter((t) => t !== value),
+		}));
 	};
 
 	// filtered options — exclude already selected
-	const availableTypes = uniqueProductTypes.filter((t) => !type.includes(t));
+	const availableTypes = uniqueProductTypes.filter(
+		(t) => !formData.type.includes(t),
+	);
 
 	return (
 		<>
-			<div className={`banner ${bannerVisible ? "banner--visible" : ""}`}>
+			<div
+				className={`banner ${bannerVisible || productEditable ? "banner--visible" : ""}`}
+			>
 				<div style={{ display: "flex", justifyContent: "space-between" }}>
-					<p>Add new product</p>
-					<button className="close-btn" onClick={() => setBannerVisible(false)}>
+					<p>{productEditable ? "Edit product" : "Add new product"}</p>
+					<button
+						className="close-btn"
+						onClick={() => {
+							setProductEditable(false);
+							setProductId(null);
+							setBannerVisible(false);
+						}}
+					>
 						Close
 					</button>
 				</div>
-				<form className="form" onSubmit={createTodo}>
+				<form className="form" onSubmit={handleForm}>
 					<div>
 						<label htmlFor="">Image</label>
 						<input
@@ -340,7 +188,7 @@ function App() {
 							value={formData.img}
 							name="img"
 							type="text"
-							placeholder="image"
+							placeholder="Enter image url address"
 						/>
 					</div>
 					<div>
@@ -351,6 +199,7 @@ function App() {
 							value={formData.name}
 							name="name"
 							type="text"
+							placeholder="Enter product name"
 						/>
 					</div>
 					<div>
@@ -366,17 +215,28 @@ function App() {
 							}}
 							value={typeInput}
 							type="text"
-							placeholder="New type..."
+							placeholder="Enter new product type or choose existing"
 						/>
-						<div>
-							{type.map((t) => (
-								<span key={t}>
+						<div style={{ display: "flex", gap: "2px", flexWrap: "wrap" }}>
+							{formData.type.map((t) => (
+								<span
+									key={t}
+									style={{
+										background: "#e8e8e8",
+										padding: "5px",
+										borderRadius: "5px",
+									}}
+								>
 									{t}
 									<button onClick={() => removeType(t)}>×</button>
 								</span>
 							))}
 						</div>
-						<select onChange={(e) => addType(e.target.value)} value="">
+						<select
+							className="input"
+							onChange={(e) => addType(e.target.value)}
+							value=""
+						>
 							<option value="">Add</option>
 							{availableTypes.map((t) => (
 								<option key={t} value={t}>
@@ -393,6 +253,7 @@ function App() {
 							value={formData.technology}
 							name="technology"
 							type="text"
+							placeholder="Enter product technology"
 						/>
 					</div>
 					<div>
@@ -403,15 +264,23 @@ function App() {
 							value={formData.brand}
 							name="brand"
 							type="text"
+							placeholder="Enter product brand"
+						/>
+					</div>
+					<div>
+						<label htmlFor="">Status</label>
+						<SwitchBtn
+							toggleIsActive={() => toggleIsActive()}
+							isActive={formData.isActive}
 						/>
 					</div>
 					<button className="form__submit-btn" type="submit">
-						Create
+						{productEditable ? "Update" : "Create"}
 					</button>
 				</form>
 			</div>
 			<div
-				className={`curtain ${bannerVisible ? "curtain--active" : ""}`}
+				className={`curtain ${bannerVisible || productEditable ? "curtain--active" : ""}`}
 			></div>
 			<Header
 				productsLength={products.length}
@@ -424,11 +293,23 @@ function App() {
 							<th>#</th>
 							<th>Image</th>
 							<th>Name</th>
-							<th>Type</th>
-							<th>Technology</th>
-							<th>Brand</th>
-							<th>isActive</th>
-							<th>Created At</th>
+							<th className="hide">Type</th>
+							<th className="hide">Technology</th>
+							<th className="hide">Brand</th>
+							<th>
+								<span>Status </span>
+								<span
+									style={{
+										padding: "5px",
+										background: "#000",
+										color: "#fff",
+									}}
+									title="Active products can be visible on the website, other products will act like archived"
+								>
+									i
+								</span>
+							</th>
+							{/* <th>Created At</th> */}
 							<th></th>
 							<th></th>
 						</tr>
@@ -442,29 +323,13 @@ function App() {
 									<tr key={product.id}>
 										<td>{i + 1}</td>
 										<td style={{ width: "1%" }}>
-											{productEditable && productId === product.id ? (
-												<input
-													type="text"
-													onChange={(e) => setImg(e.target.value)}
-													value={img}
-												/>
-											) : (
-												<img src={product.img} width={40} alt="" />
-											)}
+											<img src={product.img} width={40} alt="" />
 										</td>
 										<td style={{ width: "99%" }}>
-											{productEditable && productId === product.id ? (
-												<input
-													type="text"
-													onChange={(e) => setName(e.target.value)}
-													value={name}
-												/>
-											) : (
-												<span>{product.name}</span>
-											)}
+											<span>{product.name}</span>
 										</td>
-										<td>
-											{productEditable && productId === product.id ? (
+										<td className="hide">
+											{/* {productEditable && productId === product.id ? (
 												<>
 													<input
 														className="input"
@@ -488,6 +353,7 @@ function App() {
 														))}
 													</div>
 													<select
+														className="input"
 														onChange={(e) => addType(e.target.value)}
 														value=""
 													>
@@ -499,60 +365,49 @@ function App() {
 														))}
 													</select>
 												</>
-											) : (
-												<span>{product.type.join(", ")}</span>
-											)}
+											) : ( */}
+											<span>{product.type.join(", ")}</span>
+											{/* )} */}
+										</td>
+										<td className="hide">
+											<span>{product.technology}</span>
+										</td>
+										<td className="hide">
+											<span>{product.brand}</span>
 										</td>
 										<td>
-											{productEditable && productId === product.id ? (
-												<input
-													type="text"
-													onChange={(e) => setTechnology(e.target.value)}
-													value={technology}
-												/>
-											) : (
-												<span>{product.technology}</span>
-											)}
-										</td>
-										<td>
-											{productEditable && productId === product.id ? (
-												<input
-													type="text"
-													onChange={(e) => setBrand(e.target.value)}
-													value={brand}
-												/>
-											) : (
-												<span>{product.brand}</span>
-											)}
-										</td>
-										<td>
-											<SwitchBtn
-												toggleIsActive={() => toggleIsActive()}
-												isActive={
-													productId === product.id
-														? isActive
-														: product.is_active
-												}
-												disabled={!productEditable || productId !== product.id}
-											/>
-										</td>
-										<td>{product.created_at?.split("T")[0]}</td>
-										<td>
-											{productEditable && productId === product.id ? (
-												<button
-													className="save-btn"
-													onClick={() => editTodo(product.id)}
+											{product.is_active ? (
+												<span
+													style={{
+														color: "rgb(110, 150, 0)",
+														background: "rgb(218, 249, 159)",
+														padding: "5px",
+														borderRadius: "5px",
+													}}
 												>
-													<CheckIcon />
-												</button>
+													Active
+												</span>
 											) : (
-												<button
-													className="edit-btn"
-													onClick={() => handleEditTodo(product.id)}
+												<span
+													style={{
+														color: "rgb(255, 75, 75)",
+														background: "rgb(255, 221, 214)",
+														padding: "5px",
+														borderRadius: "5px",
+													}}
 												>
-													<PencilIcon />
-												</button>
+													Inactive
+												</span>
 											)}
+										</td>
+										{/* <td>{product.created_at?.split("T")[0]}</td> */}
+										<td>
+											<button
+												className="edit-btn"
+												onClick={() => handleEditTodo(product)}
+											>
+												<PencilIcon />
+											</button>
 										</td>
 										<td>
 											<button

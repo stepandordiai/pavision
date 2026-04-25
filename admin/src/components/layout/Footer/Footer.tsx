@@ -14,7 +14,7 @@ const Footer = ({
 	return (
 		<footer className="footer">
 			<p>
-				Rows per page{" "}
+				Products per page{" "}
 				<select
 					className="footer__select"
 					onChange={(e) => setVisibleLength(Number(e.target.value))}
@@ -29,9 +29,13 @@ const Footer = ({
 				</select>{" "}
 				1-
 				<span>
-					{productsLength < visibleLength ? productsLength : visibleLength}
+					{productsLength
+						? productsLength < visibleLength
+							? productsLength
+							: visibleLength
+						: "Loading..."}
 				</span>{" "}
-				of {productsLength}
+				of {productsLength ? productsLength : "Loading..."}
 			</p>
 			{/* <div>
 				<span>1</span> <span>2</span> <span>3</span> <span>...</span>{" "}

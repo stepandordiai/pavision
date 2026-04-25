@@ -2,16 +2,15 @@ import "./styles.scss";
 
 type SwitchBtnProps = {
 	isActive: boolean | null;
-	disabled: boolean;
 	toggleIsActive: () => void;
 };
 
-const SwitchBtn = ({ isActive, disabled, toggleIsActive }: SwitchBtnProps) => {
+const SwitchBtn = ({ isActive, toggleIsActive }: SwitchBtnProps) => {
 	return (
 		<button
+			type="button"
 			onClick={toggleIsActive}
-			className={`switch-btn ${isActive ? "switch-btn--active" : ""} ${disabled ? "switch-btn--disabled" : ""}`}
-			disabled={disabled}
+			className={`switch-btn ${isActive ? "switch-btn--active" : ""}`}
 		></button>
 	);
 };
