@@ -2,11 +2,128 @@
 	position: relative;
 	z-index: 1;
 	min-height: 100svh;
-	background: radial-gradient(ellipse at 50% -10%, #172d56 0%, #050c18 70%);
+	// background: radial-gradient(ellipse at 50% -10%, #718ec3 0%, #4d6ea6 70%);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 10px;
+	padding: 70px 10px 10px;
 }
 
-.hero-container {
-	padding: 80px 20px 0 20px;
+.hero-bg-container {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	display: flex;
+	scrollbar-width: none;
+	pointer-events: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	// Mobile — vertical
+	flex-direction: column;
+	overflow: hidden;
+
+	> div {
+		position: relative; // ← required
+		overflow: hidden; // ← clips oversized image
+		flex: 0 0 100%; // 100% of height in column layout
+		width: 100%;
+	}
+
+	// Desktop — horizontal
+	@media (min-width: 768px) {
+		flex-direction: row;
+		overflow-y: hidden;
+
+		> div {
+			flex: 0 0 100%; // 100% of width in row layout
+			height: 100%;
+		}
+	}
+}
+
+.hero-bg-inner {
+	opacity: 0;
+	transition: opacity 1s;
+	transform: scale(0.9);
+	transition:
+		opacity 0.5s,
+		transform 0.5s;
+
+	&--active {
+		opacity: 1;
+		transform: scale(1);
+		transition:
+			opacity 1s,
+			transform 1s;
+	}
+}
+.hero-bg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	will-change: transform;
+	transform: scale(1); // mobile — no parallax, no oversizing needed
+
+	@media (min-width: 768px) {
+		// transform: scale(1.2); // desktop — parallax needs room to move
+	}
+}
+.hero-technologies {
+	display: flex;
+	gap: 5px;
+	// position: absolute;
+	// bottom: 10px;
+	// left: 50%;
+	// transform: translate(-50%, 0);
+}
+
+@media screen and (width < 768px) {
+	.hero {
+		flex-direction: row;
+	}
+
+	.hero-technologies {
+		flex-direction: column;
+		flex-shrink: 0;
+		// bottom: 50%;
+		// left: auto;
+		// right: 10px;
+		// transform: translate(0, 50%);
+	}
+}
+
+.hero-technology-btn {
+	position: relative;
+	display: flex;
+	-webkit-backdrop-filter: blur(25px);
+	backdrop-filter: blur(25px);
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+	padding: 10px;
+	overflow: hidden;
+
+	&::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		content: "";
+		width: 100%;
+		height: 100%;
+		background: #000;
+		transform: scaleX(0);
+		transform-origin: left;
+	}
+
+	&--active {
+		background: rgb(0, 0, 0);
+	}
 }
 
 .hero__title {

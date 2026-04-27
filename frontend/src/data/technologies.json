@@ -1,33 +1,33 @@
 [
 	{
+		"title": "Home access",
+		"img": "https://www.lavishautomation.com/images/client/brands/security-header%201.jpg",
+		"icon": "/technology-icons/home-access.png",
+		"path": "/home-access"
+	},
+	{
+		"title": "Video",
+		"img": "https://images.pexels.com/photos/27562214/pexels-photo-27562214.png",
+		"icon": "/technology-icons/video.png",
+		"path": "/video"
+	},
+	{
+		"title": "Audio",
+		"img": "https://www.bowerswilkins.com/on/demandware.static/-/Sites-master-catalog-soundunited/default/dw0b413071/bowers/Rich-Content/bandw_formationbar_be_desktop.jpg",
+		"icon": "/technology-icons/audio.png",
+		"path": "/audio"
+	},
+	{
 		"title": "Lighting",
-		"img": "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-lighting-dimmer-3.jpg",
+		"img": "/07.jpg",
 		"icon": "/technology-icons/lighting.png",
 		"path": "/lighting"
 	},
 	{
 		"title": "Shading",
-		"img": "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-shades-roller.jpg",
+		"img": "https://images.pexels.com/photos/36353407/pexels-photo-36353407.png",
 		"icon": "/technology-icons/shades.png",
 		"path": "/shades"
-	},
-	{
-		"title": "Audio",
-		"img": "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/audio-products-speakers-image.jpg",
-		"icon": "/technology-icons/audio.png",
-		"path": "/audio"
-	},
-	{
-		"title": "Video",
-		"img": "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-video-hero.jpg",
-		"icon": "/technology-icons/video.png",
-		"path": "/video"
-	},
-	{
-		"title": "Home access",
-		"img": "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/partner%20pages/integrated%20partners/2n/photo1_desktop.png",
-		"icon": "/technology-icons/home-access.png",
-		"path": "/home-access"
 	},
 	{
 		"title": "Thermostat",
@@ -37,7 +37,7 @@
 	},
 	{
 		"title": "Security",
-		"img": "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-thermostat-thumn.jpg",
+		"img": "https://images.pexels.com/photos/35361412/pexels-photo-35361412.jpeg",
 		"icon": "/technology-icons/security.png",
 		"path": "/security"
 	}

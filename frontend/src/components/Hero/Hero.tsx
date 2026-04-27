@@ -1,16 +1,112 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useState } from "react";
-import ChevronIcon from "@/components/icons/ChevronIcon";
+import { useEffect, useRef, useState } from "react";
+// import ChevronIcon from "@/components/icons/ChevronIcon";
+import technologies from "@/data/technologies.json";
 import "./Hero.scss";
+import Image from "next/image";
 
 const Hero = () => {
 	const t = useTranslations();
 
-	const [garageOpen, setGarageOpen] = useState(false);
-	const [interiorLight, setInteriorLight] = useState(false);
-	const [exteriorLight, setExteriorLight] = useState(false);
+	// const [garageOpen, setGarageOpen] = useState(false);
+	// const [interiorLight, setInteriorLight] = useState(false);
+	// const [exteriorLight, setExteriorLight] = useState(false);
+	const [activeTechnology, setActiveTechnology] = useState(technologies[0]);
+
+	const bgRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+	const [mounted, setMounted] = useState(false);
+
+	// useEffect(() => {
+	// 	const t = setTimeout(() => setMounted(true), 500); // small tick for transition to register
+	// 	return () => clearTimeout(t);
+	// }, []);
+	// Observer: update activeTechnology when an image scrolls into view
+	// useEffect(() => {
+	// 	const observers: IntersectionObserver[] = [];
+
+	// 	bgRefs.current.forEach((el, i) => {
+	// 		if (!el) return;
+	// 		const obs = new IntersectionObserver(
+	// 			([entry]) => {
+	// 				if (entry.isIntersecting) setActiveTechnology(technologies[i]);
+	// 			},
+	// 			{ threshold: 0.6 }, // tweak — 60% visible = active
+	// 		);
+	// 		obs.observe(el);
+	// 		observers.push(obs);
+	// 	});
+
+	// 	return () => observers.forEach((o) => o.disconnect());
+	// }, [technologies]);
+
+	// const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+	// const startInterval = () => {
+	// 	if (intervalRef.current) clearInterval(intervalRef.current);
+
+	// 	intervalRef.current = setInterval(() => {
+	// 		setActiveTechnology((prev) => {
+	// 			const nextIndex =
+	// 				(technologies.indexOf(prev) + 1) % technologies.length;
+	// 			const next = technologies[nextIndex];
+
+	// 			bgRefs.current[nextIndex]?.scrollIntoView({
+	// 				behavior: "smooth",
+	// 				block: "center",
+	// 				inline: "center",
+	// 			});
+
+	// 			return next;
+	// 		});
+	// 	}, 10000);
+	// };
+
+	// useEffect(() => {
+	// 	startInterval();
+	// 	return () => {
+	// 		if (intervalRef.current) clearInterval(intervalRef.current);
+	// 	};
+	// }, []);
+
+	const handleClick = (t: any, i: number) => {
+		setActiveTechnology(t);
+		bgRefs.current[i]?.scrollIntoView({
+			behavior: "smooth",
+			block: "center",
+			inline: "center",
+		});
+	};
+
+	const bgContainerRef = useRef<HTMLDivElement | null>(null);
+
+	// useEffect(() => {
+	// 	const el = bgContainerRef.current;
+	// 	if (!el) return;
+
+	// 	const handleScroll = () => {
+	// 		const isMobile = window.innerWidth < 768;
+
+	// 		bgRefs.current.forEach((div, i) => {
+	// 			const img = div?.querySelector("img");
+	// 			if (!img) return;
+
+	// 			if (isMobile) {
+	// 				return;
+	// 				// const offset = el.scrollTop - i * el.clientHeight;
+	// 				// img.style.transform = `scale(1.2) translateY(${offset * 0.2}px)`;
+	// 			} else {
+	// 				const offset = el.scrollLeft - i * el.clientWidth;
+	// 				img.style.transform = `scale(1.2) translateX(${offset * 0.2}px)`;
+	// 			}
+	// 		});
+	// 	};
+
+	// 	el.addEventListener("scroll", handleScroll, { passive: true });
+	// 	return () => el.removeEventListener("scroll", handleScroll);
+	// }, []);
 
 	return (
 		<section className="hero">
@@ -20,79 +116,45 @@ const Hero = () => {
 					Zdůrazníme elektroinstalace, síťovou infrastrukturu, domácí
 					automatizaci a audio/video systémy.
 				</p>
-			</div>
-
-			{/* ── 3D Platform ── */}
-			<div className="sh-plat-wrap">
-				<div className="sh-plat-3d" />
-			</div>
-
-			<div className="house">
-				<div className="left-side">
-					<div className="interior-btn-wrapper">
-						<button
-							onClick={() => setInteriorLight((prev) => !prev)}
-							className="garage-btn"
-						>
-							<span></span>
-						</button>
-						<div>
-							Vnitřní osvětlení ({interiorLight ? "Zapnuto" : "Vypnuto"})
-						</div>
-					</div>
-					<div className="exterior-btn-wrapper">
-						<button
-							onClick={() => setExteriorLight((prev) => !prev)}
-							className="garage-btn"
-						>
-							<span></span>
-						</button>
-						<div>
-							Vnější osvětlení ({exteriorLight ? "Zapnuto" : "Vypnuto"})
-						</div>
-					</div>
-					<div
-						className={`left-wall ${exteriorLight ? "left-wall--on" : ""}`}
-					></div>
-					<div className="top-wall"></div>
-					<div className="window">
-						<div
-							className={`window-light ${interiorLight ? "window-light--on" : ""}`}
-						></div>
-					</div>
-					<div className="door">
-						<div
-							className={`door-light ${interiorLight ? "door-light--on" : ""}`}
-						></div>
-						{Array.from({ length: 9 }).map((_, i) => (
-							<div key={i} className="door-panel"></div>
-						))}
-					</div>
-				</div>
-				<div className={`right-side ${exteriorLight ? "right-side--on" : ""}`}>
-					<div className="garage-btn-wrapper">
-						<button
-							onClick={() => setGarageOpen((prev) => !prev)}
-							className="garage-btn"
-						>
-							<span></span>
-						</button>
-						<div>Garážová vrata ({garageOpen ? "Otevřeno" : "Zavřeno"})</div>
-					</div>
-					<div className="garage">
-						<div
-							className={`garage-door ${garageOpen ? "garage-door--open" : ""}`}
-						>
-							{Array.from({ length: 5 }).map((_, i) => (
-								<div key={i} className="garage-panel"></div>
-							))}
-						</div>
-					</div>
+				<div className="hero-container-">
+					<p>{activeTechnology.title}</p>
+					<p></p>
 				</div>
 			</div>
-			<a className="hero-scroll" href="#our-solutions">
-				<ChevronIcon size={32} />
-			</a>
+			<div className="hero-technologies">
+				{technologies.map((t, i) => {
+					return (
+						<button
+							key={i}
+							onClick={() => handleClick(t, i)}
+							className={`hero-technology-btn ${activeTechnology === t ? "hero-technology-btn--active" : ""}`}
+						>
+							<img src={t.icon} width={20} alt="" />
+						</button>
+					);
+				})}
+			</div>
+			<div className="hero-bg-container" ref={bgContainerRef}>
+				{technologies.map((t, i) => {
+					return (
+						<div
+							className={`hero-bg-inner ${mounted && activeTechnology === t ? "hero-bg-inner--active" : ""}`}
+							key={t.title}
+							ref={(el) => {
+								bgRefs.current[i] = el;
+							}}
+						>
+							<Image
+								className="hero-bg"
+								onLoad={() => setMounted(true)}
+								src={t.img}
+								fill
+								alt="ads"
+							/>
+						</div>
+					);
+				})}
+			</div>
 		</section>
 	);
 };
