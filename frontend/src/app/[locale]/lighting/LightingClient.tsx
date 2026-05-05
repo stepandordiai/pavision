@@ -44,7 +44,7 @@ export default function LightingClient() {
 			<HeroParallax
 				heading={t("lighting.title")}
 				subheading={t("lighting.subtitle")}
-				imgSrc="/07.jpg"
+				imgSrc="/lighting/01-c.png"
 			/>
 			<section className="section" id="section">
 				<h2 className="section__title">
@@ -89,6 +89,29 @@ export default function LightingClient() {
 						src={interiorState.imgSrc}
 						alt=""
 					/>
+				</div>
+			</section>
+			<section className="section" id="section">
+				<h2 className="section__title">
+					Lighting is directly linked to physical and emotional well-being
+				</h2>
+				<div className="lightning-section-container">
+					<img
+						style={{
+							borderRadius: 10,
+						}}
+						src="/lighting/02-c.png"
+						alt=""
+					/>
+					<p>
+						Your body runs on a 24-hour cycle called a circadian rhythm.
+						Lighting affects one major aspect of it: your sleep-wake cycle.
+						Replicating natural light provided by the cycles of the sun with
+						artificial light can improve your mood, concentration, creativity,
+						and energy levels, as well as promote better sleep. This can be
+						accomplished using tunable LED light fixtures and technology such as
+						the Crestron SolarSync® photosensor.
+					</p>
 				</div>
 			</section>
 			<section className="section">

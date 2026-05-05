@@ -39,7 +39,7 @@ export default async function HomeAccess() {
 			<HeroParallax
 				heading={t("homeAccess.title")}
 				subheading={t("homeAccess.subtitle")}
-				imgSrc="https://www.lavishautomation.com/images/client/brands/security-header%201.jpg"
+				imgSrc="/home-access/01-c.png"
 			/>
 			<section className="technology-section" id="section">
 				<h2 className="section__title">Peace of mind.</h2>
@@ -59,6 +59,26 @@ export default async function HomeAccess() {
 						src="/05.jpg"
 						alt=""
 					/>
+				</div>
+			</section>
+			<section className="technology-section" id="section">
+				<h2 className="section__title">Touch screens</h2>
+				<div className="technology-section-container">
+					<img
+						style={{
+							borderRadius: 10,
+							maxHeight: "100svh",
+						}}
+						src="/home-access/02-c.png"
+						alt=""
+					/>
+					<p>
+						Phones and tablets are personal devices, rather than dedicated home
+						devices. These screens are purpose-built and never leave the room or
+						the house. They are extremely responsive, reliable, and provide a
+						high-resolution, intuitive display that makes it easy to control
+						everything in the home.
+					</p>
 				</div>
 			</section>
 			<TechnologyProducts technology="Home Access" />

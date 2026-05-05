@@ -6,6 +6,10 @@ import { useEffect, useRef, useState } from "react";
 import technologies from "@/data/technologies.json";
 import "./Hero.scss";
 import Image from "next/image";
+import ChevronIcon from "../icons/ChevronIcon";
+import ChevronRightIcon from "../icons/ChevronRightIcon";
+import { Link } from "@/i18n/navigation";
+import { TransitionLink } from "../TransitionLink";
 
 const Hero = () => {
 	const t = useTranslations();
@@ -120,6 +124,12 @@ const Hero = () => {
 					<p>{activeTechnology.title}</p>
 					<p></p>
 				</div>
+				<Link href="/contacts" className="hero-btn">
+					<span>Contact us</span>
+					<span>
+						<ChevronRightIcon />
+					</span>
+				</Link>
 			</div>
 			<div className="hero-technologies">
 				{technologies.map((t, i) => {

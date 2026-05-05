@@ -59,7 +59,7 @@ const OurSolutions = () => {
 							</TransitionLink>
 						</div>
 					</div>
-					<div style={{ position: "relative" }}>
+					<div style={{ position: "relative", alignSelf: "flex-start" }}>
 						<img className="our-solutions__ss" src="/01.png" alt="" />
 						<AnimatedImage src="/01.jpg" alt="" />
 					</div>
@@ -122,7 +122,7 @@ const OurSolutions = () => {
 							</TransitionLink>
 						</div>
 					</div>
-					<div style={{ position: "relative" }}>
+					<div style={{ position: "relative", alignSelf: "flex-start" }}>
 						<img className="our-solutions__ss" src="/04.png" alt="" />
 						<AnimatedImage src="/02.jpg" alt="" />
 					</div>
@@ -174,12 +174,9 @@ const OurSolutions = () => {
 							</TransitionLink>
 						</div>
 					</div>
-					<div style={{ position: "relative" }}>
+					<div style={{ position: "relative", alignSelf: "flex-start" }}>
 						<img className="our-solutions__ss" src="/02.png" alt="" />
-						<AnimatedImage
-							src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-thermostat-thumn.jpg"
-							alt=""
-						/>
+						<AnimatedImage src="/lighting/02-c.png" alt="" />
 					</div>
 				</div>
 				<div className="our-solutions-container">
@@ -230,7 +227,7 @@ const OurSolutions = () => {
 							</TransitionLink>
 						</div>
 					</div>
-					<div style={{ position: "relative" }}>
+					<div style={{ position: "relative", alignSelf: "flex-start" }}>
 						<img className="our-solutions__ss" src="/03.png" alt="" />
 						<AnimatedImage
 							src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-shades-hero.jpg"
