@@ -5,6 +5,7 @@ import "./AboutUs.scss";
 import PersonIcon from "@/components/icons/PersonIcon";
 import TelIcon from "@/components/icons/TelIcon";
 import EnvelopeIcon from "@/components/icons/EnvelopeIcon";
+import { img } from "framer-motion/client";
 
 export async function generateMetadata({
 	params,
@@ -33,7 +34,8 @@ export async function generateMetadata({
 
 const team = [
 	{
-		name: "John Doe",
+		name: "Oleksandr Honcharenko",
+		img: "/08.jpg",
 		position: "Programmer",
 		tel: "+420 775 632 426",
 		email: "info@pavision.cz",
@@ -75,7 +77,7 @@ export default async function AboutUs() {
 					return (
 						<div key={i} className="member-card">
 							<div className="member-img">
-								<PersonIcon />
+								{member.img ? <img src={member.img} alt="" /> : <PersonIcon />}
 							</div>
 							<div style={{ display: "flex", justifyContent: "space-between" }}>
 								<div>
