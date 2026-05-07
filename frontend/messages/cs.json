@@ -48,6 +48,15 @@
 		"meta": {
 			"title": "O nás | Odborníci na chytré domácnosti a automatizaci",
 			"desc": "Poznejte náš tým specialistů na chytré domácnosti. Navrhujeme a realizujeme inovativní automatizační řešení přizpůsobená vašemu životnímu stylu a potřebám."
+		},
+
+		"title": "O nás",
+
+		"ourTeam": {
+			"title": "Poznejte náš tým",
+			"programmer": "Programátor",
+			"electricar": "Elektrikář",
+			"manager": "Manažer"
 		}
 	},
 	"audio": {

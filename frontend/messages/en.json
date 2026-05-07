@@ -46,6 +46,15 @@
 		"meta": {
 			"title": "About Us | Smart Home Experts & Automation Specialists",
 			"desc": "Learn more about our team of smart home specialists. We design and deliver innovative automation solutions tailored to your lifestyle and needs."
+		},
+
+		"title": "About us",
+
+		"ourTeam": {
+			"title": "Meet our team",
+			"programmer": "Programmer",
+			"electricar": "Electricar",
+			"manager": "Manager"
 		}
 	},
 	"audio": {

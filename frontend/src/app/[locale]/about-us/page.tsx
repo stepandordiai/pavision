@@ -1,11 +1,10 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import type { Metadata } from "next";
-import "./AboutUs.scss";
 import PersonIcon from "@/components/icons/PersonIcon";
 import TelIcon from "@/components/icons/TelIcon";
 import EnvelopeIcon from "@/components/icons/EnvelopeIcon";
-import { img } from "framer-motion/client";
+import "./AboutUs.scss";
 
 export async function generateMetadata({
 	params,
@@ -35,26 +34,25 @@ export async function generateMetadata({
 const team = [
 	{
 		name: "Oleksandr Honcharenko",
-		img: "/08.jpg",
-		position: "Programmer",
+		position: "aboutUs.ourTeam.programmer",
 		tel: "+420 775 632 426",
 		email: "info@pavision.cz",
 	},
 	{
 		name: "John Doe",
-		position: "Programmer",
+		position: "aboutUs.ourTeam.programmer",
 		tel: "+420 775 632 426",
 		email: "info@pavision.cz",
 	},
 	{
 		name: "John Doe",
-		position: "Manager",
+		position: "aboutUs.ourTeam.manager",
 		tel: "+420 775 632 426",
 		email: "info@pavision.cz",
 	},
 	{
 		name: "John Doe",
-		position: "Electricar",
+		position: "aboutUs.ourTeam.electricar",
 		tel: "+420 775 632 426",
 		email: "info@pavision.cz",
 	},
@@ -66,25 +64,39 @@ export default async function AboutUs() {
 	return (
 		<main className="main">
 			<h1 className="main__title">{t("aboutUsTitle")}</h1>
-			<div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					gap: 10,
+					marginBottom: "20px",
+				}}
+			>
 				{t.raw("home.whoWeAreDesc").map((txt: string, i: number) => {
 					return <p key={i}>{txt}</p>;
 				})}
 			</div>
-			<h2 className="main__title">Meet our team</h2>
+			<h2 className="main__title">{t("aboutUs.ourTeam.title")}</h2>
 			<div className="team-container">
 				{team.map((member, i) => {
 					return (
 						<div key={i} className="member-card">
 							<div className="member-img">
-								{member.img ? <img src={member.img} alt="" /> : <PersonIcon />}
+								<PersonIcon />
 							</div>
-							<div style={{ display: "flex", justifyContent: "space-between" }}>
+							<div
+								style={{
+									display: "flex",
+									justifyContent: "space-between",
+									gap: "10px",
+									flexWrap: "wrap",
+								}}
+							>
 								<div>
 									<p>{member.name}</p>
-									<p>{member.position}</p>
+									<p>{t(member.position)}</p>
 								</div>
-								<div style={{ height: "100%", display: "flex", gap: 5 }}>
+								<div style={{ display: "flex", gap: 5 }}>
 									<a className="member-link" href={`tel:${member.tel}`}>
 										<TelIcon size={20} />
 									</a>
