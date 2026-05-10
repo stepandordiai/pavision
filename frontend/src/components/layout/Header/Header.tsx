@@ -18,26 +18,21 @@ const Header = () => {
 	const pathname = usePathname();
 
 	useEffect(() => {
-		const changeHeader = () => {
-			const scrollY = window.scrollY;
-			const windowY = window.innerHeight;
-
-			setHeaderActive(scrollY >= windowY);
-		};
-
-		const calculateLogoRotation = () => {
-			const scrollY = window.scrollY;
-			setCalRotation(scrollY / 10);
-		};
-
-		const handleScroll = () => {
-			changeHeader();
-			calculateLogoRotation();
-		};
-
-		window.addEventListener("scroll", handleScroll);
-
-		return () => window.removeEventListener("scroll", handleScroll);
+		// const changeHeader = () => {
+		// 	const scrollY = window.scrollY;
+		// 	const windowY = window.innerHeight;
+		// 	setHeaderActive(scrollY >= windowY);
+		// };
+		// const calculateLogoRotation = () => {
+		// 	const scrollY = window.scrollY;
+		// 	setCalRotation(scrollY / 10);
+		// };
+		// const handleScroll = () => {
+		// 	changeHeader();
+		// 	calculateLogoRotation();
+		// };
+		// window.addEventListener("scroll", handleScroll);
+		// return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
 	useEffect(() => {
@@ -65,7 +60,7 @@ const Header = () => {
 			<header className={`header ${menuOpen ? "header--active" : ""}`}>
 				<div className="header-inner">
 					<TransitionLink className="header__logo" href="/">
-						<svg
+						{/* <svg
 							width="30"
 							height="30"
 							viewBox="0 0 256 256"
@@ -79,8 +74,13 @@ const Header = () => {
 								d="M128.001 0C139.977 64.8783 191.122 116.025 256 128.001C191.123 139.978 139.978 191.123 128.001 256C116.025 191.122 64.8783 139.977 0 128.001C64.8791 116.026 116.026 64.8791 128.001 0Z"
 								fill="currentColor"
 							/>
-						</svg>
-						<span>P&A Vision</span>
+						</svg> */}
+						<img src="/logo-4.png" width={100} alt="" />
+						{/* <span style={{ lineHeight: "1" }}>
+							P&A
+							<br />
+							Vision
+						</span> */}
 					</TransitionLink>
 					<nav className="header-nav">
 						{navLinks.map((navLink, i) => {

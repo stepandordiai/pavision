@@ -23,6 +23,22 @@ const Hero = () => {
 
 	const [mounted, setMounted] = useState(false);
 
+	const [animation, setAnimation] = useState(false);
+
+	const [displayedTechnology, setDisplayedTechnology] =
+		useState(activeTechnology);
+
+	useEffect(() => {
+		setAnimation(false);
+
+		const timeout = setTimeout(() => {
+			setDisplayedTechnology(activeTechnology);
+			setAnimation(true);
+		}, 500); // matches CSS transition duration
+
+		return () => clearTimeout(timeout);
+	}, [activeTechnology]);
+
 	// useEffect(() => {
 	// 	const t = setTimeout(() => setMounted(true), 500); // small tick for transition to register
 	// 	return () => clearTimeout(t);
@@ -120,16 +136,26 @@ const Hero = () => {
 					Zdůrazníme elektroinstalace, síťovou infrastrukturu, domácí
 					automatizaci a audio/video systémy.
 				</p>
-				<div className="hero-container-">
-					<p>{activeTechnology.title}</p>
-					<p></p>
-				</div>
-				<Link href="/contacts" className="hero-btn">
+				<TransitionLink href="/contacts" className="hero-btn">
 					<span>Contact us</span>
 					<span>
 						<ChevronRightIcon />
 					</span>
-				</Link>
+				</TransitionLink>
+				<div className="hero-container-technology">
+					<h2 className={`animation ${animation ? "animation--active" : ""}`}>
+						{displayedTechnology.title}
+					</h2>
+					<p className={`animation ${animation ? "animation--active" : ""}`}>
+						{displayedTechnology.description}
+					</p>
+					<TransitionLink
+						className={`link animation ${animation ? "animation--active" : ""}`}
+						href={displayedTechnology.path}
+					>
+						Find out more
+					</TransitionLink>
+				</div>
 			</div>
 			<div className="hero-technologies">
 				{technologies.map((t, i) => {

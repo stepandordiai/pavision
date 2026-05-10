@@ -19,19 +19,17 @@ const OurSolutions = () => {
 							gap: 20,
 						}}
 					>
-						<div>
-							<h3
-								style={{
-									background: "#000",
-									padding: 10,
-									borderRadius: 10,
-									width: "max-content",
-								}}
-							>
-								{t("security.title")}
-							</h3>
-							<p style={{ fontSize: "2rem" }}>{t("security.subtitle")}</p>
-						</div>
+						<h3
+							style={{
+								background: "#000",
+								padding: 10,
+								borderRadius: 10,
+								width: "max-content",
+							}}
+						>
+							{t("security.title")}
+						</h3>
+						<p style={{ fontSize: "2rem" }}>{t("security.subtitle")}</p>
 						<div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
 							{t.raw("security.description")?.map((txt: string, i: number) => (
 								<p key={i}>{txt}</p>
@@ -78,6 +76,7 @@ const OurSolutions = () => {
 								padding: 10,
 								borderRadius: 10,
 								width: "max-content",
+								marginBottom: "10px",
 							}}
 						>
 							{t("wellness.title")}
