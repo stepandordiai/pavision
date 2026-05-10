@@ -7,6 +7,7 @@ import TrashIcon from "./components/icons/TrashIcon";
 import PencilIcon from "./components/icons/PencilIcon";
 import SpinLoading from "./components/SpinLoading/SpinLoading";
 import SwitchBtn from "./components/SwitchBtn/SwitchBtn";
+import { supabase } from "./lib/supabase";
 
 function App() {
 	const [visibleLength, setVisibleLength] = useState(10);
@@ -25,6 +26,20 @@ function App() {
 		technology: string;
 		brand: string;
 	}
+
+	// TODO: LEARN THIS
+	// Supabase
+	const getAll = async () => supabase.from("products").select("*");
+	// .order("created_at", { ascending: false });
+
+	const load = async () => {
+		const { data } = await getAll();
+		setProducts(data ?? []);
+	};
+
+	useEffect(() => {
+		load();
+	}, []);
 
 	const [products, setProducts] = useState<Product[]>([]);
 	const [formData, setFormData] = useState({
@@ -126,19 +141,19 @@ function App() {
 		}
 	};
 
-	useEffect(() => {
-		const getProducts = async () => {
-			try {
-				const res = await axios.get(
-					"https://pavision-backend.onrender.com/products",
-				);
-				setProducts(res.data);
-			} catch (error) {
-			} finally {
-			}
-		};
-		getProducts();
-	}, []);
+	// useEffect(() => {
+	// 	const getProducts = async () => {
+	// 		try {
+	// 			const res = await axios.get(
+	// 				"https://pavision-backend.onrender.com/products",
+	// 			);
+	// 			setProducts(res.data);
+	// 		} catch (error) {
+	// 		} finally {
+	// 		}
+	// 	};
+	// 	getProducts();
+	// }, []);
 
 	const [typeInput, setTypeInput] = useState("");
 
