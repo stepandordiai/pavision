@@ -65,12 +65,42 @@ export default function Contacts() {
 								Zavolejte během pracovní doby a získejte bezplatnou konzultaci.
 							</p>
 						</div>
-						<a className="contacts-details__link" href="tel:+420775632426">
-							+420 775 632 426
-						</a>
-						<a className="contacts-details__link" href="tel:+420777049617">
-							+420 777 049 617
-						</a>
+						<div className="contacts-card">
+							<p style={{ fontSize: "18px", fontWeight: 500 }}>Petr Fojtů</p>
+							<div
+								style={{
+									display: "flex",
+									flexDirection: "column",
+									alignItems: "flex-start",
+								}}
+							>
+								<a className="link" href="mailto:petr.fojtu@pavision.cz">
+									petr.fojtu@pavision.cz
+								</a>
+								<a className="link" href="tel:+420775632426">
+									+420 775 632 426
+								</a>
+							</div>
+						</div>
+						<div className="contacts-card">
+							<p style={{ fontSize: "18px", fontWeight: 500 }}>
+								Oleksandr Honcharenko
+							</p>
+							<div
+								style={{
+									display: "flex",
+									flexDirection: "column",
+									alignItems: "flex-start",
+								}}
+							>
+								<a className="link" href="mailto:petr.fojtu@pavision.cz">
+									alex@pavision.cz
+								</a>
+								<a className="link" href="tel:+420777049617">
+									+420 777 049 617
+								</a>
+							</div>
+						</div>
 					</div>
 					<div
 						style={{
@@ -96,10 +126,7 @@ export default function Contacts() {
 							</div>
 							<p>Odpovíme vám do 12 hodin</p>
 						</div>
-						<a
-							className="contacts-details__link"
-							href="mailto:info@pavision.cz"
-						>
+						<a className="link" href="mailto:info@pavision.cz">
 							info@pavision.cz
 						</a>
 					</div>
