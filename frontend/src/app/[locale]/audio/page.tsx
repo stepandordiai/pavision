@@ -35,7 +35,7 @@ export default async function Audio() {
 	const t = await getTranslations();
 
 	return (
-		<main>
+		<main style={{ overflow: "hidden" }}>
 			<HeroParallax
 				heading={t("audio.title")}
 				subheading={t("audio.subtitle")}

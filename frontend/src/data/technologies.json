@@ -1,6 +1,6 @@
 [
 	{
-		"title": "Home access",
+		"title": "Home Access",
 		"description": "Snadný vstup a klid na duši, ať jste kdekoliv",
 		"img": "https://www.lavishautomation.com/images/client/brands/security-header%201.jpg",
 		"icon": "/technology-icons/home-access.png",
@@ -28,7 +28,7 @@
 		"path": "/lighting"
 	},
 	{
-		"title": "Shading",
+		"title": "Shades",
 		"description": "Automatické stínění, které se přizpůsobí vašemu dni",
 		"img": "https://images.pexels.com/photos/36353407/pexels-photo-36353407.png",
 		"icon": "/technology-icons/shades.png",

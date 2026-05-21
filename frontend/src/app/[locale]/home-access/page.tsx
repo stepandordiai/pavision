@@ -35,7 +35,7 @@ export default async function HomeAccess() {
 	const t = await getTranslations();
 
 	return (
-		<main>
+		<main style={{ overflow: "hidden" }}>
 			<HeroParallax
 				heading={t("homeAccess.title")}
 				subheading={t("homeAccess.subtitle")}
