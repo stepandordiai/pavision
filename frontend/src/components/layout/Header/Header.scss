@@ -9,6 +9,14 @@
 	background: rgba(0, 0, 0, 0.2);
 	border-radius: 10px;
 	transition: all 0.5s;
+	opacity: 0;
+	animation: animateHeader 1s forwards;
+}
+
+@keyframes animateHeader {
+	to {
+		opacity: 1;
+	}
 }
 
 .header--active {

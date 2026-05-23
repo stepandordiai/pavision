@@ -40,6 +40,7 @@ export default async function Thermostat() {
 				heading={t("thermostat.title")}
 				subheading={t("thermostat.subtitle")}
 				imgSrc="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-thermostat-thumn.jpg"
+				secondaryBtnTxt="Explore Climate Control"
 			/>
 			<section className="technology-section" id="section">
 				<h2 className="section__title">The perfect temperature, always</h2>

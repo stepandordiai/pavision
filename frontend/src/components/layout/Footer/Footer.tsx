@@ -16,7 +16,7 @@ const Footer = () => {
 	return (
 		<footer className="footer">
 			<TransitionLink className="footer__logo" href="/">
-				<svg
+				{/* <svg
 					width="30"
 					height="30"
 					viewBox="0 0 256 256"
@@ -28,7 +28,8 @@ const Footer = () => {
 						fill="currentColor"
 					/>
 				</svg>
-				<span>P&A Vision</span>
+				<span>P&A Vision</span> */}
+				<img src="/logo-4.png" width={200} alt="" />
 			</TransitionLink>
 			<div style={{ display: "flex", gap: 40, flexWrap: "wrap" }}>
 				<div>
@@ -79,6 +80,7 @@ const Footer = () => {
 							</a>
 						</li>
 						<li>IČO 23654341</li>
+						<li>DIČ CZ23654341</li>
 						<li>
 							<a className="link" href="tel:+420775632426">
 								+420 775 632 426

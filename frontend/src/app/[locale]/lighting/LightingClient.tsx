@@ -45,6 +45,7 @@ export default function LightingClient() {
 				heading={t("lighting.title")}
 				subheading={t("lighting.subtitle")}
 				imgSrc="/lighting/01-c.png"
+				secondaryBtnTxt="Explore Lighting Solutions"
 			/>
 			<section className="section" id="section">
 				<h2 className="section__title">

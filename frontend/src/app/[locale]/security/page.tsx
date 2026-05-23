@@ -3,8 +3,8 @@ import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import CrestronApp from "@/components/CrestronApp/CrestronApp";
-import "./styles.scss";
 import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
+import "./styles.scss";
 
 export async function generateMetadata({
 	params,
@@ -40,6 +40,7 @@ export default async function Security() {
 				heading={t("security.title")}
 				subheading={t("security.subtitle")}
 				imgSrc="https://images.pexels.com/photos/35361412/pexels-photo-35361412.jpeg"
+				secondaryBtnTxt="Explore Security Solutions"
 			/>
 			<section className="technology-section" id="section">
 				<h2 className="section__title">

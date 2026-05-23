@@ -40,6 +40,7 @@ export default async function HomeAccess() {
 				heading={t("homeAccess.title")}
 				subheading={t("homeAccess.subtitle")}
 				imgSrc="/home-access/01-c.png"
+				secondaryBtnTxt="Explore Smart Access"
 			/>
 			<section className="technology-section" id="section">
 				<h2 className="section__title">Peace of mind.</h2>

@@ -62,6 +62,7 @@ const Banner = () => {
 			<p>
 				IČO <button>23654341</button>
 			</p>
+			<p>DIČ CZ23654341</p>
 			<a className="banner__link link" href="mailto:info@pavision.cz">
 				<EnvelopeIcon />
 				<span>info@pavision.cz</span>

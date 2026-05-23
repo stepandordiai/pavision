@@ -12,6 +12,10 @@ export function TransitionLink({ href, onClick, children, ...props }: Props) {
 
 	return (
 		<Link
+			style={{
+				display: "flex",
+				alignItems: "center",
+			}}
 			href={href}
 			prefetch={true}
 			onClick={(e) => {

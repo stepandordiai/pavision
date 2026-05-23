@@ -8,6 +8,7 @@ import Lng from "@/components/Lng/Lng";
 import navLinks from "@/data/nav-links.json";
 import "./Header.scss";
 import { TransitionLink } from "@/components/TransitionLink";
+import PersonIcon from "@/components/icons/PersonIcon";
 
 const Header = () => {
 	const t = useTranslations();
@@ -103,6 +104,9 @@ const Header = () => {
 							gap: 20,
 						}}
 					>
+						<TransitionLink href={"/login"}>
+							<PersonIcon size={32} />
+						</TransitionLink>
 						<Lng />
 						<a className="link header__link" href="tel:+420775632426">
 							+420 775 632 426

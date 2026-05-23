@@ -2,7 +2,6 @@
 	position: relative;
 	z-index: 1;
 	min-height: 100svh;
-	// background: radial-gradient(ellipse at 50% -10%, #718ec3 0%, #4d6ea6 70%);
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
@@ -14,7 +13,6 @@
 .hero-container {
 	display: flex;
 	justify-content: center;
-	// align-items: flex-start;
 	flex-direction: column;
 	gap: 10px;
 
@@ -42,6 +40,8 @@
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
+	opacity: 0;
+	animation: animateHeader 1s forwards;
 
 	h2 {
 		font-size: 1.2rem;
@@ -107,6 +107,8 @@
 	object-fit: cover;
 	will-change: transform;
 	transform: scale(1); // mobile — no parallax, no oversizing needed
+	// TODO: ?
+	filter: brightness(0.8);
 
 	@media (min-width: 768px) {
 		// transform: scale(1.2); // desktop — parallax needs room to move
@@ -115,10 +117,6 @@
 .hero-technologies {
 	display: flex;
 	gap: 5px;
-	// position: absolute;
-	// bottom: 10px;
-	// left: 50%;
-	// transform: translate(-50%, 0);
 }
 
 .hero-btn {
@@ -134,6 +132,8 @@
 	align-self: flex-start;
 	gap: 10px;
 	margin-top: 10px;
+	opacity: 0;
+	animation: animateHeader 1s forwards;
 
 	&::before {
 		content: "";
@@ -169,10 +169,6 @@
 	.hero-technologies {
 		flex-direction: column;
 		flex-shrink: 0;
-		// bottom: 50%;
-		// left: auto;
-		// right: 10px;
-		// transform: translate(0, 50%);
 	}
 }
 
@@ -184,6 +180,8 @@
 	background: rgba(0, 0, 0, 0.2);
 	border-radius: 10px;
 	padding: 10px;
+	opacity: 0;
+	animation: animateHeader 1s forwards;
 
 	&::before {
 		position: absolute;
@@ -207,11 +205,21 @@
 	color: #fff;
 	font-size: clamp(2.5rem, 4vw, 3rem);
 	font-weight: 600;
+	opacity: 0;
+	animation: animateHeader 1s forwards;
 }
 
 .hero__desc {
 	color: #fff;
 	font-size: 18px;
+	opacity: 0;
+	animation: animateHeader 1s forwards;
+}
+
+@keyframes animateHeader {
+	to {
+		opacity: 1;
+	}
 }
 
 /* PLATFORM */

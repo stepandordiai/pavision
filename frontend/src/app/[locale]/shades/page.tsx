@@ -40,6 +40,7 @@ export default async function Shades() {
 				heading={t("shades.title")}
 				subheading={t("shades.subtitle")}
 				imgSrc="https://images.pexels.com/photos/36353407/pexels-photo-36353407.png"
+				secondaryBtnTxt="Explore Automated Shades"
 			/>
 			<section className="section" id="section">
 				<h2 className="section__title">Get closer to nature</h2>
