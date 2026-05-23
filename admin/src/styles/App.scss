@@ -22,7 +22,7 @@ body {
 	padding: 20px;
 	border-radius: 10px;
 	flex-grow: 1;
-	overflow: scroll;
+	overflow: auto;
 	height: calc(100svh - 40px);
 	background: #fff;
 	display: flex;
@@ -85,11 +85,11 @@ body {
 	width: min(100%, 500px);
 	opacity: 0;
 	pointer-events: none;
-}
 
-.banner--visible {
-	opacity: 1;
-	pointer-events: auto;
+	&--visible {
+		opacity: 1;
+		pointer-events: auto;
+	}
 }
 
 .form {
@@ -135,22 +135,50 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: rgb(255, 221, 214);
+	gap: 5px;
 	padding: 5px;
-	border-radius: 5px;
-	color: rgb(255, 75, 75);
 	width: max-content;
+	border-radius: 5px;
+
+	&:hover {
+		background: rgba(0, 0, 0, 0.05);
+	}
+
+	span:nth-of-type(1) {
+		flex-shrink: 0;
+		background: rgb(255, 221, 214);
+		padding: 5px;
+		border-radius: 5px;
+		color: rgb(255, 75, 75);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 }
 
 .edit-btn {
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	background: rgb(255, 242, 188);
+	gap: 5px;
 	padding: 5px;
+	flex-shrink: 0;
 	border-radius: 5px;
-	color: rgb(255, 162, 0);
-	width: max-content;
+
+	&:hover {
+		background: rgba(0, 0, 0, 0.05);
+	}
+
+	span:nth-of-type(1) {
+		flex-shrink: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 5px;
+		background: rgb(255, 242, 188);
+		padding: 5px;
+		border-radius: 5px;
+		color: rgb(255, 162, 0);
+	}
 }
 
 .save-btn {
@@ -180,5 +208,6 @@ body {
 
 	.main {
 		padding: 10px;
+		height: calc(100svh - 20px);
 	}
 }

@@ -59,3 +59,37 @@
 		color: #000;
 	}
 }
+
+.details-dd {
+	position: relative;
+}
+
+.details-dd-inner {
+	position: absolute;
+	right: 0;
+	z-index: 10;
+	background: rgb(255, 255, 255);
+	border-radius: 10px;
+	padding: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	opacity: 0;
+	pointer-events: none;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+
+	&--visible {
+		pointer-events: auto;
+		opacity: 1;
+	}
+}
+
+.search-input {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	padding: 0 10px;
+
+	&:focus {
+		outline: none;
+	}
+}

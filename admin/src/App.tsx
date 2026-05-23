@@ -5,6 +5,7 @@ import Products from "./pages/Products/Products";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { supabase } from "./lib/supabase";
 import { useEffect, useState } from "react";
+import Header from "./components/layout/Header/Header";
 import "./styles/App.scss";
 
 interface Product {
@@ -38,7 +39,7 @@ function App() {
 			<div className="layout">
 				<Sidebar />
 				<main className="main">
-					{/* <Header /> */}
+					<Header />
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route

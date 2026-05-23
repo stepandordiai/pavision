@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PencilIcon from "../../components/icons/PencilIcon";
-import { NavLink } from "react-router-dom";
 import { supabase } from "../../lib/supabase";
-import MenuIcon from "../../components/icons/MenuIcon";
-import "./styles.scss";
 import TrashIcon from "../../components/icons/TrashIcon";
+import DotsIcon from "../../components/icons/DotsIcon";
+import "./styles.scss";
 
 const EMPTY_FORM = {
 	img: "",
@@ -51,7 +50,6 @@ export default function Products({
 	const [productId, setProductId] = useState<string | null>(null);
 	const [error, setError] = useState<string | null>(null);
 	const [formData, setFormData] = useState(EMPTY_FORM);
-	const [menuVisible, setMenuVisible] = useState(false);
 
 	console.log(error);
 
@@ -137,6 +135,37 @@ export default function Products({
 
 	const availableTypes = uniqueProductTypes.filter(
 		(t) => !formData.type.includes(t),
+	);
+
+	const [detailsVisible, setDetailsVisible] = useState<string | null>(null);
+
+	const handleProductDetails = (id: string) => {
+		setDetailsVisible((prev) => (prev === id ? null : id));
+	};
+
+	const detailsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+	useEffect(() => {
+		const handleClickOutside = (e: MouseEvent) => {
+			const clickedOutsideAll = detailsRef.current.every(
+				(ref) => ref && !ref.contains(e.target as Node),
+			);
+			if (clickedOutsideAll) {
+				setDetailsVisible(null);
+			}
+		};
+
+		document.addEventListener("mousedown", handleClickOutside);
+		return () => document.removeEventListener("mousedown", handleClickOutside);
+	}, []);
+
+	const [filter, setFilter] = useState("");
+
+	// TODO: learn this
+	const filteredLeads = products.filter((p) =>
+		Object.values(p).some((value) =>
+			String(value).toLowerCase().includes(filter.toLowerCase()),
+		),
 	);
 
 	return (
@@ -253,26 +282,20 @@ export default function Products({
 			<div
 				className={`curtain ${bannerVisible || productEditable ? "curtain--active" : ""}`}
 			></div>
-			{/* <Header
-				products.length={products.length}
-				setBannerVisible={setBannerVisible}
-			/> */}
-			<div
-				style={{
-					display: "flex",
-					justifyContent: "space-between",
-					marginBottom: "10px",
-				}}
-			>
-				<h1 className="main__title">Products</h1>
+			<div style={{ display: "flex", flexDirection: "column" }}>
 				<div
 					style={{
 						display: "flex",
-						gap: "5px",
-						justifyContent: "center",
-						alignItems: "center",
+						justifyContent: "space-between",
+						marginBottom: "10px",
 					}}
 				>
+					<input
+						onChange={(e) => setFilter(e.target.value)}
+						className="search-input"
+						type="text"
+						placeholder="Search..."
+					/>
 					<button
 						className="create-btn"
 						onClick={() => {
@@ -281,46 +304,9 @@ export default function Products({
 					>
 						+ Add product
 					</button>
-					<button onClick={() => setMenuVisible(true)} className="menu-btn">
-						Menu
-						<MenuIcon />
-					</button>
 				</div>
 			</div>
-			<div className={`menu ${menuVisible ? "menu--visible" : ""}`}>
-				<button
-					onClick={() => setMenuVisible(false)}
-					className="menu__close-btn"
-				>
-					Close
-				</button>
-				<nav className="menu-nav">
-					<NavLink
-						className={({ isActive }) =>
-							`menu-nav__link ${isActive ? "menu-nav__link--active" : ""}`
-						}
-						to={"/"}
-					>
-						Home
-					</NavLink>
-					<NavLink
-						className={({ isActive }) =>
-							`menu-nav__link ${isActive ? "menu-nav__link--active" : ""}`
-						}
-						to={"/products"}
-					>
-						Products
-					</NavLink>
-					<NavLink
-						className={({ isActive }) =>
-							`menu-nav__link ${isActive ? "menu-nav__link--active" : ""}`
-						}
-						to={"/clients"}
-					>
-						Clients
-					</NavLink>
-				</nav>
-			</div>
+
 			<table className="table">
 				<thead>
 					<tr>
@@ -331,12 +317,11 @@ export default function Products({
 						<th className="hide">Technology</th>
 						<th className="hide">Brand</th>
 						<th>Status</th>
-						<th></th>
-						<th></th>
+						<th style={{ width: "1%", whiteSpace: "nowrap" }}>Details</th>
 					</tr>
 				</thead>
 				<tbody>
-					{[...products]
+					{[...filteredLeads]
 						.reverse()
 						.slice(0, visibleLength)
 						.map((product, i) => {
@@ -346,7 +331,9 @@ export default function Products({
 									<td style={{ width: "1%" }}>
 										<img src={product.img} width={40} alt="" />
 									</td>
-									<td style={{ whiteSpace: "wrap" }}>{product.name}</td>
+									<td style={{ width: "100%", whiteSpace: "wrap" }}>
+										{product.name}
+									</td>
 									<td className="hide">
 										{/* {productEditable && productId === product.id ? (
 												<>
@@ -418,32 +405,76 @@ export default function Products({
 											{product.is_active ? "Active" : "Inactive"}
 										</button>
 									</td>
-									{/* <td>{product.created_at?.split("T")[0]}</td> */}
-									<td>
-										<button
-											className="edit-btn"
-											onClick={() => {
-												setBannerVisible(true);
-												setFormData(product);
-												setProductEditable(true);
-												setProductId(product.id);
+									<td
+										style={{
+											width: "1%",
+											whiteSpace: "nowrap",
+										}}
+									>
+										<div
+											ref={(el) => {
+												detailsRef.current[i] = el;
 											}}
+											className="details-dd"
 										>
-											<PencilIcon />
-										</button>
+											<button
+												onClick={() => handleProductDetails(product.id)}
+												style={{
+													background: "rgba(0,0,0, 0.1)",
+													padding: "5px",
+													borderRadius: "5px",
+													display: "flex",
+													justifyContent: "center",
+													alignItems: "center",
+													justifySelf: "flex-end",
+												}}
+											>
+												<DotsIcon />
+											</button>
+											<div
+												className={`details-dd-inner ${detailsVisible === product.id ? "details-dd-inner--visible" : ""}`}
+											>
+												<button
+													className="edit-btn"
+													onClick={() => {
+														setBannerVisible(true);
+														setFormData(product);
+														setProductEditable(true);
+														setProductId(product.id);
+														setDetailsVisible(null);
+													}}
+												>
+													<span>
+														<PencilIcon />
+													</span>
+													<span>Edit</span>
+												</button>
+												<button
+													className="delete-btn"
+													onClick={() => {
+														deleteOne(product.id);
+														setDetailsVisible(null);
+													}}
+												>
+													<span>
+														<TrashIcon />
+													</span>
+													<span>Delete</span>
+												</button>
+											</div>
+										</div>
 									</td>
-									<td>
-										<button
-											className="delete-btn"
-											onClick={() => deleteOne(product.id)}
-										>
-											{/* {loading && productId === product.id ? (
+									{/* <td>{product.created_at?.split("T")[0]}</td> */}
+									{/* <td>
+									
+									</td> */}
+									{/* <td> */}
+
+									{/* {loading && productId === product.id ? (
 												<SpinLoading />
 											) : (
 												)} */}
-											<TrashIcon />
-										</button>
-									</td>
+									{/* </td> */}
 								</tr>
 							);
 						})}
