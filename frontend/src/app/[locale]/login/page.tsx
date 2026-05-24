@@ -1,9 +1,8 @@
 "use client";
 
 import styles from "./../../../components/Testimonials/Testimonials.module.scss";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { supabase } from "@/lib/supabase";
-import type { User } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 import "./styles.scss";
 
@@ -14,11 +13,8 @@ export default function LoginPage() {
 	const [password, setPassword] = useState("");
 	const [authError, setAuthError] = useState("");
 	const [authLoading, setAuthLoading] = useState(false);
-	const [user, setUser] = useState<User | null>(null);
 
 	const router = useRouter();
-
-	// ── Auth ──────────────────────────────────────────────────────────────────
 
 	const handleAuth = async () => {
 		setAuthLoading(true);
@@ -41,18 +37,6 @@ export default function LoginPage() {
 
 		setAuthLoading(false);
 	};
-
-	useEffect(() => {
-		supabase.auth.getUser().then(({ data }) => setUser(data.user));
-
-		const {
-			data: { subscription },
-		} = supabase.auth.onAuthStateChange((_, session) => {
-			setUser(session?.user ?? null);
-		});
-
-		return () => subscription.unsubscribe();
-	}, []);
 
 	return (
 		<main

@@ -1,0 +1,30 @@
+.edit-btn {
+	background: rgba(255, 255, 255, 0.1);
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.sign-out-btn,
+.delete-btn {
+	background: rgb(106, 52, 52);
+	color: red;
+	padding: 10px;
+	border-radius: 10px;
+	align-self: flex-end;
+}
+
+.save-btn {
+	background: rgb(54, 104, 52);
+	color: rgb(21, 255, 0);
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.testimonial-item {
+	background: rgba(255, 255, 255, 0.1);
+	padding: 20px;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
