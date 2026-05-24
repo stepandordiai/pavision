@@ -1,4 +1,4 @@
-const PersonFillIcon = ({ size = 16 }) => {
+const PersonFillIcon = ({ size = 16 }: { size: string | number }) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"

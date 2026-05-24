@@ -11,19 +11,13 @@
 		"subtitle": "Zdůrazníme elektroinstalace, síťovou infrastrukturu, domácí automatizaci a audio/video systémy.",
 		"scroll": "Posuňte dolů a objevte"
 	},
+
 	"home": {
 		"meta": {
 			"title": "P&A Vision | Luxusní chytré domy, automatizace a moderní technologie",
 			"desc": "Navrhujeme a realizujeme chytré domácnosti, audio & video systémy a automatizaci na míru. Zvyšte komfort, bezpečnost i úsporu energie ve svém domově."
 		},
-		"whoWeAreTitle": "Kdo jsme",
-		"whoWeAreDesc": [
-			"Stojíme za více než 15 lety mezinárodních zkušeností (Velká Británie) v oblasti inteligentních domů, špičkových AV instalací a pokročilé automatizace budov.",
-			"Navrhujeme a realizujeme exkluzivní řešení, která propojují technologie do dokonale sladěného celku – s důrazem na komfort, design a absolutní spolehlivost. Pracujeme s prémiovými platformami jako Crestron, Crestron Home, Loxone a Lutron, které umožňují intuitivní řízení osvětlení, audia, videa, stínění i kompletního prostředí nemovitosti.",
-			"Integrujeme všechny technologie – od multimédií přes osvětlení až po řízení energií – do jedné elegantní a snadno ovladatelné platformy. Výsledkem je prostor, který reaguje na potřeby uživatele a přináší jedinečný uživatelský zážitek.",
-			"Součástí našich realizací je i pokročilé zabezpečení objektů. Implementujeme profesionální systémy od značek Jablotron, Paradox a Risco, přístupové řešení jako Salto a moderní kamerové a síťové technologie od Ubiquiti.",
-			"Každý projekt je pro nás individuální – vytváříme řešení na míru, která splňují nejvyšší nároky na bezpečnost, estetiku a technologickou úroveň."
-		],
+
 		"whatWeDoTitle": "Co děláme",
 		"whatWeDo": {
 			"title1": "Automatizace",
@@ -38,12 +32,14 @@
 
 		"technologies": "Technologie"
 	},
+
 	"products": {
 		"meta": {
 			"title": "Produkty chytré domácnosti a automatizace | Inovativní řešení pro moderní bydlení",
 			"desc": "Objevte pokročilé produkty chytré domácnosti a automatizační systémy. Ovládejte osvětlení, zabezpečení, klima a další prvky pomocí inteligentních řešení pro moderní život."
 		}
 	},
+
 	"aboutUs": {
 		"meta": {
 			"title": "O nás | Odborníci na chytré domácnosti a automatizaci",
@@ -52,13 +48,23 @@
 
 		"title": "O nás",
 
+		"whoWeAre": {
+			"title": "Kdo jsme",
+			"desc": [
+				"Stojíme za více než 15 lety mezinárodních zkušeností (Velká Británie) v oblasti inteligentních domů, špičkových AV instalací a pokročilé automatizace budov.",
+				"Navrhujeme a realizujeme exkluzivní řešení, která propojují technologie do dokonale sladěného celku – s důrazem na komfort, design a absolutní spolehlivost. Pracujeme s prémiovými platformami jako Crestron, Crestron Home, Loxone a Lutron, které umožňují intuitivní řízení osvětlení, audia, videa, stínění i kompletního prostředí nemovitosti.",
+				"Integrujeme všechny technologie – od multimédií přes osvětlení až po řízení energií – do jedné elegantní a snadno ovladatelné platformy. Výsledkem je prostor, který reaguje na potřeby uživatele a přináší jedinečný uživatelský zážitek.",
+				"Součástí našich realizací je i pokročilé zabezpečení objektů. Implementujeme profesionální systémy od značek Jablotron, Paradox a Risco, přístupové řešení jako Salto a moderní kamerové a síťové technologie od Ubiquiti.",
+				"Každý projekt je pro nás individuální – vytváříme řešení na míru, která splňují nejvyšší nároky na bezpečnost, estetiku a technologickou úroveň."
+			]
+		},
+
 		"ourTeam": {
 			"title": "Poznejte náš tým",
-			"programmer": "Programátor",
-			"electricar": "Elektrikář",
-			"manager": "Manažer"
+			"programmer": "Programátor"
 		}
 	},
+
 	"audio": {
 		"meta": {
 			"title": "Dokonalý zvuk pro váš chytrý domov | P&A Vision",

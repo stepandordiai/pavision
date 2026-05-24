@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import PersonIcon from "@/components/icons/PersonIcon";
+import PersonFillIcon from "@/components/icons/PersonFillIcon";
 import TelIcon from "@/components/icons/TelIcon";
 import EnvelopeIcon from "@/components/icons/EnvelopeIcon";
 import "./AboutUs.scss";
@@ -9,27 +9,15 @@ import "./AboutUs.scss";
 const team = [
 	{
 		name: "Oleksandr Honcharenko",
-		position: "aboutUs.ourTeam.programmer",
-		tel: "+420 777 049 617",
+		position: "ourTeam.programmer",
+		tel: "+420777049617",
 		email: "alex@pavision.cz",
 	},
 	{
 		name: "Petr Fojtů",
-		position: "aboutUs.ourTeam.programmer",
-		tel: "+420 775 632 426",
+		position: "ourTeam.programmer",
+		tel: "+420775632426",
 		email: "petr.fojtu@pavision.cz",
-	},
-	{
-		name: "John Doe",
-		position: "aboutUs.ourTeam.manager",
-		tel: "+420 775 632 426",
-		email: "info@pavision.cz",
-	},
-	{
-		name: "John Doe",
-		position: "aboutUs.ourTeam.electricar",
-		tel: "+420 775 632 426",
-		email: "info@pavision.cz",
 	},
 ];
 
@@ -59,11 +47,11 @@ export async function generateMetadata({
 }
 
 export default async function AboutUs() {
-	const t = await getTranslations();
+	const t = await getTranslations("aboutUs");
 
 	return (
 		<main className="main">
-			<h1 className="main__title">{t("aboutUsTitle")}</h1>
+			<h1 className="main__title">{t("title")}</h1>
 			<section
 				style={{
 					display: "flex",
@@ -82,9 +70,9 @@ export default async function AboutUs() {
 						width: "max-content",
 					}}
 				>
-					Who we are
+					{t("whoWeAre.title")}
 				</h2>
-				{t.raw("home.whoWeAreDesc").map((txt: string, i: number) => {
+				{t.raw("whoWeAre.desc").map((txt: string, i: number) => {
 					return <p key={i}>{txt}</p>;
 				})}
 			</section>
@@ -106,14 +94,14 @@ export default async function AboutUs() {
 						width: "max-content",
 					}}
 				>
-					{t("aboutUs.ourTeam.title")}
+					{t("ourTeam.title")}
 				</h2>
 				<div className="team-container">
 					{team.map((member, i) => {
 						return (
 							<div key={i} className="member-card">
 								<div className="member-img">
-									<PersonIcon />
+									<PersonFillIcon size={"100%"} />
 								</div>
 								<div
 									style={{
