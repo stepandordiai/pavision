@@ -180,6 +180,15 @@
 		"meta": {
 			"title": "Kontaktujte nás | P&A Vision chytrá domácnost",
 			"desc": "Chcete vylepšit svůj domov? Kontaktujte P&A Vision pro chytrou domácnost, audio-video systémy a technologická řešení na míru."
-		}
+		},
+
+		"title": "Kontaktní formulář",
+		"name": "Jméno",
+		"tel": "Telefonní číslo",
+		"message": "Zpráva",
+		"submit": "Odeslat",
+		"loading": "Odesílám...",
+		"success": "Úspěšně odesláno!",
+		"required": "povinné"
 	}
 }

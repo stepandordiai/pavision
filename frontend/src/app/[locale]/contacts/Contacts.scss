@@ -17,13 +17,6 @@
 	flex-direction: column;
 }
 
-.contacts-card {
-	// background: rgba(255, 255, 255, 0.1);
-	// padding: 10px;
-	// border-radius: 10px;
-	// width: 100%;
-}
-
 .contacts-details__link {
 	font-weight: 300;
 }
@@ -85,6 +78,12 @@
 		transition: opacity 0.5s;
 	}
 
+	&:has(input:disabled, textarea:disabled) {
+		&::after {
+			background: greenyellow;
+		}
+	}
+
 	&:focus-within {
 		&::after {
 			transform: scaleX(1);
@@ -124,6 +123,11 @@
 	font-weight: 500;
 	padding: 10px;
 	border-radius: 10px;
+
+	&:disabled {
+		background: greenyellow;
+		color: #000;
+	}
 }
 
 @media screen and (width < 1000px) {
@@ -142,5 +146,10 @@
 @media screen and (width < 800px) {
 	.contacts {
 		flex-direction: column;
+	}
+
+	.form {
+		padding: 20px;
+		gap: 40px;
 	}
 }

@@ -177,6 +177,15 @@
 		"meta": {
 			"title": "Contact Us | P&A Vision Smart Home Solutions",
 			"desc": "Ready to upgrade your home? Contact P&A Vision for smart home automation, audio-video systems, and tailored technology solutions."
-		}
+		},
+
+		"title": "Contact form",
+		"name": "Name",
+		"tel": "Phone number",
+		"message": "Message",
+		"submit": "Submit",
+		"loading": "Sending...",
+		"success": "Successfully sent!",
+		"required": "required"
 	}
 }
