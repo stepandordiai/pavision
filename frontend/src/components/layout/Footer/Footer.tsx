@@ -2,11 +2,11 @@
 
 import { usePathname } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
 import technologies from "@/data/technologies.json";
 import navLinks from "@/data/nav-links.json";
-import "./Footer.scss";
 import { TransitionLink } from "@/components/TransitionLink";
+import CopyBtn from "@/components/CopyBtn/CopyBtn";
+import "./Footer.scss";
 
 const Footer = () => {
 	const t = useTranslations();
@@ -79,8 +79,12 @@ const Footer = () => {
 								Soběslavova 1381, Kročehlavy, 272 01 Kladno
 							</a>
 						</li>
-						<li>IČO 23654341</li>
-						<li>DIČ CZ23654341</li>
+						<li>
+							IČO <CopyBtn txt="23654341" />
+						</li>
+						<li>
+							DIČ <CopyBtn txt="CZ23654341" />
+						</li>
 						<li>
 							<a className="link" href="tel:+420775632426">
 								+420 775 632 426
