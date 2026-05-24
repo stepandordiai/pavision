@@ -150,103 +150,71 @@
 
 .card {
 	background: #fff;
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	border-radius: 14px;
-	padding: 1.35rem 1.5rem 1.5rem;
+	border-radius: 10px;
+	padding: 1.25rem;
 	display: flex;
 	flex-direction: column;
-	gap: 0.85rem;
-	transition:
-		box-shadow 0.2s ease,
-		transform 0.2s ease;
-
-	&:hover {
-		box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-		transform: translateY(-2px);
-	}
+	gap: 10px;
 }
 
-.cardSkeleton {
-	height: 180px;
-	background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
-	background-size: 200% 100%;
-	animation: shimmer 1.4s infinite;
-	border: none;
-}
+// .cardSkeleton {
+// 	height: 180px;
+// 	background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+// 	background-size: 200% 100%;
+// 	animation: shimmer 1.4s infinite;
+// 	border: none;
+// }
 
-@keyframes shimmer {
-	0% {
-		background-position: 200% 0;
-	}
-	100% {
-		background-position: -200% 0;
-	}
-}
+// @keyframes shimmer {
+// 	0% {
+// 		background-position: 200% 0;
+// 	}
+// 	100% {
+// 		background-position: -200% 0;
+// 	}
+// }
 
 .cardHeader {
 	display: flex;
-	align-items: center;
-	gap: 0.75rem;
-	flex-wrap: wrap;
+	justify-content: space-between;
 }
 
 .avatar {
 	width: 40px;
 	height: 40px;
 	min-width: 40px;
-	border-radius: 50%;
-	background: #111;
+	border-radius: 10px;
+	background: #000;
 	color: #fff;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-size: 0.8rem;
-	font-weight: 700;
-	letter-spacing: 0.03em;
-}
-
-.meta {
-	flex: 1;
-	min-width: 0;
+	font-weight: 500;
 }
 
 .authorName {
-	margin: 0;
-	font-size: 0.925rem;
-	font-weight: 600;
+	font-weight: 500;
 	white-space: nowrap;
 	overflow: hidden;
 	// TODO: learn this
 	text-overflow: ellipsis;
+	color: #000;
 }
 
 .date {
-	margin: 0;
-	font-size: 0.78rem;
-	color: #888;
-}
-
-.cardStars {
-	margin-left: auto;
+	font-size: 0.8rem;
+	color: hsl(0, 0%, 50%);
 }
 
 .content {
-	margin: 0;
-	font-size: 0.9rem;
-	line-height: 1.65;
-	color: #333;
+	color: #000;
 }
-
-// ─── Stars ─────────────────────────────────────────────────────────────────────
 
 .stars {
 	display: flex;
 	gap: 2px;
 	align-items: center;
-}
-
-.starsInteractive {
-	margin-bottom: 0.25rem;
 }
 
 .star {
@@ -256,35 +224,26 @@
 	background: none;
 	border: none;
 	padding: 2px;
-	cursor: default;
-	color: #d0d0d0;
+	color: #000;
 	transition:
 		color 0.1s ease,
 		transform 0.1s ease;
 }
 
 .starFilled {
-	color: #f4b323;
-}
-
-.starInteractive {
-	cursor: pointer;
-
-	&:hover,
-	&.starFilled:hover {
-		transform: scale(1.2);
-	}
+	color: #000;
 }
 
 // ─── Empty / loading ──────────────────────────────────────────────────────────
 
 .empty {
-	text-align: center;
-	padding: 3rem 1rem;
-	color: #888;
-	font-size: 0.95rem;
-	border: 1px dashed rgba(0, 0, 0, 0.15);
-	border-radius: 14px;
+	margin-top: 20px;
+	// text-align: center;
+	// padding: 3rem 1rem;
+	// color: #888;
+	// font-size: 0.95rem;
+	// border: 1px dashed rgba(0, 0, 0, 0.15);
+	// border-radius: 14px;
 }
 
 // ─── Modal ─────────────────────────────────────────────────────────────────────
@@ -442,28 +401,28 @@
 // ─── Dark mode ─────────────────────────────────────────────────────────────────
 
 @media (prefers-color-scheme: dark) {
-	.card {
-		background: #1a1a1a;
-		border-color: rgba(255, 255, 255, 0.1);
+	// .card {
+	// 	background: #1a1a1a;
+	// 	border-color: rgba(255, 255, 255, 0.1);
 
-		&:hover {
-			box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
-		}
-	}
+	// 	&:hover {
+	// 		box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+	// 	}
+	// }
 
-	.content {
-		color: #ccc;
-	}
+	// .content {
+	// 	color: #ccc;
+	// }
 
-	.cardSkeleton {
-		background: linear-gradient(90deg, #222 25%, #2a2a2a 50%, #222 75%);
-		background-size: 200% 100%;
-	}
+	// .cardSkeleton {
+	// 	background: linear-gradient(90deg, #222 25%, #2a2a2a 50%, #222 75%);
+	// 	background-size: 200% 100%;
+	// }
 
-	.avatar {
-		background: #e0e0e0;
-		color: #111;
-	}
+	// .avatar {
+	// 	background: #e0e0e0;
+	// 	color: #111;
+	// }
 
 	.modal {
 		// background: #1a1a1a;
@@ -512,10 +471,10 @@
 		color: #e74c3c;
 	}
 
-	.empty {
-		color: #666;
-		border-color: rgba(255, 255, 255, 0.1);
-	}
+	// .empty {
+	// 	color: #666;
+	// 	border-color: rgba(255, 255, 255, 0.1);
+	// }
 
 	// .modalClose {
 	// 	color: #666;
@@ -530,5 +489,11 @@
 	}
 	.authFooter {
 		border-top-color: rgba(255, 255, 255, 0.08);
+	}
+}
+
+@media screen and (width < 900px) {
+	.grid {
+		gap: 10px;
 	}
 }

@@ -1,13 +1,11 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-// import { createClient } from '@/lib/supabase/client'; // adjust to your path
 import { supabase } from "@/lib/supabase";
 import type { User } from "@supabase/supabase-js";
 import styles from "./Testimonials.module.scss";
 import { TransitionLink } from "../TransitionLink";
-
-// ─── Types ───────────────────────────────────────────────────────────────────
+import getCreatedDate from "@/utils/getCreatedDate";
 
 interface Testimonial {
 	id: string;
@@ -16,16 +14,6 @@ interface Testimonial {
 	rating: number;
 	created_at: string;
 	user_id: string | null;
-}
-
-// ─── Helpers ─────────────────────────────────────────────────────────────────
-
-function formatDate(iso: string): string {
-	return new Date(iso).toLocaleDateString("en-GB", {
-		day: "numeric",
-		month: "short",
-		year: "numeric",
-	});
 }
 
 function getInitials(name: string): string {
@@ -66,17 +54,29 @@ function Stars({ rating, interactive = false, onChange }: StarsProps) {
 						interactive ? `Rate ${i} star${i !== 1 ? "s" : ""}` : undefined
 					}
 				>
-					<svg
-						width="18"
-						height="18"
-						viewBox="0 0 24 24"
-						fill={i <= display ? "currentColor" : "none"}
-						stroke="currentColor"
-						strokeWidth="1.8"
-						aria-hidden="true"
-					>
-						<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-					</svg>
+					{i <= display ? (
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="16"
+							height="16"
+							fill="currentColor"
+							className="bi bi-star-fill"
+							viewBox="0 0 16 16"
+						>
+							<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+						</svg>
+					) : (
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="16"
+							height="16"
+							fill="currentColor"
+							className="bi bi-star"
+							viewBox="0 0 16 16"
+						>
+							<path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z" />
+						</svg>
+					)}
 				</button>
 			))}
 		</div>
@@ -208,32 +208,36 @@ export default function Testimonials() {
 			{/* // ) :  */}
 			{testimonials.length === 0 ? (
 				<p className={styles.empty}>
-					No testimonials yet — be the first to leave one!
+					No testimonials yet - be the first to leave one!
 				</p>
 			) : (
 				<div className={styles.grid}>
 					{testimonials.map((t) => (
 						<article key={t.id} className={styles.card}>
 							<div className={styles.cardHeader}>
-								<div className={styles.avatar} aria-hidden="true">
-									{getInitials(t.author_name)}
-								</div>
-								<div className={styles.meta}>
+								<div
+									style={{
+										display: "flex",
+										justifyContent: "center",
+										alignItems: "center",
+										gap: "5px",
+									}}
+								>
+									<div className={styles.avatar} aria-hidden="true">
+										{getInitials(t.author_name)}
+									</div>
 									<p className={styles.authorName}>{t.author_name}</p>
-									<time className={styles.date} dateTime={t.created_at}>
-										{formatDate(t.created_at)}
-									</time>
 								</div>
-								<div className={styles.cardStars}>
-									<Stars rating={t.rating} />
-								</div>
+								<time className={styles.date} dateTime={t.created_at}>
+									{getCreatedDate(t.created_at)}
+								</time>
 							</div>
+							<Stars rating={t.rating} />
 							<p className={styles.content}>{t.content}</p>
 						</article>
 					))}
 				</div>
 			)}
-
 			{/* Modal */}
 			{modalOpen && (
 				<div
@@ -273,7 +277,6 @@ export default function Testimonials() {
 									</p>
 								</>
 							) : (
-								// FIXME:
 								<div className={styles.anonRow}>
 									<label htmlFor="">Name</label>
 									<input
@@ -286,7 +289,7 @@ export default function Testimonials() {
 									/>
 									<TransitionLink
 										style={{ alignSelf: "flex-end" }}
-										href={"/login"}
+										href="/login"
 										className="link"
 									>
 										Sign in instead
@@ -295,8 +298,16 @@ export default function Testimonials() {
 							)}
 
 							<label className={styles.label}>Rating</label>
-							<Stars rating={rating} interactive onChange={setRating} />
-
+							<div
+								style={{
+									background: "#fff",
+									padding: "10px",
+									borderRadius: "10px",
+									marginBottom: "10px",
+								}}
+							>
+								<Stars rating={rating} interactive onChange={setRating} />
+							</div>
 							<label className={styles.label} htmlFor="testimonial-content">
 								Your message
 							</label>
