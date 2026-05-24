@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 import ContactsClient from "./ContactsClient";
 import "./Contacts.scss";
+import Testimonials from "@/components/Testimonials/Testimonials";
 
 export async function generateMetadata({
 	params,

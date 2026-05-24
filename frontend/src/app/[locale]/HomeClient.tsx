@@ -6,6 +6,7 @@ import OurSolutions from "@/components/home/OurSolutions/OurSolutions";
 import CrestronApp from "@/components/CrestronApp/CrestronApp";
 import WhatWeDo from "@/components/WhatWeDo/WhatWeDo";
 import "./Home.scss";
+import Testimonials from "@/components/Testimonials/Testimonials";
 
 const brands = [
 	"Crestron",
@@ -31,6 +32,7 @@ export default function HomeClient() {
 			<OurSolutions />
 			<CrestronApp />
 			<WhatWeDo />
+			<Testimonials />
 			<Technologies />
 			<section className="section">
 				<h2 className="section__title">Trusted Brands. Smarter Homes.</h2>

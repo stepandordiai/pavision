@@ -80,6 +80,11 @@
 			font-size 0.5s;
 	}
 
+	::placeholder {
+		opacity: 0;
+		transition: opacity 0.5s;
+	}
+
 	&:focus-within {
 		&::after {
 			transform: scaleX(1);
@@ -89,6 +94,10 @@
 			transform: translateY(-20px);
 			color: rgba(255, 255, 255, 0.5);
 			font-size: 14px;
+		}
+
+		::placeholder {
+			opacity: 1;
 		}
 	}
 }

@@ -2,13 +2,15 @@
 
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { usePathname } from "@/i18n/navigation";
 import Lng from "@/components/Lng/Lng";
 import navLinks from "@/data/nav-links.json";
-import "./Header.scss";
 import { TransitionLink } from "@/components/TransitionLink";
 import PersonIcon from "@/components/icons/PersonIcon";
+import { supabase } from "@/lib/supabase";
+import { User } from "@supabase/supabase-js";
+import "./Header.scss";
+import PersonFillIcon from "@/components/icons/PersonFillIcon";
 
 const Header = () => {
 	const t = useTranslations();
@@ -55,6 +57,20 @@ const Header = () => {
 	function toggleMenu() {
 		setMenuOpen((prev) => !prev);
 	}
+
+	const [user, setUser] = useState<User | null>(null);
+
+	useEffect(() => {
+		supabase.auth.getUser().then(({ data }) => setUser(data.user));
+
+		const {
+			data: { subscription },
+		} = supabase.auth.onAuthStateChange((_, session) => {
+			setUser(session?.user ?? null);
+		});
+
+		return () => subscription.unsubscribe();
+	}, []);
 
 	return (
 		<>
@@ -104,8 +120,8 @@ const Header = () => {
 							gap: 20,
 						}}
 					>
-						<TransitionLink href={"/login"}>
-							<PersonIcon size={32} />
+						<TransitionLink href={user ? "/my-profile" : "/login"}>
+							{user ? <PersonFillIcon size={32} /> : <PersonIcon size={32} />}
 						</TransitionLink>
 						<Lng />
 						<a className="link header__link" href="tel:+420775632426">
