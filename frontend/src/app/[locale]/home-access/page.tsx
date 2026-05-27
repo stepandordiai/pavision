@@ -3,8 +3,8 @@ import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import "./styles.scss";
 import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
+import "./styles.scss";
 
 export async function generateMetadata({
 	params,
@@ -41,6 +41,7 @@ export default async function HomeAccess() {
 				subheading={t("homeAccess.subtitle")}
 				imgSrc="/home-access/01-c.png"
 				secondaryBtnTxt="Explore Smart Access"
+				imgAlt="Luxury smart home entrance with automated access control system"
 			/>
 			<section className="technology-section" id="section">
 				<h2 className="section__title">Peace of mind.</h2>

@@ -11,6 +11,7 @@ type HeroParallaxProps = {
 	subheading: string;
 	imgSrc: string;
 	secondaryBtnTxt: string;
+	imgAlt?: string;
 };
 
 const HeroParallax = ({
@@ -18,6 +19,7 @@ const HeroParallax = ({
 	subheading,
 	imgSrc,
 	secondaryBtnTxt,
+	imgAlt = "",
 }: HeroParallaxProps) => {
 	const [scrollY, setScrollY] = useState(0);
 	const [clientHeight, setClientHeight] = useState(800);
@@ -74,7 +76,7 @@ const HeroParallax = ({
 				className={`hero-parallax__img ${showImg ? "hero-parallax__img--visible" : ""}`}
 				style={{ transform: `translateY(${parallax}px)` }}
 				src={imgSrc}
-				alt="Modern luxury living room with smart home audio system"
+				alt={imgAlt}
 				fill // or width/height
 			/>
 			{/* darkness overlay */}

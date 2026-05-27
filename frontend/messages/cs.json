@@ -9,7 +9,8 @@
 	"hero": {
 		"title": "Kvalita, design a technologie v dokonalé rovnováze.",
 		"subtitle": "Zdůrazníme elektroinstalace, síťovou infrastrukturu, domácí automatizaci a audio/video systémy.",
-		"scroll": "Posuňte dolů a objevte"
+		"scroll": "Posuňte dolů a objevte",
+		"findOutMore": "Zjistit více"
 	},
 
 	"home": {
@@ -70,57 +71,71 @@
 			"title": "Dokonalý zvuk pro váš chytrý domov | P&A Vision",
 			"desc": "Zažijte hudbu v každé místnosti. Navrhujeme inteligentní audio řešení od multiroom systémů po domácí kina přesně podle vašeho životního stylu."
 		},
+		"heading": "Audio",
 		"title": "Audio",
 		"subtitle": "Automaticky přehrává to, co chcete, kdy chcete"
 	},
+
 	"homeAccess": {
 		"meta": {
 			"title": "Luxusní chytrý přístup do domácnosti a automatizace | P&A Vision",
 			"desc": "Zažijte novou úroveň pohodlí s inteligentními systémy přístupu do domácnosti. Ovládejte vstup, zabezpečení i automatizaci odkudkoli."
 		},
+		"heading": "Přístupové systémy",
 		"title": "Chytrá řešení pro přístup do domu",
 		"subtitle": "Inteligentní chytré zámky, vzdálený přístup a bezpečná automatizace vstupů pro moderní domovy v České republice."
 	},
+
 	"lighting": {
 		"meta": {
-			"title": "Advanced Smart Lighting Systems | Automated & Energy Efficient",
-			"desc": "Upgrade to smart lighting with automated control, dimming, and scene customization. Improve comfort, efficiency, and ambiance in every room."
+			"title": "Chytré osvětlení pro domácnost | P&A Vision",
+			"desc": "Chytré systémy osvětlení profesionálně navržené a nainstalované po celé České republice."
 		},
-		"title": "Osvětlení",
-		"subtitle": "Osvětlení, které se přizpůsobí vaší náladě a denní rutině"
+		"heading": "Osvětlení",
+		"title": "Chytré osvětlení pro domácnost",
+		"subtitle": "Inteligentní automatizace osvětlení navržená pro zvýšení komfortu, atmosféry a energetické účinnosti v moderních luxusních domech."
 	},
+
 	"shades": {
 		"meta": {
-			"title": "Luxusní chytré stínění a žaluzie | Elegantní domácí automatizace",
-			"desc": "Vylepšete svůj domov pomocí automatizovaného stínění a žaluzií. Užijte si dokonalé světlo, soukromí a energetickou úspornost díky inteligentnímu ovládání."
+			"title": "Chytré stínění a motorické žaluzie | P&A Vision",
+			"desc": "Profesionálně navržené a realizované systémy chytrého stínění po celé České republice."
 		},
-		"title": "Žaluzie",
-		"subtitle": "Automatické stínění, které se přizpůsobí vašemu dni"
+		"heading": "Stínění",
+		"title": "Chytré stínění a žaluzie",
+		"subtitle": "Inteligentní motorické stínicí systémy navržené pro komfort, soukromí a bezproblémovou integraci do chytré domácnosti."
 	},
+
 	"thermostat": {
 		"meta": {
 			"title": "Luxusní chytré řízení klimatu | Inteligentní termostatické systémy",
 			"desc": "Zažijte dokonalý komfort v interiéru díky pokročilým chytrým termostatům. Ovládejte teplotu, snižte náklady na energii a automatizujte svůj domov bez námahy."
 		},
+		"heading": "Klimatizace a vytápění",
 		"title": "Termostat",
 		"subtitle": "Ideální teplota přesně tehdy, kdy ji potřebujete"
 	},
+
 	"video": {
 		"meta": {
-			"title": "Chytré video a domácí kino | Špičková obrazová řešení",
-			"desc": "Vylepšete svou zábavu pomocí chytrých video systémů, 4K/8K obrazovek a integrovaných řešení domácího kina navržených pro maximální výkon a pohodlí."
+			"title": "Chytrá domácí kina a video systémy | P&A Vision",
+			"desc": "Luxusní domácí kina, chytré televize a integrované zábavní systémy navržené a realizované po celé České republice."
 		},
-		"title": "Video",
-		"subtitle": "Snadné ovládání videa"
+		"heading": "Video",
+		"title": "Chytré video a domácí kino systémy",
+		"subtitle": "Prémiová domácí kina, chytré televize a integrovaná zábavní řešení pro moderní luxusní domy."
 	},
+
 	"security": {
 		"meta": {
 			"title": "Automatizace zabezpečení chytré domácnosti | Inteligentní ochrana",
 			"desc": "Zvyšte bezpečnost svého domova pomocí chytré automatizace. Sledujte, ovládejte a chraňte svůj domov díky upozorněním v reálném čase, senzorům a inteligentním integracím."
 		},
+		"heading": "Zabezpečení",
 		"title": "Chytré zabezpečení domácnosti",
 		"subtitle": "Automatická ochrana s monitorováním v reálném čase, chytrými senzory a bezproblémovým ovládáním – váš domov v bezpečí kdykoli a odkudkoli."
 	},
+
 	"ourSolutions": {
 		"title": "Naše řešení s Crestron Home",
 		"security": {

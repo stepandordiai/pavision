@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import technologies from "@/data/technologies.json";
 import { TransitionLink } from "@/components/TransitionLink";
 import Image from "next/image";
@@ -11,6 +12,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 export default function TechnologiesClient() {
+	const t = useTranslations();
 	const handleSlideChange = (swiper: any) => {
 		const bullets = document.querySelectorAll(
 			".custom-bullet",
@@ -76,7 +78,7 @@ export default function TechnologiesClient() {
 								<div className="technology__icon-container">
 									<Image src={technology.icon} width={24} height={24} alt="" />
 								</div>
-								<h3>{technology.title}</h3>
+								<h3>{t(technology.title)}</h3>
 							</div>
 						</TransitionLink>
 					</SwiperSlide>

@@ -5,10 +5,12 @@
 	"contactsTitle": "Contacts",
 	"contactUs": "Contact us",
 	"navigation": "Navigation",
+
 	"hero": {
 		"title": "Quality, design, and technology in perfect balance.",
 		"subtitle": "Highlighting electrical installations, network infrastructure, home automation, and audio/video systems.",
-		"scroll": "Scroll down to explore"
+		"scroll": "Scroll down to explore",
+		"findOutMore": "Find out more"
 	},
 
 	"home": {
@@ -68,57 +70,71 @@
 			"title": "Immersive Smart Home Audio Solutions | P&A Vision",
 			"desc": "Transform your home with immersive audio technologies. From seamless multiroom music to cinematic experiences, we create sound that fits your life."
 		},
+		"heading": "Audio",
 		"title": "Smart Home Audio & Automation for Modern Living",
 		"subtitle": "Design, installation, and integration of premium audio, lighting, cinema, and smart home systems."
 	},
+
 	"homeAccess": {
 		"meta": {
 			"title": "Luxury Smart Home Access & Automation | P&A Vision",
 			"desc": "Experience next-level convenience with intelligent home access systems. Control entry, security, and automation effortlessly from anywhere."
 		},
+		"heading": "Home Access",
 		"title": "Smart Home Access Solutions",
 		"subtitle": "Intelligent smart locks, remote access, and secure entry automation for modern homes in the Czech Republic."
 	},
+
 	"lighting": {
 		"meta": {
-			"title": "Advanced Smart Lighting Systems | Automated & Energy Efficient",
-			"desc": "Upgrade to smart lighting with automated control, dimming, and scene customization. Improve comfort, efficiency, and ambiance in every room."
+			"title": "Smart Home Lighting Solutions | P&A Vision",
+			"desc": "Smart lighting systems professionally designed and installed across the Czech Republic."
 		},
-		"title": "Lighting",
-		"subtitle": "Lighting that adapts to your mood and routine"
+		"heading": "Lighting",
+		"title": "Smart Home Lighting Solutions",
+		"subtitle": "Intelligent lighting automation designed to enhance comfort, ambiance, and energy efficiency in modern luxury homes."
 	},
+
 	"shades": {
 		"meta": {
-			"title": "Luxury Smart Shades & Blinds | Elegant Home Automation",
-			"desc": "Enhance your living space with automated shades and blinds. Enjoy perfect lighting, privacy, and energy efficiency with sophisticated smart control."
+			"title": "Smart Shades & Motorized Blinds | P&A Vision",
+			"desc": "Luxury smart shades and motorized blinds with automated privacy, light control, and seamless smart home integration."
 		},
-		"title": "Shades",
-		"subtitle": "Automatic shading that adapts to your day"
+		"heading": "Shades",
+		"title": "Smart Shades & Blinds",
+		"subtitle": "Intelligent motorized shading systems designed for comfort, privacy, and seamless smart home integration."
 	},
+
 	"thermostat": {
 		"meta": {
 			"title": "Luxury Smart Climate Control | Intelligent Thermostat Systems",
 			"desc": "Experience perfect indoor comfort with advanced smart thermostat solutions. Control temperature, reduce energy costs, and automate your home effortlessly."
 		},
+		"heading": "Thermostat",
 		"title": "Thermostat",
 		"subtitle": "Perfect temperature, exactly when you need it"
 	},
+
 	"video": {
 		"meta": {
-			"title": "Smart Home Video & Cinema Systems | High-End Visual Solutions",
-			"desc": "Upgrade your entertainment with smart video systems, 4K/8K displays, and integrated home cinema setups designed for ultimate performance and convenience."
+			"title": "Smart Home Video & Cinema Systems | P&A Vision",
+			"desc": "Luxury home cinema, smart TV, and integrated entertainment systems designed and installed across the Czech Republic."
 		},
-		"title": "Video",
-		"subtitle": "Easy video control"
+		"heading": "Cinema",
+		"title": "Smart Home Video & Cinema Systems",
+		"subtitle": "Premium home cinema, smart TV, and integrated entertainment experiences for modern luxury homes."
 	},
+
 	"security": {
 		"meta": {
 			"title": "Smart Home Security Automation | Intelligent Protection",
 			"desc": "Enhance your home security with smart automation systems. Monitor, control, and protect your home with real-time alerts, sensors, and intelligent integrations."
 		},
+		"heading": "Security",
 		"title": "Smart Security Automation",
 		"subtitle": "Automated protection with real-time monitoring, smart sensors, and seamless control—keeping your home safe anytime, anywhere."
 	},
+
 	"ourSolutions": {
 		"title": "Our solutions with Crestron Home",
 		"security": {

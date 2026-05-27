@@ -40,6 +40,7 @@ export default async function Video() {
 				subheading={t("video.subtitle")}
 				imgSrc="https://images.pexels.com/photos/27562214/pexels-photo-27562214.png"
 				secondaryBtnTxt="Explore Cinema Experiences"
+				imgAlt="Luxury smart home cinema and video entertainment system"
 			/>
 			<section className="section" id="section">
 				<h2 className="section__title">

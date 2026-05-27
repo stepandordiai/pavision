@@ -24,7 +24,9 @@ export default function ProductsClient() {
 		...new Set(products.map((product) => product.technology)),
 	];
 
-	const [activeTechnology, setActiveTechnology] = useState<string | null>(null);
+	const [activeTechnology, setActiveTechnology] = useState<string | null>(
+		uniqueTechnologies[0],
+	);
 
 	useEffect(() => {
 		if (products.length > 0) {

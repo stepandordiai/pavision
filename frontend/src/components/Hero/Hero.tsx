@@ -137,14 +137,14 @@ const Hero = () => {
 					automatizaci a audio/video systémy.
 				</p>
 				<TransitionLink href="/contacts" className="hero-btn">
-					<span>Contact us</span>
+					<span>{t("contactUs")}</span>
 					<span>
 						<ChevronRightIcon />
 					</span>
 				</TransitionLink>
 				<div className="hero-container-technology">
 					<h2 className={`animation ${animation ? "animation--active" : ""}`}>
-						{displayedTechnology.title}
+						{t(displayedTechnology.title)}
 					</h2>
 					<p className={`animation ${animation ? "animation--active" : ""}`}>
 						{displayedTechnology.description}
@@ -153,7 +153,7 @@ const Hero = () => {
 						className={`link animation ${animation ? "animation--active" : ""}`}
 						href={displayedTechnology.path}
 					>
-						Find out more
+						{t("hero.findOutMore")}
 					</TransitionLink>
 				</div>
 			</div>
