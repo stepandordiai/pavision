@@ -92,7 +92,7 @@ const Header = () => {
 								fill="currentColor"
 							/>
 						</svg> */}
-						<img src="/logo-4.png" width={100} alt="" />
+						<img src="/logo.svg" width={100} alt="" />
 						{/* <span style={{ lineHeight: "1" }}>
 							P&A
 							<br />

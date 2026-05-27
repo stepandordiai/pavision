@@ -29,7 +29,7 @@ const Footer = () => {
 					/>
 				</svg>
 				<span>P&A Vision</span> */}
-				<img src="/logo-4.png" width={200} alt="" />
+				<img src="/logo.svg" width={200} alt="" />
 			</TransitionLink>
 			<div style={{ display: "flex", gap: 40, flexWrap: "wrap" }}>
 				<div>
