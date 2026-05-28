@@ -131,6 +131,12 @@ const Hero = () => {
 	return (
 		<section className="hero">
 			<div className="hero-container">
+				<img
+					style={{ position: "absolute", bottom: "10px", left: "10px" }}
+					src="/loxone-partner.svg"
+					width={250}
+					alt="Loxone Silver Partner"
+				/>
 				<h1 className="hero__title">{t("hero.title")}</h1>
 				<p className="hero__desc">
 					Zdůrazníme elektroinstalace, síťovou infrastrukturu, domácí
