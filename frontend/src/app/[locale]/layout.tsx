@@ -10,6 +10,8 @@ import { routing } from "@/i18n/routing";
 import { BASE_URL } from "@/lib/constants";
 import "@/scss/globals.scss";
 import { TransitionProvider } from "@/providers/TransitionProvider";
+import ScrollToTopBtn from "@/components/ScrollToTopBtn/ScrollToTopBtn";
+import FloatContact from "@/components/FloatContact/FloatContact";
 
 const poppins = Poppins({
 	variable: "--font-poppins",
@@ -37,6 +39,8 @@ export default async function LocaleLayout({
 		<html lang={locale}>
 			<body className={poppins.variable}>
 				<ScrollToTop />
+				<ScrollToTopBtn />
+				<FloatContact />
 				<NextIntlClientProvider locale={locale}>
 					<Banner />
 					<TransitionProvider>
