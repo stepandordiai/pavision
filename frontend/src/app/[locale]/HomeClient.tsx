@@ -1,12 +1,9 @@
-"use client";
-
 import Hero from "@/components/Hero/Hero";
 import Technologies from "@/components/home/Technologies/Technologies";
 import OurSolutions from "@/components/home/OurSolutions/OurSolutions";
-// import CrestronApp from "@/components/CrestronApp/CrestronApp";
 import WhatWeDo from "@/components/WhatWeDo/WhatWeDo";
-import "./Home.scss";
 import Testimonials from "@/components/Testimonials/Testimonials";
+import "./Home.scss";
 
 const brands = [
 	"Crestron",
@@ -30,7 +27,6 @@ export default function HomeClient() {
 		<main>
 			<Hero />
 			<OurSolutions />
-			{/* <CrestronApp /> */}
 			<WhatWeDo />
 			<Testimonials />
 			<Technologies />

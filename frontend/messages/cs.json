@@ -137,56 +137,53 @@
 	},
 
 	"ourSolutions": {
-		"title": "Naše řešení s Crestron Home",
-		"security": {
-			"title": "Zabezpečení",
-			"subtitle": "Klid a bezpečí pro váš domov",
-			"description": [
-				"Chraňte to nejdůležitější pomocí chytrých bezpečnostních řešení pro domácnost od Crestron Home. Získejte klid díky jistotě, že vaše rodina, majetek i cennosti jsou v bezpečí, ať už jste doma nebo mimo něj.",
-				"Mějte neustálý přehled díky zpětné vazbě systému v reálném čase přímo ve vašem mobilním zařízení. Okamžitě zkontrolujte stav chytrých zámků, alarmů, garážových vrat a bran a sledujte živý přenos z bezpečnostních kamer odkudkoliv.",
-				"Náš pokročilý systém domácí automatizace vám poskytuje plnou kontrolu nad zabezpečením vašeho domova. Ovládejte dveřní zámky, garážová vrata, brány i kamery prostřednictvím jediné intuitivní aplikace, s okamžitými upozorněními a vzdáleným přístupem na dosah ruky.",
-				"Díky bezproblémové integraci chytré domácnosti můžete automatizovat bezpečnostní scénáře, na dálku zamykat či odemykat dveře a snadno kontrolovat všechny vstupní body. Crestron Home přináší spolehlivé a inteligentní zabezpečení pro moderní život.",
-				"Od chytrých zámků a kamerových systémů až po plnou vzdálenou kontrolu přístupu – proměňte svůj domov v propojené a bezpečné prostředí přizpůsobené vašemu životnímu stylu. Zažijte budoucnost chytré domácí bezpečnosti s Crestron Home."
-			]
-		},
-		"wellness": {
-			"title": "Wellness",
-			"subtitle": "Ano, váš domov může prospívat vašemu zdraví",
-			"desc": "",
-			"description": [
-				"Váš spánek. Vaše energie. Vaše nálada. Vaše fyzické i duševní zdraví. Chytrá domácnost může všechny tyto oblasti aktivně podporovat a zlepšovat. Světlo, akustika, teplota i kvalita vody hrají klíčovou roli v tom, jak se každý den cítíte.",
-				"Systém Crestron Home® OS vám umožňuje jednoduše řídit prostředí vašeho domova a jeho interakci s okolním světem. Vytvořte si prostor, který funguje v souladu s vaším životním stylem a přirozeně podporuje vaši pohodu.",
-				"Váš domov se může přizpůsobit vašim potřebám v reálném čase. Díky inteligentní automatizaci snadno optimalizujete osvětlení, zvuk, teplotu i kvalitu vnitřního prostředí pro maximální komfort.",
-				"Automatizované scénáře vám umožní probouzet se s přirozeným světlem, relaxovat při jemně nastavené hudbě nebo vytvořit ideální podmínky pro práci i odpočinek. Domov tak reaguje na vaše návyky a podporuje vaše zdraví.",
-				"Systém Crestron Home vám dává plnou kontrolu nad osvětlením, stíněním, klimatizací i audio systémem prostřednictvím jediné intuitivní aplikace. Jednoduše, efektivně a kdykoliv.",
-				"Proměňte svůj domov v prostředí, které snižuje stres, zvyšuje kvalitu života a aktivně podporuje vaše zdraví. Objevte skutečný potenciál chytré domácnosti."
-			]
-		},
+		"title": "Naše inteligentní řešení",
 		"comfort": {
 			"title": "Komfort",
 			"subtitle": "Váš domov je vaše útočiště",
 			"description": [
-				"Váš domov by měl být víc než jen místo k bydlení – měl by být oázou komfortu přizpůsobenou vašemu životnímu stylu. Díky chytrému řízení klimatu od Crestron Home je každý detail vašeho prostředí navržen podle vašich osobních preferencí.",
-				"Zažijte dokonalé pohodlí v každé místnosti díky inteligentní regulaci teploty, automatizovanému osvětlení a bezproblémové domácí automatizaci. Od jemného ambientního světla až po přesně vyvážené vnitřní klima – váš domov se vám přizpůsobuje po celý den.",
-				"Pokročilé chytré termostaty a klimatické systémy zajišťují, že každý prostor je vždy nastaven na ideální teplotu. Ať už odpočíváte, pracujete nebo spíte, váš domov automaticky udržuje perfektní atmosféru.",
-				"Díky plně integrované technologii chytré domácnosti můžete ovládat osvětlení, stínění i teplotu prostřednictvím jediné intuitivní aplikace. Okamžitě upravujte nastavení nebo vytvářejte automatizované scénáře podle vašich každodenních návyků.",
-				"Užijte si prostor, kde komfort, design a technologie fungují v dokonalé harmonii. Crestron Home promění váš domov v personalizované prostředí, které podporuje relaxaci, efektivitu i každodenní pohodu.",
-				"Objevte nový standard komfortu s chytrou domácností – kde je každý detail dokonale vyladěn pro vás, v každém okamžiku dne."
+				"P&A Vision promění váš dům v oázu komfortu. Spojujeme systémy Crestron, Loxone a Lutron do jednoho celku, který v reálném čase přizpůsobí klima i osvětlení vašemu životnímu stylu v ČR.",
+				"Zažijte dokonalé pohodlí díky pokročilé zónové regulaci teploty a inteligentnímu stínění. Každá místnost automaticky udržuje perfektní atmosféru pro práci, odpočinek i spánek.",
+				"Chytré termostaty a klimatizační systémy fungují v naprosté harmonii. Zapomeňte na neustálé ruční nastavování – dům předvídá vaše potřeby a udržuje ideální vnitřní prostředí.",
+				"Ovládejte topení, chlazení, rekuperaci i ambientní světla z jediné intuitivní aplikace nebo pomocí elegantních designových vypínačů na zdi. Jednoduše, efektivně a odkudkoliv.",
+				"Objevte nový standard luxusního bydlení v České republice. Vytvoříme pro vás personalizovaný prostor, kde technologie pracují neviditelně pro vaši každodenní pohodu."
+			]
+		},
+		"security": {
+			"title": "Zabezpečení",
+			"subtitle": "Klid a bezpečí pro váš domov",
+			"description": [
+				"Zabezpečení domu od P&A Vision integruje systémy Jablotron, Paradox, Risco, Loxone, Crestron, Lutron, MikroTik a Ubiquiti do jednoho inteligentního celku pro maximální bezpečí v rámci celé ČR.",
+				"Sledujte stav zámků, alarmů a živý přenos z kamer v reálném čase odkudkoliv na světě přímo ve svém mobilu.",
+				"Propojujeme profesionální alarmy Jablotron či Paradox do jediné aplikace. Získejte plnou kontrolu nad zabezpečením domácnosti a okamžitá upozornění.",
+				"Automatizujte bezpečnostní scénáře: odchodový režim jedním stiskem aktivuje alarm a zamkne dům. Chytré a spolehlivé zabezpečení pro moderní život.",
+				"Od kamerových systémů po vzdálenou kontrolu přístupu – vytvoříme bezpečné prostředí na míru vašemu životnímu stylu."
 			]
 		},
 		"convenience": {
 			"title": "Pohodlí",
 			"subtitle": "Váš domov by měl pracovat pro vás, ne naopak",
 			"description": [
-				"S chytrou domácností Crestron Home se každodenní činnosti stávají snadnými, intuitivními a dokonale sladěnými s vaším životním stylem.",
-				"Ovládejte celý svůj domov z jediné aplikace, ať už jste ve vedlejší místnosti nebo na druhém konci světa. Nastavujte osvětlení, stínění, audio, video a další prvky jedním klepnutím, nebo nechte svůj domov reagovat automaticky na vaše každodenní návyky.",
-				"Zjednodušte si den díky inteligentní automatizaci, která se postará o detaily za vás. Od automatického zatažení žaluzií při západu slunce až po vytvoření ideální atmosféry pro filmový večer – váš domov předvídá vaše potřeby a okamžitě reaguje.",
-				"Užijte si bezproblémovou zábavu v celém domě díky integrovaným audio a video systémům. Sledujte oblíbený obsah na jakékoliv obrazovce, poslouchejte hudbu v celém domě a vytvářejte personalizované zážitky v každé místnosti.",
-				"Crestron Home proměňuje komplexní technologie v jednoduchý a sjednocený zážitek. Vše funguje hladce a bez námahy, takže máte plnou kontrolu bez zbytečných komplikací.",
-				"Objevte chytřejší způsob bydlení – kde se pohodlí, komfort a kontrola spojují, aby byl každý okamžik doma jednodušší, příjemnější a skutečně váš."
+				"S chytrou domácností od P&A Vision se každodenní rutiny mění v čistou radost. Propojujeme systémy Crestron, Control4 a Loxone, aby váš domov v ČR fungoval zcela intuitivně a bez námahy.",
+				"Zapomeňte na desítky ovladačů. Osvětlení, stínění, audio i video systémy nyní ovládáte z jediné prémiové aplikace, elegantního dotykového panelu nebo pomocí hlasových asistentů.",
+				"Náš inteligentní dům předvídá vaše potřeby. Automaticky zatáhne žaluzie při západu slunce, upraví teplotu nebo jedním dotykem připraví obývací pokoj pro dokonalý filmový večer.",
+				"Užijte si špičkový multiroom audio a video systém po celém domě. Streamujte hudbu nebo filmy do kterékoli místnosti a přepínejte zdroje zábavy hladce a bez zbytečných komplikací.",
+				"Objevte nový standard moderního bydlení v České republice. Proměňujeme komplexní technologie v jednoduchý a sjednocený zážitek, který vám ušetří čas a zajistí dokonalý komfort."
+			]
+		},
+		"wellness": {
+			"title": "Wellness",
+			"subtitle": "Ano, váš domov může prospívat vašemu zdraví",
+			"description": [
+				"Chytrá domácnost od P&A Vision aktivně podporuje váš spánek, energii i zdraví. Správné světlo, akustika a teplota zásadně ovlivňují to, jak se v ČR každý den cítíte.",
+				"Propojujeme špičkové systémy Lutron, Crestron či Loxone, které automaticky optimalizují vnitřní prostředí a kvalitu vzduchu pro vaše maximální duševní i fyzické wellness.",
+				"Vzbuďte se s přirozeným světlem díky cirkadiánnímu osvětlení Lutron a relaxujte při ideální teplotě. Váš domov se v reálném čase přizpůsobí vašim biologickým potřebám.",
+				"Ovládejte osvětlení, stínění, mikroklima i audio z jediné intuitivní aplikace. Automatizované scénáře snižují každodenní stres a vytvářejí dokonalé podmínky pro práci i odpočinek.",
+				"Proměňte svůj luxusní dům v oázu klidu, která zvyšuje kvalitu života. Objevte budoucnost zdravého bydlení a biofilního designu v České republice."
 			]
 		}
 	},
+
 	"crestronApp": {
 		"title": "Stáhněte si aplikaci Crestron Home® pro svá zařízení.",
 		"hint": "Demo režim je dostupný pouze na iOS, pro Android je vyžadován systém."

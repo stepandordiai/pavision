@@ -136,55 +136,53 @@
 	},
 
 	"ourSolutions": {
-		"title": "Our solutions with Crestron Home",
-		"security": {
-			"title": "Security",
-			"subtitle": "Peace of mind for your home",
-			"description": [
-				"Protect what matters most with smart home security solutions powered by Crestron Home. Gain peace of mind knowing your family, property, and valuables are secure whether you're at home or away.",
-				"Stay informed with real-time system feedback directly on your mobile device. Instantly check the status of smart locks, alarms, garage doors, and gates, and view live security camera feeds from anywhere.",
-				"Our advanced home automation system gives you complete control over your home's security. Manage door locks, garage doors, gates, and surveillance cameras through a single intuitive app, with instant alerts and remote access at your fingertips.",
-				"With seamless smart home integration, automate security routines, lock or unlock doors remotely, and monitor every entry point with ease. Crestron Home delivers reliable, intelligent security designed for modern living.",
-				"From smart locks and video surveillance to full remote access control, transform your home into a connected, secure environment tailored to your lifestyle. Experience the future of smart home security with Crestron Home."
-			]
-		},
-		"wellness": {
-			"title": "Wellness",
-			"subtitle": "Yes. Your home can benefit your health",
-			"description": [
-				"Your sleep. Your energy. Your mood. Your physical and mental well-being. A smart home can actively support and enhance all of these areas. Lighting, acoustics, temperature, and water quality all play a key role in how you feel every day.",
-				"The Crestron Home® OS system allows you to effortlessly control your home environment and its interaction with the outside world. Create a space that aligns with your lifestyle and naturally supports your well-being.",
-				"Your home can adapt to your needs in real time. With intelligent automation, you can easily optimize lighting, sound, temperature, and indoor environmental quality for maximum comfort.",
-				"Automated scenes allow you to wake up with natural light, relax with perfectly tuned audio, or create the ideal conditions for both work and rest. Your home responds to your habits and supports your overall health.",
-				"Crestron Home gives you full control over lighting, shading, climate, and audio systems through a single intuitive app. Simple, efficient, and always within reach.",
-				"Transform your home into an environment that reduces stress, enhances your quality of life, and actively supports your health. Discover the true potential of a smart home."
-			]
-		},
+		"title": "Our Intelligent Solutions",
 		"comfort": {
 			"title": "Comfort",
 			"subtitle": "Your home is your sanctuary",
 			"description": [
-				"Your home should be more than just a place to live—it should be a sanctuary of comfort tailored to your lifestyle. With smart home climate control powered by Crestron Home, every detail of your environment is designed around your personal preferences.",
-				"Experience perfect comfort in every room with intelligent temperature control, automated lighting, and seamless home automation. From soft ambient lighting to precisely balanced indoor climate, your home adapts to you throughout the day.",
-				"Advanced smart thermostats and climate systems ensure that every space is always set to the ideal temperature. Whether you're relaxing, working, or sleeping, your home maintains the perfect atmosphere automatically.",
-				"With fully integrated smart home technology, you can control lighting, shading, and temperature from a single intuitive app. Adjust settings instantly or create automated scenes that respond to your daily routines.",
-				"Enjoy a living space where comfort, design, and technology work together effortlessly. Crestron Home transforms your house into a personalized environment that enhances relaxation, efficiency, and everyday living.",
-				"Discover a new standard of comfort with smart home automation—where every detail is perfectly tuned to you, every moment of the day."
+				"P&A Vision transforms your house into an oasis of comfort. We merge Crestron, Loxone, and Lutron systems into a unified network that adapts climate and lighting to your lifestyle across Europe.",
+				"Experience ultimate convenience with advanced multi-zone temperature control and smart shading. Every room automatically maintains the perfect atmosphere for work, relaxation, or sleep.",
+				"Smart thermostats and HVAC systems work in perfect harmony. Forget constant manual adjustments – the house anticipates your needs and maintains the ideal indoor environment.",
+				"Control heating, cooling, ventilation (HRV), and ambient lighting from a single intuitive app or elegant designer keypads. Simple, efficient, and accessible from anywhere.",
+				"Discover a new standard of luxury living in the EU. We design a personalized space where technology works invisibly to ensure your daily well-being."
+			]
+		},
+		"security": {
+			"title": "Security",
+			"subtitle": "Peace of mind for your home",
+			"description": [
+				"Home security by P&A Vision integrates Jablotron, Paradox, and Risco systems into a unified smart network for maximum safety of residences across Europe.",
+				"Monitor the status of smart locks, alarms, and live camera feeds in real time from anywhere in the world, right on your mobile device.",
+				"We connect top-tier professional alarms into a single app. Gain full control over your home security with instant smart notifications.",
+				"Automate your safety with custom scenarios: an away-mode arms the alarm and locks down the house in one touch. Smart security for modern European living.",
+				"From premium CCTV camera systems to remote access control – we create a secure environment tailored to your lifestyle, meeting the highest EU standards."
 			]
 		},
 		"convenience": {
 			"title": "Convenience",
 			"subtitle": "Your home should work for you, not the other way around",
 			"description": [
-				"With smart home automation powered by Crestron Home, everyday tasks become effortless, intuitive, and perfectly aligned with your lifestyle.",
-				"Control your entire home from a single app, whether you're in the next room or across the world. Adjust lighting, shades, audio, video, and more with just a tap, or let your home respond automatically to your daily routines.",
-				"Simplify your day with intelligent automation that handles the details for you. From lowering shades at sunset to setting the perfect ambiance for movie night, your home anticipates your needs and responds instantly.",
-				"Enjoy seamless whole-home entertainment with integrated audio and video systems. Watch your favorite content on any screen, stream music throughout your home, and create personalized experiences in every room.",
-				"Crestron Home transforms complex technology into a simple, unified experience. Everything works together smoothly, giving you total control without effort or distraction.",
-				"Experience a smarter way of living—where convenience, comfort, and control come together to make every moment at home easier, more enjoyable, and completely yours."
+				"A smart home by P&A Vision turns daily routines into pure joy. We interconnect Crestron, Control4, and Loxone systems so your European home operates completely intuitively and effortlessly.",
+				"Forget dozens of remotes. Control your lighting, shading, multiroom audio, and video systems from a single premium app, an elegant touch panel, or via voice assistants.",
+				"Our intelligent smart home anticipates your needs. It automatically lowers the blinds at sunset, adjusts the climate, or prepares the living room for a perfect movie night with one touch.",
+				"Enjoy a top-tier multiroom audio and video experience throughout the house. Stream music or movies to any room and switch entertainment sources seamlessly without complications.",
+				"Discover a new standard of modern living in the EU. We transform complex technologies into a simple, unified experience that saves you time and delivers ultimate convenience."
+			]
+		},
+		"wellness": {
+			"title": "Wellness",
+			"subtitle": "Yes. Your home can benefit your health",
+			"description": [
+				"A smart home by P&A Vision actively supports your sleep, energy, and health. The right lighting, acoustics, and temperature fundamentally shape how you feel every day in modern Europe.",
+				"We integrate premium Lutron, Crestron, and Loxone systems that automatically optimize the indoor environment and air quality for your ultimate mental and physical wellness.",
+				"Wake up to natural light with Lutron circadian lighting and relax at the ideal temperature. Your home adapts in real time to your biological and circadian needs.",
+				"Control lighting, automated shading, microclimate, and audio from a single intuitive app. Automated scenarios reduce daily stress and create perfect conditions for work and rest.",
+				"Transform your luxury residence into an oasis of calm that elevates your quality of life. Discover the future of healthy living and biophilic design in the EU."
 			]
 		}
 	},
+
 	"crestronApp": {
 		"title": "Download Crestron Home® app for your devices.",
 		"hint": "Demo Mode Available on iOS Only, System is Required on Android"

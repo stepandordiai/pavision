@@ -1,3 +1,5 @@
+"use client";
+
 import { useInView } from "@/hooks/useInView";
 import { div } from "framer-motion/client";
 
