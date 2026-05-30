@@ -1,5 +1,5 @@
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
-import CrestronApp from "@/components/CrestronApp/CrestronApp";
+// import CrestronApp from "@/components/CrestronApp/CrestronApp";
 import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
@@ -86,7 +86,7 @@ export default async function Audio() {
 				</div>
 			</section>
 			<TechnologyProducts technology="Audio" />
-			<CrestronApp />
+			{/* <CrestronApp /> */}
 		</main>
 	);
 }

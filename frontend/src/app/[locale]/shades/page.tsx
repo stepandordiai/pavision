@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
-import CrestronApp from "@/components/CrestronApp/CrestronApp";
+// import CrestronApp from "@/components/CrestronApp/CrestronApp";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
@@ -85,7 +85,7 @@ export default async function Shades() {
 				</div>
 			</section>
 			<TechnologyProducts technology="Shades" />
-			<CrestronApp />
+			{/* <CrestronApp /> */}
 		</main>
 	);
 }

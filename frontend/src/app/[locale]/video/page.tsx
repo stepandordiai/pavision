@@ -1,10 +1,10 @@
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
-import CrestronApp from "@/components/CrestronApp/CrestronApp";
+// import CrestronApp from "@/components/CrestronApp/CrestronApp";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
-import "./styles.scss";
 import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
+import "./styles.scss";
 
 export async function generateMetadata({
 	params,
@@ -95,7 +95,7 @@ export default async function Video() {
 				</div>
 			</section>
 			<TechnologyProducts technology="Video" />
-			<CrestronApp />
+			{/* <CrestronApp /> */}
 		</main>
 	);
 }

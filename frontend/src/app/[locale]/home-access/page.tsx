@@ -1,4 +1,4 @@
-import CrestronApp from "@/components/CrestronApp/CrestronApp";
+// import CrestronApp from "@/components/CrestronApp/CrestronApp";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
@@ -84,7 +84,7 @@ export default async function HomeAccess() {
 				</div>
 			</section>
 			<TechnologyProducts technology="Home Access" />
-			<CrestronApp />
+			{/* <CrestronApp /> */}
 		</main>
 	);
 }

@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
-import CrestronApp from "@/components/CrestronApp/CrestronApp";
+// import CrestronApp from "@/components/CrestronApp/CrestronApp";
 import { useState } from "react";
 import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
 
@@ -147,7 +147,7 @@ export default function LightingClient() {
 				</div>
 			</section>
 			<TechnologyProducts technology="Lighting" />
-			<CrestronApp />
+			{/* <CrestronApp /> */}
 		</main>
 	);
 }
