@@ -15,7 +15,7 @@
 
 	"home": {
 		"meta": {
-			"title": "P&A Vision | Luxusní chytré domy, automatizace a moderní technologie",
+			"title": "Luxusní chytré domy, automatizace a moderní technologie",
 			"desc": "Navrhujeme a realizujeme chytré domácnosti, audio & video systémy a automatizaci na míru. Zvyšte komfort, bezpečnost i úsporu energie ve svém domově."
 		},
 
@@ -66,39 +66,49 @@
 		}
 	},
 
-	"audio": {
-		"meta": {
-			"title": "Dokonalý zvuk pro váš chytrý domov | P&A Vision",
-			"desc": "Zažijte hudbu v každé místnosti. Navrhujeme inteligentní audio řešení od multiroom systémů po domácí kina přesně podle vašeho životního stylu."
-		},
-		"heading": "Audio",
-		"title": "Audio",
-		"subtitle": "Automaticky přehrává to, co chcete, kdy chcete"
-	},
-
-	"homeAccess": {
-		"meta": {
-			"title": "Luxusní chytrý přístup do domácnosti a automatizace | P&A Vision",
-			"desc": "Zažijte novou úroveň pohodlí s inteligentními systémy přístupu do domácnosti. Ovládejte vstup, zabezpečení i automatizaci odkudkoli."
-		},
-		"heading": "Přístupové systémy",
-		"title": "Chytrá řešení pro přístup do domu",
-		"subtitle": "Inteligentní chytré zámky, vzdálený přístup a bezpečná automatizace vstupů pro moderní domovy v České republice."
-	},
-
 	"lighting": {
 		"meta": {
-			"title": "Chytré osvětlení pro domácnost | P&A Vision",
-			"desc": "Chytré systémy osvětlení profesionálně navržené a nainstalované po celé České republice."
+			"title": "Chytré osvětlení, řízení světel a automatizace",
+			"desc": "Profesionální řešení chytrého osvětlení pro domácnosti. Inteligentní řízení světel, automatické scénáře, stmívání, dálkové ovládání a integrace do systému chytré domácnosti."
 		},
 		"heading": "Osvětlení",
 		"title": "Chytré osvětlení pro domácnost",
 		"subtitle": "Inteligentní automatizace osvětlení navržená pro zvýšení komfortu, atmosféry a energetické účinnosti v moderních luxusních domech."
 	},
 
+	"homeAccess": {
+		"meta": {
+			"title": "Chytrý vstup do domu a automatizace přístupu",
+			"desc": "Inteligentní systémy vstupu do domu, smart zámky a bezklíčový přístup propojený s chytrou domácností. Vyšší bezpečnost, pohodlí a kontrola na dosah ruky."
+		},
+		"heading": "Přístupové systémy",
+		"title": "Chytrá řešení pro přístup do domu",
+		"subtitle": "Inteligentní chytré zámky, vzdálený přístup a bezpečná automatizace vstupů pro moderní domovy v České republice."
+	},
+
+	"video": {
+		"meta": {
+			"title": "Domácí kino, chytré TV a multimediální systémy",
+			"desc": "Prémiová řešení domácího kina, chytrých televizí a multimediálních systémů. Inteligentní ovládání, multiroom video a bezproblémová integrace do chytré domácnosti."
+		},
+		"heading": "Video",
+		"title": "Chytré video a domácí kino systémy",
+		"subtitle": "Prémiová domácí kina, chytré televize a integrovaná zábavní řešení pro moderní luxusní domy."
+	},
+
+	"audio": {
+		"meta": {
+			"title": "Dokonalý zvuk pro váš chytrý domov",
+			"desc": "Zažijte hudbu v každé místnosti. Navrhujeme inteligentní audio řešení od multiroom systémů po domácí kina přesně podle vašeho životního stylu."
+		},
+		"heading": "Audio",
+		"title": "Chytré domácí audio systémy a multiroom ozvučení",
+		"subtitle": "Profesionální návrh a instalace prémiových audio systémů, multiroom ozvučení a bezproblémová integrace do chytré domácnosti pro dokonalý zvuk v každé místnosti."
+	},
+
 	"shades": {
 		"meta": {
-			"title": "Chytré stínění a motorické žaluzie | P&A Vision",
+			"title": "Chytré stínění a motorické žaluzie",
 			"desc": "Profesionálně navržené a realizované systémy chytrého stínění po celé České republice."
 		},
 		"heading": "Stínění",
@@ -112,18 +122,8 @@
 			"desc": "Zažijte dokonalý komfort v interiéru díky pokročilým chytrým termostatům. Ovládejte teplotu, snižte náklady na energii a automatizujte svůj domov bez námahy."
 		},
 		"heading": "Klimatizace a vytápění",
-		"title": "Termostat",
-		"subtitle": "Ideální teplota přesně tehdy, kdy ji potřebujete"
-	},
-
-	"video": {
-		"meta": {
-			"title": "Chytrá domácí kina a video systémy | P&A Vision",
-			"desc": "Luxusní domácí kina, chytré televize a integrované zábavní systémy navržené a realizované po celé České republice."
-		},
-		"heading": "Video",
-		"title": "Chytré video a domácí kino systémy",
-		"subtitle": "Prémiová domácí kina, chytré televize a integrovaná zábavní řešení pro moderní luxusní domy."
+		"title": "Chytré řízení klimatu a teploty",
+		"subtitle": "Inteligentní termostaty a systémy řízení klimatu, které automatizují komfort, zvyšují energetickou efektivitu a bezproblémově se integrují do chytré domácnosti."
 	},
 
 	"security": {
@@ -190,7 +190,7 @@
 	},
 	"contacts": {
 		"meta": {
-			"title": "Kontaktujte nás | P&A Vision chytrá domácnost",
+			"title": "Kontaktujte nás",
 			"desc": "Chcete vylepšit svůj domov? Kontaktujte P&A Vision pro chytrou domácnost, audio-video systémy a technologická řešení na míru."
 		},
 

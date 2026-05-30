@@ -8,10 +8,10 @@ import ScrollToTop from "@/utils/ScrollToTop";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { BASE_URL } from "@/lib/constants";
-import "@/scss/globals.scss";
 import { TransitionProvider } from "@/providers/TransitionProvider";
 import ScrollToTopBtn from "@/components/ScrollToTopBtn/ScrollToTopBtn";
 import FloatContact from "@/components/FloatContact/FloatContact";
+import "@/scss/globals.scss";
 
 const poppins = Poppins({
 	variable: "--font-poppins",
@@ -21,6 +21,11 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
 	metadataBase: new URL(BASE_URL),
+	// TODO: learn this
+	title: {
+		template: "%s | P&A Vision",
+		default: "P&A Vision",
+	},
 };
 
 export default async function LocaleLayout({

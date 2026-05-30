@@ -15,7 +15,7 @@
 
 	"home": {
 		"meta": {
-			"title": "P&A Vision | Luxury Smart Homes, Automation & Modern Technology",
+			"title": "Luxury Smart Homes, Automation & Modern Technology",
 			"desc": "We design and deliver smart home solutions, audio & video systems, and custom automation. Enhance comfort, security, and energy efficiency in your home."
 		},
 
@@ -38,6 +38,46 @@
 			"title": "Smart Home Products & Automation | Innovative Living Solutions",
 			"desc": "Explore advanced smart home products and automation systems. Control lighting, security, climate, and more with intelligent solutions designed for modern living."
 		}
+	},
+
+	"lighting": {
+		"meta": {
+			"title": "Smart Lighting Systems, Automation & Control",
+			"desc": "Discover advanced smart lighting solutions with automated control, custom lighting scenes, energy-efficient automation, and seamless smart home integration for modern homes across Europe."
+		},
+		"heading": "Lighting",
+		"title": "Smart Home Lighting Solutions",
+		"subtitle": "Intelligent lighting automation designed to enhance comfort, ambiance, and energy efficiency in modern luxury homes."
+	},
+
+	"homeAccess": {
+		"meta": {
+			"title": "Smart Home Access Control, Smart Locks & Automation",
+			"desc": "Advanced smart home access control systems, keyless entry, smart locks, and integrated automation. Secure, manage, and monitor access remotely with seamless smart home integration."
+		},
+		"heading": "Home Access",
+		"title": "Smart Home Access Solutions",
+		"subtitle": "Intelligent smart locks, remote access, and secure entry automation for modern homes in the Czech Republic."
+	},
+
+	"video": {
+		"meta": {
+			"title": "Smart Home Cinema, Video & Entertainment Systems",
+			"desc": "Premium home cinema, smart TV, multi-room video, and integrated entertainment systems. Experience seamless control, immersive viewing, and smart home integration."
+		},
+		"heading": "Cinema",
+		"title": "Smart Home Video & Cinema Systems",
+		"subtitle": "Premium home cinema, smart TV, and integrated entertainment experiences for modern luxury homes."
+	},
+
+	"audio": {
+		"meta": {
+			"title": "Smart Home Audio Systems & Multi-Room Sound",
+			"desc": "Premium smart home audio systems, multi-room sound, and integrated music solutions. Enjoy seamless control, immersive listening, and high-fidelity audio throughout your home."
+		},
+		"heading": "Audio",
+		"title": "Smart Home Audio & Multi-Room Sound Systems",
+		"subtitle": "Professional design and installation of premium audio systems, distributed music, and seamless smart home integration for every room."
 	},
 
 	"aboutUs": {
@@ -65,39 +105,9 @@
 		}
 	},
 
-	"audio": {
-		"meta": {
-			"title": "Immersive Smart Home Audio Solutions | P&A Vision",
-			"desc": "Transform your home with immersive audio technologies. From seamless multiroom music to cinematic experiences, we create sound that fits your life."
-		},
-		"heading": "Audio",
-		"title": "Smart Home Audio & Automation for Modern Living",
-		"subtitle": "Design, installation, and integration of premium audio, lighting, cinema, and smart home systems."
-	},
-
-	"homeAccess": {
-		"meta": {
-			"title": "Luxury Smart Home Access & Automation | P&A Vision",
-			"desc": "Experience next-level convenience with intelligent home access systems. Control entry, security, and automation effortlessly from anywhere."
-		},
-		"heading": "Home Access",
-		"title": "Smart Home Access Solutions",
-		"subtitle": "Intelligent smart locks, remote access, and secure entry automation for modern homes in the Czech Republic."
-	},
-
-	"lighting": {
-		"meta": {
-			"title": "Smart Home Lighting Solutions | P&A Vision",
-			"desc": "Smart lighting systems professionally designed and installed across the Czech Republic."
-		},
-		"heading": "Lighting",
-		"title": "Smart Home Lighting Solutions",
-		"subtitle": "Intelligent lighting automation designed to enhance comfort, ambiance, and energy efficiency in modern luxury homes."
-	},
-
 	"shades": {
 		"meta": {
-			"title": "Smart Shades & Motorized Blinds | P&A Vision",
+			"title": "Smart Shades & Motorized Blinds",
 			"desc": "Luxury smart shades and motorized blinds with automated privacy, light control, and seamless smart home integration."
 		},
 		"heading": "Shades",
@@ -111,18 +121,8 @@
 			"desc": "Experience perfect indoor comfort with advanced smart thermostat solutions. Control temperature, reduce energy costs, and automate your home effortlessly."
 		},
 		"heading": "Thermostat",
-		"title": "Thermostat",
-		"subtitle": "Perfect temperature, exactly when you need it"
-	},
-
-	"video": {
-		"meta": {
-			"title": "Smart Home Video & Cinema Systems | P&A Vision",
-			"desc": "Luxury home cinema, smart TV, and integrated entertainment systems designed and installed across the Czech Republic."
-		},
-		"heading": "Cinema",
-		"title": "Smart Home Video & Cinema Systems",
-		"subtitle": "Premium home cinema, smart TV, and integrated entertainment experiences for modern luxury homes."
+		"title": "Smart Climate Control Solutions",
+		"subtitle": "Intelligent thermostat and climate control systems that automate comfort, improve energy efficiency, and integrate seamlessly with your smart home."
 	},
 
 	"security": {
@@ -189,7 +189,7 @@
 	},
 	"contacts": {
 		"meta": {
-			"title": "Contact Us | P&A Vision Smart Home Solutions",
+			"title": "Contact Us",
 			"desc": "Ready to upgrade your home? Contact P&A Vision for smart home automation, audio-video systems, and tailored technology solutions."
 		},
 
