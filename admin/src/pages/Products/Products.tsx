@@ -3,19 +3,13 @@ import PencilIcon from "../../components/icons/PencilIcon";
 import { supabase } from "../../lib/supabase";
 import TrashIcon from "../../components/icons/TrashIcon";
 import DotsIcon from "../../components/icons/DotsIcon";
+import ImageDropzone from "../../components/ImgDropzone/ImgDropzone";
+import XIcon from "../../components/icons/XIcon";
 import "./styles.scss";
-
-const EMPTY_FORM = {
-	img: "",
-	name: "",
-	type: [] as string[],
-	technology: "",
-	brand: "",
-};
 
 interface Product {
 	id: string;
-	img: string;
+	img: string | null;
 	name: string;
 	is_active: boolean;
 	created_at: string;
@@ -24,13 +18,21 @@ interface Product {
 	brand: string;
 }
 
-interface ProductSave {
-	img: string;
-	name: string;
-	type: string[];
-	technology: string;
-	brand: string;
+interface ProductSave extends Omit<Product, "img" | "created_at" | "id"> {
+	// local file before upload
+	img: File | null;
+	current_img: string | null;
 }
+
+const EMPTY_FORM: ProductSave = {
+	is_active: true,
+	img: null,
+	current_img: null,
+	name: "",
+	type: [] as string[],
+	technology: "",
+	brand: "",
+};
 
 type ProductsProps = {
 	products: Product[];
@@ -58,7 +60,44 @@ export default function Products({
 	const insertOne = async (data: ProductSave) => {
 		setError(null);
 
-		const { error } = await supabase.from("products").insert([data]);
+		const uploadImage = async (file: File) => {
+			const fileName = file.name;
+
+			const { error } = await supabase.storage
+				.from("products")
+				// TODO: upsert?
+				.upload(fileName, file, { upsert: true });
+
+			if (error) {
+				console.error(`Upload error:`, JSON.stringify(error));
+				console.error(`Error details:`, error.message, error.cause);
+				setError(`Image upload failed: ${error.message}`);
+				return null;
+			}
+
+			const { data: urlData } = supabase.storage
+				.from("products")
+				.getPublicUrl(fileName);
+
+			return urlData.publicUrl;
+		};
+
+		let imageUrl: string | null = data.current_img; // fallback to existing
+
+		if (data.img instanceof File) {
+			imageUrl = await uploadImage(data.img);
+			if (!imageUrl) return false; // stop if upload failed
+		}
+
+		// remove File object
+		const { img, current_img, ...rest } = data;
+
+		const cleaned: Partial<Product> = {
+			...rest,
+			img: imageUrl,
+		};
+
+		const { error } = await supabase.from("products").insert([cleaned]);
 		if (error) {
 			if (error.code === "23505") setError("Продукт з таким ID вже існує");
 			else console.error("Insert error:", error.message);
@@ -70,16 +109,57 @@ export default function Products({
 		return true;
 	};
 
-	const deleteOne = async (id: string) => {
-		const { error } = await supabase.from("products").delete().eq("id", id);
-		if (error) console.error("Delete error:", error.message);
-		else load();
-	};
-
 	const updateOne = async (id: string, data: Partial<ProductSave>) => {
 		setError(null);
 
-		const { error } = await supabase.from("products").update(data).eq("id", id);
+		const uploadImage = async (file: File) => {
+			const fileName = file.name;
+
+			const { error } = await supabase.storage
+				.from("products")
+				.upload(fileName, file, {
+					contentType: file.type, // Допомагає серверу Supabase правильно прийняти бінарні дані
+					cacheControl: "3600",
+					upsert: true,
+				});
+
+			if (error) {
+				console.log(`Помилка завантаження фото: ${error.message}`);
+				return null;
+			}
+
+			const { data: urlData } = supabase.storage
+				.from("products")
+				.getPublicUrl(fileName);
+
+			return urlData.publicUrl;
+		};
+
+		let imageUrl: string | null = data.current_img ?? null; // keep existing by default
+
+		if (data.img) {
+			// Delete old image from storage first
+			if (data.current_img) {
+				const oldFileName = data.current_img.split("/").pop();
+				if (oldFileName) {
+					await supabase.storage.from("products").remove([oldFileName]);
+				}
+			}
+			imageUrl = await uploadImage(data.img);
+		}
+
+		// remove File object
+		const { img, current_img, ...rest } = data;
+
+		const cleaned: Partial<Product> = {
+			...rest,
+			img: imageUrl,
+		};
+
+		const { error } = await supabase
+			.from("products")
+			.update(cleaned)
+			.eq("id", id);
 		if (error) {
 			if (error.code === "23505") setError("Вакансія з таким ID вже існує");
 			else console.error("Insert error:", error.message);
@@ -93,6 +173,12 @@ export default function Products({
 		return true;
 	};
 
+	const deleteOne = async (id: string) => {
+		const { error } = await supabase.from("products").delete().eq("id", id);
+		if (error) console.error("Delete error:", error.message);
+		else load();
+	};
+
 	const toggleActive = async (id: string, value: boolean) =>
 		supabase.from("products").update({ is_active: value }).eq("id", id);
 
@@ -103,7 +189,10 @@ export default function Products({
 		);
 	};
 
-	const handleFormData = (name: string, value: string) => {
+	const handleFormData = (
+		name: string,
+		value: string | string[] | boolean | number | File | null,
+	) => {
 		setFormData((prev) => ({ ...prev, [name]: value }));
 	};
 
@@ -173,29 +262,30 @@ export default function Products({
 			<div
 				className={`banner ${bannerVisible || productEditable ? "banner--visible" : ""}`}
 			>
-				<div style={{ display: "flex", justifyContent: "space-between" }}>
-					<p>{productEditable ? "Edit product" : "Add new product"}</p>
-					<button
-						className="close-btn"
-						onClick={() => {
-							setProductEditable(false);
-							setProductId(null);
-							setBannerVisible(false);
-						}}
-					>
-						Close
-					</button>
-				</div>
+				<button
+					className="close-btn"
+					onClick={() => {
+						setProductEditable(false);
+						setProductId(null);
+						setBannerVisible(false);
+					}}
+				>
+					<XIcon />
+				</button>
+				<p style={{ fontSize: "1.25rem", fontWeight: "500" }}>
+					{productEditable ? "Edit product" : "Add new product"}
+				</p>
 				<form className="form" onSubmit={handleForm}>
 					<div>
 						<label htmlFor="">Image</label>
-						<input
-							className="input"
-							onChange={(e) => handleFormData(e.target.name, e.target.value)}
-							value={formData.img}
-							name="img"
-							type="text"
-							placeholder="Enter image url address"
+						{/* TODO: LEARN THIS */}
+						<ImageDropzone
+							onFileSelect={(file) => handleFormData("img", file)}
+							previewUrl={
+								formData.img
+									? URL.createObjectURL(formData.img)
+									: formData.current_img
+							}
 						/>
 					</div>
 					<div>
@@ -329,7 +419,9 @@ export default function Products({
 								<tr key={product.id}>
 									<td>{i + 1}</td>
 									<td style={{ width: "1%" }}>
-										<img src={product.img} width={40} alt="" />
+										{product.img && (
+											<img src={product.img} width={50} height={50} alt="" />
+										)}
 									</td>
 									<td style={{ width: "100%", whiteSpace: "wrap" }}>
 										{product.name}
@@ -438,7 +530,11 @@ export default function Products({
 													className="edit-btn"
 													onClick={() => {
 														setBannerVisible(true);
-														setFormData(product);
+														setFormData({
+															...product,
+															img: null,
+															current_img: product.img,
+														});
 														setProductEditable(true);
 														setProductId(product.id);
 														setDetailsVisible(null);
