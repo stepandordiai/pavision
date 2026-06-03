@@ -9,18 +9,20 @@
 	width: 100%;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
+	gap: 40px;
 	background: #000;
 	border-radius: 10px;
+	padding: 40px;
 }
 
 .calendar {
 	width: 100%;
 	height: 100%;
-	padding: 40px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
-	gap: 10px;
+	gap: 20px;
+	text-align: center;
 }
 
 .calendar-header {
@@ -54,7 +56,8 @@
 		color: #000;
 	}
 
-	&--past {
+	&--past,
+	&--sunday {
 		opacity: 0.5;
 		cursor: not-allowed;
 	}
@@ -64,6 +67,7 @@
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 10px;
+	margin-top: 20px;
 }
 
 .calendar-time {
@@ -72,7 +76,7 @@
 	padding: 10px;
 
 	&--selected {
-		background: #00d9ff;
+		background: var(--primary-clr);
 		color: #000;
 	}
 
@@ -83,16 +87,22 @@
 }
 
 .calendar-submit-btn {
-	background: #00d9ff;
+	background: var(--secondary-clr);
 	padding: 10px;
 	border-radius: 10px;
-	color: #000;
 }
 
 .calendar-form {
 	display: flex;
 	flex-direction: column;
 	gap: 40px;
+}
+
+.calendar-form-summary {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
 }
 
 //
@@ -141,7 +151,7 @@
 
 	&:has(input:disabled, textarea:disabled) {
 		&::after {
-			background: greenyellow;
+			background: #adff2f;
 		}
 	}
 
@@ -178,8 +188,46 @@
 	resize: none;
 }
 
+.appointment-success-banner {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 9999;
+	background: #333;
+	border-radius: 10px;
+	padding: 1.25rem;
+	width: min(calc(100% - 40px), 500px);
+	text-align: center;
+}
+
+.appointment-success-date {
+	font-size: 1.25rem;
+	margin: 20px 0;
+}
+
+.appointment__close-btn {
+	background: var(--secondary-clr);
+	padding: 10px;
+	border-radius: 10px;
+	margin-top: 20px;
+}
+
+.appointment-success-curtain {
+	position: fixed;
+	inset: 0;
+	z-index: 9998;
+	background: rgba(0, 0, 0, 0.5);
+}
+
 @media screen and (width < 900px) {
 	.appointment-container {
 		grid-template-columns: repeat(1, 1fr);
+		gap: 20px;
+		padding: 20px;
+	}
+
+	.calendar-grid {
+		gap: 5px;
 	}
 }
