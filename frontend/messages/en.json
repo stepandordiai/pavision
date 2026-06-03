@@ -80,31 +80,6 @@
 		"subtitle": "Professional design and installation of premium audio systems, distributed music, and seamless smart home integration for every room."
 	},
 
-	"aboutUs": {
-		"meta": {
-			"title": "About Us | Smart Home Experts & Automation Specialists",
-			"desc": "Learn more about our team of smart home specialists. We design and deliver innovative automation solutions tailored to your lifestyle and needs."
-		},
-
-		"title": "About us",
-
-		"whoWeAre": {
-			"title": "Who we are",
-			"desc": [
-				"We bring over 15 years of international experience (United Kingdom) in smart home systems, high-end AV installations, and advanced building automation.",
-				"We design and deliver exclusive solutions that seamlessly integrate technology into a perfectly unified system—with a focus on comfort, design, and absolute reliability. We work with premium platforms such as Crestron, Crestron Home, Loxone, and Lutron, enabling intuitive control of lighting, audio, video, shading, and the entire property environment.",
-				"We integrate all technologies—from multimedia and lighting to energy management—into a single elegant and easy-to-use platform. The result is a space that responds to user needs and delivers a truly exceptional experience.",
-				"Our projects also include advanced property security solutions. We implement professional systems from brands such as Jablotron, Paradox, and Risco, access control solutions like Salto, and modern surveillance and networking technologies from Ubiquiti.",
-				"Every project is unique to us—we create tailored solutions that meet the highest standards of security, aesthetics, and technological excellence."
-			]
-		},
-
-		"ourTeam": {
-			"title": "Meet our team",
-			"programmer": "Programmer"
-		}
-	},
-
 	"shades": {
 		"meta": {
 			"title": "Smart Shades & Motorized Blinds",
@@ -133,6 +108,31 @@
 		"heading": "Security",
 		"title": "Smart Security Automation",
 		"subtitle": "Automated protection with real-time monitoring, smart sensors, and seamless control—keeping your home safe anytime, anywhere."
+	},
+
+	"aboutUs": {
+		"meta": {
+			"title": "About Us | Smart Home Experts & Automation Specialists",
+			"desc": "Learn more about our team of smart home specialists. We design and deliver innovative automation solutions tailored to your lifestyle and needs."
+		},
+
+		"title": "About us",
+
+		"whoWeAre": {
+			"title": "Who we are",
+			"desc": [
+				"We bring over 15 years of international experience (United Kingdom) in smart home systems, high-end AV installations, and advanced building automation.",
+				"We design and deliver exclusive solutions that seamlessly integrate technology into a perfectly unified system—with a focus on comfort, design, and absolute reliability. We work with premium platforms such as Crestron, Crestron Home, Loxone, and Lutron, enabling intuitive control of lighting, audio, video, shading, and the entire property environment.",
+				"We integrate all technologies—from multimedia and lighting to energy management—into a single elegant and easy-to-use platform. The result is a space that responds to user needs and delivers a truly exceptional experience.",
+				"Our projects also include advanced property security solutions. We implement professional systems from brands such as Jablotron, Paradox, and Risco, access control solutions like Salto, and modern surveillance and networking technologies from Ubiquiti.",
+				"Every project is unique to us—we create tailored solutions that meet the highest standards of security, aesthetics, and technological excellence."
+			]
+		},
+
+		"ourTeam": {
+			"title": "Meet our team",
+			"programmer": "Programmer"
+		}
 	},
 
 	"ourSolutions": {
