@@ -5,24 +5,8 @@ import TrashIcon from "../../components/icons/TrashIcon";
 import DotsIcon from "../../components/icons/DotsIcon";
 import ImageDropzone from "../../components/ImgDropzone/ImgDropzone";
 import XIcon from "../../components/icons/XIcon";
+import type { Product, ProductSave } from "../../interfaces/product";
 import "./styles.scss";
-
-interface Product {
-	id: string;
-	img: string | null;
-	name: string;
-	is_active: boolean;
-	created_at: string;
-	type: string[];
-	technology: string;
-	brand: string;
-}
-
-interface ProductSave extends Omit<Product, "img" | "created_at" | "id"> {
-	// local file before upload
-	img: File | null;
-	current_img: string | null;
-}
 
 const EMPTY_FORM: ProductSave = {
 	is_active: true,

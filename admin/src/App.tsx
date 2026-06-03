@@ -6,18 +6,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { supabase } from "./lib/supabase";
 import { useEffect, useState } from "react";
 import Header from "./components/layout/Header/Header";
+import type { Product } from "./interfaces/product";
 import "./styles/App.scss";
-
-interface Product {
-	id: string;
-	img: string;
-	name: string;
-	is_active: boolean;
-	created_at: string;
-	type: string[];
-	technology: string;
-	brand: string;
-}
 
 function App() {
 	const [products, setProducts] = useState<Product[]>([]);
