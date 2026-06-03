@@ -124,9 +124,12 @@ const Header = () => {
 							{user ? <PersonFillIcon size={32} /> : <PersonIcon size={32} />}
 						</TransitionLink>
 						<Lng />
-						<a className="link header__link" href="tel:+420775632426">
-							+420 775 632 426
-						</a>
+						<TransitionLink
+							className={`header-nav__link header__link ${pathname === "/appointment" ? "header-nav__link--active" : ""}`}
+							href="/appointment"
+						>
+							Domluvit schůzku
+						</TransitionLink>
 						<button
 							onClick={toggleMenu}
 							className={`menu-btn ${menuOpen ? "menu-btn--active" : ""}`}

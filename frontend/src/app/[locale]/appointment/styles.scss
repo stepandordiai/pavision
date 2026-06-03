@@ -1,0 +1,185 @@
+.appointment {
+	padding: 100px 20px;
+	background: var(--bg-clr);
+	min-height: 100svh;
+	// display: flex;
+}
+
+.appointment-container {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	background: #000;
+	border-radius: 10px;
+}
+
+.calendar {
+	width: 100%;
+	height: 100%;
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	gap: 10px;
+}
+
+.calendar-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.calendar-nav-btn {
+	background: rgba(255, 255, 255, 0.15);
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+}
+
+.calendar-grid {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 10px;
+}
+
+.calendar-grid-btn {
+	background: rgba(255, 255, 255, 0.15);
+	aspect-ratio: 1/1;
+	border-radius: 10px;
+
+	&--selected {
+		background: #00d9ff;
+		color: #000;
+	}
+
+	&--past {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+}
+
+.calendar-time-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 10px;
+}
+
+.calendar-time {
+	background: rgba(255, 255, 255, 0.15);
+	border-radius: 10px;
+	padding: 10px;
+
+	&--selected {
+		background: #00d9ff;
+		color: #000;
+	}
+
+	&--booked {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+}
+
+.calendar-submit-btn {
+	background: #00d9ff;
+	padding: 10px;
+	border-radius: 10px;
+	color: #000;
+}
+
+.calendar-form {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+
+//
+
+.input-container {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	padding-bottom: 5px;
+
+	&::before {
+		content: "";
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		background: rgba(255, 255, 255, 0.5);
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		background: white;
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 0.5s;
+	}
+
+	label {
+		position: absolute;
+		transition:
+			transform 0.5s,
+			color 0.5s,
+			font-size 0.5s;
+	}
+
+	::placeholder {
+		opacity: 0;
+		transition: opacity 0.5s;
+	}
+
+	&:has(input:disabled, textarea:disabled) {
+		&::after {
+			background: greenyellow;
+		}
+	}
+
+	&:focus-within {
+		&::after {
+			transform: scaleX(1);
+		}
+
+		label {
+			transform: translateY(-20px);
+			font-size: 14px;
+		}
+
+		::placeholder {
+			opacity: 1;
+		}
+	}
+}
+
+.input-container--active {
+	&::after {
+		transform: scaleX(1);
+	}
+
+	label {
+		transform: translateY(-20px);
+		color: rgba(255, 255, 255, 0.5);
+		font-size: 14px;
+	}
+}
+
+.textarea {
+	flex-grow: 1;
+	resize: none;
+}
+
+@media screen and (width < 900px) {
+	.appointment-container {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
