@@ -1,7 +1,12 @@
 import { NavLink } from "react-router-dom";
+import { supabase } from "../../../lib/supabase";
 import "./styles.scss";
 
 const Sidebar = () => {
+	const handleLogout = async () => {
+		await supabase.auth.signOut();
+	};
+
 	return (
 		<aside className="sidebar">
 			<NavLink style={{ fontSize: "1.5rem" }} to="/">
@@ -33,6 +38,9 @@ const Sidebar = () => {
 					Clients
 				</NavLink>
 			</nav>
+			<button className="logout-btn" onClick={handleLogout}>
+				Log out
+			</button>
 		</aside>
 	);
 };

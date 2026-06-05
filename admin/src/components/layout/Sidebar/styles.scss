@@ -33,6 +33,18 @@ a {
 	}
 }
 
+.logout-btn {
+	background: rgb(159, 38, 38);
+	padding: 0.625rem;
+	border-radius: 10px;
+	margin-top: auto;
+	transition: background-color 0.2s;
+
+	&:hover {
+		background: rgb(227, 50, 50);
+	}
+}
+
 @media screen and (width < 800px) {
 	.sidebar {
 		display: none;
