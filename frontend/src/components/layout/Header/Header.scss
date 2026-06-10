@@ -163,7 +163,7 @@
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 12px;
 }
 
 .menu-nav {
@@ -177,7 +177,7 @@
 
 .menu-nav__link {
 	display: block;
-	font-size: 18px;
+	font-size: 1.5rem;
 	position: relative;
 	padding-left: 10px;
 	transform: translateY(100%);
@@ -260,8 +260,15 @@
 		}
 	}
 
-	&--active {
+	&--visible {
 		transform: translateY(0);
+	}
+
+	&--active {
+		color: #fff !important;
+		&::after {
+			transform: scaleY(1) translateY(0);
+		}
 	}
 }
 

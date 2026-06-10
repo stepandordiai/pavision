@@ -152,7 +152,7 @@ const Header = () => {
 											style={
 												menuOpen
 													? {
-															transition: `transform 1s cubic-bezier(0.16, 1, 0.3, 1) ${0.25 + i * 0.05}s `,
+															transition: `transform 1s cubic-bezier(0.16, 1, 0.3, 1) ${0.25 + i * 0.05}s`,
 														}
 													: undefined
 											}
@@ -165,8 +165,16 @@ const Header = () => {
 								);
 							})}
 						</nav>
+						<div className="footer__divider"></div>
+
 						<div>
-							<div style={{ overflow: "hidden" }}>
+							<div
+								style={{
+									overflow: "hidden",
+									display: "flex",
+									justifyContent: "space-between",
+								}}
+							>
 								<a
 									style={
 										menuOpen
@@ -175,12 +183,27 @@ const Header = () => {
 												}
 											: undefined
 									}
-									className={`menu__link ${menuOpen ? "menu__link--active" : ""}`}
+									className={`menu__link ${menuOpen ? "menu__link--visible" : ""}`}
 									href="https://www.instagram.com/pa_vision.cz"
 									target="_blank"
 								>
 									Instagram
 								</a>
+								<TransitionLink
+									onClick={() => setMenuOpen(false)}
+									// TODO: learn this
+									style={
+										menuOpen
+											? {
+													transition: `transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s`,
+												}
+											: undefined
+									}
+									className={`menu__link ${pathname === "/appointment" ? "menu__link--active" : ""} ${menuOpen ? "menu__link--visible" : ""}`}
+									href="/appointment"
+								>
+									Domluvit schůzku
+								</TransitionLink>
 							</div>
 						</div>
 					</div>

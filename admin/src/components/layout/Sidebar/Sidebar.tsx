@@ -37,6 +37,14 @@ const Sidebar = () => {
 				>
 					Clients
 				</NavLink>
+				<NavLink
+					className={({ isActive }) =>
+						`sidebar-nav__link ${isActive ? "sidebar-nav__link--active" : ""}`
+					}
+					to={"/bookings"}
+				>
+					Bookings
+				</NavLink>
 			</nav>
 			<button className="logout-btn" onClick={handleLogout}>
 				Log out

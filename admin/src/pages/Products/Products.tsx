@@ -21,13 +21,13 @@ const EMPTY_FORM: ProductSave = {
 type ProductsProps = {
 	products: Product[];
 	setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
-	load: () => Promise<void>;
+	loadProducts: () => Promise<void>;
 };
 
 export default function Products({
 	products,
 	setProducts,
-	load,
+	loadProducts,
 }: ProductsProps) {
 	const [visibleLength, setVisibleLength] = useState(10);
 	const [bannerVisible, setBannerVisible] = useState(false);
@@ -36,6 +36,7 @@ export default function Products({
 	const [productId, setProductId] = useState<string | null>(null);
 	const [error, setError] = useState<string | null>(null);
 	const [formData, setFormData] = useState(EMPTY_FORM);
+	const [filter, setFilter] = useState("");
 
 	console.log(error);
 
@@ -87,7 +88,7 @@ export default function Products({
 			else console.error("Insert error:", error.message);
 			return false;
 		}
-		await load();
+		await loadProducts();
 		setBannerVisible(false);
 		setFormData(EMPTY_FORM);
 		return true;
@@ -149,7 +150,7 @@ export default function Products({
 			else console.error("Insert error:", error.message);
 			return false;
 		}
-		await load();
+		await loadProducts();
 		setBannerVisible(false);
 		setFormData(EMPTY_FORM);
 		setProductEditable(false);
@@ -160,7 +161,7 @@ export default function Products({
 	const deleteOne = async (id: string) => {
 		const { error } = await supabase.from("products").delete().eq("id", id);
 		if (error) console.error("Delete error:", error.message);
-		else load();
+		else loadProducts();
 	};
 
 	const toggleActive = async (id: string, value: boolean) =>
@@ -231,8 +232,6 @@ export default function Products({
 		document.addEventListener("mousedown", handleClickOutside);
 		return () => document.removeEventListener("mousedown", handleClickOutside);
 	}, []);
-
-	const [filter, setFilter] = useState("");
 
 	// TODO: learn this
 	const filteredLeads = products.filter((p) =>
@@ -357,6 +356,7 @@ export default function Products({
 				className={`curtain ${bannerVisible || productEditable ? "curtain--active" : ""}`}
 			></div>
 			<div style={{ display: "flex", flexDirection: "column" }}>
+				<h1 className="main__title">Products</h1>
 				<div
 					style={{
 						display: "flex",
