@@ -31,6 +31,8 @@ const Clients = ({ clients, loadClients }: ClientsProps) => {
 	const [visibleLength, setVisibleLength] = useState(10);
 	const [detailsVisible, setDetailsVisible] = useState<string | null>(null);
 
+	console.log(error);
+
 	const detailsRef = useRef<(HTMLDivElement | null)[]>([]);
 
 	// TODO: LEARN THIS
