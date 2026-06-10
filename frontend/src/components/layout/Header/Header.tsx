@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "@/i18n/navigation";
 import Lng from "@/components/Lng/Lng";
 import navLinks from "@/data/nav-links.json";
@@ -11,12 +11,16 @@ import { supabase } from "@/lib/supabase";
 import { User } from "@supabase/supabase-js";
 import "./Header.scss";
 import PersonFillIcon from "@/components/icons/PersonFillIcon";
+import ChevronIcon from "@/components/icons/ChevronIcon";
+import ArrowRightUpIcon from "@/components/icons/ArrowRightUpIcon";
+import ChevronRightIcon from "@/components/icons/ChevronRightIcon";
 
 const Header = () => {
 	const t = useTranslations();
 
 	const [calcRotation, setCalRotation] = useState(0);
-	const [headerActive, setHeaderActive] = useState(false);
+	const [headerExpanded, setHeaderExpanded] = useState(false);
+	const [menuExpanded, setMenuExpanded] = useState(false);
 
 	const pathname = usePathname();
 
@@ -72,10 +76,45 @@ const Header = () => {
 		return () => subscription.unsubscribe();
 	}, []);
 
+	const headerBottomRef = useRef<HTMLDivElement | null>(null);
+	const btnRef = useRef<HTMLButtonElement | null>(null);
+	const menuBottomRef = useRef<HTMLDivElement | null>(null);
+	const menubtnRef = useRef<HTMLButtonElement | null>(null);
+
+	useEffect(() => {
+		const handleClickOutside = (e: MouseEvent) => {
+			const target = e.target as Node;
+			const insideDropdown = headerBottomRef.current?.contains(target);
+			const insideBtn = btnRef.current?.contains(target);
+
+			if (insideBtn) return; // let the button handle itself
+			if (!insideDropdown) setHeaderExpanded(false);
+		};
+
+		document.addEventListener("mousedown", handleClickOutside);
+		return () => document.removeEventListener("mousedown", handleClickOutside);
+	}, []);
+
+	useEffect(() => {
+		const handleClickOutside = (e: MouseEvent) => {
+			const target = e.target as Node;
+			const insideDropdown = menuBottomRef.current?.contains(target);
+			const insideBtn = menubtnRef.current?.contains(target);
+
+			if (insideBtn) return; // let the button handle itself
+			if (!insideDropdown) setMenuExpanded(false);
+		};
+
+		document.addEventListener("mousedown", handleClickOutside);
+		return () => document.removeEventListener("mousedown", handleClickOutside);
+	}, []);
+
 	return (
 		<>
-			<header className={`header ${menuOpen ? "header--active" : ""}`}>
-				<div className="header-inner">
+			<header
+				className={`header ${menuOpen ? "header--active" : headerExpanded ? "header--expanded" : ""}`}
+			>
+				<div className="header-top">
 					<TransitionLink className="header__logo" href="/">
 						{/* <svg
 							width="30"
@@ -111,6 +150,13 @@ const Header = () => {
 								</TransitionLink>
 							);
 						})}
+						<button
+							ref={btnRef}
+							onClick={() => setHeaderExpanded((prev) => !prev)}
+							className={`header-nav__link-btn ${headerExpanded ? "header-nav__link-btn--active" : ""}`}
+						>
+							Brands
+						</button>
 					</nav>
 					<div
 						style={{
@@ -140,6 +186,46 @@ const Header = () => {
 						</button>
 					</div>
 				</div>
+
+				<div
+					ref={headerBottomRef}
+					className={`header-bottom ${headerExpanded ? "header-bottom--expanded" : ""}`}
+				>
+					<div className="header-bottom-inner">
+						<TransitionLink
+							onClick={() => setHeaderExpanded(false)}
+							className={`header-bottom__link ${headerExpanded ? "header-bottom__link--visible" : ""}`}
+							href="/loxone"
+						>
+							<span
+								style={{
+									display: "flex",
+									justifyContent: "space-between",
+									width: "100%",
+								}}
+							>
+								<span>Loxone</span>
+								<ChevronRightIcon size={24} />
+							</span>
+						</TransitionLink>
+						<TransitionLink
+							onClick={() => setHeaderExpanded(false)}
+							className={`header-bottom__link ${headerExpanded ? "header-bottom__link--visible" : ""}`}
+							href="/loxone"
+						>
+							<span
+								style={{
+									display: "flex",
+									justifyContent: "space-between",
+									width: "100%",
+								}}
+							>
+								<span>Crestrone</span>
+								<ChevronRightIcon size={24} />
+							</span>
+						</TransitionLink>
+					</div>
+				</div>
 				<div className={`menu ${menuOpen ? "menu--active" : ""}`}>
 					<div className="menu-inner">
 						<nav className="menu-nav">
@@ -164,6 +250,54 @@ const Header = () => {
 									</div>
 								);
 							})}
+							<div className="menu-nav__link-wrapper">
+								<button
+									ref={menubtnRef}
+									onClick={() => setMenuExpanded((prev) => !prev)}
+									style={
+										menuOpen
+											? {
+													transition: `transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s`,
+												}
+											: undefined
+									}
+									className={`menu-nav__link-btn  ${menuOpen ? "menu-nav__link-btn--visible" : ""} ${menuExpanded ? "menu-nav__link-btn--active" : ""}`}
+								>
+									Brands
+								</button>
+							</div>
+							<div ref={menuBottomRef} className="menu-bottom-inner">
+								<TransitionLink
+									className={`header-bottom__link ${menuExpanded ? "header-bottom__link--visible" : ""}`}
+									href="/loxone"
+								>
+									<span
+										style={{
+											display: "flex",
+											justifyContent: "space-between",
+											width: "100%",
+										}}
+									>
+										<span>Loxone</span>
+										<ChevronRightIcon size={24} />
+									</span>
+								</TransitionLink>
+								<TransitionLink
+									className={`header-bottom__link ${menuExpanded ? "header-bottom__link--visible" : ""}`}
+									href="/loxone"
+								>
+									<span
+										style={{
+											display: "flex",
+											justifyContent: "space-between",
+											width: "100%",
+										}}
+									>
+										<span>Crestrone</span>
+										<ChevronRightIcon size={24} />
+									</span>
+								</TransitionLink>
+							</div>
 						</nav>
 						<div className="footer__divider"></div>
 

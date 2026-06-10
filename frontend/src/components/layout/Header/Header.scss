@@ -11,6 +11,18 @@
 	transition: all 0.5s;
 	opacity: 0;
 	animation: animateHeader 1s forwards;
+
+	&--active {
+		border-radius: 0px;
+		top: 0;
+		left: 0;
+		right: 0;
+		background: rgb(0, 0, 0);
+	}
+
+	&--expanded {
+		background: rgb(0, 0, 0);
+	}
 }
 
 @keyframes animateHeader {
@@ -19,20 +31,59 @@
 	}
 }
 
-.header--active {
-	border-radius: 0px;
-	top: 0;
-	left: 0;
-	right: 0;
-	background: rgb(0, 0, 0);
-}
-
-.header-inner {
+.header-top {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 12px;
 	min-height: 50px;
+}
+
+.header-bottom {
+	display: grid;
+	grid-template-rows: 0fr;
+	padding: 0 12px;
+	transition: all 0.5s;
+
+	&--expanded {
+		grid-template-rows: 1fr;
+		padding: 12px;
+	}
+}
+
+.header-bottom-inner {
+	overflow: hidden;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 12px;
+}
+
+.header-bottom__link {
+	position: relative;
+	border-radius: 10px;
+	max-width: 500px;
+	height: 200px;
+	background-image: url(https://www.loxone.com/cscz/wp-content/uploads/sites/7/2026/02/Loxone-Praha-0002-1.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding: 12px;
+	// TODO: learn this
+	clip-path: inset(0 100% 100% 0);
+	transition: clip-path 0.5s;
+
+	&:nth-child(2) {
+		background-image: url(https://biid.org.uk/sites/default/files/Art_2020_Install_TSW-770R_LivingRoom.jpeg);
+	}
+
+	&--visible {
+		clip-path: inset(0);
+	}
+
+	span {
+		margin-top: auto;
+		font-size: 1.5rem;
+	}
 }
 
 .header__logo {
@@ -51,7 +102,6 @@
 
 .header-nav__link {
 	position: relative;
-	color: rgba(255, 255, 255, 0.496);
 	padding-left: 10px;
 	transition: color 0.24s;
 
@@ -61,7 +111,7 @@
 		height: 100%;
 		width: 2px;
 		left: 0;
-		background: rgba(255, 255, 255, 0.478);
+		background: rgba(255, 255, 255, 0.5);
 	}
 
 	&::after {
@@ -85,9 +135,40 @@
 	}
 }
 
-.header-nav__link--active {
-	color: #fff;
+.header-nav__link-btn {
+	position: relative;
+	padding-left: 10px;
+	transition: color 0.24s;
 
+	&::before {
+		content: "";
+		position: absolute;
+		height: 100%;
+		width: 2px;
+		left: 0;
+		background: rgba(255, 255, 255, 0.5);
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		height: 100%;
+		width: 2px;
+		left: 0;
+		background: #fff;
+		transform: scaleY(0);
+		transform-origin: top;
+		transition: transform 0.24s;
+	}
+
+	&--active {
+		&::after {
+			transform: scaleY(1);
+		}
+	}
+}
+
+.header-nav__link--active {
 	&::after {
 		transform: scaleY(1);
 	}
@@ -166,6 +247,13 @@
 	gap: 12px;
 }
 
+.menu-bottom-inner {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 12px;
+	margin-top: 12px;
+}
+
 .menu-nav {
 	display: flex;
 	flex-direction: column;
@@ -208,6 +296,47 @@
 		&::after {
 			transform: scaleY(1) translateY(0);
 		}
+	}
+
+	&--active {
+		&::after {
+			transform: scaleY(1) translateY(0);
+		}
+	}
+
+	&--visible {
+		transform: translateY(0);
+	}
+}
+
+.menu-nav__link-btn {
+	display: block;
+	font-size: 1.5rem;
+	position: relative;
+	padding-left: 10px;
+	transform: translateY(100%);
+	transition: transform 0.5s;
+	// margin-bottom: 12px;
+
+	&::before {
+		content: "";
+		position: absolute;
+		height: 100%;
+		width: 2px;
+		left: 0;
+		background: var(--semi-tp-white-clr);
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		height: 100%;
+		width: 2px;
+		left: 0;
+		background: #fff;
+		transform: scaleY(0);
+		transform-origin: top;
+		transition: transform 0.24s;
 	}
 
 	&--active {
@@ -296,5 +425,11 @@
 
 	.menu-btn {
 		display: flex;
+	}
+}
+
+@media screen and (width < 550px) {
+	.menu-bottom-inner {
+		grid-template-columns: repeat(1, 1fr);
 	}
 }
