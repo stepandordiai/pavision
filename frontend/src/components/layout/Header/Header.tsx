@@ -195,7 +195,7 @@ const Header = () => {
 						<TransitionLink
 							onClick={() => setHeaderExpanded(false)}
 							className={`header-bottom__link ${headerExpanded ? "header-bottom__link--visible" : ""}`}
-							href="/loxone"
+							href="/loxone-smart-home"
 						>
 							<span
 								style={{
@@ -211,7 +211,7 @@ const Header = () => {
 						<TransitionLink
 							onClick={() => setHeaderExpanded(false)}
 							className={`header-bottom__link ${headerExpanded ? "header-bottom__link--visible" : ""}`}
-							href="/loxone"
+							href="/crestron-home"
 						>
 							<span
 								style={{
@@ -268,8 +268,12 @@ const Header = () => {
 							</div>
 							<div ref={menuBottomRef} className="menu-bottom-inner">
 								<TransitionLink
+									onClick={() => {
+										setMenuOpen(false);
+										setMenuExpanded(false);
+									}}
 									className={`header-bottom__link ${menuExpanded ? "header-bottom__link--visible" : ""}`}
-									href="/loxone"
+									href="/loxone-smart-home"
 								>
 									<span
 										style={{
@@ -283,8 +287,12 @@ const Header = () => {
 									</span>
 								</TransitionLink>
 								<TransitionLink
+									onClick={() => {
+										setMenuOpen(false);
+										setMenuExpanded(false);
+									}}
 									className={`header-bottom__link ${menuExpanded ? "header-bottom__link--visible" : ""}`}
-									href="/loxone"
+									href="/crestron-home"
 								>
 									<span
 										style={{
@@ -345,7 +353,7 @@ const Header = () => {
 			</header>
 			<div
 				onClick={() => setMenuOpen(false)}
-				className={`curtain ${menuOpen ? "curtain--active" : ""}`}
+				className={`curtain ${menuOpen || headerExpanded ? "curtain--active" : ""}`}
 			></div>
 		</>
 	);
