@@ -5,6 +5,7 @@ import PersonFillIcon from "@/components/icons/PersonFillIcon";
 import TelIcon from "@/components/icons/TelIcon";
 import EnvelopeIcon from "@/components/icons/EnvelopeIcon";
 import "./AboutUs.scss";
+import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
 
 const team = [
 	{
@@ -51,6 +52,7 @@ export default async function AboutUs() {
 
 	return (
 		<main className="main">
+			<Breadcrumbs currentPage="O nás" currentPageUrl="/about-us" />
 			<h1 className="main__title">{t("title")}</h1>
 			<section
 				style={{

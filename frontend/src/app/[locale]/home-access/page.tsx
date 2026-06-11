@@ -42,6 +42,8 @@ export default async function HomeAccess() {
 				imgSrc="/home-access/01-c.png"
 				secondaryBtnTxt="Explore Smart Access"
 				imgAlt="Luxury smart home entrance with automated access control system"
+				currentPage="Home Access"
+				currentPageUrl="/home-access"
 			/>
 			<section className="technology-section" id="section">
 				<h2 className="section__title">Peace of mind.</h2>

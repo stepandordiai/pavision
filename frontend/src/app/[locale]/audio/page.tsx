@@ -41,6 +41,8 @@ export default async function Audio() {
 				subheading={t("audio.subtitle")}
 				imgSrc="https://www.bowerswilkins.com/on/demandware.static/-/Sites-master-catalog-soundunited/default/dw0b413071/bowers/Rich-Content/bandw_formationbar_be_desktop.jpg"
 				secondaryBtnTxt="Explore Audio Solutions"
+				currentPage="Audio"
+				currentPageUrl="/audio"
 			/>
 			<section className="technology-section" id="section">
 				<h2 className="section__title">| Soothing sounds</h2>

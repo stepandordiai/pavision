@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { TransitionLink } from "../TransitionLink";
 import ChevronRightIcon from "../icons/ChevronRightIcon";
+import Breadcrumbs from "../common/Breadcrumbs/Breadcrumbs";
 import "./styles.scss";
 
 type HeroParallaxProps = {
@@ -12,6 +13,8 @@ type HeroParallaxProps = {
 	imgSrc: string;
 	secondaryBtnTxt: string;
 	imgAlt?: string;
+	currentPage: string;
+	currentPageUrl: string;
 };
 
 const HeroParallax = ({
@@ -20,6 +23,8 @@ const HeroParallax = ({
 	imgSrc,
 	secondaryBtnTxt,
 	imgAlt = "",
+	currentPage,
+	currentPageUrl,
 }: HeroParallaxProps) => {
 	const [scrollY, setScrollY] = useState(0);
 	const [clientHeight, setClientHeight] = useState(800);
@@ -50,6 +55,10 @@ const HeroParallax = ({
 						gap: "10px",
 					}}
 				>
+					<Breadcrumbs
+						currentPage={currentPage}
+						currentPageUrl={currentPageUrl}
+					/>
 					<h1 className="main-heading">{heading}</h1>
 					<p className="main__subtitle">{subheading}</p>
 					<TransitionLink href="/contacts" className="hero-btn">

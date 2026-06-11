@@ -47,6 +47,8 @@ export default function LightingClient() {
 				imgSrc="/lighting/01-c.png"
 				secondaryBtnTxt="Explore Lighting Solutions"
 				imgAlt="Luxury smart home lighting automation system in modern interior"
+				currentPage="Lighting"
+				currentPageUrl="/lighting"
 			/>
 			<section className="section" id="section">
 				<h2 className="section__title">

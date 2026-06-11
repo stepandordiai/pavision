@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
-// import CrestronApp from "@/components/CrestronApp/CrestronApp";
 import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
 import "./styles.scss";
 
@@ -41,6 +40,8 @@ export default async function Security() {
 				subheading={t("security.subtitle")}
 				imgSrc="https://images.pexels.com/photos/35361412/pexels-photo-35361412.jpeg"
 				secondaryBtnTxt="Explore Security Solutions"
+				currentPage="Security"
+				currentPageUrl="/security"
 			/>
 			<section className="technology-section" id="section">
 				<h2 className="section__title">
@@ -82,7 +83,6 @@ export default async function Security() {
 				</div>
 			</section>
 			<TechnologyProducts technology="Security" />
-			{/* <CrestronApp /> */}
 		</main>
 	);
 }

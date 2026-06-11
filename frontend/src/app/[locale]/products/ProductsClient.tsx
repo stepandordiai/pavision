@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import ArrowRightUpIcon from "@/components/icons/ArrowRightUpIcon";
 import { getProducts } from "@/lib/api/products";
+import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
 
 interface Product {
 	id: number;
@@ -42,7 +43,8 @@ export default function ProductsClient() {
 
 	return (
 		<main className="products">
-			<h2 className="section__title">Produkty</h2>
+			<Breadcrumbs currentPage="Produkty" currentPageUrl="/products" />
+			<h1 className="main__title">Produkty</h1>
 			<div className="btn-container">
 				{uniqueTechnologies.map((technology, i) => {
 					return (

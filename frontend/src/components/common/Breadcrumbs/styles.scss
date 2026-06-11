@@ -1,0 +1,50 @@
+.breadcrumbs {
+	display: flex;
+	gap: 10px;
+	margin-bottom: 20px;
+}
+
+.breadcrumbs__link {
+	position: relative;
+	padding-left: 10px;
+	transition: color 0.24s;
+	color: rgba(255, 255, 255, 0.5) !important;
+
+	&::before {
+		content: "";
+		position: absolute;
+		height: 100%;
+		width: 2px;
+		left: 0;
+		background: rgba(255, 255, 255, 0.5);
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		height: 100%;
+		width: 2px;
+		left: 0;
+		background: #fff;
+		transform: scaleY(0);
+		transform-origin: bottom;
+		transition: transform 0.24s;
+	}
+
+	&:hover {
+		color: #fff !important;
+
+		&::after {
+			transform: scaleY(1);
+		}
+	}
+
+	&--active {
+		color: #fff !important;
+		pointer-events: none;
+
+		&::after {
+			transform: scaleY(1) !important;
+		}
+	}
+}
