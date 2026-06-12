@@ -45,6 +45,13 @@ export default function ProductsClient() {
 		<main className="products">
 			<Breadcrumbs currentPage="Produkty" currentPageUrl="/products" />
 			<h1 className="main__title">Produkty</h1>
+			<button
+				onClick={() => setActiveTechnology("Bundle/kit")}
+				className="bundle-btn"
+			>
+				<img src="/bundle.png" alt="" />
+				<span>Bundle/kit</span>
+			</button>
 			<div className="btn-container">
 				{uniqueTechnologies.map((technology, i) => {
 					return (
