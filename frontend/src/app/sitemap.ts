@@ -54,6 +54,16 @@ const pages = [
 		priority: 0.8,
 	},
 	{
+		path: "/loxone-smart-home",
+		changeFrequency: "weekly",
+		priority: 0.8,
+	},
+	{
+		path: "/crestron-home",
+		changeFrequency: "monthly",
+		priority: 0.8,
+	},
+	{
 		path: "/privacy-policy",
 		changeFrequency: "yearly",
 		priority: 0.3,
