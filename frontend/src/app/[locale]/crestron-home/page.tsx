@@ -1,9 +1,10 @@
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import "./styles.scss";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import { TransitionLink } from "@/components/TransitionLink";
+import Faqs from "@/components/Faqs/Faqs";
+import "./styles.scss";
 
 export async function generateMetadata({
 	params,
@@ -33,29 +34,24 @@ export async function generateMetadata({
 
 const faqs = [
 	{
-		title: "What is Crestron Home?",
-		description:
-			"Crestron Home is a premium automation platform that connects lighting, climate, entertainment, security, and shading into one intelligent system.",
+		q: "What is Crestron Home?",
+		a: "Crestron Home is a premium automation platform that connects lighting, climate, entertainment, security, and shading into one intelligent system.",
 	},
 	{
-		title: "Is Crestron suitable for luxury homes?",
-		description:
-			"Yes. Crestron is widely used in luxury residential projects, villas, penthouses, and premium developments worldwide.",
+		q: "Is Crestron suitable for luxury homes?",
+		a: "Yes. Crestron is widely used in luxury residential projects, villas, penthouses, and premium developments worldwide.",
 	},
 	{
-		title: "Can Crestron integrate with existing systems?",
-		description:
-			"In many cases, yes. Crestron supports integration with a wide range of third-party technologies.",
+		q: "Can Crestron integrate with existing systems?",
+		a: "In many cases, yes. Crestron supports integration with a wide range of third-party technologies.",
 	},
 	{
-		title: "Can I control my home remotely?",
-		description:
-			"Yes. Crestron allows secure remote access through mobile devices.",
+		q: "Can I control my home remotely?",
+		a: "Yes. Crestron allows secure remote access through mobile devices.",
 	},
 	{
-		title: "Is Crestron better than multiple smart home apps?",
-		description:
-			"Crestron's advantage is centralization. Instead of managing numerous apps, users control all systems from one platform.",
+		q: "Is Crestron better than multiple smart home apps?",
+		a: "Crestron's advantage is centralization. Instead of managing numerous apps, users control all systems from one platform.",
 	},
 ];
 
@@ -370,19 +366,7 @@ export default function CrestronHome() {
 					</div>
 				</div>
 			</section>
-			<section className="section">
-				<h2 className="section__title">FAQs</h2>
-				<div>
-					{faqs.map((f, i) => {
-						return (
-							<div key={i}>
-								<h3>{f.title}</h3>
-								<p>{f.description}</p>
-							</div>
-						);
-					})}
-				</div>
-			</section>
+			<Faqs faqs={faqs} />
 		</main>
 	);
 }

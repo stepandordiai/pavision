@@ -4,6 +4,7 @@ import { routing } from "@/i18n/routing";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import { TransitionLink } from "@/components/TransitionLink";
 import "./styles.scss";
+import Faqs from "@/components/Faqs/Faqs";
 
 export async function generateMetadata({
 	params,
@@ -428,17 +429,7 @@ export default function LoxoneSmartHome() {
 					</div>
 				</div>
 			</section>
-			<section className="section">
-				<h2>FAQs</h2>
-				<div>
-					{faqs.map(({ q, a }, i) => (
-						<div key={i}>
-							<h3>{q}</h3>
-							<p>{a}</p>
-						</div>
-					))}
-				</div>
-			</section>
+			<Faqs faqs={faqs} />
 		</main>
 	);
 }
