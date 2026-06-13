@@ -220,7 +220,7 @@ const Header = () => {
 									width: "100%",
 								}}
 							>
-								<span>Crestrone</span>
+								<span>Crestron</span>
 								<ChevronRightIcon size={24} />
 							</span>
 						</TransitionLink>
@@ -311,7 +311,7 @@ const Header = () => {
 												width: "100%",
 											}}
 										>
-											<span>Crestrone</span>
+											<span>Crestron</span>
 											<ChevronRightIcon size={24} />
 										</span>
 									</TransitionLink>

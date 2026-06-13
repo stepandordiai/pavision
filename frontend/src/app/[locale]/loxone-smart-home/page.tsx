@@ -103,7 +103,7 @@ export default function LoxoneSmartHome() {
 			<section className="section">
 				<h2 className="section__title">What Can Loxone Control?</h2>
 				<div className="loxone-smart-home-flex">
-					<div style={{ background: "rgba(255, 255, 255, 0.1)" }}>
+					<div>
 						<h3>Smart Lighting</h3>
 						<p>
 							Automated scenes, dimming, occupancy detection, and
@@ -117,7 +117,7 @@ export default function LoxoneSmartHome() {
 							More
 						</TransitionLink>
 					</div>
-					<div style={{ background: "rgba(255, 255, 255, 0.1)" }}>
+					<div>
 						<h3>Climate Control</h3>
 						<p>Heating, cooling, ventilation, and temperature optimization.</p>
 						<TransitionLink
@@ -128,7 +128,7 @@ export default function LoxoneSmartHome() {
 							More
 						</TransitionLink>
 					</div>
-					<div style={{ background: "rgba(255, 255, 255, 0.1)" }}>
+					<div>
 						<h3>Smart Audio</h3>
 						<p>Multi-room audio integrated directly into your smart home.</p>
 						<TransitionLink
@@ -139,7 +139,7 @@ export default function LoxoneSmartHome() {
 							More
 						</TransitionLink>
 					</div>
-					<div style={{ background: "rgba(255, 255, 255, 0.1)" }}>
+					<div>
 						<h3>Home Access</h3>
 						<p>Smart locks, intercoms, keyless entry, and remote access.</p>
 						<TransitionLink
@@ -150,7 +150,7 @@ export default function LoxoneSmartHome() {
 							More
 						</TransitionLink>
 					</div>
-					<div style={{ background: "rgba(255, 255, 255, 0.1)" }}>
+					<div>
 						<h3>Security</h3>
 						<p>
 							Motion detection, alarms, surveillance integration, and presence
@@ -164,7 +164,7 @@ export default function LoxoneSmartHome() {
 							More
 						</TransitionLink>
 					</div>
-					<div style={{ background: "rgba(255, 255, 255, 0.1)" }}>
+					<div>
 						<h3>Smart Shading</h3>
 						<p>
 							Automated blinds and shading systems for comfort and energy
@@ -178,7 +178,7 @@ export default function LoxoneSmartHome() {
 							More
 						</TransitionLink>
 					</div>
-					<div style={{ background: "rgba(255, 255, 255, 0.1)" }}>
+					<div>
 						<h3>Energy Management</h3>
 						<p>
 							Solar integration, battery management, EV charging, and energy
