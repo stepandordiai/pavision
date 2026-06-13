@@ -11,13 +11,17 @@
 	flex-wrap: wrap;
 
 	div {
+		position: relative;
+		z-index: 1;
 		background: rgba(255, 255, 255, 0.1);
 		min-height: 300px;
 		border-radius: 10px;
 		padding: 10px;
+		min-width: 300px;
 		flex: 1;
 		display: flex;
 		flex-direction: column;
+		overflow: hidden;
 
 		h3 {
 			font-size: 1.25rem;
@@ -26,6 +30,17 @@
 
 		p {
 			margin-top: auto;
+		}
+
+		img {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			object-fit: cover;
+			object-position: center;
+			filter: brightness(0.5);
 		}
 	}
 }
@@ -52,15 +67,17 @@
 
 .loxone-smart-home-flex-img {
 	display: flex;
+	border-radius: 10px;
+	overflow: hidden;
 
 	li {
 		position: relative;
 		z-index: 1;
 		flex: 1;
-		background-image: url("/07.jpg");
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: center;
+		// background-image: url("/07.jpg");
+		// background-repeat: no-repeat;
+		// background-size: cover;
+		// background-position: center;
 		height: 600px;
 		overflow: hidden;
 		display: flex;
@@ -88,6 +105,22 @@
 				background: rgba(0, 0, 0, 0.2);
 			}
 		}
+
+		span {
+			font-size: 1.25rem;
+			font-weight: 500;
+			text-align: center;
+		}
+
+		img {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+			z-index: -1;
+		}
 	}
 }
 
@@ -98,7 +131,7 @@
 
 	div {
 		background: rgba(255, 255, 255, 0.1);
-		padding: 10px;
+		padding: 20px;
 		border-radius: 10px;
 		flex: 1;
 		display: flex;
@@ -111,6 +144,29 @@
 
 		p {
 			white-space: nowrap;
+		}
+	}
+}
+
+@media screen and (width < 800px) {
+	.loxone-smart-home-flex-img {
+		display: flex;
+		flex-direction: column;
+		height: 1000px;
+
+		li {
+			position: relative;
+			z-index: 1;
+			flex: 1;
+			background-image: url("/07.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			transition: flex 0.5s;
 		}
 	}
 }

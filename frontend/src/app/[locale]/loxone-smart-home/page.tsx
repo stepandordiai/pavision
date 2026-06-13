@@ -116,6 +116,10 @@ export default function LoxoneSmartHome() {
 						>
 							More
 						</TransitionLink>
+						<img
+							src="https://www.loxone.com/enen/wp-content/uploads/sites/3/2024/02/Home-kitchen-loxone-lighting.jpg"
+							alt=""
+						/>
 					</div>
 					<div>
 						<h3>Climate Control</h3>
@@ -127,6 +131,10 @@ export default function LoxoneSmartHome() {
 						>
 							More
 						</TransitionLink>
+						<img
+							src="https://www.loxone.com/enus/wp-content/uploads/sites/13/2021/08/Replacing-the-HVAC-system.jpg"
+							alt=""
+						/>
 					</div>
 					<div>
 						<h3>Smart Audio</h3>
@@ -138,6 +146,10 @@ export default function LoxoneSmartHome() {
 						>
 							More
 						</TransitionLink>
+						<img
+							src="https://www.soundsuit.fm/images/sonos/loxone_hero_full_e2d9ac8e.jpg"
+							alt=""
+						/>
 					</div>
 					<div>
 						<h3>Home Access</h3>
@@ -149,6 +161,10 @@ export default function LoxoneSmartHome() {
 						>
 							More
 						</TransitionLink>
+						<img
+							src="https://portal.loxone.com/admin/wp-content/uploads/2023/01/1675079927-1024x578.jpg"
+							alt=""
+						/>
 					</div>
 					<div>
 						<h3>Security</h3>
@@ -163,6 +179,10 @@ export default function LoxoneSmartHome() {
 						>
 							More
 						</TransitionLink>
+						<img
+							src="https://images.squarespace-cdn.com/content/v1/625702dfac602b778c23aa2c/1751296538172-I73ZA3PW2XKOQ00WJTT7/Loxone-domestic.png?format=750w"
+							alt=""
+						/>
 					</div>
 					<div>
 						<h3>Smart Shading</h3>
@@ -177,6 +197,10 @@ export default function LoxoneSmartHome() {
 						>
 							More
 						</TransitionLink>
+						<img
+							src="https://www.loxone.com/enus/wp-content/uploads/sites/13/2019/09/shading_remote_air.jpg"
+							alt=""
+						/>
 					</div>
 					<div>
 						<h3>Energy Management</h3>
@@ -184,6 +208,10 @@ export default function LoxoneSmartHome() {
 							Solar integration, battery management, EV charging, and energy
 							monitoring.
 						</p>
+						<img
+							src="https://www.loxone.com/int/wp-content/uploads/sites/21/2025/10/PH-Header-Blog-Easy-Energymanagement.jpg"
+							alt=""
+						/>
 					</div>
 				</div>
 			</section>
@@ -322,12 +350,48 @@ export default function LoxoneSmartHome() {
 				<div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
 					<p>As an official Loxone Partner, P&A Vision provides:</p>
 					<ul className="loxone-smart-home-flex-img">
-						<li>Consultation</li>
-						<li>System design</li>
-						<li>Professional installation</li>
-						<li>Programming</li>
-						<li>Commissioning</li>
-						<li>Ongoing support</li>
+						<li>
+							<span>Consultation</span>
+							<img
+								src="https://www.loxone.com/enus/wp-content/uploads/sites/13/2021/09/PH-Header-Blog-Smart-Home-Installation-Consulting.jpg"
+								alt=""
+							/>
+						</li>
+						<li>
+							<span>System design</span>
+							<img
+								src="https://www.loxone.com/enus/wp-content/uploads/sites/13/2026/03/ph_loxone_header_software-scaled-1.jpg"
+								alt=""
+							/>
+						</li>
+						<li>
+							<span>Professional installation</span>
+							<img
+								src="https://www.loxone.com/int/wp-content/uploads/sites/21/2022/06/PH-ElektrikerSchaltschrank-scaled-1.jpg"
+								alt=""
+							/>
+						</li>
+						<li>
+							<span>Programming</span>
+							<img
+								src="https://www.loxone.com/enen/wp-content/uploads/sites/3/2026/03/PH-Library.jpg"
+								alt=""
+							/>
+						</li>
+						<li>
+							<span>Commissioning</span>
+							<img
+								src="https://infrastor.de/wp-content/uploads/2024/09/Loxone-App-1.jpg"
+								alt=""
+							/>
+						</li>
+						<li>
+							<span>Ongoing support</span>
+							<img
+								src="https://www.loxone.com/enus/wp-content/uploads/sites/13/2026/04/fs-header-support-loxone-desktop-scaled-1.jpg"
+								alt=""
+							/>
+						</li>
 					</ul>
 					<p>
 						We create intelligent homes tailored to each client's lifestyle,
