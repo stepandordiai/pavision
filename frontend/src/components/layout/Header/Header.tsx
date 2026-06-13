@@ -228,124 +228,134 @@ const Header = () => {
 				</div>
 				<div className={`menu ${menuOpen ? "menu--active" : ""}`}>
 					<div className="menu-inner">
-						<nav className="menu-nav">
-							{navLinks.map((navLink, i) => {
-								return (
-									<div key={i} className="menu-nav__link-wrapper">
-										<TransitionLink
-											onClick={() => setMenuOpen(false)}
-											// TODO: learn this
-											style={
-												menuOpen
-													? {
-															transition: `transform 1s cubic-bezier(0.16, 1, 0.3, 1) ${0.25 + i * 0.05}s`,
-														}
-													: undefined
-											}
-											className={`menu-nav__link ${pathname === navLink.path ? "menu-nav__link--active" : ""} ${menuOpen ? "menu-nav__link--visible" : ""}`}
-											href={navLink.path}
+						<div
+							style={{
+								overflowY: "scroll",
+								height: "calc(100dvh - 74px)",
+								scrollbarWidth: "none",
+								display: "flex",
+								flexDirection: "column",
+								gap: "12px",
+							}}
+						>
+							<nav className="menu-nav">
+								{navLinks.map((navLink, i) => {
+									return (
+										<div key={i} className="menu-nav__link-wrapper">
+											<TransitionLink
+												onClick={() => setMenuOpen(false)}
+												// TODO: learn this
+												style={
+													menuOpen
+														? {
+																transition: `transform 1s cubic-bezier(0.16, 1, 0.3, 1) ${0.25 + i * 0.05}s`,
+															}
+														: undefined
+												}
+												className={`menu-nav__link ${pathname === navLink.path ? "menu-nav__link--active" : ""} ${menuOpen ? "menu-nav__link--visible" : ""}`}
+												href={navLink.path}
+											>
+												{t(navLink.label)}
+											</TransitionLink>
+										</div>
+									);
+								})}
+								<div className="menu-nav__link-wrapper">
+									<button
+										ref={menubtnRef}
+										onClick={() => setMenuExpanded((prev) => !prev)}
+										style={
+											menuOpen
+												? {
+														transition: `transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s`,
+													}
+												: undefined
+										}
+										className={`menu-nav__link-btn  ${menuOpen ? "menu-nav__link-btn--visible" : ""} ${menuExpanded ? "menu-nav__link-btn--active" : ""}`}
+									>
+										Brands
+									</button>
+								</div>
+								<div ref={menuBottomRef} className="menu-bottom-inner">
+									<TransitionLink
+										onClick={() => {
+											setMenuOpen(false);
+											setMenuExpanded(false);
+										}}
+										className={`header-bottom__link ${menuExpanded ? "header-bottom__link--visible" : ""}`}
+										href="/loxone-smart-home"
+									>
+										<span
+											style={{
+												display: "flex",
+												justifyContent: "space-between",
+												width: "100%",
+											}}
 										>
-											{t(navLink.label)}
-										</TransitionLink>
-									</div>
-								);
-							})}
-							<div className="menu-nav__link-wrapper">
-								<button
-									ref={menubtnRef}
-									onClick={() => setMenuExpanded((prev) => !prev)}
-									style={
-										menuOpen
-											? {
-													transition: `transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s`,
-												}
-											: undefined
-									}
-									className={`menu-nav__link-btn  ${menuOpen ? "menu-nav__link-btn--visible" : ""} ${menuExpanded ? "menu-nav__link-btn--active" : ""}`}
-								>
-									Brands
-								</button>
-							</div>
-							<div ref={menuBottomRef} className="menu-bottom-inner">
-								<TransitionLink
-									onClick={() => {
-										setMenuOpen(false);
-										setMenuExpanded(false);
-									}}
-									className={`header-bottom__link ${menuExpanded ? "header-bottom__link--visible" : ""}`}
-									href="/loxone-smart-home"
-								>
-									<span
-										style={{
-											display: "flex",
-											justifyContent: "space-between",
-											width: "100%",
+											<span>Loxone</span>
+											<ChevronRightIcon size={24} />
+										</span>
+									</TransitionLink>
+									<TransitionLink
+										onClick={() => {
+											setMenuOpen(false);
+											setMenuExpanded(false);
 										}}
+										className={`header-bottom__link ${menuExpanded ? "header-bottom__link--visible" : ""}`}
+										href="/crestron-home"
 									>
-										<span>Loxone</span>
-										<ChevronRightIcon size={24} />
-									</span>
-								</TransitionLink>
-								<TransitionLink
-									onClick={() => {
-										setMenuOpen(false);
-										setMenuExpanded(false);
+										<span
+											style={{
+												display: "flex",
+												justifyContent: "space-between",
+												width: "100%",
+											}}
+										>
+											<span>Crestrone</span>
+											<ChevronRightIcon size={24} />
+										</span>
+									</TransitionLink>
+								</div>
+							</nav>
+							<div style={{ flexShrink: 0 }} className="footer__divider"></div>
+							<div>
+								<div
+									style={{
+										overflow: "hidden",
+										display: "flex",
+										justifyContent: "space-between",
 									}}
-									className={`header-bottom__link ${menuExpanded ? "header-bottom__link--visible" : ""}`}
-									href="/crestron-home"
 								>
-									<span
-										style={{
-											display: "flex",
-											justifyContent: "space-between",
-											width: "100%",
-										}}
+									<a
+										style={
+											menuOpen
+												? {
+														transition: `color 0.24s, transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s`,
+													}
+												: undefined
+										}
+										className={`menu__link ${menuOpen ? "menu__link--visible" : ""}`}
+										href="https://www.instagram.com/pa_vision.cz"
+										target="_blank"
 									>
-										<span>Crestrone</span>
-										<ChevronRightIcon size={24} />
-									</span>
-								</TransitionLink>
-							</div>
-						</nav>
-						<div className="footer__divider"></div>
-
-						<div>
-							<div
-								style={{
-									overflow: "hidden",
-									display: "flex",
-									justifyContent: "space-between",
-								}}
-							>
-								<a
-									style={
-										menuOpen
-											? {
-													transition: `color 0.24s, transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s`,
-												}
-											: undefined
-									}
-									className={`menu__link ${menuOpen ? "menu__link--visible" : ""}`}
-									href="https://www.instagram.com/pa_vision.cz"
-									target="_blank"
-								>
-									Instagram
-								</a>
-								<TransitionLink
-									onClick={() => setMenuOpen(false)}
-									// TODO: learn this
-									style={
-										menuOpen
-											? {
-													transition: `transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s`,
-												}
-											: undefined
-									}
-									className={`menu__link ${pathname === "/appointment" ? "menu__link--active" : ""} ${menuOpen ? "menu__link--visible" : ""}`}
-									href="/appointment"
-								>
-									Domluvit schůzku
-								</TransitionLink>
+										Instagram
+									</a>
+									<TransitionLink
+										onClick={() => setMenuOpen(false)}
+										// TODO: learn this
+										style={
+											menuOpen
+												? {
+														transition: `transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s`,
+													}
+												: undefined
+										}
+										className={`menu__link ${pathname === "/appointment" ? "menu__link--active" : ""} ${menuOpen ? "menu__link--visible" : ""}`}
+										href="/appointment"
+									>
+										Domluvit schůzku
+									</TransitionLink>
+								</div>
 							</div>
 						</div>
 					</div>
