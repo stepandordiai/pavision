@@ -1,0 +1,126 @@
+.section-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+}
+.loxone-smart-home-list {
+	li {
+		list-style-position: inside !important;
+		list-style: disc;
+	}
+}
+
+.loxone-smart-home-flex {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+
+	div {
+		min-height: 300px;
+		border-radius: 10px;
+		padding: 10px;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+
+		h3 {
+			font-size: 1.25rem;
+			white-space: nowrap;
+		}
+
+		p {
+			margin-top: auto;
+		}
+	}
+}
+
+.loxone-smart-home-list-flex {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+
+	li {
+		display: flex;
+		justify-content: space-between;
+		padding: 10px;
+		border-radius: 10px;
+		height: 100px;
+		background: rgba(255, 255, 255, 0.1);
+
+		img {
+			height: 100%;
+			border-radius: 10px;
+		}
+	}
+}
+
+.loxone-smart-home-flex-img {
+	display: flex;
+
+	li {
+		position: relative;
+		z-index: 1;
+		flex: 1;
+		background-image: url("/07.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		height: 600px;
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition: flex 0.5s;
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+			pointer-events: none;
+			transition:
+				backdrop-filter 0.5s,
+				background-color 0.5s;
+		}
+
+		&:hover {
+			flex: 2;
+
+			&::after {
+				-webkit-backdrop-filter: blur(10px);
+				backdrop-filter: blur(10px);
+				background: rgba(0, 0, 0, 0.2);
+			}
+		}
+	}
+}
+
+.loxone-smart-home-flex-process {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+
+	div {
+		background: rgba(255, 255, 255, 0.1);
+		padding: 10px;
+		border-radius: 10px;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+
+		span {
+			font-size: 1.5rem;
+		}
+
+		p {
+			white-space: nowrap;
+		}
+	}
+}
+
+@media screen and (width < 1000px) {
+	.section-container {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}

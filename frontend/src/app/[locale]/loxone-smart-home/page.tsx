@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import HeroParallax from "@/components/HeroParallax/HeroParallax";
+import { TransitionLink } from "@/components/TransitionLink";
 import "./styles.scss";
 
 export async function generateMetadata({
@@ -29,166 +31,313 @@ export async function generateMetadata({
 	};
 }
 
+const faqs = [
+	{
+		q: "Is Loxone better than traditional smart home systems?",
+		a: "Loxone focuses on true automation rather than simple remote control, reducing the need for manual interaction.",
+	},
+	{
+		q: "Can Loxone integrate with solar panels?",
+		a: "Yes. Loxone supports advanced energy management and solar integration.",
+	},
+	{
+		q: "Does Loxone work with smart lighting?",
+		a: "Yes. Lighting automation is one of Loxone's core strengths.",
+	},
+	{
+		q: "Can Loxone control heating and cooling?",
+		a: "Yes. It provides intelligent climate management across the entire property.",
+	},
+	{
+		q: "Is Loxone suitable for luxury homes?",
+		a: "Absolutely. Loxone is widely used in premium residential projects throughout Europe.",
+	},
+];
+
 export default function LoxoneSmartHome() {
 	return (
 		<main>
-			<h1>Loxone Smart Home Installation & Automation</h1>
-			<p>
-				Experience complete home automation with Loxone. Control lighting,
+			<HeroParallax
+				heading="Loxone Smart Home Installation & Automation"
+				subheading="Experience complete home automation with Loxone. Control lighting,
 				climate, security, shading, audio, and energy management through one
-				intelligent system designed around your lifestyle.
-			</p>
-			<button>Get a Quote</button>
-			<button>Explore Loxone Solutions</button>
-			<section>
-				<h2>Why Choose Loxone?</h2>
-				<p>
-					Loxone is one of Europe's leading intelligent building automation
-					platforms, designed to connect every aspect of your home into a
-					single, easy-to-use system.
-				</p>
-				<p>
-					Unlike traditional smart home products that rely on multiple apps and
-					disconnected devices, Loxone brings everything together in one
-					integrated ecosystem.
-				</p>
-				<p>Benefits include:</p>
-				<ul>
-					<li>One app for complete control</li>
-					<li>Energy-efficient automation</li>
-					<li>Enhanced security</li>
-					<li>Increased comfort</li>
-					<li>Future-ready scalability</li>
-					<li>Reduced operating costs</li>
-				</ul>
+				intelligent system designed around your lifestyle."
+				imgSrc="https://www.planet-architects.com/application/files/7517/1049/0793/Planet-Architects_Loxone-Campus-118.jpg"
+				secondaryBtnTxt="Explore Loxone Solutions"
+				currentPage="Loxone"
+				currentPageUrl="/loxone-smart-home"
+			/>
+			<section className="section" id="section">
+				<h2 className="section__title">Why Choose Loxone?</h2>
+				<div className="section-container">
+					<div
+						style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+					>
+						<p>
+							Loxone is one of Europe's leading intelligent building automation
+							platforms, designed to connect every aspect of your home into a
+							single, easy-to-use system.
+						</p>
+						<p>
+							Unlike traditional smart home products that rely on multiple apps
+							and disconnected devices, Loxone brings everything together in one
+							integrated ecosystem.
+						</p>
+						<p>Benefits include:</p>
+						<ul className="loxone-smart-home-list">
+							<li>One app for complete control</li>
+							<li>Energy-efficient automation</li>
+							<li>Enhanced security</li>
+							<li>Increased comfort</li>
+							<li>Future-ready scalability</li>
+							<li>Reduced operating costs</li>
+						</ul>
+					</div>
+					<img
+						style={{ borderRadius: "10px" }}
+						src="https://portal.loxone.com/admin/wp-content/uploads/2023/12/1702551165-1024x576.jpeg"
+						alt=""
+					/>
+				</div>
 			</section>
-			<section>
-				<h2>What Can Loxone Control?</h2>
-				<div>
-					<div>
+			<section className="section">
+				<h2 className="section__title">What Can Loxone Control?</h2>
+				<div className="loxone-smart-home-flex">
+					<div style={{ background: "rgba(255, 255, 255, 0.1)" }}>
 						<h3>Smart Lighting</h3>
 						<p>
 							Automated scenes, dimming, occupancy detection, and
 							daylight-responsive control.
 						</p>
-						<a href=""></a>
+						<TransitionLink
+							style={{ alignSelf: "flex-end" }}
+							className="link"
+							href="/lighting"
+						>
+							More
+						</TransitionLink>
 					</div>
-					<div>
+					<div style={{ background: "rgba(255, 255, 255, 0.1)" }}>
 						<h3>Climate Control</h3>
 						<p>Heating, cooling, ventilation, and temperature optimization.</p>
-						<a href=""></a>
+						<TransitionLink
+							style={{ alignSelf: "flex-end" }}
+							className="link"
+							href="/thermostat"
+						>
+							More
+						</TransitionLink>
 					</div>
-					<div>
+					<div style={{ background: "rgba(255, 255, 255, 0.1)" }}>
 						<h3>Smart Audio</h3>
 						<p>Multi-room audio integrated directly into your smart home.</p>
-						<a href=""></a>
+						<TransitionLink
+							style={{ alignSelf: "flex-end" }}
+							className="link"
+							href="/audio"
+						>
+							More
+						</TransitionLink>
 					</div>
-					<div>
+					<div style={{ background: "rgba(255, 255, 255, 0.1)" }}>
 						<h3>Home Access</h3>
 						<p>Smart locks, intercoms, keyless entry, and remote access.</p>
-						<a href=""></a>
+						<TransitionLink
+							style={{ alignSelf: "flex-end" }}
+							className="link"
+							href="/home-access"
+						>
+							More
+						</TransitionLink>
 					</div>
-					<div>
+					<div style={{ background: "rgba(255, 255, 255, 0.1)" }}>
 						<h3>Security</h3>
 						<p>
 							Motion detection, alarms, surveillance integration, and presence
 							simulation.
 						</p>
-						<a href=""></a>
+						<TransitionLink
+							style={{ alignSelf: "flex-end" }}
+							className="link"
+							href="/security"
+						>
+							More
+						</TransitionLink>
 					</div>
-					<div>
+					<div style={{ background: "rgba(255, 255, 255, 0.1)" }}>
 						<h3>Smart Shading</h3>
 						<p>
 							Automated blinds and shading systems for comfort and energy
 							efficiency.
 						</p>
-						<a href=""></a>
+						<TransitionLink
+							style={{ alignSelf: "flex-end" }}
+							className="link"
+							href="/shades"
+						>
+							More
+						</TransitionLink>
 					</div>
-					<div>
+					<div style={{ background: "rgba(255, 255, 255, 0.1)" }}>
 						<h3>Energy Management</h3>
 						<p>
 							Solar integration, battery management, EV charging, and energy
 							monitoring.
 						</p>
-						<a href=""></a>
 					</div>
 				</div>
 			</section>
-			<section>
-				<h2>Intelligent Lighting Automation</h2>
-				<p>
-					Loxone automatically adjusts lighting based on occupancy, daylight
-					levels, time of day, and user preferences.
-				</p>
-				<p>Benefits:</p>
-				<ul>
-					<li>Automated lighting scenes</li>
-					<li>Energy savings</li>
-					<li>Improved comfort</li>
-					<li>Enhanced security</li>
-					<li>Voice and app control</li>
-				</ul>
+			<section className="section">
+				<h2 className="section__title">Intelligent Lighting Automation</h2>
+				<div className="section-container">
+					<img src="/09.jpg" alt="" />
+					<div
+						style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+					>
+						<p>
+							Loxone automatically adjusts lighting based on occupancy, daylight
+							levels, time of day, and user preferences.
+						</p>
+						<p>Benefits:</p>
+						<ul className="loxone-smart-home-list">
+							<li>Automated lighting scenes</li>
+							<li>Energy savings</li>
+							<li>Improved comfort</li>
+							<li>Enhanced security</li>
+							<li>Voice and app control</li>
+						</ul>
+					</div>
+				</div>
 			</section>
-			<section>
-				<h2>Smarter Heating and Cooling</h2>
-				<p>
-					Maintain perfect comfort while minimizing energy consumption through
-					intelligent climate automation.
-				</p>
-				<p>Features:</p>
-				<ul>
-					<li>Smart thermostats</li>
-					<li>Room-by-room control</li>
-					<li>Automated schedules</li>
-					<li>Weather-based optimization</li>
-					<li>Energy-efficient operation</li>
-				</ul>
+			<section className="section">
+				<h2 className="section__title">Smarter Heating and Cooling</h2>
+				<div className="section-container">
+					<div
+						style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+					>
+						<p>
+							Maintain perfect comfort while minimizing energy consumption
+							through intelligent climate automation.
+						</p>
+						<p>Features:</p>
+						<ul>
+							<li>Smart thermostats</li>
+							<li>Room-by-room control</li>
+							<li>Automated schedules</li>
+							<li>Weather-based optimization</li>
+							<li>Energy-efficient operation</li>
+						</ul>
+					</div>
+					<img
+						style={{ maxHeight: "100svh", borderRadius: "10px" }}
+						src="/10.jpg"
+						alt=""
+					/>
+				</div>
 			</section>
-			<section>
-				<h2>Intelligent Home Protection</h2>
-				<p>
-					Integrate access control, alarms, cameras, and monitoring into one
-					secure platform.
-				</p>
-				<ul>
-					<li>Smart locks</li>
-					<li>Video intercoms</li>
-					<li>Presence simulation</li>
-					<li>Alarm notifications</li>
-					<li>Remote monitoring</li>
-				</ul>
+			<section className="section">
+				<h2 className="section__title">Intelligent Home Protection</h2>
+				<div className="section-container">
+					<img
+						style={{ borderRadius: "10px" }}
+						src="https://images.squarespace-cdn.com/content/v1/57ab07976a49635fe425fbf1/1672777734317-6WIRDVF5UTYKE2ZCR9OV/%28c%29Loxone-Intercom-NFC-Code-Touch-03.jpg"
+						alt=""
+					/>
+					<div
+						style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+					>
+						<p>
+							Integrate access control, alarms, cameras, and monitoring into one
+							secure platform.
+						</p>
+						<ul className="loxone-smart-home-list-flex">
+							<li>
+								<span>Smart locks</span>
+								<img
+									src="https://pim.loxone.com//01%20Product%20Data/01%20Products/Access/100481%20-%20NFC%20Code%20Touch%20Tree%20Wei%C3%9F/Images/ph-shop-100481-NFC-Code-Touch-Tree-Wei%C3%9F-09.jpg"
+									alt=""
+								/>
+							</li>
+							<li>
+								<span>Video intercoms</span>
+								<img
+									src="https://pim.loxone.com//01%20Product%20Data/01%20Products/Access/100485%20-%20Intercom%20Anthrazit/Images/PH-Shop-Intercom-1.jpg"
+									alt=""
+								/>
+							</li>
+							<li>Presence simulation</li>
+							<li>Alarm notifications</li>
+							<li>Remote monitoring</li>
+						</ul>
+					</div>
+				</div>
 			</section>
-			<section>
-				<h2>Optimize Energy Consumption</h2>
-				<p>Monitor and automate energy use across your property.</p>
-				<p>Capabilities:</p>
-				<ul>
-					<li>Solar management</li>
-					<li>Battery storage optimization</li>
-					<li>EV charger integration</li>
-					<li>Consumption monitoring</li>
-					<li>Automated energy balancing</li>
-				</ul>
+			<section className="section">
+				<h2 className="section__title">Optimize Energy Consumption</h2>
+				<div className="section-container">
+					<div
+						style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+					>
+						<p>Monitor and automate energy use across your property.</p>
+						<p>Capabilities:</p>
+						<ul className="loxone-smart-home-list">
+							<li>Solar management</li>
+							<li>Battery storage optimization</li>
+							<li>EV charger integration</li>
+							<li>Consumption monitoring</li>
+							<li>Automated energy balancing</li>
+						</ul>
+					</div>
+					<div
+						style={{
+							display: "grid",
+							gridTemplateColumns:
+								"repeat(auto-fill, minmax(min(100%, 170px), 170px))",
+							gap: "10px",
+							// height: "100svh",
+							justifyContent: "center",
+						}}
+					>
+						<img
+							src="https://www.loxone.com/cscz/wp-content/uploads/sites/7/2024/06/Mockup-%E2%80%93-iPhone-13-Pro-3.png"
+							alt=""
+						/>
+						<img
+							src="https://www.loxone.com/cscz/wp-content/uploads/sites/7/2024/06/Vizu-1-F.png"
+							alt=""
+						/>
+						<img
+							src="https://www.loxone.com/cscz/wp-content/uploads/sites/7/2024/06/Vizu-2-F.png"
+							alt=""
+						/>
+						<img
+							src="https://www.loxone.com/cscz/wp-content/uploads/sites/7/2024/06/Vizu-3-F.png"
+							alt=""
+						/>
+					</div>
+				</div>
 			</section>
-			<section>
-				<h2>Why Work With P&A Vision?</h2>
-				<p>As an official Loxone Partner, P&A Vision provides:</p>
-				<ul>
-					<li>Consultation</li>
-					<li>System design</li>
-					<li>Professional installation</li>
-					<li>Programming</li>
-					<li>Commissioning</li>
-					<li>Ongoing support</li>
-				</ul>
-				<p>
-					We create intelligent homes tailored to each client's lifestyle,
-					ensuring reliability, scalability, and exceptional user experience.
-				</p>
+			<section className="section">
+				<h2 className="section__title">Why Work With P&A Vision?</h2>
+				<div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+					<p>As an official Loxone Partner, P&A Vision provides:</p>
+					<ul className="loxone-smart-home-flex-img">
+						<li>Consultation</li>
+						<li>System design</li>
+						<li>Professional installation</li>
+						<li>Programming</li>
+						<li>Commissioning</li>
+						<li>Ongoing support</li>
+					</ul>
+					<p>
+						We create intelligent homes tailored to each client's lifestyle,
+						ensuring reliability, scalability, and exceptional user experience.
+					</p>
+				</div>
 			</section>
-			<section>
-				<h2>Our Loxone Installation Process</h2>
-				<div>
+			<section className="section">
+				<h2 className="section__title">Our Loxone Installation Process</h2>
+				<div className="loxone-smart-home-flex-process">
 					<div>
 						<span>Step 1</span>
 						<p>Consultation & Planning</p>
@@ -215,41 +364,15 @@ export default function LoxoneSmartHome() {
 					</div>
 				</div>
 			</section>
-			<section>
+			<section className="section">
 				<h2>FAQs</h2>
 				<div>
-					<div>
-						<h3>Is Loxone better than traditional smart home systems?</h3>
-						<p>
-							Loxone focuses on true automation rather than simple remote
-							control, reducing the need for manual interaction.
-						</p>
-					</div>
-					<div>
-						<h3>Can Loxone integrate with solar panels?</h3>
-						<p>
-							Yes. Loxone supports advanced energy management and solar
-							integration.
-						</p>
-					</div>
-					<div>
-						<h3>Does Loxone work with smart lighting?</h3>
-						<p>Yes. Lighting automation is one of Loxone's core strengths.</p>
-					</div>
-					<div>
-						<h3>Can Loxone control heating and cooling?</h3>
-						<p>
-							Yes. It provides intelligent climate management across the entire
-							property.
-						</p>
-					</div>
-					<div>
-						<h3>Is Loxone suitable for luxury homes?</h3>
-						<p>
-							Absolutely. Loxone is widely used in premium residential projects
-							throughout Europe.
-						</p>
-					</div>
+					{faqs.map(({ q, a }, i) => (
+						<div key={i}>
+							<h3>{q}</h3>
+							<p>{a}</p>
+						</div>
+					))}
 				</div>
 			</section>
 		</main>
