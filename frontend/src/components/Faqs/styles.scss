@@ -21,16 +21,35 @@
 }
 
 .faqs-item {
-	background: rgba(255, 255, 255, 0.1);
-	border-radius: 10px;
-	overflow: hidden;
-	transition:
-		background-color 0.5s ease,
-		color 0.5s ease;
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		background: rgba(255, 255, 255, 0.478);
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		background: #fff;
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 0.24s;
+	}
 
 	&--expanded {
-		background: #fff;
-		color: #000;
+		&::after {
+			transform: scaleX(1);
+		}
 	}
 }
 

@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import styles from "@/components/Testimonials/Testimonials.module.scss";
 import "./styles.scss";
 import getCreatedDate from "@/utils/getCreatedDate";
+import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
 
 type Testimonial = {
 	id: string;
@@ -157,28 +158,30 @@ export default function MyProfile() {
 	return (
 		<main
 			style={{ display: "flex", flexDirection: "column", gap: "20px" }}
-			className="main"
+			className="my-account"
 		>
-			<h1 className="main__title">My account</h1>
-			{editingName ? (
-				<>
-					<input
-						value={nameValue}
-						onChange={(e) => setNameValue(e.target.value)}
-					/>
-					<button type="button" onClick={handleSaveName}>
-						Save
-					</button>
-					<button type="button" onClick={() => setEditingName(false)}>
-						Cancel
-					</button>
-				</>
-			) : (
-				<>
-					<p style={{ fontSize: "clamp(1.5rem, 4vw, 2rem)" }}>
-						Welcome, {user.user_metadata.full_name}
-					</p>
-					{/* <button
+			<Breadcrumbs currentPage="My Account" />
+			<div style={{ padding: "0 20px 20px" }}>
+				<h1 className="main__title">My account</h1>
+				{editingName ? (
+					<>
+						<input
+							value={nameValue}
+							onChange={(e) => setNameValue(e.target.value)}
+						/>
+						<button type="button" onClick={handleSaveName}>
+							Save
+						</button>
+						<button type="button" onClick={() => setEditingName(false)}>
+							Cancel
+						</button>
+					</>
+				) : (
+					<>
+						<p style={{ fontSize: "clamp(1.5rem, 4vw, 2rem)" }}>
+							Welcome, {user.user_metadata.full_name}
+						</p>
+						{/* <button
 						className="edit-btn"
 						type="button"
 						onClick={() => {
@@ -188,95 +191,98 @@ export default function MyProfile() {
 					>
 						<PencilIcon />
 					</button> */}
-				</>
-			)}
-			<div>
-				<span style={{ marginBottom: "5px", display: "block" }}>Email</span>
-				<p>{user.email}</p>
-			</div>
-
-			<section>
-				<h2 className="section__title">My testimonials</h2>
-
-				{testimonials.length === 0 && (
-					<p>You haven't posted any testimonials yet.</p>
+					</>
 				)}
-				{testimonials.map((t) => (
-					<div key={t.id} className="testimonial-item">
-						{editingId === t.id ? (
-							<>
-								<textarea
-									style={{
-										width: "100%",
-										background: "#000",
-										padding: "10px",
-										borderRadius: "10px",
-									}}
-									value={editContent}
-									onChange={(e) => setEditContent(e.target.value)}
-								/>
-								<div
-									style={{
-										width: "100%",
-										background: "#000",
-										padding: "10px",
-										borderRadius: "10px",
-									}}
-								>
-									<Stars
-										rating={editRating}
-										interactive
-										onChange={setEditRating}
+				<div>
+					<span style={{ marginBottom: "5px", display: "block" }}>Email</span>
+					<p>{user.email}</p>
+				</div>
+
+				<section>
+					<h2 className="section__title">My testimonials</h2>
+
+					{testimonials.length === 0 && (
+						<p>You haven't posted any testimonials yet.</p>
+					)}
+					{testimonials.map((t) => (
+						<div key={t.id} className="testimonial-item">
+							{editingId === t.id ? (
+								<>
+									<textarea
+										style={{
+											width: "100%",
+											background: "#000",
+											padding: "10px",
+											borderRadius: "10px",
+										}}
+										value={editContent}
+										onChange={(e) => setEditContent(e.target.value)}
 									/>
-								</div>
-								<div style={{ display: "flex", gap: "5px" }}>
-									<button
-										className="save-btn"
-										type="button"
-										onClick={() => handleSave(t.id)}
+									<div
+										style={{
+											width: "100%",
+											background: "#000",
+											padding: "10px",
+											borderRadius: "10px",
+										}}
 									>
-										Save
-									</button>
-									<button
-										className="edit-btn"
-										type="button"
-										onClick={() => setEditingId(null)}
+										<Stars
+											rating={editRating}
+											interactive
+											onChange={setEditRating}
+										/>
+									</div>
+									<div style={{ display: "flex", gap: "5px" }}>
+										<button
+											className="save-btn"
+											type="button"
+											onClick={() => handleSave(t.id)}
+										>
+											Save
+										</button>
+										<button
+											className="edit-btn"
+											type="button"
+											onClick={() => setEditingId(null)}
+										>
+											Cancel
+										</button>
+									</div>
+								</>
+							) : (
+								<>
+									<p
+										style={{ alignSelf: "flex-end", color: "hsl(0, 0%, 50%)" }}
 									>
-										Cancel
-									</button>
-								</div>
-							</>
-						) : (
-							<>
-								<p style={{ alignSelf: "flex-end", color: "hsl(0, 0%, 50%)" }}>
-									{getCreatedDate(t.created_at)}
-								</p>
-								<p>{t.content}</p>
-								<Stars rating={t.rating} />
-								<div style={{ display: "flex", gap: "5px" }}>
-									<button
-										className="edit-btn"
-										type="button"
-										onClick={() => handleEdit(t)}
-									>
-										Edit
-									</button>
-									<button
-										className="delete-btn"
-										type="button"
-										onClick={() => handleDelete(t.id)}
-									>
-										Delete
-									</button>
-								</div>
-							</>
-						)}
-					</div>
-				))}
-			</section>
-			<button className="sign-out-btn" type="button" onClick={handleSignOut}>
-				Sign out
-			</button>
+										{getCreatedDate(t.created_at)}
+									</p>
+									<p>{t.content}</p>
+									<Stars rating={t.rating} />
+									<div style={{ display: "flex", gap: "5px" }}>
+										<button
+											className="edit-btn"
+											type="button"
+											onClick={() => handleEdit(t)}
+										>
+											Edit
+										</button>
+										<button
+											className="delete-btn"
+											type="button"
+											onClick={() => handleDelete(t.id)}
+										>
+											Delete
+										</button>
+									</div>
+								</>
+							)}
+						</div>
+					))}
+				</section>
+				<button className="sign-out-btn" type="button" onClick={handleSignOut}>
+					Sign out
+				</button>
+			</div>
 		</main>
 	);
 }

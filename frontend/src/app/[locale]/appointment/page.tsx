@@ -7,6 +7,7 @@ import ChevronLeftIcon from "@/components/icons/ChevronLeftIcon";
 import { useLocale } from "next-intl";
 import CalendarIcon from "@/components/icons/CalendarIcon";
 import "./styles.scss";
+import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
 
 const WEEKDAY_SLOTS = [
 	"8:00",
@@ -249,218 +250,223 @@ export default function Appointment() {
 				</>
 			)}
 			<main className="appointment">
-				<h1 className="main__title">Nezávazná technologická konzultace</h1>
-				<div className="appointment-container">
-					<div className="calendar">
-						<div className="calendar-header">
-							<button
-								className="calendar-nav-btn"
-								onClick={prevMonth}
-								disabled={isPrevDisabled}
-								aria-label="Previous month"
-							>
-								<ChevronLeftIcon />
-							</button>
-							<span className="apt-cal__title">
-								{getMonthName(viewYear, viewMonth, locale)} {viewYear}
-							</span>
-							<button
-								className="calendar-nav-btn"
-								onClick={nextMonth}
-								aria-label="Next month"
-							>
-								<ChevronRightIcon />
-							</button>
-						</div>
-						<div className="calendar-grid">
-							{DAYS.map((d, i) => (
-								<div key={i} style={{ textAlign: "center" }}>
-									{d}
-								</div>
-							))}
-							{Array.from({ length: startOffset }).map((_, i) => (
-								<div key={`e-${i}`} />
-							))}
-							{Array.from({ length: daysInMonth }).map((_, i) => {
-								const day = i + 1;
-								const cellDate = new Date(viewYear, viewMonth, day);
-								const isPast = cellDate < todayDate;
-								const isToday =
-									cellDate.toDateString() === todayDate.toDateString();
-								const isSelected =
-									selectedDate?.toDateString() === cellDate.toDateString();
-								return (
-									<button
-										key={day}
-										className={[
-											"calendar-grid-btn",
-											isPast ? "calendar-grid-btn--past" : "",
-											isToday ? "apt-cal__cell--today" : "",
-											isSelected ? "calendar-grid-btn--selected" : "",
-											isSunday(cellDate) ? "calendar-grid-btn--sunday" : "",
-										].join(" ")}
-										disabled={isPast || isSunday(cellDate)}
-										onClick={() => handleDateSelect(cellDate)}
-										aria-label={cellDate.toLocaleDateString(locale, {
-											day: "numeric",
-											month: "long",
-										})}
-										aria-pressed={isSelected}
-									>
-										{day}
-									</button>
-								);
-							})}
-						</div>
-						<div
-							style={{
-								display: "flex",
-								justifyContent: "space-around",
-								alignItems: "center",
-							}}
-						>
+				<Breadcrumbs currentPage="Nezávazná technologická konzultace" />
+				<div style={{ padding: "0 20px 20px" }}>
+					<h1 className="main__title">Nezávazná technologická konzultace</h1>
+					<div className="appointment-container">
+						<div className="calendar">
+							<div className="calendar-header">
+								<button
+									className="calendar-nav-btn"
+									onClick={prevMonth}
+									disabled={isPrevDisabled}
+									aria-label="Previous month"
+								>
+									<ChevronLeftIcon />
+								</button>
+								<span className="apt-cal__title">
+									{getMonthName(viewYear, viewMonth, locale)} {viewYear}
+								</span>
+								<button
+									className="calendar-nav-btn"
+									onClick={nextMonth}
+									aria-label="Next month"
+								>
+									<ChevronRightIcon />
+								</button>
+							</div>
+							<div className="calendar-grid">
+								{DAYS.map((d, i) => (
+									<div key={i} style={{ textAlign: "center" }}>
+										{d}
+									</div>
+								))}
+								{Array.from({ length: startOffset }).map((_, i) => (
+									<div key={`e-${i}`} />
+								))}
+								{Array.from({ length: daysInMonth }).map((_, i) => {
+									const day = i + 1;
+									const cellDate = new Date(viewYear, viewMonth, day);
+									const isPast = cellDate < todayDate;
+									const isToday =
+										cellDate.toDateString() === todayDate.toDateString();
+									const isSelected =
+										selectedDate?.toDateString() === cellDate.toDateString();
+									return (
+										<button
+											key={day}
+											className={[
+												"calendar-grid-btn",
+												isPast ? "calendar-grid-btn--past" : "",
+												isToday ? "apt-cal__cell--today" : "",
+												isSelected ? "calendar-grid-btn--selected" : "",
+												isSunday(cellDate) ? "calendar-grid-btn--sunday" : "",
+											].join(" ")}
+											disabled={isPast || isSunday(cellDate)}
+											onClick={() => handleDateSelect(cellDate)}
+											aria-label={cellDate.toLocaleDateString(locale, {
+												day: "numeric",
+												month: "long",
+											})}
+											aria-pressed={isSelected}
+										>
+											{day}
+										</button>
+									);
+								})}
+							</div>
 							<div
 								style={{
 									display: "flex",
-									justifyContent: "center",
+									justifyContent: "space-around",
 									alignItems: "center",
-									gap: "5px",
 								}}
 							>
-								<span
-									style={{
-										width: "20px",
-										height: "20px",
-										background: "#00d9ff",
-										display: "inline-block",
-										borderRadius: "50%",
-									}}
-								></span>
-								<span>selected</span>
-							</div>
-						</div>
-					</div>
-					<div className="calendar">
-						{/* Slots */}
-						<div className="apt-slots">
-							<p className="apt-slots__title">
-								{dateLabel ? `Available times - ${dateLabel}` : "Select a date"}
-							</p>
-							{!selectedDate && (
-								<p className="apt-slots__hint">
-									Pick a day on the calendar to see available slots
-								</p>
-							)}
-							{selectedDate && slotsLoading && (
-								<p style={{ marginTop: "20px" }}>Loading...</p>
-							)}
-							{selectedDate && !slotsLoading && (
-								<div className="calendar-time-grid">
-									{slots.map((slot) => {
-										const isBooked = bookedSlots.includes(slot);
-										const isSelected = selectedSlot === slot;
-										return (
-											<button
-												key={slot}
-												className={[
-													"calendar-time",
-													isBooked ? "calendar-time--booked" : "",
-													isSelected ? "calendar-time--selected" : "",
-												].join(" ")}
-												disabled={isBooked}
-												onClick={() => {
-													setSelectedSlot(slot);
-													setError(null);
-												}}
-												aria-pressed={isSelected}
-											>
-												{slot}
-											</button>
-										);
-									})}
-								</div>
-							)}
-						</div>
-
-						{/* Form */}
-						{selectedSlot && (
-							<div className="calendar-form">
-								<p className="calendar-form-summary">
-									<CalendarIcon />
-									{dateLabel} at {selectedSlot}
-								</p>
 								<div
 									style={{
 										display: "flex",
-										flexDirection: "column",
-										gap: "40px",
+										justifyContent: "center",
+										alignItems: "center",
+										gap: "5px",
 									}}
 								>
-									<div
-										className={`input-container ${form.name != "" ? "input-container--active" : ""}`}
-									>
-										<label className="apt-form__label" htmlFor="apt-name">
-											Full name
-										</label>
-										<input
-											id="apt-name"
-											type="text"
-											placeholder="Jan Novák"
-											value={form.name}
-											onChange={(e) =>
-												setForm((p) => ({ ...p, name: e.target.value }))
-											}
-											disabled={success}
-										/>
-									</div>
-									<div
-										className={`input-container ${form.phone != "" ? "input-container--active" : ""}`}
-									>
-										<label className="apt-form__label" htmlFor="apt-phone">
-											Phone number
-										</label>
-										<input
-											id="apt-phone"
-											className="apt-form__input"
-											type="tel"
-											placeholder="+420 123 456 789"
-											value={form.phone}
-											onChange={(e) =>
-												setForm((p) => ({ ...p, phone: e.target.value }))
-											}
-											disabled={success}
-										/>
-									</div>
-									<div
-										className={`input-container ${form.message != "" ? "input-container--active" : ""}`}
-									>
-										<label className="apt-form__label" htmlFor="apt-msg">
-											Message{" "}
-											<span className="apt-form__optional">(optional)</span>
-										</label>
-										<textarea
-											id="apt-msg"
-											className="textarea"
-											placeholder="Tell us about your project..."
-											rows={3}
-											value={form.message}
-											onChange={(e) =>
-												setForm((p) => ({ ...p, message: e.target.value }))
-											}
-											disabled={success}
-										/>
-									</div>
+									<span
+										style={{
+											width: "20px",
+											height: "20px",
+											background: "#00d9ff",
+											display: "inline-block",
+											borderRadius: "50%",
+										}}
+									></span>
+									<span>selected</span>
 								</div>
-								{error && <p className="apt-form__error">{error}</p>}
-								<button
-									className="calendar-submit-btn"
-									onClick={handleSubmit}
-									disabled={loading}
-								>
-									{loading ? "Booking..." : "Book consultation"}
-								</button>
 							</div>
-						)}
+						</div>
+						<div className="calendar">
+							{/* Slots */}
+							<div className="apt-slots">
+								<p className="apt-slots__title">
+									{dateLabel
+										? `Available times - ${dateLabel}`
+										: "Select a date"}
+								</p>
+								{!selectedDate && (
+									<p className="apt-slots__hint">
+										Pick a day on the calendar to see available slots
+									</p>
+								)}
+								{selectedDate && slotsLoading && (
+									<p style={{ marginTop: "20px" }}>Loading...</p>
+								)}
+								{selectedDate && !slotsLoading && (
+									<div className="calendar-time-grid">
+										{slots.map((slot) => {
+											const isBooked = bookedSlots.includes(slot);
+											const isSelected = selectedSlot === slot;
+											return (
+												<button
+													key={slot}
+													className={[
+														"calendar-time",
+														isBooked ? "calendar-time--booked" : "",
+														isSelected ? "calendar-time--selected" : "",
+													].join(" ")}
+													disabled={isBooked}
+													onClick={() => {
+														setSelectedSlot(slot);
+														setError(null);
+													}}
+													aria-pressed={isSelected}
+												>
+													{slot}
+												</button>
+											);
+										})}
+									</div>
+								)}
+							</div>
+
+							{/* Form */}
+							{selectedSlot && (
+								<div className="calendar-form">
+									<p className="calendar-form-summary">
+										<CalendarIcon />
+										{dateLabel} at {selectedSlot}
+									</p>
+									<div
+										style={{
+											display: "flex",
+											flexDirection: "column",
+											gap: "40px",
+										}}
+									>
+										<div
+											className={`input-container ${form.name != "" ? "input-container--active" : ""}`}
+										>
+											<label className="apt-form__label" htmlFor="apt-name">
+												Full name
+											</label>
+											<input
+												id="apt-name"
+												type="text"
+												placeholder="Jan Novák"
+												value={form.name}
+												onChange={(e) =>
+													setForm((p) => ({ ...p, name: e.target.value }))
+												}
+												disabled={success}
+											/>
+										</div>
+										<div
+											className={`input-container ${form.phone != "" ? "input-container--active" : ""}`}
+										>
+											<label className="apt-form__label" htmlFor="apt-phone">
+												Phone number
+											</label>
+											<input
+												id="apt-phone"
+												className="apt-form__input"
+												type="tel"
+												placeholder="+420 123 456 789"
+												value={form.phone}
+												onChange={(e) =>
+													setForm((p) => ({ ...p, phone: e.target.value }))
+												}
+												disabled={success}
+											/>
+										</div>
+										<div
+											className={`input-container ${form.message != "" ? "input-container--active" : ""}`}
+										>
+											<label className="apt-form__label" htmlFor="apt-msg">
+												Message{" "}
+												<span className="apt-form__optional">(optional)</span>
+											</label>
+											<textarea
+												id="apt-msg"
+												className="textarea"
+												placeholder="Tell us about your project..."
+												rows={3}
+												value={form.message}
+												onChange={(e) =>
+													setForm((p) => ({ ...p, message: e.target.value }))
+												}
+												disabled={success}
+											/>
+										</div>
+									</div>
+									{error && <p className="apt-form__error">{error}</p>}
+									<button
+										className="calendar-submit-btn"
+										onClick={handleSubmit}
+										disabled={loading}
+									>
+										{loading ? "Booking..." : "Book consultation"}
+									</button>
+								</div>
+							)}
+						</div>
 					</div>
 				</div>
 			</main>

@@ -10,12 +10,13 @@
 }
 
 .technology__icon-container {
-	background: rgb(0, 0, 0);
+	background: #000;
 	padding: 10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-radius: 5px;
+	gap: 5px;
+	border-radius: 10px;
 }
 
 .product-container {

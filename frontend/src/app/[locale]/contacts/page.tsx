@@ -4,9 +4,8 @@ import TelIcon from "@/components/icons/TelIcon";
 import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 import ContactsClient from "./ContactsClient";
-import "./Contacts.scss";
-import Testimonials from "@/components/Testimonials/Testimonials";
 import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
+import "./Contacts.scss";
 
 export async function generateMetadata({
 	params,
@@ -36,7 +35,7 @@ export async function generateMetadata({
 export default function Contacts() {
 	return (
 		<main className="contacts">
-			<Breadcrumbs currentPage="Kontakty" currentPageUrl="/contacts" />
+			<Breadcrumbs currentPage="Kontakty" />
 			<div className="contacts-inner">
 				<div className="contacts-details">
 					<h1 className="contacts__title">

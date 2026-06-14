@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { getProducts } from "@/lib/api/products";
 import technologies from "@/data/technologies.json";
 import "./styles.scss";
+import { TransitionLink } from "../TransitionLink";
 
 type TechnologyProductsProps = {
 	technology: string;
@@ -47,8 +48,8 @@ const TechnologyProducts = ({
 								alt=""
 							/>
 						)}
+						<p>{technology}</p>
 					</div>
-					<p>{technology}</p>
 				</div>
 				<h2 style={{ fontSize: "2rem" }}>{sectionTitle}</h2>
 			</div>
@@ -72,7 +73,11 @@ const TechnologyProducts = ({
 					.map((product, i) => {
 						return (
 							<SwiperSlide>
-								<div key={i} className="product-container">
+								<TransitionLink
+									key={i}
+									href={`/products/${product.id}`}
+									className="product-container"
+								>
 									<p className="product__title">{product.name}</p>
 									<img src={product.img} alt="" />
 									<p
@@ -88,7 +93,7 @@ const TechnologyProducts = ({
 											<ArrowRightUpIcon />
 										</span>
 									</p>
-								</div>
+								</TransitionLink>
 							</SwiperSlide>
 						);
 					})}
