@@ -76,7 +76,7 @@ const TechnologyProducts = ({
 								<TransitionLink
 									key={i}
 									href={`/products/${product.id}`}
-									className="product-container"
+									className="product-container-link"
 								>
 									<p className="product__title">{product.name}</p>
 									<img src={product.img} alt="" />

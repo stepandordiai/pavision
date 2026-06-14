@@ -79,7 +79,7 @@ export default function ProductsClient() {
 											<TransitionLink
 												href={`/products/${product.id}`}
 												key={i}
-												className="product-container"
+												className="product-container-link"
 											>
 												<p className="product__title">{product.name}</p>
 												<img src={product.img} alt="" />

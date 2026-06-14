@@ -43,7 +43,7 @@
 		background: #fff;
 		transform: scaleX(0);
 		transform-origin: left;
-		transition: transform 0.24s;
+		transition: transform 0.5s ease;
 	}
 
 	&--expanded {
@@ -55,7 +55,8 @@
 
 .faqs-q {
 	padding: 10px;
-	font-weight: 500;
+	font-size: 1.125rem;
+	font-weight: 600;
 	width: 100%;
 	text-align: left;
 }

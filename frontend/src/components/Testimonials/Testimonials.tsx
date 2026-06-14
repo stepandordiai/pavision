@@ -177,10 +177,7 @@ export default function Testimonials() {
 	};
 
 	return (
-		<section
-			style={{ minHeight: "100svh", background: "#333", padding: 20 }}
-			aria-labelledby="testimonials-heading"
-		>
+		<section className="section" aria-labelledby="testimonials-heading">
 			{/* <div className={styles.header}> */}
 			<h2 id="testimonials-heading" className="section__title">
 				What people say

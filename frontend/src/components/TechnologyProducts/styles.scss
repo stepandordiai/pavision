@@ -19,8 +19,7 @@
 	border-radius: 10px;
 }
 
-.product-container {
-	// background: rgba(255, 255, 255, 0.1);
+.product-container-link {
 	background: #f3f3f3;
 	display: flex;
 	justify-content: space-between;
@@ -31,7 +30,7 @@
 	border-radius: 10px;
 	min-height: 0;
 	cursor: pointer;
-	color: #333;
+	color: #000 !important;
 	transition: transform 0.25s ease;
 
 	&:hover {
