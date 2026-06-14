@@ -1,10 +1,12 @@
 .products {
 	background: var(--bg-clr);
-	padding: 100px 20px 20px;
-	background: #333;
+}
+
+.products-inner {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
+	padding: 0 20px 20px;
 }
 
 .section__title {

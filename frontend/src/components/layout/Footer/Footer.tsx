@@ -59,7 +59,7 @@ const Footer = () => {
 										className={`footer-nav__link ${pathname === technology.path ? "footer-nav__link--active" : ""}`}
 										href={technology.path}
 									>
-										{t(technology.title)}
+										{technology.title}
 									</TransitionLink>
 								</li>
 							);

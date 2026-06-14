@@ -1,3 +1,7 @@
+.technology-products-container {
+	padding: 110px 20px 0;
+}
+
 .technology__title {
 	display: flex;
 	justify-content: flex-start;
@@ -39,4 +43,8 @@
 		min-height: 0;
 		object-fit: contain;
 	}
+}
+
+.technology-products-swiper {
+	padding: 20px;
 }

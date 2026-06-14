@@ -150,7 +150,7 @@ const Hero = () => {
 				</TransitionLink>
 				<div className="hero-container-technology">
 					<h2 className={`animation ${animation ? "animation--active" : ""}`}>
-						{t(displayedTechnology.title)}
+						{displayedTechnology.title}
 					</h2>
 					<p className={`animation ${animation ? "animation--active" : ""}`}>
 						{displayedTechnology.description}

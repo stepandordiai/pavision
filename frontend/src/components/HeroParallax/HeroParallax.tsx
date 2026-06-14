@@ -47,27 +47,25 @@ const HeroParallax = ({
 
 	return (
 		<section className="home-access-hero">
-			<div className="hero-parallax-container">
-				<div
-					style={{
-						display: "flex",
-						flexDirection: "column",
-						gap: "10px",
-					}}
-				>
-					<Breadcrumbs
-						currentPage={currentPage}
-						currentPageUrl={currentPageUrl}
-					/>
-					<h1 className="main-heading">{heading}</h1>
-					<p className="main__subtitle">{subheading}</p>
-					<TransitionLink href="/contacts" className="hero-btn">
-						<span>Request a quote</span>
-						<span>
-							<ChevronRightIcon />
-						</span>
-					</TransitionLink>
-				</div>
+			<Breadcrumbs currentPage={currentPage} />
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					gap: "20px",
+					padding: "0 20px 20px",
+				}}
+			>
+				<h1 className="main-heading">{heading}</h1>
+				<p style={{ maxWidth: "1000px" }} className="main__subtitle">
+					{subheading}
+				</p>
+				<TransitionLink href="/contacts" className="hero-btn">
+					<span>Request a quote</span>
+					<span>
+						<ChevronRightIcon />
+					</span>
+				</TransitionLink>
 				<div className="footer__divider"></div>
 				<a className="header-nav__link" href="#section">
 					{secondaryBtnTxt}

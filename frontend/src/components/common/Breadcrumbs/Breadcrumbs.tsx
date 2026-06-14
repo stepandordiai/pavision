@@ -1,31 +1,30 @@
-"use client";
-
 import { TransitionLink } from "@/components/TransitionLink";
-import { usePathname } from "@/i18n/navigation";
 import "./styles.scss";
 
 type BreadcrumbsProps = {
 	currentPage: string;
-	currentPageUrl: string;
+	prevPage?: string;
+	prevPageUrl?: string;
 };
 
 export default function Breadcrumbs({
 	currentPage,
-	currentPageUrl,
+	prevPage,
+	prevPageUrl,
 }: BreadcrumbsProps) {
-	const pathname = usePathname();
-
 	return (
 		<div className="breadcrumbs">
 			<TransitionLink className="breadcrumbs__link" href="/">
 				Home
 			</TransitionLink>
-			<TransitionLink
-				className={`breadcrumbs__link ${pathname === `${currentPageUrl}` ? "breadcrumbs__link--active" : ""}`}
-				href={currentPageUrl}
-			>
+			{prevPage && prevPageUrl && (
+				<TransitionLink className="breadcrumbs__link" href={prevPageUrl}>
+					{prevPage}
+				</TransitionLink>
+			)}
+			<span className="breadcrumbs__link breadcrumbs__link--active">
 				{currentPage}
-			</TransitionLink>
+			</span>
 		</div>
 	);
 }

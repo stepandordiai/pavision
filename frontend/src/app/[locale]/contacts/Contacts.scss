@@ -1,12 +1,12 @@
 .contacts {
 	min-height: 100svh;
 	background: var(--bg-clr);
-	padding: 100px 20px 20px;
 }
 
 .contacts-inner {
 	display: flex;
 	gap: 20px;
+	padding: 0 20px 20px;
 }
 
 .contacts__title {

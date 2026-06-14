@@ -78,7 +78,7 @@ export default function TechnologiesClient() {
 								<div className="technology__icon-container">
 									<Image src={technology.icon} width={24} height={24} alt="" />
 								</div>
-								<h3>{t(technology.title)}</h3>
+								<h3>{technology.title}</h3>
 							</div>
 						</TransitionLink>
 					</SwiperSlide>

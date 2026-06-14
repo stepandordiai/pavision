@@ -51,86 +51,94 @@ export default async function AboutUs() {
 	const t = await getTranslations("aboutUs");
 
 	return (
-		<main className="main">
-			<Breadcrumbs currentPage="O nás" currentPageUrl="/about-us" />
-			<h1 className="main__title">{t("title")}</h1>
-			<section
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					gap: "10px",
-					marginBottom: "80px",
-				}}
-				aria-labelledby="who-we-are"
-			>
-				<h2
-					id="who-we-are"
+		<main className="about-us">
+			<Breadcrumbs currentPage="O nás" />
+			<div style={{ padding: "0 20px 20px" }}>
+				<h1 className="main__title">{t("title")}</h1>
+				<section
 					style={{
-						background: "#000",
-						padding: 10,
-						borderRadius: 10,
-						width: "max-content",
+						display: "flex",
+						flexDirection: "column",
+						gap: "10px",
+						marginBottom: "80px",
 					}}
+					aria-labelledby="who-we-are"
 				>
-					{t("whoWeAre.title")}
-				</h2>
-				{t.raw("whoWeAre.desc").map((txt: string, i: number) => {
-					return <p key={i}>{txt}</p>;
-				})}
-			</section>
-			<section
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					gap: "10px",
-					marginBottom: "80px",
-				}}
-				aria-labelledby="our-team"
-			>
-				<h2
-					id="our-team"
-					style={{
-						background: "#000",
-						padding: 10,
-						borderRadius: 10,
-						width: "max-content",
-					}}
-				>
-					{t("ourTeam.title")}
-				</h2>
-				<div className="team-container">
-					{team.map((member, i) => {
+					<h2
+						id="who-we-are"
+						style={{
+							background: "#000",
+							padding: 10,
+							borderRadius: 10,
+							width: "max-content",
+						}}
+					>
+						{t("whoWeAre.title")}
+					</h2>
+					{t.raw("whoWeAre.desc").map((txt: string, i: number) => {
 						return (
-							<div key={i} className="member-card">
-								<div className="member-img">
-									<PersonFillIcon size={"100%"} />
-								</div>
-								<div
-									style={{
-										display: "flex",
-										justifyContent: "space-between",
-										gap: "10px",
-										flexWrap: "wrap",
-									}}
-								>
-									<div>
-										<p>{member.name}</p>
-										<p>{t(member.position)}</p>
-									</div>
-									<div style={{ display: "flex", gap: 5 }}>
-										<a className="member-link" href={`tel:${member.tel}`}>
-											<TelIcon size={20} />
-										</a>
-										<a className="member-link" href={`mailto:${member.email}`}>
-											<EnvelopeIcon size={20} />
-										</a>
-									</div>
-								</div>
-							</div>
+							<p style={{ maxWidth: "1000px" }} key={i}>
+								{txt}
+							</p>
 						);
 					})}
-				</div>
-			</section>
+				</section>
+				<section
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						gap: "10px",
+					}}
+					aria-labelledby="our-team"
+				>
+					<h2
+						id="our-team"
+						style={{
+							background: "#000",
+							padding: 10,
+							borderRadius: 10,
+							width: "max-content",
+						}}
+					>
+						{t("ourTeam.title")}
+					</h2>
+					<div className="team-container">
+						{team.map((member, i) => {
+							return (
+								<div key={i} className="member-card">
+									<div className="member-img">
+										<PersonFillIcon size={"100%"} />
+									</div>
+									<div
+										style={{
+											display: "flex",
+											justifyContent: "space-between",
+											gap: "10px",
+											flexWrap: "wrap",
+										}}
+									>
+										<div>
+											<p>{member.name}</p>
+											<p>{t(member.position)}</p>
+										</div>
+										<div style={{ display: "flex", gap: 5 }}>
+											<a className="member-link" href={`tel:${member.tel}`}>
+												<TelIcon size={20} />
+											</a>
+											<a
+												className="member-link"
+												href={`mailto:${member.email}`}
+											>
+												<EnvelopeIcon size={20} />
+											</a>
+										</div>
+									</div>
+								</div>
+							);
+						})}
+					</div>
+				</section>
+			</div>
 		</main>
 	);
 }
