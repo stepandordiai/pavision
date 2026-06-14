@@ -113,6 +113,10 @@ export default function CrestronHome() {
 						>
 							More
 						</TransitionLink>
+						<img
+							src="https://ghtgroup.com/media/yootheme/cache/91/crestron-solution-hw-lightingcontrol-tan-gold-keypad-918ef6e9.jpg"
+							alt=""
+						/>
 					</div>
 					<div>
 						<h3>Climate Control</h3>
@@ -127,6 +131,10 @@ export default function CrestronHome() {
 						>
 							More
 						</TransitionLink>
+						<img
+							src="https://www.crestron.com/getattachment/f6f79ade-f705-485c-8286-77e69be50f74/f6f79ade-f705-485c-8286-77e69be50f74.aspx"
+							alt=""
+						/>
 					</div>
 					<div>
 						<h3>Home Cinema</h3>
@@ -140,6 +148,10 @@ export default function CrestronHome() {
 						>
 							More
 						</TransitionLink>
+						<img
+							src="https://ghtgroup.com/media/zoo/images/enjoy-effortless-home-control-with-crestron-s-newest-remotes_1484d3df25990bf5e7542f56d54c603f.jpg"
+							alt=""
+						/>
 					</div>
 					<div>
 						<h3>Multi-Room Audio</h3>
@@ -151,6 +163,10 @@ export default function CrestronHome() {
 						>
 							More
 						</TransitionLink>
+						<img
+							src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/featured%20pages%20v2/image-124.png"
+							alt=""
+						/>
 					</div>
 					<div>
 						<h3>Security & Surveillance</h3>
@@ -162,6 +178,10 @@ export default function CrestronHome() {
 						>
 							More
 						</TransitionLink>
+						<img
+							src="https://essentialinstall.com/wp-content/uploads/2024/08/PR_2024_Crestron_Home_OS4_Updates_3.jpg"
+							alt=""
+						/>
 					</div>
 					<div>
 						<h3>Motorized Shades</h3>
@@ -173,6 +193,10 @@ export default function CrestronHome() {
 						>
 							More
 						</TransitionLink>
+						<img
+							src="https://www.strata-gee.com/wp-content/uploads/2021/11/Crestron-Battery-Powewred-Shades-with-mobile-UI-2-RS.png"
+							alt=""
+						/>
 					</div>
 					<div>
 						<h3>Energy Management</h3>
@@ -184,6 +208,10 @@ export default function CrestronHome() {
 						>
 							More
 						</TransitionLink>
+						<img
+							src="https://www.crestron.com/getattachment/ff40e24d-8f0d-42c4-9762-c4e10b41b352/ff40e24d-8f0d-42c4-9762-c4e10b41b352.aspx"
+							alt=""
+						/>
 					</div>
 				</div>
 			</section>
@@ -321,19 +349,55 @@ export default function CrestronHome() {
 			</section>
 			<section className="section">
 				<h2 className="section__title">Why Work With P&A Vision?</h2>
-				<div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-					<p>As a Crestron integration specialist, P&A Vision provides:</p>
+				<div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+					<p>As an official Loxone Partner, P&A Vision provides:</p>
 					<ul className="crestron-home-flex-img">
-						<li>Consultation</li>
-						<li>System Design</li>
-						<li>Installation</li>
-						<li>Programming</li>
-						<li>Commissioning</li>
-						<li>Ongoing Support</li>
+						<li>
+							<span>Consultation</span>
+							<img
+								src="https://www.loxone.com/enus/wp-content/uploads/sites/13/2021/09/PH-Header-Blog-Smart-Home-Installation-Consulting.jpg"
+								alt=""
+							/>
+						</li>
+						<li>
+							<span>System design</span>
+							<img
+								src="https://www.loxone.com/enus/wp-content/uploads/sites/13/2026/03/ph_loxone_header_software-scaled-1.jpg"
+								alt=""
+							/>
+						</li>
+						<li>
+							<span>Professional installation</span>
+							<img
+								src="https://www.loxone.com/int/wp-content/uploads/sites/21/2022/06/PH-ElektrikerSchaltschrank-scaled-1.jpg"
+								alt=""
+							/>
+						</li>
+						<li>
+							<span>Programming</span>
+							<img
+								src="https://www.loxone.com/enen/wp-content/uploads/sites/3/2026/03/PH-Library.jpg"
+								alt=""
+							/>
+						</li>
+						<li>
+							<span>Commissioning</span>
+							<img
+								src="https://infrastor.de/wp-content/uploads/2024/09/Loxone-App-1.jpg"
+								alt=""
+							/>
+						</li>
+						<li>
+							<span>Ongoing support</span>
+							<img
+								src="https://www.loxone.com/enus/wp-content/uploads/sites/13/2026/04/fs-header-support-loxone-desktop-scaled-1.jpg"
+								alt=""
+							/>
+						</li>
 					</ul>
 					<p>
-						Every project is designed around the client's specific requirements
-						to ensure exceptional performance, reliability, and ease of use.
+						We create intelligent homes tailored to each client's lifestyle,
+						ensuring reliability, scalability, and exceptional user experience.
 					</p>
 				</div>
 			</section>
