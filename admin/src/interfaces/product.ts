@@ -7,6 +7,7 @@ export interface Product {
 	type: string[];
 	technology: string;
 	brand: string;
+	description: string;
 }
 
 export interface ProductSave extends Omit<

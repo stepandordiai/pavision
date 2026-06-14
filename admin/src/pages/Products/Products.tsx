@@ -16,6 +16,7 @@ const EMPTY_FORM: ProductSave = {
 	type: [] as string[],
 	technology: "",
 	brand: "",
+	description: "",
 };
 
 type ProductsProps = {
@@ -345,6 +346,17 @@ export default function Products({
 							name="brand"
 							type="text"
 							placeholder="Enter product brand"
+						/>
+					</div>
+					<div>
+						<label htmlFor="description">Description</label>
+						<textarea
+							className="input"
+							id="description"
+							onChange={(e) => handleFormData(e.target.name, e.target.value)}
+							value={formData.description}
+							name="description"
+							placeholder="Enter description"
 						/>
 					</div>
 					<button className="form__submit-btn" type="submit">
