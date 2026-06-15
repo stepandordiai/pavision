@@ -10,6 +10,7 @@ import ChevronIcon from "../icons/ChevronIcon";
 import ChevronRightIcon from "../icons/ChevronRightIcon";
 import { Link } from "@/i18n/navigation";
 import { TransitionLink } from "../TransitionLink";
+import RoomAutomation from "./RoomAutomation";
 
 const Hero = () => {
 	const t = useTranslations();
@@ -130,13 +131,22 @@ const Hero = () => {
 
 	return (
 		<section className="hero">
+			<div className="hero-curtain"></div>
+			<img
+				style={{
+					position: "absolute",
+					bottom: "10px",
+					left: "10px",
+					zIndex: 1,
+				}}
+				src="/loxone-partner.svg"
+				width={250}
+				alt="Loxone Silver Partner"
+			/>
+			<div className="hero__room">
+				<RoomAutomation />
+			</div>
 			<div className="hero-container">
-				<img
-					style={{ position: "absolute", bottom: "10px", left: "10px" }}
-					src="/loxone-partner.svg"
-					width={250}
-					alt="Loxone Silver Partner"
-				/>
 				<h1 className="hero__title">{t("hero.title")}</h1>
 				<p className="hero__desc">
 					Zdůrazníme elektroinstalace, síťovou infrastrukturu, domácí
@@ -148,7 +158,8 @@ const Hero = () => {
 						<ChevronRightIcon />
 					</span>
 				</TransitionLink>
-				<div className="hero-container-technology">
+
+				{/* <div className="hero-container-technology">
 					<h2 className={`animation ${animation ? "animation--active" : ""}`}>
 						{displayedTechnology.title}
 					</h2>
@@ -161,9 +172,9 @@ const Hero = () => {
 					>
 						{t("hero.findOutMore")}
 					</TransitionLink>
-				</div>
+				</div> */}
 			</div>
-			<div className="hero-technologies">
+			{/* <div className="hero-technologies">
 				{technologies.map((t, i) => {
 					return (
 						<button
@@ -175,9 +186,8 @@ const Hero = () => {
 						</button>
 					);
 				})}
-			</div>
-			<div className="hero-bg-container" ref={bgContainerRef}>
-				{technologies.map((t, i) => {
+			</div> */}
+			{/* {technologies.map((t, i) => {
 					return (
 						<div
 							className={`hero-bg-inner ${mounted && activeTechnology === t ? "hero-bg-inner--active" : ""}`}
@@ -195,8 +205,7 @@ const Hero = () => {
 							/>
 						</div>
 					);
-				})}
-			</div>
+				})} */}
 		</section>
 	);
 };

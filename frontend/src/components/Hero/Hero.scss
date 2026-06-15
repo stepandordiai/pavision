@@ -2,15 +2,29 @@
 	position: relative;
 	z-index: 1;
 	min-height: 100svh;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	align-items: center;
-	gap: 10px;
-	padding: 70px 10px 10px;
+	padding: 90px 10px 10px;
+
+	&__room {
+		position: absolute;
+		width: 100%;
+		inset: 0;
+		z-index: 0;
+	}
+}
+
+.hero-curtain {
+	position: absolute;
+	z-index: 1;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(0, 0, 0, 0.25), transparent);
+	pointer-events: none;
 }
 
 .hero-container {
+	position: relative;
+	z-index: 10;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
@@ -53,10 +67,7 @@
 	position: absolute;
 	inset: 0;
 	z-index: -1;
-	display: flex;
-	scrollbar-width: none;
-	pointer-events: none;
-
+	height: 100svh;
 	&::-webkit-scrollbar {
 		display: none;
 	}
