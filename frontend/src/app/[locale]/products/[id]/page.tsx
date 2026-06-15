@@ -103,9 +103,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
 			/>
 			<section className="section">
 				<div className="product-page-container">
-					<img src={product.img} alt="" />
+					<img
+						style={{ margin: "0 auto" }}
+						width={500}
+						src={product.img}
+						alt=""
+					/>
 					<div>
-						<h1 className="main__title">{product.name}</h1>
+						<h1 className="product-page__title">{product.name}</h1>
 						<p style={{ whiteSpace: "pre-wrap" }}>{product.description}</p>
 					</div>
 				</div>

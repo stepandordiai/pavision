@@ -2,18 +2,28 @@
 	background: var(--bg-clr);
 }
 
+.product-page__title {
+	font-size: clamp(1.5rem, 4vw, 2rem);
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+
 .product-page-container {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	display: flex;
 	background: #fff;
-	padding: 0.75rem;
+	padding: 2.5rem;
 	border-radius: 10px;
 	color: #000;
 	justify-content: center;
+	align-items: flex-start;
 }
 
-@media screen and (width < 800px) {
+@media screen and (width < 900px) {
 	.product-page-container {
-		grid-template-columns: repeat(1, 1fr);
+		flex-direction: column;
+	}
+
+	.product-page-container {
+		padding: 1.25rem;
 	}
 }
