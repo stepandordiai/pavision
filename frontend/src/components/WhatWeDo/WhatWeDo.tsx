@@ -62,6 +62,37 @@ const WhatWeDo = () => {
 
 		setPlaying((prev) => !prev);
 	};
+
+	const data = [
+		{
+			state: "Večeře",
+			imgSrc:
+				"https://www.loxone.com/dede/wp-content/uploads/sites/2/2026/03/PH-lighting-scene-2.jpg",
+		},
+		{
+			state: "Vaření",
+			imgSrc:
+				"https://www.loxone.com/dede/wp-content/uploads/sites/2/2026/03/PH-lighting-scene-5.jpg",
+		},
+		{
+			state: "Párty",
+			imgSrc:
+				"https://www.loxone.com/dede/wp-content/uploads/sites/2/2026/03/PH-lighting-scene-3.jpg",
+		},
+		{
+			state: "Relax",
+			imgSrc:
+				"https://www.loxone.com/dede/wp-content/uploads/sites/2/2026/03/PH-lighting-scene-4.jpg",
+		},
+		{
+			state: "Noc",
+			imgSrc:
+				"https://www.loxone.com/dede/wp-content/uploads/sites/2/2026/03/PH-lighting-scene-1.jpg",
+		},
+	];
+
+	const [interiorState, setInteriorState] = useState(data[0]);
+
 	return (
 		<section className="section">
 			<h2 style={{ position: "sticky", top: 80 }} className="section__title">
@@ -99,101 +130,49 @@ const WhatWeDo = () => {
 									</div>
 									<h3 style={{ fontSize: "18px" }}>{t(item.title)}</h3>
 								</div>
-								<h4>{t(item.desc)}</h4>
-								{item.lightning && (
-									<div
-										style={{
-											display: "flex",
-											flexDirection: "column",
-											gap: "5px",
-											background: "#000",
-											padding: 10,
-											color: "#fff",
-											width: "100%",
-											borderRadius: 10,
-											marginTop: "auto",
-										}}
-									>
+								<p>
+									We design and install complete home automation systems with
+									Crestron, Loxone, and Lutron. Crestron offers deep, fully
+									bespoke control; Loxone delivers the same intelligence
+									cost-effectively — so every project fits the home and the
+									budget.
+								</p>
+							</div>
+							{item.lightning && (
+								<div style={{ width: "100%", height: "100%" }}>
+									<div>
 										<div
 											style={{
 												display: "flex",
-												justifyContent: "space-between",
+												gap: 5,
+												flexWrap: "wrap",
+												marginBottom: "10px",
 											}}
 										>
-											<span>Lightning</span>
-											<button
-												className={`lightning__btn ${lightning ? "lightning__btn--active" : ""}`}
-												onClick={() => setLightning((prev) => !prev)}
-											></button>
-										</div>
-										<div style={{ display: "flex", gap: 5 }}>
-											<input
-												onChange={(e) =>
-													setLightningIntencity(Number(e.target.value))
-												}
-												className="lightning__range"
-												value={lightningIntencity}
-												type="range"
-												min={0}
-												max={100}
-												name=""
-												id=""
-											/>
-											<span>{lightningIntencity}%</span>
+											{data.map((el, i) => {
+												return (
+													<button
+														key={i}
+														onClick={() => setInteriorState(el)}
+														className={`btn ${interiorState.state === el.state ? "btn--active" : ""}`}
+													>
+														{el.state}
+													</button>
+												);
+											})}
 										</div>
 									</div>
-								)}
-
-								{/* <div
+									<img
 										style={{
-											display: "flex",
-											flexWrap: "wrap",
-											gap: 10,
-											marginTop: "auto",
+											borderRadius: 10,
 										}}
-									>
-										{item.brands.map((brand, i) => {
-											return (
-												<span
-													style={{
-														padding: 10,
-														borderRadius: 5,
-														background: "rgba(0, 0, 0, 0.05)",
-													}}
-													key={i}
-												>
-													{brand}
-												</span>
-											);
-										})}
-									</div> */}
-							</div>
-							{item.lightning && (
-								<div
-									style={{
-										height: "100%",
-										width: "100%",
-										borderRadius: 10,
-										overflow: "hidden",
-										background: "#333",
-									}}
-								>
-									<div className="lamp">
-										<div className="top"></div>
-										<div className="base"></div>
-										<div className="bottom"></div>
-										<div
-											style={
-												lightning
-													? {
-															background: `rgb(255, 243, 117)`,
-															boxShadow: `0 0 ${lightningIntencity}px rgb(255, 243, 117), 0 0 ${lightningIntencity}px rgb(255, 243, 117), 0 0 ${lightningIntencity}px rgb(255, 243, 117), 0 0 ${lightningIntencity}px rgb(255, 243, 117)`,
-														}
-													: {}
-											}
-											className={`bulb ${lightning ? "bulb--active" : ""}`}
-										></div>
-									</div>
+										src={interiorState.imgSrc}
+										alt=""
+									/>
+									<p style={{ marginTop: "10px" }}>
+										Each scene adjusts lighting, shading, and room temperature
+										at a single touch.
+									</p>
 								</div>
 							)}
 							{item.audio && (
@@ -204,7 +183,11 @@ const WhatWeDo = () => {
 										width: "100%",
 										borderRadius: 10,
 										overflow: "hidden",
-										background: "#333",
+										background:
+											"url(https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/16015943/80143397_7FF2_4584_809D_08E74930277C.jpeg?quality=90&strip=all&crop=0%2C5.5555555555556%2C100%2C88.888888888889&w=2400)",
+										backgroundRepeat: "no-repeat",
+										backgroundPosition: "center",
+										backgroundSize: "cover",
 									}}
 								>
 									<div className="audio">

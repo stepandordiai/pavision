@@ -23,77 +23,24 @@
 	}
 }
 
-.lightning__btn {
-	position: relative;
-	background: rgb(182, 182, 182);
-	width: 40px;
-	height: 20px;
+.btn {
+	background: rgba(0, 0, 0, 0.1);
+	padding: 10px;
 	border-radius: 10px;
-	transition: background-color 0.2s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
 
-	&::before {
-		position: absolute;
-		content: "";
-		background-color: #000;
-		height: 16px;
-		width: 16px;
-		left: 2px;
-		top: 2px;
-		border-radius: 50%;
-		transition: all 0.2s;
+	&:hover {
+		background: #000000;
+		color: #ffffff;
 	}
 
 	&--active {
-		background: rgb(47, 255, 231);
-
-		&::before {
-			transform: translateX(calc(100% + 4px));
-		}
+		color: #ffffff;
+		background: #000000;
 	}
-}
-
-.lightning__range {
-	width: 100%;
-}
-
-.lamp {
-	position: relative;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.top {
-	width: 5px;
-	height: 20%;
-	background: #000000;
-}
-
-.base {
-	width: 20px;
-	height: 50px;
-	background: #000000;
-	z-index: 2;
-}
-
-.bottom {
-	transform: translateY(-14px);
-	width: 150px;
-	height: 100px;
-	background: #000000;
-	clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-	z-index: 1;
-}
-
-.bulb {
-	transform: translateY(calc(-50% - 14px));
-	z-index: 0;
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	background: rgba(152, 164, 164, 0.525);
 }
 
 .audio {
