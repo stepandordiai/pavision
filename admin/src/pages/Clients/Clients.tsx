@@ -6,6 +6,7 @@ import DotsIcon from "../../components/icons/DotsIcon";
 import PencilIcon from "../../components/icons/PencilIcon";
 import TrashIcon from "../../components/icons/TrashIcon";
 import "./styles.scss";
+import Pagination from "../../components/Pagination/Pagination";
 
 const EMPTY_FORM = {
 	name: "",
@@ -30,6 +31,7 @@ const Clients = ({ clients, loadClients }: ClientsProps) => {
 	const [loading, setLoading] = useState(false);
 	const [visibleLength, setVisibleLength] = useState(10);
 	const [detailsVisible, setDetailsVisible] = useState<string | null>(null);
+	const [currentPage, setCurrentPage] = useState(1);
 
 	console.log(error);
 
@@ -126,6 +128,8 @@ const Clients = ({ clients, loadClients }: ClientsProps) => {
 			String(value).toLowerCase().includes(filter.toLowerCase()),
 		),
 	);
+
+	const totalPages = Math.ceil(clients.length / visibleLength);
 
 	return (
 		<>
@@ -283,16 +287,8 @@ const Clients = ({ clients, loadClients }: ClientsProps) => {
 											className="details-dd"
 										>
 											<button
+												className="details-btn"
 												onClick={() => handleClientDetails(client.id)}
-												style={{
-													background: "rgba(0,0,0, 0.1)",
-													padding: "5px",
-													borderRadius: "5px",
-													display: "flex",
-													justifyContent: "center",
-													alignItems: "center",
-													justifySelf: "flex-end",
-												}}
 											>
 												<DotsIcon />
 											</button>
@@ -334,45 +330,75 @@ const Clients = ({ clients, loadClients }: ClientsProps) => {
 						})}
 				</tbody>
 			</table>
-			<div style={{ marginTop: "auto", paddingTop: "10px" }}>
-				<p>
-					Clients per page{" "}
-					<select
+			<div
+				style={{
+					display: "flex",
+					justifyContent: "space-between",
+					alignItems: "center",
+					background: "white",
+					marginTop: "auto",
+					lineHeight: "1",
+					paddingTop: "10px",
+				}}
+			>
+				<div style={{ display: "flex", gap: "5px" }}>
+					<p
 						style={{
-							border: "2px solid hsl(0, 0%, 90%)",
-							padding: "5px",
-							borderRadius: "5px",
+							background: "var(--bg-clr)",
+							padding: "10px",
+							borderRadius: "10px",
+							fontWeight: "500",
+							lineHeight: "1",
 						}}
-						onChange={(e) => setVisibleLength(Number(e.target.value))}
-						value={visibleLength}
-						name=""
-						id=""
 					>
-						<option value={10}>10</option>
-						<option value={20}>20</option>
-						<option value={50}>50</option>
-						<option value={100}>100</option>
-					</select>{" "}
-					1-
-					<span>
-						{clients.length
-							? clients.length < visibleLength
-								? clients.length
-								: visibleLength
-							: "Loading..."}
-					</span>{" "}
-					of {clients.length ? clients.length : "Loading..."}
-				</p>
-				{/* <div>
-				<span>1</span> <span>2</span> <span>3</span> <span>...</span>{" "}
-				<span>{products.length < 100 ? visibleLength : 100}</span>
-			</div> */}
+						{(currentPage - 1) * visibleLength + 1} -{" "}
+						{Math.min(currentPage * visibleLength, filteredClients.length)}
+					</p>
+					<p>
+						Rows per page{" "}
+						<select
+							style={{
+								border: "2px solid hsl(0, 0%, 90%)",
+								padding: "5px",
+								borderRadius: "10px",
+							}}
+							onChange={(e) => setVisibleLength(Number(e.target.value))}
+							value={visibleLength}
+							name=""
+							id=""
+						>
+							<option value={10}>10</option>
+							<option value={20}>20</option>
+							<option value={50}>50</option>
+							<option value={100}>100</option>
+						</select>{" "}
+						1-
+						<span>
+							{clients.length
+								? clients.length < visibleLength
+									? clients.length
+									: visibleLength
+								: "Loading..."}
+						</span>{" "}
+						of {clients.length ? clients.length : "Loading..."}
+					</p>
+					<p
+						style={{
+							background: "var(--bg-clr)",
+							padding: "10px",
+							borderRadius: "10px",
+							fontWeight: "500",
+						}}
+					>
+						Total: {filteredClients.length}
+					</p>
+				</div>
+				<Pagination
+					totalPages={totalPages}
+					currentPage={currentPage}
+					setCurrentPage={setCurrentPage}
+				/>
 			</div>
-			{/* <Footer
-				visibleLength={visibleLength}
-				setVisibleLength={setVisibleLength}
-				products.length={products.length}
-			/> */}
 		</>
 	);
 };

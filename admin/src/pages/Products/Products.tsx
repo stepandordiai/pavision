@@ -7,6 +7,7 @@ import ImageDropzone from "../../components/ImgDropzone/ImgDropzone";
 import XIcon from "../../components/icons/XIcon";
 import type { Product, ProductSave } from "../../interfaces/product";
 import "./styles.scss";
+import Pagination from "../../components/Pagination/Pagination";
 
 const EMPTY_FORM: ProductSave = {
 	is_active: true,
@@ -38,6 +39,7 @@ export default function Products({
 	const [error, setError] = useState<string | null>(null);
 	const [formData, setFormData] = useState(EMPTY_FORM);
 	const [filter, setFilter] = useState("");
+	const [currentPage, setCurrentPage] = useState(1);
 
 	console.log(error);
 
@@ -241,6 +243,8 @@ export default function Products({
 		),
 	);
 
+	const totalPages = Math.ceil(products.length / visibleLength);
+
 	return (
 		<>
 			<div
@@ -406,14 +410,20 @@ export default function Products({
 						<th style={{ width: "1%", whiteSpace: "nowrap" }}>Details</th>
 					</tr>
 				</thead>
+
 				<tbody>
 					{[...filteredLeads]
 						.reverse()
-						.slice(0, visibleLength)
+						.slice(
+							(currentPage - 1) * visibleLength,
+							currentPage * visibleLength,
+						)
 						.map((product, i) => {
+							const number = (currentPage - 1) * visibleLength + i + 1;
+
 							return (
 								<tr key={product.id}>
-									<td>{i + 1}</td>
+									<td>{number}</td>
 									<td style={{ width: "1%" }}>
 										{product.img && (
 											<img src={product.img} width={50} height={50} alt="" />
@@ -506,16 +516,8 @@ export default function Products({
 											className="details-dd"
 										>
 											<button
+												className="details-btn"
 												onClick={() => handleProductDetails(product.id)}
-												style={{
-													background: "rgba(0,0,0, 0.1)",
-													padding: "5px",
-													borderRadius: "5px",
-													display: "flex",
-													justifyContent: "center",
-													alignItems: "center",
-													justifySelf: "flex-end",
-												}}
 											>
 												<DotsIcon />
 											</button>
@@ -572,45 +574,75 @@ export default function Products({
 						})}
 				</tbody>
 			</table>
-			<div style={{ marginTop: "auto", paddingTop: "10px" }}>
-				<p>
-					Products per page{" "}
-					<select
+			<div
+				style={{
+					display: "flex",
+					justifyContent: "space-between",
+					alignItems: "center",
+					background: "white",
+					marginTop: "auto",
+					lineHeight: "1",
+					paddingTop: "10px",
+				}}
+			>
+				<div style={{ display: "flex", gap: "5px" }}>
+					<p
 						style={{
-							border: "2px solid hsl(0, 0%, 90%)",
-							padding: "5px",
-							borderRadius: "5px",
+							background: "var(--bg-clr)",
+							padding: "10px",
+							borderRadius: "10px",
+							fontWeight: "500",
+							lineHeight: "1",
 						}}
-						onChange={(e) => setVisibleLength(Number(e.target.value))}
-						value={visibleLength}
-						name=""
-						id=""
 					>
-						<option value={10}>10</option>
-						<option value={20}>20</option>
-						<option value={50}>50</option>
-						<option value={100}>100</option>
-					</select>{" "}
-					1-
-					<span>
-						{products.length
-							? products.length < visibleLength
-								? products.length
-								: visibleLength
-							: "Loading..."}
-					</span>{" "}
-					of {products.length ? products.length : "Loading..."}
-				</p>
-				{/* <div>
-				<span>1</span> <span>2</span> <span>3</span> <span>...</span>{" "}
-				<span>{products.length < 100 ? visibleLength : 100}</span>
-			</div> */}
+						{(currentPage - 1) * visibleLength + 1} -{" "}
+						{Math.min(currentPage * visibleLength, filteredLeads.length)}
+					</p>
+					<p>
+						Rows per page{" "}
+						<select
+							style={{
+								border: "2px solid hsl(0, 0%, 90%)",
+								padding: "5px",
+								borderRadius: "10px",
+							}}
+							onChange={(e) => setVisibleLength(Number(e.target.value))}
+							value={visibleLength}
+							name=""
+							id=""
+						>
+							<option value={10}>10</option>
+							<option value={20}>20</option>
+							<option value={50}>50</option>
+							<option value={100}>100</option>
+						</select>{" "}
+						1-
+						<span>
+							{products.length
+								? products.length < visibleLength
+									? products.length
+									: visibleLength
+								: "Loading..."}
+						</span>{" "}
+						of {products.length ? products.length : "Loading..."}
+					</p>
+					<p
+						style={{
+							background: "var(--bg-clr)",
+							padding: "10px",
+							borderRadius: "10px",
+							fontWeight: "500",
+						}}
+					>
+						Total: {filteredLeads.length}
+					</p>
+				</div>
+				<Pagination
+					totalPages={totalPages}
+					currentPage={currentPage}
+					setCurrentPage={setCurrentPage}
+				/>
 			</div>
-			{/* <Footer
-				visibleLength={visibleLength}
-				setVisibleLength={setVisibleLength}
-				products.length={products.length}
-			/> */}
 		</>
 	);
 }
