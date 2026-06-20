@@ -63,7 +63,7 @@ export default function LoxoneSmartHome() {
 				subheading="Experience complete home automation with Loxone. Control lighting,
 				climate, security, shading, audio, and energy management through one
 				intelligent system designed around your lifestyle."
-				imgSrc="https://www.planet-architects.com/application/files/7517/1049/0793/Planet-Architects_Loxone-Campus-118.jpg"
+				imgSrc="https://www.loxone.com/enen/wp-content/uploads/sites/3/2023/09/The-Forum-experience-automation-open-graph-scaled.jpg"
 				secondaryBtnTxt="Explore Loxone Solutions"
 				currentPage="Loxone"
 				currentPageUrl="/loxone-smart-home"

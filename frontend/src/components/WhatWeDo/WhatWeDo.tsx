@@ -11,7 +11,6 @@ const whatWeDo = [
 		title: "home.whatWeDo.title1",
 		desc: "home.whatWeDo.desc1",
 		brands: ["Crestron", "Loxone", "Lutron"],
-		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/control-touch-screens.jpg",
 		icon: "/technology.png",
 		lightning: true,
 	},
@@ -19,7 +18,6 @@ const whatWeDo = [
 		title: "home.whatWeDo.title2",
 		desc: "home.whatWeDo.desc2",
 		brands: ["Denon", "Marantz", "LG", "Sonos", "Bowers & Wilkins"],
-		img: "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-video-consoles.jpg",
 		icon: "/technology-icons/audio.png",
 		audio: true,
 	},
@@ -28,25 +26,14 @@ const whatWeDo = [
 		title: "home.whatWeDo.title3",
 		desc: "home.whatWeDo.desc3",
 		brands: ["Ubiquiti", "MikroTik", "Cisco"],
-		img: "https://images.pexels.com/photos/159304/network-cable-ethernet-computer-159304.jpeg",
+		img: "https://www.loxone.com/dede/wp-content/uploads/sites/2/2022/02/FS-Landingpage-Smart-Home-Kosten-Mobile.jpg",
 		icon: "/wifi.png",
-		video: "/video-02.mp4",
 	},
-	// {
-	// 	title: "home.whatWeDo.title4",
-	// 	desc: "home.whatWeDo.desc4",
-	// 	brands: [],
-	// 	img: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
-	// 	icon: "/electric-panel.png",
-	// 	video: "/video-01.mp4",
-	// },
 ];
 
 const WhatWeDo = () => {
 	const t = useTranslations();
 
-	const [lightning, setLightning] = useState(false);
-	const [lightningIntencity, setLightningIntencity] = useState(50);
 	const [playing, setPlaying] = useState(false);
 
 	const audioRef = useRef<HTMLAudioElement>(null);
@@ -182,7 +169,6 @@ const WhatWeDo = () => {
 										height: "100%",
 										width: "100%",
 										borderRadius: 10,
-										overflow: "hidden",
 										background:
 											"url(https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/16015943/80143397_7FF2_4584_809D_08E74930277C.jpeg?quality=90&strip=all&crop=0%2C5.5555555555556%2C100%2C88.888888888889&w=2400)",
 										backgroundRepeat: "no-repeat",
@@ -226,43 +212,19 @@ const WhatWeDo = () => {
 									<audio preload="auto" ref={audioRef} src="/intro.mp3"></audio>
 								</div>
 							)}
-							{item.video && (
+							{item.img && (
 								<div style={{ height: "100%", width: "100%" }}>
-									<video
+									<img
+										src={item.img}
 										style={{
 											width: "100%",
 											height: "100%",
 											objectFit: "cover",
-											borderRadius: 10,
+											borderRadius: "10px",
 										}}
-										playsInline
-										loop
-										controls={false}
-										autoPlay
-										muted
-									>
-										<source src={item.video} />
-									</video>
+										alt=""
+									/>
 								</div>
-								// <div
-								// 	style={{
-								// 		position: "relative",
-								// 		height: "100%",
-								// 		width: "100%",
-								// 		borderRadius: 10,
-								// 		display: "flex",
-								// 		justifyContent: "center",
-								// 		alignItems: "center",
-								// 	}}
-								// >
-								// 	<div>
-								// 		<div style={{ display: "flex" }}>
-								// 			<div className="room1"></div>
-								// 			<div className="room2"></div>
-								// 		</div>
-								// 		<div className="room"></div>
-								// 	</div>
-								// </div>
 							)}
 						</div>
 					);

@@ -161,12 +161,6 @@
 }
 
 @media screen and (width < 900px) {
-	.what-we-do-container {
-		flex-direction: column !important;
-		justify-content: space-between;
-		gap: 20px;
-	}
-
 	.products-grid {
 		grid-template-columns: repeat(2, 1fr);
 	}

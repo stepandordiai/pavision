@@ -9,38 +9,17 @@ import { TransitionLink } from "@/components/TransitionLink";
 import PersonIcon from "@/components/icons/PersonIcon";
 import { supabase } from "@/lib/supabase";
 import { User } from "@supabase/supabase-js";
-import "./Header.scss";
 import PersonFillIcon from "@/components/icons/PersonFillIcon";
-import ChevronIcon from "@/components/icons/ChevronIcon";
-import ArrowRightUpIcon from "@/components/icons/ArrowRightUpIcon";
 import ChevronRightIcon from "@/components/icons/ChevronRightIcon";
+import "./Header.scss";
 
 const Header = () => {
 	const t = useTranslations();
 
-	const [calcRotation, setCalRotation] = useState(0);
 	const [headerExpanded, setHeaderExpanded] = useState(false);
 	const [menuExpanded, setMenuExpanded] = useState(false);
 
 	const pathname = usePathname();
-
-	useEffect(() => {
-		// const changeHeader = () => {
-		// 	const scrollY = window.scrollY;
-		// 	const windowY = window.innerHeight;
-		// 	setHeaderActive(scrollY >= windowY);
-		// };
-		// const calculateLogoRotation = () => {
-		// 	const scrollY = window.scrollY;
-		// 	setCalRotation(scrollY / 10);
-		// };
-		// const handleScroll = () => {
-		// 	changeHeader();
-		// 	calculateLogoRotation();
-		// };
-		// window.addEventListener("scroll", handleScroll);
-		// return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
 
 	useEffect(() => {
 		const closeMenuOnEsc = (e: KeyboardEvent) => {
@@ -116,27 +95,7 @@ const Header = () => {
 			>
 				<div className="header-top">
 					<TransitionLink className="header__logo" href="/">
-						{/* <svg
-							width="30"
-							height="30"
-							viewBox="0 0 256 256"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-							style={{
-								transform: `rotate(${calcRotation}deg)`,
-							}}
-						>
-							<path
-								d="M128.001 0C139.977 64.8783 191.122 116.025 256 128.001C191.123 139.978 139.978 191.123 128.001 256C116.025 191.122 64.8783 139.977 0 128.001C64.8791 116.026 116.026 64.8791 128.001 0Z"
-								fill="currentColor"
-							/>
-						</svg> */}
 						<img src="/logo.svg" width={100} alt="" />
-						{/* <span style={{ lineHeight: "1" }}>
-							P&A
-							<br />
-							Vision
-						</span> */}
 					</TransitionLink>
 					<nav className="header-nav">
 						{navLinks.map((navLink, i) => {
@@ -174,7 +133,7 @@ const Header = () => {
 							className={`header-nav__link header__link ${pathname === "/appointment" ? "header-nav__link--active" : ""}`}
 							href="/appointment"
 						>
-							Domluvit schůzku
+							{t("appointmentTitle")}
 						</TransitionLink>
 						<button
 							onClick={toggleMenu}
@@ -340,21 +299,6 @@ const Header = () => {
 									>
 										Instagram
 									</a>
-									<TransitionLink
-										onClick={() => setMenuOpen(false)}
-										// TODO: learn this
-										style={
-											menuOpen
-												? {
-														transition: `transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s`,
-													}
-												: undefined
-										}
-										className={`menu__link ${pathname === "/appointment" ? "menu__link--active" : ""} ${menuOpen ? "menu__link--visible" : ""}`}
-										href="/appointment"
-									>
-										Domluvit schůzku
-									</TransitionLink>
 								</div>
 							</div>
 						</div>

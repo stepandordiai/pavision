@@ -14,5 +14,9 @@
 	{
 		"label": "contactsTitle",
 		"path": "/contacts"
+	},
+	{
+		"label": "appointmentTitle",
+		"path": "/appointment"
 	}
 ]

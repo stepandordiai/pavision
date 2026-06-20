@@ -176,7 +176,7 @@ function drawRoom(
 	// soft overall ceiling wash (brighter, even, premium)
 	if (s.br > 0.12) {
 		const wash = cx.createLinearGradient(0, -M, 0, fY * 0.34);
-		wash.addColorStop(0, `rgba(255,246,228,${0.10 + s.br * 0.12})`);
+		wash.addColorStop(0, `rgba(255,246,228,${0.1 + s.br * 0.12})`);
 		wash.addColorStop(1, "rgba(255,246,228,0)");
 		cx.fillStyle = wash;
 		cx.fillRect(-M, -M, W + 2 * M, fY * 0.34 + M);
@@ -331,9 +331,18 @@ function drawRoom(
 		const t = (x - fwX) / fwW;
 		const base = 74 + Math.sin(x * 0.7) * 8;
 		const sg = cx.createLinearGradient(x, 0, x + slatW, 0);
-		sg.addColorStop(0, `rgb(${Math.round(base * woodDark)},${Math.round(base * 0.62 * woodDark)},${Math.round(base * 0.4 * woodDark)})`);
-		sg.addColorStop(0.5, `rgb(${Math.round((base + 16) * woodDark)},${Math.round((base + 6) * 0.62 * woodDark)},${Math.round((base + 2) * 0.4 * woodDark)})`);
-		sg.addColorStop(1, `rgb(${Math.round((base - 10) * woodDark)},${Math.round((base - 10) * 0.6 * woodDark)},${Math.round((base - 12) * 0.4 * woodDark)})`);
+		sg.addColorStop(
+			0,
+			`rgb(${Math.round(base * woodDark)},${Math.round(base * 0.62 * woodDark)},${Math.round(base * 0.4 * woodDark)})`,
+		);
+		sg.addColorStop(
+			0.5,
+			`rgb(${Math.round((base + 16) * woodDark)},${Math.round((base + 6) * 0.62 * woodDark)},${Math.round((base + 2) * 0.4 * woodDark)})`,
+		);
+		sg.addColorStop(
+			1,
+			`rgb(${Math.round((base - 10) * woodDark)},${Math.round((base - 10) * 0.6 * woodDark)},${Math.round((base - 12) * 0.4 * woodDark)})`,
+		);
 		cx.fillStyle = sg;
 		cx.fillRect(x, fwTop, slatW - 1.5, fwBot - fwTop);
 		// gap shadow
@@ -420,7 +429,7 @@ function drawRoom(
 	cx.fillRect(wX, wY, wW, wH);
 
 	// mullion (single thin vertical divider)
-	cx.fillStyle = (darkF > 0.5 ? "rgba(20,18,16,0.9)" : "rgba(45,40,35,0.8)");
+	cx.fillStyle = darkF > 0.5 ? "rgba(20,18,16,0.9)" : "rgba(45,40,35,0.8)";
 	cx.fillRect(wX + wW / 2 - 1, wY, 2, wH);
 
 	// motorized roller shade (premium woven fabric, partial translucency)
@@ -492,7 +501,7 @@ function drawRoom(
 	cx.fillRect(wX - 5, wY - 1, wW + 10, 1.5);
 
 	// frame outline
-	cx.strokeStyle = (darkF > 0.5 ? "rgba(10,10,9,0.9)" : "rgba(40,36,32,0.7)");
+	cx.strokeStyle = darkF > 0.5 ? "rgba(10,10,9,0.9)" : "rgba(40,36,32,0.7)";
 	cx.lineWidth = 3;
 	cx.strokeRect(wX, wY, wW, wH);
 
@@ -569,9 +578,7 @@ function drawRoom(
 	// UI: volume slider (real-time, dims when muted)
 	cx.fillStyle = "rgba(255,255,255,0.16)";
 	cx.fillRect(pX + 5, pY + 33, pW - 10, 2);
-	cx.fillStyle = muted
-		? "rgba(150,160,180,0.5)"
-		: "rgba(120,170,255,0.95)";
+	cx.fillStyle = muted ? "rgba(150,160,180,0.5)" : "rgba(120,170,255,0.95)";
 	cx.fillRect(pX + 5, pY + 33, (pW - 10) * (muted ? 0 : vol / 100), 2);
 	// slider knob
 	if (!muted) {
@@ -599,7 +606,14 @@ function drawRoom(
 	cx.fill();
 	// rotary dial
 	const dialY = kY + 9;
-	const dial = cx.createRadialGradient(kX + kW / 2 - 1, dialY - 1, 0, kX + kW / 2, dialY, 6);
+	const dial = cx.createRadialGradient(
+		kX + kW / 2 - 1,
+		dialY - 1,
+		0,
+		kX + kW / 2,
+		dialY,
+		6,
+	);
 	dial.addColorStop(0, "#3a3a40");
 	dial.addColorStop(1, "#141417");
 	cx.fillStyle = dial;
@@ -623,7 +637,7 @@ function drawRoom(
 	// daylight wash on floor from window
 	if (s.sun > 0.05 && s.shade < 60) {
 		const beam = cx.createLinearGradient(wX, fY, wX + wW * 1.4, H);
-		const ba = (s.sun * (1 - s.shade / 100)) * 0.16;
+		const ba = s.sun * (1 - s.shade / 100) * 0.16;
 		beam.addColorStop(0, `rgba(255,240,200,${ba})`);
 		beam.addColorStop(1, "rgba(255,240,200,0)");
 		cx.fillStyle = beam;
@@ -852,7 +866,8 @@ function drawRoom(
 	cx.rect(soX - 16, soY, soW + 36, soH);
 	cx.rect(chX, soY + 20, chW, soH);
 	cx.clip();
-	cx.fillStyle = (darkF > 0.5 ? "rgba(255,255,255,0.025)" : "rgba(255,255,255,0.07)");
+	cx.fillStyle =
+		darkF > 0.5 ? "rgba(255,255,255,0.025)" : "rgba(255,255,255,0.07)";
 	for (let i = 0; i < 260; i++) {
 		const px = ln(chX, soX + soW + 16, rnd(i + 11));
 		const py = ln(soY + 2, soY + soH, rnd(i + 71));
@@ -984,17 +999,19 @@ function drawRoom(
 			cx.translate(lx, ly);
 			cx.rotate(a);
 			// base leaf
-			cx.fillStyle = s.br < 0.4
-				? `rgba(${40 + rnd(i) * 20},${70 + rnd(i + 1) * 25},${50 + rnd(i + 2) * 15},0.9)`
-				: `rgba(${88 + rnd(i) * 34},${116 + rnd(i + 1) * 34},${74 + rnd(i + 2) * 22},0.92)`;
+			cx.fillStyle =
+				s.br < 0.4
+					? `rgba(${40 + rnd(i) * 20},${70 + rnd(i + 1) * 25},${50 + rnd(i + 2) * 15},0.9)`
+					: `rgba(${88 + rnd(i) * 34},${116 + rnd(i + 1) * 34},${74 + rnd(i + 2) * 22},0.92)`;
 			cx.beginPath();
 			cx.ellipse(0, 0, 4.6, 1.7, 0, 0, Math.PI * 2);
 			cx.fill();
 			// translucent highlight on ~1/3 of leaves (backlit silvery olive sheen)
 			if (shimmer > 0.62) {
-				cx.fillStyle = s.br < 0.4
-					? "rgba(150,180,140,0.35)"
-					: `rgba(205,225,180,${0.4 + s.br * 0.25})`;
+				cx.fillStyle =
+					s.br < 0.4
+						? "rgba(150,180,140,0.35)"
+						: `rgba(205,225,180,${0.4 + s.br * 0.25})`;
 				cx.beginPath();
 				cx.ellipse(-0.6, -0.4, 2.6, 0.8, 0, 0, Math.PI * 2);
 				cx.fill();
@@ -1055,7 +1072,12 @@ export default function RoomAutomation() {
 	const videoRef = useRef<HTMLVideoElement>(null);
 	const videoLoopRef = useRef<number | null>(null);
 	// live UI state mirrored onto the on-canvas control panel
-	const uiRef = useRef({ vol: 45, muted: false, audioOn: true, playing: false });
+	const uiRef = useRef({
+		vol: 45,
+		muted: false,
+		audioOn: true,
+		playing: false,
+	});
 
 	function render() {
 		const canvas = canvasRef.current;
@@ -1295,10 +1317,10 @@ export default function RoomAutomation() {
 				</div>
 
 				<div className={styles.sec}>
-					<p className={styles.sl}>
+					{/* <p className={styles.sl}>
 						<i className="ti ti-music" aria-hidden="true" /> Entertainment
-					</p>
-					<div className={styles.entRow}>
+					</p> */}
+					{/* <div className={styles.entRow}>
 						<button
 							className={`${styles.entBtn} ${tvOn ? styles.entOn : ""}`}
 							onClick={() => handleTv(!tvOn)}
@@ -1337,11 +1359,13 @@ export default function RoomAutomation() {
 								aria-hidden="true"
 							/>
 						</button>
-					</div>
+					</div> */}
 
 					<div className={styles.volHead}>
 						<span className={styles.tl}>Volume</span>
-						<span className={styles.volVal}>{muted ? "Muted" : `${volume}%`}</span>
+						<span className={styles.volVal}>
+							{muted ? "Muted" : `${volume}%`}
+						</span>
 					</div>
 					<input
 						className={styles.volSlider}

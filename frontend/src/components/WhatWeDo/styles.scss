@@ -13,7 +13,7 @@
 	gap: 40px;
 	background: #fff;
 	color: #333;
-	height: calc(100svh - 148px - 20px);
+	height: calc(100svh - 148px - 20px) !important;
 	padding: 20px;
 	border-radius: 10px;
 	box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);
@@ -266,5 +266,12 @@
 @media screen and (width < 1000px) {
 	.what-we-do-container {
 		padding: 10px;
+	}
+}
+
+@media screen and (width < 900px) {
+	.what-we-do-container {
+		flex-direction: column !important;
+		gap: 10px;
 	}
 }
