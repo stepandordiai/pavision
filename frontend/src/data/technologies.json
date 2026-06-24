@@ -1,48 +1,48 @@
 [
 	{
-		"title": "Lighting",
+		"title": "lighting.heading",
 		"description": "Osvětlení, které se přizpůsobí vaší náladě a denní rutině",
 		"img": "/lighting/02-c.png",
 		"icon": "/technology-icons/lighting.png",
 		"path": "/lighting"
 	},
 	{
-		"title": "Home Access",
+		"title": "homeAccess.heading",
 		"description": "Snadný vstup a klid na duši, ať jste kdekoliv",
 		"img": "https://www.lavishautomation.com/images/client/brands/security-header%201.jpg",
 		"icon": "/technology-icons/home-access.png",
 		"path": "/home-access"
 	},
 	{
-		"title": "Video",
+		"title": "video.heading",
 		"description": "Snadné ovládání videa",
 		"img": "/video/01-c.png",
 		"icon": "/technology-icons/video.png",
 		"path": "/video"
 	},
 	{
-		"title": "Audio",
+		"title": "audio.heading",
 		"description": "Automaticky přehrává to, co chcete, kdy chcete",
 		"img": "https://www.bowerswilkins.com/on/demandware.static/-/Sites-master-catalog-soundunited/default/dw0b413071/bowers/Rich-Content/bandw_formationbar_be_desktop.jpg",
 		"icon": "/technology-icons/audio.png",
 		"path": "/audio"
 	},
 	{
-		"title": "Shades",
+		"title": "shades.heading",
 		"description": "Automatické stínění, které se přizpůsobí vašemu dni",
 		"img": "https://images.pexels.com/photos/36353407/pexels-photo-36353407.png",
 		"icon": "/technology-icons/shades.png",
 		"path": "/shades"
 	},
 	{
-		"title": "Thermostat",
+		"title": "thermostat.heading",
 		"description": "Ideální teplota přesně tehdy, kdy ji potřebujete",
 		"img": "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-thermostat-thumn.jpg",
 		"icon": "/technology-icons/thermostat.png",
 		"path": "/thermostat"
 	},
 	{
-		"title": "Security",
+		"title": "security.heading",
 		"description": "Automatická ochrana s monitorováním v reálném čase, chytrými senzory a bezproblémovým ovládáním – váš domov v bezpečí kdykoli a odkudkoli.",
 		"img": "https://images.pexels.com/photos/35361412/pexels-photo-35361412.jpeg",
 		"icon": "/technology-icons/security.png",

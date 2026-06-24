@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import "./styles.scss";
 
 const brands = [
@@ -87,16 +88,17 @@ const brands = [
 	},
 ];
 
-export default function Brands() {
+export default async function Brands() {
+	const t = await getTranslations("brands");
+
 	return (
 		<section className="section">
-			<h2 className="section__title">Trusted Brands. Smarter Homes.</h2>
+			<h2 className="section__title">{t("heading")}</h2>
 			<div className="brands">
 				{brands.map((brand, i) => {
 					return (
 						<div className="brand-container" key={i}>
 							<p className="brand-name">{brand?.name}</p>
-							{/* <img className="brand-logo" src={brand?.logo} alt="" /> */}
 							<img className="brand-bg" src={brand?.bgImg} alt="" />
 						</div>
 					);

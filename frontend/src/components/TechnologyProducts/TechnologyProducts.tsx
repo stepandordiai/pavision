@@ -1,6 +1,5 @@
 "use client";
 
-import ArrowRightUpIcon from "@/components/icons/ArrowRightUpIcon";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -8,7 +7,7 @@ import { useEffect, useState } from "react";
 import { getProducts } from "@/lib/api/products";
 import technologies from "@/data/technologies.json";
 import "./styles.scss";
-import { TransitionLink } from "../TransitionLink";
+import ProductCard from "../ProductCard/ProductCard";
 
 type TechnologyProductsProps = {
 	technology: string;
@@ -73,27 +72,7 @@ const TechnologyProducts = ({
 					.map((product, i) => {
 						return (
 							<SwiperSlide>
-								<TransitionLink
-									key={i}
-									href={`/products/${product.id}`}
-									className="product-container-link"
-								>
-									<p className="product__title">{product.name}</p>
-									<img src={product.img} alt="" />
-									<p
-										style={{
-											display: "flex",
-											justifyContent: "flex-end",
-											alignItems: "center",
-											gap: 5,
-										}}
-									>
-										<span>Zjistěte více</span>
-										<span className="product-icon-wrapper">
-											<ArrowRightUpIcon />
-										</span>
-									</p>
-								</TransitionLink>
+								<ProductCard key={i} product={product} />
 							</SwiperSlide>
 						);
 					})}

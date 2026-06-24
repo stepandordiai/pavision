@@ -1,9 +1,16 @@
 {
+	"nav": {
+		"home": "Home",
+		"aboutUs": "About us",
+		"products": "Products",
+		"contacts": "Contacts",
+		"appointment": "Book an Appointment"
+	},
+
 	"homeTitle": "Home",
 	"aboutUsTitle": "About us",
 	"productsTitle": "Products",
 	"contactsTitle": "Contacts",
-	"appointmentTitle": "Book an Appointment",
 	"contactUs": "Contact us",
 	"navigation": "Navigation",
 
@@ -32,6 +39,25 @@
 			"desc4": "Design and implementation of electrical installations, including switchboards and sockets."
 		},
 		"technologies": "Technologies"
+	},
+
+	"testimonials": {
+		"heading": "What our clients say",
+		"addTestimonial": "Add testimonial",
+		"leaveTestimonial": "Leave a testimonial",
+		"name": "Name",
+		"nameP": "Your name (leave blank to stay anonymous)",
+		"rating": "Rating",
+		"yourMessage": "Your message",
+		"yourMessageP": "Share your experience…",
+		"submit": "Submit testimonial",
+		"submitting": "Submitting…",
+		"author": "Author",
+		"signIn": "Sign in instead"
+	},
+
+	"brands": {
+		"heading": "The brands behind smarter homes."
 	},
 
 	"products": {

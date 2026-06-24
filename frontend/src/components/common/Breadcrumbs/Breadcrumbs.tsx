@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { TransitionLink } from "@/components/TransitionLink";
 import "./styles.scss";
 
@@ -12,10 +13,12 @@ export default function Breadcrumbs({
 	prevPage,
 	prevPageUrl,
 }: BreadcrumbsProps) {
+	const t = useTranslations();
+
 	return (
 		<div className="breadcrumbs">
 			<TransitionLink className="breadcrumbs__link" href="/">
-				Home
+				{t("nav.home")}
 			</TransitionLink>
 			{prevPage && prevPageUrl && (
 				<TransitionLink className="breadcrumbs__link" href={prevPageUrl}>

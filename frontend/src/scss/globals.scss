@@ -13,9 +13,8 @@ body {
 }
 
 .section {
-	// min-height: 100svh;
 	padding: 20px;
-	background: #333;
+	background: var(--bg-clr);
 	display: flex;
 	flex-direction: column;
 }
@@ -50,7 +49,7 @@ body {
 		width: 100%;
 		left: 0;
 		bottom: 0;
-		background: rgba(255, 255, 255, 0.478);
+		background: rgba(255, 255, 255, 0.5);
 	}
 
 	&::after {
@@ -84,14 +83,14 @@ body {
 .main__title {
 	font-size: clamp(2rem, 4vw, 2.5rem);
 	font-weight: 500;
-	border-left: 2px solid white;
+	border-left: 2px solid #fff;
 	padding-left: 5px;
 	margin-bottom: 20px;
 }
 
 .technology-section {
 	padding: 20px;
-	background: #333;
+	background: var(--bg-clr);
 	display: flex;
 	flex-direction: column;
 }

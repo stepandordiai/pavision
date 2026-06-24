@@ -1,22 +1,18 @@
 [
 	{
-		"label": "homeTitle",
+		"label": "nav.home",
 		"path": "/"
 	},
 	{
-		"label": "aboutUsTitle",
+		"label": "nav.aboutUs",
 		"path": "/about-us"
 	},
 	{
-		"label": "productsTitle",
+		"label": "nav.products",
 		"path": "/products"
 	},
 	{
-		"label": "contactsTitle",
+		"label": "nav.contacts",
 		"path": "/contacts"
-	},
-	{
-		"label": "appointmentTitle",
-		"path": "/appointment"
 	}
 ]

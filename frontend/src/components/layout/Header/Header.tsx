@@ -133,7 +133,7 @@ const Header = () => {
 							className={`header-nav__link header__link ${pathname === "/appointment" ? "header-nav__link--active" : ""}`}
 							href="/appointment"
 						>
-							{t("appointmentTitle")}
+							{t("nav.appointment")}
 						</TransitionLink>
 						<button
 							onClick={toggleMenu}
@@ -282,9 +282,23 @@ const Header = () => {
 									style={{
 										overflow: "hidden",
 										display: "flex",
-										justifyContent: "space-between",
+										columnGap: "10px",
 									}}
 								>
+									<a
+										style={
+											menuOpen
+												? {
+														transition: `color 0.24s, transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s`,
+													}
+												: undefined
+										}
+										className={`menu__link ${menuOpen ? "menu__link--visible" : ""}`}
+										href="https://www.instagram.com/pa_vision.cz"
+										target="_blank"
+									>
+										Instagram
+									</a>
 									<a
 										style={
 											menuOpen

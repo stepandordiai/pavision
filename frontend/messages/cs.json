@@ -1,9 +1,12 @@
 {
-	"homeTitle": "Ůvod",
-	"aboutUsTitle": "O nás",
-	"productsTitle": "Produkty",
-	"contactsTitle": "Kontakty",
-	"appointmentTitle": "Domluvit schůzku",
+	"nav": {
+		"home": "Úvod",
+		"aboutUs": "O nás",
+		"products": "Produkty",
+		"contacts": "Kontakty",
+		"appointment": "Domluvit schůzku"
+	},
+
 	"contactUs": "Kontaktujte nás",
 	"navigation": "Navigace",
 
@@ -33,6 +36,25 @@
 		},
 
 		"technologies": "Technologie"
+	},
+
+	"testimonials": {
+		"heading": "Co říkají naši klienti",
+		"addTestimonial": "Přidat referenci",
+		"leaveTestimonial": "Zanechte referenci",
+		"name": "Jméno",
+		"nameP": "Vaše jméno (nechte prázdné pro anonymní)",
+		"rating": "Hodnocení",
+		"yourMessage": "Vaše zpráva",
+		"yourMessageP": "Podělte se o svou zkušenost…",
+		"submit": "Odeslat referenci",
+		"submitting": "Odesílání…",
+		"author": "Autor",
+		"signIn": "Přihlásit se"
+	},
+
+	"brands": {
+		"heading": "Špičkové značky pro chytrý domov."
 	},
 
 	"products": {

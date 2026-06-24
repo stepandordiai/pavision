@@ -5,6 +5,7 @@ import ArrowRightUpIcon from "@/components/icons/ArrowRightUpIcon";
 import { getProducts } from "@/lib/api/products";
 import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
 import { TransitionLink } from "@/components/TransitionLink";
+import ProductCard from "@/components/ProductCard/ProductCard";
 
 interface Product {
 	id: number;
@@ -75,29 +76,7 @@ export default function ProductsClient() {
 								{filteredProducts
 									.filter((product) => product.type.includes(type))
 									.map((product, i) => {
-										return (
-											<TransitionLink
-												href={`/products/${product.id}`}
-												key={i}
-												className="product-container-link"
-											>
-												<p className="product__title">{product.name}</p>
-												<img src={product.img} alt="" />
-												<p
-													style={{
-														display: "flex",
-														justifyContent: "flex-end",
-														alignItems: "center",
-														gap: 5,
-													}}
-												>
-													<span>Zjistěte více</span>
-													<span className="product-icon-wrapper">
-														<ArrowRightUpIcon />
-													</span>
-												</p>
-											</TransitionLink>
-										);
+										return <ProductCard key={i} product={product} />;
 									})}
 							</div>
 						</div>

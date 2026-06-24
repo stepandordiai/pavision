@@ -1,7 +1,6 @@
 "use client";
 
 import { useInView } from "@/hooks/useInView";
-import { div } from "framer-motion/client";
 
 type Props = React.ImgHTMLAttributes<HTMLImageElement> & {
 	delay?: number; // stagger if multiple images in a row

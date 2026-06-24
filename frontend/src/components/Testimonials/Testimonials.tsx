@@ -6,6 +6,7 @@ import type { User } from "@supabase/supabase-js";
 import styles from "./Testimonials.module.scss";
 import { TransitionLink } from "../TransitionLink";
 import getCreatedDate from "@/utils/getCreatedDate";
+import { useTranslations } from "next-intl";
 
 interface Testimonial {
 	id: string;
@@ -24,8 +25,6 @@ function getInitials(name: string): string {
 		.toUpperCase()
 		.slice(0, 2);
 }
-
-// ─── Stars ───────────────────────────────────────────────────────────────────
 
 interface StarsProps {
 	rating: number;
@@ -83,9 +82,8 @@ function Stars({ rating, interactive = false, onChange }: StarsProps) {
 	);
 }
 
-// ─── Main component ───────────────────────────────────────────────────────────
-
 export default function Testimonials() {
+	const t = useTranslations();
 	// Data
 	const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
 	const [user, setUser] = useState<User | null>(null);
@@ -101,8 +99,6 @@ export default function Testimonials() {
 	const [authorName, setAuthorName] = useState("");
 	const [submitting, setSubmitting] = useState(false);
 	const [submitError, setSubmitError] = useState("");
-
-	// ── Fetch ──────────────────────────────────────────────────────────────────
 
 	const fetchTestimonials = useCallback(async () => {
 		const { data, error } = await supabase
@@ -128,8 +124,6 @@ export default function Testimonials() {
 		return () => subscription.unsubscribe();
 	}, [supabase, fetchTestimonials]);
 
-	// ── Modal helpers ──────────────────────────────────────────────────────────
-
 	const openModal = () => {
 		setContent("");
 		setRating(5);
@@ -141,14 +135,7 @@ export default function Testimonials() {
 
 	const closeModal = () => setModalOpen(false);
 
-	// ── Submit testimonial ────────────────────────────────────────────────────
-
 	const handleSubmit = async () => {
-		// if (!content.trim()) {
-		// 	setSubmitError("Please write something before submitting.");
-		// 	return;
-		// }
-
 		setSubmitting(true);
 		setSubmitError("");
 
@@ -178,31 +165,13 @@ export default function Testimonials() {
 
 	return (
 		<section className="section" aria-labelledby="testimonials-heading">
-			{/* <div className={styles.header}> */}
 			<h2 id="testimonials-heading" className="section__title">
-				What people say
+				{t("testimonials.heading")}
 			</h2>
-			{/* <div className={styles.headerActions}> */}
-			{/* {user ? (
-						<span className={styles.authBadge} title={user.email}>
-							{user.user_metadata.full_name}
-						</span>
-					) : null} */}
-
-			{/* </div> */}
-			{/* </div> */}
 			<button className={styles.btnPrimary} onClick={openModal}>
-				<span>Add testimonial</span>
+				<span>{t("testimonials.addTestimonial")}</span>
 				<span>+</span>
 			</button>
-			{/* Cards */}
-			{/* {loading ? ( */}
-			{/* // <div className={styles.loadingRow}> */}
-			{/* // 	{[1, 2, 3].map((i) => ( */}
-			{/* // 		<div key={i} className={`${styles.card} ${styles.cardSkeleton}`} /> */}
-			{/* // 	))} */}
-			{/* // </div> */}
-			{/* // ) :  */}
 			{testimonials.length === 0 ? (
 				<p className={styles.empty}>
 					No testimonials yet - be the first to leave one!
@@ -235,7 +204,6 @@ export default function Testimonials() {
 					))}
 				</div>
 			)}
-			{/* Modal */}
 			{modalOpen && (
 				<div
 					className={styles.backdrop}
@@ -245,7 +213,6 @@ export default function Testimonials() {
 					aria-label={showAuth ? "Sign in" : "Add testimonial"}
 				>
 					<div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-						{/* ── Testimonial form ── */}
 						<>
 							<div
 								style={{
@@ -255,7 +222,9 @@ export default function Testimonials() {
 									marginBottom: "20px",
 								}}
 							>
-								<h3 className={styles.modalTitle}>Leave a testimonial</h3>
+								<h3 className={styles.modalTitle}>
+									{t("testimonials.leaveTestimonial")}
+								</h3>
 								<button
 									type="button"
 									className={styles.modalClose}
@@ -267,7 +236,9 @@ export default function Testimonials() {
 							</div>
 							{user ? (
 								<>
-									<p style={{ marginBottom: "5px" }}>Author</p>
+									<p style={{ marginBottom: "5px" }}>
+										{t("testimonials.author")}
+									</p>
 									<p className={styles.postingAs}>
 										{(user.user_metadata?.full_name as string | undefined) ||
 											user.email}
@@ -275,11 +246,12 @@ export default function Testimonials() {
 								</>
 							) : (
 								<div className={styles.anonRow}>
-									<label htmlFor="">Name</label>
+									<label htmlFor="name">{t("testimonials.name")}</label>
 									<input
+										id="name"
 										className={styles.input}
 										type="text"
-										placeholder="Your name (leave blank for Anonymous)"
+										placeholder={t("testimonials.nameP")}
 										value={authorName}
 										onChange={(e) => setAuthorName(e.target.value)}
 										maxLength={60}
@@ -289,12 +261,12 @@ export default function Testimonials() {
 										href="/login"
 										className="link"
 									>
-										Sign in instead
+										{t("testimonials.signIn")}
 									</TransitionLink>
 								</div>
 							)}
 
-							<label className={styles.label}>Rating</label>
+							<label className={styles.label}>{t("testimonials.rating")}</label>
 							<div
 								style={{
 									background: "#fff",
@@ -306,12 +278,12 @@ export default function Testimonials() {
 								<Stars rating={rating} interactive onChange={setRating} />
 							</div>
 							<label className={styles.label} htmlFor="testimonial-content">
-								Your message
+								{t("testimonials.yourMessage")}
 							</label>
 							<textarea
 								id="testimonial-content"
 								className={styles.textarea}
-								placeholder="Share your experience…"
+								placeholder={t("testimonials.yourMessageP")}
 								value={content}
 								onChange={(e) => setContent(e.target.value)}
 								rows={4}
@@ -331,7 +303,9 @@ export default function Testimonials() {
 								onClick={handleSubmit}
 								disabled={submitting}
 							>
-								{submitting ? "Posting…" : "Post review"}
+								{submitting
+									? t("testimonials.submitting")
+									: t("testimonials.submit")}
 							</button>
 						</>
 					</div>

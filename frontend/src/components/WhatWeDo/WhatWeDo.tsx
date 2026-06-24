@@ -82,7 +82,22 @@ const WhatWeDo = () => {
 
 	return (
 		<section className="section">
-			<h2 style={{ position: "sticky", top: 80 }} className="section__title">
+			<h2
+				className="home__section-title"
+				style={{
+					position: "sticky",
+					top: "70px",
+					background: "#000",
+					padding: "0 10px",
+					borderRadius: "10px",
+					width: "max-content",
+					height: "40px",
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
+					marginBottom: "10px",
+				}}
+			>
 				{t("home.whatWeDoTitle")}
 			</h2>
 			<div className="what-we-do">
@@ -117,13 +132,7 @@ const WhatWeDo = () => {
 									</div>
 									<h3 style={{ fontSize: "18px" }}>{t(item.title)}</h3>
 								</div>
-								<p>
-									We design and install complete home automation systems with
-									Crestron, Loxone, and Lutron. Crestron offers deep, fully
-									bespoke control; Loxone delivers the same intelligence
-									cost-effectively — so every project fits the home and the
-									budget.
-								</p>
+								<p>{t(item.desc)}</p>
 							</div>
 							{item.lightning && (
 								<div style={{ width: "100%", height: "100%" }}>

@@ -59,7 +59,7 @@ const Footer = () => {
 										className={`footer-nav__link ${pathname === technology.path ? "footer-nav__link--active" : ""}`}
 										href={technology.path}
 									>
-										{technology.title}
+										{t(technology.title)}
 									</TransitionLink>
 								</li>
 							);
@@ -98,6 +98,29 @@ const Footer = () => {
 						<li>
 							<a className="link" href="mailto:info@pavision.cz">
 								info@pavision.cz
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<p style={{ marginBottom: 10 }}>Follow us</p>
+					<ul>
+						<li>
+							<a
+								className="link"
+								href="https://www.instagram.com/pa_vision.cz"
+								target="_blank"
+							>
+								Instagram
+							</a>
+						</li>
+						<li>
+							<a
+								className="link"
+								href="https://www.instagram.com/pa_vision.cz"
+								target="_blank"
+							>
+								Facebook
 							</a>
 						</li>
 					</ul>

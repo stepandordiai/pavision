@@ -6,8 +6,9 @@ import ChevronRightIcon from "@/components/icons/ChevronRightIcon";
 import ChevronLeftIcon from "@/components/icons/ChevronLeftIcon";
 import { useLocale } from "next-intl";
 import CalendarIcon from "@/components/icons/CalendarIcon";
-import "./styles.scss";
 import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
+import { useTranslations } from "next-intl";
+import "./styles.scss";
 
 const WEEKDAY_SLOTS = [
 	"8:00",
@@ -44,6 +45,7 @@ function toLocalDateStr(date: Date) {
 }
 
 export default function Appointment() {
+	const t = useTranslations();
 	const locale = useLocale();
 	const now = new Date();
 	const [viewYear, setViewYear] = useState(now.getFullYear());
@@ -250,7 +252,7 @@ export default function Appointment() {
 				</>
 			)}
 			<main className="appointment">
-				<Breadcrumbs currentPage="Nezávazná technologická konzultace" />
+				<Breadcrumbs currentPage={t("nav.appointment")} />
 				<div style={{ padding: "0 20px 20px" }}>
 					<h1 className="main__title">Nezávazná technologická konzultace</h1>
 					<div className="appointment-container">

@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { TransitionLink } from "@/components/TransitionLink";
 import { AnimatedImage } from "@/components/AnimatedImg";
+import "./OurSolutions.scss";
 
 export default async function OurSolutions() {
 	const t = await getTranslations();
