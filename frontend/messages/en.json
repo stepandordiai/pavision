@@ -164,48 +164,44 @@
 
 	"ourSolutions": {
 		"title": "Our Intelligent Solutions",
-		"comfort": {
-			"title": "Comfort",
-			"subtitle": "Your home is your sanctuary",
+		"showroom": {
+			"badge": "Showroom",
+			"title": "Smart Home Showroom",
 			"description": [
-				"P&A Vision transforms your house into an oasis of comfort. We merge Crestron, Loxone, and Lutron systems into a unified network that adapts climate and lighting to your lifestyle across Europe.",
-				"Experience ultimate convenience with advanced multi-zone temperature control and smart shading. Every room automatically maintains the perfect atmosphere for work, relaxation, or sleep.",
-				"Smart thermostats and HVAC systems work in perfect harmony. Forget constant manual adjustments – the house anticipates your needs and maintains the ideal indoor environment.",
-				"Control heating, cooling, ventilation (HRV), and ambient lighting from a single intuitive app or elegant designer keypads. Simple, efficient, and accessible from anywhere.",
-				"Discover a new standard of luxury living in the EU. We design a personalized space where technology works invisibly to ensure your daily well-being."
+				"P&A Vision runs a smart home showroom where you can experience Crestron, Loxone, and Lutron systems live. In one place you'll see how lighting, shading, heating, and audio work together as a single connected ecosystem.",
+				"Try one-touch scene control for yourself – from a gentle morning wake-up to a full cinema evening. Feel firsthand how a smart home responds in real time and how seamlessly the technology blends into a luxury interior.",
+				"During your visit our specialists will design a solution tailored precisely to your home or apartment. We'll walk through integration options, budget, and installation – clearly and with no obligation.",
+				"Our showroom serves clients across Europe and is open by appointment. Book a time and discover a new standard of intelligent living with your own eyes."
 			]
 		},
-		"security": {
-			"title": "Security",
-			"subtitle": "Peace of mind for your home",
+		"office": {
+			"badge": "Office",
+			"title": "Smart Office & Workspace",
 			"description": [
-				"Home security by P&A Vision integrates Jablotron, Paradox, and Risco systems into a unified smart network for maximum safety of residences across Europe.",
-				"Monitor the status of smart locks, alarms, and live camera feeds in real time from anywhere in the world, right on your mobile device.",
-				"We connect top-tier professional alarms into a single app. Gain full control over your home security with instant smart notifications.",
-				"Automate your safety with custom scenarios: an away-mode arms the alarm and locks down the house in one touch. Smart security for modern European living.",
-				"From premium CCTV camera systems to remote access control – we create a secure environment tailored to your lifestyle, meeting the highest EU standards."
+				"Transform your office into a productive, representative environment. P&A Vision integrates lighting, shading, climate, and audio/video into one system that adapts to your team's daily rhythm.",
+				"Launch automated scenes for meetings, presentations, or everyday work with a single touch. Conference rooms prepare themselves – lighting, blinds, and projection respond exactly when needed.",
+				"Smart control lowers running costs through automatic lighting and efficient temperature regulation. Monitor and manage everything clearly from one place.",
+				"We design and deliver solutions for offices and corporate spaces across Europe – reliably, elegantly, and with attention to detail."
 			]
 		},
-		"convenience": {
-			"title": "Convenience",
-			"subtitle": "Your home should work for you, not the other way around",
+		"familyHome": {
+			"badge": "Family Home",
+			"title": "Smart Family Home",
 			"description": [
-				"A smart home by P&A Vision turns daily routines into pure joy. We interconnect Crestron, Control4, and Loxone systems so your European home operates completely intuitively and effortlessly.",
-				"Forget dozens of remotes. Control your lighting, shading, multiroom audio, and video systems from a single premium app, an elegant touch panel, or via voice assistants.",
-				"Our intelligent smart home anticipates your needs. It automatically lowers the blinds at sunset, adjusts the climate, or prepares the living room for a perfect movie night with one touch.",
-				"Enjoy a top-tier multiroom audio and video experience throughout the house. Stream music or movies to any room and switch entertainment sources seamlessly without complications.",
-				"Discover a new standard of modern living in the EU. We transform complex technologies into a simple, unified experience that saves you time and delivers ultimate convenience."
+				"Create a home that takes care of the whole family. P&A Vision connects lighting, heating, shading, security, and entertainment into one intuitive system powered by Crestron, Loxone, and Lutron.",
+				"Morning and evening scenes, automated blinds, and zoned temperature control keep every room comfortable. The home anticipates your needs and saves energy without any manual adjustment.",
+				"Peace of mind comes first – control camera systems, smart locks, and access management from your phone, anywhere. Stay in touch with what's happening at home, even remotely.",
+				"We deliver smart family homes across Europe, with a solution tailored to your lifestyle and budget."
 			]
 		},
-		"wellness": {
-			"title": "Wellness",
-			"subtitle": "Yes. Your home can benefit your health",
+		"business": {
+			"badge": "Business",
+			"title": "Smart Solutions for Business & Commercial Spaces",
 			"description": [
-				"A smart home by P&A Vision actively supports your sleep, energy, and health. The right lighting, acoustics, and temperature fundamentally shape how you feel every day in modern Europe.",
-				"We integrate premium Lutron, Crestron, and Loxone systems that automatically optimize the indoor environment and air quality for your ultimate mental and physical wellness.",
-				"Wake up to natural light with Lutron circadian lighting and relax at the ideal temperature. Your home adapts in real time to your biological and circadian needs.",
-				"Control lighting, automated shading, microclimate, and audio from a single intuitive app. Automated scenarios reduce daily stress and create perfect conditions for work and rest.",
-				"Transform your luxury residence into an oasis of calm that elevates your quality of life. Discover the future of healthy living and biophilic design in the EU."
+				"From hotels and restaurants to shops and showrooms – P&A Vision delivers professional automation for commercial spaces. Lighting, climate, audio, and access control work together as one reliable system.",
+				"Centralised management lets you control an entire venue from a single interface. Scenes for opening hours, events, and night mode run automatically on schedule.",
+				"Cut operating costs with smart energy management and gain real-time insight into your entire operation. The system scales together with your business.",
+				"We design and integrate solutions for businesses across Europe – with a focus on reliability, security, and a representative finish."
 			]
 		}
 	},

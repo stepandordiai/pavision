@@ -26,17 +26,18 @@ export default async function OurSolutions() {
 								width: "max-content",
 							}}
 						>
-							{t("ourSolutions.comfort.title")}
+							{t("ourSolutions.showroom.badge")}
 						</h3>
 						<p style={{ fontSize: "2rem" }}>
-							{t("ourSolutions.comfort.subtitle")}
+							{t("ourSolutions.showroom.title")}
+							Showroom chytré domácnosti
 						</p>
 						<div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
 							{/* TODO: learn this */}
 							{t
-								.raw("ourSolutions.comfort.description")
-								?.map((txt: string, i: number) => {
-									return <p key={i}>{txt}</p>;
+								.raw("ourSolutions.showroom.description")
+								?.map((p: string, i: number) => {
+									return <p key={i}>{p}</p>;
 								})}
 						</div>
 						<div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
@@ -63,7 +64,10 @@ export default async function OurSolutions() {
 					</div>
 					<div style={{ position: "relative", alignSelf: "flex-start" }}>
 						<img className="our-solutions__ss" src="/02.png" alt="" />
-						<AnimatedImage src="/lighting/02-c.png" alt="" />
+						<AnimatedImage
+							src="https://www.elektroschneider.cz/wp-content/uploads/2020/05/Showhome-Loxone-cb-obyvaci-mistnost-modra.jpg"
+							alt=""
+						/>
 					</div>
 				</div>
 				<div className="our-solutions-container">
@@ -82,14 +86,12 @@ export default async function OurSolutions() {
 								width: "max-content",
 							}}
 						>
-							{t("ourSolutions.security.title")}
+							{t("ourSolutions.office.badge")}
 						</h3>
-						<p style={{ fontSize: "2rem" }}>
-							{t("ourSolutions.security.subtitle")}
-						</p>
+						<p style={{ fontSize: "2rem" }}>{t("ourSolutions.office.title")}</p>
 						<div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
 							{t
-								.raw("ourSolutions.security.description")
+								.raw("ourSolutions.office.description")
 								?.map((txt: string, i: number) => (
 									<p key={i}>{txt}</p>
 								))}
@@ -118,7 +120,10 @@ export default async function OurSolutions() {
 					</div>
 					<div style={{ position: "relative", alignSelf: "flex-start" }}>
 						<img className="our-solutions__ss" src="/01.png" alt="" />
-						<AnimatedImage src="/01.jpg" alt="" />
+						<AnimatedImage
+							src="https://www.crestron.com/getattachment/808fa9b1-0916-4f9e-9d55-1fdf2028b562/808fa9b1-0916-4f9e-9d55-1fdf2028b562.aspx"
+							alt=""
+						/>
 					</div>
 				</div>
 				<div className="our-solutions-container">
@@ -137,15 +142,15 @@ export default async function OurSolutions() {
 								width: "max-content",
 							}}
 						>
-							{t("ourSolutions.convenience.title")}
+							{t("ourSolutions.familyHome.badge")}
 						</h3>
 						<p style={{ fontSize: "2rem" }}>
-							{t("ourSolutions.convenience.subtitle")}
+							{t("ourSolutions.familyHome.title")}
 						</p>
 						<div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
 							{/* TODO: learn this */}
 							{t
-								.raw("ourSolutions.convenience.description")
+								.raw("ourSolutions.familyHome.description")
 								?.map((txt: string, i: number) => {
 									return <p key={i}>{txt}</p>;
 								})}
@@ -196,14 +201,14 @@ export default async function OurSolutions() {
 								marginBottom: "10px",
 							}}
 						>
-							{t("ourSolutions.wellness.title")}
+							{t("ourSolutions.business.badge")}
 						</h3>
 						<p style={{ fontSize: "2rem" }}>
-							{t("ourSolutions.wellness.subtitle")}
+							{t("ourSolutions.business.title")}
 						</p>
 						<div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
 							{t
-								.raw("ourSolutions.wellness.description")
+								.raw("ourSolutions.business.description")
 								?.map((txt: string, i: number) => {
 									return <p key={i}>{txt}</p>;
 								})}
@@ -244,7 +249,10 @@ export default async function OurSolutions() {
 					</div>
 					<div style={{ position: "relative", alignSelf: "flex-start" }}>
 						<img className="our-solutions__ss" src="/04.png" alt="" />
-						<AnimatedImage src="/02.jpg" alt="" />
+						<AnimatedImage
+							src="https://tesonsolutions.com/wp-content/uploads/2019/09/british-columbia-sports-bar-audio-video-services.jpg"
+							alt=""
+						/>
 					</div>
 				</div>
 			</div>

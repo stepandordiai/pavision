@@ -161,48 +161,44 @@
 
 	"ourSolutions": {
 		"title": "Naše inteligentní řešení",
-		"comfort": {
-			"title": "Komfort",
-			"subtitle": "Váš domov je vaše útočiště",
+		"showroom": {
+			"badge": "Showroom",
+			"title": "Showroom chytré domácnosti",
 			"description": [
-				"P&A Vision promění váš dům v oázu komfortu. Spojujeme systémy Crestron, Loxone a Lutron do jednoho celku, který v reálném čase přizpůsobí klima i osvětlení vašemu životnímu stylu v ČR.",
-				"Zažijte dokonalé pohodlí díky pokročilé zónové regulaci teploty a inteligentnímu stínění. Každá místnost automaticky udržuje perfektní atmosféru pro práci, odpočinek i spánek.",
-				"Chytré termostaty a klimatizační systémy fungují v naprosté harmonii. Zapomeňte na neustálé ruční nastavování – dům předvídá vaše potřeby a udržuje ideální vnitřní prostředí.",
-				"Ovládejte topení, chlazení, rekuperaci i ambientní světla z jediné intuitivní aplikace nebo pomocí elegantních designových vypínačů na zdi. Jednoduše, efektivně a odkudkoliv.",
-				"Objevte nový standard luxusního bydlení v České republice. Vytvoříme pro vás personalizovaný prostor, kde technologie pracují neviditelně pro vaši každodenní pohodu."
+				"P&A Vision provozuje showroom chytré domácnosti, kde si naživo vyzkoušíte systémy Crestron, Loxone i Lutron. Na jednom místě uvidíte, jak spolu osvětlení, stínění, vytápění a audio fungují jako jeden propojený celek.",
+				"Vyzkoušejte si ovládání scén jediným dotykem – od ranního probuzení po večerní kino. Zažijete na vlastní kůži, jak chytrá domácnost reaguje v reálném čase a jak přirozeně technologie zapadá do luxusního interiéru.",
+				"Naši specialisté vám během návštěvy navrhnou řešení přesně na míru vašemu domu nebo bytu. Probereme možnosti integrace, rozpočet i realizaci – bez závazků a srozumitelně.",
+				"Showroom najdete v České republice a je otevřený po předchozí domluvě. Rezervujte si termín a objevte nový standard inteligentního bydlení na vlastní oči."
 			]
 		},
-		"security": {
-			"title": "Zabezpečení",
-			"subtitle": "Klid a bezpečí pro váš domov",
+		"office": {
+			"badge": "Kancelář",
+			"title": "Chytrá kancelář a pracovní prostor",
 			"description": [
-				"Zabezpečení domu od P&A Vision integruje systémy Jablotron, Paradox, Risco, Loxone, Crestron, Lutron, MikroTik a Ubiquiti do jednoho inteligentního celku pro maximální bezpečí v rámci celé ČR.",
-				"Sledujte stav zámků, alarmů a živý přenos z kamer v reálném čase odkudkoliv na světě přímo ve svém mobilu.",
-				"Propojujeme profesionální alarmy Jablotron či Paradox do jediné aplikace. Získejte plnou kontrolu nad zabezpečením domácnosti a okamžitá upozornění.",
-				"Automatizujte bezpečnostní scénáře: odchodový režim jedním stiskem aktivuje alarm a zamkne dům. Chytré a spolehlivé zabezpečení pro moderní život.",
-				"Od kamerových systémů po vzdálenou kontrolu přístupu – vytvoříme bezpečné prostředí na míru vašemu životnímu stylu."
+				"Proměňte kancelář v produktivní a reprezentativní prostředí. P&A Vision integruje osvětlení, stínění, klimatizaci i audio/video do jednoho systému, který se sám přizpůsobí dennímu režimu vašeho týmu.",
+				"Automatické scénáře pro porady, prezentace i běžnou práci spustíte jediným dotykem. Zasedací místnosti se připraví samy – světlo, žaluzie i projekce reagují podle potřeby.",
+				"Chytré řízení snižuje provozní náklady díky automatickému vypínání světel a efektivní regulaci teploty. Vše přehledně sledujete a ovládáte z jednoho místa.",
+				"Navrhneme a zrealizujeme řešení pro kanceláře a firemní prostory po celé České republice. Spolehlivě, elegantně a s důrazem na detail."
 			]
 		},
-		"convenience": {
-			"title": "Pohodlí",
-			"subtitle": "Váš domov by měl pracovat pro vás, ne naopak",
+		"familyHome": {
+			"badge": "Rodinný dům",
+			"title": "Chytrý rodinný dům",
 			"description": [
-				"S chytrou domácností od P&A Vision se každodenní rutiny mění v čistou radost. Propojujeme systémy Crestron, Control4 a Loxone, aby váš domov v ČR fungoval zcela intuitivně a bez námahy.",
-				"Zapomeňte na desítky ovladačů. Osvětlení, stínění, audio i video systémy nyní ovládáte z jediné prémiové aplikace, elegantního dotykového panelu nebo pomocí hlasových asistentů.",
-				"Náš inteligentní dům předvídá vaše potřeby. Automaticky zatáhne žaluzie při západu slunce, upraví teplotu nebo jedním dotykem připraví obývací pokoj pro dokonalý filmový večer.",
-				"Užijte si špičkový multiroom audio a video systém po celém domě. Streamujte hudbu nebo filmy do kterékoli místnosti a přepínejte zdroje zábavy hladce a bez zbytečných komplikací.",
-				"Objevte nový standard moderního bydlení v České republice. Proměňujeme komplexní technologie v jednoduchý a sjednocený zážitek, který vám ušetří čas a zajistí dokonalý komfort."
+				"Vytvořte domov, který se postará o celou rodinu. P&A Vision propojí osvětlení, vytápění, stínění, zabezpečení i zábavu do jednoho intuitivního systému s technologiemi Crestron, Loxone a Lutron.",
+				"Ranní i večerní scénáře, automatické žaluzie a zónová regulace teploty zajistí pohodlí v každé místnosti. Dům předvídá vaše potřeby a šetří energii bez nutnosti cokoliv ručně nastavovat.",
+				"Klid a bezpečí na prvním místě – kamerové systémy, chytré zámky a hlídání přístupu ovládáte z mobilu odkudkoliv. O dění doma máte přehled i na dálku.",
+				"Realizujeme chytré rodinné domy po celé České republice. Připravíme řešení na míru vašemu životnímu stylu i rozpočtu."
 			]
 		},
-		"wellness": {
-			"title": "Wellness",
-			"subtitle": "Ano, váš domov může prospívat vašemu zdraví",
+		"business": {
+			"badge": "Firma",
+			"title": "Chytré řešení pro firmy a komerční prostory",
 			"description": [
-				"Chytrá domácnost od P&A Vision aktivně podporuje váš spánek, energii i zdraví. Správné světlo, akustika a teplota zásadně ovlivňují to, jak se v ČR každý den cítíte.",
-				"Propojujeme špičkové systémy Lutron, Crestron či Loxone, které automaticky optimalizují vnitřní prostředí a kvalitu vzduchu pro vaše maximální duševní i fyzické wellness.",
-				"Vzbuďte se s přirozeným světlem díky cirkadiánnímu osvětlení Lutron a relaxujte při ideální teplotě. Váš domov se v reálném čase přizpůsobí vašim biologickým potřebám.",
-				"Ovládejte osvětlení, stínění, mikroklima i audio z jediné intuitivní aplikace. Automatizované scénáře snižují každodenní stres a vytvářejí dokonalé podmínky pro práci i odpočinek.",
-				"Proměňte svůj luxusní dům v oázu klidu, která zvyšuje kvalitu života. Objevte budoucnost zdravého bydlení a biofilního designu v České republice."
+				"Od hotelů a restaurací po obchody a showroomy – P&A Vision dodává profesionální automatizaci pro komerční prostory. Osvětlení, klimatizace, audio i řízení přístupu fungují jako jeden spolehlivý celek.",
+				"Centrální správa umožňuje ovládat celý objekt z jednoho rozhraní. Scénáře pro otevírací dobu, akce i noční režim se spouští automaticky podle harmonogramu.",
+				"Snižte provozní náklady díky chytrému řízení energií a získejte přehled o celém provozu v reálném čase. Systém roste spolu s vaší firmou.",
+				"Navrhujeme a integrujeme řešení pro firmy po celé České republice – s důrazem na spolehlivost, bezpečnost a reprezentativní vzhled."
 			]
 		}
 	},
