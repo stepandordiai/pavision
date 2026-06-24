@@ -247,11 +247,22 @@
 	gap: 12px;
 }
 
+.menu-bottom {
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: grid-template-rows 0.5s;
+
+	&--visible {
+		grid-template-rows: 1fr;
+	}
+}
+
 .menu-bottom-inner {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 12px;
 	margin-top: 12px;
+	overflow: hidden;
 }
 
 .menu-nav {

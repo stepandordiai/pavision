@@ -1,10 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import ArrowRightUpIcon from "@/components/icons/ArrowRightUpIcon";
 import { getProducts } from "@/lib/api/products";
 import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
-import { TransitionLink } from "@/components/TransitionLink";
 import ProductCard from "@/components/ProductCard/ProductCard";
 
 interface Product {

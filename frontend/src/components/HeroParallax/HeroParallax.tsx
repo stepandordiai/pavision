@@ -71,20 +71,13 @@ const HeroParallax = ({
 					{secondaryBtnTxt}
 				</a>
 			</div>
-			{/* <img
-				onLoad={() => setShowImg(true)}
-				className={`hero-parallax__img ${showImg ? "hero-parallax__img--visible" : ""}`}
-				style={{ transform: `translateY(${parallax}px)` }}
-				src={imgSrc}
-				alt=""
-			/> */}
 			<Image
 				onLoad={() => setShowImg(true)}
 				className={`hero-parallax__img ${showImg ? "hero-parallax__img--visible" : ""}`}
 				style={{ transform: `translateY(${parallax}px)` }}
 				src={imgSrc}
 				alt={imgAlt}
-				fill // or width/height
+				fill
 			/>
 			{/* darkness overlay */}
 			<div

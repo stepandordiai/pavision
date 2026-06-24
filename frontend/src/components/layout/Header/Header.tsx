@@ -235,48 +235,56 @@ const Header = () => {
 										Brands
 									</button>
 								</div>
-								<div ref={menuBottomRef} className="menu-bottom-inner">
-									<TransitionLink
-										onClick={() => {
-											setMenuOpen(false);
-											setMenuExpanded(false);
-										}}
-										className={`header-bottom__link ${menuExpanded ? "header-bottom__link--visible" : ""}`}
-										href="/loxone-smart-home"
-									>
-										<span
-											style={{
-												display: "flex",
-												justifyContent: "space-between",
-												width: "100%",
+								<div
+									ref={menuBottomRef}
+									className={`menu-bottom ${menuExpanded ? "menu-bottom--visible" : ""}`}
+								>
+									<div className="menu-bottom-inner">
+										<TransitionLink
+											onClick={() => {
+												setMenuOpen(false);
+												setMenuExpanded(false);
 											}}
+											className={`header-bottom__link ${menuExpanded ? "header-bottom__link--visible" : ""}`}
+											href="/loxone-smart-home"
 										>
-											<span>Loxone</span>
-											<ChevronRightIcon size={24} />
-										</span>
-									</TransitionLink>
-									<TransitionLink
-										onClick={() => {
-											setMenuOpen(false);
-											setMenuExpanded(false);
-										}}
-										className={`header-bottom__link ${menuExpanded ? "header-bottom__link--visible" : ""}`}
-										href="/crestron-home"
-									>
-										<span
-											style={{
-												display: "flex",
-												justifyContent: "space-between",
-												width: "100%",
+											<span
+												style={{
+													display: "flex",
+													justifyContent: "space-between",
+													width: "100%",
+												}}
+											>
+												<span>Loxone</span>
+												<ChevronRightIcon size={24} />
+											</span>
+										</TransitionLink>
+										<TransitionLink
+											onClick={() => {
+												setMenuOpen(false);
+												setMenuExpanded(false);
 											}}
+											className={`header-bottom__link ${menuExpanded ? "header-bottom__link--visible" : ""}`}
+											href="/crestron-home"
 										>
-											<span>Crestron</span>
-											<ChevronRightIcon size={24} />
-										</span>
-									</TransitionLink>
+											<span
+												style={{
+													display: "flex",
+													justifyContent: "space-between",
+													width: "100%",
+												}}
+											>
+												<span>Crestron</span>
+												<ChevronRightIcon size={24} />
+											</span>
+										</TransitionLink>
+									</div>
 								</div>
 							</nav>
-							<div style={{ flexShrink: 0 }} className="footer__divider"></div>
+							<div
+								style={{ flexShrink: 0, marginTop: "auto" }}
+								className="footer__divider"
+							></div>
 							<div>
 								<div
 									style={{
