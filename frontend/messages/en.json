@@ -168,20 +168,20 @@
 			"badge": "Showroom",
 			"title": "Smart Home Showroom",
 			"description": [
-				"P&A Vision runs a smart home showroom where you can experience Crestron, Loxone, and Lutron systems live. In one place you'll see how lighting, shading, heating, and audio work together as a single connected ecosystem.",
-				"Try one-touch scene control for yourself – from a gentle morning wake-up to a full cinema evening. Feel firsthand how a smart home responds in real time and how seamlessly the technology blends into a luxury interior.",
-				"During your visit our specialists will design a solution tailored precisely to your home or apartment. We'll walk through integration options, budget, and installation – clearly and with no obligation.",
-				"Our showroom serves clients across Europe and is open by appointment. Book a time and discover a new standard of intelligent living with your own eyes."
+				"P&A Vision is currently developing a dedicated smart home showroom where you'll be able to experience Crestron, Loxone, and Lutron systems first-hand. Our aim is to demonstrate, in one place, how lighting, shading, heating, and audio work together as a single connected ecosystem.",
+				"We're exploring several directions – a branded showroom in partnership with manufacturers such as Samsung, a professional audio recording studio, and a multi-purpose shared space combining smart home and commercial integration. We're choosing the concept that delivers the most value to our clients across the EU.",
+				"Until the showroom opens, our specialists will design a solution tailored precisely to your home or project. During a no-obligation consultation, we'll walk you through system integration, budget, and installation – clearly and without pressure.",
+				"Want to be among the first to see it? Get in touch and we'll keep you informed about the showroom launch and the latest in intelligent living for homes across Europe."
 			]
 		},
 		"office": {
 			"badge": "Office",
 			"title": "Smart Office & Workspace",
 			"description": [
-				"Transform your office into a productive, representative environment. P&A Vision integrates lighting, shading, climate, and audio/video into one system that adapts to your team's daily rhythm.",
-				"Launch automated scenes for meetings, presentations, or everyday work with a single touch. Conference rooms prepare themselves – lighting, blinds, and projection respond exactly when needed.",
-				"Smart control lowers running costs through automatic lighting and efficient temperature regulation. Monitor and manage everything clearly from one place.",
-				"We design and deliver solutions for offices and corporate spaces across Europe – reliably, elegantly, and with attention to detail."
+				"Turn your office into a productive, professional environment. P&A Vision integrates meeting room booking, video conferencing, lighting, shading, climate control, and audio/video into a single system that adapts to your team's daily rhythm.",
+				"Your team books a meeting room with one tap, and the space prepares itself – the video call launches, the projection drops down, and lighting and blinds adjust automatically. A panel by the door shows at a glance whether the room is free or busy, so meetings never overlap.",
+				"Run seamless video conferences with automatic audio and camera control, without fiddling with the tech. Smart management also cuts running costs through automatic lighting and efficient temperature regulation – all monitored and controlled from one place.",
+				"We design and deliver meeting room booking and video conferencing solutions for offices and corporate spaces across the EU. Reliably, elegantly, and with attention to detail."
 			]
 		},
 		"familyHome": {
@@ -198,10 +198,10 @@
 			"badge": "Business",
 			"title": "Smart Solutions for Business & Commercial Spaces",
 			"description": [
-				"From hotels and restaurants to shops and showrooms – P&A Vision delivers professional automation for commercial spaces. Lighting, climate, audio, and access control work together as one reliable system.",
-				"Centralised management lets you control an entire venue from a single interface. Scenes for opening hours, events, and night mode run automatically on schedule.",
-				"Cut operating costs with smart energy management and gain real-time insight into your entire operation. The system scales together with your business.",
-				"We design and integrate solutions for businesses across Europe – with a focus on reliability, security, and a representative finish."
+				"From hotels and restaurants to retail and showrooms – P&A Vision delivers professional automation and network infrastructure for commercial spaces. Structured cabling, Wi-Fi networks, CCTV and security systems, and access control work together as one reliable whole.",
+				"A dependable network is the foundation of every operation. We design and build network infrastructure with security at its core – network segmentation, firewall, monitoring, and backup – and connect it with cameras, access systems, and alarms in a single clear interface.",
+				"Cut electricity consumption through smart energy management – automatic shutdown of devices, plus lighting and climate control based on occupancy and schedule. You get real-time visibility into costs, and the system scales as your business grows.",
+				"We design and integrate networks, security, and energy-saving solutions for businesses across the EU – with a focus on reliability, safety, and a professional appearance."
 			]
 		}
 	},

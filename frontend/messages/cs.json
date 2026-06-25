@@ -165,20 +165,20 @@
 			"badge": "Showroom",
 			"title": "Showroom chytré domácnosti",
 			"description": [
-				"P&A Vision provozuje showroom chytré domácnosti, kde si naživo vyzkoušíte systémy Crestron, Loxone i Lutron. Na jednom místě uvidíte, jak spolu osvětlení, stínění, vytápění a audio fungují jako jeden propojený celek.",
-				"Vyzkoušejte si ovládání scén jediným dotykem – od ranního probuzení po večerní kino. Zažijete na vlastní kůži, jak chytrá domácnost reaguje v reálném čase a jak přirozeně technologie zapadá do luxusního interiéru.",
-				"Naši specialisté vám během návštěvy navrhnou řešení přesně na míru vašemu domu nebo bytu. Probereme možnosti integrace, rozpočet i realizaci – bez závazků a srozumitelně.",
-				"Showroom najdete v České republice a je otevřený po předchozí domluvě. Rezervujte si termín a objevte nový standard inteligentního bydlení na vlastní oči."
+				"P&A Vision aktuálně připravuje vlastní showroom chytré domácnosti, kde si budete moci naživo vyzkoušet systémy Crestron, Loxone i Lutron. Naším cílem je ukázat na jednom místě, jak osvětlení, stínění, vytápění a audio spolupracují jako jeden propojený celek.",
+				"Zvažujeme hned několik směrů – značkový showroom ve spolupráci s výrobci jako Samsung, profesionální nahrávací audio studio i sdílený multifunkční prostor, kde se potkají chytré technologie pro domácnost i komerční interiéry. Vybíráme variantu, která našim klientům v České republice přinese nejvíc.",
+				"Než showroom otevřeme, navrhneme vám řešení na míru přímo pro váš dům nebo byt. Při nezávazné konzultaci probereme integraci systémů, rozpočet i realizaci – srozumitelně a bez tlaku na rychlé rozhodnutí.",
+				"Chcete být u toho jako první? Ozvěte se nám a my vás budeme informovat o spuštění showroomu i o aktuálních možnostech inteligentního bydlení v České republice."
 			]
 		},
 		"office": {
 			"badge": "Kancelář",
 			"title": "Chytrá kancelář a pracovní prostor",
 			"description": [
-				"Proměňte kancelář v produktivní a reprezentativní prostředí. P&A Vision integruje osvětlení, stínění, klimatizaci i audio/video do jednoho systému, který se sám přizpůsobí dennímu režimu vašeho týmu.",
-				"Automatické scénáře pro porady, prezentace i běžnou práci spustíte jediným dotykem. Zasedací místnosti se připraví samy – světlo, žaluzie i projekce reagují podle potřeby.",
-				"Chytré řízení snižuje provozní náklady díky automatickému vypínání světel a efektivní regulaci teploty. Vše přehledně sledujete a ovládáte z jednoho místa.",
-				"Navrhneme a zrealizujeme řešení pro kanceláře a firemní prostory po celé České republice. Spolehlivě, elegantně a s důrazem na detail."
+				"Proměňte kancelář v produktivní a reprezentativní prostředí. P&A Vision integruje rezervační systém zasedacích místností, videokonference, osvětlení, stínění, klimatizaci i audio/video do jednoho systému, který se sám přizpůsobí dennímu režimu vašeho týmu.",
+				"Zasedačku si tým rezervuje jediným dotykem a místnost se na schůzku připraví sama – spustí se videohovor, sjede projekce, upraví se světlo i žaluzie. Panel u dveří jasně ukáže, kdy je volno a kdy obsazeno, takže se porady nepřekrývají.",
+				"Bezproblémové videokonference s automatickým ozvučením a kamerou zvládnete bez ladění techniky. Chytré řízení navíc snižuje provozní náklady díky automatickému vypínání světel a efektivní regulaci teploty – vše sledujete a ovládáte z jednoho místa.",
+				"Navrhneme a zrealizujeme řešení pro rezervace místností a videokonference v kancelářích a firemních prostorech po celé České republice. Spolehlivě, elegantně a s důrazem na detail."
 			]
 		},
 		"familyHome": {
@@ -195,10 +195,10 @@
 			"badge": "Firma",
 			"title": "Chytré řešení pro firmy a komerční prostory",
 			"description": [
-				"Od hotelů a restaurací po obchody a showroomy – P&A Vision dodává profesionální automatizaci pro komerční prostory. Osvětlení, klimatizace, audio i řízení přístupu fungují jako jeden spolehlivý celek.",
-				"Centrální správa umožňuje ovládat celý objekt z jednoho rozhraní. Scénáře pro otevírací dobu, akce i noční režim se spouští automaticky podle harmonogramu.",
-				"Snižte provozní náklady díky chytrému řízení energií a získejte přehled o celém provozu v reálném čase. Systém roste spolu s vaší firmou.",
-				"Navrhujeme a integrujeme řešení pro firmy po celé České republice – s důrazem na spolehlivost, bezpečnost a reprezentativní vzhled."
+				"Od hotelů a restaurací po obchody a showroomy – P&A Vision dodává profesionální automatizaci a síťovou infrastrukturu pro komerční prostory. Strukturovaná kabeláž, Wi-Fi sítě, kamerové a zabezpečovací systémy i řízení přístupu fungují jako jeden spolehlivý celek.",
+				"Spolehlivá síť je základ každého provozu. Navrhneme a postavíme síťovou infrastrukturu s důrazem na bezpečnost – segmentaci sítě, firewall, monitoring i zálohování – a propojíme ji s kamerami, přístupovými systémy a alarmem do jednoho přehledného rozhraní.",
+				"Snižte spotřebu elektřiny díky chytrému řízení energií – automatické vypínání spotřebičů, regulaci osvětlení i klimatizace podle obsazenosti a harmonogramu. Získáte přehled o nákladech v reálném čase a systém roste spolu s vaší firmou.",
+				"Navrhujeme a integrujeme sítě, zabezpečení a úsporná energetická řešení pro firmy po celé České republice – s důrazem na spolehlivost, bezpečnost a reprezentativní vzhled."
 			]
 		}
 	},

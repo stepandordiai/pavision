@@ -26,7 +26,7 @@ const whatWeDo = [
 		title: "home.whatWeDo.title3",
 		desc: "home.whatWeDo.desc3",
 		brands: ["Ubiquiti", "MikroTik", "Cisco"],
-		img: "https://www.loxone.com/dede/wp-content/uploads/sites/2/2022/02/FS-Landingpage-Smart-Home-Kosten-Mobile.jpg",
+		img: "/network-infrastructure.png",
 		icon: "/wifi.png",
 	},
 ];
