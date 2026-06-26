@@ -13,7 +13,6 @@ interface SceneConfig {
 	skyT: string;
 	skyB: string;
 	sun: number;
-	led: number;
 	aR: number;
 	aG: number;
 	aB: number;
@@ -22,49 +21,48 @@ interface SceneConfig {
 
 const SCENES: Record<Scene, SceneConfig> = {
 	relax: {
-		wT: "#efe7da",
-		wB: "#e6d8c4",
-		fT: "#d9cbb0",
-		fB: "#bda584",
-		cT: "#f8eed8",
-		skyT: "#ffd27f",
-		skyB: "#ff9e5a",
-		sun: 1,
-		led: 0,
+		// warm, cozy, dimmed — golden-hour amber evening
+		wT: "#e4c9a8",
+		wB: "#caa97e",
+		fT: "#bb8f56",
+		fB: "#8f6a3e",
+		cT: "#e8cda6",
+		skyT: "#e3a865",
+		skyB: "#f0c98e",
+		sun: 0.55,
 		aR: 255,
-		aG: 198,
-		aB: 120,
-		br: 0.68,
+		aG: 178,
+		aB: 104,
+		br: 0.5,
 	},
 	bright: {
-		wT: "#f2f5fa",
-		wB: "#e6ecf4",
-		fT: "#e4dccb",
-		fB: "#c8bca4",
-		cT: "#fcfdff",
-		skyT: "#7ec0f0",
-		skyB: "#c8e4f7",
+		// cool, crisp, full daylight — clean and airy
+		wT: "#f4f5f6",
+		wB: "#e4e8ec",
+		fT: "#ddc9a2",
+		fB: "#c2aa7e",
+		cT: "#ffffff",
+		skyT: "#7ec0f2",
+		skyB: "#d4ecfb",
 		sun: 1,
-		led: 0,
-		aR: 255,
+		aR: 244,
 		aG: 250,
-		aB: 235,
+		aB: 255,
 		br: 1.0,
 	},
 	cinema: {
-		wT: "#171327",
-		wB: "#0c0a18",
-		fT: "#241c34",
-		fB: "#16102e",
-		cT: "#1e1830",
-		skyT: "#0a0820",
-		skyB: "#161232",
+		wT: "#1c1822",
+		wB: "#120f18",
+		fT: "#241d27",
+		fB: "#15101a",
+		cT: "#211b2a",
+		skyT: "#0a0a16",
+		skyB: "#13111f",
 		sun: 0,
-		led: 1,
-		aR: 90,
-		aG: 70,
-		aB: 200,
-		br: 0.08,
+		aR: 120,
+		aG: 90,
+		aB: 210,
+		br: 0.1,
 	},
 };
 
@@ -91,11 +89,63 @@ function lc(a: string, b: string, t: number): string {
 	const p = (s: string) => parseInt(s.slice(1, 3), 16);
 	const q = (s: string) => parseInt(s.slice(3, 5), 16);
 	const r = (s: string) => parseInt(s.slice(5, 7), 16);
-	return `rgb(${Math.round(ln(p(a), p(b), t))},${Math.round(ln(q(a), q(b), t))},${Math.round(ln(r(a), r(b), t))})`;
+	return `rgb(${Math.round(ln(p(a), p(b), t))},${Math.round(
+		ln(q(a), q(b), t),
+	)},${Math.round(ln(r(a), r(b), t))})`;
+}
+
+// ── TIME-OF-DAY OUTDOOR SKY ───────────────────────────────────
+// Maps the visitor's real local hour (0–24, fractional ok) to the
+// outdoor sky/sun so the garden matches their actual time of day.
+// This is independent of the room Lighting Scenes.
+interface SkyOfDay {
+	skyT: string;
+	skyB: string;
+	sun: number; // 0..1 sun bloom + warm transmit
+	stars: number; // 0..1 star visibility
+	ground: string; // lawn/garden tint
+	daylight: number; // 0..1 overall outdoor brightness (for window glow)
+}
+// keyframes across 24h; values interpolate between the nearest two
+const SKY_KEYS: { h: number; v: SkyOfDay }[] = [
+	{ h: 0, v: { skyT: "#070a18", skyB: "#0d1430", sun: 0, stars: 1, ground: "#10160f", daylight: 0.06 } }, // deep night
+	{ h: 5, v: { skyT: "#1b2440", skyB: "#3a3550", sun: 0.05, stars: 0.5, ground: "#1c2616", daylight: 0.16 } }, // pre-dawn
+	{ h: 7, v: { skyT: "#9fb6d8", skyB: "#f0c9a0", sun: 0.55, stars: 0, ground: "#5e7a44", daylight: 0.6 } }, // sunrise / morning
+	{ h: 9, v: { skyT: "#8fc0ea", skyB: "#d6ecf6", sun: 0.7, stars: 0, ground: "#6f8f4e", daylight: 0.82 } }, // bright morning
+	{ h: 13, v: { skyT: "#5fa8e8", skyB: "#cfe9fb", sun: 1, stars: 0, ground: "#7da055", daylight: 1 } }, // warm sunny midday
+	{ h: 17, v: { skyT: "#79b0e0", skyB: "#ffe3b0", sun: 0.8, stars: 0, ground: "#6f8f4e", daylight: 0.78 } }, // afternoon
+	{ h: 19, v: { skyT: "#3a3f6e", skyB: "#e88a4e", sun: 0.5, stars: 0.1, ground: "#3e4a2c", daylight: 0.4 } }, // sunset / dusk
+	{ h: 20.5, v: { skyT: "#161a38", skyB: "#3a2f4a", sun: 0.1, stars: 0.5, ground: "#1e2616", daylight: 0.16 } }, // nightfall
+	{ h: 23, v: { skyT: "#080b1c", skyB: "#0f1734", sun: 0, stars: 1, ground: "#121810", daylight: 0.07 } }, // starry night
+	{ h: 24, v: { skyT: "#070a18", skyB: "#0d1430", sun: 0, stars: 1, ground: "#10160f", daylight: 0.06 } }, // wrap to midnight
+];
+function skyForHour(hour: number): SkyOfDay {
+	const h = ((hour % 24) + 24) % 24;
+	let lo = SKY_KEYS[0],
+		hi = SKY_KEYS[SKY_KEYS.length - 1];
+	for (let i = 0; i < SKY_KEYS.length - 1; i++) {
+		if (h >= SKY_KEYS[i].h && h <= SKY_KEYS[i + 1].h) {
+			lo = SKY_KEYS[i];
+			hi = SKY_KEYS[i + 1];
+			break;
+		}
+	}
+	const span = hi.h - lo.h || 1;
+	const t = (h - lo.h) / span;
+	return {
+		skyT: lc(lo.v.skyT, hi.v.skyT, t),
+		skyB: lc(lo.v.skyB, hi.v.skyB, t),
+		sun: ln(lo.v.sun, hi.v.sun, t),
+		stars: ln(lo.v.stars, hi.v.stars, t),
+		ground: lc(lo.v.ground, hi.v.ground, t),
+		daylight: ln(lo.v.daylight, hi.v.daylight, t),
+	};
 }
 
 interface DrawState extends SceneConfig {
-	shade: number;
+	shade: number; // 0 = open, 100 = closed (both windows)
+	ceil: number; // 0..1 ceiling LED cove
+	shelf: number; // 0..1 bookshelf backlight
 }
 
 function blend(f: DrawState, t: DrawState, e: number): DrawState {
@@ -108,20 +158,14 @@ function blend(f: DrawState, t: DrawState, e: number): DrawState {
 		skyT: lc(f.skyT, t.skyT, e),
 		skyB: lc(f.skyB, t.skyB, e),
 		sun: ln(f.sun, t.sun, e),
-		led: ln(f.led, t.led, e),
 		aR: ln(f.aR, t.aR, e),
 		aG: ln(f.aG, t.aG, e),
 		aB: ln(f.aB, t.aB, e),
 		br: ln(f.br, t.br, e),
 		shade: ln(f.shade, t.shade, e),
+		ceil: ln(f.ceil, t.ceil, e),
+		shelf: ln(f.shelf, t.shelf, e),
 	};
-}
-
-interface RoomUI {
-	vol: number;
-	muted: boolean;
-	audioOn: boolean;
-	playing: boolean;
 }
 
 function drawRoom(
@@ -129,10 +173,12 @@ function drawRoom(
 	s: DrawState,
 	tvOn: boolean,
 	video: HTMLVideoElement | null,
-	ui?: RoomUI,
+	time: number,
+	hour: number,
 ) {
-	const fY = H * 0.62;
 	const M = 150;
+	const fY = H * 0.6; // floor line — raised wall / deeper foreground for the sofas
+	const ceilY = H * 0.18; // ceiling soffit line
 	const rr = (
 		x: number,
 		y: number,
@@ -143,21 +189,16 @@ function drawRoom(
 		cx.beginPath();
 		cx.roundRect(x, y, w, h, r as number);
 	};
-	// deterministic pseudo-random so textures don't flicker between frames
 	const rnd = (i: number) => {
 		const x = Math.sin(i * 127.1 + 311.7) * 43758.5453;
 		return x - Math.floor(x);
 	};
-	// continuous "darkness" factor (0 = fully lit palette, 1 = night/cinema)
-	// replaces hard `s.br < 0.4 ? dark : light` switches so materials
-	// interpolate smoothly across a scene transition instead of snapping.
 	const darkF = Math.max(0, Math.min(1, (0.5 - s.br) / 0.42));
 	const hx = (h: string) => [
 		parseInt(h.slice(1, 3), 16),
 		parseInt(h.slice(3, 5), 16),
 		parseInt(h.slice(5, 7), 16),
 	];
-	// mix light↔dark hex by the current darkF (or an explicit amount)
 	const mix = (lightHex: string, darkHex: string, amt = darkF) => {
 		const a = hx(lightHex),
 			b = hx(darkHex);
@@ -166,563 +207,454 @@ function drawRoom(
 		)},${Math.round(a[2] + (b[2] - a[2]) * amt)})`;
 	};
 
-	// ── CEILING ───────────────────────────────────────────────
-	const cg = cx.createLinearGradient(0, -M, 0, fY * 0.42);
+	// ─────────────────────────────────────────────────────────
+	// CEILING (tray) + perimeter LED cove
+	// ─────────────────────────────────────────────────────────
+	const cg = cx.createLinearGradient(0, -M, 0, ceilY + 20);
 	cg.addColorStop(0, s.cT);
 	cg.addColorStop(1, s.wT);
 	cx.fillStyle = cg;
-	cx.fillRect(-M, -M, W + 2 * M, fY * 0.32 + M);
+	cx.fillRect(-M, -M, W + 2 * M, ceilY + M);
 
-	// soft overall ceiling wash (brighter, even, premium)
-	if (s.br > 0.12) {
-		const wash = cx.createLinearGradient(0, -M, 0, fY * 0.34);
-		wash.addColorStop(0, `rgba(255,246,228,${0.1 + s.br * 0.12})`);
-		wash.addColorStop(1, "rgba(255,246,228,0)");
-		cx.fillStyle = wash;
-		cx.fillRect(-M, -M, W + 2 * M, fY * 0.34 + M);
+	// recessed soffit step
+	cx.fillStyle = mix("#e7ddcc", "#191421");
+	cx.fillRect(-M, ceilY - 12, W + 2 * M, 12);
+	cx.fillStyle = "rgba(0,0,0,0.18)";
+	cx.fillRect(-M, ceilY, W + 2 * M, 2);
+
+	// warm white 3000K LED cove — thin, bright, edge-to-edge rectangular tray.
+	// Glow is confined to the ceiling band so it never spills onto the windows.
+	if (s.ceil > 0.01) {
+		const a = s.ceil;
+		// tray spans almost the full room width, in mild perspective
+		const trayTop = ceilY * 0.3; // far edge (higher up, slightly inset)
+		const trayBot = ceilY - 6; // near edge (just above the soffit)
+		const innerTopL = W * 0.14,
+			innerTopR = W * 0.86; // far edge — reaches toward the corners
+		const outerBotL = -M * 0.2,
+			outerBotR = W + M * 0.2; // near edge — runs off to the room corners
+		// recessed dark tray channel
+		cx.fillStyle = mix("#d9cdba", "#15111b");
+		cx.beginPath();
+		cx.moveTo(innerTopL - 6, trayTop);
+		cx.lineTo(innerTopR + 6, trayTop);
+		cx.lineTo(outerBotR + 6, trayBot);
+		cx.lineTo(outerBotL - 6, trayBot);
+		cx.closePath();
+		cx.fill();
+		// inner ceiling panel inside the tray
+		cx.fillStyle = mix("#efe6d6", "#1d1726");
+		cx.beginPath();
+		cx.moveTo(innerTopL, trayTop + 3);
+		cx.lineTo(innerTopR, trayTop + 3);
+		cx.lineTo(outerBotR, trayBot - 3);
+		cx.lineTo(outerBotL, trayBot - 3);
+		cx.closePath();
+		cx.fill();
+
+		// thin, bright LED edge — minimal bloom, hot core, fine diodes
+		const led = (
+			x1: number,
+			y1: number,
+			x2: number,
+			y2: number,
+			near = false,
+		) => {
+			const k = near ? 1 : 0.85;
+			// tight bloom (thin, not wide)
+			cx.strokeStyle = `rgba(255,212,156,${0.3 * a * k})`;
+			cx.lineWidth = 6;
+			cx.lineCap = "round";
+			cx.beginPath();
+			cx.moveTo(x1, y1);
+			cx.lineTo(x2, y2);
+			cx.stroke();
+			// bright thin core
+			cx.strokeStyle = `rgba(255,248,228,${a * k})`;
+			cx.lineWidth = 1.4;
+			cx.beginPath();
+			cx.moveTo(x1, y1);
+			cx.lineTo(x2, y2);
+			cx.stroke();
+			// fine diode beads
+			const len = Math.hypot(x2 - x1, y2 - y1);
+			const n = Math.max(2, Math.round(len / 6));
+			for (let i = 0; i <= n; i++) {
+				const t = i / n;
+				cx.fillStyle = `rgba(255,252,238,${0.95 * a * k})`;
+				cx.beginPath();
+				cx.arc(ln(x1, x2, t), ln(y1, y2, t), 0.55, 0, Math.PI * 2);
+				cx.fill();
+			}
+			cx.lineCap = "butt";
+		};
+		led(innerTopL, trayTop, innerTopR, trayTop);
+		led(innerTopL, trayTop, outerBotL, trayBot);
+		led(innerTopR, trayTop, outerBotR, trayBot);
+		led(outerBotL, trayBot, outerBotR, trayBot, true);
+
+		// indirect bounce UP onto the ceiling slab (stays above the soffit)
+		const up = cx.createLinearGradient(0, trayBot, 0, trayTop - 30);
+		up.addColorStop(0, `rgba(255,224,176,${0.5 * a})`);
+		up.addColorStop(1, "rgba(255,224,176,0)");
+		cx.fillStyle = up;
+		cx.fillRect(-M, trayTop - 30, W + 2 * M, trayBot - trayTop + 30);
+		// short downward wash — capped ABOVE the windows so glass stays clean
+		const washBot = Math.min(ceilY + 4, ceilY); // stop at the soffit line
+		const cov = cx.createLinearGradient(0, trayBot, 0, washBot);
+		cov.addColorStop(0, `rgba(255,220,166,${0.6 * a})`);
+		cov.addColorStop(1, "rgba(255,214,158,0)");
+		cx.fillStyle = cov;
+		cx.fillRect(-M, trayBot, W + 2 * M, Math.max(0, washBot - trayBot));
 	}
 
-	// recessed ceiling downlights (brightened ~18%)
-	const ceilY = fY * 0.12;
-	[W * 0.34, W * 0.5, W * 0.66, W * 0.82].forEach((lx) => {
-		cx.fillStyle = "rgba(0,0,0,0.10)";
-		cx.beginPath();
-		cx.ellipse(lx, ceilY, 4, 2.4, 0, 0, Math.PI * 2);
-		cx.fill();
-		cx.fillStyle =
-			s.br > 0.2
-				? `rgba(255,242,212,${Math.min(1, 0.62 + s.br * 0.46)})`
-				: "rgba(95,95,115,0.5)";
-		cx.beginPath();
-		cx.ellipse(lx, ceilY, 2, 1.2, 0, 0, Math.PI * 2);
-		cx.fill();
-		if (s.br > 0.15) {
-			const dl = cx.createRadialGradient(lx, ceilY, 0, lx, ceilY, 66 * s.br);
-			dl.addColorStop(0, `rgba(${s.aR},${s.aG},${s.aB},${s.br * 0.12})`);
-			dl.addColorStop(1, "rgba(0,0,0,0)");
-			cx.fillStyle = dl;
+	// recessed downlights across the ceiling (speakers moved to floor towers)
+	const ceilItems = [
+		{ x: W * 0.16 },
+		{ x: W * 0.3 },
+		{ x: W * 0.44 },
+		{ x: W * 0.56 },
+		{ x: W * 0.7 },
+		{ x: W * 0.84 },
+	];
+	ceilItems.forEach(({ x }) => {
+		const y = ceilY * 0.5;
+		{
+			cx.fillStyle = "rgba(0,0,0,0.12)";
 			cx.beginPath();
-			cx.moveTo(lx, ceilY);
-			cx.lineTo(lx + 42 * s.br, fY);
-			cx.lineTo(lx - 42 * s.br, fY);
-			cx.closePath();
+			cx.ellipse(x, y, 3.4, 2, 0, 0, Math.PI * 2);
 			cx.fill();
-		}
-	});
-
-	// flush in-ceiling architectural speakers (whole-home audio)
-	[W * 0.42, W * 0.74].forEach((sx) => {
-		const sy = fY * 0.055;
-		cx.fillStyle = mix("#d8d2c6", "#1a1a1e");
-		cx.beginPath();
-		cx.ellipse(sx, sy, 6, 3.4, 0, 0, Math.PI * 2);
-		cx.fill();
-		cx.strokeStyle = "rgba(0,0,0,0.18)";
-		cx.lineWidth = 0.5;
-		cx.beginPath();
-		cx.ellipse(sx, sy, 6, 3.4, 0, 0, Math.PI * 2);
-		cx.stroke();
-		// perforated grille dots
-		cx.fillStyle = "rgba(0,0,0,0.22)";
-		for (let gx = -4; gx <= 4; gx += 2) {
-			for (let gy = -2; gy <= 2; gy += 2) {
-				if (gx * gx * 0.3 + gy * gy < 6) {
-					cx.beginPath();
-					cx.ellipse(sx + gx, sy + gy * 0.6, 0.5, 0.3, 0, 0, Math.PI * 2);
-					cx.fill();
-				}
+			cx.fillStyle =
+				s.br > 0.2
+					? `rgba(255,242,212,${Math.min(1, 0.55 + s.br * 0.45)})`
+					: "rgba(90,90,112,0.5)";
+			cx.beginPath();
+			cx.ellipse(x, y, 1.7, 1, 0, 0, Math.PI * 2);
+			cx.fill();
+			if (s.br > 0.15) {
+				const dl = cx.createRadialGradient(x, y, 0, x, y, 50 * s.br);
+				dl.addColorStop(0, `rgba(${s.aR},${s.aG},${s.aB},${s.br * 0.1})`);
+				dl.addColorStop(1, "rgba(0,0,0,0)");
+				cx.fillStyle = dl;
+				cx.beginPath();
+				cx.moveTo(x, y);
+				cx.lineTo(x + 30 * s.br, fY);
+				cx.lineTo(x - 30 * s.br, fY);
+				cx.closePath();
+				cx.fill();
 			}
 		}
 	});
 
-	// hidden LED cove (warm indirect, slightly stronger)
-	const coveY = fY * 0.32;
-	const coveGrad = cx.createLinearGradient(0, coveY - 3, 0, coveY + 24);
-	const coveA = 0.26 + s.br * 0.34 + s.led * 0.25;
-	coveGrad.addColorStop(0, `rgba(255,216,154,${Math.min(0.85, coveA)})`);
-	coveGrad.addColorStop(1, "rgba(255,216,154,0)");
-	cx.fillStyle = coveGrad;
-	cx.fillRect(-M, coveY - 3, W + 2 * M, 28);
-	cx.fillStyle = `rgba(255,226,174,${0.4 + s.br * 0.32})`;
-	cx.fillRect(-M, coveY - 2, W + 2 * M, 1.5);
-
-	// ── BACK WALL ─────────────────────────────────────────────
-	const wg = cx.createLinearGradient(0, coveY, 0, fY);
+	// ─────────────────────────────────────────────────────────
+	// BACK WALL plane
+	// ─────────────────────────────────────────────────────────
+	const wg = cx.createLinearGradient(0, ceilY, 0, fY);
 	wg.addColorStop(0, s.wT);
 	wg.addColorStop(1, s.wB);
 	cx.fillStyle = wg;
-	cx.fillRect(-M, coveY, W + 2 * M, fY - coveY);
+	cx.fillRect(-M, ceilY, W + 2 * M, fY - ceilY);
 
-	// ── TRAVERTINE FLOOR ──────────────────────────────────────
-	const fg = cx.createLinearGradient(0, fY, 0, H + M);
-	fg.addColorStop(0, s.fT);
-	fg.addColorStop(1, s.fB);
-	cx.fillStyle = fg;
-	cx.fillRect(-M, fY, W + 2 * M, H - fY + M);
+	// ─────────────────────────────────────────────────────────
+	// TWO PANORAMIC WINDOWS flanking the central feature
+	// ─────────────────────────────────────────────────────────
+	const featX = W * 0.5;
+	const featW = 118; // central marble feature width
+	const winTop = ceilY + 6;
+	const winBot = fY - 4;
+	const winH = winBot - winTop;
+	const leftWin = { x: 30, w: featX - featW / 2 - 30 - 6 };
+	const rightWin = { x: featX + featW / 2 + 6, w: W - 30 - (featX + featW / 2 + 6) };
 
-	// large-format stone seams (perspective)
-	const vanX = W * 0.5;
-	cx.strokeStyle = "rgba(0,0,0,0.06)";
-	cx.lineWidth = 0.5;
-	for (let i = 0; i <= 6; i++) {
-		const tx = i / 6;
+	const drawWindow = (wx: number, ww: number, flip: boolean) => {
+		// frame
+		cx.fillStyle = mix("#2c2823", "#0e0d10");
+		rr(wx - 4, winTop - 4, ww + 8, winH + 8, 2);
+		cx.fill();
+
+		// ── EVERYTHING OUTDOORS IS CLIPPED TO THE GLASS ──
+		// (this is the fix: trees/sky/sun can never paint into the room)
+		cx.save();
 		cx.beginPath();
-		cx.moveTo(ln(vanX, vanX, tx), fY);
-		cx.lineTo(ln(-M, W + M, tx), H + M);
-		cx.stroke();
-	}
-	for (let i = 1; i < 6; i++) {
-		const y = fY + (H + M - fY) * Math.pow(i / 6, 1.7);
+		cx.rect(wx, winTop, ww, winH);
+		cx.clip();
+
+		// ── TIME-OF-DAY outdoor scene (driven by the visitor's local hour) ──
+		const tod = skyForHour(hour);
+		const night = tod.daylight < 0.3; // dim foliage + show stars at night
+
+		// sky gradient for this hour
+		const sky = cx.createLinearGradient(wx, winTop, wx, winBot);
+		sky.addColorStop(0, tod.skyT);
+		sky.addColorStop(1, tod.skyB);
+		cx.fillStyle = sky;
+		cx.fillRect(wx, winTop, ww, winH);
+
+		// stars at night (deterministic per window, twinkle via time)
+		if (tod.stars > 0.05) {
+			for (let i = 0; i < 46; i++) {
+				const sxp = wx + rnd(i + (flip ? 200 : 0)) * ww;
+				const syp = winTop + rnd(i + 50) * winH * 0.6;
+				const tw2 = 0.6 + 0.4 * Math.sin(time * 0.003 + i * 1.3);
+				cx.fillStyle = `rgba(255,255,255,${tod.stars * (0.4 + rnd(i) * 0.5) * tw2})`;
+				cx.beginPath();
+				cx.arc(sxp, syp, rnd(i + 9) > 0.85 ? 1.1 : 0.6, 0, Math.PI * 2);
+				cx.fill();
+			}
+			// soft moon
+			const mx = flip ? wx + ww * 0.7 : wx + ww * 0.3;
+			const my = winTop + winH * 0.16;
+			const moon = cx.createRadialGradient(mx, my, 1, mx, my, 18);
+			moon.addColorStop(0, `rgba(245,248,255,${tod.stars * 0.95})`);
+			moon.addColorStop(0.25, `rgba(220,230,250,${tod.stars * 0.5})`);
+			moon.addColorStop(1, "rgba(200,215,245,0)");
+			cx.fillStyle = moon;
+			cx.beginPath();
+			cx.arc(mx, my, 18, 0, Math.PI * 2);
+			cx.fill();
+		}
+
+		// soft sun bloom (daytime), warm low sun near sunrise/sunset
+		if (tod.sun > 0.05) {
+			const bx = flip ? wx + ww * 0.25 : wx + ww * 0.75;
+			// sun sits lower in the sky at dawn/dusk
+			const lowSun = hour < 9 || hour > 17;
+			const by = winTop + winH * (lowSun ? 0.5 : 0.26);
+			const warm = lowSun ? "255,196,120" : "255,248,214";
+			const bl = cx.createRadialGradient(bx, by, 4, bx, by, ww * 0.75);
+			bl.addColorStop(0, `rgba(${warm},${0.6 * tod.sun})`);
+			bl.addColorStop(1, `rgba(${warm},0)`);
+			cx.fillStyle = bl;
+			cx.fillRect(wx, winTop, ww, winH);
+		}
+
+		// distant treeline / lawn
+		const horizon = winTop + winH * 0.78;
+		// far hedge band (tinted by time of day)
+		cx.fillStyle = night ? "rgba(20,30,22,0.78)" : "rgba(96,128,78,0.55)";
+		cx.fillRect(wx, horizon - winH * 0.06, ww, winH * 0.1);
+		// manicured lawn
+		const lawn = cx.createLinearGradient(0, horizon, 0, winBot);
+		const gB = tod.ground;
+		lawn.addColorStop(0, gB);
+		lawn.addColorStop(1, night ? "rgba(8,16,8,0.92)" : "rgba(70,104,52,0.9)");
+		cx.fillStyle = lawn;
+		cx.fillRect(wx, horizon, ww, winBot - horizon);
+
+		// detailed trees — layered foliage clumps, trunk, branches
+		const nTrees = Math.max(2, Math.round(ww / 24));
+		for (let i = 0; i < nTrees; i++) {
+			const seed = i + (flip ? 40 : 0);
+			const tx = wx + ((i + 0.5) / nTrees) * ww + (rnd(seed) - 0.5) * 8;
+			// trees stay short relative to the window so they read as a garden
+			// band behind the glass (sky fills the space above them)
+			const th = winH * (0.18 + rnd(seed + 5) * 0.14);
+			const tw = th * (0.55 + rnd(seed + 9) * 0.22);
+			const rootY = horizon + winH * 0.02;
+			const topY = rootY - th;
+			// trunk
+			cx.strokeStyle = night ? "rgba(18,16,12,0.85)" : "rgba(74,54,36,0.7)";
+			cx.lineWidth = 1.8;
+			cx.beginPath();
+			cx.moveTo(tx, rootY);
+			cx.lineTo(tx + (rnd(seed + 2) - 0.5) * 4, topY + th * 0.45);
+			cx.stroke();
+			// a couple of branches
+			cx.lineWidth = 1;
+			for (let b = 0; b < 2; b++) {
+				const by = rootY - th * (0.45 + b * 0.18);
+				const dir = b % 2 === 0 ? -1 : 1;
+				cx.beginPath();
+				cx.moveTo(tx, by);
+				cx.lineTo(tx + dir * tw * 0.4, by - th * 0.12);
+				cx.stroke();
+			}
+			// layered canopy clumps — lit by daylight, silhouetted at night
+			const clumps = 3 + Math.floor(rnd(seed + 3) * 3);
+			for (let k = 0; k < clumps; k++) {
+				const ka = rnd(seed * 5 + k) * Math.PI * 2;
+				const kr = rnd(seed * 5 + k + 1) * tw * 0.7;
+				const ccx = tx + Math.cos(ka) * kr;
+				const ccy = topY + th * 0.32 + Math.sin(ka) * kr * 0.6;
+				const cr = tw * (0.4 + rnd(seed + k + 7) * 0.4);
+				const g2 = cx.createRadialGradient(ccx - cr * 0.3, ccy - cr * 0.3, 1, ccx, ccy, cr);
+				if (night) {
+					g2.addColorStop(0, "rgba(26,40,28,0.95)");
+					g2.addColorStop(1, "rgba(12,22,14,0.6)");
+				} else {
+					// daytime greens scaled by how much daylight there is
+					const dl = tod.daylight;
+					const lit = rnd(seed + k) > 0.5;
+					const base = lit
+						? [120 * dl + 30, 165 * dl + 30, 92 * dl + 22]
+						: [74 * dl + 24, 118 * dl + 24, 62 * dl + 18];
+					g2.addColorStop(
+						0,
+						`rgba(${Math.round(base[0] + rnd(k) * 30)},${Math.round(base[1] + rnd(k + 1) * 25)},${Math.round(base[2] + rnd(k + 2) * 18)},0.95)`,
+					);
+					g2.addColorStop(1, `rgba(${Math.round(40 * dl)},${Math.round(80 * dl)},${Math.round(40 * dl)},0.4)`);
+				}
+				cx.fillStyle = g2;
+				cx.beginPath();
+				cx.ellipse(ccx, ccy, cr, cr * 0.9, rnd(seed + k) * 1.2, 0, Math.PI * 2);
+				cx.fill();
+			}
+		}
+		// low shrubs along the base
+		for (let i = 0; i < Math.round(ww / 14); i++) {
+			const sxp = wx + (i + 0.5) * 14 + (rnd(i + 80) - 0.5) * 6;
+			cx.fillStyle = night ? "rgba(18,30,20,0.85)" : "rgba(78,120,64,0.75)";
+			cx.beginPath();
+			cx.ellipse(sxp, winBot - winH * 0.04, 7, 4, 0, 0, Math.PI * 2);
+			cx.fill();
+		}
+
+		// glass sheen (still inside clip so it reads as reflection on the pane)
+		const sheen = cx.createLinearGradient(wx, winTop, wx + ww, winBot);
+		sheen.addColorStop(0, "rgba(255,255,255,0.10)");
+		sheen.addColorStop(0.4, "rgba(255,255,255,0.02)");
+		sheen.addColorStop(1, "rgba(255,255,255,0)");
+		cx.fillStyle = sheen;
+		cx.fillRect(wx, winTop, ww, winH);
+
+		cx.restore(); // ── end outdoor clip ──
+
+		// ── motorized roller shade (s.shade) ──
+		const shPx = Math.round(winH * (s.shade / 100));
+		if (shPx > 0) {
+			cx.save();
+			cx.beginPath();
+			cx.rect(wx, winTop, ww, shPx);
+			cx.clip();
+			const fab = cx.createLinearGradient(wx, winTop, wx + ww, winTop);
+			fab.addColorStop(0, "#e6dcc8");
+			fab.addColorStop(0.5, "#dccfb5");
+			fab.addColorStop(1, "#d0c2a4");
+			cx.fillStyle = fab;
+			cx.fillRect(wx, winTop, ww, shPx);
+			if (s.sun > 0.05) {
+				const tr = cx.createLinearGradient(wx, winTop, wx, winTop + shPx);
+				tr.addColorStop(0, `rgba(255,244,210,${0.22 * s.sun})`);
+				tr.addColorStop(1, "rgba(255,244,210,0)");
+				cx.fillStyle = tr;
+				cx.fillRect(wx, winTop, ww, shPx);
+			}
+			cx.strokeStyle = "rgba(150,132,98,0.12)";
+			cx.lineWidth = 0.5;
+			for (let y = winTop + 3; y < winTop + shPx; y += 4) {
+				cx.beginPath();
+				cx.moveTo(wx, y);
+				cx.lineTo(wx + ww, y);
+				cx.stroke();
+			}
+			cx.restore();
+			// weighted hem bar
+			const hemY = winTop + shPx - 3;
+			cx.fillStyle = "#b7a780";
+			cx.fillRect(wx, hemY, ww, 3);
+		}
+		// recessed shade housing in soffit
+		cx.fillStyle = mix("#2c2823", "#100f12");
+		cx.fillRect(wx - 4, winTop - 8, ww + 8, 7);
+
+		// frame outline + thin mullions (mullion always full height, on top of the shade)
+		cx.strokeStyle = mix("rgba(40,36,32,0.7)", "rgba(8,8,7,0.9)");
+		cx.lineWidth = 2.5;
+		cx.strokeRect(wx, winTop, ww, winH);
+		// vertical center mullion — drawn last so it stays visible even when shades are closed
+		cx.strokeStyle = mix("rgba(48,42,36,0.85)", "rgba(18,16,14,0.85)");
+		cx.lineWidth = 2;
 		cx.beginPath();
-		cx.moveTo(-M, y);
-		cx.lineTo(W + M, y);
+		cx.moveTo(wx + ww / 2, winTop);
+		cx.lineTo(wx + ww / 2, winTop + winH);
 		cx.stroke();
-	}
-	// travertine mottling + veins (deterministic, subtle)
+	};
+	drawWindow(leftWin.x, leftWin.w, false);
+	drawWindow(rightWin.x, rightWin.w, true);
+
+	// ─────────────────────────────────────────────────────────
+	// CENTRAL MARBLE FIREPLACE FEATURE WALL
+	// ─────────────────────────────────────────────────────────
+	const mX = featX - featW / 2,
+		mTop = ceilY - 6,
+		mBot = fY,
+		mH = mBot - mTop;
+	// marble base
+	const marbleBase = mix("#5a4a4a", "#241a1c"); // mocha / brown marble like the photo
+	const marbleHi = mix("#766060", "#352629");
+	const mg = cx.createLinearGradient(mX, mTop, mX + featW, mBot);
+	mg.addColorStop(0, marbleHi);
+	mg.addColorStop(0.5, marbleBase);
+	mg.addColorStop(1, mix("#4a3b3b", "#1c1416"));
+	cx.fillStyle = mg;
+	cx.fillRect(mX, mTop, featW, mH);
+	// marble veins (deterministic)
 	cx.save();
 	cx.beginPath();
-	cx.rect(-M, fY, W + 2 * M, H - fY + M);
+	cx.rect(mX, mTop, featW, mH);
 	cx.clip();
-	for (let i = 0; i < 90; i++) {
-		const px = ln(-M, W + M, rnd(i));
-		const py = ln(fY, H + M, rnd(i + 50));
-		const rad = 6 + rnd(i + 100) * 16;
-		const tone = rnd(i + 150);
-		cx.fillStyle =
-			tone > 0.5
-				? `rgba(255,250,235,${0.05 + rnd(i + 7) * 0.05})`
-				: `rgba(120,95,60,${0.04 + rnd(i + 9) * 0.05})`;
+	for (let i = 0; i < 16; i++) {
+		cx.strokeStyle = `rgba(${darkF > 0.5 ? "70,58,58" : "200,180,178"},${0.12 + rnd(i) * 0.16})`;
+		cx.lineWidth = 0.5 + rnd(i + 3) * 1.2;
+		const sx = mX + rnd(i) * featW;
 		cx.beginPath();
-		cx.ellipse(px, py, rad, rad * 0.4, rnd(i) * 3, 0, Math.PI * 2);
-		cx.fill();
-	}
-	for (let i = 0; i < 22; i++) {
-		const py = ln(fY + 4, H + M, rnd(i + 200));
-		cx.strokeStyle = `rgba(150,120,80,${0.04 + rnd(i + 3) * 0.05})`;
-		cx.lineWidth = 0.5;
-		cx.beginPath();
-		cx.moveTo(-M, py + rnd(i) * 4);
+		cx.moveTo(sx, mTop);
 		cx.bezierCurveTo(
-			W * 0.3,
-			py - 3 + rnd(i + 1) * 6,
-			W * 0.6,
-			py + 3 - rnd(i + 2) * 6,
-			W + M,
-			py + rnd(i + 4) * 4,
+			sx + (rnd(i + 1) - 0.5) * 60,
+			mTop + mH * 0.33,
+			sx + (rnd(i + 2) - 0.5) * 60,
+			mTop + mH * 0.66,
+			sx + (rnd(i + 4) - 0.5) * 50,
+			mBot,
 		);
 		cx.stroke();
 	}
 	cx.restore();
-	// floor base-of-wall contact shadow
-	const fsh = cx.createLinearGradient(0, fY, 0, fY + 26);
-	fsh.addColorStop(0, "rgba(0,0,0,0.10)");
-	fsh.addColorStop(1, "rgba(0,0,0,0)");
-	cx.fillStyle = fsh;
-	cx.fillRect(-M, fY, W + 2 * M, 26);
+	// subtle marble sheen
+	const msh = cx.createLinearGradient(mX, mTop, mX + featW, mTop);
+	msh.addColorStop(0, "rgba(255,255,255,0.05)");
+	msh.addColorStop(0.5, "rgba(255,255,255,0)");
+	cx.fillStyle = msh;
+	cx.fillRect(mX, mTop, featW, mH);
+	// thin reveal shadows where marble meets windows
+	cx.fillStyle = "rgba(0,0,0,0.25)";
+	cx.fillRect(mX - 2, mTop, 2, mH);
+	cx.fillRect(mX + featW, mTop, 2, mH);
 
-	// ── WALNUT SLAT FEATURE WALL (right, behind TV) ───────────
-	const fwX = W * 0.5,
-		fwW = W + M - fwX,
-		fwTop = coveY,
-		fwBot = fY;
-	const woodDark = 1 - darkF * 0.55;
-	const slatW = 13;
-	for (let x = fwX; x < fwX + fwW; x += slatW) {
-		const t = (x - fwX) / fwW;
-		const base = 74 + Math.sin(x * 0.7) * 8;
-		const sg = cx.createLinearGradient(x, 0, x + slatW, 0);
-		sg.addColorStop(
-			0,
-			`rgb(${Math.round(base * woodDark)},${Math.round(base * 0.62 * woodDark)},${Math.round(base * 0.4 * woodDark)})`,
-		);
-		sg.addColorStop(
-			0.5,
-			`rgb(${Math.round((base + 16) * woodDark)},${Math.round((base + 6) * 0.62 * woodDark)},${Math.round((base + 2) * 0.4 * woodDark)})`,
-		);
-		sg.addColorStop(
-			1,
-			`rgb(${Math.round((base - 10) * woodDark)},${Math.round((base - 10) * 0.6 * woodDark)},${Math.round((base - 12) * 0.4 * woodDark)})`,
-		);
-		cx.fillStyle = sg;
-		cx.fillRect(x, fwTop, slatW - 1.5, fwBot - fwTop);
-		// gap shadow
-		cx.fillStyle = "rgba(0,0,0,0.22)";
-		cx.fillRect(x + slatW - 1.5, fwTop, 1.5, fwBot - fwTop);
-		// faint grain
-		cx.strokeStyle = "rgba(40,25,12,0.12)";
-		cx.lineWidth = 0.5;
-		cx.beginPath();
-		cx.moveTo(x + 3 + t, fwTop);
-		cx.lineTo(x + 4 + Math.sin(x) * 1.5, fwBot);
-		cx.stroke();
-	}
-	// soft vignette on wood from cove light
-	const woodGlow = cx.createLinearGradient(0, fwTop, 0, fwTop + 50);
-	woodGlow.addColorStop(0, `rgba(255,220,160,${0.12 + s.br * 0.12})`);
-	woodGlow.addColorStop(1, "rgba(0,0,0,0)");
-	cx.fillStyle = woodGlow;
-	cx.fillRect(fwX, fwTop, fwW, 50);
-
-	// ── FLOOR-TO-CEILING WINDOW (left) ────────────────────────
-	const wX = 22,
-		wY = coveY + 6,
-		wW = W * 0.32,
-		wH = fY - wY - 4;
-	// outer thin frame
-	cx.fillStyle = mix("#2a2622", "#10100f");
-	rr(wX - 5, wY - 5, wW + 10, wH + 10, 2);
-	cx.fill();
-	// sky / outdoor scenery
-	const skg = cx.createLinearGradient(wX, wY, wX, wY + wH);
-	skg.addColorStop(0, s.skyT);
-	skg.addColorStop(1, s.skyB);
-	cx.fillStyle = skg;
-	cx.fillRect(wX, wY, wW, wH);
-	// distant mountains
-	cx.fillStyle = "rgba(80,95,120,0.35)";
-	cx.beginPath();
-	cx.moveTo(wX, wY + wH * 0.5);
-	cx.lineTo(wX + wW * 0.25, wY + wH * 0.36);
-	cx.lineTo(wX + wW * 0.5, wY + wH * 0.5);
-	cx.lineTo(wX + wW * 0.78, wY + wH * 0.33);
-	cx.lineTo(wX + wW, wY + wH * 0.48);
-	cx.lineTo(wX + wW, wY + wH * 0.62);
-	cx.lineTo(wX, wY + wH * 0.62);
-	cx.closePath();
-	cx.fill();
-	if (s.sun > 0.01) {
-		cx.fillStyle = `rgba(255,240,170,${0.85 * s.sun})`;
-		cx.beginPath();
-		cx.arc(wX + wW * 0.7, wY + wH * 0.26, 12, 0, Math.PI * 2);
-		cx.fill();
-		cx.fillStyle = `rgba(255,240,170,${0.18 * s.sun})`;
-		cx.beginPath();
-		cx.arc(wX + wW * 0.7, wY + wH * 0.26, 22, 0, Math.PI * 2);
-		cx.fill();
-	}
-	// landscaped garden hedge
-	const hedge = cx.createLinearGradient(0, wY + wH * 0.6, 0, wY + wH);
-	hedge.addColorStop(0, "rgba(70,120,60,0.55)");
-	hedge.addColorStop(1, "rgba(40,80,40,0.7)");
-	cx.fillStyle = hedge;
-	cx.beginPath();
-	cx.moveTo(wX, wY + wH * 0.72);
-	for (let i = 0; i <= 8; i++) {
-		const hx = wX + (wW * i) / 8;
-		cx.quadraticCurveTo(
-			hx - wW / 16,
-			wY + wH * (0.66 + rnd(i) * 0.06),
-			hx,
-			wY + wH * 0.72,
-		);
-	}
-	cx.lineTo(wX + wW, wY + wH);
-	cx.lineTo(wX, wY + wH);
-	cx.closePath();
-	cx.fill();
-	// glass reflection sheen
-	const sheen = cx.createLinearGradient(wX, wY, wX + wW, wY + wH);
-	sheen.addColorStop(0, "rgba(255,255,255,0.10)");
-	sheen.addColorStop(0.3, "rgba(255,255,255,0.02)");
-	sheen.addColorStop(1, "rgba(255,255,255,0)");
-	cx.fillStyle = sheen;
-	cx.fillRect(wX, wY, wW, wH);
-
-	// mullion (single thin vertical divider)
-	cx.fillStyle = darkF > 0.5 ? "rgba(20,18,16,0.9)" : "rgba(45,40,35,0.8)";
-	cx.fillRect(wX + wW / 2 - 1, wY, 2, wH);
-
-	// motorized roller shade (premium woven fabric, partial translucency)
-	const shPx = Math.round(wH * (s.shade / 100));
-	if (shPx > 0) {
-		cx.save();
-		cx.beginPath();
-		cx.rect(wX, wY, wW, shPx);
-		cx.clip();
-		// base fabric gradient (warm oatmeal linen)
-		const fab = cx.createLinearGradient(wX, wY, wX + wW, wY);
-		fab.addColorStop(0, "#e8ddc8");
-		fab.addColorStop(0.5, "#ddd0b6");
-		fab.addColorStop(1, "#d2c4a6");
-		cx.fillStyle = fab;
-		cx.fillRect(wX, wY, wW, shPx);
-		// daylight glow passing through the translucent weave
-		if (s.sun > 0.05) {
-			const trans = cx.createLinearGradient(wX, wY, wX, wY + shPx);
-			trans.addColorStop(0, `rgba(255,244,210,${0.25 * s.sun})`);
-			trans.addColorStop(1, "rgba(255,244,210,0)");
-			cx.fillStyle = trans;
-			cx.fillRect(wX, wY, wW, shPx);
-		}
-		// fine vertical weave threads
-		cx.strokeStyle = "rgba(150,132,98,0.18)";
-		cx.lineWidth = 0.5;
-		for (let x = wX + 2; x < wX + wW; x += 3) {
-			cx.beginPath();
-			cx.moveTo(x, wY);
-			cx.lineTo(x, wY + shPx);
-			cx.stroke();
-		}
-		// horizontal weave + subtle fabric folds
-		cx.strokeStyle = "rgba(150,132,98,0.10)";
-		for (let y = wY + 3; y < wY + shPx; y += 4) {
-			cx.beginPath();
-			cx.moveTo(wX, y);
-			cx.lineTo(wX + wW, y);
-			cx.stroke();
-		}
-		for (let i = 0; i < 4; i++) {
-			const fx = wX + (wW * (i + 0.5)) / 4;
-			const fold = cx.createLinearGradient(fx - 8, 0, fx + 8, 0);
-			fold.addColorStop(0, "rgba(255,255,255,0)");
-			fold.addColorStop(0.5, "rgba(255,255,255,0.10)");
-			fold.addColorStop(1, "rgba(0,0,0,0.05)");
-			cx.fillStyle = fold;
-			cx.fillRect(fx - 8, wY, 16, shPx);
-		}
-		cx.restore();
-		// weighted hem bar at the bottom edge
-		const hemY = wY + shPx - 4;
-		const hem = cx.createLinearGradient(0, hemY, 0, hemY + 4);
-		hem.addColorStop(0, "#b9a982");
-		hem.addColorStop(1, "#8f8262");
-		cx.fillStyle = hem;
-		cx.fillRect(wX, hemY, wW, 4);
-		cx.fillStyle = "rgba(255,255,255,0.18)";
-		cx.fillRect(wX, hemY, wW, 1);
-	}
-	// hidden motorized housing recessed into the ceiling above the window
-	const houseG = cx.createLinearGradient(0, wY - 8, 0, wY);
-	houseG.addColorStop(0, mix("#2c2823", "#15140f"));
-	houseG.addColorStop(1, mix("#1d1a16", "#0c0b08"));
-	cx.fillStyle = houseG;
-	cx.fillRect(wX - 5, wY - 9, wW + 10, 9);
-	cx.fillStyle = "rgba(0,0,0,0.3)";
-	cx.fillRect(wX - 5, wY - 1, wW + 10, 1.5);
-
-	// frame outline
-	cx.strokeStyle = darkF > 0.5 ? "rgba(10,10,9,0.9)" : "rgba(40,36,32,0.7)";
-	cx.lineWidth = 3;
-	cx.strokeRect(wX, wY, wW, wH);
-
-	// ── WALL SMART CONTROL PANEL (glass touchscreen) ──────────
-	const pX = wX + wW + 14,
-		pY = coveY + 26,
-		pW = 30,
-		pH = 46;
-	// recess shadow
-	cx.fillStyle = "rgba(0,0,0,0.16)";
-	rr(pX - 2, pY - 1, pW + 4, pH + 4, 4);
-	cx.fill();
-	// dark aluminium frame
-	cx.fillStyle = "#101013";
-	rr(pX, pY, pW, pH, 3);
-	cx.fill();
-	// glass screen
-	const scr = cx.createLinearGradient(pX, pY, pX + pW, pY + pH);
-	scr.addColorStop(0, "#1b2230");
-	scr.addColorStop(1, "#0d1118");
-	cx.fillStyle = scr;
-	rr(pX + 2, pY + 2, pW - 4, pH - 4, 2);
-	cx.fill();
-	// glass reflection sheen
-	cx.fillStyle = "rgba(255,255,255,0.06)";
-	cx.beginPath();
-	cx.moveTo(pX + 2, pY + 2);
-	cx.lineTo(pX + pW - 4, pY + 2);
-	cx.lineTo(pX + 2, pY + pH * 0.5);
-	cx.closePath();
-	cx.fill();
-	// UI: title bar
-	cx.fillStyle = "rgba(120,170,255,0.85)";
-	cx.fillRect(pX + 5, pY + 6, 10, 1.4);
-	// UI: three scene dots (active one warm)
-	const sceneCols = ["#e0a23c", "#5aa0e0", "#8b7ae0"];
-	const activeIdx = s.br > 0.85 ? 1 : s.br < 0.3 ? 2 : 0;
-	sceneCols.forEach((col, i) => {
-		cx.fillStyle = i === activeIdx ? col : "rgba(255,255,255,0.18)";
-		cx.beginPath();
-		cx.arc(pX + 8 + i * 7, pY + 14, 2, 0, Math.PI * 2);
-		cx.fill();
-	});
-	// UI: TV / Audio status rows (reflect live state)
-	const audioOn = ui ? ui.audioOn : true;
-	const muted = ui ? ui.muted : false;
-	const playing = ui ? ui.playing : false;
-	const vol = ui ? ui.vol : 60;
-	cx.fillStyle = "rgba(255,255,255,0.22)";
-	cx.fillRect(pX + 5, pY + 21, pW - 14, 1.2);
-	cx.fillStyle = tvOn ? "rgba(110,200,120,0.9)" : "rgba(255,255,255,0.3)";
-	cx.beginPath();
-	cx.arc(pX + pW - 7, pY + 21.5, 1.8, 0, Math.PI * 2);
-	cx.fill();
-	cx.fillStyle = "rgba(255,255,255,0.22)";
-	cx.fillRect(pX + 5, pY + 27, pW - 14, 1.2);
-	cx.fillStyle = audioOn ? "rgba(110,200,120,0.9)" : "rgba(255,255,255,0.3)";
-	cx.beginPath();
-	cx.arc(pX + pW - 7, pY + 27.5, 1.8, 0, Math.PI * 2);
-	cx.fill();
-	// small play/pause + mute glyphs on the audio row
-	cx.fillStyle = "rgba(255,255,255,0.5)";
-	if (playing) {
-		cx.fillRect(pX + 6, pY + 25.6, 1.2, 3.6);
-		cx.fillRect(pX + 8, pY + 25.6, 1.2, 3.6);
-	} else {
-		cx.beginPath();
-		cx.moveTo(pX + 6, pY + 25.6);
-		cx.lineTo(pX + 6, pY + 29.2);
-		cx.lineTo(pX + 9, pY + 27.4);
-		cx.closePath();
-		cx.fill();
-	}
-	// UI: volume slider (real-time, dims when muted)
-	cx.fillStyle = "rgba(255,255,255,0.16)";
-	cx.fillRect(pX + 5, pY + 33, pW - 10, 2);
-	cx.fillStyle = muted ? "rgba(150,160,180,0.5)" : "rgba(120,170,255,0.95)";
-	cx.fillRect(pX + 5, pY + 33, (pW - 10) * (muted ? 0 : vol / 100), 2);
-	// slider knob
-	if (!muted) {
-		cx.fillStyle = "rgba(220,235,255,0.95)";
-		cx.beginPath();
-		cx.arc(pX + 5 + (pW - 10) * (vol / 100), pY + 34, 1.6, 0, Math.PI * 2);
-		cx.fill();
-	}
-	// UI: shades slider reflecting current shade
-	cx.fillStyle = "rgba(255,255,255,0.16)";
-	cx.fillRect(pX + 5, pY + 39, pW - 10, 2);
-	cx.fillStyle = "rgba(230,200,150,0.9)";
-	cx.fillRect(pX + 5, pY + 39, (pW - 10) * (s.shade / 100), 2);
-
-	// ── VOLUME KEYPAD (rotary + LED dots) ─────────────────────
-	const kX = pX + pW + 8,
-		kY = pY + 8,
-		kW = 16,
-		kH = 30;
-	cx.fillStyle = "rgba(0,0,0,0.14)";
-	rr(kX - 1, kY, kW + 2, kH + 2, 3);
-	cx.fill();
-	cx.fillStyle = mix("#1d1d20", "#141417");
-	rr(kX, kY, kW, kH, 3);
-	cx.fill();
-	// rotary dial
-	const dialY = kY + 9;
-	const dial = cx.createRadialGradient(
-		kX + kW / 2 - 1,
-		dialY - 1,
-		0,
-		kX + kW / 2,
-		dialY,
-		6,
-	);
-	dial.addColorStop(0, "#3a3a40");
-	dial.addColorStop(1, "#141417");
-	cx.fillStyle = dial;
-	cx.beginPath();
-	cx.arc(kX + kW / 2, dialY, 5.5, 0, Math.PI * 2);
-	cx.fill();
-	cx.strokeStyle = "rgba(120,170,255,0.7)";
-	cx.lineWidth = 1;
-	cx.beginPath();
-	cx.moveTo(kX + kW / 2, dialY);
-	cx.lineTo(kX + kW / 2 + 3, dialY - 4);
-	cx.stroke();
-	// LED level dots
-	for (let i = 0; i < 4; i++) {
-		cx.fillStyle = i < 3 ? "rgba(120,200,255,0.9)" : "rgba(255,255,255,0.18)";
-		cx.beginPath();
-		cx.arc(kX + 4 + i * 3, kY + kH - 5, 1, 0, Math.PI * 2);
-		cx.fill();
-	}
-
-	// daylight wash on floor from window
-	if (s.sun > 0.05 && s.shade < 60) {
-		const beam = cx.createLinearGradient(wX, fY, wX + wW * 1.4, H);
-		const ba = s.sun * (1 - s.shade / 100) * 0.16;
-		beam.addColorStop(0, `rgba(255,240,200,${ba})`);
-		beam.addColorStop(1, "rgba(255,240,200,0)");
-		cx.fillStyle = beam;
-		cx.beginPath();
-		cx.moveTo(wX, fY);
-		cx.lineTo(wX + wW, fY);
-		cx.lineTo(wX + wW * 1.7, H);
-		cx.lineTo(wX - wW * 0.2, H);
-		cx.closePath();
-		cx.fill();
-	}
-
-	// ── FLUSH TV (on walnut wall) ─────────────────────────────
-	const tvX = W - 205,
-		tvY = fY - 150,
-		tvW = 176,
-		tvH = 104;
-
-	// premium flush in-wall speakers flanking the TV (fabric grille)
-	[tvX - 22, tvX + tvW + 6].forEach((spx) => {
-		const spy = tvY + 6,
-			spw = 16,
-			sph = tvH - 12;
-		cx.fillStyle = "rgba(0,0,0,0.22)";
-		rr(spx - 1, spy - 1, spw + 2, sph + 2, 3);
-		cx.fill();
-		// linen grille cloth
-		const grille = cx.createLinearGradient(spx, spy, spx + spw, spy);
-		grille.addColorStop(0, mix("#cfc4ae", "#1c1b1f"));
-		grille.addColorStop(1, mix("#b6ab93", "#141318"));
-		cx.fillStyle = grille;
-		rr(spx, spy, spw, sph, 2);
-		cx.fill();
-		// fine perforation weave
-		cx.fillStyle = "rgba(0,0,0,0.10)";
-		for (let gy = spy + 3; gy < spy + sph - 2; gy += 3) {
-			for (let gx = spx + 3; gx < spx + spw - 2; gx += 3) {
-				cx.beginPath();
-				cx.arc(gx, gy, 0.45, 0, Math.PI * 2);
-				cx.fill();
-			}
-		}
-		cx.strokeStyle = "rgba(0,0,0,0.12)";
-		cx.lineWidth = 0.5;
-		rr(spx, spy, spw, sph, 2);
-		cx.stroke();
-	});
-
-	// ambient bias backlight behind the panel (premium, subtle)
+	// ── FLUSH TV on the marble ──
+	const tvW = 92,
+		tvH = 56,
+		tvX = featX - tvW / 2,
+		tvY = mTop + 34;
 	if (s.br < 0.5 || tvOn) {
-		const biasA = tvOn ? 0.18 : 0.08 + darkF * 0.1;
+		const biasA = tvOn ? 0.16 : 0.06 + darkF * 0.08;
 		const bias = cx.createRadialGradient(
-			tvX + tvW / 2,
+			featX,
 			tvY + tvH / 2,
 			tvH * 0.4,
-			tvX + tvW / 2,
+			featX,
 			tvY + tvH / 2,
-			tvW * 0.85,
+			tvW * 0.9,
 		);
 		bias.addColorStop(0, `rgba(90,150,255,${biasA})`);
 		bias.addColorStop(1, "rgba(90,150,255,0)");
 		cx.fillStyle = bias;
-		cx.fillRect(tvX - 40, tvY - 34, tvW + 80, tvH + 68);
+		cx.fillRect(tvX - 30, tvY - 22, tvW + 60, tvH + 44);
 	}
-
-	// recessed shadow into wall
-	cx.fillStyle = "rgba(0,0,0,0.28)";
-	rr(tvX - 5, tvY - 4, tvW + 10, tvH + 9, 4);
+	cx.fillStyle = "rgba(0,0,0,0.3)";
+	rr(tvX - 3, tvY - 2, tvW + 6, tvH + 6, 3);
 	cx.fill();
-	// ultra-thin bezel
 	cx.fillStyle = "#0a0a0d";
-	rr(tvX - 2, tvY - 2, tvW + 4, tvH + 4, 3);
+	rr(tvX - 1.5, tvY - 1.5, tvW + 3, tvH + 3, 2.5);
 	cx.fill();
 	cx.fillStyle = "#040406";
-	rr(tvX, tvY, tvW, tvH, 2);
+	rr(tvX, tvY, tvW, tvH, 1.5);
 	cx.fill();
 	if (tvOn) {
-		const innerX = tvX + 2,
-			innerY = tvY + 2,
-			innerW = tvW - 4,
-			innerH = tvH - 4;
-
-		cx.fillStyle = `rgba(80,140,255,0.10)`;
-		cx.fillRect(tvX - 30, tvY - 20, tvW + 60, tvH + 40);
-
+		const innerX = tvX + 1.5,
+			innerY = tvY + 1.5,
+			innerW = tvW - 3,
+			innerH = tvH - 3;
 		if (video && video.readyState >= 2) {
 			cx.save();
 			cx.beginPath();
@@ -741,11 +673,10 @@ function drawRoom(
 			cx.fillStyle = "#0c0a12";
 			cx.fillRect(innerX, innerY, innerW, innerH);
 		}
-
 		cx.fillStyle = "rgba(255,255,255,0.05)";
 		cx.fillRect(innerX, innerY, innerW, innerH * 0.28);
 	}
-	// glass reflection across the panel (subtle, even when off)
+	// glass reflection on the panel
 	cx.save();
 	cx.beginPath();
 	cx.rect(tvX, tvY, tvW, tvH);
@@ -763,214 +694,688 @@ function drawRoom(
 	cx.fill();
 	cx.restore();
 
-	// ── LOW MEDIA CONSOLE under TV ────────────────────────────
-	const cabX = tvX - 24,
-		cabY = fY - 26,
-		cabW = tvW + 70,
-		cabH = 20;
-	cx.fillStyle = "rgba(0,0,0,0.18)";
-	cx.beginPath();
-	cx.ellipse(cabX + cabW / 2, fY + 2, cabW * 0.5, 7, 0, 0, Math.PI * 2);
+	// ── LINEAR FIREPLACE (animated bonfire) below TV ──
+	const fpX = mX + 12,
+		fpY = fY - 54,
+		fpW = featW - 24,
+		fpH = 30;
+	const baseY = fpY + fpH - 5;
+	// firebox recess
+	cx.fillStyle = "#0a0807";
+	rr(fpX, fpY, fpW, fpH, 2);
 	cx.fill();
-	const cabG = cx.createLinearGradient(0, cabY, 0, cabY + cabH);
-	cabG.addColorStop(0, mix("#46321f", "#23170d"));
-	cabG.addColorStop(1, mix("#33240f", "#160e07"));
-	cx.fillStyle = cabG;
-	rr(cabX, cabY, cabW, cabH, 2);
-	cx.fill();
-	cx.fillStyle = "rgba(255,255,255,0.05)";
-	cx.fillRect(cabX, cabY, cabW, 1.5);
-	// console floating LED underglow
-	if (s.led > 0.01 || s.br < 0.4) {
-		const u = Math.max(s.led, s.br < 0.4 ? 0.5 : 0);
-		const ug = cx.createLinearGradient(0, cabY + cabH, 0, cabY + cabH + 30);
-		ug.addColorStop(0, `rgba(70,130,255,${0.3 * u})`);
-		ug.addColorStop(1, "rgba(70,130,255,0)");
-		cx.fillStyle = ug;
-		cx.fillRect(cabX + 4, cabY + cabH, cabW - 8, 30);
-	}
-	// decor object on console
-	cx.fillStyle = mix("#cfc4b0", "#3a3a44");
-	rr(cabX + 14, cabY - 12, 8, 12, 1);
-	cx.fill();
+	// flickering ember bed behind logs
+	const emberFlick = 0.82 + Math.sin(time * 0.006) * 0.1 + Math.sin(time * 0.013) * 0.06;
+	const ember = cx.createLinearGradient(0, fpY + fpH, 0, fpY + 6);
+	ember.addColorStop(0, `rgba(255,150,50,${emberFlick})`);
+	ember.addColorStop(1, "rgba(120,30,0,0.18)");
+	cx.fillStyle = ember;
+	cx.fillRect(fpX + 2, fpY + 8, fpW - 4, fpH - 9);
 
-	// ── BOUCLÉ MODULAR SECTIONAL (center) ─────────────────────
-	const soX = 96,
-		soY = fY - 70,
-		soW = 188,
-		soH = 70;
-	const boucleBase = mix("#e8e2d4", "#3b3a42");
-	const boucleDk = mix("#d2cabb", "#2c2b33");
-	const boucleSh = mix("#c0b7a6", "#222127");
-	// soft floor shadow
-	cx.fillStyle = "rgba(0,0,0,0.16)";
-	cx.beginPath();
-	cx.ellipse(soX + soW / 2, fY + 4, soW * 0.6, 12, 0, 0, Math.PI * 2);
-	cx.fill();
-	// chaise (extends left, lower)
-	const chX = soX - 56,
-		chW = 64;
-	cx.fillStyle = boucleDk;
-	rr(chX, soY + 26, chW + 8, soH - 22, 10);
-	cx.fill();
-	cx.fillStyle = boucleBase;
-	rr(chX, soY + 20, chW, soH - 18, 9);
-	cx.fill();
-	// base / seat block
-	cx.fillStyle = boucleSh;
-	rr(soX - 6, soY + 30, soW + 12, soH - 24, 10);
-	cx.fill();
-	// backrest
-	const backG = cx.createLinearGradient(soX, soY, soX, soY + soH * 0.55);
-	backG.addColorStop(0, boucleBase);
-	backG.addColorStop(1, boucleDk);
-	cx.fillStyle = backG;
-	rr(soX, soY, soW, soH * 0.56, { upperLeft: 12, upperRight: 12 });
-	cx.fill();
-	// armrests
-	cx.fillStyle = boucleBase;
-	rr(soX - 16, soY + 16, 20, soH - 12, { upperLeft: 9, lowerLeft: 9 });
-	cx.fill();
-	rr(soX + soW - 4, soY + 16, 20, soH - 12, { upperRight: 9, lowerRight: 9 });
-	cx.fill();
-	// seat cushions (with compression)
-	const seatG = cx.createLinearGradient(soX, soY + soH * 0.42, soX, soY + soH);
-	seatG.addColorStop(0, boucleBase);
-	seatG.addColorStop(1, boucleDk);
-	const nSeat = 3;
-	const seatW = (soW - 12) / nSeat;
-	for (let i = 0; i < nSeat; i++) {
-		const cxx = soX + 6 + i * seatW;
-		cx.fillStyle = seatG;
-		rr(cxx + 2, soY + soH * 0.42, seatW - 4, soH * 0.42, 8);
-		cx.fill();
-		cx.strokeStyle = "rgba(0,0,0,0.06)";
-		cx.lineWidth = 0.5;
-		rr(cxx + 2, soY + soH * 0.42, seatW - 4, soH * 0.42, 8);
-		cx.stroke();
-	}
-	// back cushions
-	for (let i = 0; i < nSeat; i++) {
-		const cxx = soX + 6 + i * seatW;
-		cx.fillStyle = boucleBase;
-		rr(cxx + 3, soY + 4, seatW - 6, soH * 0.4, 8);
-		cx.fill();
-		cx.strokeStyle = "rgba(0,0,0,0.05)";
-		cx.lineWidth = 0.5;
-		rr(cxx + 3, soY + 4, seatW - 6, soH * 0.4, 8);
-		cx.stroke();
-	}
-	// bouclé stipple texture
+	// animated flames — each tongue sways & breathes from a phase offset
 	cx.save();
 	cx.beginPath();
-	cx.rect(soX - 16, soY, soW + 36, soH);
-	cx.rect(chX, soY + 20, chW, soH);
+	cx.rect(fpX, fpY - 24, fpW, fpH + 24);
 	cx.clip();
-	cx.fillStyle =
-		darkF > 0.5 ? "rgba(255,255,255,0.025)" : "rgba(255,255,255,0.07)";
-	for (let i = 0; i < 260; i++) {
-		const px = ln(chX, soX + soW + 16, rnd(i + 11));
-		const py = ln(soY + 2, soY + soH, rnd(i + 71));
+	const nFl = Math.max(6, Math.round(fpW / 8));
+	for (let i = 0; i < nFl; i++) {
+		const phase = i * 1.7;
+		const flx = fpX + 6 + (i / (nFl - 1)) * (fpW - 12);
+		// height & lateral sway driven by layered sines (looks organic)
+		const breathe =
+			0.7 +
+			0.3 * Math.sin(time * 0.009 + phase) +
+			0.15 * Math.sin(time * 0.021 + phase * 2.3);
+		const flh = (10 + rnd(i + 20) * 12) * (0.7 + breathe * 0.6);
+		const sway = Math.sin(time * 0.011 + phase) * 2.4 + Math.sin(time * 0.027 + phase) * 1.1;
+		const tipX = flx + sway;
+		const w = 3 + rnd(i + 4) * 1.6;
+		// outer flame (orange)
+		const fl = cx.createLinearGradient(flx, baseY, tipX, baseY - flh);
+		fl.addColorStop(0, "rgba(255,205,90,0.95)");
+		fl.addColorStop(0.45, "rgba(255,140,40,0.85)");
+		fl.addColorStop(1, "rgba(255,80,20,0)");
+		cx.fillStyle = fl;
 		cx.beginPath();
-		cx.arc(px, py, 0.7, 0, Math.PI * 2);
+		cx.moveTo(flx - w, baseY);
+		cx.quadraticCurveTo(flx - w * 0.8, baseY - flh * 0.55, tipX, baseY - flh);
+		cx.quadraticCurveTo(flx + w * 0.8, baseY - flh * 0.55, flx + w, baseY);
+		cx.closePath();
 		cx.fill();
-	}
-	cx.fillStyle = "rgba(0,0,0,0.04)";
-	for (let i = 0; i < 160; i++) {
-		const px = ln(chX, soX + soW + 16, rnd(i + 211));
-		const py = ln(soY + 2, soY + soH, rnd(i + 271));
+		// inner core (hot yellow-white)
+		const core = cx.createLinearGradient(flx, baseY, tipX, baseY - flh * 0.6);
+		core.addColorStop(0, "rgba(255,240,180,0.95)");
+		core.addColorStop(1, "rgba(255,180,60,0)");
+		cx.fillStyle = core;
 		cx.beginPath();
-		cx.arc(px, py, 0.6, 0, Math.PI * 2);
+		cx.moveTo(flx - w * 0.45, baseY);
+		cx.quadraticCurveTo(flx, baseY - flh * 0.4, flx + sway * 0.6, baseY - flh * 0.6);
+		cx.quadraticCurveTo(flx + w * 0.45, baseY - flh * 0.3, flx + w * 0.45, baseY);
+		cx.closePath();
 		cx.fill();
 	}
 	cx.restore();
-	// accent throw pillows
-	cx.fillStyle = mix("#b06a55", "#5a3a44");
-	rr(soX + 12, soY + soH * 0.34, 26, 26, 5);
-	cx.fill();
-	cx.fillStyle = mix("#6f8a86", "#3a4a54");
-	rr(soX + soW - 44, soY + soH * 0.34, 26, 26, 5);
-	cx.fill();
 
-	// ── DESIGNER COFFEE TABLE + BOOKS ─────────────────────────
-	const ctX = soX + soW / 2 - 44,
-		ctY = fY - 18,
-		ctW = 92,
-		ctH = 9;
-	cx.fillStyle = "rgba(0,0,0,0.16)";
+	// log bed (in front of flames)
+	cx.fillStyle = "#2e2014";
+	for (let i = 0; i < 5; i++) {
+		const lx = fpX + 8 + i * ((fpW - 16) / 5);
+		rr(lx, fpY + fpH - 7, (fpW - 16) / 5 - 3, 5, 2);
+		cx.fill();
+		// glowing underside
+		cx.fillStyle = `rgba(255,120,40,${0.4 * emberFlick})`;
+		cx.fillRect(lx, fpY + fpH - 3, (fpW - 16) / 5 - 3, 1.5);
+		cx.fillStyle = "#2e2014";
+	}
+
+	// fire glow into the room — kept tight around the firebox so it never
+	// bleeds up onto the TV (smaller radius, centered low on the fire)
+	const glowPulse = 0.78 + Math.sin(time * 0.009) * 0.16 + Math.sin(time * 0.019) * 0.08;
+	const fglow = cx.createRadialGradient(featX, baseY + 4, 4, featX, baseY + 4, 78);
+	fglow.addColorStop(0, `rgba(255,150,60,${0.3 * glowPulse})`);
+	fglow.addColorStop(0.5, `rgba(255,130,55,${0.1 * glowPulse})`);
+	fglow.addColorStop(1, "rgba(255,150,60,0)");
+	cx.fillStyle = fglow;
+	cx.fillRect(featX - 84, fpY - 14, 168, 110);
+	// very short warm uplight just on the marble lip above the firebox
+	const upl = cx.createLinearGradient(0, fpY, 0, fpY - 16);
+	upl.addColorStop(0, `rgba(255,150,70,${0.16 * glowPulse})`);
+	upl.addColorStop(1, "rgba(255,150,70,0)");
+	cx.fillStyle = upl;
+	cx.fillRect(fpX, fpY - 16, fpW, 18);
+
+	// ─────────────────────────────────────────────────────────
+	// FLOOR-STANDING TOWER SPEAKERS (home-cinema, like the photo)
+	// a slim gloss-black 3-driver tower on a plinth, one each side
+	// of the marble feature, standing on the floor in front of glass
+	// ─────────────────────────────────────────────────────────
+	const drawTower = (txc: number, scale = 0.55, yOff = 0) => {
+		const tw = 20 * scale,
+			th = 116 * scale,
+			ty = fY - th + 6 + yOff,
+			tx = txc - tw / 2;
+		// contact shadow on the floor
+		cx.fillStyle = "rgba(0,0,0,0.22)";
+		cx.beginPath();
+		cx.ellipse(txc, ty + th + 2, tw * 1.2, 4 * scale + 2, 0, 0, Math.PI * 2);
+		cx.fill();
+		// plinth base
+		cx.fillStyle = mix("#1a1a1e", "#0a0a0c");
+		rr(tx - 4 * scale, ty + th - 2, tw + 8 * scale, 5 * scale + 1, 1.5);
+		cx.fill();
+		// gloss-black cabinet with side sheen
+		const cab = cx.createLinearGradient(tx, 0, tx + tw, 0);
+		cab.addColorStop(0, mix("#26262b", "#101012"));
+		cab.addColorStop(0.5, mix("#141417", "#070708"));
+		cab.addColorStop(0.78, mix("#34343c", "#16161a")); // specular highlight
+		cab.addColorStop(1, mix("#0e0e10", "#050506"));
+		cx.fillStyle = cab;
+		rr(tx, ty, tw, th, 2.5 * scale);
+		cx.fill();
+		// top
+		cx.fillStyle = mix("#2a2a30", "#141418");
+		rr(tx, ty, tw, 3 * scale, 2 * scale);
+		cx.fill();
+		// drivers: tweeter + mid + two woofers down the baffle
+		const cxm = txc;
+		const driverYs = [ty + 16 * scale, ty + 38 * scale, ty + 66 * scale, ty + 94 * scale];
+		const driverR = [2.6 * scale, 5.5 * scale, 7 * scale, 7 * scale];
+		driverYs.forEach((dy, i) => {
+			// surround ring
+			cx.fillStyle = mix("#3a3a40", "#1a1a1e");
+			cx.beginPath();
+			cx.ellipse(cxm, dy, driverR[i] + 1.4 * scale, driverR[i] + 1.4 * scale, 0, 0, Math.PI * 2);
+			cx.fill();
+			// cone
+			const cone = cx.createRadialGradient(cxm - driverR[i] * 0.3, dy - driverR[i] * 0.3, 0.4, cxm, dy, driverR[i]);
+			if (i === 0) {
+				cone.addColorStop(0, "#cfcfce");
+				cone.addColorStop(1, "#5a5a5c");
+			} else {
+				cone.addColorStop(0, mix("#b9a98c", "#6a6258"));
+				cone.addColorStop(0.7, mix("#7a7064", "#3a352e"));
+				cone.addColorStop(1, "#141414");
+			}
+			cx.fillStyle = cone;
+			cx.beginPath();
+			cx.ellipse(cxm, dy, driverR[i], driverR[i], 0, 0, Math.PI * 2);
+			cx.fill();
+			// dust cap / center
+			cx.fillStyle = i === 0 ? "#e8e8e6" : "#0c0c0c";
+			cx.beginPath();
+			cx.ellipse(cxm, dy, driverR[i] * 0.28, driverR[i] * 0.28, 0, 0, Math.PI * 2);
+			cx.fill();
+		});
+		// thin front-edge gloss highlight
+		cx.fillStyle = "rgba(255,255,255,0.06)";
+		rr(tx + 1.5 * scale, ty + 2 * scale, 1.4 * scale, th - 6 * scale, 1);
+		cx.fill();
+		// subtle warm reflection from the fire on the gloss side
+		cx.fillStyle = `rgba(255,150,70,${0.05 * glowPulse})`;
+		rr(tx + tw - 5 * scale, ty + th * 0.3, 4 * scale, th * 0.5, 1);
+		cx.fill();
+	};
+	// half-size towers, brought forward (lower on screen) and a bit toward the sofas
+	drawTower(mX - 46, 0.55, 26);
+	drawTower(mX + featW + 46, 0.55, 26);
+
+	// ─────────────────────────────────────────────────────────
+	// BACKLIT WALNUT BOOKSHELF (fills the left wall, like the photo)
+	// ─────────────────────────────────────────────────────────
+	const bsX = -M + 30,
+		bsY = ceilY + 10,
+		bsW = 150, // much wider — spans the left wall
+		bsBot = fY - 2,
+		bsH = bsBot - bsY;
+	// walnut cabinet carcass with vertical grain shading
+	for (let gx = bsX; gx < bsX + bsW; gx += 10) {
+		const t = (gx - bsX) / bsW;
+		const base = 70 + Math.sin(gx * 0.6) * 7;
+		const wd = 1 - darkF * 0.55;
+		cx.fillStyle = `rgb(${Math.round(base * wd)},${Math.round(base * 0.6 * wd)},${Math.round(base * 0.38 * wd)})`;
+		cx.fillRect(gx, bsY, 10, bsH);
+	}
+	const rows = 6,
+		cols = 4;
+	const cellW = bsW / cols;
+	const cellH = bsH / rows;
+	const objCols = ["#8a5a3a", "#5a6a78", "#7a4a50", "#3a4a3a", "#9a8a6a", "#b0967a"];
+	for (let r = 0; r < rows; r++) {
+		for (let c = 0; c < cols; c++) {
+			const cx0 = bsX + c * cellW;
+			const cy0 = bsY + r * cellH;
+			// recessed back panel + integrated warm LED (brighter)
+			if (s.shelf > 0.01) {
+				const bl = cx.createLinearGradient(cx0, cy0, cx0, cy0 + cellH);
+				bl.addColorStop(0, `rgba(255,214,150,${0.72 * s.shelf})`);
+				bl.addColorStop(1, `rgba(255,184,116,${0.34 * s.shelf})`);
+				cx.fillStyle = bl;
+			} else {
+				cx.fillStyle = mix("#332518", "#120d08");
+			}
+			cx.fillRect(cx0 + 3, cy0 + 3, cellW - 6, cellH - 6);
+			// bright LED strip line under each shelf lip
+			if (s.shelf > 0.01) {
+				cx.fillStyle = `rgba(255,236,195,${0.9 * s.shelf})`;
+				cx.fillRect(cx0 + 4, cy0 + 4, cellW - 8, 1.2);
+			}
+			// staged objects per cell (deterministic): books, vase, sculpture, plant
+			const kind = Math.floor(rnd(r * 13 + c * 7) * 4);
+			const innerL = cx0 + 6,
+				innerR = cx0 + cellW - 6,
+				floor = cy0 + cellH - 4;
+			if (kind === 0) {
+				// stack of books
+				let ox = innerL;
+				while (ox < innerR - 3) {
+					const bw = 3 + rnd(r * 9 + ox) * 4;
+					const bh = cellH * (0.4 + rnd(r * 7 + ox) * 0.42);
+					cx.fillStyle = mix(
+						objCols[Math.floor(rnd(r + ox + c) * objCols.length)],
+						"#241f1a",
+					);
+					cx.fillRect(ox, floor - bh, bw, bh);
+					ox += bw + 1.4;
+				}
+			} else if (kind === 1) {
+				// vase / vessel
+				const vw = cellW * 0.28;
+				cx.fillStyle = mix("#cabfa8", "#2a2620");
+				rr(cx0 + cellW / 2 - vw / 2, floor - cellH * 0.5, vw, cellH * 0.5, {
+					upperLeft: vw / 2,
+					upperRight: vw / 2,
+				});
+				cx.fill();
+			} else if (kind === 2) {
+				// horizontal books + small sculpture
+				cx.fillStyle = mix("#7a6450", "#241f1a");
+				cx.fillRect(innerL, floor - 5, cellW * 0.5, 5);
+				cx.fillStyle = mix("#b8a98c", "#2e2a22");
+				cx.beginPath();
+				cx.arc(innerR - 6, floor - 5, 4, 0, Math.PI * 2);
+				cx.fill();
+			} else {
+				// small plant
+				cx.fillStyle = mix("#a89a82", "#2a2620");
+				cx.fillRect(cx0 + cellW / 2 - 4, floor - 6, 8, 6);
+				cx.fillStyle = mix("#5f7a55", "#26331f");
+				for (let k = -2; k <= 2; k++) {
+					cx.beginPath();
+					cx.moveTo(cx0 + cellW / 2, floor - 6);
+					cx.quadraticCurveTo(
+						cx0 + cellW / 2 + k * 4,
+						floor - 14,
+						cx0 + cellW / 2 + k * 6,
+						floor - 18,
+					);
+					cx.lineWidth = 1.2;
+					cx.strokeStyle = mix("#5f7a55", "#26331f");
+					cx.stroke();
+				}
+			}
+			// shelf board (front lip)
+			cx.fillStyle = mix("#4a3826", "#15100b");
+			cx.fillRect(cx0, cy0 + cellH - 2.5, cellW, 2.5);
+		}
+	}
+	// vertical dividers
+	cx.fillStyle = mix("#3e2e1d", "#120d08");
+	for (let c = 0; c <= cols; c++) {
+		cx.fillRect(bsX + c * cellW - 1, bsY, 2, bsH);
+	}
+	// brighter warm glow spilling into the room from the shelf
+	if (s.shelf > 0.02) {
+		const sp = cx.createLinearGradient(bsX + bsW, 0, bsX + bsW + 80, 0);
+		sp.addColorStop(0, `rgba(255,206,150,${0.28 * s.shelf})`);
+		sp.addColorStop(1, "rgba(255,206,150,0)");
+		cx.fillStyle = sp;
+		cx.fillRect(bsX + bsW, bsY, 80, bsH);
+	}
+
+	// ─────────────────────────────────────────────────────────
+	// FLOOR (warm oak, perspective) + area rug
+	// ─────────────────────────────────────────────────────────
+	const fg = cx.createLinearGradient(0, fY, 0, H + M);
+	fg.addColorStop(0, s.fT);
+	fg.addColorStop(1, s.fB);
+	cx.fillStyle = fg;
+	cx.fillRect(-M, fY, W + 2 * M, H - fY + M);
+	// plank seams converging
+	cx.strokeStyle = "rgba(0,0,0,0.07)";
+	cx.lineWidth = 0.5;
+	for (let i = -6; i <= 6; i++) {
+		const fxx = featX + i * 40;
+		cx.beginPath();
+		cx.moveTo(featX + i * 9, fY);
+		cx.lineTo(fxx, H + M);
+		cx.stroke();
+	}
+	for (let i = 1; i < 6; i++) {
+		const y = fY + (H + M - fY) * Math.pow(i / 6, 1.7);
+		cx.beginPath();
+		cx.moveTo(-M, y);
+		cx.lineTo(W + M, y);
+		cx.stroke();
+	}
+	// fireplace warm wash on floor
+	const fwash = cx.createLinearGradient(featX, fY, featX, H);
+	fwash.addColorStop(0, "rgba(255,150,70,0.14)");
+	fwash.addColorStop(1, "rgba(255,150,70,0)");
+	cx.fillStyle = fwash;
 	cx.beginPath();
-	cx.ellipse(ctX + ctW / 2, ctY + ctH + 12, ctW * 0.55, 7, 0, 0, Math.PI * 2);
+	cx.moveTo(featX - 60, fY);
+	cx.lineTo(featX + 60, fY);
+	cx.lineTo(featX + 130, H);
+	cx.lineTo(featX - 130, H);
+	cx.closePath();
 	cx.fill();
-	// slim marble/oak top
+	// large rectangular cream rug (perspective trapezoid, like the photo)
+	const rugTopY = fY + 14,
+		rugBotY = H + 30;
+	cx.fillStyle = mix("rgba(216,200,172,0.55)", "rgba(42,36,30,0.55)");
+	cx.beginPath();
+	cx.moveTo(featX - 150, rugTopY);
+	cx.lineTo(featX + 150, rugTopY);
+	cx.lineTo(featX + 230, rugBotY);
+	cx.lineTo(featX - 230, rugBotY);
+	cx.closePath();
+	cx.fill();
+	// soft pile texture (stipple)
+	cx.save();
+	cx.beginPath();
+	cx.moveTo(featX - 150, rugTopY);
+	cx.lineTo(featX + 150, rugTopY);
+	cx.lineTo(featX + 230, rugBotY);
+	cx.lineTo(featX - 230, rugBotY);
+	cx.closePath();
+	cx.clip();
+	cx.fillStyle = mix("rgba(255,250,238,0.22)", "rgba(70,62,52,0.2)");
+	for (let i = 0; i < 240; i++) {
+		const px = ln(featX - 220, featX + 220, rnd(i + 3));
+		const py = ln(rugTopY, rugBotY, rnd(i + 90));
+		cx.fillRect(px, py, 0.8, 1.6);
+	}
+	cx.restore();
+	cx.strokeStyle = mix("rgba(180,160,130,0.35)", "rgba(70,60,50,0.35)");
+	cx.lineWidth = 1;
+	cx.beginPath();
+	cx.moveTo(featX - 142, rugTopY + 5);
+	cx.lineTo(featX + 142, rugTopY + 5);
+	cx.lineTo(featX + 218, rugBotY - 6);
+	cx.lineTo(featX - 218, rugBotY - 6);
+	cx.closePath();
+	cx.stroke();
+
+	// ─────────────────────────────────────────────────────────
+	// TWO DARK LEATHER SOFAS in perspective, facing each other
+	// (left sofa faces right, right sofa faces left — parallel, receding
+	//  along each side wall toward the camera, like the reference photo)
+	// ─────────────────────────────────────────────────────────
+	const leatherTop = mix("#54565c", "#26262c");
+	const leatherMid = mix("#42444a", "#1c1c22");
+	const leatherDk = mix("#303238", "#141418");
+	const leatherFront = mix("#3a3c42", "#18181d");
+
+	// perspective projection along the room's depth axis.
+	// t: 0 = far (back wall), 1 = near (foreground / camera)
+	// u: across room, -1 = left wall, +1 = right wall
+	// h: height above floor in design px (lifted, scaled by depth)
+	const floorY = (t: number) => ln(fY - 2, H + 46, t);
+	const halfW = (t: number) => ln(W * 0.32, W * 0.92, t);
+	const hScale = (t: number) => ln(0.5, 1.5, t);
+	const proj = (u: number, t: number, h = 0) => ({
+		x: featX + u * halfW(t),
+		y: floorY(t) - h * hScale(t),
+	});
+	const quad = (
+		pts: { x: number; y: number }[],
+		fill: string | CanvasGradient,
+		stroke?: string,
+	) => {
+		cx.beginPath();
+		cx.moveTo(pts[0].x, pts[0].y);
+		for (let i = 1; i < pts.length; i++) cx.lineTo(pts[i].x, pts[i].y);
+		cx.closePath();
+		cx.fillStyle = fill;
+		cx.fill();
+		if (stroke) {
+			cx.strokeStyle = stroke;
+			cx.lineWidth = 0.5;
+			cx.stroke();
+		}
+	};
+
+	const drawSofa = (sideSign: number) => {
+		// sideSign: -1 = left sofa (seat faces +, i.e. right), +1 = right sofa
+		const sgn = sideSign;
+		// footprint across the room (u): outer (against wall) -> inner (seat front)
+		const uOuter = sgn * 0.98; // outer back of sofa (against side wall)
+		const uBackFront = sgn * 0.78; // front face of backrest
+		const uSeatFront = sgn * 0.4; // seat front edge (faces center)
+		const tB = 0.14, // far end (near fireplace/back)
+			tF = 1.02; // near end (foreground)
+		const seatH = 22, // seat top height
+			backH = 60, // backrest top height
+			armH = 44;
+
+		// helper to make a point
+		const P = (u: number, t: number, h = 0) => proj(u, t, h);
+
+		// ── contact shadow on the floor ──
+		cx.fillStyle = "rgba(0,0,0,0.26)";
+		quad(
+			[P(uOuter, tB), P(uSeatFront, tB), P(uSeatFront + sgn * 0.04, tF), P(uOuter, tF)],
+			"rgba(0,0,0,0.26)",
+		);
+
+		// ── SEAT BLOCK ──
+		// seat front vertical face (faces center) — the big visible leather face
+		const seatFrontGrad = cx.createLinearGradient(
+			P(uSeatFront, tB).x,
+			P(uSeatFront, tB, seatH).y,
+			P(uSeatFront, tF).x,
+			P(uSeatFront, tF).y,
+		);
+		seatFrontGrad.addColorStop(0, leatherMid);
+		seatFrontGrad.addColorStop(1, leatherFront);
+		quad(
+			[P(uSeatFront, tB, seatH), P(uSeatFront, tF, seatH), P(uSeatFront, tF, 0), P(uSeatFront, tB, 0)],
+			seatFrontGrad,
+			"rgba(0,0,0,0.25)",
+		);
+		// seat top surface
+		const seatTopGrad = cx.createLinearGradient(
+			P(uSeatFront, tB, seatH).x,
+			P(uSeatFront, tB, seatH).y,
+			P(uBackFront, tF, seatH).x,
+			P(uBackFront, tF, seatH).y,
+		);
+		seatTopGrad.addColorStop(0, leatherTop);
+		seatTopGrad.addColorStop(1, leatherMid);
+		quad(
+			[P(uSeatFront, tB, seatH), P(uBackFront, tB, seatH), P(uBackFront, tF, seatH), P(uSeatFront, tF, seatH)],
+			seatTopGrad,
+		);
+
+		// ── seat cushions on the top (receding) ──
+		const nC = 4;
+		for (let i = 0; i < nC; i++) {
+			const ta = ln(tB + 0.04, tF - 0.04, i / nC);
+			const tb = ln(tB + 0.04, tF - 0.04, (i + 0.92) / nC);
+			const cg2 = cx.createLinearGradient(
+				P(uSeatFront, ta, seatH).x,
+				P(uSeatFront, ta, seatH).y,
+				P(uBackFront, tb, seatH).x,
+				P(uBackFront, tb, seatH).y,
+			);
+			cg2.addColorStop(0, leatherTop);
+			cg2.addColorStop(1, leatherMid);
+			quad(
+				[P(uSeatFront, ta, seatH + 4), P(uBackFront, ta, seatH + 4), P(uBackFront, tb, seatH + 4), P(uSeatFront, tb, seatH + 4)],
+				cg2,
+				"rgba(0,0,0,0.18)",
+			);
+		}
+
+		// ── BACKREST BLOCK (against the wall) ──
+		// backrest front face (faces center)
+		const backFrontGrad = cx.createLinearGradient(
+			P(uBackFront, tB, backH).x,
+			P(uBackFront, tB, backH).y,
+			P(uBackFront, tF, 0).x,
+			P(uBackFront, tF, 0).y,
+		);
+		backFrontGrad.addColorStop(0, leatherTop);
+		backFrontGrad.addColorStop(1, leatherMid);
+		quad(
+			[P(uBackFront, tB, backH), P(uBackFront, tF, backH), P(uBackFront, tF, seatH - 2), P(uBackFront, tB, seatH - 2)],
+			backFrontGrad,
+		);
+		// backrest top
+		quad(
+			[P(uBackFront, tB, backH), P(uOuter, tB, backH), P(uOuter, tF, backH), P(uBackFront, tF, backH)],
+			leatherDk,
+		);
+		// back cushions (receding) on the backrest face
+		for (let i = 0; i < nC; i++) {
+			const ta = ln(tB + 0.04, tF - 0.04, i / nC);
+			const tb = ln(tB + 0.04, tF - 0.04, (i + 0.92) / nC);
+			quad(
+				[P(uBackFront - sgn * 0.02, ta, backH - 2), P(uBackFront - sgn * 0.02, tb, backH - 2), P(uBackFront - sgn * 0.02, tb, seatH + 2), P(uBackFront - sgn * 0.02, ta, seatH + 2)],
+				leatherTop,
+				"rgba(0,0,0,0.18)",
+			);
+		}
+
+		// ── NEAR ARMREST (foreground end cap) ──
+		const armGrad = cx.createLinearGradient(
+			P(uOuter, tF, armH).x,
+			P(uOuter, tF, armH).y,
+			P(uSeatFront, tF, 0).x,
+			P(uSeatFront, tF, 0).y,
+		);
+		armGrad.addColorStop(0, leatherTop);
+		armGrad.addColorStop(1, leatherFront);
+		quad(
+			[P(uOuter, tF, armH), P(uSeatFront, tF, armH), P(uSeatFront, tF, 0), P(uOuter, tF, 0)],
+			armGrad,
+			"rgba(0,0,0,0.22)",
+		);
+		// arm top rounded highlight
+		cx.fillStyle = "rgba(255,255,255,0.05)";
+		quad(
+			[P(uOuter, tF, armH), P(uSeatFront, tF, armH), P(uSeatFront, tF - 0.04, armH), P(uOuter, tF - 0.04, armH)],
+			"rgba(255,255,255,0.05)",
+		);
+
+		// ── throw pillows seated against the backrest, receding ──
+		const pillowCols = ["#c2b393", "#a89c80", "#d8cdb3", "#9a8e74"];
+		for (let i = 0; i < 5; i++) {
+			const tp = ln(tB + 0.08, tF - 0.16, i / 4);
+			const pc = P(ln(uBackFront, uSeatFront, 0.32), tp, seatH + 4);
+			const sc = hScale(tp);
+			cx.fillStyle = mix(pillowCols[i % pillowCols.length], "#2e2a22");
+			rr(pc.x - 13 * sc, pc.y - 22 * sc, 24 * sc, 22 * sc, 5 * sc);
+			cx.fill();
+			cx.strokeStyle = "rgba(0,0,0,0.12)";
+			cx.lineWidth = 0.5;
+			rr(pc.x - 13 * sc, pc.y - 22 * sc, 24 * sc, 22 * sc, 5 * sc);
+			cx.stroke();
+		}
+
+		// ── draped throw on the near end of the right sofa (like the photo) ──
+		if (sgn > 0) {
+			const dp = P(ln(uBackFront, uSeatFront, 0.5), tF - 0.12, seatH + 4);
+			const sc = hScale(tF - 0.12);
+			cx.fillStyle = mix("#b3a78c", "#332f27");
+			rr(dp.x - 10 * sc, dp.y - 10 * sc, 20 * sc, 40 * sc, 4 * sc);
+			cx.fill();
+		}
+
+		// ── warm fire reflection on the seat-front leather (static) ──
+		cx.fillStyle = "rgba(255,140,60,0.05)";
+		quad(
+			[P(uSeatFront, 0.4, seatH), P(uSeatFront, 0.8, seatH), P(uSeatFront, 0.8, 4), P(uSeatFront, 0.4, 4)],
+			"rgba(255,140,60,0.05)",
+		);
+
+		// tapered legs at the near corners
+		cx.strokeStyle = mix("#1a1a1e", "#0a0a0c");
+		cx.lineWidth = 2;
+		[uOuter, uSeatFront].forEach((u) => {
+			const top = P(u, tF, 0);
+			const bot = P(u, tF + 0.02, 0);
+			cx.beginPath();
+			cx.moveTo(top.x, top.y);
+			cx.lineTo(bot.x, bot.y + 5);
+			cx.stroke();
+		});
+	};
+	drawSofa(-1); // left sofa, faces right
+	drawSofa(1); // right sofa, faces left
+
+	// ─────────────────────────────────────────────────────────
+	// BLACK MARBLE & GLASS COFFEE TABLE (wider, centered) + decor
+	// ─────────────────────────────────────────────────────────
+	const ctX = featX - 62,
+		ctY = fY + 10,
+		ctW = 124,
+		ctH = 12;
+	cx.fillStyle = "rgba(0,0,0,0.24)";
+	cx.beginPath();
+	cx.ellipse(featX, ctY + ctH + 16, 74, 10, 0, 0, Math.PI * 2);
+	cx.fill();
+	// polished black top with reflection
 	const topG = cx.createLinearGradient(ctX, ctY, ctX, ctY + ctH);
-	topG.addColorStop(0, mix("#efe9dd", "#2a2620"));
-	topG.addColorStop(1, mix("#d8cfbe", "#1c1914"));
+	topG.addColorStop(0, "#1a1718");
+	topG.addColorStop(0.5, "#0c0a0c");
+	topG.addColorStop(1, "#060507");
 	cx.fillStyle = topG;
 	rr(ctX, ctY, ctW, ctH, 2);
 	cx.fill();
+	// specular streak + warm fire reflection on the polished top
 	cx.fillStyle = "rgba(255,255,255,0.10)";
-	cx.fillRect(ctX, ctY, ctW, 1.5);
-	// thin metal legs
-	cx.strokeStyle = mix("#8a8378", "#33312c");
-	cx.lineWidth = 1.5;
+	cx.fillRect(ctX + 4, ctY + 1.5, ctW - 8, 1.6);
+	cx.fillStyle = `rgba(255,140,60,0.11)`;
+	cx.fillRect(ctX + ctW * 0.3, ctY + 3, ctW * 0.4, 4);
+	// glass/chrome legs
+	cx.fillStyle = mix("rgba(120,110,100,0.55)", "rgba(44,44,48,0.6)");
+	cx.fillRect(ctX + 12, ctY + ctH, 3, 18);
+	cx.fillRect(ctX + ctW - 15, ctY + ctH, 3, 18);
+	// stacked books on the table (CHANEL-style coffee-table books)
+	cx.fillStyle = mix("#d8d2c6", "#2a2620");
+	rr(ctX + 12, ctY - 6, 34, 6, 1);
+	cx.fill();
+	cx.fillStyle = mix("#1c1a1a", "#0c0a0c");
+	rr(ctX + 15, ctY - 10, 30, 5, 1);
+	cx.fill();
+	// vase + white hydrangea (center)
+	cx.fillStyle = mix("#cfc6b6", "#2a2620");
+	rr(featX - 9, ctY - 14, 18, 14, 3);
+	cx.fill();
+	const fl = ["#f2f0ea", "#e8e6df", "#dcdad2"];
+	for (let i = 0; i < 16; i++) {
+		const a = rnd(i + 60) * Math.PI * 2;
+		const r2 = rnd(i + 70) * 10;
+		cx.fillStyle = mix(fl[i % 3], "#5a5650");
+		cx.beginPath();
+		cx.arc(featX + Math.cos(a) * r2, ctY - 18 + Math.sin(a) * r2 * 0.7, 2.8, 0, Math.PI * 2);
+		cx.fill();
+	}
+	// a small candle cluster on the table (static flame)
+	const cdX = ctX + ctW - 22;
+	cx.fillStyle = mix("#2a2622", "#0e0c10");
+	rr(cdX, ctY - 8, 7, 8, 1);
+	cx.fill();
+	const cf = 0.85;
+	cx.fillStyle = `rgba(255,190,90,${cf})`;
 	cx.beginPath();
-	cx.moveTo(ctX + 10, ctY + ctH);
-	cx.lineTo(ctX + 7, ctY + ctH + 14);
-	cx.moveTo(ctX + ctW - 10, ctY + ctH);
-	cx.lineTo(ctX + ctW - 7, ctY + ctH + 14);
-	cx.stroke();
-	// stacked premium books
-	cx.fillStyle = mix("#8a9bb0", "#3a4250");
-	rr(ctX + 14, ctY - 6, 30, 6, 1);
+	cx.ellipse(cdX + 3.5, ctY - 10, 1.4, 3, 0, 0, Math.PI * 2);
 	cx.fill();
-	cx.fillStyle = mix("#c07a6a", "#503a3a");
-	rr(ctX + 17, ctY - 10, 26, 5, 1);
-	cx.fill();
-	// vase with stems
-	cx.fillStyle = mix("#9fae9a", "#2a3a34");
-	rr(ctX + ctW - 30, ctY - 16, 9, 16, 2);
-	cx.fill();
-	cx.strokeStyle = mix("#5f7a55", "#3a5a44");
-	cx.lineWidth = 1;
+
+	// ─────────────────────────────────────────────────────────
+	// ROUND SIDE TABLE with lit candle (right edge, like the photo)
+	// ─────────────────────────────────────────────────────────
+	const stX = featX + 196,
+		stY = fY + 4;
+	cx.fillStyle = "rgba(0,0,0,0.2)";
 	cx.beginPath();
-	cx.moveTo(ctX + ctW - 26, ctY - 16);
-	cx.lineTo(ctX + ctW - 30, ctY - 30);
-	cx.moveTo(ctX + ctW - 24, ctY - 16);
-	cx.lineTo(ctX + ctW - 20, ctY - 28);
+	cx.ellipse(stX, stY + 30, 20, 6, 0, 0, Math.PI * 2);
+	cx.fill();
+	// brass frame legs
+	cx.strokeStyle = mix("#b89a5a", "#4a3e22");
+	cx.lineWidth = 2;
+	cx.beginPath();
+	cx.moveTo(stX - 14, stY + 2);
+	cx.lineTo(stX - 8, stY + 30);
+	cx.moveTo(stX + 14, stY + 2);
+	cx.lineTo(stX + 8, stY + 30);
 	cx.stroke();
+	// round dark top
+	cx.fillStyle = mix("#23201c", "#0e0c0a");
+	cx.beginPath();
+	cx.ellipse(stX, stY, 18, 6, 0, 0, Math.PI * 2);
+	cx.fill();
+	cx.fillStyle = "rgba(255,255,255,0.08)";
+	cx.beginPath();
+	cx.ellipse(stX, stY - 0.5, 18, 5, 0, 0, Math.PI * 2);
+	cx.fill();
+	// glass hurricane candle with flame
+	cx.fillStyle = "rgba(180,200,210,0.18)";
+	rr(stX - 5, stY - 16, 10, 16, 2);
+	cx.fill();
+	const sf = 0.9;
+	const cg2 = cx.createRadialGradient(stX, stY - 8, 0, stX, stY - 8, 9);
+	cg2.addColorStop(0, `rgba(255,200,110,${0.9 * sf})`);
+	cg2.addColorStop(1, "rgba(255,160,70,0)");
+	cx.fillStyle = cg2;
+	cx.beginPath();
+	cx.arc(stX, stY - 8, 9, 0, Math.PI * 2);
+	cx.fill();
+	cx.fillStyle = `rgba(255,210,120,${sf})`;
+	cx.beginPath();
+	cx.ellipse(stX, stY - 9, 1.4, 3.2, 0, 0, Math.PI * 2);
+	cx.fill();
 
-
-	// ── GLOBAL LIGHTING ATMOSPHERE ────────────────────────────
+	// ─────────────────────────────────────────────────────────
+	// GLOBAL LIGHTING / ATMOSPHERE
+	// ─────────────────────────────────────────────────────────
 	if (s.br > 0.1) {
-		const amb = cx.createRadialGradient(
-			W * 0.55,
-			fY * 0.5,
-			30,
-			W * 0.55,
-			fY * 0.6,
-			W * 0.8,
-		);
-		amb.addColorStop(0, `rgba(${s.aR},${s.aG},${s.aB},${s.br * 0.13})`);
+		const amb = cx.createRadialGradient(featX, fY * 0.5, 30, featX, fY * 0.62, W * 0.85);
+		amb.addColorStop(0, `rgba(${s.aR},${s.aG},${s.aB},${s.br * 0.12})`);
 		amb.addColorStop(1, "rgba(0,0,0,0)");
 		cx.fillStyle = amb;
 		cx.fillRect(-M, -M, W + 2 * M, H + 2 * M);
 	}
-	// corner vignette for depth
-	const vig = cx.createRadialGradient(
-		W / 2,
-		fY * 0.7,
-		W * 0.35,
-		W / 2,
-		fY * 0.7,
-		W * 0.85,
-	);
+	// depth vignette
+	const vig = cx.createRadialGradient(featX, fY * 0.7, W * 0.38, featX, fY * 0.7, W * 0.9);
 	vig.addColorStop(0, "rgba(0,0,0,0)");
-	vig.addColorStop(1, "rgba(0,0,0,0.18)");
+	vig.addColorStop(1, "rgba(0,0,0,0.2)");
 	cx.fillStyle = vig;
 	cx.fillRect(-M, -M, W + 2 * M, H + 2 * M);
-
+	// night darkening
 	if (s.br < 0.3) {
-		cx.fillStyle = `rgba(10,8,24,${(0.3 - s.br) * 0.8})`;
+		cx.fillStyle = `rgba(10,8,22,${(0.3 - s.br) * 0.8})`;
 		cx.fillRect(-M, -M, W + 2 * M, H + 2 * M);
 	}
 }
@@ -981,23 +1386,31 @@ export default function RoomAutomation() {
 	const [tvOn, setTvOn] = useState(false);
 	const [closed, setClosed] = useState(false);
 	const [transitioning, setTransitioning] = useState(false);
-	const [audioOn, setAudioOn] = useState(true);
-	const [muted, setMuted] = useState(false);
-	const [playing, setPlaying] = useState(false);
-	const [volume, setVolume] = useState(45);
+	const [ceilOn, setCeilOn] = useState(true);
+	const [shelfOn, setShelfOn] = useState(true);
 
 	const animRef = useRef<number | null>(null);
-	const curS = useRef<DrawState>({ ...SCENES.relax, shade: 0 });
+	const curS = useRef<DrawState>({
+		...SCENES.relax,
+		shade: 0,
+		ceil: 1,
+		shelf: 1,
+	});
 	const tvRef = useRef(false);
 	const videoRef = useRef<HTMLVideoElement>(null);
-	const videoLoopRef = useRef<number | null>(null);
-	// live UI state mirrored onto the on-canvas control panel
-	const uiRef = useRef({
-		vol: 45,
-		muted: false,
-		audioOn: true,
-		playing: false,
-	});
+	const loopRef = useRef<number | null>(null);
+	const timeRef = useRef(0);
+	// optional manual override for testing specific times; null = use real clock
+	const [demoHour, setDemoHour] = useState<number | null>(null);
+	const demoRef = useRef<number | null>(null);
+	demoRef.current = demoHour;
+
+	// current local hour as a fractional number (e.g. 13.5 = 1:30pm)
+	function currentHour() {
+		if (demoRef.current != null) return demoRef.current;
+		const d = new Date();
+		return d.getHours() + d.getMinutes() / 60;
+	}
 
 	function render() {
 		const canvas = canvasRef.current;
@@ -1019,30 +1432,31 @@ export default function RoomAutomation() {
 		ctx.setTransform(1, 0, 0, 1, 0, 0);
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-		const ZOOM = 0.82;
+		const ZOOM = 0.7;
 		const scale = Math.max(cw / W, ch / H) * ZOOM;
 		const offX = (cw - W * scale) / 2;
 		const offY = Math.max(0, (ch - H * scale) / 2);
 		ctx.setTransform(scale * dpr, 0, 0, scale * dpr, offX * dpr, offY * dpr);
 
-		drawRoom(ctx, curS.current, tvRef.current, videoRef.current, uiRef.current);
+		drawRoom(ctx, curS.current, tvRef.current, videoRef.current, timeRef.current, currentHour());
 	}
 
-	function videoTick() {
+	// single persistent loop: keeps the fire alive every frame and paints
+	// whatever curS currently holds (scene/shade tweens just mutate curS).
+	function loop(ts: number) {
+		timeRef.current = ts;
 		render();
-		videoLoopRef.current = requestAnimationFrame(videoTick);
+		loopRef.current = requestAnimationFrame(loop);
 	}
 
 	function startAnim(newTo: Partial<DrawState>, onDone?: () => void) {
 		const fromS: DrawState = { ...curS.current };
 		const toS: DrawState = { ...fromS, ...newTo };
-		let start: number | null = null;
+		const start = timeRef.current;
 		if (animRef.current) cancelAnimationFrame(animRef.current);
-		function tick(ts: number) {
-			if (!start) start = ts;
-			const t = Math.min((ts - start) / DUR, 1);
+		function tick() {
+			const t = Math.min((timeRef.current - start) / DUR, 1);
 			curS.current = blend(fromS, toS, ease(t));
-			render();
 			if (t < 1) {
 				animRef.current = requestAnimationFrame(tick);
 			} else {
@@ -1055,99 +1469,63 @@ export default function RoomAutomation() {
 	}
 
 	useEffect(() => {
-		render();
+		loopRef.current = requestAnimationFrame(loop);
 		const canvas = canvasRef.current;
 		let ro: ResizeObserver | undefined;
 		if (canvas && typeof ResizeObserver !== "undefined") {
 			ro = new ResizeObserver(() => render());
 			ro.observe(canvas);
 		}
-		const onResize = () => render();
-		window.addEventListener("resize", onResize);
 		return () => {
 			if (animRef.current) cancelAnimationFrame(animRef.current);
-			if (videoLoopRef.current) cancelAnimationFrame(videoLoopRef.current);
+			if (loopRef.current) cancelAnimationFrame(loopRef.current);
 			if (ro) ro.disconnect();
-			window.removeEventListener("resize", onResize);
 		};
 	}, []);
 
 	function handleScene(s: Scene) {
-		// ignore scene requests while a transition is already running
 		if (transitioning || s === scene) return;
 		setScene(s);
 		setTransitioning(true);
-		startAnim({ ...SCENES[s], shade: curS.current.shade }, () => {
-			setTransitioning(false);
-		});
+		startAnim(
+			{
+				...SCENES[s],
+				shade: curS.current.shade,
+				ceil: curS.current.ceil,
+				shelf: curS.current.shelf,
+			},
+			() => setTransitioning(false),
+		);
 	}
 
 	function handleTv(checked: boolean) {
 		tvRef.current = checked;
 		setTvOn(checked);
 		const video = videoRef.current;
-		if (checked) {
-			if (video) {
+		if (video) {
+			if (checked) {
 				video.currentTime = 0;
 				void video.play().catch(() => {});
-			}
-			setPlaying(true);
-			uiRef.current.playing = true;
-			if (videoLoopRef.current === null) videoTick();
-		} else {
-			if (videoLoopRef.current !== null) {
-				cancelAnimationFrame(videoLoopRef.current);
-				videoLoopRef.current = null;
-			}
-			if (video) {
+			} else {
 				video.pause();
 				video.currentTime = 0;
 			}
-			setPlaying(false);
-			uiRef.current.playing = false;
-			render();
 		}
 	}
 
-	function handleBlinds(checked: boolean) {
+	function handleShades(checked: boolean) {
 		setClosed(checked);
 		startAnim({ shade: checked ? 100 : 0 });
 	}
 
-	function handleVolume(v: number) {
-		setVolume(v);
-		uiRef.current.vol = v;
-		if (v > 0 && muted) {
-			setMuted(false);
-			uiRef.current.muted = false;
-		}
-		render();
+	function handleCeil(checked: boolean) {
+		setCeilOn(checked);
+		startAnim({ ceil: checked ? 1 : 0 });
 	}
 
-	function handleMute() {
-		const next = !muted;
-		setMuted(next);
-		uiRef.current.muted = next;
-		render();
-	}
-
-	function handleAudioPower() {
-		const next = !audioOn;
-		setAudioOn(next);
-		uiRef.current.audioOn = next;
-		render();
-	}
-
-	function handlePlayPause() {
-		const video = videoRef.current;
-		const next = !playing;
-		setPlaying(next);
-		uiRef.current.playing = next;
-		if (video && tvOn) {
-			if (next) void video.play().catch(() => {});
-			else video.pause();
-		}
-		render();
+	function handleShelf(checked: boolean) {
+		setShelfOn(checked);
+		startAnim({ shelf: checked ? 1 : 0 });
 	}
 
 	return (
@@ -1173,29 +1551,60 @@ export default function RoomAutomation() {
 				<div className={styles.sec}>
 					<p className={styles.sl}>Lighting Scenes</p>
 					<div className={styles.sbns}>
-						{(Object.keys(SCENE_META) as Scene[]).map((s) => (
+						{(Object.keys(SCENE_META) as Scene[]).map((sk) => (
 							<button
-								key={s}
-								className={`${styles.sbn} ${scene === s ? styles.on : ""}`}
+								key={sk}
+								className={`${styles.sbn} ${scene === sk ? styles.on : ""}`}
 								style={
 									{
-										"--ac": SCENE_META[s].color,
-										"--ac-bg": SCENE_META[s].bg,
+										"--ac": SCENE_META[sk].color,
+										"--ac-bg": SCENE_META[sk].bg,
 									} as React.CSSProperties
 								}
 								disabled={transitioning}
 								aria-busy={transitioning}
-								onClick={() => handleScene(s)}
+								onClick={() => handleScene(sk)}
 							>
 								<span
 									className={styles.dot}
-									style={{ background: SCENE_META[s].dot }}
+									style={{ background: SCENE_META[sk].dot }}
 								/>
-								{SCENE_META[s].label}
+								{SCENE_META[sk].label}
 							</button>
 						))}
 					</div>
 				</div>
+
+				<div className={styles.sec}>
+					<p className={styles.sl}>
+						<i className="ti ti-bulb" aria-hidden="true" /> Lighting
+					</p>
+					<div className={styles.trow}>
+						<span className={styles.tl}>Ceiling LED</span>
+						<label className={styles.tgl} aria-label="Ceiling LED">
+							<input
+								type="checkbox"
+								checked={ceilOn}
+								onChange={(e) => handleCeil(e.target.checked)}
+							/>
+							<span className={styles.tt} />
+							<span className={styles.tth} />
+						</label>
+					</div>
+					<div className={styles.trow} style={{ marginTop: 8 }}>
+						<span className={styles.tl}>Shelf Light</span>
+						<label className={styles.tgl} aria-label="Shelf light">
+							<input
+								type="checkbox"
+								checked={shelfOn}
+								onChange={(e) => handleShelf(e.target.checked)}
+							/>
+							<span className={styles.tt} />
+							<span className={styles.tth} />
+						</label>
+					</div>
+				</div>
+
 				<div
 					style={{ display: "flex", justifyContent: "space-between", gap: 10 }}
 				>
@@ -1219,87 +1628,21 @@ export default function RoomAutomation() {
 
 					<div className={styles.sec}>
 						<p className={styles.sl}>
-							<i className="ti ti-stack-2" aria-hidden="true" /> Blinds
+							<i className="ti ti-stack-2" aria-hidden="true" /> Shades
 						</p>
 						<div className={styles.trow}>
 							<span className={styles.tl}>{closed ? "Closed" : "Open"}</span>
-							<label className={styles.tgl} aria-label="Blinds toggle">
+							<label className={styles.tgl} aria-label="Shades toggle">
 								<input
 									type="checkbox"
 									checked={closed}
-									onChange={(e) => handleBlinds(e.target.checked)}
+									onChange={(e) => handleShades(e.target.checked)}
 								/>
 								<span className={styles.tt} />
 								<span className={styles.tth} />
 							</label>
 						</div>
 					</div>
-				</div>
-
-				<div className={styles.sec}>
-					{/* <p className={styles.sl}>
-						<i className="ti ti-music" aria-hidden="true" /> Entertainment
-					</p> */}
-					{/* <div className={styles.entRow}>
-						<button
-							className={`${styles.entBtn} ${tvOn ? styles.entOn : ""}`}
-							onClick={() => handleTv(!tvOn)}
-							aria-label="TV power"
-							title="TV Power"
-						>
-							<i className="ti ti-device-tv" aria-hidden="true" />
-						</button>
-						<button
-							className={`${styles.entBtn} ${audioOn ? styles.entOn : ""}`}
-							onClick={handleAudioPower}
-							aria-label="Audio power"
-							title="Audio Power"
-						>
-							<i className="ti ti-speakerphone" aria-hidden="true" />
-						</button>
-						<button
-							className={`${styles.entBtn} ${playing ? styles.entOn : ""}`}
-							onClick={handlePlayPause}
-							aria-label="Play or pause"
-							title="Play / Pause"
-						>
-							<i
-								className={playing ? "ti ti-player-pause" : "ti ti-player-play"}
-								aria-hidden="true"
-							/>
-						</button>
-						<button
-							className={`${styles.entBtn} ${muted ? styles.entMuted : ""}`}
-							onClick={handleMute}
-							aria-label="Mute"
-							title="Mute"
-						>
-							<i
-								className={muted ? "ti ti-volume-off" : "ti ti-volume"}
-								aria-hidden="true"
-							/>
-						</button>
-					</div> */}
-
-					<div className={styles.volHead}>
-						<span className={styles.tl}>Volume</span>
-						<span className={styles.volVal}>
-							{muted ? "Muted" : `${volume}%`}
-						</span>
-					</div>
-					<input
-						className={styles.volSlider}
-						type="range"
-						min={0}
-						max={100}
-						step={1}
-						value={muted ? 0 : volume}
-						onChange={(e) => handleVolume(Number(e.target.value))}
-						aria-label="Volume"
-						style={
-							{ "--fill": `${muted ? 0 : volume}%` } as React.CSSProperties
-						}
-					/>
 				</div>
 			</div>
 		</div>

@@ -316,10 +316,10 @@ const Header = () => {
 												: undefined
 										}
 										className={`menu__link ${menuOpen ? "menu__link--visible" : ""}`}
-										href="https://www.instagram.com/pa_vision.cz"
+										href="https://www.facebook.com/profile.php?id=61581254326915"
 										target="_blank"
 									>
-										Instagram
+										Facebook
 									</a>
 								</div>
 							</div>

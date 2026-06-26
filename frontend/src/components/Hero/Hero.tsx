@@ -10,7 +10,9 @@ import ChevronIcon from "../icons/ChevronIcon";
 import ChevronRightIcon from "../icons/ChevronRightIcon";
 import { Link } from "@/i18n/navigation";
 import { TransitionLink } from "../TransitionLink";
+// import RoomAutomation from "./RoomAutomation";
 import RoomAutomation from "./RoomAutomation";
+// import RoomShowcase from "./RoomShowcase";
 
 const Hero = () => {
 	const t = useTranslations();
@@ -145,6 +147,7 @@ const Hero = () => {
 			/>
 			<div className="hero__room">
 				<RoomAutomation />
+				{/* <RoomShowcase /> */}
 			</div>
 			<div className="hero-container">
 				<h1 className="hero__title">{t("hero.title")}</h1>
