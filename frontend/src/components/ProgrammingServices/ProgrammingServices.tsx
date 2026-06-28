@@ -1,10 +1,12 @@
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import "./styles.scss";
 
-export default function ProgrammingServices() {
+export default async function ProgrammingServices() {
+	const t = await getTranslations("programmingServices");
 	return (
 		<section className="programming-services">
-			<h2 className="section__title">Programming Services</h2>
+			<h2 className="section__title">{t("title")}</h2>
 			<div className="programming-services-container">
 				<div className="programming-services-container-inner">
 					<Link className="programming-services__link" href="/">
@@ -37,8 +39,8 @@ export default function ProgrammingServices() {
 						justifyContent: "space-between",
 					}}
 				>
-					<Link className="programming-services__link-btn" href="/">
-						Book the Programmer
+					<Link className="programming-services__link-btn" href="/appointment">
+						{t("bookTheProgrammer")}
 					</Link>
 					{/* <div style={{ display: "flex", gap: "10px" }}>
 						<img

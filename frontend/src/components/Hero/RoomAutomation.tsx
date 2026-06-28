@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import styles from "./RoomAutomation.module.scss";
+import TvIcon from "../icons/TvIcon";
+import LightbulbIcon from "../icons/LightbulbIcon";
 
 type Scene = "relax" | "bright" | "cinema";
 
@@ -108,16 +110,116 @@ interface SkyOfDay {
 }
 // keyframes across 24h; values interpolate between the nearest two
 const SKY_KEYS: { h: number; v: SkyOfDay }[] = [
-	{ h: 0, v: { skyT: "#070a18", skyB: "#0d1430", sun: 0, stars: 1, ground: "#10160f", daylight: 0.06 } }, // deep night
-	{ h: 5, v: { skyT: "#1b2440", skyB: "#3a3550", sun: 0.05, stars: 0.5, ground: "#1c2616", daylight: 0.16 } }, // pre-dawn
-	{ h: 7, v: { skyT: "#9fb6d8", skyB: "#f0c9a0", sun: 0.55, stars: 0, ground: "#5e7a44", daylight: 0.6 } }, // sunrise / morning
-	{ h: 9, v: { skyT: "#8fc0ea", skyB: "#d6ecf6", sun: 0.7, stars: 0, ground: "#6f8f4e", daylight: 0.82 } }, // bright morning
-	{ h: 13, v: { skyT: "#5fa8e8", skyB: "#cfe9fb", sun: 1, stars: 0, ground: "#7da055", daylight: 1 } }, // warm sunny midday
-	{ h: 17, v: { skyT: "#79b0e0", skyB: "#ffe3b0", sun: 0.8, stars: 0, ground: "#6f8f4e", daylight: 0.78 } }, // afternoon
-	{ h: 19, v: { skyT: "#3a3f6e", skyB: "#e88a4e", sun: 0.5, stars: 0.1, ground: "#3e4a2c", daylight: 0.4 } }, // sunset / dusk
-	{ h: 20.5, v: { skyT: "#161a38", skyB: "#3a2f4a", sun: 0.1, stars: 0.5, ground: "#1e2616", daylight: 0.16 } }, // nightfall
-	{ h: 23, v: { skyT: "#080b1c", skyB: "#0f1734", sun: 0, stars: 1, ground: "#121810", daylight: 0.07 } }, // starry night
-	{ h: 24, v: { skyT: "#070a18", skyB: "#0d1430", sun: 0, stars: 1, ground: "#10160f", daylight: 0.06 } }, // wrap to midnight
+	{
+		h: 0,
+		v: {
+			skyT: "#070a18",
+			skyB: "#0d1430",
+			sun: 0,
+			stars: 1,
+			ground: "#10160f",
+			daylight: 0.06,
+		},
+	}, // deep night
+	{
+		h: 5,
+		v: {
+			skyT: "#1b2440",
+			skyB: "#3a3550",
+			sun: 0.05,
+			stars: 0.5,
+			ground: "#1c2616",
+			daylight: 0.16,
+		},
+	}, // pre-dawn
+	{
+		h: 7,
+		v: {
+			skyT: "#9fb6d8",
+			skyB: "#f0c9a0",
+			sun: 0.55,
+			stars: 0,
+			ground: "#5e7a44",
+			daylight: 0.6,
+		},
+	}, // sunrise / morning
+	{
+		h: 9,
+		v: {
+			skyT: "#8fc0ea",
+			skyB: "#d6ecf6",
+			sun: 0.7,
+			stars: 0,
+			ground: "#6f8f4e",
+			daylight: 0.82,
+		},
+	}, // bright morning
+	{
+		h: 13,
+		v: {
+			skyT: "#5fa8e8",
+			skyB: "#cfe9fb",
+			sun: 1,
+			stars: 0,
+			ground: "#7da055",
+			daylight: 1,
+		},
+	}, // warm sunny midday
+	{
+		h: 17,
+		v: {
+			skyT: "#79b0e0",
+			skyB: "#ffe3b0",
+			sun: 0.8,
+			stars: 0,
+			ground: "#6f8f4e",
+			daylight: 0.78,
+		},
+	}, // afternoon
+	{
+		h: 19,
+		v: {
+			skyT: "#3a3f6e",
+			skyB: "#e88a4e",
+			sun: 0.5,
+			stars: 0.1,
+			ground: "#3e4a2c",
+			daylight: 0.4,
+		},
+	}, // sunset / dusk
+	{
+		h: 20.5,
+		v: {
+			skyT: "#161a38",
+			skyB: "#3a2f4a",
+			sun: 0.1,
+			stars: 0.5,
+			ground: "#1e2616",
+			daylight: 0.16,
+		},
+	}, // nightfall
+	{
+		h: 23,
+		v: {
+			skyT: "#080b1c",
+			skyB: "#0f1734",
+			sun: 0,
+			stars: 1,
+			ground: "#121810",
+			daylight: 0.07,
+		},
+	}, // starry night
+	{
+		h: 24,
+		v: {
+			skyT: "#070a18",
+			skyB: "#0d1430",
+			sun: 0,
+			stars: 1,
+			ground: "#10160f",
+			daylight: 0.06,
+		},
+	}, // wrap to midnight
 ];
 function skyForHour(hour: number): SkyOfDay {
 	const h = ((hour % 24) + 24) % 24;
@@ -223,9 +325,14 @@ function drawRoom(
 	cx.fillRect(-M, ceilY, W + 2 * M, 2);
 
 	// warm white 3000K LED cove — thin, bright, edge-to-edge rectangular tray.
-	// Glow is confined to the ceiling band so it never spills onto the windows.
+	// The whole cove is CLIPPED to the ceiling band (above the window frames) so
+	// toggling it can never light the windows, their frames, or the outdoors.
 	if (s.ceil > 0.01) {
 		const a = s.ceil;
+		cx.save();
+		cx.beginPath();
+		cx.rect(-M, -M, W + 2 * M, ceilY - 6 + M); // ceiling only: top of canvas down to just above the soffit
+		cx.clip();
 		// tray spans almost the full room width, in mild perspective
 		const trayTop = ceilY * 0.3; // far edge (higher up, slightly inset)
 		const trayBot = ceilY - 6; // near edge (just above the soffit)
@@ -306,6 +413,7 @@ function drawRoom(
 		cov.addColorStop(1, "rgba(255,214,158,0)");
 		cx.fillStyle = cov;
 		cx.fillRect(-M, trayBot, W + 2 * M, Math.max(0, washBot - trayBot));
+		cx.restore(); // end ceiling-only clip
 	}
 
 	// recessed downlights across the ceiling (speakers moved to floor towers)
@@ -364,7 +472,10 @@ function drawRoom(
 	const winBot = fY - 4;
 	const winH = winBot - winTop;
 	const leftWin = { x: 30, w: featX - featW / 2 - 30 - 6 };
-	const rightWin = { x: featX + featW / 2 + 6, w: W - 30 - (featX + featW / 2 + 6) };
+	const rightWin = {
+		x: featX + featW / 2 + 6,
+		w: W - 30 - (featX + featW / 2 + 6),
+	};
 
 	const drawWindow = (wx: number, ww: number, flip: boolean) => {
 		// frame
@@ -477,7 +588,14 @@ function drawRoom(
 				const ccx = tx + Math.cos(ka) * kr;
 				const ccy = topY + th * 0.32 + Math.sin(ka) * kr * 0.6;
 				const cr = tw * (0.4 + rnd(seed + k + 7) * 0.4);
-				const g2 = cx.createRadialGradient(ccx - cr * 0.3, ccy - cr * 0.3, 1, ccx, ccy, cr);
+				const g2 = cx.createRadialGradient(
+					ccx - cr * 0.3,
+					ccy - cr * 0.3,
+					1,
+					ccx,
+					ccy,
+					cr,
+				);
 				if (night) {
 					g2.addColorStop(0, "rgba(26,40,28,0.95)");
 					g2.addColorStop(1, "rgba(12,22,14,0.6)");
@@ -492,7 +610,10 @@ function drawRoom(
 						0,
 						`rgba(${Math.round(base[0] + rnd(k) * 30)},${Math.round(base[1] + rnd(k + 1) * 25)},${Math.round(base[2] + rnd(k + 2) * 18)},0.95)`,
 					);
-					g2.addColorStop(1, `rgba(${Math.round(40 * dl)},${Math.round(80 * dl)},${Math.round(40 * dl)},0.4)`);
+					g2.addColorStop(
+						1,
+						`rgba(${Math.round(40 * dl)},${Math.round(80 * dl)},${Math.round(40 * dl)},0.4)`,
+					);
 				}
 				cx.fillStyle = g2;
 				cx.beginPath();
@@ -705,7 +826,8 @@ function drawRoom(
 	rr(fpX, fpY, fpW, fpH, 2);
 	cx.fill();
 	// flickering ember bed behind logs
-	const emberFlick = 0.82 + Math.sin(time * 0.006) * 0.1 + Math.sin(time * 0.013) * 0.06;
+	const emberFlick =
+		0.82 + Math.sin(time * 0.006) * 0.1 + Math.sin(time * 0.013) * 0.06;
 	const ember = cx.createLinearGradient(0, fpY + fpH, 0, fpY + 6);
 	ember.addColorStop(0, `rgba(255,150,50,${emberFlick})`);
 	ember.addColorStop(1, "rgba(120,30,0,0.18)");
@@ -727,7 +849,9 @@ function drawRoom(
 			0.3 * Math.sin(time * 0.009 + phase) +
 			0.15 * Math.sin(time * 0.021 + phase * 2.3);
 		const flh = (10 + rnd(i + 20) * 12) * (0.7 + breathe * 0.6);
-		const sway = Math.sin(time * 0.011 + phase) * 2.4 + Math.sin(time * 0.027 + phase) * 1.1;
+		const sway =
+			Math.sin(time * 0.011 + phase) * 2.4 +
+			Math.sin(time * 0.027 + phase) * 1.1;
 		const tipX = flx + sway;
 		const w = 3 + rnd(i + 4) * 1.6;
 		// outer flame (orange)
@@ -749,8 +873,18 @@ function drawRoom(
 		cx.fillStyle = core;
 		cx.beginPath();
 		cx.moveTo(flx - w * 0.45, baseY);
-		cx.quadraticCurveTo(flx, baseY - flh * 0.4, flx + sway * 0.6, baseY - flh * 0.6);
-		cx.quadraticCurveTo(flx + w * 0.45, baseY - flh * 0.3, flx + w * 0.45, baseY);
+		cx.quadraticCurveTo(
+			flx,
+			baseY - flh * 0.4,
+			flx + sway * 0.6,
+			baseY - flh * 0.6,
+		);
+		cx.quadraticCurveTo(
+			flx + w * 0.45,
+			baseY - flh * 0.3,
+			flx + w * 0.45,
+			baseY,
+		);
 		cx.closePath();
 		cx.fill();
 	}
@@ -770,8 +904,16 @@ function drawRoom(
 
 	// fire glow into the room — kept tight around the firebox so it never
 	// bleeds up onto the TV (smaller radius, centered low on the fire)
-	const glowPulse = 0.78 + Math.sin(time * 0.009) * 0.16 + Math.sin(time * 0.019) * 0.08;
-	const fglow = cx.createRadialGradient(featX, baseY + 4, 4, featX, baseY + 4, 78);
+	const glowPulse =
+		0.78 + Math.sin(time * 0.009) * 0.16 + Math.sin(time * 0.019) * 0.08;
+	const fglow = cx.createRadialGradient(
+		featX,
+		baseY + 4,
+		4,
+		featX,
+		baseY + 4,
+		78,
+	);
 	fglow.addColorStop(0, `rgba(255,150,60,${0.3 * glowPulse})`);
 	fglow.addColorStop(0.5, `rgba(255,130,55,${0.1 * glowPulse})`);
 	fglow.addColorStop(1, "rgba(255,150,60,0)");
@@ -818,16 +960,36 @@ function drawRoom(
 		cx.fill();
 		// drivers: tweeter + mid + two woofers down the baffle
 		const cxm = txc;
-		const driverYs = [ty + 16 * scale, ty + 38 * scale, ty + 66 * scale, ty + 94 * scale];
+		const driverYs = [
+			ty + 16 * scale,
+			ty + 38 * scale,
+			ty + 66 * scale,
+			ty + 94 * scale,
+		];
 		const driverR = [2.6 * scale, 5.5 * scale, 7 * scale, 7 * scale];
 		driverYs.forEach((dy, i) => {
 			// surround ring
 			cx.fillStyle = mix("#3a3a40", "#1a1a1e");
 			cx.beginPath();
-			cx.ellipse(cxm, dy, driverR[i] + 1.4 * scale, driverR[i] + 1.4 * scale, 0, 0, Math.PI * 2);
+			cx.ellipse(
+				cxm,
+				dy,
+				driverR[i] + 1.4 * scale,
+				driverR[i] + 1.4 * scale,
+				0,
+				0,
+				Math.PI * 2,
+			);
 			cx.fill();
 			// cone
-			const cone = cx.createRadialGradient(cxm - driverR[i] * 0.3, dy - driverR[i] * 0.3, 0.4, cxm, dy, driverR[i]);
+			const cone = cx.createRadialGradient(
+				cxm - driverR[i] * 0.3,
+				dy - driverR[i] * 0.3,
+				0.4,
+				cxm,
+				dy,
+				driverR[i],
+			);
 			if (i === 0) {
 				cone.addColorStop(0, "#cfcfce");
 				cone.addColorStop(1, "#5a5a5c");
@@ -843,7 +1005,15 @@ function drawRoom(
 			// dust cap / center
 			cx.fillStyle = i === 0 ? "#e8e8e6" : "#0c0c0c";
 			cx.beginPath();
-			cx.ellipse(cxm, dy, driverR[i] * 0.28, driverR[i] * 0.28, 0, 0, Math.PI * 2);
+			cx.ellipse(
+				cxm,
+				dy,
+				driverR[i] * 0.28,
+				driverR[i] * 0.28,
+				0,
+				0,
+				Math.PI * 2,
+			);
 			cx.fill();
 		});
 		// thin front-edge gloss highlight
@@ -879,7 +1049,14 @@ function drawRoom(
 		cols = 4;
 	const cellW = bsW / cols;
 	const cellH = bsH / rows;
-	const objCols = ["#8a5a3a", "#5a6a78", "#7a4a50", "#3a4a3a", "#9a8a6a", "#b0967a"];
+	const objCols = [
+		"#8a5a3a",
+		"#5a6a78",
+		"#7a4a50",
+		"#3a4a3a",
+		"#9a8a6a",
+		"#b0967a",
+	];
 	for (let r = 0; r < rows; r++) {
 		for (let c = 0; c < cols; c++) {
 			const cx0 = bsX + c * cellW;
@@ -1104,7 +1281,12 @@ function drawRoom(
 		// ── contact shadow on the floor ──
 		cx.fillStyle = "rgba(0,0,0,0.26)";
 		quad(
-			[P(uOuter, tB), P(uSeatFront, tB), P(uSeatFront + sgn * 0.04, tF), P(uOuter, tF)],
+			[
+				P(uOuter, tB),
+				P(uSeatFront, tB),
+				P(uSeatFront + sgn * 0.04, tF),
+				P(uOuter, tF),
+			],
 			"rgba(0,0,0,0.26)",
 		);
 
@@ -1119,7 +1301,12 @@ function drawRoom(
 		seatFrontGrad.addColorStop(0, leatherMid);
 		seatFrontGrad.addColorStop(1, leatherFront);
 		quad(
-			[P(uSeatFront, tB, seatH), P(uSeatFront, tF, seatH), P(uSeatFront, tF, 0), P(uSeatFront, tB, 0)],
+			[
+				P(uSeatFront, tB, seatH),
+				P(uSeatFront, tF, seatH),
+				P(uSeatFront, tF, 0),
+				P(uSeatFront, tB, 0),
+			],
 			seatFrontGrad,
 			"rgba(0,0,0,0.25)",
 		);
@@ -1133,7 +1320,12 @@ function drawRoom(
 		seatTopGrad.addColorStop(0, leatherTop);
 		seatTopGrad.addColorStop(1, leatherMid);
 		quad(
-			[P(uSeatFront, tB, seatH), P(uBackFront, tB, seatH), P(uBackFront, tF, seatH), P(uSeatFront, tF, seatH)],
+			[
+				P(uSeatFront, tB, seatH),
+				P(uBackFront, tB, seatH),
+				P(uBackFront, tF, seatH),
+				P(uSeatFront, tF, seatH),
+			],
 			seatTopGrad,
 		);
 
@@ -1151,7 +1343,12 @@ function drawRoom(
 			cg2.addColorStop(0, leatherTop);
 			cg2.addColorStop(1, leatherMid);
 			quad(
-				[P(uSeatFront, ta, seatH + 4), P(uBackFront, ta, seatH + 4), P(uBackFront, tb, seatH + 4), P(uSeatFront, tb, seatH + 4)],
+				[
+					P(uSeatFront, ta, seatH + 4),
+					P(uBackFront, ta, seatH + 4),
+					P(uBackFront, tb, seatH + 4),
+					P(uSeatFront, tb, seatH + 4),
+				],
 				cg2,
 				"rgba(0,0,0,0.18)",
 			);
@@ -1168,12 +1365,22 @@ function drawRoom(
 		backFrontGrad.addColorStop(0, leatherTop);
 		backFrontGrad.addColorStop(1, leatherMid);
 		quad(
-			[P(uBackFront, tB, backH), P(uBackFront, tF, backH), P(uBackFront, tF, seatH - 2), P(uBackFront, tB, seatH - 2)],
+			[
+				P(uBackFront, tB, backH),
+				P(uBackFront, tF, backH),
+				P(uBackFront, tF, seatH - 2),
+				P(uBackFront, tB, seatH - 2),
+			],
 			backFrontGrad,
 		);
 		// backrest top
 		quad(
-			[P(uBackFront, tB, backH), P(uOuter, tB, backH), P(uOuter, tF, backH), P(uBackFront, tF, backH)],
+			[
+				P(uBackFront, tB, backH),
+				P(uOuter, tB, backH),
+				P(uOuter, tF, backH),
+				P(uBackFront, tF, backH),
+			],
 			leatherDk,
 		);
 		// back cushions (receding) on the backrest face
@@ -1181,7 +1388,12 @@ function drawRoom(
 			const ta = ln(tB + 0.04, tF - 0.04, i / nC);
 			const tb = ln(tB + 0.04, tF - 0.04, (i + 0.92) / nC);
 			quad(
-				[P(uBackFront - sgn * 0.02, ta, backH - 2), P(uBackFront - sgn * 0.02, tb, backH - 2), P(uBackFront - sgn * 0.02, tb, seatH + 2), P(uBackFront - sgn * 0.02, ta, seatH + 2)],
+				[
+					P(uBackFront - sgn * 0.02, ta, backH - 2),
+					P(uBackFront - sgn * 0.02, tb, backH - 2),
+					P(uBackFront - sgn * 0.02, tb, seatH + 2),
+					P(uBackFront - sgn * 0.02, ta, seatH + 2),
+				],
 				leatherTop,
 				"rgba(0,0,0,0.18)",
 			);
@@ -1197,14 +1409,24 @@ function drawRoom(
 		armGrad.addColorStop(0, leatherTop);
 		armGrad.addColorStop(1, leatherFront);
 		quad(
-			[P(uOuter, tF, armH), P(uSeatFront, tF, armH), P(uSeatFront, tF, 0), P(uOuter, tF, 0)],
+			[
+				P(uOuter, tF, armH),
+				P(uSeatFront, tF, armH),
+				P(uSeatFront, tF, 0),
+				P(uOuter, tF, 0),
+			],
 			armGrad,
 			"rgba(0,0,0,0.22)",
 		);
 		// arm top rounded highlight
 		cx.fillStyle = "rgba(255,255,255,0.05)";
 		quad(
-			[P(uOuter, tF, armH), P(uSeatFront, tF, armH), P(uSeatFront, tF - 0.04, armH), P(uOuter, tF - 0.04, armH)],
+			[
+				P(uOuter, tF, armH),
+				P(uSeatFront, tF, armH),
+				P(uSeatFront, tF - 0.04, armH),
+				P(uOuter, tF - 0.04, armH),
+			],
 			"rgba(255,255,255,0.05)",
 		);
 
@@ -1235,7 +1457,12 @@ function drawRoom(
 		// ── warm fire reflection on the seat-front leather (static) ──
 		cx.fillStyle = "rgba(255,140,60,0.05)";
 		quad(
-			[P(uSeatFront, 0.4, seatH), P(uSeatFront, 0.8, seatH), P(uSeatFront, 0.8, 4), P(uSeatFront, 0.4, 4)],
+			[
+				P(uSeatFront, 0.4, seatH),
+				P(uSeatFront, 0.8, seatH),
+				P(uSeatFront, 0.8, 4),
+				P(uSeatFront, 0.4, 4),
+			],
 			"rgba(255,140,60,0.05)",
 		);
 
@@ -1299,7 +1526,13 @@ function drawRoom(
 		const r2 = rnd(i + 70) * 10;
 		cx.fillStyle = mix(fl[i % 3], "#5a5650");
 		cx.beginPath();
-		cx.arc(featX + Math.cos(a) * r2, ctY - 18 + Math.sin(a) * r2 * 0.7, 2.8, 0, Math.PI * 2);
+		cx.arc(
+			featX + Math.cos(a) * r2,
+			ctY - 18 + Math.sin(a) * r2 * 0.7,
+			2.8,
+			0,
+			Math.PI * 2,
+		);
 		cx.fill();
 	}
 	// a small candle cluster on the table (static flame)
@@ -1361,14 +1594,28 @@ function drawRoom(
 	// GLOBAL LIGHTING / ATMOSPHERE
 	// ─────────────────────────────────────────────────────────
 	if (s.br > 0.1) {
-		const amb = cx.createRadialGradient(featX, fY * 0.5, 30, featX, fY * 0.62, W * 0.85);
+		const amb = cx.createRadialGradient(
+			featX,
+			fY * 0.5,
+			30,
+			featX,
+			fY * 0.62,
+			W * 0.85,
+		);
 		amb.addColorStop(0, `rgba(${s.aR},${s.aG},${s.aB},${s.br * 0.12})`);
 		amb.addColorStop(1, "rgba(0,0,0,0)");
 		cx.fillStyle = amb;
 		cx.fillRect(-M, -M, W + 2 * M, H + 2 * M);
 	}
 	// depth vignette
-	const vig = cx.createRadialGradient(featX, fY * 0.7, W * 0.38, featX, fY * 0.7, W * 0.9);
+	const vig = cx.createRadialGradient(
+		featX,
+		fY * 0.7,
+		W * 0.38,
+		featX,
+		fY * 0.7,
+		W * 0.9,
+	);
 	vig.addColorStop(0, "rgba(0,0,0,0)");
 	vig.addColorStop(1, "rgba(0,0,0,0.2)");
 	cx.fillStyle = vig;
@@ -1438,7 +1685,14 @@ export default function RoomAutomation() {
 		const offY = Math.max(0, (ch - H * scale) / 2);
 		ctx.setTransform(scale * dpr, 0, 0, scale * dpr, offX * dpr, offY * dpr);
 
-		drawRoom(ctx, curS.current, tvRef.current, videoRef.current, timeRef.current, currentHour());
+		drawRoom(
+			ctx,
+			curS.current,
+			tvRef.current,
+			videoRef.current,
+			timeRef.current,
+			currentHour(),
+		);
 	}
 
 	// single persistent loop: keeps the fire alive every frame and paints
@@ -1498,12 +1752,12 @@ export default function RoomAutomation() {
 		);
 	}
 
-	function handleTv(checked: boolean) {
-		tvRef.current = checked;
-		setTvOn(checked);
+	useEffect(() => {
+		tvRef.current = tvOn;
+
 		const video = videoRef.current;
 		if (video) {
-			if (checked) {
+			if (tvOn) {
 				video.currentTime = 0;
 				void video.play().catch(() => {});
 			} else {
@@ -1511,22 +1765,25 @@ export default function RoomAutomation() {
 				video.currentTime = 0;
 			}
 		}
-	}
+	}, [tvOn]);
 
-	function handleShades(checked: boolean) {
-		setClosed(checked);
-		startAnim({ shade: checked ? 100 : 0 });
-	}
+	useEffect(() => {
+		if (transitioning) return;
+		setTransitioning(true);
+		startAnim({ ceil: ceilOn ? 1 : 0 }, () => setTransitioning(false));
+	}, [ceilOn]);
 
-	function handleCeil(checked: boolean) {
-		setCeilOn(checked);
-		startAnim({ ceil: checked ? 1 : 0 });
-	}
+	useEffect(() => {
+		if (transitioning) return;
+		setTransitioning(true);
+		startAnim({ shelf: shelfOn ? 1 : 0 }, () => setTransitioning(false));
+	}, [shelfOn]);
 
-	function handleShelf(checked: boolean) {
-		setShelfOn(checked);
-		startAnim({ shelf: checked ? 1 : 0 });
-	}
+	useEffect(() => {
+		if (transitioning) return;
+		setTransitioning(true);
+		startAnim({ shade: closed ? 100 : 0 }, () => setTransitioning(false));
+	}, [closed]);
 
 	return (
 		<div className={styles.root}>
@@ -1549,7 +1806,7 @@ export default function RoomAutomation() {
 			/>
 			<div className={styles.panel}>
 				<div className={styles.sec}>
-					<p className={styles.sl}>Lighting Scenes</p>
+					<p style={{ paddingBottom: "10px" }}>Lighting Scenes</p>
 					<div className={styles.sbns}>
 						{(Object.keys(SCENE_META) as Scene[]).map((sk) => (
 							<button
@@ -1574,75 +1831,62 @@ export default function RoomAutomation() {
 						))}
 					</div>
 				</div>
-
-				<div className={styles.sec}>
-					<p className={styles.sl}>
-						<i className="ti ti-bulb" aria-hidden="true" /> Lighting
-					</p>
-					<div className={styles.trow}>
-						<span className={styles.tl}>Ceiling LED</span>
-						<label className={styles.tgl} aria-label="Ceiling LED">
-							<input
-								type="checkbox"
-								checked={ceilOn}
-								onChange={(e) => handleCeil(e.target.checked)}
-							/>
-							<span className={styles.tt} />
-							<span className={styles.tth} />
-						</label>
-					</div>
-					<div className={styles.trow} style={{ marginTop: 8 }}>
-						<span className={styles.tl}>Shelf Light</span>
-						<label className={styles.tgl} aria-label="Shelf light">
-							<input
-								type="checkbox"
-								checked={shelfOn}
-								onChange={(e) => handleShelf(e.target.checked)}
-							/>
-							<span className={styles.tt} />
-							<span className={styles.tth} />
-						</label>
-					</div>
-				</div>
-
 				<div
-					style={{ display: "flex", justifyContent: "space-between", gap: 10 }}
+					style={{
+						display: "flex",
+						flexWrap: "wrap",
+						gap: "5px",
+					}}
 				>
-					<div className={styles.sec}>
-						<p className={styles.sl}>
-							<i className="ti ti-device-tv" aria-hidden="true" /> Television
-						</p>
-						<div className={styles.trow}>
-							<span className={styles.tl}>Power</span>
-							<label className={styles.tgl} aria-label="TV power">
-								<input
-									type="checkbox"
-									checked={tvOn}
-									onChange={(e) => handleTv(e.target.checked)}
-								/>
-								<span className={styles.tt} />
-								<span className={styles.tth} />
-							</label>
-						</div>
-					</div>
-
-					<div className={styles.sec}>
-						<p className={styles.sl}>
-							<i className="ti ti-stack-2" aria-hidden="true" /> Shades
-						</p>
-						<div className={styles.trow}>
-							<span className={styles.tl}>{closed ? "Closed" : "Open"}</span>
-							<label className={styles.tgl} aria-label="Shades toggle">
-								<input
-									type="checkbox"
-									checked={closed}
-									onChange={(e) => handleShades(e.target.checked)}
-								/>
-								<span className={styles.tt} />
-								<span className={styles.tth} />
-							</label>
-						</div>
-					</div>
+					<button
+						style={{
+							display: "flex",
+							flexDirection: "column",
+							flex: "1",
+						}}
+						onClick={() => setCeilOn((prev) => !prev)}
+						className={`btn ${ceilOn ? "btn--active" : ""}`}
+						type="button"
+						disabled={transitioning}
+					>
+						<LightbulbIcon />
+						<span>{ceilOn ? "On" : "Off"}</span>
+					</button>
+					<button
+						style={{
+							display: "flex",
+							flexDirection: "column",
+							flex: "1",
+							whiteSpace: "nowrap",
+						}}
+						type="button"
+						onClick={() => setShelfOn((prev) => !prev)}
+						className={`btn ${shelfOn ? "btn--active" : ""}`}
+						disabled={transitioning}
+					>
+						<span>Shelf Light</span>
+						<span>{shelfOn ? "On" : "Off"}</span>
+					</button>
+					<button
+						style={{ display: "flex", flexDirection: "column", flex: "1" }}
+						className={`btn ${tvOn ? "btn--active" : ""}`}
+						onClick={() => setTvOn((prev) => !prev)}
+						type="button"
+						disabled={transitioning}
+					>
+						<TvIcon />
+						<span>{tvOn ? "On" : "Off"}</span>
+					</button>
+					<button
+						style={{ display: "flex", flexDirection: "column", flex: "1" }}
+						className={`btn ${closed ? "btn--active" : ""}`}
+						onClick={() => setClosed((prev) => !prev)}
+						type="button"
+						disabled={transitioning}
+					>
+						<span>Shades</span>
+						<span>{closed ? "Closed" : "Opened"}</span>
+					</button>
 				</div>
 			</div>
 		</div>

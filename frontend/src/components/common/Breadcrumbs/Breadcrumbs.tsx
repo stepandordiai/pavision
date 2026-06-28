@@ -1,33 +1,86 @@
-import { useTranslations } from "next-intl";
+"use client";
+
+import { useLocale, useTranslations } from "next-intl";
 import { TransitionLink } from "@/components/TransitionLink";
+import { BASE_URL } from "@/lib/constants";
 import "./styles.scss";
 
+interface Breadcrumb {
+	label: string;
+	href?: string;
+}
+
 type BreadcrumbsProps = {
-	currentPage: string;
-	prevPage?: string;
-	prevPageUrl?: string;
+	links: Breadcrumb[];
 };
 
-export default function Breadcrumbs({
-	currentPage,
-	prevPage,
-	prevPageUrl,
-}: BreadcrumbsProps) {
+export default function Breadcrumbs({ links }: BreadcrumbsProps) {
+	const locale = useLocale();
 	const t = useTranslations();
 
+	// TODO: learn this
+	// BreadcrumbList
+	const jsonLd = {
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		itemListElement: [
+			{
+				"@type": "ListItem",
+				position: 1,
+				name: t("nav.home"),
+				item: `${BASE_URL}/${locale}`,
+			},
+			...links.map((link, i) => ({
+				"@type": "ListItem",
+				position: i + 2, // +2 because Home is position 1
+				name: link.label,
+				...(link.href && { item: `${BASE_URL}/${locale}${link.href}` }),
+			})),
+		],
+	};
+
 	return (
-		<div className="breadcrumbs">
-			<TransitionLink className="breadcrumbs__link" href="/">
-				{t("nav.home")}
-			</TransitionLink>
-			{prevPage && prevPageUrl && (
-				<TransitionLink className="breadcrumbs__link" href={prevPageUrl}>
-					{prevPage}
-				</TransitionLink>
-			)}
-			<span className="breadcrumbs__link breadcrumbs__link--active">
-				{currentPage}
-			</span>
-		</div>
+		<>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+			/>
+			<nav className="breadcrumbs">
+				<ol className="breadcrumbs-list">
+					<li>
+						<TransitionLink className="breadcrumbs__link" href="/">
+							{t("nav.home")}
+						</TransitionLink>
+					</li>
+					{links.map((link, i) => {
+						const isLastLink = i === links.length - 1;
+
+						return (
+							<li key={i}>
+								{!isLastLink && link.href ? (
+									<TransitionLink
+										className="breadcrumbs__link"
+										href={link.href}
+									>
+										{link.label}
+									</TransitionLink>
+								) : (
+									<span
+										style={{
+											whiteSpace: "nowrap",
+											overflow: "hidden",
+											textOverflow: "ellipsis",
+										}}
+										className="breadcrumbs__link breadcrumbs__link--active"
+									>
+										{link.label}
+									</span>
+								)}
+							</li>
+						);
+					})}
+				</ol>
+			</nav>
+		</>
 	);
 }

@@ -8,6 +8,10 @@
 		"path": "/about-us"
 	},
 	{
+		"label": "nav.forDevs",
+		"path": "/for-developers"
+	},
+	{
 		"label": "nav.products",
 		"path": "/products"
 	},

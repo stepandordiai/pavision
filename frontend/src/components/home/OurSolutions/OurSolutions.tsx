@@ -64,7 +64,7 @@ export default async function OurSolutions() {
 					<div style={{ position: "relative", alignSelf: "flex-start" }}>
 						<img className="our-solutions__ss" src="/02.png" alt="" />
 						<AnimatedImage
-							src="https://www.elektroschneider.cz/wp-content/uploads/2020/05/Showhome-Loxone-cb-obyvaci-mistnost-modra.jpg"
+							src="https://i.pinimg.com/736x/cc/27/8d/cc278d71b90d9a248bf9329fc4a6ffbe.jpg"
 							alt=""
 						/>
 					</div>

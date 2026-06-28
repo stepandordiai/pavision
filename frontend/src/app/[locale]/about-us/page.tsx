@@ -4,8 +4,8 @@ import { routing } from "@/i18n/routing";
 import PersonFillIcon from "@/components/icons/PersonFillIcon";
 import TelIcon from "@/components/icons/TelIcon";
 import EnvelopeIcon from "@/components/icons/EnvelopeIcon";
-import "./AboutUs.scss";
 import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
+import "./AboutUs.scss";
 
 const team = [
 	{
@@ -52,7 +52,7 @@ export default async function AboutUs() {
 
 	return (
 		<main className="about-us">
-			<Breadcrumbs currentPage="O nás" />
+			<Breadcrumbs links={[{ label: t("nav.aboutUs") }]} />
 			<div style={{ padding: "0 20px 20px" }}>
 				<h1 className="main__title">{t("title")}</h1>
 				<section

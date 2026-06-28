@@ -2,6 +2,7 @@
 	"nav": {
 		"home": "Úvod",
 		"aboutUs": "O nás",
+		"forDevs": "Pro developery",
 		"products": "Produkty",
 		"contacts": "Kontakty",
 		"appointment": "Domluvit schůzku"
@@ -15,6 +16,11 @@
 		"subtitle": "Zdůrazníme elektroinstalace, síťovou infrastrukturu, domácí automatizaci a audio/video systémy.",
 		"scroll": "Posuňte dolů a objevte",
 		"findOutMore": "Zjistit více"
+	},
+
+	"programmingServices": {
+		"title": "Programátorské služby",
+		"bookTheProgrammer": "Objednat programátora"
 	},
 
 	"home": {
@@ -165,7 +171,6 @@
 			"badge": "Showroom",
 			"title": "Showroom chytré domácnosti",
 			"description": [
-				"P&A Vision aktuálně připravuje vlastní showroom chytré domácnosti, kde si budete moci naživo vyzkoušet systémy Crestron, Loxone i Lutron. Naším cílem je ukázat na jednom místě, jak osvětlení, stínění, vytápění a audio spolupracují jako jeden propojený celek.",
 				"Zvažujeme hned několik směrů – značkový showroom ve spolupráci s výrobci jako Samsung, profesionální nahrávací audio studio i sdílený multifunkční prostor, kde se potkají chytré technologie pro domácnost i komerční interiéry. Vybíráme variantu, která našim klientům v České republice přinese nejvíc.",
 				"Než showroom otevřeme, navrhneme vám řešení na míru přímo pro váš dům nebo byt. Při nezávazné konzultaci probereme integraci systémů, rozpočet i realizaci – srozumitelně a bez tlaku na rychlé rozhodnutí.",
 				"Chcete být u toho jako první? Ozvěte se nám a my vás budeme informovat o spuštění showroomu i o aktuálních možnostech inteligentního bydlení v České republice."

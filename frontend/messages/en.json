@@ -2,6 +2,7 @@
 	"nav": {
 		"home": "Home",
 		"aboutUs": "About us",
+		"forDevs": "For Developers",
 		"products": "Products",
 		"contacts": "Contacts",
 		"appointment": "Book an Appointment"
@@ -16,9 +17,14 @@
 
 	"hero": {
 		"title": "Quality, design, and technology in perfect balance.",
-		"subtitle": "Highlighting electrical installations, network infrastructure, home automation, and audio/video systems.",
+		"subtitle": "We specialize in electrical installations, network infrastructure, home automation, and audio/video systems.",
 		"scroll": "Scroll down to explore",
 		"findOutMore": "Find out more"
+	},
+
+	"programmingServices": {
+		"title": "Programming Services",
+		"bookTheProgrammer": "Book the Programmer"
 	},
 
 	"home": {
@@ -168,7 +174,6 @@
 			"badge": "Showroom",
 			"title": "Smart Home Showroom",
 			"description": [
-				"P&A Vision is currently developing a dedicated smart home showroom where you'll be able to experience Crestron, Loxone, and Lutron systems first-hand. Our aim is to demonstrate, in one place, how lighting, shading, heating, and audio work together as a single connected ecosystem.",
 				"We're exploring several directions – a branded showroom in partnership with manufacturers such as Samsung, a professional audio recording studio, and a multi-purpose shared space combining smart home and commercial integration. We're choosing the concept that delivers the most value to our clients across the EU.",
 				"Until the showroom opens, our specialists will design a solution tailored precisely to your home or project. During a no-obligation consultation, we'll walk you through system integration, budget, and installation – clearly and without pressure.",
 				"Want to be among the first to see it? Get in touch and we'll keep you informed about the showroom launch and the latest in intelligent living for homes across Europe."

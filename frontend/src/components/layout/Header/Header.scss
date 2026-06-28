@@ -97,7 +97,7 @@
 
 .header-nav {
 	display: flex;
-	gap: 40px;
+	gap: 20px;
 }
 
 .header-nav__link {
@@ -425,7 +425,7 @@
 	}
 }
 
-@media screen and (width < 800px) {
+@media screen and (width < 1000px) {
 	.header-nav {
 		display: none;
 	}

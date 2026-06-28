@@ -160,7 +160,7 @@ export default function MyProfile() {
 			style={{ display: "flex", flexDirection: "column", gap: "20px" }}
 			className="my-account"
 		>
-			<Breadcrumbs currentPage="My Account" />
+			<Breadcrumbs links={[{ label: "My Account" }]} />
 			<div style={{ padding: "0 20px 20px" }}>
 				<h1 className="main__title">My account</h1>
 				{editingName ? (

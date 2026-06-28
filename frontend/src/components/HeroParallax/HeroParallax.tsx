@@ -47,7 +47,7 @@ const HeroParallax = ({
 
 	return (
 		<section className="home-access-hero">
-			<Breadcrumbs currentPage={currentPage} />
+			<Breadcrumbs links={[{ label: currentPage }]} />
 			<div
 				style={{
 					display: "flex",

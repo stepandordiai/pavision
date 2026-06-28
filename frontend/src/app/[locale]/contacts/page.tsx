@@ -32,10 +32,12 @@ export async function generateMetadata({
 	};
 }
 
-export default function Contacts() {
+export default async function Contacts() {
+	const t = await getTranslations();
+
 	return (
 		<main className="contacts">
-			<Breadcrumbs currentPage="Kontakty" />
+			<Breadcrumbs links={[{ label: t("nav.contacts") }]} />
 			<div className="contacts-inner">
 				<div className="contacts-details">
 					<h1 className="contacts__title">

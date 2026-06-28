@@ -147,6 +147,18 @@ main {
 	}
 }
 
+.btn {
+	background: rgba(255, 255, 255, 0.1);
+	padding: 10px;
+	border-radius: 10px;
+	gap: 5px;
+
+	&--active {
+		background: #fff !important;
+		color: #000 !important;
+	}
+}
+
 @media screen and (width < 1000px) {
 	.technology-section-container {
 		grid-template-columns: repeat(1, 1fr);

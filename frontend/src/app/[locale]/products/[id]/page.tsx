@@ -97,9 +97,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
 	return (
 		<main className="product-page">
 			<Breadcrumbs
-				currentPage={product.name}
-				prevPage="Products"
-				prevPageUrl="/products"
+				links={[
+					{ label: t("nav.products"), href: "/products" },
+					{ label: product.name },
+				]}
 			/>
 			<section className="section">
 				<div className="product-page-container">

@@ -8,26 +8,6 @@
 	gap: 20px;
 }
 
-.btn {
-	background: rgba(255, 255, 255, 0.1);
-	padding: 10px;
-	border-radius: 10px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 5px;
-
-	&:hover {
-		background: #fff;
-		color: #000;
-	}
-
-	&--active {
-		background: #fff;
-		color: #000;
-	}
-}
-
 .technology__title {
 	display: flex;
 	justify-content: flex-start;

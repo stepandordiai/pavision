@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { getProducts } from "@/lib/api/products";
 import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
 import ProductCard from "@/components/ProductCard/ProductCard";
+import { useTranslations } from "next-intl";
 
 interface Product {
 	id: number;
@@ -15,6 +16,8 @@ interface Product {
 }
 
 export default function ProductsClient() {
+	const t = useTranslations();
+
 	const [products, setProducts] = useState<Product[]>([]);
 
 	useEffect(() => {
@@ -43,7 +46,7 @@ export default function ProductsClient() {
 
 	return (
 		<main className="products">
-			<Breadcrumbs currentPage="Produkty" />
+			<Breadcrumbs links={[{ label: t("nav.products") }]} />
 			<div className="products-inner">
 				<h1 className="main__title">Produkty</h1>
 				<button
