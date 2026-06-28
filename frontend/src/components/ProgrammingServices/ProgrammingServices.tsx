@@ -40,7 +40,7 @@ export default function ProgrammingServices() {
 					<Link className="programming-services__link-btn" href="/">
 						Book the Programmer
 					</Link>
-					<div style={{ display: "flex", gap: "10px" }}>
+					{/* <div style={{ display: "flex", gap: "10px" }}>
 						<img
 							style={{ borderRadius: "50%", objectFit: "cover" }}
 							src="https://backend.edukee.cz/uploads/U_4f2dbd7443.jpeg"
@@ -52,7 +52,7 @@ export default function ProgrammingServices() {
 							<span>Petro</span>
 							<span>Programmer</span>
 						</span>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</section>
