@@ -10,13 +10,13 @@ import "./AboutUs.scss";
 const team = [
 	{
 		name: "Oleksandr Honcharenko",
-		position: "ourTeam.programmer",
+		position: "aboutUs.ourTeam.programmer",
 		tel: "+420777049617",
 		email: "alex@pavision.cz",
 	},
 	{
 		name: "Petr Fojtů",
-		position: "ourTeam.programmer",
+		position: "aboutUs.ourTeam.programmer",
 		tel: "+420775632426",
 		email: "petr.fojtu@pavision.cz",
 	},
@@ -48,13 +48,13 @@ export async function generateMetadata({
 }
 
 export default async function AboutUs() {
-	const t = await getTranslations("aboutUs");
+	const t = await getTranslations();
 
 	return (
 		<main className="about-us">
 			<Breadcrumbs links={[{ label: t("nav.aboutUs") }]} />
 			<div style={{ padding: "0 20px 20px" }}>
-				<h1 className="main__title">{t("title")}</h1>
+				<h1 className="main__title">{t("aboutUs.title")}</h1>
 				<section
 					style={{
 						display: "flex",
@@ -73,9 +73,9 @@ export default async function AboutUs() {
 							width: "max-content",
 						}}
 					>
-						{t("whoWeAre.title")}
+						{t("aboutUs.whoWeAre.title")}
 					</h2>
-					{t.raw("whoWeAre.desc").map((txt: string, i: number) => {
+					{t.raw("aboutUs.whoWeAre.desc").map((txt: string, i: number) => {
 						return (
 							<p style={{ maxWidth: "1000px" }} key={i}>
 								{txt}
@@ -100,7 +100,7 @@ export default async function AboutUs() {
 							width: "max-content",
 						}}
 					>
-						{t("ourTeam.title")}
+						{t("aboutUs.ourTeam.title")}
 					</h2>
 					<div className="team-container">
 						{team.map((member, i) => {
