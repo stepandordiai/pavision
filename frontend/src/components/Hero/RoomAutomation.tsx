@@ -1482,113 +1482,132 @@ function drawRoom(
 	drawSofa(1); // right sofa, faces left
 
 	// ─────────────────────────────────────────────────────────
-	// BLACK MARBLE & GLASS COFFEE TABLE (wider, centered) + decor
+	// BLACK MARBLE & POLISHED-METAL COFFEE TABLE (centered in the room)
+	// two-tier: thick marble top + lower glass shelf on a visible metal frame
 	// ─────────────────────────────────────────────────────────
-	const ctX = featX - 62,
-		ctY = fY + 10,
-		ctW = 124,
-		ctH = 12;
-	cx.fillStyle = "rgba(0,0,0,0.24)";
+	const ctW = 132,
+		ctTopH = 9, // marble top thickness
+		ctX = featX - ctW / 2,
+		ctY = fY + 40, // lowered into the central conversation area (off the fireplace)
+		legH = 26, // visible leg height
+		shelfY = ctY + ctTopH + legH * 0.58; // lower shelf position
+
+	// floor contact shadow (soft, under the whole footprint)
+	cx.fillStyle = "rgba(0,0,0,0.26)";
 	cx.beginPath();
-	cx.ellipse(featX, ctY + ctH + 16, 74, 10, 0, 0, Math.PI * 2);
-	cx.fill();
-	// polished black top with reflection
-	const topG = cx.createLinearGradient(ctX, ctY, ctX, ctY + ctH);
-	topG.addColorStop(0, "#1a1718");
-	topG.addColorStop(0.5, "#0c0a0c");
-	topG.addColorStop(1, "#060507");
-	cx.fillStyle = topG;
-	rr(ctX, ctY, ctW, ctH, 2);
-	cx.fill();
-	// specular streak + warm fire reflection on the polished top
-	cx.fillStyle = "rgba(255,255,255,0.10)";
-	cx.fillRect(ctX + 4, ctY + 1.5, ctW - 8, 1.6);
-	cx.fillStyle = `rgba(255,140,60,0.11)`;
-	cx.fillRect(ctX + ctW * 0.3, ctY + 3, ctW * 0.4, 4);
-	// glass/chrome legs
-	cx.fillStyle = mix("rgba(120,110,100,0.55)", "rgba(44,44,48,0.6)");
-	cx.fillRect(ctX + 12, ctY + ctH, 3, 18);
-	cx.fillRect(ctX + ctW - 15, ctY + ctH, 3, 18);
-	// stacked books on the table (CHANEL-style coffee-table books)
-	cx.fillStyle = mix("#d8d2c6", "#2a2620");
-	rr(ctX + 12, ctY - 6, 34, 6, 1);
-	cx.fill();
-	cx.fillStyle = mix("#1c1a1a", "#0c0a0c");
-	rr(ctX + 15, ctY - 10, 30, 5, 1);
-	cx.fill();
-	// vase + white hydrangea (center)
-	cx.fillStyle = mix("#cfc6b6", "#2a2620");
-	rr(featX - 9, ctY - 14, 18, 14, 3);
-	cx.fill();
-	const fl = ["#f2f0ea", "#e8e6df", "#dcdad2"];
-	for (let i = 0; i < 16; i++) {
-		const a = rnd(i + 60) * Math.PI * 2;
-		const r2 = rnd(i + 70) * 10;
-		cx.fillStyle = mix(fl[i % 3], "#5a5650");
-		cx.beginPath();
-		cx.arc(
-			featX + Math.cos(a) * r2,
-			ctY - 18 + Math.sin(a) * r2 * 0.7,
-			2.8,
-			0,
-			Math.PI * 2,
-		);
-		cx.fill();
-	}
-	// a small candle cluster on the table (static flame)
-	const cdX = ctX + ctW - 22;
-	cx.fillStyle = mix("#2a2622", "#0e0c10");
-	rr(cdX, ctY - 8, 7, 8, 1);
-	cx.fill();
-	const cf = 0.85;
-	cx.fillStyle = `rgba(255,190,90,${cf})`;
-	cx.beginPath();
-	cx.ellipse(cdX + 3.5, ctY - 10, 1.4, 3, 0, 0, Math.PI * 2);
+	cx.ellipse(featX, ctY + ctTopH + legH + 4, ctW * 0.6, 11, 0, 0, Math.PI * 2);
 	cx.fill();
 
-	// ─────────────────────────────────────────────────────────
-	// ROUND SIDE TABLE with lit candle (right edge, like the photo)
-	// ─────────────────────────────────────────────────────────
-	const stX = featX + 196,
-		stY = fY + 4;
-	cx.fillStyle = "rgba(0,0,0,0.2)";
-	cx.beginPath();
-	cx.ellipse(stX, stY + 30, 20, 6, 0, 0, Math.PI * 2);
+	// ── polished metal frame legs (4, with perspective splay) ──
+	const legW = 3.5;
+	const legGrad = (x: number) => {
+		const g = cx.createLinearGradient(x, 0, x + legW, 0);
+		g.addColorStop(0, mix("#9a958c", "#3a3a40"));
+		g.addColorStop(0.5, mix("#d8d2c6", "#5a5a62")); // chrome highlight
+		g.addColorStop(1, mix("#6a665e", "#222228"));
+		return g;
+	};
+	// back legs (slightly inset, drawn first)
+	[ctX + 16, ctX + ctW - 16 - legW].forEach((lx) => {
+		cx.fillStyle = legGrad(lx);
+		cx.fillRect(lx, ctY + ctTopH - 2, legW, legH);
+	});
+	// lower glass/metal shelf (between legs)
+	cx.fillStyle = "rgba(150,160,168,0.22)";
+	rr(ctX + 14, shelfY, ctW - 28, 4, 1);
 	cx.fill();
-	// brass frame legs
-	cx.strokeStyle = mix("#b89a5a", "#4a3e22");
-	cx.lineWidth = 2;
-	cx.beginPath();
-	cx.moveTo(stX - 14, stY + 2);
-	cx.lineTo(stX - 8, stY + 30);
-	cx.moveTo(stX + 14, stY + 2);
-	cx.lineTo(stX + 8, stY + 30);
-	cx.stroke();
-	// round dark top
-	cx.fillStyle = mix("#23201c", "#0e0c0a");
-	cx.beginPath();
-	cx.ellipse(stX, stY, 18, 6, 0, 0, Math.PI * 2);
+	cx.fillStyle = "rgba(255,255,255,0.06)";
+	cx.fillRect(ctX + 16, shelfY + 0.5, ctW - 32, 1);
+	// a couple of stacked design books on the lower shelf
+	cx.fillStyle = mix("#b84a3a", "#3a1e18");
+	rr(ctX + 24, shelfY - 5, 30, 5, 1);
 	cx.fill();
-	cx.fillStyle = "rgba(255,255,255,0.08)";
+	cx.fillStyle = mix("#d8d2c6", "#2a2620");
+	rr(ctX + 27, shelfY - 9, 26, 4, 1);
+	cx.fill();
+	// front legs (drawn after shelf so they read in front)
+	[ctX + 12, ctX + ctW - 12 - legW].forEach((lx) => {
+		cx.fillStyle = legGrad(lx);
+		cx.fillRect(lx, ctY + ctTopH - 2, legW, legH + 3);
+		// little foot
+		cx.fillStyle = mix("#2a2a30", "#141418");
+		cx.fillRect(lx - 0.5, ctY + ctTopH + legH, legW + 1, 2);
+	});
+
+	// ── thick polished-black marble top with veining + bevel ──
+	// side edge (gives the top real thickness)
+	cx.fillStyle = "#050406";
+	rr(ctX, ctY + ctTopH - 4, ctW, 5, 1);
+	cx.fill();
+	// top surface
+	const topG = cx.createLinearGradient(ctX, ctY, ctX, ctY + ctTopH);
+	topG.addColorStop(0, "#22201f");
+	topG.addColorStop(0.5, "#0e0c0d");
+	topG.addColorStop(1, "#070608");
+	cx.fillStyle = topG;
+	rr(ctX, ctY, ctW, ctTopH, 2);
+	cx.fill();
+	// marble veining on the top
+	cx.save();
 	cx.beginPath();
-	cx.ellipse(stX, stY - 0.5, 18, 5, 0, 0, Math.PI * 2);
+	cx.rect(ctX, ctY, ctW, ctTopH);
+	cx.clip();
+	for (let i = 0; i < 6; i++) {
+		cx.strokeStyle = `rgba(200,195,188,${0.1 + rnd(i + 30) * 0.12})`;
+		cx.lineWidth = 0.5 + rnd(i + 5) * 0.8;
+		const sx = ctX + rnd(i) * ctW;
+		cx.beginPath();
+		cx.moveTo(sx, ctY);
+		cx.bezierCurveTo(sx + 14, ctY + 3, sx - 10, ctY + 6, sx + (rnd(i + 2) - 0.5) * 30, ctY + ctTopH);
+		cx.stroke();
+	}
+	cx.restore();
+	// bright edge highlight + specular streak (polished sheen)
+	cx.fillStyle = "rgba(255,255,255,0.14)";
+	cx.fillRect(ctX + 4, ctY + 1, ctW - 8, 1.4);
+	cx.fillStyle = "rgba(255,255,255,0.06)";
+	cx.fillRect(ctX + ctW * 0.12, ctY + 3.5, ctW * 0.3, 2);
+	// warm fire reflection on the polished top (static)
+	cx.fillStyle = "rgba(255,140,60,0.1)";
+	cx.fillRect(ctX + ctW * 0.34, ctY + 2.5, ctW * 0.34, 3.5);
+
+	// ── decor on top: stacked books, vase of hydrangea, candle ──
+	// CHANEL-style stacked coffee-table books
+	cx.fillStyle = mix("#d8d2c6", "#2a2620");
+	rr(ctX + 14, ctY - 6, 36, 6, 1);
 	cx.fill();
-	// glass hurricane candle with flame
-	cx.fillStyle = "rgba(180,200,210,0.18)";
-	rr(stX - 5, stY - 16, 10, 16, 2);
+	cx.fillStyle = mix("#16140f", "#0a0908");
+	rr(ctX + 17, ctY - 10, 32, 5, 1);
 	cx.fill();
-	const sf = 0.9;
-	const cg2 = cx.createRadialGradient(stX, stY - 8, 0, stX, stY - 8, 9);
-	cg2.addColorStop(0, `rgba(255,200,110,${0.9 * sf})`);
-	cg2.addColorStop(1, "rgba(255,160,70,0)");
-	cx.fillStyle = cg2;
+	// tiny title bar suggestion on the spine
+	cx.fillStyle = "rgba(210,205,195,0.6)";
+	cx.fillRect(ctX + 24, ctY - 8, 14, 0.8);
+	// glass vase + white hydrangea (center)
+	cx.fillStyle = "rgba(180,195,205,0.28)";
+	rr(featX - 10, ctY - 15, 20, 15, 3);
+	cx.fill();
+	cx.fillStyle = "rgba(255,255,255,0.1)";
+	cx.fillRect(featX - 7, ctY - 14, 2, 12);
+	const fl = ["#f2f0ea", "#e8e6df", "#dcdad2"];
+	for (let i = 0; i < 18; i++) {
+		const a = rnd(i + 60) * Math.PI * 2;
+		const r2 = rnd(i + 70) * 11;
+		cx.fillStyle = mix(fl[i % 3], "#5a5650");
+		cx.beginPath();
+		cx.arc(featX + Math.cos(a) * r2, ctY - 20 + Math.sin(a) * r2 * 0.7, 2.9, 0, Math.PI * 2);
+		cx.fill();
+	}
+	// small candle on the table (static)
+	const cdX = ctX + ctW - 24;
+	cx.fillStyle = mix("#2a2622", "#0e0c10");
+	rr(cdX, ctY - 9, 7, 9, 1);
+	cx.fill();
+	cx.fillStyle = "rgba(255,190,90,0.85)";
 	cx.beginPath();
-	cx.arc(stX, stY - 8, 9, 0, Math.PI * 2);
+	cx.ellipse(cdX + 3.5, ctY - 11, 1.4, 3, 0, 0, Math.PI * 2);
 	cx.fill();
-	cx.fillStyle = `rgba(255,210,120,${sf})`;
-	cx.beginPath();
-	cx.ellipse(stX, stY - 9, 1.4, 3.2, 0, 0, Math.PI * 2);
-	cx.fill();
+
+	// (round side table with candle removed — it read as floating near the sofa)
 
 	// ─────────────────────────────────────────────────────────
 	// GLOBAL LIGHTING / ATMOSPHERE
