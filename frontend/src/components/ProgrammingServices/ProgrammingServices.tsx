@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
+import { TransitionLink } from "../TransitionLink";
 import "./styles.scss";
 
 export default async function ProgrammingServices() {
@@ -9,27 +9,39 @@ export default async function ProgrammingServices() {
 			<h2 className="section__title">{t("title")}</h2>
 			<div className="programming-services-container">
 				<div className="programming-services-container-inner">
-					<Link className="programming-services__link" href="/">
+					<TransitionLink
+						className="programming-services__link"
+						href="/appointment"
+					>
 						<img
 							src="https://dominiontx.com/wp-content/uploads/2017/12/Crestron-PNG.png"
 							alt=""
 						/>
-					</Link>
-					<Link className="programming-services__link" href="/">
+					</TransitionLink>
+					<TransitionLink
+						className="programming-services__link"
+						href="/appointment"
+					>
 						<img
 							src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Logo-Loxone-green-Web.png"
 							alt=""
 						/>
-					</Link>
-					<Link className="programming-services__link" href="/">
+					</TransitionLink>
+					<TransitionLink
+						className="programming-services__link"
+						href="/appointment"
+					>
 						<img
 							src="https://www.blindsanddesignsltd.com/wp-content/uploads/sites/433/2019/04/logo-lutron.png"
 							alt=""
 						/>
-					</Link>
-					<Link className="programming-services__link" href="/">
+					</TransitionLink>
+					<TransitionLink
+						className="programming-services__link"
+						href="/appointment"
+					>
 						Data Engineering
-					</Link>
+					</TransitionLink>
 				</div>
 				<div
 					style={{
@@ -39,9 +51,12 @@ export default async function ProgrammingServices() {
 						justifyContent: "space-between",
 					}}
 				>
-					<Link className="programming-services__link-btn" href="/appointment">
+					<TransitionLink
+						className="programming-services__link-btn"
+						href="/appointment"
+					>
 						{t("bookTheProgrammer")}
-					</Link>
+					</TransitionLink>
 					{/* <div style={{ display: "flex", gap: "10px" }}>
 						<img
 							style={{ borderRadius: "50%", objectFit: "cover" }}

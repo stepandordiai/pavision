@@ -95,6 +95,15 @@
 		}
 	},
 
+	"forDevs": {
+		"meta": {
+			"title": "Chytré technologie pro developerské projekty",
+			"description": "Chytrá domácnost a automatizace pro developerské projekty a bytové domy. Snižujeme náklady na realizaci, zvyšujeme prodejní hodnotu bytů. Loxone, Crestron, Lutron — návrh, realizace, revize i servis."
+		},
+		"heading": "Chytré technologie pro developerské projekty",
+		"subheading": "vyšší prodejní cena bytů · nižší náklady na realizaci · rychlejší prodej."
+	},
+
 	"lighting": {
 		"meta": {
 			"title": "Chytré osvětlení, řízení světel a automatizace",

@@ -168,6 +168,15 @@
 		}
 	},
 
+	"forDevs": {
+		"meta": {
+			"title": "Smart Home Automation for Property Developers",
+			"description": "Chytrá domácnost a automatizace pro developerské projekty a bytové domy. Snižujeme náklady na realizaci, zvyšujeme prodejní hodnotu bytů. Loxone, Crestron, Lutron — návrh, realizace, revize i servis."
+		},
+		"heading": "Smart automation for property developers",
+		"subheading": "vyšší prodejní cena bytů · nižší náklady na realizaci · rychlejší prodej."
+	},
+
 	"ourSolutions": {
 		"title": "Our Intelligent Solutions",
 		"showroom": {

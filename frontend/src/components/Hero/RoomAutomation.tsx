@@ -38,19 +38,19 @@ const SCENES: Record<Scene, SceneConfig> = {
 		br: 0.5,
 	},
 	bright: {
-		// cool, crisp, full daylight — clean and airy
-		wT: "#f4f5f6",
-		wB: "#e4e8ec",
-		fT: "#ddc9a2",
-		fB: "#c2aa7e",
-		cT: "#ffffff",
-		skyT: "#7ec0f2",
-		skyB: "#d4ecfb",
-		sun: 1,
-		aR: 244,
-		aG: 250,
-		aB: 255,
-		br: 1.0,
+		// natural daytime light — soft, warm-neutral, not cold or clinical
+		wT: "#ece6da",
+		wB: "#dcd2c2",
+		fT: "#d8bf92",
+		fB: "#bb9d6c",
+		cT: "#f2ece0",
+		skyT: "#9cc8ec",
+		skyB: "#dcebf4",
+		sun: 0.85,
+		aR: 252,
+		aG: 240,
+		aB: 218,
+		br: 0.82,
 	},
 	cinema: {
 		wT: "#1c1822",
@@ -474,7 +474,7 @@ function drawRoom(
 	const leftWin = { x: 30, w: featX - featW / 2 - 30 - 6 };
 	const rightWin = {
 		x: featX + featW / 2 + 6,
-		w: W - 30 - (featX + featW / 2 + 6),
+		w: W - 44 - (featX + featW / 2 + 6), // a little narrower → wider right wall for the switch
 	};
 
 	const drawWindow = (wx: number, ww: number, flip: boolean) => {
@@ -692,6 +692,84 @@ function drawRoom(
 	};
 	drawWindow(leftWin.x, leftWin.w, false);
 	drawWindow(rightWin.x, rightWin.w, true);
+
+	// ─────────────────────────────────────────────────────────
+	// LOXONE TOUCH PURE switch on the right-hand wall.
+	// The warm courtesy under-light glows ONLY in the Cinema scene
+	// (darkest scene), and is off in Relax / Bright.
+	// ─────────────────────────────────────────────────────────
+	{
+		const wallL = rightWin.x + rightWin.w; // inner edge of the right wall plaster
+		const wallR = W - 4;
+		const sw = 18; // switch size
+		const swX = wallL + (wallR - wallL) * 0.5 - sw / 2 + 3; // centered in the wall, nudged right off the frame
+		const swY = ceilY + (fY - ceilY) * 0.4 - sw / 2; // mounted at a natural height
+		// cinema glow factor: 1 in cinema (br≈0.1), fades out toward relax/bright
+		const cinemaGlow = Math.max(0, Math.min(1, (0.25 - s.br) / 0.18));
+
+		// warm courtesy light spilling DOWN the wall from under the switch
+		// (tight, realistic pool — small and soft, like a real LED courtesy light)
+		if (cinemaGlow > 0.01) {
+			const cxc = swX + sw / 2;
+			const topY = swY + sw - 1;
+			// soft narrow pool just below the plate
+			const g = cx.createRadialGradient(cxc, topY + 2, 1, cxc, topY + 10, 15);
+			g.addColorStop(0, `rgba(255,206,140,${0.5 * cinemaGlow})`);
+			g.addColorStop(0.45, `rgba(255,184,112,${0.18 * cinemaGlow})`);
+			g.addColorStop(1, "rgba(255,184,112,0)");
+			cx.fillStyle = g;
+			cx.beginPath();
+			cx.moveTo(cxc - 7, topY);
+			cx.lineTo(cxc + 7, topY);
+			cx.lineTo(cxc + 11, topY + 22);
+			cx.lineTo(cxc - 11, topY + 22);
+			cx.closePath();
+			cx.fill();
+		}
+
+		// soft drop shadow behind the plate
+		cx.fillStyle = "rgba(0,0,0,0.18)";
+		rr(swX + 1.5, swY + 2, sw, sw, 2);
+		cx.fill();
+
+		// the square glass switch plate — dark graphite (matches the photo's black unit)
+		const plate = cx.createLinearGradient(swX, swY, swX + sw, swY + sw);
+		plate.addColorStop(0, mix("#3a3d42", "#26282c"));
+		plate.addColorStop(0.5, mix("#2a2c30", "#191a1d"));
+		plate.addColorStop(1, mix("#1c1e21", "#0e0f11"));
+		cx.fillStyle = plate;
+		rr(swX, swY, sw, sw, 2);
+		cx.fill();
+		// subtle glass sheen on the plate
+		cx.fillStyle = "rgba(255,255,255,0.06)";
+		rr(swX + 1.5, swY + 1.5, sw - 3, sw * 0.4, 1.5);
+		cx.fill();
+
+		// engraved diamond outline (the Touch Pure signature), faintly lit
+		const lineA = 0.22 + cinemaGlow * 0.4;
+		cx.strokeStyle = `rgba(200,210,220,${lineA})`;
+		cx.lineWidth = 0.6;
+		cx.beginPath();
+		cx.moveTo(swX + sw / 2, swY + 3);
+		cx.lineTo(swX + sw - 3, swY + sw / 2);
+		cx.lineTo(swX + sw / 2, swY + sw - 3);
+		cx.lineTo(swX + 3, swY + sw / 2);
+		cx.closePath();
+		cx.stroke();
+
+		// (LOXONE wordmark line removed)
+
+		// the actual warm light bar under the bottom edge (the LED itself)
+		if (cinemaGlow > 0.01) {
+			const cxc = swX + sw / 2;
+			// hot thin core
+			cx.fillStyle = `rgba(255,224,170,${0.95 * cinemaGlow})`;
+			cx.fillRect(cxc - 5, swY + sw - 0.3, 10, 0.9);
+			// faint immediate halo around the bar
+			cx.fillStyle = `rgba(255,196,120,${0.4 * cinemaGlow})`;
+			cx.fillRect(cxc - 6, swY + sw - 0.6, 12, 0.5);
+		}
+	}
 
 	// ─────────────────────────────────────────────────────────
 	// CENTRAL MARBLE FIREPLACE FEATURE WALL
@@ -1026,8 +1104,8 @@ function drawRoom(
 		cx.fill();
 	};
 	// half-size towers, brought forward (lower on screen) and a bit toward the sofas
-	drawTower(mX - 46, 0.55, 26);
-	drawTower(mX + featW + 46, 0.55, 26);
+	drawTower(mX - 16, 0.55, 30); // snug against the left edge of the marble wall
+	drawTower(mX + featW + 16, 0.55, 30); // snug against the right edge of the marble wall
 
 	// ─────────────────────────────────────────────────────────
 	// BACKLIT WALNUT BOOKSHELF (fills the left wall, like the photo)
@@ -1558,7 +1636,14 @@ function drawRoom(
 		const sx = ctX + rnd(i) * ctW;
 		cx.beginPath();
 		cx.moveTo(sx, ctY);
-		cx.bezierCurveTo(sx + 14, ctY + 3, sx - 10, ctY + 6, sx + (rnd(i + 2) - 0.5) * 30, ctY + ctTopH);
+		cx.bezierCurveTo(
+			sx + 14,
+			ctY + 3,
+			sx - 10,
+			ctY + 6,
+			sx + (rnd(i + 2) - 0.5) * 30,
+			ctY + ctTopH,
+		);
 		cx.stroke();
 	}
 	cx.restore();
@@ -1594,7 +1679,13 @@ function drawRoom(
 		const r2 = rnd(i + 70) * 11;
 		cx.fillStyle = mix(fl[i % 3], "#5a5650");
 		cx.beginPath();
-		cx.arc(featX + Math.cos(a) * r2, ctY - 20 + Math.sin(a) * r2 * 0.7, 2.9, 0, Math.PI * 2);
+		cx.arc(
+			featX + Math.cos(a) * r2,
+			ctY - 20 + Math.sin(a) * r2 * 0.7,
+			2.9,
+			0,
+			Math.PI * 2,
+		);
 		cx.fill();
 	}
 	// small candle on the table (static)
@@ -1804,6 +1895,15 @@ export default function RoomAutomation() {
 		startAnim({ shade: closed ? 100 : 0 }, () => setTransitioning(false));
 	}, [closed]);
 
+	const time = new Date();
+
+	const hours = time.getHours();
+	const minutes = time.getMinutes();
+
+	const formattedHours = hours % 12 || 12;
+	const formattedMinutes = minutes.toString().padStart(2, "0");
+	const period = hours < 12 ? "AM" : "PM";
+
 	return (
 		<div className={styles.root}>
 			<canvas ref={canvasRef} className={styles.canvas} />
@@ -1825,7 +1925,23 @@ export default function RoomAutomation() {
 			/>
 			<div className={styles.panel}>
 				<div className={styles.sec}>
-					<p style={{ paddingBottom: "10px" }}>Lighting Scenes</p>
+					<div
+						style={{
+							paddingBottom: "10px",
+							display: "flex",
+							justifyContent: "space-between",
+							fontSize: "1.125rem",
+							fontWeight: 500,
+						}}
+					>
+						<p>Living Room</p>
+						<p>
+							{formattedHours}
+							<span className={styles["panel-time-colon"]}>:</span>
+							{formattedMinutes} {period}
+						</p>
+					</div>
+					<p style={{ marginBottom: "5px" }}>Scenes</p>
 					<div className={styles.sbns}>
 						{(Object.keys(SCENE_META) as Scene[]).map((sk) => (
 							<button

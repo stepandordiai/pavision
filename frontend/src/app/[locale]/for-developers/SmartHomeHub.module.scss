@@ -1,0 +1,123 @@
+/* SmartHomeHub.module.scss
+ * Themeable via CSS custom properties — override on .root or a parent.
+ * Defaults target a dark / hero background (light strokes, amber accent).
+ */
+
+.root {
+	/* ---- theme tokens (override these per section) ---- */
+	--shh-line: rgba(203, 213, 225, 0.28);
+	--shh-icon: #f1f5f9;
+	--shh-node-fill: rgba(15, 23, 42, 0);
+	--shh-node-stroke: rgba(226, 232, 240, 0.45);
+	--shh-hub-stroke: #f8fafc;
+	--shh-hub-icon: #fff;
+	--shh-accent: var(--primary-clr); /* travelling pulse */
+	--shh-label: #fff;
+
+	width: 100%;
+	max-width: 560px;
+	margin: 0 auto;
+	aspect-ratio: 1 / 1;
+}
+
+.svg {
+	display: block;
+	width: 100%;
+	height: 100%;
+	overflow: visible; /* allow hover scale + pulse to spill past the box */
+}
+
+/* ---- connectors ---- */
+.line {
+	stroke: var(--shh-line);
+	stroke-width: 1.1;
+}
+
+.pulse {
+	stroke: var(--shh-accent);
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-dasharray: 8 240;
+	filter: drop-shadow(0 0 4px var(--shh-accent));
+	animation: shh-travel 3s linear infinite;
+	animation-delay: var(--delay, 0s);
+}
+
+@keyframes shh-travel {
+	0% {
+		stroke-dashoffset: 8;
+		opacity: 0;
+	}
+	12% {
+		opacity: 1;
+	}
+	85% {
+		opacity: 1;
+	}
+	100% {
+		stroke-dashoffset: -97;
+		opacity: 0;
+	}
+}
+
+/* ---- hub ---- */
+.hub {
+	color: var(--shh-hub-icon);
+	filter: drop-shadow(0 0 12px rgba(248, 250, 252, 0.18));
+}
+
+.hubRing {
+	fill: none;
+	stroke: var(--shh-hub-stroke);
+	stroke-width: 1.4;
+}
+
+/* ---- nodes ---- */
+.node {
+	transform-box: fill-box;
+	transform-origin: center;
+	transition: transform 0.25s ease;
+}
+
+.node:hover {
+	transform: scale(1.08);
+}
+
+.nodeCircle {
+	fill: var(--shh-node-fill);
+	stroke: var(--shh-node-stroke);
+	stroke-width: 1.2;
+	transition: stroke 0.25s ease;
+}
+
+.node:hover .nodeCircle {
+	stroke: var(--shh-accent);
+}
+
+.nodeIcon {
+	color: var(--shh-icon);
+	transition: color 0.25s ease;
+}
+
+.node:hover .nodeIcon {
+	color: var(--shh-hub-icon);
+}
+
+.label {
+	fill: var(--shh-label);
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: 0.01em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.pulse {
+		animation: none;
+		stroke-dasharray: none;
+		opacity: 0.5;
+	}
+	.node {
+		transition: none;
+	}
+}
