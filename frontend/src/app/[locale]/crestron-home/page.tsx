@@ -32,29 +32,6 @@ export async function generateMetadata({
 	};
 }
 
-const faqs = [
-	{
-		q: "What is Crestron Home?",
-		a: "Crestron Home is a premium automation platform that connects lighting, climate, entertainment, security, and shading into one intelligent system.",
-	},
-	{
-		q: "Is Crestron suitable for luxury homes?",
-		a: "Yes. Crestron is widely used in luxury residential projects, villas, penthouses, and premium developments worldwide.",
-	},
-	{
-		q: "Can Crestron integrate with existing systems?",
-		a: "In many cases, yes. Crestron supports integration with a wide range of third-party technologies.",
-	},
-	{
-		q: "Can I control my home remotely?",
-		a: "Yes. Crestron allows secure remote access through mobile devices.",
-	},
-	{
-		q: "Is Crestron better than multiple smart home apps?",
-		a: "Crestron's advantage is centralization. Instead of managing numerous apps, users control all systems from one platform.",
-	},
-];
-
 export default function CrestronHome() {
 	return (
 		<main>
@@ -430,7 +407,7 @@ export default function CrestronHome() {
 					</div>
 				</div>
 			</section>
-			<Faqs faqs={faqs} />
+			<Faqs faqs={"crestronHome.faqs"} />
 		</main>
 	);
 }

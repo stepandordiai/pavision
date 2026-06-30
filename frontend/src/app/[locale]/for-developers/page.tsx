@@ -7,49 +7,6 @@ import Brands from "@/components/Brands/Brands";
 import SmartHomeHub from "./SmartHomeHub";
 import "./styles.scss";
 
-const faqs = [
-	{
-		q: "When should smart wiring be planned in a development project?",
-		a: "Ideally in the design phase. Specifying the cabling and system topology before construction avoids costly retrofits and keeps the per-unit price predictable.",
-	},
-	{
-		q: "How does automation lower the cost of a build?",
-		a: "Loxone Tree uses a single free-form bus instead of star wiring, cutting cabling effort by up to 80% versus a classic new-build installation. One integrated system also replaces several separate ones, reducing material and the number of trades on site.",
-	},
-	{
-		q: "Do you provide project documentation and inspections?",
-		a: "Yes. We deliver design drawings, standards, material take-offs, ČSN inspection reports and full handover documentation, and coordinate with the building's MEP, construction and IT.",
-	},
-	{
-		q: "What does smart automation cost per unit?",
-		a: "It depends on the scope and tier. We define a repeatable standard per unit type, so you get a fixed per-unit price that scales predictably across the whole building.",
-	},
-	{
-		q: "Can one system scale across different unit types?",
-		a: "Yes. The same platform runs from a studio to a penthouse — you only pay for the scope each unit needs, with a consistent standard across the project.",
-	},
-	{
-		q: "Can buyers extend or customise their unit after moving in?",
-		a: "Yes. Loxone Air adds wireless devices without construction work, so residents can expand lighting, sensors or controls later without new cabling.",
-	},
-	{
-		q: "Does the system support energy metering and remote readings?",
-		a: "Yes. We integrate energy monitoring and remote meter readings for heat, hot and cold water — increasingly relevant as EU and Czech regulation moves toward mandatory remote metering in new buildings.",
-	},
-	{
-		q: "Do you coordinate with the construction schedule and other trades?",
-		a: "Yes. We work in phases alongside the build — design, rough-in, fit-out, configuration, inspection and handover — and coordinate directly with the other professions on site.",
-	},
-	{
-		q: "Does automation help units sell?",
-		a: "Smart features are increasingly expected in new builds and help differentiate units, support premium pricing and appeal to energy-conscious buyers.",
-	},
-	{
-		q: "Where do you work?",
-		a: "Across the Czech Republic and the wider EU, for residential developments, apartment buildings and commercial projects.",
-	},
-];
-
 const PAGE = "for-developers";
 
 export async function generateMetadata({
@@ -206,7 +163,7 @@ export default async function ForDevs() {
 				<h2 className="section__title">Reference</h2>
 			</section>
 			<Brands />
-			<Faqs faqs={faqs} />
+			<Faqs faqs={"forDevs.faqs"} />
 		</main>
 	);
 }

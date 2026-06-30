@@ -3,8 +3,8 @@ import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import { TransitionLink } from "@/components/TransitionLink";
-import "./styles.scss";
 import Faqs from "@/components/Faqs/Faqs";
+import "./styles.scss";
 
 export async function generateMetadata({
 	params,
@@ -31,29 +31,6 @@ export async function generateMetadata({
 		},
 	};
 }
-
-const faqs = [
-	{
-		q: "Is Loxone better than traditional smart home systems?",
-		a: "Loxone focuses on true automation rather than simple remote control, reducing the need for manual interaction.",
-	},
-	{
-		q: "Can Loxone integrate with solar panels?",
-		a: "Yes. Loxone supports advanced energy management and solar integration.",
-	},
-	{
-		q: "Does Loxone work with smart lighting?",
-		a: "Yes. Lighting automation is one of Loxone's core strengths.",
-	},
-	{
-		q: "Can Loxone control heating and cooling?",
-		a: "Yes. It provides intelligent climate management across the entire property.",
-	},
-	{
-		q: "Is Loxone suitable for luxury homes?",
-		a: "Absolutely. Loxone is widely used in premium residential projects throughout Europe.",
-	},
-];
 
 export default function LoxoneSmartHome() {
 	return (
@@ -429,7 +406,7 @@ export default function LoxoneSmartHome() {
 					</div>
 				</div>
 			</section>
-			<Faqs faqs={faqs} />
+			<Faqs faqs={"loxoneSmartHome.faqs"} />
 		</main>
 	);
 }

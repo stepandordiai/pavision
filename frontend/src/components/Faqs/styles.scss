@@ -58,7 +58,26 @@
 	font-size: 1.125rem;
 	font-weight: 600;
 	width: 100%;
-	text-align: left;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+
+	h3 {
+		text-align: left;
+	}
+}
+
+.faq-q-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	transition: transform 0.5s ease;
+
+	&--active {
+		transform: rotateX(180deg);
+	}
 }
 
 .faqs-a-container {

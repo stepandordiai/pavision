@@ -101,7 +101,100 @@
 			"description": "Chytrá domácnost a automatizace pro developerské projekty a bytové domy. Snižujeme náklady na realizaci, zvyšujeme prodejní hodnotu bytů. Loxone, Crestron, Lutron — návrh, realizace, revize i servis."
 		},
 		"heading": "Chytré technologie pro developerské projekty",
-		"subheading": "vyšší prodejní cena bytů · nižší náklady na realizaci · rychlejší prodej."
+		"subheading": "vyšší prodejní cena bytů · nižší náklady na realizaci · rychlejší prodej.",
+
+		"faqs": [
+			{
+				"q": "Kdy se má chytrá elektroinstalace v developerském projektu plánovat?",
+				"a": "Ideálně už ve fázi projektu. Když se kabeláž a topologie systému navrhnou před zahájením stavby, vyhnete se nákladným dodatečným úpravám a udržíte předvídatelnou cenu za jednotku."
+			},
+			{
+				"q": "Jak automatizace snižuje náklady na výstavbu?",
+				"a": "Loxone Tree využívá jednu volně větvenou sběrnici místo hvězdicové kabeláže, což oproti klasické instalaci v novostavbě snižuje náročnost kabeláže až o 80 %. Jeden integrovaný systém navíc nahradí několik samostatných, takže ušetříte na materiálu i počtu profesí na stavbě."
+			},
+			{
+				"q": "Zajišťujete projektovou dokumentaci a revize?",
+				"a": "Ano. Dodáváme projektovou dokumentaci, standardy, výkazy materiálu, revizní zprávy dle ČSN i kompletní předávací dokumentaci a koordinujeme se stavbou, profesemi TZB a IT."
+			},
+			{
+				"q": "Kolik stojí chytrá automatizace na jednotku?",
+				"a": "Záleží na rozsahu a zvolené úrovni. Definujeme opakovatelný standard pro každý typ jednotky, takže získáte pevnou cenu za jednotku, která se předvídatelně škáluje napříč celou budovou."
+			},
+			{
+				"q": "Zvládne jeden systém pokrýt různé typy jednotek?",
+				"a": "Ano. Stejná platforma funguje od garsonky po penthouse – platíte jen za rozsah, který daná jednotka potřebuje, při zachování jednotného standardu v celém projektu."
+			},
+			{
+				"q": "Mohou si kupující jednotku po nastěhování rozšířit nebo upravit?",
+				"a": "Ano. Loxone Air přidává bezdrátové prvky bez stavebních zásahů, takže si obyvatelé mohou později rozšířit osvětlení, senzory či ovládání bez nové kabeláže."
+			},
+			{
+				"q": "Podporuje systém měření energií a dálkové odečty?",
+				"a": "Ano. Integrujeme monitoring spotřeby a dálkové odečty tepla i teplé a studené vody – což je stále důležitější, protože evropská i česká legislativa směřuje k povinným dálkovým odečtům v nových budovách."
+			},
+			{
+				"q": "Koordinujete práce s harmonogramem stavby a ostatními profesemi?",
+				"a": "Ano. Pracujeme po etapách souběžně se stavbou – projekt, hrubá montáž, kompletace, konfigurace, revize a předání – a koordinujeme se přímo s ostatními profesemi na place."
+			},
+			{
+				"q": "Pomáhá automatizace s prodejem jednotek?",
+				"a": "Chytré funkce se v novostavbách stále častěji očekávají a pomáhají jednotky odlišit, podpořit prémiovou cenu a oslovit kupující, kterým záleží na úsporách energií."
+			},
+			{
+				"q": "Kde působíte?",
+				"a": "Po celé České republice i v rámci EU – pro rezidenční developerské projekty, bytové domy i komerční stavby."
+			}
+		]
+	},
+
+	"loxoneSmartHome": {
+		"faqs": [
+			{
+				"q": "Je Loxone lepší než tradiční systémy chytré domácnosti?",
+				"a": "Loxone se zaměřuje na skutečnou automatizaci, ne jen na dálkové ovládání, takže snižuje potřebu ručních zásahů."
+			},
+			{
+				"q": "Lze Loxone propojit s fotovoltaikou?",
+				"a": "Ano. Loxone podporuje pokročilé řízení energií i integraci s fotovoltaikou."
+			},
+			{
+				"q": "Funguje Loxone s chytrým osvětlením?",
+				"a": "Ano. Automatizace osvětlení patří mezi hlavní přednosti Loxone."
+			},
+			{
+				"q": "Umí Loxone řídit vytápění a chlazení?",
+				"a": "Ano. Zajišťuje inteligentní řízení klimatu v celém objektu."
+			},
+			{
+				"q": "Hodí se Loxone do luxusních domů?",
+				"a": "Rozhodně. Loxone se hojně používá v prémiových rezidenčních projektech po celé Evropě."
+			}
+		]
+	},
+
+	"crestronHome": {
+		"faqs": [
+			{
+				"q": "Co je Crestron Home?",
+				"a": "Crestron Home je prémiová automatizační platforma, která propojuje osvětlení, klima, zábavu, zabezpečení a stínění do jednoho inteligentního systému."
+			},
+			{
+				"q": "Hodí se Crestron do luxusních domů?",
+				"a": "Ano. Crestron se po celém světě hojně používá v luxusních rezidenčních projektech, vilách, penthousech i prémiových developmentech."
+			},
+			{
+				"q": "Lze Crestron propojit se stávajícími systémy?",
+				"a": "V mnoha případech ano. Crestron podporuje integraci se širokou škálou technologií třetích stran."
+			},
+			{
+				"q": "Mohu svůj dům ovládat na dálku?",
+				"a": "Ano. Crestron umožňuje zabezpečený vzdálený přístup přes mobilní zařízení."
+			},
+			{
+				"q": "Je Crestron lepší než několik samostatných aplikací pro chytrou domácnost?",
+				"a": "Výhodou Crestronu je centralizace. Místo správy mnoha aplikací ovládají uživatelé všechny systémy z jedné platformy."
+			}
+		]
 	},
 
 	"lighting": {
@@ -235,5 +328,9 @@
 		"loading": "Odesílám...",
 		"success": "Úspěšně odesláno!",
 		"required": "povinné"
+	},
+
+	"faqs": {
+		"heading": "Nejčastější dotazy"
 	}
 }
