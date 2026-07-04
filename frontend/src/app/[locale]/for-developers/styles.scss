@@ -3,7 +3,7 @@
 	flex-wrap: wrap;
 	gap: 10px;
 
-	div {
+	li {
 		background: rgba(255, 255, 255, 0.1);
 		padding: 20px;
 		border-radius: 10px;
@@ -11,13 +11,23 @@
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
+		min-width: 200px;
 
-		span {
-			font-size: 1.5rem;
+		&:hover {
+			background: #fff;
+			color: #000;
 		}
 
-		p {
+		:nth-child(1) {
+			font-size: 1.5rem;
 			white-space: nowrap;
 		}
+	}
+}
+
+.for-devs-list {
+	li {
+		list-style-position: inside !important;
+		list-style: disc;
 	}
 }

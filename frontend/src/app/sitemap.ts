@@ -14,12 +14,22 @@ const pages = [
 		priority: 0.6,
 	},
 	{
+		path: "/for-developers",
+		changeFrequency: "monthly",
+		priority: 0.6,
+	},
+	{
 		path: "/products",
 		changeFrequency: "weekly",
 		priority: 0.9,
 	},
 	{
 		path: "/contacts",
+		changeFrequency: "monthly",
+		priority: 0.6,
+	},
+	{
+		path: "/appointment",
 		changeFrequency: "monthly",
 		priority: 0.6,
 	},

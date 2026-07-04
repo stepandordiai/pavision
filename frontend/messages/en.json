@@ -217,7 +217,76 @@
 				"q": "Where do you work?",
 				"a": "Across the Czech Republic and the wider EU, for residential developments, apartment buildings and commercial projects."
 			}
-		]
+		],
+
+		"exploreBtn": "Explore Developer Solutions",
+
+		"section1": {
+			"heading": "Why Crestron Smart Building Technology Increases Property Value",
+			"list": [
+				"Modern buyers and tenants expect intelligent automation as a standard in premium residential and commercial developments.",
+				"Properties equipped with Crestron automation achieve higher market value and stand out in a competitive real estate market.",
+				"Scalable infrastructure designed to support future technologies, upgrades, and changing user requirements.",
+				"Improved energy efficiency and support for meeting European sustainability and building performance standards."
+			]
+		},
+
+		"section2": {
+			"heading": "What We Deliver for Developers",
+			"list": [
+				"Complete system design, engineering documentation, technical drawings, specifications, bill of materials, and coordination with construction, MEP, and IT teams.",
+				"Low-voltage and electrical installations for luxury homes, apartment developments, office buildings, hotels, and commercial properties.",
+				"Professional Crestron integration for lighting, climate control, shading, access control, security systems, and AV technologies.",
+				"Enterprise-grade network infrastructure using Ubiquiti, MikroTik, and Cisco solutions.",
+				"Smart energy monitoring and metering prepared for current and future European regulations.",
+				"Testing, commissioning, as-built documentation, and project handover.",
+				"Warranty, maintenance, remote monitoring, and long-term technical support."
+			]
+		},
+
+		"section3": {
+			"heading": "How We Reduce Project Costs",
+			"list": [
+				"One integrated Crestron platform replaces multiple independent systems for lighting, climate, shading, security, and AV control.",
+				"Standardized automation across multiple residential units lowers installation costs and simplifies future maintenance.",
+				"Modular architecture allows projects to scale from luxury apartments to large residential developments without redesigning the entire system.",
+				"Centralized building management reduces operational costs while improving long-term reliability.",
+				"A single partner for design, programming, commissioning, and support minimizes coordination delays and project risks."
+			]
+		},
+
+		"section4": {
+			"heading": "Energy Management & Solar Integration",
+			"subheading": "Crestron integrates photovoltaic systems, battery storage, HVAC, lighting, and energy management into one intelligent platform that helps reduce operating costs and maximize energy efficiency.",
+			"list": [
+				"Automatically optimize on-site energy consumption based on real-time solar production.",
+				"Intelligent battery storage management for efficient charging, discharging, and energy optimization.",
+				"Coordinate heating, cooling, shading, lighting, and EV charging to maximize renewable energy usage.",
+				"Real-time energy monitoring and reporting for building owners, facility managers, and residents.",
+				"Lower operating costs while increasing the sustainability and market value of residential and commercial developments."
+			]
+		},
+
+		"section5": {
+			"heading": "Project Delivery Stages",
+			"list": [
+				"System Design & Engineering",
+				"Electrical Infrastructure & Cabling",
+				"Equipment Installation",
+				"Crestron Programming & Commissioning",
+				"Testing, Handover & Ongoing Support"
+			]
+		},
+
+		"section6": {
+			"heading": "Our Process",
+			"list": [
+				"Send us your project documentation (PDF, DWG, or BIM).",
+				"We prepare a complete Crestron system design and project quotation.",
+				"Our team manages installation, integration, and coordination throughout construction.",
+				"We commission the system, provide user training, and deliver long-term technical support."
+			]
+		}
 	},
 
 	"loxoneSmartHome": {

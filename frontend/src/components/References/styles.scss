@@ -1,0 +1,52 @@
+.references-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+}
+
+.reference-card {
+	position: relative;
+	z-index: 1;
+	border-radius: 10px;
+	overflow: hidden;
+	height: 300px;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	p {
+		align-self: flex-end;
+		background: #fff;
+		color: #000;
+		padding: 10px;
+		border-radius: 10px;
+	}
+
+	img {
+		position: absolute;
+		inset: 0;
+		object-fit: cover;
+		object-position: center;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+	}
+}
+
+.reference__heading {
+	font-size: 1.25rem;
+	font-weight: 500;
+}
+
+@media screen and (width < 1200px) {
+	.references-container {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (width < 900px) {
+	.references-container {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}

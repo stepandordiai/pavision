@@ -144,7 +144,76 @@
 				"q": "Kde působíte?",
 				"a": "Po celé České republice i v rámci EU – pro rezidenční developerské projekty, bytové domy i komerční stavby."
 			}
-		]
+		],
+
+		"exploreBtn": "Prozkoumat řešení pro developery",
+
+		"section1": {
+			"heading": "Proč inteligentní technologie Crestron zvyšují hodnotu developerských projektů",
+			"list": [
+				"Kupující očekávají inteligentní technologie jako standard moderního bydlení.",
+				"Prémiové rezidenční projekty s automatizací Crestron dosahují vyšší tržní hodnoty a vyšší atraktivity.",
+				"Škálovatelná infrastruktura připravená na budoucí rozšíření i nové technologie.",
+				"Vyšší energetická efektivita a podpora plnění požadavků evropských norem pro moderní budovy."
+			]
+		},
+
+		"section2": {
+			"heading": "Co zajišťujeme pro developery",
+			"list": [
+				"Kompletní projektovou dokumentaci a koordinaci profesí – návrh systému, technické výkresy, standardy, výkazy materiálu a koordinaci se stavebními i technologickými profesemi.",
+				"Silnoproudé i slaboproudé elektroinstalace pro bytové domy, rezidenční komplexy, administrativní budovy i luxusní vily.",
+				"Integraci systému Crestron pro řízení osvětlení, vytápění, chlazení, stínění, přístupových systémů, zabezpečení a AV technologií.",
+				"Návrh a realizaci podnikových i rezidenčních síťových řešení (Ubiquiti, MikroTik, Cisco).",
+				"Měření spotřeby energií a inteligentní monitoring připravený na budoucí legislativní požadavky EU.",
+				"Výchozí revize dle platných ČSN, kompletní dokumentaci a předání systému.",
+				"Záruční i pozáruční servis, vzdálenou správu a technickou podporu."
+			]
+		},
+
+		"section3": {
+			"heading": "Jak optimalizujeme náklady na realizaci",
+			"list": [
+				"Jeden integrovaný systém Crestron pro řízení osvětlení, stínění, klimatizace, zabezpečení i AV technologií místo několika samostatných řešení.",
+				"Standardizace technologií napříč projektem přináší nižší náklady na jednotlivé bytové jednotky a jednodušší správu.",
+				"Modulární architektura umožňuje snadné rozšiřování systému podle požadavků investora i budoucích majitelů.",
+				"Jednotná platforma zajišťuje nižší náklady na servis, správu i dlouhodobý provoz budovy.",
+				"Kompletní návrh, programování, uvedení do provozu i servis od jednoho dodavatele minimalizují koordinační náklady a riziko chyb."
+			]
+		},
+
+		"section4": {
+			"heading": "Energetický management a fotovoltaika",
+			"subheading": "Crestron propojuje fotovoltaiku, bateriová úložiště, HVAC i řízení spotřeby do jednoho inteligentního systému, který pomáhá snižovat provozní náklady budov.",
+			"list": [
+				"Automatická optimalizace vlastní spotřeby energie podle aktuální výroby fotovoltaické elektrárny.",
+				"Inteligentní řízení bateriových úložišť a využívání přebytků energie.",
+				"Koordinace vytápění, chlazení, stínění a nabíjení elektromobilů podle dostupné energie.",
+				"Přehledný monitoring spotřeby energií pro správce objektů i rezidenty.",
+				"Nižší provozní náklady a vyšší energetická efektivita jako významná konkurenční výhoda developerského projektu."
+			]
+		},
+
+		"section5": {
+			"heading": "Spolupráce během výstavby",
+			"list": [
+				"Technický návrh a projektová příprava",
+				"Elektroinstalace a kabeláž",
+				"Montáž technologií",
+				"Programování a konfigurace systému Crestron",
+				"Uvedení do provozu, testování a předání"
+			]
+		},
+
+		"section6": {
+			"heading": "Jak probíhá spolupráce",
+			"list": [
+				"Zašlete nám projektovou dokumentaci (PDF, DWG nebo BIM).",
+				"Připravíme technický návrh systému Crestron a cenovou nabídku.",
+				"Zajistíme kompletní realizaci a koordinaci instalace.",
+				"Provedeme konfiguraci, zaškolení uživatelů a zajistíme dlouhodobý servis."
+			]
+		}
 	},
 
 	"loxoneSmartHome": {
