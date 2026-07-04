@@ -354,20 +354,20 @@
 			"badge": "Office",
 			"title": "Smart Office & Workspace",
 			"description": [
-				"Turn your office into a productive, professional environment. P&A Vision integrates meeting room booking, video conferencing, lighting, shading, climate control, and audio/video into a single system that adapts to your team's daily rhythm.",
-				"Your team books a meeting room with one tap, and the space prepares itself – the video call launches, the projection drops down, and lighting and blinds adjust automatically. A panel by the door shows at a glance whether the room is free or busy, so meetings never overlap.",
-				"Run seamless video conferences with automatic audio and camera control, without fiddling with the tech. Smart management also cuts running costs through automatic lighting and efficient temperature regulation – all monitored and controlled from one place.",
-				"We design and deliver meeting room booking and video conferencing solutions for offices and corporate spaces across the EU. Reliably, elegantly, and with attention to detail."
+				"Turn your workplace into a productive, professional environment. P&A Vision unifies meeting room booking, video conferencing, DALI lighting, shading, climate, and audio/video into a single system that adapts to how your team actually works.",
+				"Your team books a room with one tap and the space prepares itself – Zoom or Microsoft Teams launches on the room display, the projection or screen comes down, microphones and speakers activate, and DALI-controlled lighting sets the right scene while blinds adjust to kill glare on camera. A panel by the door shows at a glance whether the room is free or busy, so meetings never overlap.",
+				"Run seamless video conferences with automatic camera framing and calibrated room audio – no fiddling with the tech before every call. DALI addressable lighting gives you tunable white and human-centric scenes per fixture, presentation and focus presets, plus per-luminaire dimming that cuts energy use. Combined with efficient climate control, running costs drop while comfort stays high – all monitored and controlled from one place.",
+				"We design and deliver meeting room booking, video conferencing, professional audio, and DALI lighting solutions for offices and corporate spaces across the EU. Reliably, elegantly, and with attention to detail."
 			]
 		},
 		"familyHome": {
 			"badge": "Family Home",
-			"title": "Smart Family Home",
+			"title": "Smart Family Home & Villa",
 			"description": [
-				"Create a home that takes care of the whole family. P&A Vision connects lighting, heating, shading, security, and entertainment into one intuitive system powered by Crestron, Loxone, and Lutron.",
-				"Morning and evening scenes, automated blinds, and zoned temperature control keep every room comfortable. The home anticipates your needs and saves energy without any manual adjustment.",
-				"Peace of mind comes first – control camera systems, smart locks, and access management from your phone, anywhere. Stay in touch with what's happening at home, even remotely.",
-				"We deliver smart family homes across Europe, with a solution tailored to your lifestyle and budget."
+				"Create a home that takes care of the whole family. P&A Vision connects lighting, heating, shading, security, and entertainment into one intuitive system powered by Crestron, Loxone, and Lutron – whether it's an apartment, a family house, or a multi-storey villa with grounds to match.",
+				"Morning and evening scenes, automated blinds, and zoned temperature control keep every room comfortable – from the kitchen to the master suite, the home cinema to the poolside terrace. The home anticipates your needs and saves energy without any manual adjustment, scaling effortlessly across large villas with dozens of zones.",
+				"Peace of mind comes first – control camera systems, smart locks, gates, and access management from your phone, anywhere. Keep an eye on the driveway, garden, and entrances, and stay in touch with what's happening at home, even from another country.",
+				"We design and deliver smart family homes and luxury villas across Europe, with a solution tailored to your lifestyle, your property, and your budget."
 			]
 		},
 		"business": {

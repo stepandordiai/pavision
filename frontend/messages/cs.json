@@ -349,22 +349,22 @@
 		},
 		"office": {
 			"badge": "Kancelář",
-			"title": "Chytrá kancelář a pracovní prostor",
+			"title": "Chytrá kancelář a pracovní prostředí",
 			"description": [
-				"Proměňte kancelář v produktivní a reprezentativní prostředí. P&A Vision integruje rezervační systém zasedacích místností, videokonference, osvětlení, stínění, klimatizaci i audio/video do jednoho systému, který se sám přizpůsobí dennímu režimu vašeho týmu.",
-				"Zasedačku si tým rezervuje jediným dotykem a místnost se na schůzku připraví sama – spustí se videohovor, sjede projekce, upraví se světlo i žaluzie. Panel u dveří jasně ukáže, kdy je volno a kdy obsazeno, takže se porady nepřekrývají.",
-				"Bezproblémové videokonference s automatickým ozvučením a kamerou zvládnete bez ladění techniky. Chytré řízení navíc snižuje provozní náklady díky automatickému vypínání světel a efektivní regulaci teploty – vše sledujete a ovládáte z jednoho místa.",
-				"Navrhneme a zrealizujeme řešení pro rezervace místností a videokonference v kancelářích a firemních prostorech po celé České republice. Spolehlivě, elegantně a s důrazem na detail."
+				"Proměňte svou kancelář v produktivní a profesionální prostředí. P&A Vision propojuje rezervaci zasedacích místností, videokonference, řízení osvětlení DALI, stínění, klimatizaci a audio/video do jednoho systému, který se přizpůsobí tomu, jak váš tým skutečně pracuje.",
+				"Váš tým si rezervuje místnost jedním klepnutím a prostor se připraví sám – na obrazovce se spustí Zoom nebo Microsoft Teams, sjede projekce nebo plátno, aktivují se mikrofony a reproduktory a osvětlení řízené protokolem DALI nastaví správnou scénu, zatímco žaluzie potlačí odlesky v kameře. Panel u dveří na první pohled ukáže, zda je místnost volná, nebo obsazená, takže se schůzky nikdy nepřekrývají.",
+				"Veďte plynulé videokonference s automatickým snímáním kamery a vyladěným zvukem místnosti – bez zdlouhavého nastavování techniky před každým hovorem. Adresovatelné osvětlení DALI nabízí laditelnou bílou a scény pro zdravé osvětlení (human-centric) pro každé svítidlo, přednastavené režimy pro prezentace i soustředěnou práci a stmívání jednotlivých svítidel, které šetří energii. Ve spojení s úsporným řízením klimatu klesají provozní náklady a komfort zůstává vysoký – vše sledujete a ovládáte z jednoho místa.",
+				"Navrhujeme a dodáváme řešení pro rezervaci zasedacích místností, videokonference, profesionální ozvučení a osvětlení DALI pro kanceláře a firemní prostory po celé EU. Spolehlivě, elegantně a s důrazem na detail."
 			]
 		},
 		"familyHome": {
 			"badge": "Rodinný dům",
-			"title": "Chytrý rodinný dům",
+			"title": "Chytrý rodinný dům a vila",
 			"description": [
-				"Vytvořte domov, který se postará o celou rodinu. P&A Vision propojí osvětlení, vytápění, stínění, zabezpečení i zábavu do jednoho intuitivního systému s technologiemi Crestron, Loxone a Lutron.",
-				"Ranní i večerní scénáře, automatické žaluzie a zónová regulace teploty zajistí pohodlí v každé místnosti. Dům předvídá vaše potřeby a šetří energii bez nutnosti cokoliv ručně nastavovat.",
-				"Klid a bezpečí na prvním místě – kamerové systémy, chytré zámky a hlídání přístupu ovládáte z mobilu odkudkoliv. O dění doma máte přehled i na dálku.",
-				"Realizujeme chytré rodinné domy po celé České republice. Připravíme řešení na míru vašemu životnímu stylu i rozpočtu."
+				"Vytvořte domov, který se postará o celou rodinu. P&A Vision propojuje osvětlení, vytápění, stínění, zabezpečení a zábavu do jednoho intuitivního systému postaveného na značkách Crestron, Loxone a Lutron. Pro náročné vily a rezidence sázíme na Crestron – prémiovou platformu, která spolehlivě sjednotí celý dům od audia/videa přes osvětlení až po klimatizaci do jediného elegantního ovládání.",
+				"Ranní a večerní scény, automatické žaluzie a řízení teploty po zónách zajistí komfort v každé místnosti – od kuchyně přes ložnici až po domácí kino či terasu u bazénu. Domov předvídá vaše potřeby a šetří energii bez jediného ručního zásahu, a to i v rozlehlých vilách s desítkami zón, kde se naplno projeví škálovatelnost systémů Crestron.",
+				"Klid a jistota na prvním místě – kamerové systémy, chytré zámky, brány i správu přístupů ovládáte z telefonu odkudkoli. Mějte přehled o příjezdové cestě, zahradě i vstupech a zůstaňte ve spojení s děním doma, i když jste v jiné zemi.",
+				"Navrhujeme a realizujeme chytré rodinné domy a luxusní vily po celé Evropě – od komplexních instalací Crestron pro rozsáhlé rezidence až po řešení na míru vašemu životnímu stylu, vaší nemovitosti i rozpočtu."
 			]
 		},
 		"business": {
