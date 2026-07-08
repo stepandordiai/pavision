@@ -45,6 +45,14 @@ export default function ContactsClient() {
 				return;
 			}
 		}
+
+		// TODO: LEARN THIS
+		fetch("/api/notify-lead", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(form),
+		}).catch(() => {});
+
 		setLoading(false);
 		setSuccess(true);
 

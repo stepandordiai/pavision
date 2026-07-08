@@ -29,11 +29,12 @@ function getSlots(date: Date) {
 
 interface BookingForm {
 	name: string;
-	phone: string;
+	tel: string;
+	email: string;
 	message: string;
 }
 
-const EMPTY_FORM: BookingForm = { name: "", phone: "", message: "" };
+const EMPTY_FORM: BookingForm = { name: "", tel: "", email: "", message: "" };
 
 const isSunday = (date: Date) => date.getDay() === 0;
 
@@ -116,7 +117,7 @@ export default function Appointment() {
 
 	const handleSubmit = async () => {
 		if (!selectedDate || !selectedSlot) return;
-		if (!form.name.trim() || !form.phone.trim()) {
+		if (!form.name.trim() || !form.tel.trim()) {
 			setError("Please fill in your name and phone number.");
 			return;
 		}
@@ -130,7 +131,8 @@ export default function Appointment() {
 			.select("id")
 			.eq("date", dateStr)
 			.eq("time", selectedSlot)
-			.single();
+			// TODO: learn this
+			.maybeSingle();
 
 		if (existing) {
 			setError("This slot was just booked. Please pick another time.");
@@ -142,15 +144,25 @@ export default function Appointment() {
 
 		const { error } = await supabase.from("bookings").insert([
 			{
+				// FIXME:
 				name: form.name.trim(),
-				phone: form.phone.trim(),
+				tel: form.tel.trim(),
+				email: form.email.trim(),
 				message: form.message.trim(),
 				date: dateStr,
 				time: selectedSlot,
 			},
 		]);
 
+		// TODO: LEARN THIS
+		fetch("/api/notify-appointment", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ ...form, date: dateStr, time: selectedSlot }),
+		}).catch(() => {});
+
 		setLoading(false);
+
 		if (error) {
 			setError("Something went wrong. Please try again.");
 			return;
@@ -421,7 +433,7 @@ export default function Appointment() {
 											/>
 										</div>
 										<div
-											className={`input-container ${form.phone != "" ? "input-container--active" : ""}`}
+											className={`input-container ${form.tel != "" ? "input-container--active" : ""}`}
 										>
 											<label className="apt-form__label" htmlFor="apt-phone">
 												Phone number
@@ -431,9 +443,27 @@ export default function Appointment() {
 												className="apt-form__input"
 												type="tel"
 												placeholder="+420 123 456 789"
-												value={form.phone}
+												value={form.tel}
 												onChange={(e) =>
-													setForm((p) => ({ ...p, phone: e.target.value }))
+													setForm((p) => ({ ...p, tel: e.target.value }))
+												}
+												disabled={success}
+											/>
+										</div>
+										<div
+											className={`input-container ${form.email != "" ? "input-container--active" : ""}`}
+										>
+											<label className="apt-form__label" htmlFor="apt-phone">
+												Email
+											</label>
+											<input
+												id="apt-phone"
+												className="apt-form__input"
+												type="email"
+												placeholder="+420 123 456 789"
+												value={form.email}
+												onChange={(e) =>
+													setForm((p) => ({ ...p, email: e.target.value }))
 												}
 												disabled={success}
 											/>
