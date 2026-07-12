@@ -95,7 +95,7 @@ const Header = () => {
 			>
 				<div className="header-top">
 					<TransitionLink className="header__logo" href="/">
-						<img src="/logo.svg" width={100} alt="" />
+						<img src="/logo.svg" width={32} alt="" />
 					</TransitionLink>
 					<nav className="header-nav">
 						{navLinks.map((navLink, i) => {

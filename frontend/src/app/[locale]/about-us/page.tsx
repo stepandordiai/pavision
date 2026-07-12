@@ -20,6 +20,11 @@ const team = [
 		tel: "+420775632426",
 		email: "petr.fojtu@pavision.cz",
 	},
+	{
+		name: "Stepan Dordiai",
+		position: "aboutUs.ourTeam.programmer",
+		email: "stepan.dordiai@pavision.cz",
+	},
 ];
 
 export async function generateMetadata({
@@ -122,9 +127,11 @@ export default async function AboutUs() {
 											<p>{t(member.position)}</p>
 										</div>
 										<div style={{ display: "flex", gap: 5 }}>
-											<a className="member-link" href={`tel:${member.tel}`}>
-												<TelIcon size={20} />
-											</a>
+											{member.tel && (
+												<a className="member-link" href={`tel:${member.tel}`}>
+													<TelIcon size={20} />
+												</a>
+											)}
 											<a
 												className="member-link"
 												href={`mailto:${member.email}`}

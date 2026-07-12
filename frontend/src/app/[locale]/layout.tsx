@@ -1,4 +1,4 @@
-import { Poppins } from "next/font/google";
+import { Poppins, Michroma } from "next/font/google";
 import { Metadata } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import Header from "@/components/layout/Header/Header";
@@ -16,6 +16,12 @@ import "@/scss/globals.scss";
 const poppins = Poppins({
 	variable: "--font-poppins",
 	weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+	subsets: ["latin"],
+});
+
+const michroma = Michroma({
+	variable: "--font-michroma",
+	weight: ["400"],
 	subsets: ["latin"],
 });
 
@@ -42,7 +48,7 @@ export default async function LocaleLayout({
 
 	return (
 		<html lang={locale}>
-			<body className={poppins.variable}>
+			<body className={`${poppins.variable} ${michroma.variable}`}>
 				<ScrollToTop />
 				<ScrollToTopBtn />
 				<FloatContact />
