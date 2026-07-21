@@ -7,6 +7,8 @@ import ContactsClient from "./ContactsClient";
 import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
 import "./Contacts.scss";
 
+const PAGE = "contacts";
+
 export async function generateMetadata({
 	params,
 }: {
@@ -14,30 +16,34 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { locale } = await params;
 	const t = await getTranslations({ locale, namespace: "contacts.meta" });
-	const page = "contacts";
 	const languages = Object.fromEntries(
-		routing.locales.map((l) => [l, `/${l}/${page}`]),
+		routing.locales.map((l) => [l, `/${l}/${PAGE}`]),
 	);
 
 	return {
 		title: t("title"),
 		description: t("desc"),
 		alternates: {
-			canonical: `/${locale}/${page}`,
+			canonical: `/${locale}/${PAGE}`,
 			languages: {
 				...languages,
-				"x-default": `/${routing.defaultLocale}/${page}`,
+				"x-default": `/${routing.defaultLocale}/${PAGE}`,
 			},
 		},
 	};
 }
 
-export default async function Contacts() {
-	const t = await getTranslations();
+export default async function Contacts({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+	const t = await getTranslations({ locale });
 
 	return (
 		<main className="contacts">
-			<Breadcrumbs links={[{ label: t("nav.contacts") }]} />
+			<Breadcrumbs links={[{ label: t("nav.contacts") }]} locale={locale} />
 			<div className="contacts-inner">
 				<div className="contacts-details">
 					<h1 className="contacts__title">

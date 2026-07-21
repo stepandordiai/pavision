@@ -5,6 +5,8 @@ import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
 import "./styles.scss";
 
+const PAGE = "security";
+
 export async function generateMetadata({
 	params,
 }: {
@@ -12,26 +14,30 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { locale } = await params;
 	const t = await getTranslations({ locale, namespace: "security.meta" });
-	const page = "security";
 	const languages = Object.fromEntries(
-		routing.locales.map((l) => [l, `/${l}/${page}`]),
+		routing.locales.map((l) => [l, `/${l}/${PAGE}`]),
 	);
 
 	return {
 		title: t("title"),
-		description: t("desc"),
+		description: t("description"),
 		alternates: {
-			canonical: `/${locale}/${page}`,
+			canonical: `/${locale}/${PAGE}`,
 			languages: {
 				...languages,
-				"x-default": `/${routing.defaultLocale}/${page}`,
+				"x-default": `/${routing.defaultLocale}/${PAGE}`,
 			},
 		},
 	};
 }
 
-export default async function Security() {
-	const t = await getTranslations();
+export default async function Security({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+	const t = await getTranslations({ locale });
 
 	return (
 		<main>
@@ -41,7 +47,7 @@ export default async function Security() {
 				imgSrc="https://images.pexels.com/photos/35361412/pexels-photo-35361412.jpeg"
 				secondaryBtnTxt="Explore Security Solutions"
 				currentPage="Security"
-				currentPageUrl="/security"
+				locale={locale}
 			/>
 			<section className="technology-section" id="section">
 				<h2 className="section__title">

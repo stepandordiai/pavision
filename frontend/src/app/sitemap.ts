@@ -69,7 +69,7 @@ const pages = [
 		priority: 0.8,
 	},
 	{
-		path: "/crestron-home",
+		path: "/crestron-integration",
 		changeFrequency: "monthly",
 		priority: 0.8,
 	},

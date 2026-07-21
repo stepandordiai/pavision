@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { getProducts } from "@/lib/api/products";
-import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
 import ProductCard from "@/components/ProductCard/ProductCard";
 import { useTranslations } from "next-intl";
 
@@ -45,45 +44,41 @@ export default function ProductsClient() {
 	const uniqueTypes = [...new Set(filteredProducts.flatMap((p) => p.type))];
 
 	return (
-		<main className="products">
-			<Breadcrumbs links={[{ label: t("nav.products") }]} />
-			<div className="products-inner">
-				<h1 className="main__title">Produkty</h1>
-				<button
-					onClick={() => setActiveTechnology("Bundle/kit")}
-					className="bundle-btn"
-				>
-					<img src="/bundle.png" alt="" />
-					<span>Bundle/kit</span>
-				</button>
-				<div className="btn-container">
-					{uniqueTechnologies.map((technology, i) => {
-						return (
-							<button
-								key={i}
-								onClick={() => setActiveTechnology(technology)}
-								className={`btn ${technology === activeTechnology ? "btn--active" : ""}`}
-							>
-								{technology}
-							</button>
-						);
-					})}
-				</div>
-				{uniqueTypes.map((type, i) => {
+		<>
+			<button
+				onClick={() => setActiveTechnology("Bundle/kit")}
+				className="bundle-btn"
+			>
+				<img src="/bundle.png" alt="" />
+				<span>Bundle/kit</span>
+			</button>
+			<div className="btn-container">
+				{uniqueTechnologies.map((technology, i) => {
 					return (
-						<div key={i}>
-							<p style={{ marginBottom: 20 }}>{type}</p>
-							<div className="products-grid">
-								{filteredProducts
-									.filter((product) => product.type.includes(type))
-									.map((product, i) => {
-										return <ProductCard key={i} product={product} />;
-									})}
-							</div>
-						</div>
+						<button
+							key={i}
+							onClick={() => setActiveTechnology(technology)}
+							className={`btn ${technology === activeTechnology ? "btn--active" : ""}`}
+						>
+							{technology}
+						</button>
 					);
 				})}
 			</div>
-		</main>
+			{uniqueTypes.map((type, i) => {
+				return (
+					<div key={i}>
+						<p style={{ marginBottom: 20 }}>{type}</p>
+						<div className="products-grid">
+							{filteredProducts
+								.filter((product) => product.type.includes(type))
+								.map((product, i) => {
+									return <ProductCard key={i} product={product} />;
+								})}
+						</div>
+					</div>
+				);
+			})}
+		</>
 	);
 }

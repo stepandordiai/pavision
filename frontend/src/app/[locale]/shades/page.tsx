@@ -1,10 +1,11 @@
 import { getTranslations } from "next-intl/server";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
-// import CrestronApp from "@/components/CrestronApp/CrestronApp";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
 import "./styles.scss";
+
+const PAGE = "shades";
 
 export async function generateMetadata({
 	params,
@@ -13,26 +14,30 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { locale } = await params;
 	const t = await getTranslations({ locale, namespace: "shades.meta" });
-	const page = "shades";
 	const languages = Object.fromEntries(
-		routing.locales.map((l) => [l, `/${l}/${page}`]),
+		routing.locales.map((l) => [l, `/${l}/${PAGE}`]),
 	);
 
 	return {
 		title: t("title"),
-		description: t("desc"),
+		description: t("description"),
 		alternates: {
-			canonical: `/${locale}/${page}`,
+			canonical: `/${locale}/${PAGE}`,
 			languages: {
 				...languages,
-				"x-default": `/${routing.defaultLocale}/${page}`,
+				"x-default": `/${routing.defaultLocale}/${PAGE}`,
 			},
 		},
 	};
 }
 
-export default async function Shades() {
-	const t = await getTranslations();
+export default async function Shades({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+	const t = await getTranslations({ locale });
 
 	return (
 		<main style={{ overflow: "hidden" }}>
@@ -43,7 +48,7 @@ export default async function Shades() {
 				secondaryBtnTxt="Explore Automated Shades"
 				imgAlt="Luxury bedroom with smart motorized shades and automated blinds"
 				currentPage="Shades"
-				currentPageUrl="/shades"
+				locale={locale}
 			/>
 			<section className="section" id="section">
 				<h2 className="section__title">Get closer to nature</h2>
@@ -87,7 +92,6 @@ export default async function Shades() {
 				</div>
 			</section>
 			<TechnologyProducts technology="Shades" />
-			{/* <CrestronApp /> */}
 		</main>
 	);
 }

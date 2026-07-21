@@ -69,14 +69,14 @@
 	"products": {
 		"meta": {
 			"title": "Smart Home Products & Automation | Innovative Living Solutions",
-			"desc": "Explore advanced smart home products and automation systems. Control lighting, security, climate, and more with intelligent solutions designed for modern living."
+			"description": "Explore advanced smart home products and automation systems. Control lighting, security, climate, and more with intelligent solutions designed for modern living."
 		}
 	},
 
 	"lighting": {
 		"meta": {
 			"title": "Smart Lighting Systems, Automation & Control",
-			"desc": "Discover advanced smart lighting solutions with automated control, custom lighting scenes, energy-efficient automation, and seamless smart home integration for modern homes across Europe."
+			"description": "Discover advanced smart lighting solutions with automated control, custom lighting scenes, energy-efficient automation, and seamless smart home integration for modern homes across Europe."
 		},
 		"heading": "Lighting",
 		"title": "Smart Home Lighting Solutions",
@@ -86,7 +86,7 @@
 	"homeAccess": {
 		"meta": {
 			"title": "Smart Home Access Control, Smart Locks & Automation",
-			"desc": "Advanced smart home access control systems, keyless entry, smart locks, and integrated automation. Secure, manage, and monitor access remotely with seamless smart home integration."
+			"description": "Advanced smart home access control systems, keyless entry, smart locks, and integrated automation. Secure, manage, and monitor access remotely with seamless smart home integration."
 		},
 		"heading": "Home Access",
 		"title": "Smart Home Access Solutions",
@@ -96,7 +96,7 @@
 	"video": {
 		"meta": {
 			"title": "Smart Home Cinema, Video & Entertainment Systems",
-			"desc": "Premium home cinema, smart TV, multi-room video, and integrated entertainment systems. Experience seamless control, immersive viewing, and smart home integration."
+			"description": "Premium home cinema, smart TV, multi-room video, and integrated entertainment systems. Experience seamless control, immersive viewing, and smart home integration."
 		},
 		"heading": "Cinema",
 		"title": "Smart Home Video & Cinema Systems",
@@ -116,7 +116,7 @@
 	"shades": {
 		"meta": {
 			"title": "Smart Shades & Motorized Blinds",
-			"desc": "Luxury smart shades and motorized blinds with automated privacy, light control, and seamless smart home integration."
+			"description": "Luxury smart shades and motorized blinds with automated privacy, light control, and seamless smart home integration."
 		},
 		"heading": "Shades",
 		"title": "Smart Shades & Blinds",
@@ -126,7 +126,7 @@
 	"thermostat": {
 		"meta": {
 			"title": "Luxury Smart Climate Control | Intelligent Thermostat Systems",
-			"desc": "Experience perfect indoor comfort with advanced smart thermostat solutions. Control temperature, reduce energy costs, and automate your home effortlessly."
+			"description": "Experience perfect indoor comfort with advanced smart thermostat solutions. Control temperature, reduce energy costs, and automate your home effortlessly."
 		},
 		"heading": "Thermostat",
 		"title": "Smart Climate Control Solutions",
@@ -136,7 +136,7 @@
 	"security": {
 		"meta": {
 			"title": "Smart Home Security Automation | Intelligent Protection",
-			"desc": "Enhance your home security with smart automation systems. Monitor, control, and protect your home with real-time alerts, sensors, and intelligent integrations."
+			"description": "Enhance your home security with smart automation systems. Monitor, control, and protect your home with real-time alerts, sensors, and intelligent integrations."
 		},
 		"heading": "Security",
 		"title": "Smart Security Automation",
@@ -290,6 +290,11 @@
 	},
 
 	"loxoneSmartHome": {
+		"meta": {
+			"title": "Loxone Smart Home Installation & Automation",
+			"desc": "Certified Loxone Partner delivering smart home automation — lighting, climate, security, audio & energy management with intelligent whole-home control."
+		},
+
 		"faqs": [
 			{
 				"q": "Is Loxone better than traditional smart home systems?",
@@ -314,7 +319,12 @@
 		]
 	},
 
-	"crestronHome": {
+	"crestronIntegration": {
+		"meta": {
+			"title": "Crestron Automation & Custom Control System Integration",
+			"description": "Professional Crestron integration for luxury homes and buildings — custom touch panel graphics, lighting, home cinema, climate, security & whole-property automation."
+		},
+
 		"faqs": [
 			{
 				"q": "What is Crestron Home?",

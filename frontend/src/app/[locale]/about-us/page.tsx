@@ -27,6 +27,8 @@ const team = [
 	},
 ];
 
+const PAGE = "about-us";
+
 export async function generateMetadata({
 	params,
 }: {
@@ -34,30 +36,34 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { locale } = await params;
 	const t = await getTranslations({ locale, namespace: "aboutUs.meta" });
-	const page = "about-us";
 	const languages = Object.fromEntries(
-		routing.locales.map((l) => [l, `/${l}/${page}`]),
+		routing.locales.map((l) => [l, `/${l}/${PAGE}`]),
 	);
 
 	return {
 		title: t("title"),
 		description: t("desc"),
 		alternates: {
-			canonical: `/${locale}/${page}`,
+			canonical: `/${locale}/${PAGE}`,
 			languages: {
 				...languages,
-				"x-default": `/${routing.defaultLocale}/${page}`,
+				"x-default": `/${routing.defaultLocale}/${PAGE}`,
 			},
 		},
 	};
 }
 
-export default async function AboutUs() {
-	const t = await getTranslations();
+export default async function AboutUs({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+	const t = await getTranslations({ locale });
 
 	return (
 		<main className="about-us">
-			<Breadcrumbs links={[{ label: t("nav.aboutUs") }]} />
+			<Breadcrumbs links={[{ label: t("nav.aboutUs") }]} locale={locale} />
 			<div style={{ padding: "0 20px 20px" }}>
 				<h1 className="main__title">{t("aboutUs.title")}</h1>
 				<section

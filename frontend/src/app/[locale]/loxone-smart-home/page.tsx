@@ -6,33 +6,42 @@ import { TransitionLink } from "@/components/TransitionLink";
 import Faqs from "@/components/Faqs/Faqs";
 import "./styles.scss";
 
+const PAGE = "loxone-smart-home";
+
 export async function generateMetadata({
 	params,
 }: {
 	params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
 	const { locale } = await params;
-	const t = await getTranslations({ locale, namespace: "lighting.meta" });
-	const page = "loxone-smart-home";
+	const t = await getTranslations({
+		locale,
+		namespace: "loxoneSmartHome.meta",
+	});
 	const languages = Object.fromEntries(
-		routing.locales.map((l) => [l, `/${l}/${page}`]),
+		routing.locales.map((l) => [l, `/${l}/${PAGE}`]),
 	);
 
 	return {
-		title: "Loxone Smart Home Installation & Automation",
-		description:
-			"Certified Loxone Partner providing smart home design, installation, and automation solutions. Lighting, climate, security, audio, energy management, and intelligent control systems.",
+		title: t("title"),
+		description: t("description"),
 		alternates: {
-			canonical: `/${locale}/${page}`,
+			canonical: `/${locale}/${PAGE}`,
 			languages: {
 				...languages,
-				"x-default": `/${routing.defaultLocale}/${page}`,
+				"x-default": `/${routing.defaultLocale}/${PAGE}`,
 			},
 		},
 	};
 }
 
-export default function LoxoneSmartHome() {
+export default async function LoxoneSmartHome({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+
 	return (
 		<main>
 			<HeroParallax
@@ -43,7 +52,7 @@ export default function LoxoneSmartHome() {
 				imgSrc="https://www.loxone.com/enen/wp-content/uploads/sites/3/2023/09/The-Forum-experience-automation-open-graph-scaled.jpg"
 				secondaryBtnTxt="Explore Loxone Solutions"
 				currentPage="Loxone"
-				currentPageUrl="/loxone-smart-home"
+				locale={locale}
 			/>
 			<section className="section" id="section">
 				<h2 className="section__title">Why Choose Loxone?</h2>

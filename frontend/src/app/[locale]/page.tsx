@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
-import HomeClient from "./HomeClient";
+import Hero from "@/components/Hero/Hero";
+import Technologies from "@/components/home/Technologies/Technologies";
+import OurSolutions from "@/components/home/OurSolutions/OurSolutions";
+import WhatWeDo from "@/components/WhatWeDo/WhatWeDo";
+import Testimonials from "@/components/Testimonials/Testimonials";
+import Brands from "@/components/Brands/Brands";
+import ProgrammingServices from "@/components/ProgrammingServices/ProgrammingServices";
 import { routing } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
+import "./Home.scss";
 
 export async function generateMetadata({
 	params,
@@ -28,5 +35,15 @@ export async function generateMetadata({
 }
 
 export default function Home() {
-	return <HomeClient />;
+	return (
+		<main>
+			<Hero />
+			<ProgrammingServices />
+			<OurSolutions />
+			<WhatWeDo />
+			<Testimonials />
+			<Technologies />
+			<Brands />
+		</main>
+	);
 }

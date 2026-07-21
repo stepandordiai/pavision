@@ -34,8 +34,13 @@ export async function generateMetadata({
 	};
 }
 
-export default async function ForDevs() {
-	const t = await getTranslations();
+export default async function ForDevs({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+	const t = await getTranslations({ locale });
 
 	return (
 		<main>
@@ -45,7 +50,7 @@ export default async function ForDevs() {
 				imgSrc="/16.webp"
 				secondaryBtnTxt={t("forDevs.exploreBtn")}
 				currentPage={t("nav.forDevs")}
-				currentPageUrl="/loxone-smart-home"
+				locale={locale}
 			/>
 			<section className="section" id="section">
 				<h2 className="section__title">{t("forDevs.section1.heading")}</h2>

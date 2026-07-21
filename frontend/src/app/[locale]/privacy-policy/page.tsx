@@ -3,6 +3,7 @@ import "./styles.scss";
 export default function PrivacyPolicy() {
 	return (
 		<main className="main">
+			{/* FIXME: */}
 			<h1 className="main__title">Privacy Policy</h1>
 			<p>Last updated: 10 April 2026</p>
 			<br />

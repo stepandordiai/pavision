@@ -1,8 +1,6 @@
-"use client";
-
-import { useLocale, useTranslations } from "next-intl";
 import { TransitionLink } from "@/components/TransitionLink";
 import { BASE_URL } from "@/lib/constants";
+import { getTranslations } from "next-intl/server";
 import "./styles.scss";
 
 interface Breadcrumb {
@@ -12,11 +10,11 @@ interface Breadcrumb {
 
 type BreadcrumbsProps = {
 	links: Breadcrumb[];
+	locale: string;
 };
 
-export default function Breadcrumbs({ links }: BreadcrumbsProps) {
-	const locale = useLocale();
-	const t = useTranslations();
+export default async function Breadcrumbs({ links, locale }: BreadcrumbsProps) {
+	const t = await getTranslations({ locale });
 
 	// TODO: learn this
 	// BreadcrumbList

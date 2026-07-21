@@ -1,10 +1,11 @@
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
-// import CrestronApp from "@/components/CrestronApp/CrestronApp";
 import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
-import "./styles.scss";
 import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
+import "./styles.scss";
+
+const PAGE = "audio";
 
 export async function generateMetadata({
 	params,
@@ -13,26 +14,30 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { locale } = await params;
 	const t = await getTranslations({ locale, namespace: "audio.meta" });
-	const page = "audio";
 	const languages = Object.fromEntries(
-		routing.locales.map((l) => [l, `/${l}/${page}`]),
+		routing.locales.map((l) => [l, `/${l}/${PAGE}`]),
 	);
 
 	return {
 		title: t("title"),
 		description: t("desc"),
 		alternates: {
-			canonical: `/${locale}/${page}`,
+			canonical: `/${locale}/${PAGE}`,
 			languages: {
 				...languages,
-				"x-default": `/${routing.defaultLocale}/${page}`,
+				"x-default": `/${routing.defaultLocale}/${PAGE}`,
 			},
 		},
 	};
 }
 
-export default async function Audio() {
-	const t = await getTranslations();
+export default async function Audio({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+	const t = await getTranslations({ locale });
 
 	return (
 		<main style={{ overflow: "hidden" }}>
@@ -42,7 +47,7 @@ export default async function Audio() {
 				imgSrc="https://www.bowerswilkins.com/on/demandware.static/-/Sites-master-catalog-soundunited/default/dw0b413071/bowers/Rich-Content/bandw_formationbar_be_desktop.jpg"
 				secondaryBtnTxt="Explore Audio Solutions"
 				currentPage="Audio"
-				currentPageUrl="/audio"
+				locale={locale}
 			/>
 			<section className="technology-section" id="section">
 				<h2 className="section__title">| Soothing sounds</h2>

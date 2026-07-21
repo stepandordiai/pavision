@@ -1,10 +1,11 @@
-// import CrestronApp from "@/components/CrestronApp/CrestronApp";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
 import "./styles.scss";
+
+const PAGE = "home-access";
 
 export async function generateMetadata({
 	params,
@@ -13,26 +14,30 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { locale } = await params;
 	const t = await getTranslations({ locale, namespace: "homeAccess.meta" });
-	const page = "home-access";
 	const languages = Object.fromEntries(
-		routing.locales.map((l) => [l, `/${l}/${page}`]),
+		routing.locales.map((l) => [l, `/${l}/${PAGE}`]),
 	);
 
 	return {
 		title: t("title"),
-		description: t("desc"),
+		description: t("description"),
 		alternates: {
-			canonical: `/${locale}/${page}`,
+			canonical: `/${locale}/${PAGE}`,
 			languages: {
 				...languages,
-				"x-default": `/${routing.defaultLocale}/${page}`,
+				"x-default": `/${routing.defaultLocale}/${PAGE}`,
 			},
 		},
 	};
 }
 
-export default async function HomeAccess() {
-	const t = await getTranslations();
+export default async function HomeAccess({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+	const t = await getTranslations({ locale });
 
 	return (
 		<main style={{ overflow: "hidden" }}>
@@ -43,7 +48,7 @@ export default async function HomeAccess() {
 				secondaryBtnTxt="Explore Smart Access"
 				imgAlt="Luxury smart home entrance with automated access control system"
 				currentPage="Home Access"
-				currentPageUrl="/home-access"
+				locale={locale}
 			/>
 			<section className="technology-section" id="section">
 				<h2 className="section__title">Peace of mind.</h2>

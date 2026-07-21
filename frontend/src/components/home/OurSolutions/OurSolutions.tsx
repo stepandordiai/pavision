@@ -1,12 +1,12 @@
 import { getTranslations } from "next-intl/server";
 import { TransitionLink } from "@/components/TransitionLink";
 import { AnimatedImage } from "@/components/AnimatedImg";
-import "./OurSolutions.scss";
 import SoundwaveIcon from "@/components/icons/SoundwaveIcon";
 import BulbIcon from "@/components/icons/BulbIcon";
 import TvIcon from "@/components/icons/TvIcon";
 import LockIcon from "@/components/icons/LockIcon";
 import CameraIcon from "@/components/icons/CameraIcon";
+import "./OurSolutions.scss";
 
 export default async function OurSolutions() {
 	const t = await getTranslations();

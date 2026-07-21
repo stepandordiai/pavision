@@ -1,13 +1,14 @@
 "use client";
 
+import { useLocale } from "next-intl";
 import { supabase } from "@/lib/supabase";
 import { User } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import styles from "@/components/Testimonials/Testimonials.module.scss";
-import "./styles.scss";
 import getCreatedDate from "@/utils/getCreatedDate";
 import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
+import "./styles.scss";
 
 type Testimonial = {
 	id: string;
@@ -82,6 +83,7 @@ function Stars({ rating, interactive = false, onChange }: StarsProps) {
 }
 
 export default function MyProfile() {
+	const locale = useLocale();
 	const [user, setUser] = useState<User | null>(null);
 	const router = useRouter();
 	const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
@@ -160,7 +162,7 @@ export default function MyProfile() {
 			style={{ display: "flex", flexDirection: "column", gap: "20px" }}
 			className="my-account"
 		>
-			<Breadcrumbs links={[{ label: "My Account" }]} />
+			<Breadcrumbs links={[{ label: "My Account" }]} locale={locale} />
 			<div style={{ padding: "0 20px 20px" }}>
 				<h1 className="main__title">My account</h1>
 				{editingName ? (

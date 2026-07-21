@@ -264,7 +264,10 @@ export default function Appointment() {
 				</>
 			)}
 			<main className="appointment">
-				<Breadcrumbs links={[{ label: t("nav.appointment") }]} />
+				<Breadcrumbs
+					links={[{ label: t("nav.appointment") }]}
+					locale={locale}
+				/>
 				<div style={{ padding: "0 20px 20px" }}>
 					<h1 className="main__title">Nezávazná technologická konzultace</h1>
 					<div className="appointment-container">

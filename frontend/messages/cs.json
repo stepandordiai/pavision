@@ -66,7 +66,7 @@
 	"products": {
 		"meta": {
 			"title": "Produkty chytré domácnosti a automatizace | Inovativní řešení pro moderní bydlení",
-			"desc": "Objevte pokročilé produkty chytré domácnosti a automatizační systémy. Ovládejte osvětlení, zabezpečení, klima a další prvky pomocí inteligentních řešení pro moderní život."
+			"description": "Objevte pokročilé produkty chytré domácnosti a automatizační systémy. Ovládejte osvětlení, zabezpečení, klima a další prvky pomocí inteligentních řešení pro moderní život."
 		}
 	},
 
@@ -217,6 +217,11 @@
 	},
 
 	"loxoneSmartHome": {
+		"meta": {
+			"title": "Loxone chytrá domácnost – instalace a automatizace",
+			"description": "Certifikovaný Loxone partner – automatizace osvětlení, klimatizace, zabezpečení, audia a řízení energií pro chytrou domácnost na klíč."
+		},
+
 		"faqs": [
 			{
 				"q": "Je Loxone lepší než tradiční systémy chytré domácnosti?",
@@ -241,7 +246,12 @@
 		]
 	},
 
-	"crestronHome": {
+	"crestronIntegration": {
+		"meta": {
+			"title": "Crestron automatizace a instalace chytrých systémů",
+			"description": "Profesionální integrace Crestron pro rezidenční i komerční objekty – vlastní grafika ovládacích panelů, osvětlení, domácí kino, klimatizace, zabezpečení a automatizace na klíč."
+		},
+
 		"faqs": [
 			{
 				"q": "Co je Crestron Home?",
@@ -269,7 +279,7 @@
 	"lighting": {
 		"meta": {
 			"title": "Chytré osvětlení, řízení světel a automatizace",
-			"desc": "Profesionální řešení chytrého osvětlení pro domácnosti. Inteligentní řízení světel, automatické scénáře, stmívání, dálkové ovládání a integrace do systému chytré domácnosti."
+			"description": "Profesionální řešení chytrého osvětlení pro domácnosti. Inteligentní řízení světel, automatické scénáře, stmívání, dálkové ovládání a integrace do systému chytré domácnosti."
 		},
 		"heading": "Osvětlení",
 		"title": "Chytré osvětlení pro domácnost",
@@ -279,7 +289,7 @@
 	"homeAccess": {
 		"meta": {
 			"title": "Chytrý vstup do domu a automatizace přístupu",
-			"desc": "Inteligentní systémy vstupu do domu, smart zámky a bezklíčový přístup propojený s chytrou domácností. Vyšší bezpečnost, pohodlí a kontrola na dosah ruky."
+			"description": "Inteligentní systémy vstupu do domu, smart zámky a bezklíčový přístup propojený s chytrou domácností. Vyšší bezpečnost, pohodlí a kontrola na dosah ruky."
 		},
 		"heading": "Přístupové systémy",
 		"title": "Chytrá řešení pro přístup do domu",
@@ -289,7 +299,7 @@
 	"video": {
 		"meta": {
 			"title": "Domácí kino, chytré TV a multimediální systémy",
-			"desc": "Prémiová řešení domácího kina, chytrých televizí a multimediálních systémů. Inteligentní ovládání, multiroom video a bezproblémová integrace do chytré domácnosti."
+			"description": "Prémiová řešení domácího kina, chytrých televizí a multimediálních systémů. Inteligentní ovládání, multiroom video a bezproblémová integrace do chytré domácnosti."
 		},
 		"heading": "Video",
 		"title": "Chytré video a domácí kino systémy",
@@ -309,7 +319,7 @@
 	"shades": {
 		"meta": {
 			"title": "Chytré stínění a motorické žaluzie",
-			"desc": "Profesionálně navržené a realizované systémy chytrého stínění po celé České republice."
+			"description": "Profesionálně navržené a realizované systémy chytrého stínění po celé České republice."
 		},
 		"heading": "Stínění",
 		"title": "Chytré stínění a žaluzie",
@@ -319,7 +329,7 @@
 	"thermostat": {
 		"meta": {
 			"title": "Luxusní chytré řízení klimatu | Inteligentní termostatické systémy",
-			"desc": "Zažijte dokonalý komfort v interiéru díky pokročilým chytrým termostatům. Ovládejte teplotu, snižte náklady na energii a automatizujte svůj domov bez námahy."
+			"description": "Zažijte dokonalý komfort v interiéru díky pokročilým chytrým termostatům. Ovládejte teplotu, snižte náklady na energii a automatizujte svůj domov bez námahy."
 		},
 		"heading": "Klimatizace a vytápění",
 		"title": "Chytré řízení klimatu a teploty",
@@ -329,7 +339,7 @@
 	"security": {
 		"meta": {
 			"title": "Automatizace zabezpečení chytré domácnosti | Inteligentní ochrana",
-			"desc": "Zvyšte bezpečnost svého domova pomocí chytré automatizace. Sledujte, ovládejte a chraňte svůj domov díky upozorněním v reálném čase, senzorům a inteligentním integracím."
+			"description": "Zvyšte bezpečnost svého domova pomocí chytré automatizace. Sledujte, ovládejte a chraňte svůj domov díky upozorněním v reálném čase, senzorům a inteligentním integracím."
 		},
 		"heading": "Zabezpečení",
 		"title": "Chytré zabezpečení domácnosti",
@@ -383,6 +393,7 @@
 		"title": "Stáhněte si aplikaci Crestron Home® pro svá zařízení.",
 		"hint": "Demo režim je dostupný pouze na iOS, pro Android je vyžadován systém."
 	},
+
 	"contacts": {
 		"meta": {
 			"title": "Kontaktujte nás",

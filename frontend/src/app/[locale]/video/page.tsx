@@ -1,10 +1,11 @@
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
-// import CrestronApp from "@/components/CrestronApp/CrestronApp";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
 import "./styles.scss";
+
+const PAGE = "video";
 
 export async function generateMetadata({
 	params,
@@ -13,26 +14,31 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { locale } = await params;
 	const t = await getTranslations({ locale, namespace: "video.meta" });
-	const page = "video";
 	const languages = Object.fromEntries(
-		routing.locales.map((l) => [l, `/${l}/${page}`]),
+		routing.locales.map((l) => [l, `/${l}/${PAGE}`]),
 	);
 
 	return {
 		title: t("title"),
-		description: t("desc"),
+		description: t("description"),
 		alternates: {
-			canonical: `/${locale}/${page}`,
+			canonical: `/${locale}/${PAGE}`,
 			languages: {
 				...languages,
-				"x-default": `/${routing.defaultLocale}/${page}`,
+				"x-default": `/${routing.defaultLocale}/${PAGE}`,
 			},
 		},
 	};
 }
 
-export default async function Video() {
-	const t = await getTranslations();
+export default async function Video({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+	const t = await getTranslations({ locale });
+
 	return (
 		<main>
 			<HeroParallax
@@ -42,7 +48,7 @@ export default async function Video() {
 				secondaryBtnTxt="Explore Cinema Experiences"
 				imgAlt="Luxury smart home cinema and video entertainment system"
 				currentPage="Video"
-				currentPageUrl="/video"
+				locale={locale}
 			/>
 			<section className="section" id="section">
 				<h2 className="section__title">
@@ -97,7 +103,6 @@ export default async function Video() {
 				</div>
 			</section>
 			<TechnologyProducts technology="Video" />
-			{/* <CrestronApp /> */}
 		</main>
 	);
 }

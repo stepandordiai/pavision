@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "./../../../components/Testimonials/Testimonials.module.scss";
+import styles from "@/components/Testimonials/Testimonials.module.scss";
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";

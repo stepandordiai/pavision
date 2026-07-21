@@ -6,8 +6,8 @@ import "swiper/css/pagination";
 import { useEffect, useState } from "react";
 import { getProducts } from "@/lib/api/products";
 import technologies from "@/data/technologies.json";
-import "./styles.scss";
 import ProductCard from "../ProductCard/ProductCard";
+import "./styles.scss";
 
 type TechnologyProductsProps = {
 	technology: string;

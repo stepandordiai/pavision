@@ -1,10 +1,7 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import Image from "next/image";
 import { TransitionLink } from "../TransitionLink";
 import ChevronRightIcon from "../icons/ChevronRightIcon";
 import Breadcrumbs from "../common/Breadcrumbs/Breadcrumbs";
+import HeroParallaxClient from "./HeroParallaxClient";
 import "./styles.scss";
 
 type HeroParallaxProps = {
@@ -14,40 +11,21 @@ type HeroParallaxProps = {
 	secondaryBtnTxt: string;
 	imgAlt?: string;
 	currentPage: string;
-	currentPageUrl: string;
+	locale: string;
 };
 
-const HeroParallax = ({
+export default async function HeroParallax({
 	heading,
 	subheading,
-	imgSrc,
 	secondaryBtnTxt,
-	imgAlt = "",
 	currentPage,
-	currentPageUrl,
-}: HeroParallaxProps) => {
-	const [scrollY, setScrollY] = useState(0);
-	const [clientHeight, setClientHeight] = useState(800);
-
-	useEffect(() => {
-		setClientHeight(document.documentElement.clientHeight);
-
-		const handleScrollY = () => setScrollY(window.scrollY);
-
-		window.addEventListener("scroll", handleScrollY);
-
-		return () => window.removeEventListener("scroll", handleScrollY);
-	}, []);
-
-	const darkness = Math.min(scrollY / clientHeight, 1);
-
-	const parallax = scrollY * 0.5;
-
-	const [showImg, setShowImg] = useState(false);
-
+	imgSrc,
+	imgAlt = "",
+	locale,
+}: HeroParallaxProps) {
 	return (
 		<section className="home-access-hero">
-			<Breadcrumbs links={[{ label: currentPage }]} />
+			<Breadcrumbs links={[{ label: currentPage }]} locale={locale} />
 			<div
 				style={{
 					display: "flex",
@@ -71,27 +49,7 @@ const HeroParallax = ({
 					{secondaryBtnTxt}
 				</a>
 			</div>
-			<Image
-				onLoad={() => setShowImg(true)}
-				className={`hero-parallax__img ${showImg ? "hero-parallax__img--visible" : ""}`}
-				style={{ transform: `translateY(${parallax}px)` }}
-				src={imgSrc}
-				alt={imgAlt}
-				fill
-			/>
-			{/* darkness overlay */}
-			<div
-				style={{
-					position: "absolute",
-					inset: 0,
-					zIndex: -1,
-					background: "#000",
-					opacity: darkness,
-					pointerEvents: "none",
-				}}
-			/>
+			<HeroParallaxClient imgSrc={imgSrc} imgAlt={imgAlt} />
 		</section>
 	);
-};
-
-export default HeroParallax;
+}

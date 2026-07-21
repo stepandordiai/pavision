@@ -1,10 +1,11 @@
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
-// import CrestronApp from "@/components/CrestronApp/CrestronApp";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
 import "./styles.scss";
+
+const PAGE = "thermostat";
 
 export async function generateMetadata({
 	params,
@@ -13,26 +14,30 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { locale } = await params;
 	const t = await getTranslations({ locale, namespace: "thermostat.meta" });
-	const page = "thermostat";
 	const languages = Object.fromEntries(
-		routing.locales.map((l) => [l, `/${l}/${page}`]),
+		routing.locales.map((l) => [l, `/${l}/${PAGE}`]),
 	);
 
 	return {
 		title: t("title"),
-		description: t("desc"),
+		description: t("description"),
 		alternates: {
-			canonical: `/${locale}/${page}`,
+			canonical: `/${locale}/${PAGE}`,
 			languages: {
 				...languages,
-				"x-default": `/${routing.defaultLocale}/${page}`,
+				"x-default": `/${routing.defaultLocale}/${PAGE}`,
 			},
 		},
 	};
 }
 
-export default async function Thermostat() {
-	const t = await getTranslations();
+export default async function Thermostat({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+	const t = await getTranslations({ locale });
 
 	return (
 		<main>
@@ -42,7 +47,7 @@ export default async function Thermostat() {
 				imgSrc="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-thermostat-thumn.jpg"
 				secondaryBtnTxt="Explore Climate Control"
 				currentPage="Thermostat"
-				currentPageUrl="/thermostat"
+				locale={locale}
 			/>
 			<section className="technology-section" id="section">
 				<h2 className="section__title">The perfect temperature, always</h2>
@@ -128,7 +133,6 @@ export default async function Thermostat() {
 				</div>
 			</section>
 			<TechnologyProducts technology="Thermostat" />
-			{/* <CrestronApp /> */}
 		</main>
 	);
 }

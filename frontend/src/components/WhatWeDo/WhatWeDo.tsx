@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { useRef, useState } from "react";
 import PlayIcon from "@/components/icons/PlayIcon";
 import PauseIcon from "@/components/icons/PauseIcon";
+import SoundwaveIcon from "../icons/SoundwaveIcon";
 import "./styles.scss";
 
 const whatWeDo = [
@@ -11,14 +12,13 @@ const whatWeDo = [
 		title: "home.whatWeDo.title1",
 		desc: "home.whatWeDo.desc1",
 		brands: ["Crestron", "Loxone", "Lutron"],
-		icon: "/technology.png",
 		lightning: true,
 	},
 	{
 		title: "home.whatWeDo.title2",
 		desc: "home.whatWeDo.desc2",
 		brands: ["Denon", "Marantz", "LG", "Sonos", "Bowers & Wilkins"],
-		icon: "/technology-icons/audio.png",
+		icon: <SoundwaveIcon size={20} />,
 		audio: true,
 	},
 
@@ -26,8 +26,7 @@ const whatWeDo = [
 		title: "home.whatWeDo.title3",
 		desc: "home.whatWeDo.desc3",
 		brands: ["Ubiquiti", "MikroTik", "Cisco"],
-		img: "/network-infrastructure.png",
-		icon: "/wifi.png",
+		img: "/sitova-infrastruktura.png",
 	},
 ];
 
@@ -126,9 +125,15 @@ const WhatWeDo = () => {
 											background: "#000",
 											padding: 10,
 											borderRadius: 10,
+											color: "#fff",
+											width: "40px",
+											height: "40px",
+											display: "flex",
+											justifyContent: "center",
+											alignItems: "center",
 										}}
 									>
-										<img src={item.icon} width={22} alt="" />{" "}
+										{item.icon && item.icon}
 									</div>
 									<h3 style={{ fontSize: "18px" }}>{t(item.title)}</h3>
 								</div>

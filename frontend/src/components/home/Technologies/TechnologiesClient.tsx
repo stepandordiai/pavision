@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import technologies from "@/data/technologies.json";
 import { TransitionLink } from "@/components/TransitionLink";
 import Image from "next/image";
 
@@ -10,6 +9,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import BulbIcon from "@/components/icons/BulbIcon";
+import LockIcon from "@/components/icons/LockIcon";
+import TvIcon from "@/components/icons/TvIcon";
+import SoundwaveIcon from "@/components/icons/SoundwaveIcon";
+import CameraIcon from "@/components/icons/CameraIcon";
 
 export default function TechnologiesClient() {
 	const t = useTranslations();
@@ -63,27 +67,132 @@ export default function TechnologiesClient() {
 			className="technologies-swiper"
 			onSlideChange={handleSlideChange}
 		>
-			{technologies.map((technology, i) => {
-				return (
-					<SwiperSlide>
-						<TransitionLink
-							href={technology.path}
-							key={i}
-							className="technology"
-						>
-							<div className="technology__img-wrapper">
-								<img src={technology.img} alt="" loading="lazy" />
-							</div>
-							<div className="technology__title">
-								<div className="technology__icon-container">
-									<Image src={technology.icon} width={24} height={24} alt="" />
-								</div>
-								<h3>{t(technology.title)}</h3>
-							</div>
-						</TransitionLink>
-					</SwiperSlide>
-				);
-			})}
+			<SwiperSlide>
+				<TransitionLink href="/lighting" className="technology">
+					<div className="technology__img-wrapper">
+						<img src="/lighting/02-c.png" alt="" loading="lazy" />
+					</div>
+					<div className="technology__title">
+						<div className="technology__icon-container">
+							<BulbIcon size={20} />
+						</div>
+						<h3>{t("lighting.heading")}</h3>
+					</div>
+				</TransitionLink>
+			</SwiperSlide>
+			<SwiperSlide>
+				<TransitionLink href="/home-access" className="technology">
+					<div className="technology__img-wrapper">
+						<img
+							src="https://www.lavishautomation.com/images/client/brands/security-header%201.jpg"
+							alt=""
+							loading="lazy"
+						/>
+					</div>
+					<div className="technology__title">
+						<div className="technology__icon-container">
+							<LockIcon size={20} />
+						</div>
+						<h3>{t("homeAccess.heading")}</h3>
+					</div>
+				</TransitionLink>
+			</SwiperSlide>
+
+			<SwiperSlide>
+				<TransitionLink href="/video" className="technology">
+					<div className="technology__img-wrapper">
+						<img src="/video/01-c.png" alt="" loading="lazy" />
+					</div>
+					<div className="technology__title">
+						<div className="technology__icon-container">
+							<TvIcon size={20} />
+						</div>
+						<h3>{t("video.heading")}</h3>
+					</div>
+				</TransitionLink>
+			</SwiperSlide>
+
+			<SwiperSlide>
+				<TransitionLink href="/audio" className="technology">
+					<div className="technology__img-wrapper">
+						<img
+							src="https://www.bowerswilkins.com/on/demandware.static/-/Sites-master-catalog-soundunited/default/dw0b413071/bowers/Rich-Content/bandw_formationbar_be_desktop.jpg"
+							alt=""
+							loading="lazy"
+						/>
+					</div>
+					<div className="technology__title">
+						<div className="technology__icon-container">
+							<SoundwaveIcon size={20} />
+						</div>
+						<h3>{t("audio.heading")}</h3>
+					</div>
+				</TransitionLink>
+			</SwiperSlide>
+
+			<SwiperSlide>
+				<TransitionLink href="/shades" className="technology">
+					<div className="technology__img-wrapper">
+						<img
+							src="https://images.pexels.com/photos/36353407/pexels-photo-36353407.png"
+							alt=""
+							loading="lazy"
+						/>
+					</div>
+					<div className="technology__title">
+						<div className="technology__icon-container">
+							<Image
+								src="/technology-icons/shades.png"
+								width={24}
+								height={24}
+								alt=""
+							/>
+						</div>
+						<h3>{t("shades.heading")}</h3>
+					</div>
+				</TransitionLink>
+			</SwiperSlide>
+
+			<SwiperSlide>
+				<TransitionLink href="/thermostat" className="technology">
+					<div className="technology__img-wrapper">
+						<img
+							src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-thermostat-thumn.jpg"
+							alt=""
+							loading="lazy"
+						/>
+					</div>
+					<div className="technology__title">
+						<div className="technology__icon-container">
+							<Image
+								src="/technology-icons/thermostat.png"
+								width={24}
+								height={24}
+								alt=""
+							/>
+						</div>
+						<h3>{t("thermostat.heading")}</h3>
+					</div>
+				</TransitionLink>
+			</SwiperSlide>
+
+			<SwiperSlide>
+				<TransitionLink href="/security" className="technology">
+					<div className="technology__img-wrapper">
+						<img
+							src="https://images.pexels.com/photos/35361412/pexels-photo-35361412.jpeg"
+							alt=""
+							loading="lazy"
+						/>
+					</div>
+					<div className="technology__title">
+						<div className="technology__icon-container">
+							<CameraIcon size={20} />
+						</div>
+						<h3>{t("security.heading")}</h3>
+					</div>
+				</TransitionLink>
+			</SwiperSlide>
 		</Swiper>
 	);
 }

@@ -6,36 +6,46 @@ import { TransitionLink } from "@/components/TransitionLink";
 import Faqs from "@/components/Faqs/Faqs";
 import "./styles.scss";
 
+const PAGE = "crestron-integration";
+
 export async function generateMetadata({
 	params,
 }: {
 	params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
 	const { locale } = await params;
-	const t = await getTranslations({ locale, namespace: "lighting.meta" });
-	const page = "crestron-home";
+	const t = await getTranslations({
+		locale,
+		namespace: "crestronIntegration.meta",
+	});
 	const languages = Object.fromEntries(
-		routing.locales.map((l) => [l, `/${l}/${page}`]),
+		routing.locales.map((l) => [l, `/${l}/${PAGE}`]),
 	);
 
 	return {
-		title: "Crestron Home Automation & Smart Home Integration",
-		description:
-			"Premium Crestron Home automation, intelligent lighting, home cinema, climate control, security, and whole-home integration designed for luxury living.",
+		title: t("title"),
+		description: t("description"),
 		alternates: {
-			canonical: `/${locale}/${page}`,
+			canonical: `/${locale}/${PAGE}`,
 			languages: {
 				...languages,
-				"x-default": `/${routing.defaultLocale}/${page}`,
+				"x-default": `/${routing.defaultLocale}/${PAGE}`,
 			},
 		},
 	};
 }
 
-export default function CrestronHome() {
+export default async function CrestronHome({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+
 	return (
 		<main>
 			<HeroParallax
+				// FIXME:
 				heading="Crestron Home Automation & Smart Living"
 				subheading="Experience complete control of your home through one intelligent
 				platform. Crestron seamlessly integrates lighting, climate, security,
@@ -44,7 +54,7 @@ export default function CrestronHome() {
 				imgSrc="https://www.strata-gee.com/wp-content/uploads/2024/08/PR_2024_Crestron_Home_OS4_in-app_Updates_1-RS-ADJ2.jpg"
 				secondaryBtnTxt="Explore Crestron Solutions"
 				currentPage="Crestron"
-				currentPageUrl="/crestron-home"
+				locale={locale}
 			/>
 			<section className="section">
 				<h2 className="section__title">Why Choose Crestron?</h2>
@@ -407,7 +417,7 @@ export default function CrestronHome() {
 					</div>
 				</div>
 			</section>
-			<Faqs faqs={"crestronHome.faqs"} />
+			<Faqs faqs={"crestronIntegration.faqs"} />
 		</main>
 	);
 }

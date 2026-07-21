@@ -1,11 +1,13 @@
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { getProducts } from "@/lib/api/products";
+import { getProductById, getProducts } from "@/lib/api/products";
 import { routing } from "@/i18n/routing";
 import { Metadata } from "next";
 import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
 import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
 import "./styles.scss";
+
+const PAGE = "products";
 
 export async function generateStaticParams() {
 	const { data: products, error } = await getProducts();
@@ -27,19 +29,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { locale, id } = await params;
 
-	const { data: products, error } = await getProducts();
+	// TODO: learn this
+	const { data: product, error } = await getProductById(id);
 
-	if (!products || error) return {};
-
-	const product = products.find((p) => String(p.id) === id);
-
-	if (!product) {
+	if (!product || error) {
 		return {
-			title: "404",
+			title: "Product not found",
+			// TODO: learn this
+			robots: { index: false, follow: false },
 		};
 	}
-
-	const PAGE = "products";
 
 	const languages = Object.fromEntries(
 		routing.locales.map((l) => [l, `/${l}/${PAGE}/${id}`]),
@@ -47,7 +46,7 @@ export async function generateMetadata({
 
 	return {
 		title: product.name,
-
+		description: "",
 		alternates: {
 			canonical: `/${locale}/${PAGE}/${id}`,
 			languages: {
@@ -55,22 +54,6 @@ export async function generateMetadata({
 				"x-default": `/${routing.defaultLocale}/${PAGE}/${id}`,
 			},
 		},
-
-		// TODO: learn this
-		// openGraph: {
-		// 	title: product.title,
-		// 	description: product.description,
-		// 	url: `/${locale}/${PAGE}/${id}`,
-		// 	type: "website",
-		// 	images: [
-		// 		{
-		// 			url: product.img || "/flovas-og-c.png",
-		// 			width: 630,
-		// 			height: 630,
-		// 			alt: product.title,
-		// 		},
-		// 	],
-		// },
 	};
 }
 
@@ -83,12 +66,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
 	const t = await getTranslations({ locale });
 
-	const { data: products, error } = await getProducts();
+	// TODO: learn this
+	const { data: product, error } = await getProductById(id);
 
 	if (error) return <div>Error loading vacancies</div>;
-	if (!products) return <div>No vacancies found</div>;
-
-	const product = products.find((p) => String(p.id) === id);
+	if (!product) return <div>No vacancies found</div>;
 
 	if (!product) {
 		return notFound();
@@ -101,6 +83,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 					{ label: t("nav.products"), href: "/products" },
 					{ label: product.name },
 				]}
+				locale={locale}
 			/>
 			<section className="section">
 				<div className="product-page-container">
