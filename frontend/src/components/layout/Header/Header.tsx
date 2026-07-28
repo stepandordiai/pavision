@@ -170,7 +170,7 @@ const Header = () => {
 						<TransitionLink
 							onClick={() => setHeaderExpanded(false)}
 							className={`header-bottom__link ${headerExpanded ? "header-bottom__link--visible" : ""}`}
-							href="/crestron-home"
+							href="/crestron-integration"
 						>
 							<span
 								style={{
@@ -265,7 +265,7 @@ const Header = () => {
 												setMenuExpanded(false);
 											}}
 											className={`header-bottom__link ${menuExpanded ? "header-bottom__link--visible" : ""}`}
-											href="/crestron-home"
+											href="/crestron-integration"
 										>
 											<span
 												style={{
