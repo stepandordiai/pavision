@@ -133,7 +133,7 @@ const Header = () => {
 							className={`header-nav__link header__link ${pathname === "/appointment" ? "header-nav__link--active" : ""}`}
 							href="/appointment"
 						>
-							{t("nav.appointment")}
+							{t("nav.bookAConsultation")}
 						</TransitionLink>
 						<button
 							onClick={toggleMenu}
@@ -154,22 +154,6 @@ const Header = () => {
 						<TransitionLink
 							onClick={() => setHeaderExpanded(false)}
 							className={`header-bottom__link ${headerExpanded ? "header-bottom__link--visible" : ""}`}
-							href="/loxone-smart-home"
-						>
-							<span
-								style={{
-									display: "flex",
-									justifyContent: "space-between",
-									width: "100%",
-								}}
-							>
-								<span>Loxone</span>
-								<ChevronRightIcon size={24} />
-							</span>
-						</TransitionLink>
-						<TransitionLink
-							onClick={() => setHeaderExpanded(false)}
-							className={`header-bottom__link ${headerExpanded ? "header-bottom__link--visible" : ""}`}
 							href="/crestron-integration"
 						>
 							<span
@@ -180,6 +164,22 @@ const Header = () => {
 								}}
 							>
 								<span>Crestron</span>
+								<ChevronRightIcon size={24} />
+							</span>
+						</TransitionLink>
+						<TransitionLink
+							onClick={() => setHeaderExpanded(false)}
+							className={`header-bottom__link ${headerExpanded ? "header-bottom__link--visible" : ""}`}
+							href="/loxone-smart-home"
+						>
+							<span
+								style={{
+									display: "flex",
+									justifyContent: "space-between",
+									width: "100%",
+								}}
+							>
+								<span>Loxone</span>
 								<ChevronRightIcon size={24} />
 							</span>
 						</TransitionLink>
@@ -246,25 +246,6 @@ const Header = () => {
 												setMenuExpanded(false);
 											}}
 											className={`header-bottom__link ${menuExpanded ? "header-bottom__link--visible" : ""}`}
-											href="/loxone-smart-home"
-										>
-											<span
-												style={{
-													display: "flex",
-													justifyContent: "space-between",
-													width: "100%",
-												}}
-											>
-												<span>Loxone</span>
-												<ChevronRightIcon size={24} />
-											</span>
-										</TransitionLink>
-										<TransitionLink
-											onClick={() => {
-												setMenuOpen(false);
-												setMenuExpanded(false);
-											}}
-											className={`header-bottom__link ${menuExpanded ? "header-bottom__link--visible" : ""}`}
 											href="/crestron-integration"
 										>
 											<span
@@ -275,6 +256,25 @@ const Header = () => {
 												}}
 											>
 												<span>Crestron</span>
+												<ChevronRightIcon size={24} />
+											</span>
+										</TransitionLink>
+										<TransitionLink
+											onClick={() => {
+												setMenuOpen(false);
+												setMenuExpanded(false);
+											}}
+											className={`header-bottom__link ${menuExpanded ? "header-bottom__link--visible" : ""}`}
+											href="/loxone-smart-home"
+										>
+											<span
+												style={{
+													display: "flex",
+													justifyContent: "space-between",
+													width: "100%",
+												}}
+											>
+												<span>Loxone</span>
 												<ChevronRightIcon size={24} />
 											</span>
 										</TransitionLink>

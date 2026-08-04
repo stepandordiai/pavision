@@ -1,6 +1,8 @@
+"use client";
+
 import { TransitionLink } from "@/components/TransitionLink";
 import { BASE_URL } from "@/lib/constants";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import "./styles.scss";
 
 interface Breadcrumb {
@@ -13,8 +15,8 @@ type BreadcrumbsProps = {
 	locale: string;
 };
 
-export default async function Breadcrumbs({ links, locale }: BreadcrumbsProps) {
-	const t = await getTranslations({ locale });
+export default function Breadcrumbs({ links, locale }: BreadcrumbsProps) {
+	const t = useTranslations();
 
 	// TODO: learn this
 	// BreadcrumbList
@@ -63,14 +65,7 @@ export default async function Breadcrumbs({ links, locale }: BreadcrumbsProps) {
 										{link.label}
 									</TransitionLink>
 								) : (
-									<span
-										style={{
-											whiteSpace: "nowrap",
-											overflow: "hidden",
-											textOverflow: "ellipsis",
-										}}
-										className="breadcrumbs__link breadcrumbs__link--active"
-									>
+									<span className="breadcrumbs__link breadcrumbs__link--active">
 										{link.label}
 									</span>
 								)}

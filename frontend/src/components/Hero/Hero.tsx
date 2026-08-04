@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import ChevronRightIcon from "../icons/ChevronRightIcon";
 import { TransitionLink } from "../TransitionLink";
 import RoomAutomation from "./RoomAutomation";
+import { Link } from "@/i18n/navigation";
 import "./Hero.scss";
 
 export default async function Hero() {
@@ -17,17 +18,29 @@ export default async function Hero() {
 			<div className="hero-container">
 				<h1 className="hero__title">{t("hero.title")}</h1>
 				<p className="hero__desc">{t("hero.subtitle")}</p>
-				<img
+				{/* <img
 					src="/loxone-partner.svg"
-					width={250}
+					width={300}
 					alt="Loxone Silver Partner"
-				/>
-				<TransitionLink href="/contacts" className="hero-btn">
-					<span>{t("contactUs")}</span>
-					<span>
-						<ChevronRightIcon />
-					</span>
-				</TransitionLink>
+				/> */}
+				<div
+					style={{
+						display: "flex",
+						gap: "10px",
+						flexWrap: "wrap",
+						marginTop: "100px",
+					}}
+				>
+					<Link href="/#our-solutions" className="hero-sec-btn">
+						Our Solutions
+					</Link>
+					<TransitionLink href="/appointment" className="hero-btn">
+						<span>{t("nav.bookAConsultation")}</span>
+						<span>
+							<ChevronRightIcon />
+						</span>
+					</TransitionLink>
+				</div>
 			</div>
 		</section>
 	);

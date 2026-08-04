@@ -143,13 +143,6 @@ const Footer = () => {
 				>
 					Privacy Policy
 				</TransitionLink>
-				<a
-					className="footer-nav__link"
-					href="https://vimeo.com/showcase/6204726"
-					target="_blank"
-				>
-					How to Videos
-				</a>
 			</div>
 		</footer>
 	);

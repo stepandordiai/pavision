@@ -72,9 +72,9 @@ export default async function OurSolutions() {
 							alt=""
 						/>
 					</div> */}
-					<div style={{ alignSelf: "flex-start" }}>
+					<div>
 						<AnimatedImage
-							src="https://i.pinimg.com/736x/cc/27/8d/cc278d71b90d9a248bf9329fc4a6ffbe.jpg"
+							src="/our-solutions/smart-home-showroom.png"
 							alt=""
 						/>
 					</div>
@@ -127,9 +127,9 @@ export default async function OurSolutions() {
 							alt=""
 						/>
 					</div> */}
-					<div style={{ alignSelf: "flex-start" }}>
+					<div>
 						<AnimatedImage
-							src="https://www.crestron.com/getattachment/808fa9b1-0916-4f9e-9d55-1fdf2028b562/808fa9b1-0916-4f9e-9d55-1fdf2028b562.aspx"
+							src="/our-solutions/smart-office-and-workspace.png"
 							alt=""
 						/>
 					</div>
@@ -225,9 +225,9 @@ export default async function OurSolutions() {
 							alt=""
 						/>
 					</div> */}
-					<div style={{ alignSelf: "flex-start" }}>
+					<div>
 						<AnimatedImage
-							src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-shades-hero.jpg"
+							src="/our-solutions/smart-family-home-and-villa.png"
 							alt=""
 						/>
 					</div>
@@ -298,10 +298,10 @@ export default async function OurSolutions() {
 							alt=""
 						/>
 					</div> */}
-					<div style={{ alignSelf: "flex-start" }}>
+					<div>
 						{/* <img className="our-solutions__ss" src="/04.png" alt="" /> */}
 						<AnimatedImage
-							src="https://tesonsolutions.com/wp-content/uploads/2019/09/british-columbia-sports-bar-audio-video-services.jpg"
+							src="/our-solutions/smart-solutions-for-business-and-commercial-spaces.png"
 							alt=""
 						/>
 					</div>

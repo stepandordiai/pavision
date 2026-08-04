@@ -5,7 +5,7 @@
 		"forDevs": "For Developers",
 		"products": "Products",
 		"contacts": "Contacts",
-		"appointment": "Book an Appointment"
+		"bookAConsultation": "Book a Consultation"
 	},
 
 	"homeTitle": "Home",
@@ -323,6 +323,163 @@
 		"meta": {
 			"title": "Crestron Automation & Custom Control System Integration",
 			"description": "Professional Crestron integration for luxury homes and buildings — custom touch panel graphics, lighting, home cinema, climate, security & whole-property automation."
+		},
+
+		"heading": "Crestron Home Automation & Smart Living",
+		"subheading": "Experience complete control of your home through one intelligent platform. Crestron seamlessly integrates lighting, climate, security, entertainment, shading, and access control into a single luxury smart home experience.",
+		"heroSecondaryBtn": "Explore Crestron Solutions",
+
+		"section1": {
+			"heading": "Why Choose Crestron?",
+
+			"description": [
+				"Crestron is one of the world's most trusted automation platforms for luxury homes, premium residences, and intelligent buildings.",
+				"Designed to deliver reliability, performance, and exceptional user experience, Crestron brings every system in your property together under one intuitive interface.",
+				"Unlike standalone smart devices, Crestron provides a fully integrated ecosystem that simplifies daily living while enhancing comfort, security, and efficiency."
+			]
+		},
+
+		"section2": {
+			"heading": "What Can Crestron Control?",
+
+			"item1": {
+				"title": "Lighting Control",
+				"description": "Create personalized lighting scenes that automatically adapt to your activities and lifestyle."
+			},
+			"item2": {
+				"title": "Climate Control",
+				"description": "Maintain ideal comfort through intelligent heating, cooling, and ventilation automation."
+			},
+			"item3": {
+				"title": "Home Cinema",
+				"description": "Control your entire entertainment experience with a single touch."
+			},
+			"item4": {
+				"title": "Multi-Room Audio",
+				"description": "Enjoy synchronized music throughout your property."
+			},
+			"item5": {
+				"title": "Security & Surveillance",
+				"description": "Integrate alarms, cameras, sensors, and access control."
+			},
+			"item6": {
+				"title": "Motorized Shades",
+				"description": "Automatically optimize privacy, comfort, and daylight."
+			},
+			"item7": {
+				"title": "Energy Management",
+				"description": "Improve efficiency while reducing operating costs."
+			}
+		},
+
+		"section3": {
+			"heading": "Luxury Home Automation Without Complexity",
+			"description": [
+				"Modern homes often contain dozens of disconnected applications and devices.",
+				"Crestron eliminates this complexity by creating a single ecosystem where every technology works together."
+			],
+			"txt": "One app. One interface. One intelligent home."
+		},
+
+		"section4": {
+			"heading": "Intelligent Lighting & Shading",
+			"list1": {
+				"title": "Crestron automatically adjusts lighting and shades based on:",
+				"list": ["occupancy", "daylight", "schedules", "user preferences"]
+			},
+			"list2": {
+				"title": "Benefits include:",
+				"list": [
+					"increased comfort",
+					"lower energy consumption",
+					"enhanced ambiance",
+					"improved security"
+				]
+			}
+		},
+
+		"section5": {
+			"heading": "Home Cinema & Entertainment",
+			"description": "This is a huge opportunity because Crestron is strongly associated with premium AV.",
+			"list1": {
+				"title": "Create immersive entertainment environments with centralized control of:",
+				"list": [
+					"projectors",
+					"televisions",
+					"surround sound",
+					"media servers",
+					"streaming platforms"
+				]
+			},
+			"text": "One button can instantly prepare your entire cinema experience."
+		},
+
+		"section6": {
+			"heading": "Security & Access Control",
+			"description": "Monitor and control your property from anywhere.",
+			"list1": {
+				"title": "Integrate:",
+				"list": [
+					"smart locks",
+					"intercoms",
+					"surveillance cameras",
+					"alarm systems",
+					"gate control"
+				]
+			},
+			"text": "into a single platform."
+		},
+
+		"section7": {
+			"heading": "Designed for Luxury Homes",
+			"description": [
+				"Crestron is trusted by architects, interior designers, and homeowners around the world for premium residential projects.",
+				"Whether you're building a new home, renovating a villa, or upgrading an existing property, Crestron delivers a future-ready automation platform built around your lifestyle."
+			]
+		},
+
+		"section8": {
+			"heading": "Why Work With P&A Vision?",
+			"list1": {
+				"title": "As an official Loxone Partner, P&A Vision provides:",
+				"list": [
+					"Consultation",
+					"System design",
+					"Professional installation",
+					"Programming",
+					"Commissioning",
+					"Ongoing support"
+				]
+			},
+			"text": "We create intelligent homes tailored to each client's lifestyle, ensuring reliability, scalability, and exceptional user experience."
+		},
+
+		"section9": {
+			"heading": "Our Crestron Installation Process",
+			"item1": {
+				"title": "Discovery",
+				"description": "Understanding your lifestyle and project requirements."
+			},
+			"item2": {
+				"title": "Design",
+				"description": "Creating a tailored automation strategy."
+			},
+			"item3": {
+				"title": "Integration",
+				"description": "Professional installation of all connected systems."
+			},
+			"item4": {
+				"title": "Programming",
+				"description": "Customizing automation logic and user experience."
+			},
+			"item5": {
+				"title": "Testing",
+				"description": "Ensuring flawless operation."
+			},
+			"item6": {
+				"title": "Support",
+				"description": "Long-term maintenance and optimization."
+			}
 		},
 
 		"faqs": [

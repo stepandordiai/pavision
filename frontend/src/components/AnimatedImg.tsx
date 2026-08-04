@@ -16,6 +16,7 @@ export function AnimatedImage({ delay = 0, style, ...props }: Props) {
 				borderRadius: 10,
 				background: inView ? "rgba(0, 0, 0, 0)" : "#000",
 				transition: `background 0.7s ease`,
+				height: "100%",
 			}}
 		>
 			<img
@@ -26,6 +27,9 @@ export function AnimatedImage({ delay = 0, style, ...props }: Props) {
 					transform: inView ? "scale(1)" : "scale(1.2)",
 					filter: `brightness(${inView ? 1 : 0})`,
 					transition: `transform 0.7s ease ${delay}s, filter 0.7s ease ${delay}s`,
+					height: "100%",
+					objectFit: "cover",
+					objectPosition: "center",
 				}}
 			/>
 		</div>

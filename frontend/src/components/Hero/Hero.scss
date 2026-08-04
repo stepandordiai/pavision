@@ -3,6 +3,10 @@
 	z-index: 1;
 	min-height: 100svh;
 	padding: 90px 10px 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100svh;
 
 	&__room {
 		position: absolute;
@@ -17,12 +21,14 @@
 	font-weight: 600;
 	opacity: 0;
 	animation: animateHeader 1s forwards;
+	text-align: center;
 }
 
 .hero__desc {
 	font-size: 1.125rem;
 	opacity: 0;
 	animation: animateHeader 1s forwards;
+	text-align: center;
 }
 
 .hero-curtain {
@@ -31,7 +37,7 @@
 	inset: 0;
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(rgba(0, 0, 0, 0.25), transparent);
+	// background: linear-gradient(rgba(0, 0, 0, 0.25), transparent);
 	pointer-events: none;
 }
 
@@ -41,11 +47,9 @@
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
+	align-items: center;
 	gap: 10px;
-
-	.link {
-		align-self: flex-end;
-	}
+	padding-bottom: 100px;
 }
 
 .animation {
@@ -76,39 +80,17 @@
 	}
 }
 
-.hero-bg-inner {
-	opacity: 0;
-	transition: opacity 1s;
-	transform: scale(0.9);
-	transition:
-		opacity 0.5s,
-		transform 0.5s;
+.hero-sec-btn {
+	-webkit-backdrop-filter: blur(25px);
+	backdrop-filter: blur(25px);
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+	padding: 10px;
 
-	&--active {
-		opacity: 1;
-		transform: scale(1);
-		transition:
-			opacity 1s,
-			transform 1s;
+	&:hover {
+		background: #fff;
+		color: #000;
 	}
-}
-
-.hero-bg {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	will-change: transform;
-	transform: scale(1); // mobile — no parallax, no oversizing needed
-	// TODO: ?
-	filter: brightness(0.8);
-
-	@media (min-width: 768px) {
-	}
-}
-.hero-technologies {
-	display: flex;
-	gap: 5px;
 }
 
 .hero-btn {
@@ -123,8 +105,8 @@
 	align-items: center;
 	align-self: flex-start;
 	gap: 10px;
-	margin-top: 10px;
 	opacity: 0;
+	margin-top: 0;
 	animation: animateHeader 1s forwards;
 
 	&::before {
@@ -150,6 +132,12 @@
 		width: 40px;
 		height: 40px;
 		mix-blend-mode: difference;
+	}
+}
+
+@media screen and (width < 1300px) {
+	.hero-container {
+		margin-top: 200px;
 	}
 }
 

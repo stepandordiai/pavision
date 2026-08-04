@@ -5,7 +5,7 @@
 		"forDevs": "Pro developery",
 		"products": "Produkty",
 		"contacts": "Kontakty",
-		"appointment": "Domluvit schůzku"
+		"bookAConsultation": "Domluvit schůzku"
 	},
 
 	"contactUs": "Kontaktujte nás",
@@ -250,6 +250,168 @@
 		"meta": {
 			"title": "Crestron automatizace a instalace chytrých systémů",
 			"description": "Profesionální integrace Crestron pro rezidenční i komerční objekty – vlastní grafika ovládacích panelů, osvětlení, domácí kino, klimatizace, zabezpečení a automatizace na klíč."
+		},
+
+		"heading": "Crestron – Chytrá domácnost a domácí automatizace",
+		"subheading": "Získejte úplnou kontrolu nad svým domovem prostřednictvím jedné inteligentní platformy. Crestron propojuje osvětlení, vytápění, chlazení, zabezpečení, multimédia, stínění i řízení vstupu do jednoho luxusního systému chytré domácnosti.",
+		"heroSecondaryBtn": "Prozkoumat řešení Crestron",
+
+		"section1": {
+			"heading": "Proč zvolit Crestron?",
+
+			"description": [
+				"Crestron patří mezi nejuznávanější platformy pro automatizaci luxusních domů, prémiových rezidencí a inteligentních budov na světě.",
+				"Je navržen pro maximální spolehlivost, výkon a jednoduché ovládání, díky čemuž propojuje všechny technologie ve vaší nemovitosti do jednoho intuitivního systému.",
+				"Na rozdíl od samostatných chytrých zařízení nabízí Crestron plně integrované řešení, které zvyšuje komfort, bezpečnost i energetickou efektivitu každodenního života."
+			]
+		},
+
+		"section2": {
+			"heading": "Co dokáže Crestron ovládat?",
+
+			"item1": {
+				"title": "Řízení osvětlení",
+				"description": "Vytvářejte světelné scény přizpůsobené vašim aktivitám, denní době i životnímu stylu."
+			},
+			"item2": {
+				"title": "Řízení klimatu",
+				"description": "Automaticky udržujte ideální teplotu pomocí inteligentního řízení vytápění, chlazení a větrání."
+			},
+			"item3": {
+				"title": "Domácí kino",
+				"description": "Ovládejte celý systém domácího kina jediným dotykem."
+			},
+			"item4": {
+				"title": "Multiroom audio",
+				"description": "Poslouchejte hudbu synchronizovaně v celé domácnosti."
+			},
+			"item5": {
+				"title": "Zabezpečení a kamerové systémy",
+				"description": "Propojte alarmy, kamery, senzory i řízení přístupu do jednoho systému."
+			},
+			"item6": {
+				"title": "Motorické žaluzie a stínění",
+				"description": "Automaticky optimalizujte soukromí, komfort i přirozené denní světlo."
+			},
+			"item7": {
+				"title": "Energetický management",
+				"description": "Snižujte spotřebu energie a provozní náklady díky inteligentní automatizaci."
+			}
+		},
+
+		"section3": {
+			"heading": "Luxusní chytrá domácnost bez zbytečné složitosti",
+			"description": [
+				"Moderní domácnosti často využívají desítky samostatných aplikací a zařízení, která spolu nekomunikují.",
+				"Crestron tuto složitost odstraňuje a vytváří jeden propojený ekosystém, ve kterém všechny technologie spolupracují."
+			],
+			"txt": "Jedna aplikace. Jedno rozhraní. Jedna skutečně inteligentní domácnost."
+		},
+
+		"section4": {
+			"heading": "Inteligentní osvětlení a stínění",
+			"list1": {
+				"title": "Crestron automaticky přizpůsobuje osvětlení a žaluzie podle:",
+				"list": [
+					"přítomnosti osob",
+					"intenzity denního světla",
+					"časových plánů",
+					"uživatelských preferencí"
+				]
+			},
+			"list2": {
+				"title": "Hlavní výhody:",
+				"list": [
+					"vyšší komfort",
+					"nižší spotřeba energie",
+					"příjemnější atmosféra",
+					"vyšší úroveň zabezpečení"
+				]
+			}
+		},
+
+		"section5": {
+			"heading": "Domácí kino a multimediální zábava",
+			"description": "Crestron je celosvětově známý svým špičkovým řešením pro domácí kino a prémiové audiovizuální systémy.",
+			"list1": {
+				"title": "Centrálně ovládejte:",
+				"list": [
+					"projektory",
+					"televizory",
+					"prostorový zvuk",
+					"mediální servery",
+					"streamovací platformy"
+				]
+			},
+			"text": "Jediným tlačítkem připravíte kompletní zážitek z domácího kina."
+		},
+
+		"section6": {
+			"heading": "Zabezpečení a řízení přístupu",
+			"description": "Mějte svůj domov pod kontrolou odkudkoliv na světě.",
+			"list1": {
+				"title": "Propojte například:",
+				"list": [
+					"chytré zámky",
+					"videotelefony",
+					"bezpečnostní kamery",
+					"alarmy",
+					"ovládání vjezdových bran"
+				]
+			},
+			"text": "do jediné přehledné platformy."
+		},
+
+		"section7": {
+			"heading": "Navrženo pro luxusní rezidence",
+			"description": [
+				"Crestron je důvěryhodnou volbou architektů, interiérových designérů i majitelů luxusních domů po celém světě.",
+				"Ať stavíte nový rodinný dům, rekonstruujete vilu nebo modernizujete stávající nemovitost, Crestron nabízí inteligentní řešení připravené na budoucnost a přizpůsobené vašemu životnímu stylu."
+			]
+		},
+
+		"section8": {
+			"heading": "Proč spolupracovat s P&A Vision?",
+			"list1": {
+				"title": "P&A Vision zajišťuje kompletní realizaci systému Crestron včetně:",
+				"list": [
+					"odborné konzultace",
+					"návrhu systému",
+					"profesionální instalace",
+					"programování",
+					"uvedení do provozu",
+					"servisu a dlouhodobé podpory"
+				]
+			},
+			"text": "Navrhujeme inteligentní domácnosti na míru tak, aby byly spolehlivé, snadno rozšiřitelné a poskytovaly maximální uživatelský komfort."
+		},
+
+		"section9": {
+			"heading": "Jak probíhá realizace systému Crestron",
+			"item1": {
+				"title": "Konzultace",
+				"description": "Seznámíme se s vašimi požadavky, životním stylem a projektem."
+			},
+			"item2": {
+				"title": "Návrh řešení",
+				"description": "Navrhneme inteligentní systém přesně podle vašich potřeb."
+			},
+			"item3": {
+				"title": "Instalace",
+				"description": "Profesionálně nainstalujeme a propojíme všechny technologie."
+			},
+			"item4": {
+				"title": "Programování",
+				"description": "Nastavíme automatizace a intuitivní ovládání na míru."
+			},
+			"item5": {
+				"title": "Testování",
+				"description": "Důkladně otestujeme celý systém pro bezchybný provoz."
+			},
+			"item6": {
+				"title": "Servis a podpora",
+				"description": "Poskytujeme dlouhodobou údržbu, aktualizace i technickou podporu."
+			}
 		},
 
 		"faqs": [

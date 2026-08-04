@@ -2,6 +2,7 @@ import { TransitionLink } from "../TransitionLink";
 import ChevronRightIcon from "../icons/ChevronRightIcon";
 import Breadcrumbs from "../common/Breadcrumbs/Breadcrumbs";
 import HeroParallaxClient from "./HeroParallaxClient";
+import { getTranslations } from "next-intl/server";
 import "./styles.scss";
 
 type HeroParallaxProps = {
@@ -23,6 +24,8 @@ export default async function HeroParallax({
 	imgAlt = "",
 	locale,
 }: HeroParallaxProps) {
+	const t = await getTranslations();
+
 	return (
 		<section className="home-access-hero">
 			<Breadcrumbs links={[{ label: currentPage }]} locale={locale} />
@@ -39,7 +42,7 @@ export default async function HeroParallax({
 					{subheading}
 				</p>
 				<TransitionLink href="/contacts" className="hero-btn">
-					<span>Request a quote</span>
+					<span>{t("nav.bookAConsultation")}</span>
 					<span>
 						<ChevronRightIcon />
 					</span>

@@ -35,47 +35,47 @@ export async function generateMetadata({
 	};
 }
 
+const section8Images = [
+	"https://www.loxone.com/enus/wp-content/uploads/sites/13/2021/09/PH-Header-Blog-Smart-Home-Installation-Consulting.jpg",
+	"https://www.loxone.com/enus/wp-content/uploads/sites/13/2026/03/ph_loxone_header_software-scaled-1.jpg",
+	"https://www.loxone.com/int/wp-content/uploads/sites/21/2022/06/PH-ElektrikerSchaltschrank-scaled-1.jpg",
+	"https://www.loxone.com/enen/wp-content/uploads/sites/3/2026/03/PH-Library.jpg",
+	"https://infrastor.de/wp-content/uploads/2024/09/Loxone-App-1.jpg",
+	"https://www.loxone.com/enus/wp-content/uploads/sites/13/2026/04/fs-header-support-loxone-desktop-scaled-1.jpg",
+];
+
 export default async function CrestronHome({
 	params,
 }: {
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
+	const t = await getTranslations({ locale });
 
 	return (
 		<main>
 			<HeroParallax
 				// FIXME:
-				heading="Crestron Home Automation & Smart Living"
-				subheading="Experience complete control of your home through one intelligent
-				platform. Crestron seamlessly integrates lighting, climate, security,
-				entertainment, shading, and access control into a single luxury smart
-				home experience."
+				heading={t("crestronIntegration.heading")}
+				subheading={t("crestronIntegration.subheading")}
 				imgSrc="https://www.strata-gee.com/wp-content/uploads/2024/08/PR_2024_Crestron_Home_OS4_in-app_Updates_1-RS-ADJ2.jpg"
-				secondaryBtnTxt="Explore Crestron Solutions"
+				secondaryBtnTxt={t("crestronIntegration.heroSecondaryBtn")}
 				currentPage="Crestron"
 				locale={locale}
 			/>
-			<section className="section">
-				<h2 className="section__title">Why Choose Crestron?</h2>
+			<section className="section" id="section">
+				<h2 className="section__title">
+					{t("crestronIntegration.section1.heading")}
+				</h2>
 				<div className="section-container">
 					<div
 						style={{ display: "flex", flexDirection: "column", gap: "12px" }}
 					>
-						<p>
-							Crestron is one of the world's most trusted automation platforms
-							for luxury homes, premium residences, and intelligent buildings.
-						</p>
-						<p>
-							Designed to deliver reliability, performance, and exceptional user
-							experience, Crestron brings every system in your property together
-							under one intuitive interface.
-						</p>
-						<p>
-							Unlike standalone smart devices, Crestron provides a fully
-							integrated ecosystem that simplifies daily living while enhancing
-							comfort, security, and efficiency.
-						</p>
+						{t
+							.raw("crestronIntegration.section1.description")
+							.map((p: string, i: number) => {
+								return <p key={i}>{p}</p>;
+							})}
 					</div>
 					<img
 						style={{ borderRadius: "10px" }}
@@ -85,14 +85,13 @@ export default async function CrestronHome({
 				</div>
 			</section>
 			<section className="section">
-				<h2 className="section__title">What Can Crestron Control?</h2>
+				<h2 className="section__title">
+					{t("crestronIntegration.section2.heading")}
+				</h2>
 				<div className="crestron-home-flex">
 					<div>
-						<h3>Lighting Control</h3>
-						<p>
-							Create personalized lighting scenes that automatically adapt to
-							your activities and lifestyle.
-						</p>
+						<h3>{t("crestronIntegration.section2.item1.title")}</h3>
+						<p>{t("crestronIntegration.section2.item1.description")}</p>
 						<TransitionLink
 							style={{ alignSelf: "flex-end" }}
 							className="link"
@@ -106,11 +105,8 @@ export default async function CrestronHome({
 						/>
 					</div>
 					<div>
-						<h3>Climate Control</h3>
-						<p>
-							Maintain ideal comfort through intelligent heating, cooling, and
-							ventilation automation.
-						</p>
+						<h3>{t("crestronIntegration.section2.item2.title")}</h3>
+						<p>{t("crestronIntegration.section2.item2.description")}</p>
 						<TransitionLink
 							style={{ alignSelf: "flex-end" }}
 							className="link"
@@ -124,10 +120,8 @@ export default async function CrestronHome({
 						/>
 					</div>
 					<div>
-						<h3>Home Cinema</h3>
-						<p>
-							Control your entire entertainment experience with a single touch.
-						</p>
+						<h3>{t("crestronIntegration.section2.item3.title")}</h3>
+						<p>{t("crestronIntegration.section2.item3.description")}</p>
 						<TransitionLink
 							style={{ alignSelf: "flex-end" }}
 							className="link"
@@ -141,8 +135,8 @@ export default async function CrestronHome({
 						/>
 					</div>
 					<div>
-						<h3>Multi-Room Audio</h3>
-						<p>Enjoy synchronized music throughout your property.</p>
+						<h3>{t("crestronIntegration.section2.item4.title")}</h3>
+						<p>{t("crestronIntegration.section2.item4.description")}</p>
 						<TransitionLink
 							style={{ alignSelf: "flex-end" }}
 							className="link"
@@ -156,8 +150,8 @@ export default async function CrestronHome({
 						/>
 					</div>
 					<div>
-						<h3>Security & Surveillance</h3>
-						<p>Integrate alarms, cameras, sensors, and access control.</p>
+						<h3>{t("crestronIntegration.section2.item5.title")}</h3>
+						<p>{t("crestronIntegration.section2.item5.description")}</p>
 						<TransitionLink
 							style={{ alignSelf: "flex-end" }}
 							className="link"
@@ -171,8 +165,8 @@ export default async function CrestronHome({
 						/>
 					</div>
 					<div>
-						<h3>Motorized Shades</h3>
-						<p>Automatically optimize privacy, comfort, and daylight.</p>
+						<h3>{t("crestronIntegration.section2.item6.title")}</h3>
+						<p>{t("crestronIntegration.section2.item6.description")}</p>
 						<TransitionLink
 							style={{ alignSelf: "flex-end" }}
 							className="link"
@@ -186,8 +180,8 @@ export default async function CrestronHome({
 						/>
 					</div>
 					<div>
-						<h3>Energy Management</h3>
-						<p>Improve efficiency while reducing operating costs.</p>
+						<h3>{t("crestronIntegration.section2.item7.title")}</h3>
+						<p>{t("crestronIntegration.section2.item7.description")}</p>
 						<TransitionLink
 							style={{ alignSelf: "flex-end" }}
 							className="link"
@@ -204,23 +198,21 @@ export default async function CrestronHome({
 			</section>
 			<section className="section">
 				<h2 className="section__title">
-					Luxury Home Automation Without Complexity
+					{t("crestronIntegration.section3.heading")}
 				</h2>
 				<div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-					<p>
-						Modern homes often contain dozens of disconnected applications and
-						devices.
-					</p>
-					<p>
-						Crestron eliminates this complexity by creating a single ecosystem
-						where every technology works together.
-					</p>
+					{t
+						.raw("crestronIntegration.section3.description")
+						.map((p: string, i: number) => {
+							return <p key={i}>{p}</p>;
+						})}
 					<img
 						style={{ margin: "0 auto" }}
 						width={700}
 						src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/featured%20pages%20v2/creston%20home%20os4/smart_viewing@2x.png"
 						alt=""
 					/>
+					{/* FIXME: */}
 					<p style={{ textAlign: "center" }}>
 						<span style={{ whiteSpace: "nowrap" }}>One app.</span>{" "}
 						<span style={{ whiteSpace: "nowrap" }}>One interface.</span>{" "}
@@ -229,24 +221,28 @@ export default async function CrestronHome({
 				</div>
 			</section>
 			<section className="section">
-				<h2 className="section__title">Intelligent Lighting & Shading</h2>
+				<h2 className="section__title">
+					{t("crestronIntegration.section4.heading")}
+				</h2>
 				<div className="section-container">
 					<div
 						style={{ display: "flex", flexDirection: "column", gap: "12px" }}
 					>
-						<p>Crestron automatically adjusts lighting and shades based on:</p>
+						<p>{t("crestronIntegration.section4.list1.title")}</p>
 						<ul className="crestron-home-list">
-							<li>occupancy</li>
-							<li>daylight</li>
-							<li>schedules</li>
-							<li>user preferences</li>
+							{t
+								.raw("crestronIntegration.section4.list1.list")
+								.map((el: string, i: number) => {
+									return <li key={i}>{el}</li>;
+								})}
 						</ul>
-						<p>Benefits include:</p>
+						<p>{t("crestronIntegration.section4.list2.title")}</p>
 						<ul className="crestron-home-list">
-							<li>increased comfort</li>
-							<li>lower energy consumption</li>
-							<li>enhanced ambiance</li>
-							<li>improved security</li>
+							{t
+								.raw("crestronIntegration.section4.list2.list")
+								.map((el: string, i: number) => {
+									return <li key={i}>{el}</li>;
+								})}
 						</ul>
 					</div>
 					<img
@@ -257,7 +253,9 @@ export default async function CrestronHome({
 				</div>
 			</section>
 			<section className="section">
-				<h2 className="section__title">Home Cinema & Entertainment</h2>
+				<h2 className="section__title">
+					{t("crestronIntegration.section5.heading")}
+				</h2>
 				<div className="section-container">
 					<img
 						style={{ borderRadius: "10px" }}
@@ -267,43 +265,37 @@ export default async function CrestronHome({
 					<div
 						style={{ display: "flex", flexDirection: "column", gap: "10px" }}
 					>
-						<p>
-							This is a huge opportunity because Crestron is strongly associated
-							with premium AV.
-						</p>
-						<p>
-							Create immersive entertainment environments with centralized
-							control of:
-						</p>
+						<p>{t("crestronIntegration.section5.description")}</p>
+						<p>{t("crestronIntegration.section5.list1.title")}</p>
 						<ul className="crestron-home-list">
-							<li>projectors</li>
-							<li>televisions</li>
-							<li>surround sound</li>
-							<li>media servers</li>
-							<li>streaming platforms</li>
+							{t
+								.raw("crestronIntegration.section5.list1.list")
+								.map((el: string, i: number) => {
+									return <li key={i}>{el}</li>;
+								})}
 						</ul>
-						<p>
-							One button can instantly prepare your entire cinema experience.
-						</p>
+						<p>{t("crestronIntegration.section5.text")}</p>
 					</div>
 				</div>
 			</section>
 			<section className="section">
-				<h2 className="section__title">Security & Access Control</h2>
+				<h2 className="section__title">
+					{t("crestronIntegration.section6.heading")}
+				</h2>
 				<div className="section-container">
 					<div
 						style={{ display: "flex", flexDirection: "column", gap: "12px" }}
 					>
-						<p>Monitor and control your property from anywhere.</p>
-						<p>Integrate:</p>
+						<p>{t("crestronIntegration.section6.description")}</p>
+						<p>{t("crestronIntegration.section6.list1.title")}</p>
 						<ul className="crestron-home-list">
-							<li>smart locks</li>
-							<li>intercoms</li>
-							<li>surveillance cameras</li>
-							<li>alarm systems</li>
-							<li>gate control</li>
+							{t
+								.raw("crestronIntegration.section6.list1.list")
+								.map((el: string, i: number) => {
+									return <li key={i}>{el}</li>;
+								})}
 						</ul>
-						<p>into a single platform.</p>
+						<p>{t("crestronIntegration.section6.text")}</p>
 					</div>
 					<div
 						style={{
@@ -323,97 +315,62 @@ export default async function CrestronHome({
 				</div>
 			</section>
 			<section className="section">
-				<h2 className="section__title">Designed for Luxury Homes</h2>
-				<p>
-					Crestron is trusted by architects, interior designers, and homeowners
-					around the world for premium residential projects.
-				</p>
-				<p>
-					Whether you're building a new home, renovating a villa, or upgrading
-					an existing property, Crestron delivers a future-ready automation
-					platform built around your lifestyle.
-				</p>
+				<h2 className="section__title">
+					{t("crestronIntegration.section7.heading")}
+				</h2>
+				{t
+					.raw("crestronIntegration.section7.description")
+					.map((p: string, i: number) => {
+						return <p key={i}>{p}</p>;
+					})}
 			</section>
 			<section className="section">
-				<h2 className="section__title">Why Work With P&A Vision?</h2>
+				<h2 className="section__title">
+					{t("crestronIntegration.section8.heading")}
+				</h2>
 				<div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-					<p>As an official Loxone Partner, P&A Vision provides:</p>
+					<p>{t("crestronIntegration.section8.list1.title")}</p>
 					<ul className="crestron-home-flex-img">
-						<li>
-							<span>Consultation</span>
-							<img
-								src="https://www.loxone.com/enus/wp-content/uploads/sites/13/2021/09/PH-Header-Blog-Smart-Home-Installation-Consulting.jpg"
-								alt=""
-							/>
-						</li>
-						<li>
-							<span>System design</span>
-							<img
-								src="https://www.loxone.com/enus/wp-content/uploads/sites/13/2026/03/ph_loxone_header_software-scaled-1.jpg"
-								alt=""
-							/>
-						</li>
-						<li>
-							<span>Professional installation</span>
-							<img
-								src="https://www.loxone.com/int/wp-content/uploads/sites/21/2022/06/PH-ElektrikerSchaltschrank-scaled-1.jpg"
-								alt=""
-							/>
-						</li>
-						<li>
-							<span>Programming</span>
-							<img
-								src="https://www.loxone.com/enen/wp-content/uploads/sites/3/2026/03/PH-Library.jpg"
-								alt=""
-							/>
-						</li>
-						<li>
-							<span>Commissioning</span>
-							<img
-								src="https://infrastor.de/wp-content/uploads/2024/09/Loxone-App-1.jpg"
-								alt=""
-							/>
-						</li>
-						<li>
-							<span>Ongoing support</span>
-							<img
-								src="https://www.loxone.com/enus/wp-content/uploads/sites/13/2026/04/fs-header-support-loxone-desktop-scaled-1.jpg"
-								alt=""
-							/>
-						</li>
+						{t
+							.raw("crestronIntegration.section8.list1.list")
+							.map((item: string, i: number) => (
+								<li key={item}>
+									<span>{item}</span>
+									<img src={section8Images[i]} alt="" />
+								</li>
+							))}
 					</ul>
-					<p>
-						We create intelligent homes tailored to each client's lifestyle,
-						ensuring reliability, scalability, and exceptional user experience.
-					</p>
+					<p>{t("crestronIntegration.section8.text")}</p>
 				</div>
 			</section>
 			<section className="section">
-				<h2 className="section__title">Our Crestron Installation Process</h2>
+				<h2 className="section__title">
+					{t("crestronIntegration.section9.heading")}
+				</h2>
 				<div className="crestron-home-flex-process">
 					<div>
-						<h3>Discovery</h3>
-						<p>Understanding your lifestyle and project requirements.</p>
+						<h3>{t("crestronIntegration.section9.item1.title")}</h3>
+						<p>{t("crestronIntegration.section9.item1.description")}</p>
 					</div>
 					<div>
-						<h3>Design</h3>
-						<p>Creating a tailored automation strategy.</p>
+						<h3>{t("crestronIntegration.section9.item2.title")}</h3>
+						<p>{t("crestronIntegration.section9.item2.description")}</p>
 					</div>
 					<div>
-						<h3>Integration</h3>
-						<p>Professional installation of all connected systems.</p>
+						<h3>{t("crestronIntegration.section9.item3.title")}</h3>
+						<p>{t("crestronIntegration.section9.item3.description")}</p>
 					</div>
 					<div>
-						<h3>Programming</h3>
-						<p>Customizing automation logic and user experience.</p>
+						<h3>{t("crestronIntegration.section9.item4.title")}</h3>
+						<p>{t("crestronIntegration.section9.item4.description")}</p>
 					</div>
 					<div>
-						<h3>Testing</h3>
-						<p>Ensuring flawless operation.</p>
+						<h3>{t("crestronIntegration.section9.item5.title")}</h3>
+						<p>{t("crestronIntegration.section9.item5.description")}</p>
 					</div>
 					<div>
-						<h3>Support</h3>
-						<p>Long-term maintenance and optimization.</p>
+						<h3>{t("crestronIntegration.section9.item6.title")}</h3>
+						<p>{t("crestronIntegration.section9.item6.description")}</p>
 					</div>
 				</div>
 			</section>
