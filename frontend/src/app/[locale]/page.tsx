@@ -31,6 +31,14 @@ export async function generateMetadata({
 				"x-default": `/${routing.defaultLocale}`,
 			},
 		},
+
+		openGraph: {
+			title: t("title"),
+			description: t("desc"),
+			url: `/${locale}`,
+			type: "website",
+			images: "/pavision-og.png",
+		},
 	};
 }
 

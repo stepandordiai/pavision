@@ -46,13 +46,19 @@ export async function generateMetadata({
 
 	return {
 		title: product.name,
-		description: "",
 		alternates: {
 			canonical: `/${locale}/${PAGE}/${id}`,
 			languages: {
 				...languages,
 				"x-default": `/${routing.defaultLocale}/${PAGE}/${id}`,
 			},
+		},
+
+		openGraph: {
+			title: product.name,
+			url: `/${locale}/${PAGE}/${id}`,
+			type: "website",
+			images: "/pavision-og.png",
 		},
 	};
 }
