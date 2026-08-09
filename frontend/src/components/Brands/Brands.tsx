@@ -4,72 +4,59 @@ import "./styles.scss";
 const brands = [
 	{
 		name: "Crestron",
-		bgImg: "/brands/crestron-partner.png",
+		bgImg: "/brands/crestron-integrator.png",
 	},
 	{
 		name: "Loxone",
-		bgImg:
-			"https://www.soundsuit.fm/images/sonos/loxone_hero_full_e2d9ac8e.jpg",
+		bgImg: "/brands/loxone-integrator.png",
 	},
 	{
 		name: "Lutron",
-		bgImg:
-			"https://support.lutron.com/sites/default/files/2025-02/Homepage%20Images_HomeWorks_832x512.jpg",
+		bgImg: "/brands/lutron-integrator.png",
 	},
 	{
 		name: "Denon",
-		bgImg:
-			"https://www.hifi-voice.com/images/testy/2019/20190503/2019-04-30-DK-Denon-AVC-X6500-1.jpg",
+		bgImg: "/brands/denon-integrator.png",
 	},
 	{
 		name: "Marantz",
-		bgImg:
-			"https://www.rodel-audio.cz/ew/ew_images/image?EwImage=f40c1fbb-4f17-4220-8d37-5f19b7cc14c5&Filter=38bb315d-6497-4ad4-9275-7213493a8945",
+		bgImg: "/brands/marantz-integrator.png",
 	},
 	{
 		name: "LG",
-		bgImg:
-			"https://www.lg.com/cz/lg-experience/images/lg-lab/2023/what-is-a-smart-tv/lg-experience-lg-lab-what-is-a-smart-tv-key-visual.jpg",
+		bgImg: "/brands/lg-integrator.png",
 	},
 	{
 		name: "Sonos",
-		bgImg:
-			"https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/16015943/80143397_7FF2_4584_809D_08E74930277C.jpeg?quality=90&strip=all&crop=0%2C5.5555555555556%2C100%2C88.888888888889&w=2400",
+		bgImg: "/brands/sonos-integrator.png",
 	},
 	{
 		name: "Bowers & Wilkins",
-		bgImg:
-			"https://hifimanie.cz/wp-content/uploads/2024/03/Bowers_Wilkins_705_S3_Signature2-2000x1466x.jpg",
+		bgImg: "/brands/bowers-wilkins-integrator.png",
 	},
 	{
 		name: "Ubiquiti",
-		bgImg:
-			"https://images.squarespace-cdn.com/content/v1/5d3c73c906ac510001158d1b/1620456469724-S1ZF63BGI5JA32VQ0LKE/_DSC0222.jpeg",
+		bgImg: "/brands/ubiquiti-integrator.png",
 	},
 	{
 		name: "MicroTik",
-		bgImg: "https://5.imimg.com/data5/AH/FM/MY-10416151/mikrotik-server.jpg",
+		bgImg: "/brands/microtik-integrator.png",
 	},
-	,
 	{
 		name: "Cisco",
-		bgImg:
-			"https://www.networkworld.com/wp-content/uploads/2023/11/dsc04898-100716671-orig.jpg?quality=50&strip=all",
+		bgImg: "/brands/cisco-integrator.png",
 	},
 	{
 		name: "Jablotron",
-		bgImg:
-			"https://www.jablotron.com/ver/1731315060992/api/stages/files?variant=next-fe&file=/produkty-a-sluzby/alarmy/kamery/jablotron_ban_2408_web_kamery_zaznam_1-ban_740x480_vin.jpg&width=3840",
+		bgImg: "/brands/jablotron-integrator.png",
 	},
 	{
 		name: "Paradox",
-		bgImg:
-			"https://cms.bgwgroup.com.au/components/suppliers/landing-pages/bgwt/paradox/assets/paradox_12132.png",
+		bgImg: "/brands/paradox-integrator.png",
 	},
 	{
 		name: "Risco",
-		bgImg:
-			"https://securityjournaluk.com/wp-content/uploads/2023/09/RISCO-ADI-distribution-agreement-scaled-1.jpg",
+		bgImg: "/brands/risco-integrator.png",
 	},
 ];
 
