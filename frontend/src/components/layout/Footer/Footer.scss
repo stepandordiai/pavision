@@ -18,13 +18,13 @@
 	}
 }
 
-.footer__author {
+.footer__bottom {
 	padding-top: 20px;
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	column-gap: 10px;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
 .footer-nav__link {

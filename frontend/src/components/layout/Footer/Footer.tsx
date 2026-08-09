@@ -16,19 +16,6 @@ const Footer = () => {
 	return (
 		<footer className="footer">
 			<TransitionLink className="footer__logo" href="/">
-				{/* <svg
-					width="30"
-					height="30"
-					viewBox="0 0 256 256"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<path
-						d="M128.001 0C139.977 64.8783 191.122 116.025 256 128.001C191.123 139.978 139.978 191.123 128.001 256C116.025 191.122 64.8783 139.977 0 128.001C64.8791 116.026 116.026 64.8791 128.001 0Z"
-						fill="currentColor"
-					/>
-				</svg>
-				<span>P&A Vision</span> */}
 				<img src="/logo.svg" width={200} alt="" />
 			</TransitionLink>
 			<div style={{ display: "flex", gap: 40, flexWrap: "wrap" }}>
@@ -126,11 +113,19 @@ const Footer = () => {
 					</ul>
 				</div>
 			</div>
-			<div className="footer__author">
-				<p>&copy; 2026 P&A Vision s.r.o. Všechna práva vyhrazena.</p>
+			<div className="footer__bottom">
+				<p>
+					&copy; {new Date().getFullYear()} P&A Vision s.r.o. Všechna práva
+					vyhrazena.
+				</p>
 				<p>
 					Website created by{" "}
-					<a className="link" href="https://www.heeeyooo.com" target="_blank">
+					<a
+						className="link"
+						href="https://www.heeeyooo.com"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
 						heeeyooo studio
 					</a>
 				</p>
