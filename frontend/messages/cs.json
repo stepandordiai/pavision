@@ -38,7 +38,14 @@
 			"title3": "Síťová infrastruktura",
 			"desc3": "Návrh a instalace metalických i optických sítí (Ubiquiti, MikroTik, Cisco).",
 			"title4": "Elektroinstalace",
-			"desc4": "Návrh a realizace elektroinstalací včetně rozvaděčů a zásuvek."
+			"desc4": "Návrh a realizace elektroinstalací včetně rozvaděčů a zásuvek.",
+			"scenes": {
+				"relax": "Relax",
+				"cooking": "Vaření",
+				"dinner": "Večeře",
+				"party": "Párty",
+				"night": "Noc"
+			}
 		},
 
 		"technologies": "Technologie"

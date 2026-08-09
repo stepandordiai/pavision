@@ -42,7 +42,14 @@
 			"title3": "Network Infrastructure",
 			"desc3": "Design and installation of metallic and optical networks (Ubiquiti, MikroTik, Cisco).",
 			"title4": "Electrical Installations",
-			"desc4": "Design and implementation of electrical installations, including switchboards and sockets."
+			"desc4": "Design and implementation of electrical installations, including switchboards and sockets.",
+			"scenes": {
+				"relax": "Relax",
+				"cooking": "Cooking",
+				"dinner": "Dinner",
+				"party": "Party",
+				"night": "Night"
+			}
 		},
 		"technologies": "Technologies"
 	},

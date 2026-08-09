@@ -5,6 +5,8 @@ import { useRef, useState } from "react";
 import PlayIcon from "@/components/icons/PlayIcon";
 import PauseIcon from "@/components/icons/PauseIcon";
 import SoundwaveIcon from "../icons/SoundwaveIcon";
+import LightingIcon from "../icons/LightingIcon";
+import WifiIcon from "../icons/WifiIcon";
 import "./styles.scss";
 
 const whatWeDo = [
@@ -12,6 +14,7 @@ const whatWeDo = [
 		title: "home.whatWeDo.title1",
 		desc: "home.whatWeDo.desc1",
 		brands: ["Crestron", "Loxone", "Lutron"],
+		icon: <LightingIcon size={20} />,
 		lightning: true,
 	},
 	{
@@ -26,6 +29,7 @@ const whatWeDo = [
 		title: "home.whatWeDo.title3",
 		desc: "home.whatWeDo.desc3",
 		brands: ["Ubiquiti", "MikroTik", "Cisco"],
+		icon: <WifiIcon size={20} />,
 		img: "/sitova-infrastruktura.png",
 	},
 ];
@@ -51,29 +55,28 @@ const WhatWeDo = () => {
 
 	const data = [
 		{
-			state: "Večeře",
-			imgSrc:
-				"https://www.loxone.com/dede/wp-content/uploads/sites/2/2026/03/PH-lighting-scene-2.jpg",
+			state: t("home.whatWeDo.scenes.relax"),
+			imgSrc: "/what-we-do/scenes/relax-scene.png",
 		},
 		{
-			state: "Vaření",
-			imgSrc:
-				"https://www.loxone.com/dede/wp-content/uploads/sites/2/2026/03/PH-lighting-scene-5.jpg",
+			state: t("home.whatWeDo.scenes.cooking"),
+
+			imgSrc: "/what-we-do/scenes/cooking-scene.png",
 		},
 		{
-			state: "Párty",
-			imgSrc:
-				"https://www.loxone.com/dede/wp-content/uploads/sites/2/2026/03/PH-lighting-scene-3.jpg",
+			state: t("home.whatWeDo.scenes.dinner"),
+
+			imgSrc: "/what-we-do/scenes/dinner-scene.png",
 		},
 		{
-			state: "Relax",
-			imgSrc:
-				"https://www.loxone.com/dede/wp-content/uploads/sites/2/2026/03/PH-lighting-scene-4.jpg",
+			state: t("home.whatWeDo.scenes.party"),
+
+			imgSrc: "/what-we-do/scenes/party-scene.png",
 		},
 		{
-			state: "Noc",
-			imgSrc:
-				"https://www.loxone.com/dede/wp-content/uploads/sites/2/2026/03/PH-lighting-scene-1.jpg",
+			state: t("home.whatWeDo.scenes.night"),
+
+			imgSrc: "/what-we-do/scenes/night-scene.png",
 		},
 	];
 
@@ -140,14 +143,28 @@ const WhatWeDo = () => {
 								<p>{t(item.desc)}</p>
 							</div>
 							{item.lightning && (
-								<div style={{ width: "100%", height: "100%" }}>
+								<div
+									style={{
+										width: "100%",
+										height: "100%",
+										display: "flex",
+										flexDirection: "column",
+										gap: "10px",
+									}}
+								>
 									<div>
+										<p
+											style={{
+												marginBottom: "10px",
+											}}
+										>
+											Lighting Scenes
+										</p>
 										<div
 											style={{
 												display: "flex",
 												gap: 5,
 												flexWrap: "wrap",
-												marginBottom: "10px",
 											}}
 										>
 											{data.map((el, i) => {
@@ -155,7 +172,7 @@ const WhatWeDo = () => {
 													<button
 														key={i}
 														onClick={() => setInteriorState(el)}
-														className={`btn ${interiorState.state === el.state ? "btn--active" : ""}`}
+														className={`what-we-do__scene-btn ${interiorState.state === el.state ? "what-we-do__scene-btn--active" : ""}`}
 													>
 														{el.state}
 													</button>
@@ -166,11 +183,14 @@ const WhatWeDo = () => {
 									<img
 										style={{
 											borderRadius: 10,
+											flex: 1,
+											objectFit: "cover",
+											objectPosition: "center",
 										}}
 										src={interiorState.imgSrc}
 										alt=""
 									/>
-									<p style={{ marginTop: "10px" }}>
+									<p>
 										Each scene adjusts lighting, shading, and room temperature
 										at a single touch.
 									</p>
