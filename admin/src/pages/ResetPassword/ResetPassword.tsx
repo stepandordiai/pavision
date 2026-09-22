@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../../lib/supabase";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./styles.scss";
 
 const ResetPassword = () => {
@@ -9,7 +9,9 @@ const ResetPassword = () => {
 	const [error, setError] = useState("");
 	const navigate = useNavigate();
 
-	const handleReset = async () => {
+	const handleResetPassword = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+
 		setLoading(true);
 		setError("");
 
@@ -19,7 +21,6 @@ const ResetPassword = () => {
 			});
 
 			if (error) throw error;
-			alert("Пароль успішно змінено!");
 			await supabase.auth.signOut();
 			navigate("/login", { replace: true });
 		} catch (error) {
@@ -33,25 +34,38 @@ const ResetPassword = () => {
 
 	return (
 		<main className="reset-password">
-			<div className="reset-password-container">
+			<NavLink to="/" style={{ fontSize: "2rem" }}>
+				P&A Vision (admin)
+			</NavLink>
+			<form className="reset-password-container" onSubmit={handleResetPassword}>
 				<h1 style={{ textAlign: "center", fontSize: "1.5rem" }}>
-					Відновлення пароля
+					Reset password
 				</h1>
 				{error && <p>{error}</p>}
 				<div className="reset-password-input-container">
-					<label htmlFor="">Новий пароль</label>
+					<label htmlFor="">New password</label>
 					<input
 						className=""
 						type="password"
-						placeholder="Новий пароль"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
+						required
 					/>
 				</div>
-				<button className="primary-btn" onClick={handleReset}>
-					{loading ? "Зачекайте..." : "Змінити пароль"}
+				<button className="primary-btn" type="submit">
+					{loading ? "Saving..." : "Save"}
 				</button>
-			</div>
+			</form>
+			<p>
+				Created by{" "}
+				<a
+					href="https://www.heeeyooo.com"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					heeeyooo studio
+				</a>
+			</p>
 		</main>
 	);
 };

@@ -1,6 +1,7 @@
 import { supabase } from "../../lib/supabase";
 import { useState } from "react";
 import "./styles.scss";
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
 	const [email, setEmail] = useState("");
@@ -12,22 +13,17 @@ const Login = () => {
 	// TODO: LEARN THIS
 	const handleAuth = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+
 		setAuthError("");
 		setAuthLoading(true);
 
 		try {
 			if (forgotPassword) {
-				if (!email) {
-					setAuthError("Введіть правильний електронний адрес");
-					return;
-				}
-
 				const { error } = await supabase.auth.resetPasswordForEmail(email, {
 					redirectTo: `${window.location.origin}/reset-password`,
 				});
 
 				if (error) throw error;
-				alert("Лист для відновлення пароля відправлено");
 				setForgotPassword(false);
 				return;
 			}
@@ -47,25 +43,31 @@ const Login = () => {
 
 	return (
 		<main className="login-main">
-			<h1 style={{ fontSize: "2rem" }}>P&A Vision (admin)</h1>
-			<p>Please enter credentials to get access</p>
+			<NavLink to="/" style={{ fontSize: "2rem" }}>
+				P&A Vision (admin)
+			</NavLink>
 			{authError && <strong style={{ color: "red" }}>Access denied</strong>}
 			<form className="login-form" onSubmit={handleAuth}>
+				<h1>{forgotPassword ? "Forgot password" : "Login"}</h1>
 				<div className="login-input-container">
-					<label htmlFor="">Email</label>
+					<label htmlFor="email">Email</label>
 					<input
+						id="email"
 						onChange={(e) => setEmail(e.target.value)}
 						value={email}
 						type="email"
+						required
 					/>
 				</div>
 				{!forgotPassword && (
 					<div className="login-input-container">
-						<label htmlFor="">Password</label>
+						<label htmlFor="password">Password</label>
 						<input
+							id="password"
 							onChange={(e) => setPassword(e.target.value)}
 							value={password}
 							type="password"
+							required
 						/>
 					</div>
 				)}
@@ -80,10 +82,23 @@ const Login = () => {
 							? "Wait..."
 							: "Login"}
 				</button>
+				<button
+					type="button"
+					onClick={() => setForgotPassword((prev) => !prev)}
+				>
+					{forgotPassword ? "Login" : "Forgot password?"}
+				</button>
 			</form>
-			<button onClick={() => setForgotPassword((prev) => !prev)}>
-				{forgotPassword ? "Login" : "Forgot password?"}
-			</button>
+			<p>
+				Created by{" "}
+				<a
+					href="https://www.heeeyooo.com"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					heeeyooo studio
+				</a>
+			</p>
 		</main>
 	);
 };

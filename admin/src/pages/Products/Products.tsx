@@ -6,8 +6,8 @@ import DotsIcon from "../../components/icons/DotsIcon";
 import ImageDropzone from "../../components/ImgDropzone/ImgDropzone";
 import XIcon from "../../components/icons/XIcon";
 import type { Product, ProductSave } from "../../interfaces/product";
-import "./styles.scss";
 import Pagination from "../../components/Pagination/Pagination";
+import "./styles.scss";
 
 const EMPTY_FORM: ProductSave = {
 	is_active: true,
