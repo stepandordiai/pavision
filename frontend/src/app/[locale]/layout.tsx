@@ -3,7 +3,7 @@ import { type Metadata } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import Header from "@/components/layout/Header/Header";
 import Footer from "@/components/layout/Footer/Footer";
-import Banner from "@/components/Banner/Banner";
+// import Banner from "@/components/Banner/Banner";
 import ScrollToTop from "@/utils/ScrollToTop";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
@@ -137,7 +137,7 @@ export default async function LocaleLayout({
 				<ScrollToTopBtn />
 				<FloatContact />
 				<NextIntlClientProvider locale={locale}>
-					<Banner />
+					{/* <Banner /> */}
 					<TransitionProvider>
 						<Header />
 						{children}
