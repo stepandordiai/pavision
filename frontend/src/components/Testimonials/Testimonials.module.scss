@@ -119,8 +119,6 @@
 	}
 }
 
-// ─── Auth badge ────────────────────────────────────────────────────────────────
-
 .authBadge {
 	font-size: 0.8rem;
 	color: #555;
@@ -130,8 +128,6 @@
 	white-space: nowrap;
 }
 
-// ─── Testimonial grid ──────────────────────────────────────────────────────────
-
 .grid {
 	display: grid;
 	// TODO: learn this
@@ -139,14 +135,6 @@
 	gap: 1.25rem;
 	padding: 20px 0;
 }
-
-// .loadingRow {
-// display: grid;
-// grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-// gap: 1.25rem;
-// }
-
-// ─── Card ──────────────────────────────────────────────────────────────────────
 
 .card {
 	background: #fff;
@@ -156,23 +144,6 @@
 	flex-direction: column;
 	gap: 10px;
 }
-
-// .cardSkeleton {
-// 	height: 180px;
-// 	background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
-// 	background-size: 200% 100%;
-// 	animation: shimmer 1.4s infinite;
-// 	border: none;
-// }
-
-// @keyframes shimmer {
-// 	0% {
-// 		background-position: 200% 0;
-// 	}
-// 	100% {
-// 		background-position: -200% 0;
-// 	}
-// }
 
 .cardHeader {
 	display: flex;
@@ -234,60 +205,34 @@
 	color: #000;
 }
 
-// ─── Empty / loading ──────────────────────────────────────────────────────────
-
 .empty {
 	margin-top: 20px;
-	// text-align: center;
-	// padding: 3rem 1rem;
-	// color: #888;
-	// font-size: 0.95rem;
-	// border: 1px dashed rgba(0, 0, 0, 0.15);
-	// border-radius: 14px;
 }
-
-// ─── Modal ─────────────────────────────────────────────────────────────────────
 
 .backdrop {
-	position: fixed;
+	position: absolute;
 	inset: 0;
 	background: rgba(0, 0, 0, 0.5);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 1rem;
-	z-index: 999;
-	// animation: fadeIn 0.15s ease;
 }
 
-// @keyframes fadeIn {
-// 	from {
-// 		opacity: 0;
-// 	}
-// 	to {
-// 		opacity: 1;
-// 	}
-// }
-
 .modal {
+	position: fixed;
+	inset: 0;
+	z-index: 100;
+	display: grid;
+	place-items: center;
+}
+
+.modal__form {
+	position: absolute;
 	background: #333;
 	border-radius: 10px;
 	padding: 1.25rem;
-	width: 100%;
-	max-width: 500px;
+	width: min(calc(100% - 20px), 500px);
 	overflow-y: auto;
-	// animation: slideUp 0.2s ease;
-}
-
-@keyframes slideUp {
-	from {
-		opacity: 0;
-		transform: translateY(16px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
+	height: auto;
+	max-height: calc(100dvh - 20px);
+	scrollbar-width: none;
 }
 
 .modalClose {
@@ -309,8 +254,6 @@
 	font-size: 18px;
 	font-weight: 700;
 }
-
-// ─── Form elements ─────────────────────────────────────────────────────────────
 
 .label {
 	display: block;
@@ -349,23 +292,17 @@
 	margin-top: 0.25rem;
 }
 
-// ─── Anon row ──────────────────────────────────────────────────────────────────
-
 .anonRow {
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
 }
 
-// ─── Posting-as badge ──────────────────────────────────────────────────────────
-
 .postingAs {
 	padding: 10px;
 	background: #000;
 	border-radius: 10px;
 }
-
-// ─── Errors ────────────────────────────────────────────────────────────────────
 
 .errorMsg {
 	font-size: 0.85rem;
@@ -376,8 +313,6 @@
 	border-radius: 6px;
 	border-left: 3px solid #c0392b;
 }
-
-// ─── Auth footer ───────────────────────────────────────────────────────────────
 
 .authSubtitle {
 	font-size: 0.875rem;
@@ -398,52 +333,7 @@
 	color: #555;
 }
 
-// ─── Dark mode ─────────────────────────────────────────────────────────────────
-
 @media (prefers-color-scheme: dark) {
-	// .card {
-	// 	background: #1a1a1a;
-	// 	border-color: rgba(255, 255, 255, 0.1);
-
-	// 	&:hover {
-	// 		box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
-	// 	}
-	// }
-
-	// .content {
-	// 	color: #ccc;
-	// }
-
-	// .cardSkeleton {
-	// 	background: linear-gradient(90deg, #222 25%, #2a2a2a 50%, #222 75%);
-	// 	background-size: 200% 100%;
-	// }
-
-	// .avatar {
-	// 	background: #e0e0e0;
-	// 	color: #111;
-	// }
-
-	.modal {
-		// background: #1a1a1a;
-	}
-
-	// .input,
-	// .textarea {
-	// 	background: #111;
-	// 	border-color: rgba(255, 255, 255, 0.15);
-	// 	color: #eee;
-
-	// 	&:focus {
-	// 		border-color: #eee;
-	// 		box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
-	// 	}
-
-	// 	&::placeholder {
-	// 		color: #555;
-	// 	}
-	// }
-
 	.btnGhost {
 		border-color: rgba(255, 255, 255, 0.2);
 		&:hover {
@@ -451,38 +341,11 @@
 		}
 	}
 
-	// .btnPrimary,
-	// .btnSubmit {
-	// 	background: #fff;
-	// 	color: #111;
-	// }
-
-	// .postingAs {
-	// 	background: #111;
-	// 	border-left-color: #fff;
-	// 	strong {
-	// 		color: #fff;
-	// 	}
-	// }
-
 	.errorMsg {
 		background: #2a1010;
 		border-left-color: #e74c3c;
 		color: #e74c3c;
 	}
-
-	// .empty {
-	// 	color: #666;
-	// 	border-color: rgba(255, 255, 255, 0.1);
-	// }
-
-	// .modalClose {
-	// 	color: #666;
-	// 	&:hover {
-	// 		background: #2a2a2a;
-	// 		color: #eee;
-	// 	}
-	// }
 
 	.authBadge {
 		color: #888;

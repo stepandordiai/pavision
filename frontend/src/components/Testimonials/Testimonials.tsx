@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { supabase } from "@/lib/supabase";
 import type { User } from "@supabase/supabase-js";
-import styles from "./Testimonials.module.scss";
-import { TransitionLink } from "../TransitionLink";
+// import { TransitionLink } from "../TransitionLink";
 import getCreatedDate from "@/utils/getCreatedDate";
 import { useTranslations } from "next-intl";
+import { BASE_URL } from "@/lib/constants";
+import styles from "./Testimonials.module.scss";
 
 interface Testimonial {
 	id: string;
@@ -88,17 +89,17 @@ export default function Testimonials() {
 	const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
 	const [user, setUser] = useState<User | null>(null);
 	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState<string | null>(null);
 
 	// Modal
 	const [modalOpen, setModalOpen] = useState(false);
-	const [showAuth, setShowAuth] = useState(false);
+	// const [showAuth, setShowAuth] = useState(false);
 
 	// Testimonial form
 	const [content, setContent] = useState("");
 	const [rating, setRating] = useState(5);
 	const [authorName, setAuthorName] = useState("");
 	const [submitting, setSubmitting] = useState(false);
-	const [submitError, setSubmitError] = useState("");
 
 	const fetchTestimonials = useCallback(async () => {
 		const { data, error } = await supabase
@@ -128,43 +129,93 @@ export default function Testimonials() {
 		setContent("");
 		setRating(5);
 		setAuthorName("");
-		setSubmitError("");
-		setShowAuth(false);
+		setError("");
+		// setShowAuth(false);
 		setModalOpen(true);
 	};
 
-	const closeModal = () => setModalOpen(false);
+	const createTestimonial = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
 
-	const handleSubmit = async () => {
+		setError("");
+
+		// const displayName = user
+		// 	? (user.user_metadata?.full_name as string | undefined) ||
+		// 		user.email ||
+		// 		"User"
+		// 	: authorName.trim() || "Anonymous";
+
+		if (authorName.trim().split(" ").length > 2) {
+			setError("Please, provide correct name or leave it blank");
+			return;
+		}
+
 		setSubmitting(true);
-		setSubmitError("");
-
-		const displayName = user
-			? (user.user_metadata?.full_name as string | undefined) ||
-				user.email ||
-				"User"
-			: authorName.trim() || "Anonymous";
 
 		const { error } = await supabase.from("testimonials").insert({
 			content: content.trim(),
 			rating,
-			author_name: displayName,
+			author_name: authorName,
 			user_id: user?.id ?? null,
 		});
 
 		if (error) {
-			setSubmitError(error.message);
+			setError(error.message);
 			setSubmitting(false);
 			return;
 		}
 
-		closeModal();
+		setModalOpen(false);
 		fetchTestimonials();
 		setSubmitting(false);
 	};
 
+	const jsonLd = useMemo(() => {
+		if (!testimonials.length) return null;
+
+		const average =
+			testimonials.reduce((sum, item) => sum + item.rating, 0) /
+			testimonials.length;
+
+		return {
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"@id": `${BASE_URL}/#organization`,
+			name: "P&A Vision s.r.o.",
+			url: BASE_URL,
+			aggregateRating: {
+				"@type": "AggregateRating",
+				ratingValue: average.toFixed(1),
+				reviewCount: testimonials.length,
+				bestRating: 5,
+				worstRating: 1,
+			},
+			review: testimonials.map((item) => ({
+				"@type": "Review",
+				author: { "@type": "Person", name: item.author_name },
+				datePublished: item.created_at.slice(0, 10),
+				reviewBody: item.content,
+				reviewRating: {
+					"@type": "Rating",
+					ratingValue: item.rating,
+					bestRating: 5,
+					worstRating: 1,
+				},
+			})),
+		};
+	}, [testimonials]);
+
 	return (
 		<section className="section" aria-labelledby="testimonials-heading">
+			{jsonLd && (
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{
+						// TODO: learn this
+						__html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+					}}
+				/>
+			)}
 			<h2 id="testimonials-heading" className="section__title">
 				{t("testimonials.heading")}
 			</h2>
@@ -172,7 +223,7 @@ export default function Testimonials() {
 				<span>{t("testimonials.addTestimonial")}</span>
 				<span>+</span>
 			</button>
-			{testimonials.length === 0 ? (
+			{!testimonials.length ? (
 				<p className={styles.empty}>
 					No testimonials yet - be the first to leave one!
 				</p>
@@ -205,36 +256,39 @@ export default function Testimonials() {
 				</div>
 			)}
 			{modalOpen && (
-				<div
-					className={styles.backdrop}
-					onClick={closeModal}
-					role="dialog"
-					aria-modal="true"
-					aria-label={showAuth ? "Sign in" : "Add testimonial"}
-				>
-					<div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-						<>
-							<div
-								style={{
-									display: "flex",
-									justifyContent: "space-between",
-									alignItems: "flex-start",
-									marginBottom: "20px",
-								}}
+				<div className={styles.modal}>
+					<div
+						className={styles.backdrop}
+						onClick={() => setModalOpen(false)}
+						role="dialog"
+						aria-modal="true"
+						// aria-label={showAuth ? "Sign in" : "Add testimonial"}
+					></div>
+
+					<form className={styles["modal__form"]} onSubmit={createTestimonial}>
+						<div
+							style={{
+								display: "flex",
+								justifyContent: "space-between",
+								alignItems: "flex-start",
+								marginBottom: "20px",
+							}}
+						>
+							<h3 className={styles.modalTitle}>
+								{t("testimonials.leaveTestimonial")}
+							</h3>
+							<button
+								type="button"
+								className={styles.modalClose}
+								onClick={() => setModalOpen(false)}
+								aria-label="Close"
 							>
-								<h3 className={styles.modalTitle}>
-									{t("testimonials.leaveTestimonial")}
-								</h3>
-								<button
-									type="button"
-									className={styles.modalClose}
-									onClick={closeModal}
-									aria-label="Close"
-								>
-									✕
-								</button>
-							</div>
-							{user ? (
+								✕
+							</button>
+						</div>
+						{error && <p style={{ color: "#f00" }}>{error}</p>}
+
+						{/* {user ? (
 								<>
 									<p style={{ marginBottom: "5px" }}>
 										{t("testimonials.author")}
@@ -244,71 +298,63 @@ export default function Testimonials() {
 											user.email}
 									</p>
 								</>
-							) : (
-								<div className={styles.anonRow}>
-									<label htmlFor="name">{t("testimonials.name")}</label>
-									<input
-										id="name"
-										className={styles.input}
-										type="text"
-										placeholder={t("testimonials.nameP")}
-										value={authorName}
-										onChange={(e) => setAuthorName(e.target.value)}
-										maxLength={60}
-									/>
-									<TransitionLink
+							) : ( */}
+						<div className={styles.anonRow}>
+							<label htmlFor="name">{t("testimonials.name")}</label>
+							<input
+								id="name"
+								className={styles.input}
+								type="text"
+								placeholder={t("testimonials.nameP")}
+								value={authorName}
+								onChange={(e) => setAuthorName(e.target.value)}
+								maxLength={60}
+								required
+							/>
+							{/* <TransitionLink
 										style={{ alignSelf: "flex-end" }}
 										href="/login"
 										className="link"
 									>
 										{t("testimonials.signIn")}
-									</TransitionLink>
-								</div>
-							)}
+									</TransitionLink> */}
+						</div>
+						{/* )} */}
 
-							<label className={styles.label}>{t("testimonials.rating")}</label>
-							<div
-								style={{
-									background: "#fff",
-									padding: "10px",
-									borderRadius: "10px",
-									marginBottom: "10px",
-								}}
-							>
-								<Stars rating={rating} interactive onChange={setRating} />
-							</div>
-							<label className={styles.label} htmlFor="testimonial-content">
-								{t("testimonials.yourMessage")}
-							</label>
-							<textarea
-								id="testimonial-content"
-								className={styles.textarea}
-								placeholder={t("testimonials.yourMessageP")}
-								value={content}
-								onChange={(e) => setContent(e.target.value)}
-								rows={4}
-								maxLength={600}
-							/>
-							<span className={styles.charCount}>{content.length} / 600</span>
-
-							{submitError && (
-								<p className={styles.errorMsg} role="alert">
-									{submitError}
-								</p>
-							)}
-
-							<button
-								type="button"
-								className={styles.btnSubmit}
-								onClick={handleSubmit}
-								disabled={submitting}
-							>
-								{submitting
-									? t("testimonials.submitting")
-									: t("testimonials.submit")}
-							</button>
-						</>
-					</div>
+						<label className={styles.label}>{t("testimonials.rating")}</label>
+						<div
+							style={{
+								background: "#fff",
+								padding: "10px",
+								borderRadius: "10px",
+								marginBottom: "10px",
+							}}
+						>
+							<Stars rating={rating} interactive onChange={setRating} />
+						</div>
+						<label className={styles.label} htmlFor="testimonial-content">
+							{t("testimonials.yourMessage")}
+						</label>
+						<textarea
+							id="testimonial-content"
+							className={styles.textarea}
+							placeholder={t("testimonials.yourMessageP")}
+							value={content}
+							onChange={(e) => setContent(e.target.value)}
+							rows={4}
+							maxLength={600}
+						/>
+						<span className={styles.charCount}>{content.length} / 600</span>
+						<button
+							type="submit"
+							className={styles.btnSubmit}
+							disabled={submitting}
+						>
+							{submitting
+								? t("testimonials.submitting")
+								: t("testimonials.submit")}
+						</button>
+					</form>
 				</div>
 			)}
 		</section>
