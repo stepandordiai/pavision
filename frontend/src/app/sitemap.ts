@@ -19,6 +19,11 @@ const pages = [
 		priority: 0.6,
 	},
 	{
+		path: "/for-architects",
+		changeFrequency: "monthly",
+		priority: 0.6,
+	},
+	{
 		path: "/products",
 		changeFrequency: "weekly",
 		priority: 0.9,
@@ -76,7 +81,7 @@ const pages = [
 	{
 		path: "/privacy-policy",
 		changeFrequency: "yearly",
-		priority: 0.3,
+		priority: 0.1,
 	},
 ] as const;
 

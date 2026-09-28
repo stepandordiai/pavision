@@ -3,6 +3,7 @@
 		"home": "Home",
 		"aboutUs": "About us",
 		"forDevs": "For Developers",
+		"forArchitects": "For Architects",
 		"products": "Products",
 		"contacts": "Contacts",
 		"bookAConsultation": "Book a Consultation"
@@ -292,6 +293,150 @@
 				"We prepare a complete Crestron system design and project quotation.",
 				"Our team manages installation, integration, and coordination throughout construction.",
 				"We commission the system, provide user training, and deliver long-term technical support."
+			]
+		}
+	},
+
+	"forArchitects": {
+		"meta": {
+			"title": "Smart Home Partner for Architects | Villas & Luxury Homes",
+			"description": "Architects of villas and luxury residences: partner with P&A Vision, a Crestron, Loxone and Lutron integrator in the Czech Republic. Technical support from concept to handover."
+		},
+		"heading": "Your Design, Fully Integrated. A Technical Partner for Villa and Luxury Residence Architects.",
+		"subheading": "We work with architects from the early concept stage so lighting, shading, audio/video and climate control are planned into the design instead of added on top of it.",
+
+		"faqs": [
+			{
+				"q": "When should an architect involve a smart home integrator?",
+				"a": "Ideally at the concept or feasibility stage. Niches for shading, cable routes, the technical room and ceiling void depths can then be built into the design, which avoids costly changes on site and keeps your design intent intact."
+			},
+			{
+				"q": "What drawings do you need for a first proposal?",
+				"a": "Floor plans, sections, your interior concept and the client's wishes for how the home should be controlled are enough to start. We accept PDF, DWG or BIM, and we can begin from an early-stage concept."
+			},
+			{
+				"q": "Do you work with BIM and DWG files?",
+				"a": "Yes. We add the system design, cable routes, control point locations and technical room layout to your drawings, so everything stays consistent with your project."
+			},
+			{
+				"q": "Can you coordinate with our interior designer?",
+				"a": "Yes. We coordinate the placement of keypads, speakers, screens and light fittings with you and the interior designer, so the technology fits the overall design."
+			},
+			{
+				"q": "Can the technology be hidden so it doesn't affect the interior?",
+				"a": "Yes. We use concealed in-ceiling speakers, hidden screens and projection, integrated shading and lighting with no visible hardware. The key is planning them early, ideally at the design stage."
+			},
+			{
+				"q": "Crestron, Loxone or Lutron: what should we recommend to the client?",
+				"a": "Crestron suits large, demanding villas that need maximum customization. Lutron excels at premium lighting and shading control. Loxone is a cost-efficient choice for small to mid-size homes. We help you choose based on the project scale, budget and the client's requirements."
+			},
+			{
+				"q": "Do you provide documentation, testing and handover?",
+				"a": "Yes. We deliver technical documentation, material lists, inspection reports per Czech standards (ČSN) and full handover documentation. We also test and commission the system and train the client before handover."
+			},
+			{
+				"q": "Who services the system after handover?",
+				"a": "We do. We offer warranty and post-warranty service, remote management and technical support, so your client always has a single point of contact."
+			},
+			{
+				"q": "Do you work outside the Czech Republic?",
+				"a": "Yes. We work across the Czech Republic, throughout the EU and beyond, on villas, luxury residences and commercial projects. Send us your project details and we will confirm how we can support it."
+			}
+		],
+
+		"exploreBtn": "Explore Architect Collaboration",
+
+		"section1": {
+			"heading": "Why architects partner with an integrator early",
+			"list": [
+				"Niches for shades and curtain tracks missing from the walls",
+				"Cable routes and conduits not planned, so hidden solutions become impossible",
+				"No dedicated rack or technical room",
+				"Ceiling voids too shallow for in-ceiling speakers and lighting drivers",
+				"Keypads and panels placed randomly, breaking the interior composition",
+				"Clients asking for \"smart\" features late, when changes are expensive"
+			],
+			"txt1": "We solve these on paper, before they become site problems."
+		},
+
+		"section2": {
+			"heading": "How we work with your studio",
+			"list": [
+				"Concept-stage consultation: we review your concept and advise on what to allow for in the design.",
+				"Technical input: system architecture, cable plans and markups on your DWG/PDF/BIM drawings.",
+				"Interior alignment: we coordinate keypad, speaker and screen placement with you and the interior designer.",
+				"Trade coordination: we work with electrical, HVAC, IT and shading contractors so your design intent is preserved on site.",
+				"You stay the lead: we adapt to your design language and don't impose our own."
+			]
+		},
+
+		"section3": {
+			"heading": "What we bring to your projects",
+			"list": [
+				"15+ years of international experience in smart homes, high-end AV and building automation",
+				"Premium platforms: Crestron, Crestron Home, Loxone, Lutron",
+				"Complete scope from a single team: design, programming, commissioning, handover and service",
+				"Documentation, revisions per Czech standards (ČSN) and handover documentation (confirm this applies to villa projects)",
+				"Projects in the Czech Republic and across the EU"
+			]
+		},
+
+		"section4": {
+			"heading": "Technologies that respect your design",
+			"list": [
+				"Lighting: architectural scenes, DALI, dimming without visible hardware",
+				"Audio: concealed and in-ceiling speakers",
+				"Video: home cinema, hidden screens and projection",
+				"Shading: motorized blinds and curtains integrated into the architecture",
+				"Climate: zoned heating and cooling",
+				"Security and access: cameras, locks, gates",
+				"Network: infrastructure behind it all (Ubiquiti, MikroTik, Cisco)"
+			]
+		},
+
+		"section5": {
+			"heading": "Choosing the right platform for your client",
+			"bestFor": "Best for",
+			"scale": "Scale",
+			"customization": "Customization",
+			"crestronBestFor": "Large, demanding villas and full custom control",
+			"lutronBestFor": "Premium lighting and shading control",
+			"loxoneBestFor": "Cost-efficient smart homes",
+			"crestronScale": "Very large, dozens of zones",
+			"lutronScale": "Lighting-focused",
+			"loxoneScale": "Small to mid-size",
+			"crestronCustomization": "Highest",
+			"lutronCustomization": "High for lighting",
+			"loxoneCustomization": "Moderate"
+		},
+
+		"section6": {
+			"heading": "Typical villa scenarios we support",
+			"list": [
+				"Multi-zone villa with lighting scenes across the whole house",
+				"Home cinema and media room",
+				"Pool terrace and outdoor areas",
+				"Guest house or annex on the same system",
+				"Technical room and rack planning"
+			]
+		},
+		"section7": {
+			"heading": "Cooperation process",
+			"list": [
+				"Intro call about your current or upcoming project",
+				"You share drawings (PDF, DWG, BIM)",
+				"We prepare a technical concept and drawing markups",
+				"Joint review with you and the interior designer",
+				"Coordination during construction",
+				"Programming, commissioning and handover",
+				"Ongoing service and support"
+			]
+		},
+		"section8": {
+			"heading": "What we need from you / what you get",
+			"list": [
+				"You send: floor plans, sections, interior concept, client requirements",
+				"You get: system concept, drawing markups, material list, budget estimate, schedule input"
 			]
 		}
 	},

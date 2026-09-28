@@ -3,6 +3,7 @@
 		"home": "Úvod",
 		"aboutUs": "O nás",
 		"forDevs": "Pro developery",
+		"forArchitects": "Pro architekty",
 		"products": "Produkty",
 		"contacts": "Kontakty",
 		"bookAConsultation": "Domluvit schůzku"
@@ -219,6 +220,156 @@
 				"Připravíme technický návrh systému Crestron a cenovou nabídku.",
 				"Zajistíme kompletní realizaci a koordinaci instalace.",
 				"Provedeme konfiguraci, zaškolení uživatelů a zajistíme dlouhodobý servis."
+			]
+		}
+	},
+
+	"forArchitects": {
+		"meta": {
+			"title": "Chytrá domácnost pro architekty vil a rezidencí",
+			"description": "Spolupráce s architekty vil a luxusních rezidencí. P&A Vision, integrátor Crestron, Loxone a Lutron v ČR: technická podpora od konceptu po předání."
+		},
+		"heading": "Váš návrh, dokonale propojený. Technický partner pro architekty vil a luxusních rezidencí.",
+		"subheading": "Spolupracujeme s architekty od raného konceptu, aby bylo osvětlení, stínění, audio/video i řízení klimatu součástí návrhu, a ne dodatečným zásahem do něj.",
+
+		"faqs": [
+			{
+				"q": "Kdy má architekt oslovit integrátora chytré domácnosti?",
+				"a": "Ideálně už ve fázi konceptu nebo studie. Výklenky pro stínění, trasy kabeláže, technická místnost i výška podhledů se pak zohlední přímo v návrhu a vyhnete se nákladným dodatečným úpravám na stavbě."
+			},
+			{
+				"q": "Jaké podklady potřebujete pro první technický návrh?",
+				"a": "Stačí půdorysy, řezy, koncept interiéru a představy klienta o ovládání domu. Podklady přijímáme ve formátu PDF, DWG nebo BIM."
+			},
+			{
+				"q": "Pracujete s podklady ve formátu DWG a BIM?",
+				"a": "Ano. Do vašich výkresů zapracujeme návrh systému, trasy kabeláže, umístění ovládacích prvků a technické místnosti, aby vše zůstalo v souladu s vaším projektem."
+			},
+			{
+				"q": "Dokážete spolupracovat s interiérovým designérem?",
+				"a": "Ano. Umístění ovládacích panelů, reproduktorů, obrazovek a svítidel koordinujeme společně s vámi i s interiérovým designérem, aby technologie ladily s celkovým designem."
+			},
+			{
+				"q": "Lze technologie ukrýt tak, aby nenarušily interiér?",
+				"a": "Ano. Používáme zápustné stropní reproduktory, skrytá plátna a projekci, integrované stínění a osvětlení bez viditelných prvků. Klíčové je plánovat je včas, ideálně už v projektu."
+			},
+			{
+				"q": "Crestron, Loxone nebo Lutron: co doporučit klientovi pro vilu?",
+				"a": "Crestron je vhodný pro rozsáhlé, náročné vily s maximální mírou přizpůsobení. Lutron vyniká v prémiovém řízení osvětlení a stínění. Loxone nabízí cenově efektivní řešení pro menší a střední domy. Vhodnou platformu vybereme podle rozsahu projektu, rozpočtu i požadavků klienta."
+			},
+			{
+				"q": "Zajišťujete dokumentaci, revize a předání systému?",
+				"a": "Ano. Dodáváme technické podklady, výkazy materiálu, revizní zprávy dle ČSN i kompletní předávací dokumentaci a koordinujeme se stavbou, profesemi TZB a IT."
+			},
+			{
+				"q": "Kdo systém po předání spravuje a servisuje?",
+				"a": "O systém se po předání staráme my. Nabízíme záruční i pozáruční servis, vzdálenou správu a technickou podporu, takže se váš klient má na koho obrátit."
+			},
+			{
+				"q": "Koordinujete práce s ostatními profesemi na stavbě?",
+				"a": "Ano. Pracujeme po etapách souběžně se stavbou a koordinujeme se elektrikáři, techniky TZB, IT a dodavateli stínění, aby byl váš návrh na místě realizován tak, jak byl zamýšlen."
+			},
+			{
+				"q": "Kde působíte?",
+				"a": "Působíme po celé České republice i v rámci EU, a to na projektech vil, luxusních rezidencí i komerčních staveb."
+			}
+		],
+
+		"exploreBtn": "Prozkoumat spolupráci s architekty",
+
+		"section1": {
+			"heading": "Proč zapojit integrátora chytré domácnosti už ve fázi návrhu",
+			"list": [
+				"Chybějící výklenky pro žaluzie, rolety a kolejnice závěsů",
+				"Nenaplánované trasy kabeláže a chráničky, takže skrytá řešení už nejsou možná",
+				"Žádná vyhrazená technická místnost pro rozvaděče a racky",
+				"Příliš malý prostor v podhledech pro zápustné reproduktory a zdroje osvětlení",
+				"Ovládací panely a vypínače rozmístěné nahodile, což narušuje kompozici interiéru",
+				"Klient požaduje „chytré“ funkce pozdě, kdy jsou změny drahé"
+			],
+			"txt1": "Tyto věci řešíme na papíře, dříve než se z nich stanou problémy na stavbě."
+		},
+
+		"section2": {
+			"heading": "Jak spolupracujeme s vaším ateliérem",
+			"list": [
+				"Konzultace už ve fázi konceptu: projdeme váš návrh a poradíme, s čím počítat v projektu.",
+				"Technické podklady: návrh architektury systému, plán kabeláže a připomínky přímo do vašich výkresů DWG, PDF nebo BIM.",
+				"Soulad s interiérem: umístění ovládacích panelů, reproduktorů a obrazovek koordinujeme s vámi i s interiérovým designérem.",
+				"Koordinace profesí: spolupracujeme s elektrikáři, techniky TZB, IT a dodavateli stínění, aby byl váš záměr zachován i na stavbě.",
+				"Vy zůstáváte vedoucím projektu: přizpůsobujeme se vašemu designovému jazyku, nevnucujeme vlastní."
+			]
+		},
+
+		"section3": {
+			"heading": "Co přinášíme do vašich projektů",
+			"list": [
+				"Více než 15 let mezinárodních zkušeností s chytrými domy, špičkovým AV a automatizací budov",
+				"Prémiové platformy: Crestron, Crestron Home, Loxone, Lutron",
+				"Kompletní rozsah od jednoho týmu: návrh, programování, uvedení do provozu, předání i servis",
+				"Dokumentace, revize dle ČSN a kompletní předávací dokumentace",
+				"Projekty v České republice i v rámci EU"
+			]
+		},
+
+		"section4": {
+			"heading": "Technologie, které respektují váš design",
+			"list": [
+				"Osvětlení: architektonické scény, DALI, stmívání bez viditelných prvků",
+				"Audio: skryté a zápustné stropní reproduktory",
+				"Video: domácí kino, skrytá plátna a projekce",
+				"Stínění: motorizované žaluzie a závěsy integrované do architektury",
+				"Klimatizace a vytápění: řízení po zónách",
+				"Zabezpečení a přístupové systémy: kamery, zámky, brány",
+				"Síťová infrastruktura: zázemí celého systému (Ubiquiti, MikroTik, Cisco)"
+			]
+		},
+
+		"section5": {
+			"heading": "Jak vybrat správnou platformu pro vašeho klienta",
+			"bestFor": "Nejvhodnější pro",
+			"scale": "Rozsah",
+			"customization": "Možnosti přizpůsobení",
+			"crestronBestFor": "Rozsáhlé, náročné vily a plně individuální ovládání",
+			"lutronBestFor": "Prémiové řízení osvětlení a stínění",
+			"loxoneBestFor": "Cenově efektivní chytré domy",
+			"crestronScale": "Velmi rozsáhlé instalace, desítky zón",
+			"lutronScale": "Zaměřeno na osvětlení",
+			"loxoneScale": "Malé až střední domy",
+			"crestronCustomization": "Nejvyšší",
+			"lutronCustomization": "Vysoká u osvětlení",
+			"loxoneCustomization": "Střední"
+		},
+
+		"section6": {
+			"heading": "Typické scénáře, které pro vily a rezidence řešíme",
+			"list": [
+				"Vícezónová vila se světelnými scénami v celém domě",
+				"Domácí kino a mediální místnost",
+				"Terasa u bazénu a venkovní prostory",
+				"Hostinský dům nebo přístavba na jednom systému",
+				"Plánování technické místnosti a rozvaděčů"
+			]
+		},
+
+		"section7": {
+			"heading": "Jak spolupráce probíhá",
+			"list": [
+				"Úvodní hovor o vašem současném nebo připravovaném projektu",
+				"Zašlete nám podklady (PDF, DWG, BIM)",
+				"Připravíme technický koncept a připomínky do výkresů",
+				"Společná konzultace s vámi a interiérovým designérem",
+				"Koordinace během výstavby",
+				"Programování, uvedení do provozu a předání",
+				"Dlouhodobý servis a podpora"
+			]
+		},
+
+		"section8": {
+			"heading": "Co potřebujeme od vás a co získáte",
+			"list": [
+				"Vy nám zašlete: půdorysy, řezy, koncept interiéru a požadavky klienta",
+				"Vy získáte: koncept systému, připomínky do výkresů, výkaz materiálu, orientační rozpočet a podklady pro harmonogram"
 			]
 		}
 	},

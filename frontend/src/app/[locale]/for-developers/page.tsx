@@ -119,8 +119,8 @@ export default async function ForDevs({
 				</ul>
 			</section>
 			<References />
-			<Brands />
 			<Faqs faqs={"forDevs.faqs"} />
+			<Brands />
 		</main>
 	);
 }

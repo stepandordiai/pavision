@@ -12,6 +12,10 @@
 		"path": "/for-developers"
 	},
 	{
+		"label": "nav.forArchitects",
+		"path": "/for-architects"
+	},
+	{
 		"label": "nav.products",
 		"path": "/products"
 	},
