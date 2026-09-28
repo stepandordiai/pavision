@@ -19,8 +19,20 @@
 	"hero": {
 		"title": "Quality, design, and technology in perfect balance.",
 		"subtitle": "We specialize in electrical installations, network infrastructure, home automation, and audio/video systems.",
-		"scroll": "Scroll down to explore",
-		"findOutMore": "Find out more"
+		"ourSolutions": "Our Solutions",
+		"livingRoom": "Living Room",
+		"lightingScenes": "Lighting scenes",
+		"relax": "Relax",
+		"bright": "Bright",
+		"cinema": "Cinema",
+		"roomControls": "Room controls",
+		"cellingLight": "Celling light",
+		"shelfLight": "Shelf light",
+		"shades": "Shades",
+		"on": "On",
+		"off": "Off",
+		"opened": "Opened",
+		"closed": "Closed"
 	},
 
 	"programmingServices": {

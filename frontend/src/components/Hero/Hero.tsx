@@ -10,8 +10,6 @@ export default async function Hero() {
 
 	return (
 		<section className="hero">
-			<div className="hero-curtain"></div>
-
 			<div className="hero__room">
 				<RoomAutomation />
 			</div>
@@ -32,7 +30,7 @@ export default async function Hero() {
 					}}
 				>
 					<Link href="/#our-solutions" className="hero-sec-btn">
-						Our Solutions
+						{t("hero.ourSolutions")}
 					</Link>
 					<TransitionLink href="/appointment" className="hero-btn">
 						<span>{t("nav.bookAConsultation")}</span>

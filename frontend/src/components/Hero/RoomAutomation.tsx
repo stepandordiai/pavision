@@ -1,8 +1,9 @@
 "use client";
+
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
+import TemperatureHalfIcon from "../icons/TemperatureHalfIcon";
 import styles from "./RoomAutomation.module.scss";
-import TvIcon from "../icons/TvIcon";
-import LightbulbIcon from "../icons/LightbulbIcon";
 
 type Scene = "relax" | "bright" | "cinema";
 
@@ -72,9 +73,9 @@ const SCENE_META: Record<
 	Scene,
 	{ label: string; color: string; dot: string; bg: string }
 > = {
-	relax: { label: "Relax", color: "#854f0b", dot: "#ba7517", bg: "#faeeda" },
-	bright: { label: "Bright", color: "#0c447c", dot: "#185fa5", bg: "#e6f1fb" },
-	cinema: { label: "Cinema", color: "#3c3489", dot: "#534ab7", bg: "#eeedfe" },
+	relax: { label: "relax", color: "#854f0b", dot: "#ba7517", bg: "#faeeda" },
+	bright: { label: "bright", color: "#0c447c", dot: "#185fa5", bg: "#e6f1fb" },
+	cinema: { label: "cinema", color: "#3c3489", dot: "#534ab7", bg: "#eeedfe" },
 };
 
 const W = 480,
@@ -1738,6 +1739,8 @@ function drawRoom(
 }
 
 export default function RoomAutomation() {
+	const t = useTranslations("hero");
+
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const [scene, setScene] = useState<Scene>("relax");
 	const [tvOn, setTvOn] = useState(false);
@@ -1934,14 +1937,34 @@ export default function RoomAutomation() {
 							fontWeight: 500,
 						}}
 					>
-						<p>Living Room</p>
-						<p>
-							{formattedHours}
-							<span className={styles["panel-time-colon"]}>:</span>
-							{formattedMinutes} {period}
-						</p>
+						<p>{t("livingRoom")}</p>
+						<div
+							style={{
+								display: "flex",
+								flexDirection: "column",
+								gap: "5px",
+							}}
+						>
+							<p style={{ textAlign: "right" }}>
+								{formattedHours}
+								<span className={styles["panel-time-colon"]}>:</span>
+								{formattedMinutes} {period}
+							</p>
+							<p
+								style={{
+									display: "flex",
+									justifyContent: "center",
+									alignItems: "center",
+								}}
+							>
+								<span>
+									<TemperatureHalfIcon size={20} />
+								</span>
+								<span>21.5°C</span>
+							</p>
+						</div>
 					</div>
-					<p style={{ marginBottom: "5px" }}>Scenes</p>
+					<p style={{ marginBottom: "5px" }}>{t("lightingScenes")}</p>
 					<div className={styles.sbns}>
 						{(Object.keys(SCENE_META) as Scene[]).map((sk) => (
 							<button
@@ -1957,73 +1980,60 @@ export default function RoomAutomation() {
 								aria-busy={transitioning}
 								onClick={() => handleScene(sk)}
 							>
-								<span
-									className={styles.dot}
-									style={{ background: SCENE_META[sk].dot }}
-								/>
-								{SCENE_META[sk].label}
+								{t(SCENE_META[sk].label)}
 							</button>
 						))}
 					</div>
 				</div>
-				<div
-					style={{
-						display: "flex",
-						flexWrap: "wrap",
-						gap: "5px",
-					}}
-				>
-					<button
+				<div>
+					<p style={{ marginBottom: "5px" }}>{t("roomControls")}</p>
+					<div
 						style={{
 							display: "flex",
-							flexDirection: "column",
-							flex: "1",
+							flexWrap: "wrap",
+							gap: "5px",
 						}}
-						onClick={() => setCeilOn((prev) => !prev)}
-						className={`btn ${ceilOn ? "btn--active" : ""}`}
-						type="button"
-						disabled={transitioning}
 					>
-						<LightbulbIcon />
-						<span>{ceilOn ? "On" : "Off"}</span>
-					</button>
-					<button
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							flex: "1",
-							whiteSpace: "nowrap",
-						}}
-						type="button"
-						onClick={() => setShelfOn((prev) => !prev)}
-						className={`btn ${shelfOn ? "btn--active" : ""}`}
-						disabled={transitioning}
-					>
-						<span>Shelf Light</span>
-						<span>{shelfOn ? "On" : "Off"}</span>
-					</button>
-					<button
-						style={{ display: "flex", flexDirection: "column", flex: "1" }}
-						className={`btn ${tvOn ? "btn--active" : ""}`}
-						onClick={() => setTvOn((prev) => !prev)}
-						type="button"
-						disabled={transitioning}
-					>
-						<TvIcon />
-						<span>{tvOn ? "On" : "Off"}</span>
-					</button>
-					<button
-						style={{ display: "flex", flexDirection: "column", flex: "1" }}
-						className={`btn ${closed ? "btn--active" : ""}`}
-						onClick={() => setClosed((prev) => !prev)}
-						type="button"
-						disabled={transitioning}
-					>
-						<span>Shades</span>
-						<span>{closed ? "Closed" : "Opened"}</span>
-					</button>
+						<button
+							onClick={() => setCeilOn((prev) => !prev)}
+							className={`${styles.btn} ${ceilOn ? styles["btn--active"] : ""}`}
+							type="button"
+							disabled={transitioning}
+						>
+							<p>{t("cellingLight")}</p>
+							<span>{ceilOn ? t("on") : t("off")}</span>
+						</button>
+						<button
+							type="button"
+							onClick={() => setShelfOn((prev) => !prev)}
+							className={`${styles.btn} ${shelfOn ? styles["btn--active"] : ""}`}
+							disabled={transitioning}
+						>
+							<p>{t("shelfLight")}</p>
+							<span>{shelfOn ? t("on") : t("off")}</span>
+						</button>
+						<button
+							className={`${styles.btn} ${tvOn ? styles["btn--active"] : ""}`}
+							onClick={() => setTvOn((prev) => !prev)}
+							type="button"
+							disabled={transitioning}
+						>
+							<p>TV</p>
+							<span>{tvOn ? t("on") : t("off")}</span>
+						</button>
+						<button
+							className={`${styles.btn} ${closed ? styles["btn--active"] : ""}`}
+							onClick={() => setClosed((prev) => !prev)}
+							type="button"
+							disabled={transitioning}
+						>
+							<p>{t("shades")}</p>
+							<span>{closed ? t("closed") : t("opened")}</span>
+						</button>
+					</div>
 				</div>
 			</div>
+			<div className="hero-curtain"></div>
 		</div>
 	);
 }

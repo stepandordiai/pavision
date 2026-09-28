@@ -15,8 +15,20 @@
 	"hero": {
 		"title": "Kvalita, design a technologie v dokonalé rovnováze.",
 		"subtitle": "Zdůrazníme elektroinstalace, síťovou infrastrukturu, domácí automatizaci a audio/video systémy.",
-		"scroll": "Posuňte dolů a objevte",
-		"findOutMore": "Zjistit více"
+		"ourSolutions": "Naše řešení",
+		"livingRoom": "Obývací pokoj",
+		"lightingScenes": "Světelné scény",
+		"relax": "Relax",
+		"bright": "Jasně",
+		"cinema": "Kino",
+		"roomControls": "Ovládání místnosti",
+		"cellingLight": "Stropní světlo",
+		"shelfLight": "Osvětlení police",
+		"shades": "Stínění",
+		"on": "Zapnuto",
+		"off": "Vypnuto",
+		"opened": "Otevřeno",
+		"closed": "Zavřeno"
 	},
 
 	"programmingServices": {
