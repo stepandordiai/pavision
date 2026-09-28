@@ -4,6 +4,8 @@ import createNextIntlPlugin from "next-intl/plugin";
 const nextConfig: NextConfig = {
 	/* config options here */
 	// TODO: learn this
+	allowedDevOrigins: ["192.168.0.104"],
+	// FIXME:
 	images: {
 		remotePatterns: [
 			{

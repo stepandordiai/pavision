@@ -74,6 +74,10 @@
 	color: #fff;
 	transition: all 0.15s;
 
+	&:active {
+		scale: 0.9;
+	}
+
 	&.on {
 		color: #000;
 		background: #fff;
@@ -88,7 +92,7 @@
 
 .tl {
 	font-size: 13px;
-	color: #ffffff;
+	color: #fff;
 	margin-right: 5px;
 }
 
@@ -154,6 +158,11 @@
 	border-radius: 10px;
 	flex: 1;
 	min-width: 120px;
+	transition: all 0.15s;
+
+	&:active {
+		scale: 0.9;
+	}
 
 	&--active {
 		background: #fff;

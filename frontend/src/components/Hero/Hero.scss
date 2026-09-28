@@ -6,7 +6,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-height: 100svh;
 
 	&__room {
 		position: absolute;
@@ -17,8 +16,8 @@
 }
 
 .hero__title {
-	font-size: clamp(2rem, 4vw, 3rem);
-	font-weight: 600;
+	font-size: clamp(2rem, 6vw, 5rem);
+	font-weight: 700;
 	opacity: 0;
 	animation: animateHeader 1s forwards;
 	text-align: center;
@@ -26,9 +25,11 @@
 
 .hero__desc {
 	font-size: 1.125rem;
+	font-weight: 500;
 	opacity: 0;
 	animation: animateHeader 1s forwards;
 	text-align: center;
+	margin-top: 100px;
 }
 
 .hero-curtain {
@@ -43,13 +44,12 @@
 
 .hero-container {
 	position: relative;
-	z-index: 10;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
 	gap: 10px;
-	padding-bottom: 100px;
+	margin-bottom: 100px;
 }
 
 .animation {
@@ -135,20 +135,9 @@
 	}
 }
 
-@media screen and (width < 1300px) {
-	.hero-container {
-		margin-top: 200px;
-	}
-}
-
 @media screen and (width < 768px) {
 	.hero {
-		flex-direction: row;
-	}
-
-	.hero-technologies {
-		flex-direction: column;
-		flex-shrink: 0;
+		align-items: flex-start;
 	}
 }
 
