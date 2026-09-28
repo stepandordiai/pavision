@@ -125,9 +125,9 @@ const Header = () => {
 							gap: 20,
 						}}
 					>
-						<TransitionLink href={user ? "/my-profile" : "/login"}>
+						{/* <TransitionLink href={user ? "/my-profile" : "/login"}>
 							{user ? <PersonFillIcon size={32} /> : <PersonIcon size={32} />}
-						</TransitionLink>
+						</TransitionLink> */}
 						<Lng />
 						<TransitionLink
 							className={`header-nav__link header__link ${pathname === "/appointment" ? "header-nav__link--active" : ""}`}
