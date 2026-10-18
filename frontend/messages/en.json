@@ -42,8 +42,8 @@
 
 	"home": {
 		"meta": {
-			"title": "Luxury Smart Homes, Automation & Modern Technology",
-			"desc": "We design and deliver smart home solutions, audio & video systems, and custom automation. Enhance comfort, security, and energy efficiency in your home."
+			"title": "Smart Home & AV Integrator | Crestron, Loxone | P&A Vision",
+			"desc": "Smart home, lighting, audio/video and network installation across the Czech Republic and EU. Crestron, Loxone and Lutron integrator. Book a consultation."
 		},
 
 		"whatWeDoTitle": "What We Do",
@@ -88,15 +88,15 @@
 
 	"products": {
 		"meta": {
-			"title": "Smart Home Products & Automation | Innovative Living Solutions",
-			"description": "Explore advanced smart home products and automation systems. Control lighting, security, climate, and more with intelligent solutions designed for modern living."
+			"title": "Crestron Touch Panels & Program Modules",
+			"description": "Crestron touch panels, control hardware and ready-made program modules for smart home projects. Supplied and programmed by a Crestron integrator."
 		}
 	},
 
 	"lighting": {
 		"meta": {
-			"title": "Smart Lighting Systems, Automation & Control",
-			"description": "Discover advanced smart lighting solutions with automated control, custom lighting scenes, energy-efficient automation, and seamless smart home integration for modern homes across Europe."
+			"title": "Smart Lighting Control | Scenes & DALI",
+			"description": "Smart lighting for villas and homes: lighting scenes, dimming, presence and daylight automation. Crestron, Lutron, Loxone and DALI. Book a consultation."
 		},
 		"heading": "Lighting",
 		"title": "Smart Home Lighting Solutions",
@@ -105,8 +105,8 @@
 
 	"homeAccess": {
 		"meta": {
-			"title": "Smart Home Access Control, Smart Locks & Automation",
-			"description": "Advanced smart home access control systems, keyless entry, smart locks, and integrated automation. Secure, manage, and monitor access remotely with seamless smart home integration."
+			"title": "Smart Locks & Access Control for Villas",
+			"description": "Smart locks, keyless entry, video intercoms and gate control integrated with your smart home. Remote access from your phone. Design and installation."
 		},
 		"heading": "Home Access",
 		"title": "Smart Home Access Solutions",
@@ -115,8 +115,8 @@
 
 	"video": {
 		"meta": {
-			"title": "Smart Home Cinema, Video & Entertainment Systems",
-			"description": "Premium home cinema, smart TV, multi-room video, and integrated entertainment systems. Experience seamless control, immersive viewing, and smart home integration."
+			"title": "Home Cinema & Multiroom Video | Crestron",
+			"description": "Design and installation of home cinemas, projection and smart TVs with video distribution to multiple rooms. One control for the whole house, Crestron."
 		},
 		"heading": "Cinema",
 		"title": "Smart Home Video & Cinema Systems",
@@ -125,8 +125,8 @@
 
 	"audio": {
 		"meta": {
-			"title": "Smart Home Audio Systems & Multi-Room Sound",
-			"desc": "Premium smart home audio systems, multi-room sound, and integrated music solutions. Enjoy seamless control, immersive listening, and high-fidelity audio throughout your home."
+			"title": "Multiroom Audio & Home Sound Systems",
+			"description": "Multiroom audio, Hi-Fi and in-ceiling speakers for villas and homes. Sonos, Denon, Marantz, Bowers & Wilkins. Design and installation."
 		},
 		"heading": "Audio",
 		"title": "Smart Home Audio & Multi-Room Sound Systems",
@@ -135,8 +135,8 @@
 
 	"shades": {
 		"meta": {
-			"title": "Smart Shades & Motorized Blinds",
-			"description": "Luxury smart shades and motorized blinds with automated privacy, light control, and seamless smart home integration."
+			"title": "Motorized Blinds & Smart Shades for Villas",
+			"description": "Smart shading for villas and homes: motorized blinds, roller shades and awnings in one system with lighting and climate. Design and installation."
 		},
 		"heading": "Shades",
 		"title": "Smart Shades & Blinds",
@@ -145,8 +145,8 @@
 
 	"thermostat": {
 		"meta": {
-			"title": "Luxury Smart Climate Control | Intelligent Thermostat Systems",
-			"description": "Experience perfect indoor comfort with advanced smart thermostat solutions. Control temperature, reduce energy costs, and automate your home effortlessly."
+			"title": "Smart Climate Control | Heating & Thermostats",
+			"description": "Smart heating, cooling and ventilation control room by room. Thermostats, schedules and phone control in one system with Crestron or Loxone."
 		},
 		"heading": "Thermostat",
 		"title": "Smart Climate Control Solutions",
@@ -155,8 +155,8 @@
 
 	"security": {
 		"meta": {
-			"title": "Smart Home Security Automation | Intelligent Protection",
-			"description": "Enhance your home security with smart automation systems. Monitor, control, and protect your home with real-time alerts, sensors, and intelligent integrations."
+			"title": "Smart Home Security | Alarms & Cameras",
+			"description": "Home security for villas and homes: Jablotron, Paradox and Risco alarms, Ubiquiti cameras and access control in one system. Design and installation."
 		},
 		"heading": "Security",
 		"title": "Smart Security Automation",
@@ -165,8 +165,8 @@
 
 	"aboutUs": {
 		"meta": {
-			"title": "About Us | Smart Home Experts & Automation Specialists",
-			"desc": "Learn more about our team of smart home specialists. We design and deliver innovative automation solutions tailored to your lifestyle and needs."
+			"title": "About Us | Crestron & Loxone Smart Home Experts",
+			"desc": "Meet P&A Vision: smart home programmers with 15+ years of international experience in Crestron, Loxone and Lutron. Based in Kladno, serving the EU."
 		},
 
 		"title": "About us",
@@ -190,8 +190,8 @@
 
 	"forDevs": {
 		"meta": {
-			"title": "Smart Home Automation for Property Developers",
-			"description": "Chytrá domácnost a automatizace pro developerské projekty a bytové domy. Snižujeme náklady na realizaci, zvyšujeme prodejní hodnotu bytů. Loxone, Crestron, Lutron — návrh, realizace, revize i servis."
+			"title": "Smart Home for Developers & Apartment Buildings",
+			"description": "Smart home automation for developers and apartment buildings. Lower build costs, raise unit value. Loxone, Crestron, Lutron: design to handover."
 		},
 		"heading": "Smart automation for property developers",
 		"subheading": "vyšší prodejní cena bytů · nižší náklady na realizaci · rychlejší prodej.",
@@ -311,8 +311,8 @@
 
 	"forArchitects": {
 		"meta": {
-			"title": "Smart Home Partner for Architects | Villas & Luxury Homes",
-			"description": "Architects of villas and luxury residences: partner with P&A Vision, a Crestron, Loxone and Lutron integrator in the Czech Republic. Technical support from concept to handover."
+			"title": "Smart Home Partner for Architects | Villas",
+			"description": "Architects of villas and luxury homes: partner with P&A Vision, Crestron, Loxone and Lutron integrator. Support from concept to handover across the EU."
 		},
 		"heading": "Your Design, Fully Integrated. A Technical Partner for Villa and Luxury Residence Architects.",
 		"subheading": "We work with architects from the early concept stage so lighting, shading, audio/video and climate control are planned into the design instead of added on top of it.",
@@ -455,8 +455,8 @@
 
 	"loxoneSmartHome": {
 		"meta": {
-			"title": "Loxone Smart Home Installation & Automation",
-			"desc": "Certified Loxone Partner delivering smart home automation — lighting, climate, security, audio & energy management with intelligent whole-home control."
+			"title": "Loxone Smart Home Installer | Czech Republic",
+			"description": "Loxone partner across the Czech Republic: design, installation, programming and support. Lighting, heating, shading, security and solar in one system."
 		},
 
 		"faqs": [
@@ -485,10 +485,9 @@
 
 	"crestronIntegration": {
 		"meta": {
-			"title": "Crestron Automation & Custom Control System Integration",
-			"description": "Professional Crestron integration for luxury homes and buildings — custom touch panel graphics, lighting, home cinema, climate, security & whole-property automation."
+			"title": "Crestron Integrator in Czechia | Smart Home",
+			"description": "Crestron integrator for villas and luxury homes: design, installation, programming and service. Lighting, AV, shading, climate, security in one system."
 		},
-
 		"heading": "Crestron Home Automation & Smart Living",
 		"subheading": "Experience complete control of your home through one intelligent platform. Crestron seamlessly integrates lighting, climate, security, entertainment, shading, and access control into a single luxury smart home experience.",
 		"heroSecondaryBtn": "Explore Crestron Solutions",
@@ -719,10 +718,9 @@
 	},
 	"contacts": {
 		"meta": {
-			"title": "Contact Us",
-			"desc": "Ready to upgrade your home? Contact P&A Vision for smart home automation, audio-video systems, and tailored technology solutions."
+			"title": "Contact | Free Smart Home Consultation",
+			"description": "Contact P&A Vision in Kladno: your first smart home, AV and automation consultation is free. Call or write, we reply within 12 hours."
 		},
-
 		"title": "Contact form",
 		"name": "Name",
 		"tel": "Phone number",
@@ -735,5 +733,12 @@
 
 	"faqs": {
 		"heading": "FAQ's"
+	},
+
+	"appointment": {
+		"meta": {
+			"title": "Book a Meeting | Free Smart Home Consultation",
+			"description": "Book a non-binding smart home and AV consultation. Pick a time in the calendar; your first consultation is free. Crestron, Loxone, Lutron."
+		}
 	}
 }

@@ -38,8 +38,8 @@
 
 	"home": {
 		"meta": {
-			"title": "Luxusní chytré domy, automatizace a moderní technologie",
-			"desc": "Navrhujeme a realizujeme chytré domácnosti, audio & video systémy a automatizaci na míru. Zvyšte komfort, bezpečnost i úsporu energie ve svém domově."
+			"title": "Chytrá domácnost | Crestron, Loxone, Lutron | P&A Vision",
+			"desc": "Návrh a instalace chytré domácnosti, osvětlení, audia/videa a sítí po celé ČR i v EU. Integrátor Crestron, Loxone a Lutron. Domluvte si konzultaci."
 		},
 
 		"whatWeDoTitle": "Co děláme",
@@ -85,15 +85,15 @@
 
 	"products": {
 		"meta": {
-			"title": "Produkty chytré domácnosti a automatizace | Inovativní řešení pro moderní bydlení",
-			"description": "Objevte pokročilé produkty chytré domácnosti a automatizační systémy. Ovládejte osvětlení, zabezpečení, klima a další prvky pomocí inteligentních řešení pro moderní život."
+			"title": "Crestron dotykové panely a programové moduly",
+			"description": "Crestron dotykové panely, řídicí hardware a hotové programové moduly pro chytrou domácnost. Dodáváme a programujeme jako integrátor Crestron."
 		}
 	},
 
 	"aboutUs": {
 		"meta": {
-			"title": "O nás | Odborníci na chytré domácnosti a automatizaci",
-			"desc": "Poznejte náš tým specialistů na chytré domácnosti. Navrhujeme a realizujeme inovativní automatizační řešení přizpůsobená vašemu životnímu stylu a potřebám."
+			"title": "O nás | Integrátor chytré domácnosti Crestron",
+			"desc": "Poznejte tým P&A Vision: programátoři chytrých domácností s více než 15 lety praxe z Velké Británie. Crestron, Loxone, Lutron. Kladno, působíme v celé EU."
 		},
 
 		"title": "O nás",
@@ -117,8 +117,8 @@
 
 	"forDevs": {
 		"meta": {
-			"title": "Chytré technologie pro developerské projekty",
-			"description": "Chytrá domácnost a automatizace pro developerské projekty a bytové domy. Snižujeme náklady na realizaci, zvyšujeme prodejní hodnotu bytů. Loxone, Crestron, Lutron — návrh, realizace, revize i servis."
+			"title": "Chytrá domácnost pro developery a bytové domy",
+			"description": "Chytrá domácnost a automatizace pro developery a bytové domy. Nižší náklady, vyšší hodnota bytů. Loxone, Crestron, Lutron: návrh, realizace, revize."
 		},
 		"heading": "Chytré technologie pro developerské projekty",
 		"subheading": "vyšší prodejní cena bytů · nižší náklady na realizaci · rychlejší prodej.",
@@ -239,7 +239,7 @@
 	"forArchitects": {
 		"meta": {
 			"title": "Chytrá domácnost pro architekty vil a rezidencí",
-			"description": "Spolupráce s architekty vil a luxusních rezidencí. P&A Vision, integrátor Crestron, Loxone a Lutron v ČR: technická podpora od konceptu po předání."
+			"description": "Architekti vil a rezidencí: spolupracujte s integrátorem Crestron, Loxone a Lutron. Technická podpora od konceptu po předání. Působíme v celé EU."
 		},
 		"heading": "Váš návrh, dokonale propojený. Technický partner pro architekty vil a luxusních rezidencí.",
 		"subheading": "Spolupracujeme s architekty od raného konceptu, aby bylo osvětlení, stínění, audio/video i řízení klimatu součástí návrhu, a ne dodatečným zásahem do něj.",
@@ -388,8 +388,8 @@
 
 	"loxoneSmartHome": {
 		"meta": {
-			"title": "Loxone chytrá domácnost – instalace a automatizace",
-			"description": "Certifikovaný Loxone partner – automatizace osvětlení, klimatizace, zabezpečení, audia a řízení energií pro chytrou domácnost na klíč."
+			"title": "Loxone chytrá domácnost | Instalace na klíč",
+			"description": "Loxone partner po celé ČR: návrh, instalace, programování a servis. Osvětlení, vytápění, stínění, zabezpečení i fotovoltaika v jednom systému."
 		},
 
 		"faqs": [
@@ -418,10 +418,9 @@
 
 	"crestronIntegration": {
 		"meta": {
-			"title": "Crestron automatizace a instalace chytrých systémů",
-			"description": "Profesionální integrace Crestron pro rezidenční i komerční objekty – vlastní grafika ovládacích panelů, osvětlení, domácí kino, klimatizace, zabezpečení a automatizace na klíč."
+			"title": "Crestron integrátor v ČR | Chytrá domácnost",
+			"description": "Crestron integrátor pro vily a rezidence: návrh, instalace, programování a servis. Osvětlení, AV, stínění, klimatizace a zabezpečení v jednom systému."
 		},
-
 		"heading": "Crestron – Chytrá domácnost a domácí automatizace",
 		"subheading": "Získejte úplnou kontrolu nad svým domovem prostřednictvím jedné inteligentní platformy. Crestron propojuje osvětlení, vytápění, chlazení, zabezpečení, multimédia, stínění i řízení vstupu do jednoho luxusního systému chytré domácnosti.",
 		"heroSecondaryBtn": "Prozkoumat řešení Crestron",
@@ -610,8 +609,8 @@
 
 	"lighting": {
 		"meta": {
-			"title": "Chytré osvětlení, řízení světel a automatizace",
-			"description": "Profesionální řešení chytrého osvětlení pro domácnosti. Inteligentní řízení světel, automatické scénáře, stmívání, dálkové ovládání a integrace do systému chytré domácnosti."
+			"title": "Chytré osvětlení | Řízení světel, DALI, scény",
+			"description": "Chytré osvětlení pro vily a domy: světelné scény, stmívání, automatika podle přítomnosti a denního světla. Crestron, Lutron, Loxone, DALI."
 		},
 		"heading": "Osvětlení",
 		"title": "Chytré osvětlení pro domácnost",
@@ -620,8 +619,8 @@
 
 	"homeAccess": {
 		"meta": {
-			"title": "Chytrý vstup do domu a automatizace přístupu",
-			"description": "Inteligentní systémy vstupu do domu, smart zámky a bezklíčový přístup propojený s chytrou domácností. Vyšší bezpečnost, pohodlí a kontrola na dosah ruky."
+			"title": "Chytré zámky a přístupové systémy pro dům",
+			"description": "Chytré zámky, bezklíčový vstup, videotelefony a ovládání bran propojené s chytrou domácností. Vzdálený přístup z telefonu. Návrh a instalace."
 		},
 		"heading": "Přístupové systémy",
 		"title": "Chytrá řešení pro přístup do domu",
@@ -630,8 +629,8 @@
 
 	"video": {
 		"meta": {
-			"title": "Domácí kino, chytré TV a multimediální systémy",
-			"description": "Prémiová řešení domácího kina, chytrých televizí a multimediálních systémů. Inteligentní ovládání, multiroom video a bezproblémová integrace do chytré domácnosti."
+			"title": "Domácí kino a multiroom video | Crestron",
+			"description": "Návrh a instalace domácího kina, projekce a chytrých televizí s rozvodem videa do více místností. Jedno ovládání pro celý dům, Crestron."
 		},
 		"heading": "Video",
 		"title": "Chytré video a domácí kino systémy",
@@ -640,8 +639,8 @@
 
 	"audio": {
 		"meta": {
-			"title": "Chytré audio systémy a multiroom ozvučení | P&A Vision",
-			"desc": "Návrh a instalace prémiových audio systémů, multiroom ozvučení a inteligentního ovládání hudby. Užijte si špičkový zvuk v každé místnosti díky integraci do chytré domácnosti."
+			"title": "Multiroom audio a ozvučení domu | Sonos, B&W",
+			"description": "Multiroom ozvučení, Hi-Fi a stropní reproduktory pro vily a domy. Sonos, Denon, Marantz, Bowers & Wilkins. Návrh a instalace. Domluvte konzultaci."
 		},
 		"heading": "Audio",
 		"title": "Chytré domácí audio systémy a multiroom ozvučení",
@@ -650,8 +649,8 @@
 
 	"shades": {
 		"meta": {
-			"title": "Chytré stínění a motorické žaluzie",
-			"description": "Profesionálně navržené a realizované systémy chytrého stínění po celé České republice."
+			"title": "Chytré stínění | Elektrické žaluzie a rolety",
+			"description": "Chytré stínění pro vily a domy: motorické žaluzie, rolety, markýzy a plisé v jednom systému s osvětlením a klimatem. Návrh a instalace v celé ČR."
 		},
 		"heading": "Stínění",
 		"title": "Chytré stínění a žaluzie",
@@ -660,8 +659,8 @@
 
 	"thermostat": {
 		"meta": {
-			"title": "Luxusní chytré řízení klimatu | Inteligentní termostatické systémy",
-			"description": "Zažijte dokonalý komfort v interiéru díky pokročilým chytrým termostatům. Ovládejte teplotu, snižte náklady na energii a automatizujte svůj domov bez námahy."
+			"title": "Chytré vytápění a klimatizace | Termostaty",
+			"description": "Chytré řízení vytápění, klimatizace a větrání po místnostech. Termostaty, časové plány a ovládání z telefonu v jednom systému s Crestron nebo Loxone."
 		},
 		"heading": "Klimatizace a vytápění",
 		"title": "Chytré řízení klimatu a teploty",
@@ -670,8 +669,8 @@
 
 	"security": {
 		"meta": {
-			"title": "Automatizace zabezpečení chytré domácnosti | Inteligentní ochrana",
-			"description": "Zvyšte bezpečnost svého domova pomocí chytré automatizace. Sledujte, ovládejte a chraňte svůj domov díky upozorněním v reálném čase, senzorům a inteligentním integracím."
+			"title": "Zabezpečení domu | Alarm, kamery, Jablotron",
+			"description": "Zabezpečení domu a vily: zabezpečovací systémy Jablotron, Paradox a Risco, kamery Ubiquiti a přístupy v jednom systému. Návrh a instalace."
 		},
 		"heading": "Zabezpečení",
 		"title": "Chytré zabezpečení domácnosti",
@@ -728,10 +727,9 @@
 
 	"contacts": {
 		"meta": {
-			"title": "Kontaktujte nás",
-			"desc": "Chcete vylepšit svůj domov? Kontaktujte P&A Vision pro chytrou domácnost, audio-video systémy a technologická řešení na míru."
+			"title": "Kontakty | Konzultace chytré domácnosti zdarma",
+			"description": "Kontaktujte P&A Vision v Kladně: první konzultace chytré domácnosti, AV a automatizace je zdarma. Zavolejte nebo napište, odpovíme do 12 hodin."
 		},
-
 		"title": "Kontaktní formulář",
 		"name": "Jméno",
 		"tel": "Telefonní číslo",
@@ -744,5 +742,12 @@
 
 	"faqs": {
 		"heading": "Nejčastější dotazy"
+	},
+
+	"appointment": {
+		"meta": {
+			"title": "Domluvit schůzku | Nezávazná konzultace",
+			"description": "Domluvte si nezávaznou konzultaci chytré domácnosti a AV. Vyberte si volný termín v kalendáři, první konzultace je zdarma. Crestron, Loxone, Lutron."
+		}
 	}
 }
