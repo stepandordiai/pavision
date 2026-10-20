@@ -2,7 +2,6 @@ import { getTranslations } from "next-intl/server";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
-import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
 import "./styles.scss";
 
 const PAGE = "shades";
@@ -99,7 +98,6 @@ export default async function Shades({
 					</p>
 				</div>
 			</section>
-			<TechnologyProducts technology="Shades" />
 		</main>
 	);
 }

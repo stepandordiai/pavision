@@ -15,7 +15,7 @@ export default async function OurSolutions() {
 		<section className="section" id="our-solutions">
 			<h2 className="section__title">{t("ourSolutions.title")}</h2>
 			<div className="our-solutions">
-				<div className="our-solutions-container">
+				{/* <div className="our-solutions-container">
 					<div
 						style={{
 							display: "flex",
@@ -37,7 +37,6 @@ export default async function OurSolutions() {
 							{t("ourSolutions.showroom.title")}
 						</p>
 						<div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-							{/* TODO: learn this */}
 							{t
 								.raw("ourSolutions.showroom.description")
 								?.map((p: string, i: number) => {
@@ -65,75 +64,13 @@ export default async function OurSolutions() {
 							</TransitionLink>
 						</div>
 					</div>
-					{/* <div style={{ position: "relative", alignSelf: "flex-start" }}>
-						<img className="our-solutions__ss" src="/02.png" alt="" />
-						<AnimatedImage
-							src="https://i.pinimg.com/736x/cc/27/8d/cc278d71b90d9a248bf9329fc4a6ffbe.jpg"
-							alt=""
-						/>
-					</div> */}
 					<div>
 						<AnimatedImage
 							src="/our-solutions/smart-home-showroom.png"
 							alt=""
 						/>
 					</div>
-				</div>
-				<div className="our-solutions-container">
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							gap: 20,
-						}}
-					>
-						<h3
-							style={{
-								background: "#000",
-								padding: 10,
-								borderRadius: 10,
-								width: "max-content",
-							}}
-						>
-							{t("ourSolutions.office.badge")}
-						</h3>
-						<p style={{ fontSize: "2rem" }}>{t("ourSolutions.office.title")}</p>
-						<div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-							{t
-								.raw("ourSolutions.office.description")
-								?.map((txt: string, i: number) => (
-									<p key={i}>{txt}</p>
-								))}
-						</div>
-						<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
-							<TransitionLink className="our-solutions__link" href="/lighting">
-								<span>
-									<BulbIcon size={20} />
-								</span>
-								<span>{t("lighting.heading")}</span>
-							</TransitionLink>
-							<TransitionLink className="our-solutions__link" href="/audio">
-								<span>
-									<SoundwaveIcon size={20} />
-								</span>
-								<span>{t("audio.heading")}</span>
-							</TransitionLink>
-						</div>
-					</div>
-					{/* <div style={{ position: "relative", alignSelf: "flex-start" }}>
-						<img className="our-solutions__ss" src="/01.png" alt="" />
-						<AnimatedImage
-							src="https://www.crestron.com/getattachment/808fa9b1-0916-4f9e-9d55-1fdf2028b562/808fa9b1-0916-4f9e-9d55-1fdf2028b562.aspx"
-							alt=""
-						/>
-					</div> */}
-					<div>
-						<AnimatedImage
-							src="/our-solutions/smart-office-and-workspace.png"
-							alt=""
-						/>
-					</div>
-				</div>
+				</div> */}
 				<div className="our-solutions-container">
 					<div
 						style={{
@@ -218,16 +155,76 @@ export default async function OurSolutions() {
 							</TransitionLink>
 						</div>
 					</div>
-					{/* <div style={{ position: "relative", alignSelf: "flex-start" }}>
-						<img className="our-solutions__ss" src="/03.png" alt="" />
-						<AnimatedImage
-							src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-shades-hero.jpg"
-							alt=""
-						/>
-					</div> */}
 					<div>
 						<AnimatedImage
 							src="/our-solutions/smart-family-home-and-villa.png"
+							alt=""
+						/>
+					</div>
+				</div>
+				<div className="our-solutions-container">
+					<div
+						style={{
+							display: "flex",
+							flexDirection: "column",
+							gap: 20,
+						}}
+					>
+						<h3
+							style={{
+								background: "#000",
+								padding: 10,
+								borderRadius: 10,
+								width: "max-content",
+							}}
+						>
+							{t("ourSolutions.office.badge")}
+						</h3>
+						<p style={{ fontSize: "2rem" }}>{t("ourSolutions.office.title")}</p>
+						<div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+							{t
+								.raw("ourSolutions.office.description")
+								?.map((txt: string, i: number) => (
+									<p key={i}>{txt}</p>
+								))}
+						</div>
+						<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
+							<TransitionLink className="our-solutions__link" href="/lighting">
+								<span>
+									<BulbIcon size={20} />
+								</span>
+								<span>{t("lighting.heading")}</span>
+							</TransitionLink>
+							<TransitionLink className="our-solutions__link" href="/audio">
+								<span>
+									<SoundwaveIcon size={20} />
+								</span>
+								<span>{t("audio.heading")}</span>
+							</TransitionLink>
+							<TransitionLink href="/video" className="our-solutions__link">
+								<span>
+									<TvIcon size={20} />
+								</span>
+								<span>{t("video.heading")}</span>
+							</TransitionLink>
+							<TransitionLink
+								href="/thermostat"
+								className="our-solutions__link"
+							>
+								<span>
+									<img
+										src="/technology-icons/thermostat.png"
+										width={20}
+										alt=""
+									/>
+								</span>
+								<span>{t("thermostat.heading")}</span>
+							</TransitionLink>
+						</div>
+					</div>
+					<div>
+						<AnimatedImage
+							src="/our-solutions/smart-office-and-workspace.png"
 							alt=""
 						/>
 					</div>
@@ -291,15 +288,7 @@ export default async function OurSolutions() {
 							</TransitionLink>
 						</div>
 					</div>
-					{/* <div style={{ position: "relative", alignSelf: "flex-start" }}>
-						<img className="our-solutions__ss" src="/04.png" alt="" />
-						<AnimatedImage
-							src="https://tesonsolutions.com/wp-content/uploads/2019/09/british-columbia-sports-bar-audio-video-services.jpg"
-							alt=""
-						/>
-					</div> */}
 					<div>
-						{/* <img className="our-solutions__ss" src="/04.png" alt="" /> */}
 						<AnimatedImage
 							src="/our-solutions/smart-solutions-for-business-and-commercial-spaces.png"
 							alt=""

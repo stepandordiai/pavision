@@ -2,7 +2,6 @@ import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
-import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
 import "./styles.scss";
 
 const PAGE = "video";
@@ -110,7 +109,6 @@ export default async function Video({
 					/>
 				</div>
 			</section>
-			<TechnologyProducts technology="Video" />
 		</main>
 	);
 }

@@ -2,7 +2,6 @@ import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
-import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
 import "./styles.scss";
 
 const PAGE = "audio";
@@ -20,7 +19,7 @@ export async function generateMetadata({
 
 	return {
 		title: t("title"),
-		description: t("desc"),
+		description: t("description"),
 		alternates: {
 			canonical: `/${locale}/${PAGE}`,
 			languages: {
@@ -31,7 +30,7 @@ export async function generateMetadata({
 
 		openGraph: {
 			title: t("title"),
-			description: t("desc"),
+			description: t("description"),
 			url: `/${locale}/${PAGE}`,
 			type: "website",
 			images: "/pavision-og.png",
@@ -100,8 +99,6 @@ export default async function Audio({
 					</p>
 				</div>
 			</section>
-			<TechnologyProducts technology="Audio" />
-			{/* <CrestronApp /> */}
 		</main>
 	);
 }

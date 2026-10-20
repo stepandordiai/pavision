@@ -6,7 +6,7 @@
 		"forArchitects": "For Architects",
 		"products": "Products",
 		"contacts": "Contacts",
-		"bookAConsultation": "Book a Consultation"
+		"bookAConsultation": "Free consultation"
 	},
 
 	"homeTitle": "Home",
@@ -17,8 +17,8 @@
 	"navigation": "Navigation",
 
 	"hero": {
-		"title": "Quality, design, and technology in perfect balance.",
-		"subtitle": "We specialize in electrical installations, network infrastructure, home automation, and audio/video systems.",
+		"title": "Turnkey Smart Home & AV Systems",
+		"subtitle": "We design, install and program Crestron, Loxone and Lutron systems for villas, residences and businesses across the Czech Republic and the EU. 15+ years of international experience and one team from design to service.",
 		"ourSolutions": "Our Solutions",
 		"livingRoom": "Living Room",
 		"lightingScenes": "Lighting scenes",

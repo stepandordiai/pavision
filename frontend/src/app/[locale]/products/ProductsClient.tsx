@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "@/lib/api/products";
 import ProductCard from "@/components/ProductCard/ProductCard";
-import { useTranslations } from "next-intl";
 
 interface Product {
 	id: number;
@@ -15,8 +14,6 @@ interface Product {
 }
 
 export default function ProductsClient() {
-	const t = useTranslations();
-
 	const [products, setProducts] = useState<Product[]>([]);
 
 	useEffect(() => {

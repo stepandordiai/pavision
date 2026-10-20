@@ -2,7 +2,6 @@ import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
 import "./styles.scss";
 
 const PAGE = "thermostat";
@@ -140,7 +139,6 @@ export default async function Thermostat({
 					</p>
 				</div>
 			</section>
-			<TechnologyProducts technology="Thermostat" />
 		</main>
 	);
 }

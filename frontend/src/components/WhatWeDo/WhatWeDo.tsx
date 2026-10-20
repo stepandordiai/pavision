@@ -30,9 +30,20 @@ const whatWeDo = [
 		desc: "home.whatWeDo.desc3",
 		brands: ["Ubiquiti", "MikroTik", "Cisco"],
 		icon: <WifiIcon size={20} />,
-		img: "/sitova-infrastruktura.png",
+		video: "/what-we-do-unifi-1.mp4",
+		video1: "/what-we-do-unifi-2.mp4",
 	},
 ];
+
+const base: React.CSSProperties = {
+	position: "absolute",
+	inset: 0,
+	width: "100%",
+	height: "100%",
+	objectFit: "cover",
+	objectPosition: "center",
+	transition: "opacity 0.3s",
+};
 
 const WhatWeDo = () => {
 	const t = useTranslations();
@@ -51,6 +62,16 @@ const WhatWeDo = () => {
 		}
 
 		setPlaying((prev) => !prev);
+	};
+
+	const loopRef = useRef<HTMLVideoElement>(null);
+	const [introDone, setIntroDone] = useState(false);
+
+	const handleIntroEnded = () => {
+		loopRef.current
+			?.play()
+			.then(() => setIntroDone(true))
+			.catch(() => setIntroDone(true));
 	};
 
 	const data = [
@@ -84,7 +105,7 @@ const WhatWeDo = () => {
 
 	return (
 		<section className="section">
-			<h2
+			{/* <h2
 				className="home__section-title"
 				style={{
 					position: "sticky",
@@ -99,6 +120,15 @@ const WhatWeDo = () => {
 					alignItems: "center",
 					marginBottom: "10px",
 				}}
+			>
+				
+			</h2> */}
+			<h2
+				style={{
+					position: "sticky",
+					top: "20px",
+				}}
+				className="section__title"
 			>
 				{t("home.whatWeDoTitle")}
 			</h2>
@@ -125,10 +155,10 @@ const WhatWeDo = () => {
 								>
 									<div
 										style={{
-											background: "#000",
+											background: "#fff",
 											padding: 10,
 											borderRadius: 10,
-											color: "#fff",
+											color: "#000",
 											width: "40px",
 											height: "40px",
 											display: "flex",
@@ -146,10 +176,11 @@ const WhatWeDo = () => {
 								<div
 									style={{
 										width: "100%",
-										height: "100%",
+										// height: "100%",
 										display: "flex",
 										flexDirection: "column",
 										gap: "10px",
+										// flex: "1",
 									}}
 								>
 									<div>
@@ -180,16 +211,30 @@ const WhatWeDo = () => {
 											})}
 										</div>
 									</div>
-									<img
+									<div
 										style={{
-											borderRadius: 10,
+											height: "100%",
+											position: "relative",
 											flex: 1,
-											objectFit: "cover",
-											objectPosition: "center",
+											flexGrow: "1",
+											overflow: "hidden",
+											borderRadius: 10,
 										}}
-										src={interiorState.imgSrc}
-										alt=""
-									/>
+									>
+										<img
+											style={{
+												// position: "absolute",
+												// inset: "0",
+												width: "100%",
+												height: "100%",
+												// flex: 1,
+												objectFit: "cover",
+												objectPosition: "center",
+											}}
+											src={interiorState.imgSrc}
+											alt=""
+										/>
+									</div>
 									<p>
 										Each scene adjusts lighting, shading, and room temperature
 										at a single touch.
@@ -246,9 +291,36 @@ const WhatWeDo = () => {
 									<audio preload="auto" ref={audioRef} src="/intro.mp3"></audio>
 								</div>
 							)}
-							{item.img && (
-								<div style={{ height: "100%", width: "100%" }}>
-									<img
+							{item.video && (
+								<div
+									style={{
+										height: "100%",
+										width: "100%",
+										position: "relative",
+										overflow: "hidden",
+										borderRadius: "10px",
+									}}
+								>
+									{/* Loop video: preloaded, starts when the intro ends */}
+									<video
+										ref={loopRef}
+										src={item.video1}
+										style={{ ...base, opacity: introDone ? 1 : 0 }}
+										muted
+										loop
+										playsInline
+										preload="auto"
+									/>
+									{/* Intro video: plays once */}
+									<video
+										src={item.video}
+										style={{ ...base, opacity: introDone ? 0 : 1 }}
+										autoPlay
+										muted
+										playsInline
+										onEnded={handleIntroEnded}
+									/>
+									{/* <img
 										src={item.img}
 										style={{
 											width: "100%",
@@ -257,7 +329,7 @@ const WhatWeDo = () => {
 											borderRadius: "10px",
 										}}
 										alt=""
-									/>
+									/> */}
 								</div>
 							)}
 						</div>

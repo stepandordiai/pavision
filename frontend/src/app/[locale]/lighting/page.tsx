@@ -3,7 +3,6 @@ import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import LightingClient from "./LightingClient";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
-import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
 import "./styles.scss";
 
 const PAGE = "lighting";
@@ -118,7 +117,6 @@ export default async function Lightning({
 					</div>
 				</div>
 			</section>
-			<TechnologyProducts technology="Lighting" />
 		</main>
 	);
 }

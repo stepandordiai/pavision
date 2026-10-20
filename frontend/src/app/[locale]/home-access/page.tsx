@@ -2,7 +2,6 @@ import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
 import "./styles.scss";
 
 const PAGE = "home-access";
@@ -98,8 +97,6 @@ export default async function HomeAccess({
 					</p>
 				</div>
 			</section>
-			<TechnologyProducts technology="Home Access" />
-			{/* <CrestronApp /> */}
 		</main>
 	);
 }

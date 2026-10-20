@@ -7,6 +7,7 @@
 .programming-services-container {
 	display: flex;
 	gap: 10px;
+	flex-direction: column;
 }
 
 .programming-services-container-inner {
@@ -26,6 +27,7 @@
 	width: 100%;
 	text-align: center;
 	padding: 10px;
+	min-height: 200px;
 
 	img {
 		width: 75%;
@@ -42,6 +44,7 @@
 	background: var(--secondary-clr);
 	padding: 10px;
 	flex-grow: 0;
+	align-self: flex-end;
 }
 
 @media screen and (width < 900px) {

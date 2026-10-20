@@ -97,154 +97,6 @@ function lc(a: string, b: string, t: number): string {
 	)},${Math.round(ln(r(a), r(b), t))})`;
 }
 
-// ── TIME-OF-DAY OUTDOOR SKY ───────────────────────────────────
-// Maps the visitor's real local hour (0–24, fractional ok) to the
-// outdoor sky/sun so the garden matches their actual time of day.
-// This is independent of the room Lighting Scenes.
-interface SkyOfDay {
-	skyT: string;
-	skyB: string;
-	sun: number; // 0..1 sun bloom + warm transmit
-	stars: number; // 0..1 star visibility
-	ground: string; // lawn/garden tint
-	daylight: number; // 0..1 overall outdoor brightness (for window glow)
-}
-// keyframes across 24h; values interpolate between the nearest two
-const SKY_KEYS: { h: number; v: SkyOfDay }[] = [
-	{
-		h: 0,
-		v: {
-			skyT: "#070a18",
-			skyB: "#0d1430",
-			sun: 0,
-			stars: 1,
-			ground: "#10160f",
-			daylight: 0.06,
-		},
-	}, // deep night
-	{
-		h: 5,
-		v: {
-			skyT: "#1b2440",
-			skyB: "#3a3550",
-			sun: 0.05,
-			stars: 0.5,
-			ground: "#1c2616",
-			daylight: 0.16,
-		},
-	}, // pre-dawn
-	{
-		h: 7,
-		v: {
-			skyT: "#9fb6d8",
-			skyB: "#f0c9a0",
-			sun: 0.55,
-			stars: 0,
-			ground: "#5e7a44",
-			daylight: 0.6,
-		},
-	}, // sunrise / morning
-	{
-		h: 9,
-		v: {
-			skyT: "#8fc0ea",
-			skyB: "#d6ecf6",
-			sun: 0.7,
-			stars: 0,
-			ground: "#6f8f4e",
-			daylight: 0.82,
-		},
-	}, // bright morning
-	{
-		h: 13,
-		v: {
-			skyT: "#5fa8e8",
-			skyB: "#cfe9fb",
-			sun: 1,
-			stars: 0,
-			ground: "#7da055",
-			daylight: 1,
-		},
-	}, // warm sunny midday
-	{
-		h: 17,
-		v: {
-			skyT: "#79b0e0",
-			skyB: "#ffe3b0",
-			sun: 0.8,
-			stars: 0,
-			ground: "#6f8f4e",
-			daylight: 0.78,
-		},
-	}, // afternoon
-	{
-		h: 19,
-		v: {
-			skyT: "#3a3f6e",
-			skyB: "#e88a4e",
-			sun: 0.5,
-			stars: 0.1,
-			ground: "#3e4a2c",
-			daylight: 0.4,
-		},
-	}, // sunset / dusk
-	{
-		h: 20.5,
-		v: {
-			skyT: "#161a38",
-			skyB: "#3a2f4a",
-			sun: 0.1,
-			stars: 0.5,
-			ground: "#1e2616",
-			daylight: 0.16,
-		},
-	}, // nightfall
-	{
-		h: 23,
-		v: {
-			skyT: "#080b1c",
-			skyB: "#0f1734",
-			sun: 0,
-			stars: 1,
-			ground: "#121810",
-			daylight: 0.07,
-		},
-	}, // starry night
-	{
-		h: 24,
-		v: {
-			skyT: "#070a18",
-			skyB: "#0d1430",
-			sun: 0,
-			stars: 1,
-			ground: "#10160f",
-			daylight: 0.06,
-		},
-	}, // wrap to midnight
-];
-function skyForHour(hour: number): SkyOfDay {
-	const h = ((hour % 24) + 24) % 24;
-	let lo = SKY_KEYS[0],
-		hi = SKY_KEYS[SKY_KEYS.length - 1];
-	for (let i = 0; i < SKY_KEYS.length - 1; i++) {
-		if (h >= SKY_KEYS[i].h && h <= SKY_KEYS[i + 1].h) {
-			lo = SKY_KEYS[i];
-			hi = SKY_KEYS[i + 1];
-			break;
-		}
-	}
-	const span = hi.h - lo.h || 1;
-	const t = (h - lo.h) / span;
-	return {
-		skyT: lc(lo.v.skyT, hi.v.skyT, t),
-		skyB: lc(lo.v.skyB, hi.v.skyB, t),
-		sun: ln(lo.v.sun, hi.v.sun, t),
-		stars: ln(lo.v.stars, hi.v.stars, t),
-		ground: lc(lo.v.ground, hi.v.ground, t),
-		daylight: ln(lo.v.daylight, hi.v.daylight, t),
-	};
-}
-
 interface DrawState extends SceneConfig {
 	shade: number; // 0 = open, 100 = closed (both windows)
 	ceil: number; // 0..1 ceiling LED cove
@@ -276,8 +128,6 @@ function drawRoom(
 	s: DrawState,
 	tvOn: boolean,
 	video: HTMLVideoElement | null,
-	time: number,
-	hour: number,
 ) {
 	const M = 150;
 	const fY = H * 0.6; // floor line — raised wall / deeper foreground for the sofas
@@ -491,144 +341,372 @@ function drawRoom(
 		cx.rect(wx, winTop, ww, winH);
 		cx.clip();
 
-		// ── TIME-OF-DAY outdoor scene (driven by the visitor's local hour) ──
-		const tod = skyForHour(hour);
-		const night = tod.daylight < 0.3; // dim foliage + show stars at night
+		// ── STATIC DAYLIGHT LANDSCAPE (no animation, no sun, no night) ──
+		// Everything uses absolute canvas x, so the mountains, hills and the
+		// forest line continue seamlessly from the left window to the right one.
+		const hz = (k: number) => winTop + winH * k; // y at a fraction of the window height
 
-		// sky gradient for this hour
-		const sky = cx.createLinearGradient(wx, winTop, wx, winBot);
-		sky.addColorStop(0, tod.skyT);
-		sky.addColorStop(1, tod.skyB);
+		// soft, hazy daylight sky — deeper blue up top, pale toward the horizon
+		const sky = cx.createLinearGradient(0, winTop, 0, hz(0.7));
+		sky.addColorStop(0, "#6fa6d8");
+		sky.addColorStop(0.55, "#a9cbe8");
+		sky.addColorStop(1, "#dfe9ee");
 		cx.fillStyle = sky;
 		cx.fillRect(wx, winTop, ww, winH);
 
-		// stars at night (deterministic per window, twinkle via time)
-		if (tod.stars > 0.05) {
-			for (let i = 0; i < 46; i++) {
-				const sxp = wx + rnd(i + (flip ? 200 : 0)) * ww;
-				const syp = winTop + rnd(i + 50) * winH * 0.6;
-				const tw2 = 0.6 + 0.4 * Math.sin(time * 0.003 + i * 1.3);
-				cx.fillStyle = `rgba(255,255,255,${tod.stars * (0.4 + rnd(i) * 0.5) * tw2})`;
+		// a few soft, high clouds
+		for (let i = 0; i < 7; i++) {
+			const cxw = wx + rnd(i * 3 + (flip ? 90 : 10)) * ww;
+			const cyw = hz(0.06 + rnd(i * 5 + 3) * 0.22);
+			const cwd = 14 + rnd(i * 7 + 1) * 26;
+			for (let k = 0; k < 5; k++) {
+				const px = cxw + (k - 2) * cwd * 0.22 + (rnd(i * 11 + k) - 0.5) * 4;
+				const py = cyw + (rnd(i * 13 + k) - 0.5) * 3;
+				const pr = cwd * (0.18 + rnd(i * 17 + k) * 0.16);
+				const cl = cx.createRadialGradient(px, py - pr * 0.3, 0, px, py, pr);
+				cl.addColorStop(0, "rgba(255,255,255,0.55)");
+				cl.addColorStop(0.6, "rgba(250,252,255,0.22)");
+				cl.addColorStop(1, "rgba(245,250,255,0)");
+				cx.fillStyle = cl;
 				cx.beginPath();
-				cx.arc(sxp, syp, rnd(i + 9) > 0.85 ? 1.1 : 0.6, 0, Math.PI * 2);
+				cx.ellipse(px, py, pr * 1.6, pr, 0, 0, Math.PI * 2);
 				cx.fill();
 			}
-			// soft moon
-			const mx = flip ? wx + ww * 0.7 : wx + ww * 0.3;
-			const my = winTop + winH * 0.16;
-			const moon = cx.createRadialGradient(mx, my, 1, mx, my, 18);
-			moon.addColorStop(0, `rgba(245,248,255,${tod.stars * 0.95})`);
-			moon.addColorStop(0.25, `rgba(220,230,250,${tod.stars * 0.5})`);
-			moon.addColorStop(1, "rgba(200,215,245,0)");
-			cx.fillStyle = moon;
+		}
+
+		// ridged multi-octave noise → natural, peaky mountain silhouettes (0..1)
+		const ridge = (x: number, seed: number) => {
+			let v = 0,
+				a = 0.5,
+				f = 0.012,
+				n = 0;
+			for (let k = 0; k < 5; k++) {
+				v += (1 - Math.abs(Math.sin(x * f + seed + k * 2.13))) * a;
+				n += a;
+				a *= 0.5;
+				f *= 2.1;
+			}
+			return v / n;
+		};
+		// smooth rolling hills (0..1)
+		const hills = (x: number) =>
+			0.5 +
+			0.25 * Math.sin(x * 0.021 + 1.1) +
+			0.15 * Math.sin(x * 0.047 + 2.4) +
+			0.1 * Math.sin(x * 0.11 + 0.3);
+
+		// draws one landform layer: faceted relief shading (lit from the left),
+		// optional snow on the peaks and atmospheric haze toward its base
+		const drawRange = (
+			baseK: number,
+			heightK: number,
+			fn: (x: number) => number,
+			lightC: number[],
+			darkC: number[],
+			haze: number,
+			snow = 0,
+		) => {
+			const base = hz(baseK),
+				hMax = winH * heightK,
+				step = 1;
+			const yAt = (x: number) => base - fn(x) * hMax;
+			let prevY = yAt(wx - 2 * step);
+			for (let x = wx - step; x <= wx + ww + step; x += step) {
+				const y = yAt(x);
+				const lightAmt = Math.max(
+					0,
+					Math.min(1, 0.5 - ((y - prevY) / step) * 0.8),
+				);
+				prevY = y;
+				cx.fillStyle = `rgb(${Math.round(ln(darkC[0], lightC[0], lightAmt))},${Math.round(
+					ln(darkC[1], lightC[1], lightAmt),
+				)},${Math.round(ln(darkC[2], lightC[2], lightAmt))})`;
+				cx.fillRect(x, y, step + 0.5, winBot - y);
+			}
+			cx.save();
 			cx.beginPath();
-			cx.arc(mx, my, 18, 0, Math.PI * 2);
+			cx.moveTo(wx - step, winBot);
+			for (let x = wx - step; x <= wx + ww + step; x += step)
+				cx.lineTo(x, yAt(x));
+			cx.lineTo(wx + ww + step, winBot);
+			cx.closePath();
+			cx.clip();
+			const top = base - hMax;
+			if (snow > 0) {
+				const sg = cx.createLinearGradient(0, top, 0, top + hMax * 0.28);
+				sg.addColorStop(0, `rgba(250,252,255,${0.8 * snow})`);
+				sg.addColorStop(0.55, `rgba(240,245,250,${0.3 * snow})`);
+				sg.addColorStop(1, "rgba(240,245,250,0)");
+				cx.fillStyle = sg;
+				cx.fillRect(wx - step, top, ww + step * 2, hMax * 0.28);
+			}
+			const hg = cx.createLinearGradient(0, top, 0, base);
+			hg.addColorStop(0, "rgba(222,232,240,0)");
+			hg.addColorStop(1, `rgba(222,232,240,${haze})`);
+			cx.fillStyle = hg;
+			cx.fillRect(wx - step, top, ww + step * 2, winBot - top);
+			cx.restore();
+			return yAt;
+		};
+
+		// spruce / fir: layered drooping tiers, lit on the left
+		const spruce = (
+			bx: number,
+			by: number,
+			h: number,
+			lightC: string,
+			darkC: string,
+			seed: number,
+		) => {
+			const w = h * 0.34;
+			const tiers = Math.max(3, Math.round(h / 2.4));
+			const R: number[] = [],
+				L: number[] = [],
+				Y: number[] = [];
+			for (let k = 1; k <= tiers; k++) {
+				const f = k / tiers;
+				Y[k] = by - h + h * 0.9 * f;
+				R[k] = w * f * (0.82 + rnd(seed + k) * 0.36);
+				L[k] = w * f * (0.82 + rnd(seed + k + 50) * 0.36);
+			}
+			const g = cx.createLinearGradient(bx - w, 0, bx + w, 0);
+			g.addColorStop(0, lightC);
+			g.addColorStop(1, darkC);
+			cx.fillStyle = g;
+			cx.beginPath();
+			cx.moveTo(bx, by - h);
+			for (let k = 1; k <= tiers; k++) {
+				cx.lineTo(bx + R[k], Y[k]);
+				if (k < tiers) cx.lineTo(bx + R[k] * 0.5, Y[k] - h * 0.025);
+			}
+			cx.lineTo(bx, Y[tiers] - h * 0.02);
+			for (let k = tiers; k >= 1; k--) {
+				cx.lineTo(bx - L[k], Y[k]);
+				if (k > 1) cx.lineTo(bx - L[k - 1] * 0.5, Y[k - 1] - h * 0.025);
+			}
+			cx.closePath();
 			cx.fill();
-		}
+			// soft needle highlights on the lit side of each tier
+			if (h > 12) {
+				cx.strokeStyle = "rgba(176,206,146,0.2)";
+				cx.lineWidth = Math.max(0.3, h * 0.012);
+				for (let k = 2; k <= tiers; k++) {
+					cx.beginPath();
+					cx.moveTo(bx - L[k] * 0.85, Y[k] - h * 0.005);
+					cx.lineTo(bx - L[k] * 0.2, Y[k] - h * 0.05);
+					cx.stroke();
+				}
+			}
+			// trunk peeking out below the lowest tier
+			cx.fillStyle = "rgba(60,44,32,0.9)";
+			cx.fillRect(
+				bx - Math.max(0.3, h * 0.025),
+				Y[tiers] - h * 0.02,
+				Math.max(0.6, h * 0.05),
+				by - Y[tiers] + h * 0.02,
+			);
+		};
 
-		// soft sun bloom (daytime), warm low sun near sunrise/sunset
-		if (tod.sun > 0.05) {
-			const bx = flip ? wx + ww * 0.25 : wx + ww * 0.75;
-			// sun sits lower in the sky at dawn/dusk
-			const lowSun = hour < 9 || hour > 17;
-			const by = winTop + winH * (lowSun ? 0.5 : 0.26);
-			const warm = lowSun ? "255,196,120" : "255,248,214";
-			const bl = cx.createRadialGradient(bx, by, 4, bx, by, ww * 0.75);
-			bl.addColorStop(0, `rgba(${warm},${0.6 * tod.sun})`);
-			bl.addColorStop(1, `rgba(${warm},0)`);
-			cx.fillStyle = bl;
-			cx.fillRect(wx, winTop, ww, winH);
-		}
-
-		// distant treeline / lawn
-		const horizon = winTop + winH * 0.78;
-		// far hedge band (tinted by time of day)
-		cx.fillStyle = night ? "rgba(20,30,22,0.78)" : "rgba(96,128,78,0.55)";
-		cx.fillRect(wx, horizon - winH * 0.06, ww, winH * 0.1);
-		// manicured lawn
-		const lawn = cx.createLinearGradient(0, horizon, 0, winBot);
-		const gB = tod.ground;
-		lawn.addColorStop(0, gB);
-		lawn.addColorStop(1, night ? "rgba(8,16,8,0.92)" : "rgba(70,104,52,0.9)");
-		cx.fillStyle = lawn;
-		cx.fillRect(wx, horizon, ww, winBot - horizon);
-
-		// detailed trees — layered foliage clumps, trunk, branches
-		const nTrees = Math.max(2, Math.round(ww / 24));
-		for (let i = 0; i < nTrees; i++) {
-			const seed = i + (flip ? 40 : 0);
-			const tx = wx + ((i + 0.5) / nTrees) * ww + (rnd(seed) - 0.5) * 8;
-			// trees stay short relative to the window so they read as a garden
-			// band behind the glass (sky fills the space above them)
-			const th = winH * (0.18 + rnd(seed + 5) * 0.14);
-			const tw = th * (0.55 + rnd(seed + 9) * 0.22);
-			const rootY = horizon + winH * 0.02;
-			const topY = rootY - th;
-			// trunk
-			cx.strokeStyle = night ? "rgba(18,16,12,0.85)" : "rgba(74,54,36,0.7)";
-			cx.lineWidth = 1.8;
+		// broadleaf tree: tapered trunk, limbs and many lit leaf clusters
+		const broadleaf = (
+			bx: number,
+			by: number,
+			h: number,
+			seed: number,
+			haze = 0,
+		) => {
+			const hc = (c: number[]) =>
+				`rgb(${Math.round(ln(c[0], 214, haze))},${Math.round(
+					ln(c[1], 226, haze),
+				)},${Math.round(ln(c[2], 232, haze))})`;
+			const cw = h * (0.68 + rnd(seed) * 0.16);
+			const ch = h * 0.66;
+			const ccx = bx + (rnd(seed + 2) - 0.5) * h * 0.06;
+			const ccy = by - h + ch * 0.5;
+			// soft ground shadow
+			cx.fillStyle = `rgba(30,48,22,${0.22 * (1 - haze)})`;
 			cx.beginPath();
-			cx.moveTo(tx, rootY);
-			cx.lineTo(tx + (rnd(seed + 2) - 0.5) * 4, topY + th * 0.45);
-			cx.stroke();
-			// a couple of branches
-			cx.lineWidth = 1;
-			for (let b = 0; b < 2; b++) {
-				const by = rootY - th * (0.45 + b * 0.18);
-				const dir = b % 2 === 0 ? -1 : 1;
+			cx.ellipse(bx + h * 0.08, by, cw * 0.45, h * 0.035 + 0.5, 0, 0, Math.PI * 2);
+			cx.fill();
+			// tapered trunk
+			cx.fillStyle = hc([78, 60, 44]);
+			cx.beginPath();
+			cx.moveTo(bx - h * 0.035, by);
+			cx.lineTo(bx - h * 0.014, ccy + ch * 0.15);
+			cx.lineTo(bx + h * 0.014, ccy + ch * 0.15);
+			cx.lineTo(bx + h * 0.035, by);
+			cx.closePath();
+			cx.fill();
+			// main limbs
+			cx.strokeStyle = hc([70, 54, 40]);
+			cx.lineWidth = Math.max(0.4, h * 0.016);
+			cx.lineCap = "round";
+			for (let b = 0; b < 3; b++) {
+				const sy = ccy + ch * (0.25 - b * 0.08);
+				const dir = b === 0 ? -1 : b === 1 ? 0 : 1;
 				cx.beginPath();
-				cx.moveTo(tx, by);
-				cx.lineTo(tx + dir * tw * 0.4, by - th * 0.12);
+				cx.moveTo(bx, sy + ch * 0.12);
+				cx.quadraticCurveTo(
+					bx + dir * cw * 0.12,
+					sy,
+					bx + dir * cw * 0.3 + (rnd(seed + b) - 0.5) * 2,
+					sy - ch * 0.22,
+				);
 				cx.stroke();
 			}
-			// layered canopy clumps — lit by daylight, silhouetted at night
-			const clumps = 3 + Math.floor(rnd(seed + 3) * 3);
-			for (let k = 0; k < clumps; k++) {
-				const ka = rnd(seed * 5 + k) * Math.PI * 2;
-				const kr = rnd(seed * 5 + k + 1) * tw * 0.7;
-				const ccx = tx + Math.cos(ka) * kr;
-				const ccy = topY + th * 0.32 + Math.sin(ka) * kr * 0.6;
-				const cr = tw * (0.4 + rnd(seed + k + 7) * 0.4);
-				const g2 = cx.createRadialGradient(
-					ccx - cr * 0.3,
-					ccy - cr * 0.3,
-					1,
-					ccx,
-					ccy,
-					cr,
-				);
-				if (night) {
-					g2.addColorStop(0, "rgba(26,40,28,0.95)");
-					g2.addColorStop(1, "rgba(12,22,14,0.6)");
-				} else {
-					// daytime greens scaled by how much daylight there is
-					const dl = tod.daylight;
-					const lit = rnd(seed + k) > 0.5;
-					const base = lit
-						? [120 * dl + 30, 165 * dl + 30, 92 * dl + 22]
-						: [74 * dl + 24, 118 * dl + 24, 62 * dl + 18];
-					g2.addColorStop(
+			cx.lineCap = "butt";
+			// leaf clusters, lit from the upper left
+			const n = Math.max(16, Math.round(h * 2.4));
+			const pts: { px: number; py: number; pr: number; lit: number }[] = [];
+			for (let k = 0; k < n; k++) {
+				const ang = rnd(seed * 7 + k) * Math.PI * 2;
+				const rad = Math.sqrt(rnd(seed * 7 + k + 1));
+				const ox = Math.cos(ang) * rad,
+					oy = Math.sin(ang) * rad;
+				pts.push({
+					px: ccx + ox * cw * 0.46,
+					py: ccy + oy * ch * 0.44,
+					pr: h * (0.05 + rnd(seed * 7 + k + 2) * 0.045),
+					lit: Math.max(0, Math.min(1, 0.55 - ox * 0.35 - oy * 0.45)),
+				});
+			}
+			// shadowed inner mass first (one soft canopy volume)
+			const mass = cx.createRadialGradient(
+				ccx - cw * 0.12,
+				ccy - ch * 0.15,
+				ch * 0.1,
+				ccx,
+				ccy,
+				cw * 0.55,
+			);
+			mass.addColorStop(0, hc([70, 100, 48]));
+			mass.addColorStop(0.75, hc([44, 68, 34]));
+			mass.addColorStop(1, hc([36, 58, 30]));
+			cx.fillStyle = mass;
+			cx.beginPath();
+			cx.ellipse(ccx, ccy, cw * 0.47, ch * 0.45, 0, 0, Math.PI * 2);
+			cx.fill();
+			// lit clusters on top (darker ones first, brightest last)
+			pts
+				.sort((a, b) => a.lit - b.lit)
+				.forEach((p) => {
+					const lg = cx.createRadialGradient(
+						p.px - p.pr * 0.4,
+						p.py - p.pr * 0.45,
+						p.pr * 0.1,
+						p.px,
+						p.py,
+						p.pr * 1.05,
+					);
+					lg.addColorStop(
 						0,
-						`rgba(${Math.round(base[0] + rnd(k) * 30)},${Math.round(base[1] + rnd(k + 1) * 25)},${Math.round(base[2] + rnd(k + 2) * 18)},0.95)`,
+						hc([ln(96, 168, p.lit), ln(130, 196, p.lit), ln(62, 104, p.lit)]),
 					);
-					g2.addColorStop(
-						1,
-						`rgba(${Math.round(40 * dl)},${Math.round(80 * dl)},${Math.round(40 * dl)},0.4)`,
+					lg.addColorStop(
+						0.65,
+						hc([ln(66, 112, p.lit), ln(98, 146, p.lit), ln(46, 70, p.lit)]),
 					);
-				}
-				cx.fillStyle = g2;
+					lg.addColorStop(1, "rgba(40,64,32,0)");
+					cx.fillStyle = lg;
+					cx.beginPath();
+					cx.ellipse(p.px, p.py, p.pr, p.pr * 0.92, 0, 0, Math.PI * 2);
+					cx.fill();
+				});
+		};
+
+		// far snow-capped range, mid forested range, near rolling hills
+		drawRange(0.68, 0.34, (x) => ridge(x, 1.3), [176, 188, 206], [104, 120, 146], 0.42, 1);
+		drawRange(0.75, 0.2, (x) => ridge(x * 1.35 + 300, 4.7), [128, 152, 138], [72, 96, 88], 0.35);
+		const nearY = drawRange(0.8, 0.09, hills, [134, 164, 92], [92, 120, 62], 0.12);
+
+		// distant forest line along the near hills
+		for (let x = wx - 2; x <= wx + ww + 2; x += 2.2) {
+			const k = Math.floor(x * 3.1);
+			if (rnd(k) < 0.22) continue;
+			spruce(
+				x + (rnd(k + 3) - 0.5) * 1.5,
+				nearY(x) + 1.2,
+				3 + rnd(k + 7) * 4,
+				"rgb(88,116,92)",
+				"rgb(46,66,54)",
+				k,
+			);
+		}
+
+		// meadow in front of the hills
+		const mTopY = (x: number) => hz(0.86) + Math.sin(x * 0.035 + 0.8) * 2.2;
+		cx.beginPath();
+		cx.moveTo(wx - 2, winBot);
+		for (let x = wx - 2; x <= wx + ww + 2; x += 2) cx.lineTo(x, mTopY(x));
+		cx.lineTo(wx + ww + 2, winBot);
+		cx.closePath();
+		const meadow = cx.createLinearGradient(0, hz(0.84), 0, winBot);
+		meadow.addColorStop(0, "#93b566");
+		meadow.addColorStop(1, "#5e8240");
+		cx.fillStyle = meadow;
+		cx.fill();
+		// fine grass texture
+		cx.strokeStyle = "rgba(60,92,40,0.35)";
+		cx.lineWidth = 0.35;
+		cx.beginPath();
+		for (let i = 0; i < Math.round(ww * 0.9); i++) {
+			const gx = wx + rnd(i * 3 + (flip ? 500 : 0)) * ww;
+			const gy = ln(hz(0.88), winBot, rnd(i * 5 + (flip ? 600 : 1)));
+			cx.moveTo(gx, gy);
+			cx.lineTo(gx + (rnd(i) - 0.5) * 0.8, gy - 1 - rnd(i + 2) * 1.2);
+		}
+		cx.stroke();
+
+		// a few small trees across the meadow (slightly hazed by distance)
+		for (let i = 0; i < 3; i++) {
+			const seed = 300 + i + (flip ? 20 : 0);
+			const bx = wx + (0.3 + i * 0.2 + (rnd(seed) - 0.5) * 0.1) * ww;
+			broadleaf(bx, mTopY(bx) + 1.5, winH * (0.1 + rnd(seed + 1) * 0.05), seed, 0.25);
+		}
+
+		// foreground trees framing each view
+		const groundY = (x: number) => mTopY(x) + winH * 0.07;
+		const fgShadow = (x: number, y: number, r: number) => {
+			cx.fillStyle = "rgba(30,48,22,0.22)";
+			cx.beginPath();
+			cx.ellipse(x + r * 0.2, y, r, r * 0.12 + 0.5, 0, 0, Math.PI * 2);
+			cx.fill();
+		};
+		if (!flip) {
+			const b1 = wx + ww * 0.2;
+			broadleaf(b1, groundY(b1), winH * 0.44, 501);
+			const s1 = wx + ww * 0.8;
+			fgShadow(s1, groundY(s1) + 1, winH * 0.12);
+			spruce(s1, groundY(s1) + 1, winH * 0.4, "rgb(78,112,70)", "rgb(30,52,38)", 511);
+			const s2 = wx + ww * 0.93;
+			fgShadow(s2, groundY(s2) + 2, winH * 0.09);
+			spruce(s2, groundY(s2) + 2, winH * 0.3, "rgb(74,108,66)", "rgb(28,50,36)", 531);
+		} else {
+			const s1 = wx + ww * 0.12;
+			fgShadow(s1, groundY(s1) + 1, winH * 0.11);
+			spruce(s1, groundY(s1) + 1, winH * 0.38, "rgb(78,112,70)", "rgb(30,52,38)", 541);
+			const b1 = wx + ww * 0.78;
+			broadleaf(b1, groundY(b1), winH * 0.46, 521);
+		}
+
+		// rounded garden shrubs along the base of the glass
+		for (let i = 0; i < Math.round(ww / 12); i++) {
+			const seed = 700 + i + (flip ? 60 : 0);
+			const sxp = wx + (i + 0.5) * 12 + (rnd(seed) - 0.5) * 6;
+			const syp = winBot - winH * 0.02;
+			for (let k = 0; k < 4; k++) {
+				const pr = 2.4 + rnd(seed + k + 9) * 1.6;
+				const px = sxp + (k - 1.5) * 2.6 + (rnd(seed + k) - 0.5) * 1.5;
+				const py = syp - pr * 0.6 - rnd(seed + k + 3) * 1.5;
+				const bg = cx.createRadialGradient(px - pr * 0.4, py - pr * 0.5, 0.2, px, py, pr);
+				bg.addColorStop(0, "rgb(132,168,84)");
+				bg.addColorStop(0.7, "rgb(78,112,52)");
+				bg.addColorStop(1, "rgb(52,80,38)");
+				cx.fillStyle = bg;
 				cx.beginPath();
-				cx.ellipse(ccx, ccy, cr, cr * 0.9, rnd(seed + k) * 1.2, 0, Math.PI * 2);
+				cx.ellipse(px, py, pr, pr * 0.85, 0, 0, Math.PI * 2);
 				cx.fill();
 			}
-		}
-		// low shrubs along the base
-		for (let i = 0; i < Math.round(ww / 14); i++) {
-			const sxp = wx + (i + 0.5) * 14 + (rnd(i + 80) - 0.5) * 6;
-			cx.fillStyle = night ? "rgba(18,30,20,0.85)" : "rgba(78,120,64,0.75)";
-			cx.beginPath();
-			cx.ellipse(sxp, winBot - winH * 0.04, 7, 4, 0, 0, Math.PI * 2);
-			cx.fill();
 		}
 
 		// glass sheen (still inside clip so it reads as reflection on the pane)
@@ -695,81 +773,191 @@ function drawRoom(
 	drawWindow(rightWin.x, rightWin.w, true);
 
 	// ─────────────────────────────────────────────────────────
-	// LOXONE TOUCH PURE switch on the right-hand wall.
-	// The warm courtesy under-light glows ONLY in the Cinema scene
-	// (darkest scene), and is off in Relax / Bright.
+	// CRESTRON HORIZON THERMOSTAT on the right-hand wall.
+	// Black glass body, lit screen showing 21.5, setpoint ring,
+	// touch chevrons and the signature white LED light bar.
 	// ─────────────────────────────────────────────────────────
 	{
 		const wallL = rightWin.x + rightWin.w; // inner edge of the right wall plaster
 		const wallR = W - 4;
-		const sw = 18; // switch size
-		const swX = wallL + (wallR - wallL) * 0.5 - sw / 2 + 3; // centered in the wall, nudged right off the frame
-		const swY = ceilY + (fY - ceilY) * 0.4 - sw / 2; // mounted at a natural height
-		// cinema glow factor: 1 in cinema (br≈0.1), fades out toward relax/bright
-		const cinemaGlow = Math.max(0, Math.min(1, (0.25 - s.br) / 0.18));
+		const tw = 28; // panel width
+		const th = 20; // panel height (≈ 1.4 : 1, like the real unit)
+		const tx = wallL + (wallR - wallL) * 0.5 - tw / 2 + 2; // centered in the wall, nudged right off the frame
+		const ty = ceilY + (fY - ceilY) * 0.4 - th / 2; // mounted at a natural height
+		// the lit screen + LED bar read stronger as the room gets darker
+		const lit = 0.35 + darkF * 0.65;
 
-		// warm courtesy light spilling DOWN the wall from under the switch
-		// (tight, realistic pool — small and soft, like a real LED courtesy light)
-		if (cinemaGlow > 0.01) {
-			const cxc = swX + sw / 2;
-			const topY = swY + sw - 1;
-			// soft narrow pool just below the plate
-			const g = cx.createRadialGradient(cxc, topY + 2, 1, cxc, topY + 10, 15);
-			g.addColorStop(0, `rgba(255,206,140,${0.5 * cinemaGlow})`);
-			g.addColorStop(0.45, `rgba(255,184,112,${0.18 * cinemaGlow})`);
-			g.addColorStop(1, "rgba(255,184,112,0)");
-			cx.fillStyle = g;
-			cx.beginPath();
-			cx.moveTo(cxc - 7, topY);
-			cx.lineTo(cxc + 7, topY);
-			cx.lineTo(cxc + 11, topY + 22);
-			cx.lineTo(cxc - 11, topY + 22);
-			cx.closePath();
-			cx.fill();
-		}
+		// soft cool light the lit screen casts onto the plaster around it
+		const halo = cx.createRadialGradient(
+			tx + tw / 2,
+			ty + th * 0.55,
+			2,
+			tx + tw / 2,
+			ty + th * 0.55,
+			tw * 0.95,
+		);
+		halo.addColorStop(0, `rgba(205,218,255,${0.12 * lit})`);
+		halo.addColorStop(1, "rgba(205,218,255,0)");
+		cx.fillStyle = halo;
+		cx.fillRect(tx - tw * 0.6, ty - th * 0.8, tw * 2.2, th * 2.6);
 
-		// soft drop shadow behind the plate
-		cx.fillStyle = "rgba(0,0,0,0.18)";
-		rr(swX + 1.5, swY + 2, sw, sw, 2);
+		// contact + ambient drop shadow (unit sits slightly proud of the wall)
+		cx.fillStyle = "rgba(0,0,0,0.12)";
+		rr(tx + 0.4, ty + 2.6, tw + 1.4, th + 1, 2);
+		cx.fill();
+		cx.fillStyle = "rgba(0,0,0,0.28)";
+		rr(tx + 1, ty + 1.6, tw, th, 1.4);
 		cx.fill();
 
-		// the square glass switch plate — dark graphite (matches the photo's black unit)
-		const plate = cx.createLinearGradient(swX, swY, swX + sw, swY + sw);
-		plate.addColorStop(0, mix("#3a3d42", "#26282c"));
-		plate.addColorStop(0.5, mix("#2a2c30", "#191a1d"));
-		plate.addColorStop(1, mix("#1c1e21", "#0e0f11"));
-		cx.fillStyle = plate;
-		rr(swX, swY, sw, sw, 2);
-		cx.fill();
-		// subtle glass sheen on the plate
-		cx.fillStyle = "rgba(255,255,255,0.06)";
-		rr(swX + 1.5, swY + 1.5, sw - 3, sw * 0.4, 1.5);
+		// black glass body
+		const body = cx.createLinearGradient(tx, ty, tx, ty + th);
+		body.addColorStop(0, "#262629");
+		body.addColorStop(1, "#141416");
+		cx.fillStyle = body;
+		rr(tx, ty, tw, th, 1.2);
 		cx.fill();
 
-		// engraved diamond outline (the Touch Pure signature), faintly lit
-		const lineA = 0.22 + cinemaGlow * 0.4;
-		cx.strokeStyle = `rgba(200,210,220,${lineA})`;
-		cx.lineWidth = 0.6;
+		// everything on the face is clipped to the glass
+		cx.save();
+		rr(tx, ty, tw, th, 1.2);
+		cx.clip();
+
+		// ── lit screen ──
+		const sx = tx + tw * 0.13,
+			sy = ty + th * 0.13,
+			sw = tw * 0.53,
+			sh = th * 0.55;
+		const scr = cx.createRadialGradient(
+			sx + sw / 2,
+			sy + sh / 2,
+			0.5,
+			sx + sw / 2,
+			sy + sh / 2,
+			sw * 0.7,
+		);
+		scr.addColorStop(0, "#3c3c40");
+		scr.addColorStop(1, "#2b2b2e");
+		cx.fillStyle = scr;
+		cx.fillRect(sx, sy, sw, sh);
+
+		// setpoint ring (cyan → violet → pink, open at the bottom)
+		const rcx = sx + sw / 2,
+			rcy = sy + sh / 2,
+			rR = sh * 0.4;
+		const ring = cx.createLinearGradient(rcx - rR, 0, rcx + rR, 0);
+		ring.addColorStop(0, "#35e3f2");
+		ring.addColorStop(0.4, "#8fa6ec");
+		ring.addColorStop(0.6, "#c784d6");
+		ring.addColorStop(1, "#f2507c");
+		cx.strokeStyle = ring;
+		cx.lineCap = "round";
+		// soft glow pass
+		cx.globalAlpha = 0.35;
+		cx.lineWidth = 0.9;
 		cx.beginPath();
-		cx.moveTo(swX + sw / 2, swY + 3);
-		cx.lineTo(swX + sw - 3, swY + sw / 2);
-		cx.lineTo(swX + sw / 2, swY + sw - 3);
-		cx.lineTo(swX + 3, swY + sw / 2);
-		cx.closePath();
+		cx.arc(rcx, rcy, rR, Math.PI * 0.66, Math.PI * 2.34);
+		cx.stroke();
+		// crisp line
+		cx.globalAlpha = 1;
+		cx.lineWidth = 0.32;
+		cx.beginPath();
+		cx.arc(rcx, rcy, rR, Math.PI * 0.66, Math.PI * 2.34);
 		cx.stroke();
 
-		// (LOXONE wordmark line removed)
+		// heat / current / cool markers crossing the ring
+		const tick = (ang: number, col: string, len: number, wdt: number) => {
+			const c = Math.cos(ang),
+				sn = Math.sin(ang);
+			cx.strokeStyle = col;
+			cx.lineWidth = wdt;
+			cx.beginPath();
+			cx.moveTo(rcx + c * (rR - len * 0.5), rcy + sn * (rR - len * 0.5));
+			cx.lineTo(rcx + c * (rR + len * 0.5), rcy + sn * (rR + len * 0.5));
+			cx.stroke();
+		};
+		tick(-Math.PI / 2, "#ff6b6b", 1.6, 0.45); // heat setpoint
+		tick(-Math.PI / 2 + 0.32, "rgba(255,255,255,0.9)", 1.1, 0.2); // current
+		tick(-0.85, "#2aa8e8", 1.6, 0.45); // cool setpoint
+		cx.lineCap = "butt";
 
-		// the actual warm light bar under the bottom edge (the LED itself)
-		if (cinemaGlow > 0.01) {
-			const cxc = swX + sw / 2;
-			// hot thin core
-			cx.fillStyle = `rgba(255,224,170,${0.95 * cinemaGlow})`;
-			cx.fillRect(cxc - 5, swY + sw - 0.3, 10, 0.9);
-			// faint immediate halo around the bar
-			cx.fillStyle = `rgba(255,196,120,${0.4 * cinemaGlow})`;
-			cx.fillRect(cxc - 6, swY + sw - 0.6, 12, 0.5);
-		}
+		// temperature readout
+		cx.fillStyle = "#f4f4f6";
+		cx.font = "600 3.4px system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif";
+		cx.textAlign = "center";
+		cx.textBaseline = "middle";
+		cx.fillText("21.5", rcx, rcy + 0.15);
+
+		// ── glowing touch chevrons (up / down) ──
+		const chev = (cxp: number, cyp: number, up: boolean) => {
+			const d = up ? 1 : -1;
+			const hw = 1.4,
+				hh = 0.75;
+			const path = () => {
+				cx.beginPath();
+				cx.moveTo(cxp - hw, cyp + (d * hh) / 2);
+				cx.lineTo(cxp, cyp - (d * hh) / 2);
+				cx.lineTo(cxp + hw, cyp + (d * hh) / 2);
+			};
+			cx.lineCap = "round";
+			cx.lineJoin = "round";
+			cx.strokeStyle = "rgba(235,240,255,0.25)";
+			cx.lineWidth = 0.9;
+			path();
+			cx.stroke();
+			cx.strokeStyle = "rgba(255,255,255,0.95)";
+			cx.lineWidth = 0.3;
+			path();
+			cx.stroke();
+			cx.lineCap = "butt";
+			cx.lineJoin = "miter";
+		};
+		chev(tx + tw * 0.83, ty + th * 0.3, true);
+		chev(tx + tw * 0.83, ty + th * 0.56, false);
+
+		// ── signature white LED light bar ──
+		const barY = ty + th * 0.8;
+		// slightly darker lower strip below the bar
+		cx.fillStyle = "rgba(0,0,0,0.14)";
+		cx.fillRect(tx, barY, tw, th - (barY - ty));
+		// soft bloom
+		const bloom = cx.createLinearGradient(0, barY - 1.6, 0, barY + 1.6);
+		bloom.addColorStop(0, "rgba(230,238,255,0)");
+		bloom.addColorStop(0.5, `rgba(230,238,255,${0.22 + 0.2 * lit})`);
+		bloom.addColorStop(1, "rgba(230,238,255,0)");
+		cx.fillStyle = bloom;
+		cx.fillRect(tx, barY - 1.6, tw, 3.2);
+		// hot core, slightly tapered at the ends
+		const core = cx.createLinearGradient(tx, 0, tx + tw, 0);
+		core.addColorStop(0, "rgba(255,255,255,0.55)");
+		core.addColorStop(0.08, "rgba(255,255,255,0.95)");
+		core.addColorStop(0.92, "rgba(255,255,255,0.95)");
+		core.addColorStop(1, "rgba(255,255,255,0.55)");
+		cx.fillStyle = core;
+		cx.fillRect(tx, barY - 0.18, tw, 0.36);
+
+		// faint brand mark in the lower strip
+		cx.fillStyle = "rgba(255,255,255,0.12)";
+		cx.font = "italic 800 1.5px system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif";
+		cx.textAlign = "right";
+		cx.textBaseline = "middle";
+		cx.fillText("CRESTRON", tx + tw * 0.9, ty + th * 0.91);
+
+		// diagonal glass reflection across the whole face
+		const gl = cx.createLinearGradient(tx, ty, tx + tw, ty + th);
+		gl.addColorStop(0, "rgba(255,255,255,0.09)");
+		gl.addColorStop(0.42, "rgba(255,255,255,0.045)");
+		gl.addColorStop(0.43, "rgba(255,255,255,0.012)");
+		gl.addColorStop(1, "rgba(255,255,255,0)");
+		cx.fillStyle = gl;
+		cx.fillRect(tx, ty, tw, th);
+
+		cx.restore(); // end face clip
+
+		// thin bevel highlight on the glass edge
+		cx.strokeStyle = "rgba(255,255,255,0.1)";
+		cx.lineWidth = 0.3;
+		rr(tx + 0.15, ty + 0.15, tw - 0.3, th - 0.3, 1.1);
+		cx.stroke();
 	}
 
 	// ─────────────────────────────────────────────────────────
@@ -894,7 +1082,7 @@ function drawRoom(
 	cx.fill();
 	cx.restore();
 
-	// ── LINEAR FIREPLACE (animated bonfire) below TV ──
+	// ── LINEAR FIREPLACE (static bonfire) below TV ──
 	const fpX = mX + 12,
 		fpY = fY - 54,
 		fpW = featW - 24,
@@ -904,16 +1092,15 @@ function drawRoom(
 	cx.fillStyle = "#0a0807";
 	rr(fpX, fpY, fpW, fpH, 2);
 	cx.fill();
-	// flickering ember bed behind logs
-	const emberFlick =
-		0.82 + Math.sin(time * 0.006) * 0.1 + Math.sin(time * 0.013) * 0.06;
+	// static ember bed behind logs (fixed at its average brightness)
+	const emberFlick = 0.82;
 	const ember = cx.createLinearGradient(0, fpY + fpH, 0, fpY + 6);
 	ember.addColorStop(0, `rgba(255,150,50,${emberFlick})`);
 	ember.addColorStop(1, "rgba(120,30,0,0.18)");
 	cx.fillStyle = ember;
 	cx.fillRect(fpX + 2, fpY + 8, fpW - 4, fpH - 9);
 
-	// animated flames — each tongue sways & breathes from a phase offset
+	// static flames — each tongue keeps its own height & lean from its phase offset
 	cx.save();
 	cx.beginPath();
 	cx.rect(fpX, fpY - 24, fpW, fpH + 24);
@@ -922,15 +1109,11 @@ function drawRoom(
 	for (let i = 0; i < nFl; i++) {
 		const phase = i * 1.7;
 		const flx = fpX + 6 + (i / (nFl - 1)) * (fpW - 12);
-		// height & lateral sway driven by layered sines (looks organic)
+		// height & lateral lean from layered sines of a fixed phase (no animation)
 		const breathe =
-			0.7 +
-			0.3 * Math.sin(time * 0.009 + phase) +
-			0.15 * Math.sin(time * 0.021 + phase * 2.3);
+			0.7 + 0.3 * Math.sin(phase) + 0.15 * Math.sin(phase * 2.3);
 		const flh = (10 + rnd(i + 20) * 12) * (0.7 + breathe * 0.6);
-		const sway =
-			Math.sin(time * 0.011 + phase) * 2.4 +
-			Math.sin(time * 0.027 + phase) * 1.1;
+		const sway = Math.sin(phase) * 2.4 + Math.sin(phase) * 1.1;
 		const tipX = flx + sway;
 		const w = 3 + rnd(i + 4) * 1.6;
 		// outer flame (orange)
@@ -983,8 +1166,8 @@ function drawRoom(
 
 	// fire glow into the room — kept tight around the firebox so it never
 	// bleeds up onto the TV (smaller radius, centered low on the fire)
-	const glowPulse =
-		0.78 + Math.sin(time * 0.009) * 0.16 + Math.sin(time * 0.019) * 0.08;
+	// static glow (fixed at its average brightness)
+	const glowPulse = 0.78;
 	const fglow = cx.createRadialGradient(
 		featX,
 		baseY + 4,
@@ -1099,7 +1282,7 @@ function drawRoom(
 		cx.fillStyle = "rgba(255,255,255,0.06)";
 		rr(tx + 1.5 * scale, ty + 2 * scale, 1.4 * scale, th - 6 * scale, 1);
 		cx.fill();
-		// subtle warm reflection from the fire on the gloss side
+		// subtle warm reflection from the fire on the gloss side (static)
 		cx.fillStyle = `rgba(255,150,70,${0.05 * glowPulse})`;
 		rr(tx + tw - 5 * scale, ty + th * 0.3, 4 * scale, th * 0.5, 1);
 		cx.fill();
@@ -1760,18 +1943,6 @@ export default function RoomAutomation() {
 	const videoRef = useRef<HTMLVideoElement>(null);
 	const loopRef = useRef<number | null>(null);
 	const timeRef = useRef(0);
-	// optional manual override for testing specific times; null = use real clock
-	const [demoHour, setDemoHour] = useState<number | null>(null);
-	const demoRef = useRef<number | null>(null);
-	demoRef.current = demoHour;
-
-	// current local hour as a fractional number (e.g. 13.5 = 1:30pm)
-	function currentHour() {
-		if (demoRef.current != null) return demoRef.current;
-		const d = new Date();
-		return d.getHours() + d.getMinutes() / 60;
-	}
-
 	function render() {
 		const canvas = canvasRef.current;
 		if (!canvas) return;
@@ -1803,12 +1974,10 @@ export default function RoomAutomation() {
 			curS.current,
 			tvRef.current,
 			videoRef.current,
-			timeRef.current,
-			currentHour(),
 		);
 	}
 
-	// single persistent loop: keeps the fire alive every frame and paints
+	// single persistent loop: keeps the TV video alive every frame and paints
 	// whatever curS currently holds (scene/shade tweens just mutate curS).
 	function loop(ts: number) {
 		timeRef.current = ts;

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
-import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
 import "./styles.scss";
 
 const PAGE = "security";
@@ -96,7 +95,6 @@ export default async function Security({
 					</p>
 				</div>
 			</section>
-			<TechnologyProducts technology="Security" />
 		</main>
 	);
 }

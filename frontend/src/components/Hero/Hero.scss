@@ -21,15 +21,17 @@
 	opacity: 0;
 	animation: animateHeader 1s forwards;
 	text-align: center;
+	width: min(100%, 1000px);
 }
 
 .hero__desc {
-	font-size: 1.125rem;
+	font-size: clamp(1.125rem, 4vw, 1.5rem);
 	font-weight: 500;
 	opacity: 0;
 	animation: animateHeader 1s forwards;
 	text-align: center;
 	margin-top: 100px;
+	width: min(100%, 1000px);
 }
 
 .hero-curtain {
@@ -38,7 +40,7 @@
 	inset: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.25);
+	background: rgba(0, 0, 0, 0.5);
 	pointer-events: none;
 }
 

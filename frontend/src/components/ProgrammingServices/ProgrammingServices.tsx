@@ -13,10 +13,7 @@ export default async function ProgrammingServices() {
 						className="programming-services__link"
 						href="/appointment"
 					>
-						<img
-							src="https://dominiontx.com/wp-content/uploads/2017/12/Crestron-PNG.png"
-							alt=""
-						/>
+						<img src="/crestron-logo.png" alt="" />
 					</TransitionLink>
 					<TransitionLink
 						className="programming-services__link"
@@ -40,7 +37,21 @@ export default async function ProgrammingServices() {
 						className="programming-services__link"
 						href="/appointment"
 					>
-						Data Engineering
+						<div
+							style={{
+								display: "flex",
+								flexDirection: "column",
+								justifyContent: "center",
+								alignItems: "center",
+							}}
+						>
+							<img
+								style={{ width: "100px" }}
+								src="/data-engineering.png"
+								alt=""
+							/>
+							<span>Data Engineering</span>
+						</div>
 					</TransitionLink>
 				</div>
 				<div

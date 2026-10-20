@@ -51,7 +51,7 @@ export default async function Products({
 		<main className="products">
 			<Breadcrumbs links={[{ label: t("nav.products") }]} locale={locale} />
 			<div className="products-inner">
-				<h1 className="main__title">Produkty</h1>
+				<h1 className="main__title">{t("nav.products")}</h1>
 				<ProductsClient />
 			</div>
 		</main>
