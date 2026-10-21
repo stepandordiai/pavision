@@ -22,7 +22,7 @@ export async function generateMetadata({
 
 	return {
 		title: t("title"),
-		description: t("desc"),
+		description: t("description"),
 		alternates: {
 			canonical: `/${locale}/${PAGE}`,
 			languages: {
@@ -33,7 +33,7 @@ export async function generateMetadata({
 
 		openGraph: {
 			title: t("title"),
-			description: t("desc"),
+			description: t("description"),
 			url: `/${locale}/${PAGE}`,
 			type: "website",
 			images: "/pavision-og.png",

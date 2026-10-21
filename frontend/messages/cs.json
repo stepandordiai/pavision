@@ -6,7 +6,7 @@
 		"forArchitects": "Pro architekty",
 		"products": "Produkty",
 		"contacts": "Kontakty",
-		"bookAConsultation": "Nezávazná konzultace zdarma"
+		"bookAConsultation": "Nezávazná konzultace"
 	},
 
 	"contactUs": "Kontaktujte nás",
@@ -748,6 +748,9 @@
 		"meta": {
 			"title": "Domluvit schůzku | Nezávazná konzultace",
 			"description": "Domluvte si nezávaznou konzultaci chytré domácnosti a AV. Vyberte si volný termín v kalendáři, první konzultace je zdarma. Crestron, Loxone, Lutron."
-		}
+		},
+		"selected": "vybráno",
+		"pickADateHint": "Vyberte datum v kalendáři a zobrazte dostupné časy",
+		"availableHours": "Dostupné časy"
 	}
 }

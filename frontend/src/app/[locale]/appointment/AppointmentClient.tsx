@@ -268,7 +268,7 @@ export default function AppointmentClient() {
 					locale={locale}
 				/>
 				<div style={{ padding: "0 20px 20px" }}>
-					<h1 className="main__title">Nezávazná technologická konzultace</h1>
+					<h1 className="main__title">{t("nav.bookAConsultation")}</h1>
 					<div className="appointment-container">
 						<div className="calendar">
 							<div className="calendar-header">
@@ -355,21 +355,20 @@ export default function AppointmentClient() {
 											borderRadius: "50%",
 										}}
 									></span>
-									<span>selected</span>
+									<span>{t("appointment.selected")}</span>
 								</div>
 							</div>
 						</div>
 						<div className="calendar">
-							{/* Slots */}
 							<div className="apt-slots">
-								<p className="apt-slots__title">
-									{dateLabel
-										? `Available times - ${dateLabel}`
-										: "Select a date"}
-								</p>
+								{dateLabel && (
+									<p className="apt-slots__title">
+										{t("appointment.availableHours")} - {dateLabel}
+									</p>
+								)}
 								{!selectedDate && (
 									<p className="apt-slots__hint">
-										Pick a day on the calendar to see available slots
+										{t("appointment.pickADateHint")}
 									</p>
 								)}
 								{selectedDate && slotsLoading && (
@@ -421,7 +420,7 @@ export default function AppointmentClient() {
 											className={`input-container ${form.name != "" ? "input-container--active" : ""}`}
 										>
 											<label className="apt-form__label" htmlFor="apt-name">
-												Full name
+												{t("contacts.name")}
 											</label>
 											<input
 												id="apt-name"
@@ -438,7 +437,7 @@ export default function AppointmentClient() {
 											className={`input-container ${form.tel != "" ? "input-container--active" : ""}`}
 										>
 											<label className="apt-form__label" htmlFor="apt-phone">
-												Phone number
+												{t("contacts.tel")}
 											</label>
 											<input
 												id="apt-phone"
@@ -474,8 +473,7 @@ export default function AppointmentClient() {
 											className={`input-container ${form.message != "" ? "input-container--active" : ""}`}
 										>
 											<label className="apt-form__label" htmlFor="apt-msg">
-												Message{" "}
-												<span className="apt-form__optional">(optional)</span>
+												{t("contacts.message")}
 											</label>
 											<textarea
 												id="apt-msg"
@@ -496,7 +494,9 @@ export default function AppointmentClient() {
 										onClick={handleSubmit}
 										disabled={loading}
 									>
-										{loading ? "Booking..." : "Book consultation"}
+										{loading
+											? `${t("contacts.loading")}...`
+											: t("contacts.submit")}
 									</button>
 								</div>
 							)}

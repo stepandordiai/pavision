@@ -112,8 +112,8 @@ export default async function LoxoneSmartHome({
 							More
 						</TransitionLink>
 						<img
-							src="https://www.loxone.com/enen/wp-content/uploads/sites/3/2024/02/Home-kitchen-loxone-lighting.jpg"
-							alt=""
+							src="/loxone-smart-home-lighting.jpg"
+							alt="Loxone smart home lighting"
 						/>
 					</div>
 					<div>
@@ -157,8 +157,8 @@ export default async function LoxoneSmartHome({
 							More
 						</TransitionLink>
 						<img
-							src="https://portal.loxone.com/admin/wp-content/uploads/2023/01/1675079927-1024x578.jpg"
-							alt=""
+							src="/loxone-smart-home-home-access.jpg"
+							alt="Loxone smart home access"
 						/>
 					</div>
 					<div>

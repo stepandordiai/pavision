@@ -213,5 +213,7 @@
 	.what-we-do-container {
 		flex-direction: column !important;
 		gap: 10px;
+
+		height: calc(100svh - 158.4px - 20px) !important;
 	}
 }

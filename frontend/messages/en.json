@@ -722,7 +722,7 @@
 			"description": "Contact P&A Vision in Kladno: your first smart home, AV and automation consultation is free. Call or write, we reply within 12 hours."
 		},
 		"title": "Contact form",
-		"name": "Name",
+		"name": "Full name",
 		"tel": "Phone number",
 		"message": "Message",
 		"submit": "Submit",
@@ -739,6 +739,10 @@
 		"meta": {
 			"title": "Book a Meeting | Free Smart Home Consultation",
 			"description": "Book a non-binding smart home and AV consultation. Pick a time in the calendar; your first consultation is free. Crestron, Loxone, Lutron."
-		}
+		},
+
+		"selected": "selected",
+		"pickADateHint": "Pick a date on the calendar to see available hours",
+		"availableHours": "Available hours"
 	}
 }
