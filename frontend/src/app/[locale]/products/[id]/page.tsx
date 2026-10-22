@@ -6,6 +6,8 @@ import { Metadata } from "next";
 import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
 import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
 import "./styles.scss";
+import { Link } from "@/i18n/navigation";
+import { TransitionLink } from "@/components/TransitionLink";
 
 const PAGE = "products";
 
@@ -93,15 +95,20 @@ export default async function ProductPage({ params }: ProductPageProps) {
 			/>
 			<section className="section">
 				<div className="product-page-container">
-					<img
-						style={{ margin: "0 auto" }}
-						width={500}
-						src={product.img}
-						alt=""
-					/>
-					<div>
+					<div className="product-page__img-container">
+						<img
+							style={{ margin: "0 auto" }}
+							width={500}
+							src={product.img}
+							alt=""
+						/>
+					</div>
+					<div className="product-page__content">
 						<h1 className="product-page__title">{product.name}</h1>
 						<p style={{ whiteSpace: "pre-wrap" }}>{product.description}</p>
+						<TransitionLink href="/contacts" className="product-page__btn">
+							Poptat cenu
+						</TransitionLink>
 					</div>
 				</div>
 			</section>

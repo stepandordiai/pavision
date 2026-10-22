@@ -25,11 +25,12 @@ interface SceneConfig {
 const SCENES: Record<Scene, SceneConfig> = {
 	relax: {
 		// warm, cozy, dimmed — golden-hour amber evening
-		wT: "#e4c9a8",
-		wB: "#caa97e",
-		fT: "#bb8f56",
-		fB: "#8f6a3e",
-		cT: "#e8cda6",
+		// (walls/ceiling a touch deeper so the hidden LED cove reads clearly)
+		wT: "#cfb08c",
+		wB: "#b08c64",
+		fT: "#8c7058", // smoked oak — warm, dark, luxurious
+		fB: "#5a4534",
+		cT: "#cdae8a",
 		skyT: "#e3a865",
 		skyB: "#f0c98e",
 		sun: 0.55,
@@ -42,8 +43,8 @@ const SCENES: Record<Scene, SceneConfig> = {
 		// natural daytime light — soft, warm-neutral, not cold or clinical
 		wT: "#ece6da",
 		wB: "#dcd2c2",
-		fT: "#d8bf92",
-		fB: "#bb9d6c",
+		fT: "#ad9274", // smoked oak in daylight
+		fB: "#7e6550",
 		cT: "#f2ece0",
 		skyT: "#9cc8ec",
 		skyB: "#dcebf4",
@@ -169,101 +170,90 @@ function drawRoom(
 	cx.fillStyle = cg;
 	cx.fillRect(-M, -M, W + 2 * M, ceilY + M);
 
-	// recessed soffit step
-	cx.fillStyle = mix("#e7ddcc", "#191421");
+	// recessed soffit step (follows the scene's wall tone, a hair deeper)
+	cx.fillStyle = s.wT;
+	cx.fillRect(-M, ceilY - 12, W + 2 * M, 12);
+	cx.fillStyle = "rgba(0,0,0,0.04)";
 	cx.fillRect(-M, ceilY - 12, W + 2 * M, 12);
 	cx.fillStyle = "rgba(0,0,0,0.18)";
 	cx.fillRect(-M, ceilY, W + 2 * M, 2);
 
-	// warm white 3000K LED cove — thin, bright, edge-to-edge rectangular tray.
-	// The whole cove is CLIPPED to the ceiling band (above the window frames) so
-	// toggling it can never light the windows, their frames, or the outdoors.
-	if (s.ceil > 0.01) {
-		const a = s.ceil;
+	// ── HIDDEN LED COVE (recessed ceiling coffer) ──
+	// The LED strip sits behind the lip of a recessed coffer, so the strip itself
+	// is never visible: you only see its light washing onto the raised ceiling,
+	// brightest right at the edge and fading toward the middle, which stays darker.
+	// The coffer is drawn in true perspective toward the room's vanishing point
+	// (narrow at the back wall, widening toward the camera), like a real room.
+	// Everything is clipped to the ceiling so it can never light the windows.
+	{
+		const vpX = W * 0.5; // vanishing point (matches the floor perspective)
+		const vpY = fY * 0.6;
+		const y0 = ceilY - 18; // back edge of the coffer (lip of lower ceiling below it)
+		const hw = W * 0.36; // half-width of the coffer at the back edge
+		const yTop = -M - 10; // coffer runs past the top of the view (over the camera)
+		// screen x of a ceiling point at lateral offset X (measured at the back edge)
+		const px = (X: number, y: number) =>
+			vpX + (X * (vpY - y)) / (vpY - y0);
+		// coffer outline inset by `k` steps (k = 0 → the edge itself)
+		const outline = (k: number, dX: number, dY: number) => {
+			const X = hw - k * dX;
+			const y = y0 - k * dY;
+			cx.moveTo(px(-X, yTop), yTop);
+			cx.lineTo(px(-X, y), y);
+			cx.lineTo(px(X, y), y);
+			cx.lineTo(px(X, yTop), yTop);
+			cx.closePath();
+		};
+
 		cx.save();
 		cx.beginPath();
-		cx.rect(-M, -M, W + 2 * M, ceilY - 6 + M); // ceiling only: top of canvas down to just above the soffit
+		cx.rect(-M, -M, W + 2 * M, ceilY - 12 + M); // ceiling only (above the soffit)
 		cx.clip();
-		// tray spans almost the full room width, in mild perspective
-		const trayTop = ceilY * 0.3; // far edge (higher up, slightly inset)
-		const trayBot = ceilY - 6; // near edge (just above the soffit)
-		const innerTopL = W * 0.14,
-			innerTopR = W * 0.86; // far edge — reaches toward the corners
-		const outerBotL = -M * 0.2,
-			outerBotR = W + M * 0.2; // near edge — runs off to the room corners
-		// recessed dark tray channel
-		cx.fillStyle = mix("#d9cdba", "#15111b");
+
+		// recess depth: the raised panel reads slightly deeper than the lower ceiling
+		cx.fillStyle = "rgba(0,0,0,0.035)";
 		cx.beginPath();
-		cx.moveTo(innerTopL - 6, trayTop);
-		cx.lineTo(innerTopR + 6, trayTop);
-		cx.lineTo(outerBotR + 6, trayBot);
-		cx.lineTo(outerBotL - 6, trayBot);
-		cx.closePath();
-		cx.fill();
-		// inner ceiling panel inside the tray
-		cx.fillStyle = mix("#efe6d6", "#1d1726");
-		cx.beginPath();
-		cx.moveTo(innerTopL, trayTop + 3);
-		cx.lineTo(innerTopR, trayTop + 3);
-		cx.lineTo(outerBotR, trayBot - 3);
-		cx.lineTo(outerBotL, trayBot - 3);
-		cx.closePath();
+		outline(0, 0, 0);
 		cx.fill();
 
-		// thin, bright LED edge — minimal bloom, hot core, fine diodes
-		const led = (
-			x1: number,
-			y1: number,
-			x2: number,
-			y2: number,
-			near = false,
-		) => {
-			const k = near ? 1 : 0.85;
-			// tight bloom (thin, not wide)
-			cx.strokeStyle = `rgba(255,212,156,${0.3 * a * k})`;
-			cx.lineWidth = 6;
-			cx.lineCap = "round";
+		if (s.ceil > 0.01) {
+			const a = s.ceil;
+			// "screen" brightens the ceiling like real light instead of tinting it,
+			// so the cove reads on a light ceiling (Bright/Relax) and a dark one (Cinema)
+			cx.globalCompositeOperation = "screen";
+			// very faint overall bounce inside the coffer (indirect light lifts it a touch)
+			cx.fillStyle = `rgba(255,214,166,${0.05 * a})`;
 			cx.beginPath();
-			cx.moveTo(x1, y1);
-			cx.lineTo(x2, y2);
-			cx.stroke();
-			// bright thin core
-			cx.strokeStyle = `rgba(255,248,228,${a * k})`;
-			cx.lineWidth = 1.4;
-			cx.beginPath();
-			cx.moveTo(x1, y1);
-			cx.lineTo(x2, y2);
-			cx.stroke();
-			// fine diode beads
-			const len = Math.hypot(x2 - x1, y2 - y1);
-			const n = Math.max(2, Math.round(len / 6));
-			for (let i = 0; i <= n; i++) {
-				const t = i / n;
-				cx.fillStyle = `rgba(255,252,238,${0.95 * a * k})`;
+			outline(0, 0, 0);
+			cx.fill();
+			// soft falloff from the hidden strip: many thin rings that follow the
+			// coffer edge in perspective (fine steps → smooth, no visible banding),
+			// so the glow widens naturally toward the camera
+			const N = 72,
+				dX = 0.92,
+				dY = 0.48;
+			for (let k = 0; k < N; k++) {
+				const tk = (k + 0.5) / N;
+				const fall = 0.7 * Math.exp(-tk * 10) + 0.3 * Math.exp(-tk * 3);
+				cx.fillStyle = `rgba(255,206,146,${0.95 * a * fall})`;
 				cx.beginPath();
-				cx.arc(ln(x1, x2, t), ln(y1, y2, t), 0.55, 0, Math.PI * 2);
-				cx.fill();
+				outline(k, dX, dY);
+				outline(k + 1, dX, dY);
+				cx.fill("evenodd");
 			}
-			cx.lineCap = "butt";
-		};
-		led(innerTopL, trayTop, innerTopR, trayTop);
-		led(innerTopL, trayTop, outerBotL, trayBot);
-		led(innerTopR, trayTop, outerBotR, trayBot);
-		led(outerBotL, trayBot, outerBotR, trayBot, true);
+			cx.globalCompositeOperation = "source-over";
+		}
 
-		// indirect bounce UP onto the ceiling slab (stays above the soffit)
-		const up = cx.createLinearGradient(0, trayBot, 0, trayTop - 30);
-		up.addColorStop(0, `rgba(255,224,176,${0.5 * a})`);
-		up.addColorStop(1, "rgba(255,224,176,0)");
-		cx.fillStyle = up;
-		cx.fillRect(-M, trayTop - 30, W + 2 * M, trayBot - trayTop + 30);
-		// short downward wash — capped ABOVE the windows so glass stays clean
-		const washBot = Math.min(ceilY + 4, ceilY); // stop at the soffit line
-		const cov = cx.createLinearGradient(0, trayBot, 0, washBot);
-		cov.addColorStop(0, `rgba(255,220,166,${0.6 * a})`);
-		cov.addColorStop(1, "rgba(255,214,158,0)");
-		cx.fillStyle = cov;
-		cx.fillRect(-M, trayBot, W + 2 * M, Math.max(0, washBot - trayBot));
+		// shadow gap on the lip edge — the dark line that hides the LED strip
+		cx.strokeStyle = mix("rgba(70,56,40,0.22)", "rgba(0,0,0,0.5)");
+		cx.lineWidth = 0.8;
+		cx.beginPath();
+		cx.moveTo(px(-hw - 1, yTop), yTop);
+		cx.lineTo(px(-hw - 1, y0 + 0.6), y0 + 0.6);
+		cx.lineTo(px(hw + 1, y0 + 0.6), y0 + 0.6);
+		cx.lineTo(px(hw + 1, yTop), yTop);
+		cx.stroke();
+
 		cx.restore(); // end ceiling-only clip
 	}
 
@@ -278,30 +268,29 @@ function drawRoom(
 	];
 	ceilItems.forEach(({ x }) => {
 		const y = ceilY * 0.5;
-		{
-			cx.fillStyle = "rgba(0,0,0,0.12)";
+		// trim ring
+		cx.fillStyle = "rgba(0,0,0,0.12)";
+		cx.beginPath();
+		cx.ellipse(x, y, 3.4, 2, 0, 0, Math.PI * 2);
+		cx.fill();
+		// aperture (lit when the scene is bright enough)
+		cx.fillStyle =
+			s.br > 0.2
+				? `rgba(255,242,212,${Math.min(1, 0.55 + s.br * 0.45)})`
+				: "rgba(90,90,112,0.5)";
+		cx.beginPath();
+		cx.ellipse(x, y, 1.7, 1, 0, 0, Math.PI * 2);
+		cx.fill();
+		// a downlight shines DOWN, so the ceiling around it only gets a tiny,
+		// tight halo from the trim — no beam painted across the ceiling
+		if (s.br > 0.15) {
+			const halo = cx.createRadialGradient(x, y, 0.5, x, y, 6);
+			halo.addColorStop(0, `rgba(${s.aR},${s.aG},${s.aB},${0.18 * s.br})`);
+			halo.addColorStop(1, `rgba(${s.aR},${s.aG},${s.aB},0)`);
+			cx.fillStyle = halo;
 			cx.beginPath();
-			cx.ellipse(x, y, 3.4, 2, 0, 0, Math.PI * 2);
+			cx.ellipse(x, y, 6, 3.6, 0, 0, Math.PI * 2);
 			cx.fill();
-			cx.fillStyle =
-				s.br > 0.2
-					? `rgba(255,242,212,${Math.min(1, 0.55 + s.br * 0.45)})`
-					: "rgba(90,90,112,0.5)";
-			cx.beginPath();
-			cx.ellipse(x, y, 1.7, 1, 0, 0, Math.PI * 2);
-			cx.fill();
-			if (s.br > 0.15) {
-				const dl = cx.createRadialGradient(x, y, 0, x, y, 50 * s.br);
-				dl.addColorStop(0, `rgba(${s.aR},${s.aG},${s.aB},${s.br * 0.1})`);
-				dl.addColorStop(1, "rgba(0,0,0,0)");
-				cx.fillStyle = dl;
-				cx.beginPath();
-				cx.moveTo(x, y);
-				cx.lineTo(x + 30 * s.br, fY);
-				cx.lineTo(x - 30 * s.br, fY);
-				cx.closePath();
-				cx.fill();
-			}
 		}
 	});
 
@@ -313,6 +302,23 @@ function drawRoom(
 	wg.addColorStop(1, s.wB);
 	cx.fillStyle = wg;
 	cx.fillRect(-M, ceilY, W + 2 * M, fY - ceilY);
+
+	// ── HIDDEN WALL-WASH SLOT (shadow gap where ceiling meets the back wall) ──
+	// A second concealed LED strip sits in the gap under the soffit and grazes
+	// light DOWN the wall: brightest right under the ceiling, fading quickly.
+	// Drawn before the windows, so glass and frames stay clean.
+	if (s.ceil > 0.01) {
+		const a = s.ceil;
+		cx.globalCompositeOperation = "screen";
+		const wash = cx.createLinearGradient(0, ceilY, 0, ceilY + 70);
+		wash.addColorStop(0, `rgba(255,210,152,${0.8 * a})`);
+		wash.addColorStop(0.12, `rgba(255,204,144,${0.45 * a})`);
+		wash.addColorStop(0.45, `rgba(255,198,138,${0.12 * a})`);
+		wash.addColorStop(1, "rgba(255,198,138,0)");
+		cx.fillStyle = wash;
+		cx.fillRect(-M, ceilY, W + 2 * M, 70);
+		cx.globalCompositeOperation = "source-over";
+	}
 
 	// ─────────────────────────────────────────────────────────
 	// TWO PANORAMIC WINDOWS flanking the central feature
@@ -1008,6 +1014,24 @@ function drawRoom(
 	cx.fillStyle = "rgba(0,0,0,0.25)";
 	cx.fillRect(mX - 2, mTop, 2, mH);
 	cx.fillRect(mX + featW, mTop, 2, mH);
+	// hidden wall-wash grazing down the marble from the ceiling slot
+	if (s.ceil > 0.01) {
+		const a = s.ceil;
+		cx.globalCompositeOperation = "screen";
+		// grazing light: soft spill above the slot, brightest right at the slot
+		// (ceiling line), then fading down the stone — one smooth gradient
+		const span = ceilY + 58 - mTop;
+		const slot = (ceilY - mTop) / span;
+		const mw = cx.createLinearGradient(0, mTop, 0, ceilY + 58);
+		mw.addColorStop(0, `rgba(255,200,140,${0.22 * a})`);
+		mw.addColorStop(slot, `rgba(255,206,148,${0.55 * a})`);
+		mw.addColorStop(slot + (1 - slot) * 0.15, `rgba(255,200,140,${0.3 * a})`);
+		mw.addColorStop(slot + (1 - slot) * 0.5, `rgba(255,196,136,${0.08 * a})`);
+		mw.addColorStop(1, "rgba(255,196,136,0)");
+		cx.fillStyle = mw;
+		cx.fillRect(mX, mTop, featW, span);
+		cx.globalCompositeOperation = "source-over";
+	}
 
 	// ── FLUSH TV on the marble ──
 	const tvW = 92,
@@ -1292,123 +1316,626 @@ function drawRoom(
 	drawTower(mX + featW + 16, 0.55, 30); // snug against the right edge of the marble wall
 
 	// ─────────────────────────────────────────────────────────
-	// BACKLIT WALNUT BOOKSHELF (fills the left wall, like the photo)
+	// BUILT-IN WALNUT SHELVING (left wall) — curated, backlit, with a closed
+	// cabinet below. Narrower than before so it keeps a clear gap to the window.
+	// Each open bay has a concealed LED strip under the shelf above it: you never
+	// see the diodes, only a soft light falling onto the back panel and objects,
+	// brightest just under the shelf and fading down, with soft cast shadows.
 	// ─────────────────────────────────────────────────────────
-	const bsX = -M + 30,
-		bsY = ceilY + 10,
-		bsW = 150, // much wider — spans the left wall
-		bsBot = fY - 2,
-		bsH = bsBot - bsY;
-	// walnut cabinet carcass with vertical grain shading
-	for (let gx = bsX; gx < bsX + bsW; gx += 10) {
-		const t = (gx - bsX) / bsW;
-		const base = 70 + Math.sin(gx * 0.6) * 7;
-		const wd = 1 - darkF * 0.55;
-		cx.fillStyle = `rgb(${Math.round(base * wd)},${Math.round(base * 0.6 * wd)},${Math.round(base * 0.38 * wd)})`;
-		cx.fillRect(gx, bsY, 10, bsH);
-	}
-	const rows = 6,
-		cols = 4;
-	const cellW = bsW / cols;
-	const cellH = bsH / rows;
-	const objCols = [
-		"#8a5a3a",
-		"#5a6a78",
-		"#7a4a50",
-		"#3a4a3a",
-		"#9a8a6a",
-		"#b0967a",
-	];
-	for (let r = 0; r < rows; r++) {
-		for (let c = 0; c < cols; c++) {
-			const cx0 = bsX + c * cellW;
-			const cy0 = bsY + r * cellH;
-			// recessed back panel + integrated warm LED (brighter)
-			if (s.shelf > 0.01) {
-				const bl = cx.createLinearGradient(cx0, cy0, cx0, cy0 + cellH);
-				bl.addColorStop(0, `rgba(255,214,150,${0.72 * s.shelf})`);
-				bl.addColorStop(1, `rgba(255,184,116,${0.34 * s.shelf})`);
-				cx.fillStyle = bl;
-			} else {
-				cx.fillStyle = mix("#332518", "#120d08");
+	{
+		const bsX = -100,
+			bsW = 116, // right edge at x = 16 → ~10 units of wall before the window frame
+			bsY = ceilY + 10,
+			bsBot = fY - 2,
+			bsH = bsBot - bsY;
+		const fr = 3; // carcass side/top thickness
+		const plinth = 4;
+		const div = 2; // vertical divider thickness
+		const bt = 2.4; // shelf board thickness
+		const cols = 3,
+			rows = 5; // 4 open rows + closed cabinet at the bottom
+		const colW = (bsW - 2 * fr - (cols - 1) * div) / cols;
+		const rowH = (bsH - fr - plinth) / rows;
+		const L = s.shelf; // shelf LED level 0..1
+
+		// colour helper: ambient-dimmed colour, or the cast-shadow colour while
+		// drawing an object's shadow pass
+		// objects lit by the shelf LED stay readable even in a dark scene
+		const lit = darkF * (1 - 0.55 * L);
+		const mixL = (l: string, d: string) => mix(l, d, lit);
+		let shadowMode = false;
+		const shCol = `rgba(12,7,3,${0.1 + 0.3 * L})`;
+		const col = (light: string, dark: string) =>
+			shadowMode ? shCol : mixL(light, dark);
+		const fx = (style: string) => (shadowMode ? "rgba(0,0,0,0)" : style);
+
+		// ── object helpers (x = left/centre, fl = shelf top surface) ──
+		const book = (
+			x: number,
+			fl: number,
+			w: number,
+			h: number,
+			c: [string, string],
+			band: boolean,
+			lean = 0,
+		) => {
+			cx.save();
+			if (lean) {
+				const px0 = lean < 0 ? x + w : x; // pivot on the corner it rests on
+				cx.translate(px0, fl);
+				cx.rotate(lean);
+				cx.translate(-px0, -fl);
 			}
-			cx.fillRect(cx0 + 3, cy0 + 3, cellW - 6, cellH - 6);
-			// bright LED strip line under each shelf lip
-			if (s.shelf > 0.01) {
-				cx.fillStyle = `rgba(255,236,195,${0.9 * s.shelf})`;
-				cx.fillRect(cx0 + 4, cy0 + 4, cellW - 8, 1.2);
-			}
-			// staged objects per cell (deterministic): books, vase, sculpture, plant
-			const kind = Math.floor(rnd(r * 13 + c * 7) * 4);
-			const innerL = cx0 + 6,
-				innerR = cx0 + cellW - 6,
-				floor = cy0 + cellH - 4;
-			if (kind === 0) {
-				// stack of books
-				let ox = innerL;
-				while (ox < innerR - 3) {
-					const bw = 3 + rnd(r * 9 + ox) * 4;
-					const bh = cellH * (0.4 + rnd(r * 7 + ox) * 0.42);
-					cx.fillStyle = mix(
-						objCols[Math.floor(rnd(r + ox + c) * objCols.length)],
-						"#241f1a",
-					);
-					cx.fillRect(ox, floor - bh, bw, bh);
-					ox += bw + 1.4;
+			cx.fillStyle = col(c[0], c[1]);
+			cx.fillRect(x, fl - h, w, h);
+			if (!shadowMode) {
+				// rounded-spine shading
+				cx.fillStyle = "rgba(255,255,255,0.1)";
+				cx.fillRect(x + 0.25, fl - h, 0.45, h);
+				cx.fillStyle = "rgba(0,0,0,0.2)";
+				cx.fillRect(x + w - 0.6, fl - h, 0.6, h);
+				if (band) {
+					// gilt bands near head and tail
+					cx.fillStyle = "rgba(214,182,120,0.7)";
+					cx.fillRect(x, fl - h + h * 0.1, w, 0.35);
+					cx.fillRect(x, fl - h * 0.14, w, 0.35);
 				}
-			} else if (kind === 1) {
-				// vase / vessel
-				const vw = cellW * 0.28;
-				cx.fillStyle = mix("#cabfa8", "#2a2620");
-				rr(cx0 + cellW / 2 - vw / 2, floor - cellH * 0.5, vw, cellH * 0.5, {
-					upperLeft: vw / 2,
-					upperRight: vw / 2,
-				});
+				// title block
+				cx.fillStyle = "rgba(240,232,214,0.28)";
+				cx.fillRect(x + w * 0.25, fl - h * 0.62, w * 0.5, h * 0.22);
+			}
+			cx.restore();
+		};
+		// ── book palettes: muted, "designer library" tones ──
+		const palA: [string, string][] = [
+			["#e9e1cf", "#2c2822"], // cream
+			["#2b3a4e", "#11161d"], // navy
+			["#7a2f2a", "#2a1210"], // oxblood
+			["#8f9a7c", "#2c3026"], // sage
+			["#c9a27a", "#3a2e22"], // sand
+			["#1e1e1e", "#0b0b0b"], // black
+		];
+		const palB: [string, string][] = [
+			["#b8634a", "#3a1e16"], // terracotta
+			["#d8d2c4", "#2a2824"], // greige
+			["#4d5f6e", "#181e24"], // slate blue
+			["#a8865a", "#33281c"], // camel
+			["#3c4a3a", "#141914"], // forest
+			["#efe9dc", "#2e2b26"], // off-white
+		];
+		const booksRow = (
+			x0: number,
+			x1: number,
+			fl: number,
+			maxH: number,
+			seed: number,
+			pal: [string, string][],
+		) => {
+			let ox = x0,
+				i = 0;
+			while (ox < x1 - 2) {
+				const bw = 2.1 + rnd(seed + i) * 1.9;
+				if (ox + bw > x1) break;
+				const bh = maxH * (0.6 + rnd(seed + i + 40) * 0.38);
+				const c = pal[Math.floor(rnd(seed + i + 80) * pal.length)];
+				book(ox, fl, bw, bh, c, rnd(seed + i + 120) > 0.55);
+				ox += bw + 0.22;
+				i++;
+			}
+			return ox;
+		};
+		// books lying flat (fore-edge pages visible), returns top y
+		const stackFlat = (
+			x: number,
+			fl: number,
+			w: number,
+			n: number,
+			seed: number,
+			pal: [string, string][],
+		) => {
+			let y = fl;
+			for (let k = 0; k < n; k++) {
+				const bw = w * (1 - k * 0.07 - rnd(seed + k) * 0.06);
+				const bh = 1.5 + rnd(seed + k + 9) * 1.1;
+				const bx = x + (w - bw) / 2 + (rnd(seed + k + 3) - 0.5) * 1.2;
+				const c = pal[Math.floor(rnd(seed + k + 17) * pal.length)];
+				cx.fillStyle = col(c[0], c[1]);
+				cx.fillRect(bx, y - bh, bw, bh);
+				// page block on the right end
+				cx.fillStyle = fx("rgba(245,238,222,0.75)");
+				cx.fillRect(bx + bw - 1.2, y - bh + 0.3, 1, bh - 0.6);
+				y -= bh;
+			}
+			return y;
+		};
+		const vase = (
+			cxm: number,
+			fl: number,
+			w: number,
+			h: number,
+			c: [string, string],
+			neck = 0.32,
+		) => {
+			cx.fillStyle = col(c[0], c[1]);
+			cx.beginPath();
+			cx.moveTo(cxm - w * 0.28, fl);
+			cx.bezierCurveTo(
+				cxm - w * 0.62,
+				fl - h * 0.25,
+				cxm - w * 0.55,
+				fl - h * 0.7,
+				cxm - w * neck * 0.5,
+				fl - h * 0.86,
+			);
+			cx.lineTo(cxm - w * neck * 0.6, fl - h);
+			cx.lineTo(cxm + w * neck * 0.6, fl - h);
+			cx.lineTo(cxm + w * neck * 0.5, fl - h * 0.86);
+			cx.bezierCurveTo(
+				cxm + w * 0.55,
+				fl - h * 0.7,
+				cxm + w * 0.62,
+				fl - h * 0.25,
+				cxm + w * 0.28,
+				fl,
+			);
+			cx.closePath();
+			cx.fill();
+			if (!shadowMode) {
+				// glaze highlight + shaded side
+				const g = cx.createLinearGradient(cxm - w * 0.5, 0, cxm + w * 0.5, 0);
+				g.addColorStop(0, "rgba(255,255,255,0)");
+				g.addColorStop(0.3, "rgba(255,255,255,0.16)");
+				g.addColorStop(0.55, "rgba(255,255,255,0)");
+				g.addColorStop(1, "rgba(0,0,0,0.22)");
+				cx.fillStyle = g;
 				cx.fill();
-			} else if (kind === 2) {
-				// horizontal books + small sculpture
-				cx.fillStyle = mix("#7a6450", "#241f1a");
-				cx.fillRect(innerL, floor - 5, cellW * 0.5, 5);
-				cx.fillStyle = mix("#b8a98c", "#2e2a22");
+			}
+			return fl - h;
+		};
+		// loose bouquet: curved stems, leaves and layered blossoms
+		const flowers = (
+			cxm: number,
+			topY: number,
+			spread: number,
+			height: number,
+			seed: number,
+			petal: [string, string],
+			n = 7,
+		) => {
+			for (let k = 0; k < n; k++) {
+				const t = n > 1 ? k / (n - 1) - 0.5 : 0;
+				const ex = cxm + t * spread * 2 + (rnd(seed + k) - 0.5) * 2;
+				const ey = topY - height * (0.55 + rnd(seed + k + 5) * 0.45);
+				cx.strokeStyle = col("#5f7a4c", "#1e281a");
+				cx.lineWidth = 0.35;
 				cx.beginPath();
-				cx.arc(innerR - 6, floor - 5, 4, 0, Math.PI * 2);
-				cx.fill();
-			} else {
-				// small plant
-				cx.fillStyle = mix("#a89a82", "#2a2620");
-				cx.fillRect(cx0 + cellW / 2 - 4, floor - 6, 8, 6);
-				cx.fillStyle = mix("#5f7a55", "#26331f");
-				for (let k = -2; k <= 2; k++) {
+				cx.moveTo(cxm + t * 1.2, topY);
+				cx.quadraticCurveTo(cxm + t * spread * 0.6, ey + (topY - ey) * 0.5, ex, ey);
+				cx.stroke();
+				// a leaf on the stem
+				if (rnd(seed + k + 30) > 0.4) {
+					const ly = ey + (topY - ey) * 0.55;
+					const lx = ln(cxm, ex, 0.5);
+					cx.fillStyle = col("#6f8a58", "#22301c");
 					cx.beginPath();
-					cx.moveTo(cx0 + cellW / 2, floor - 6);
-					cx.quadraticCurveTo(
-						cx0 + cellW / 2 + k * 4,
-						floor - 14,
-						cx0 + cellW / 2 + k * 6,
-						floor - 18,
-					);
-					cx.lineWidth = 1.2;
-					cx.strokeStyle = mix("#5f7a55", "#26331f");
-					cx.stroke();
+					cx.ellipse(lx + (t < 0 ? -1 : 1), ly, 1.4, 0.55, t < 0 ? 0.6 : -0.6, 0, Math.PI * 2);
+					cx.fill();
 				}
+				// blossom: five petals around a centre
+				const pr = 0.85 + rnd(seed + k + 12) * 0.5;
+				cx.fillStyle = col(petal[0], petal[1]);
+				for (let p = 0; p < 5; p++) {
+					const a2 = (p / 5) * Math.PI * 2 + rnd(seed + k) * 2;
+					cx.beginPath();
+					cx.arc(ex + Math.cos(a2) * pr * 0.8, ey + Math.sin(a2) * pr * 0.8, pr * 0.75, 0, Math.PI * 2);
+					cx.fill();
+				}
+				cx.fillStyle = col("#d9b65a", "#3a3018");
+				cx.beginPath();
+				cx.arc(ex, ey, pr * 0.42, 0, Math.PI * 2);
+				cx.fill();
 			}
-			// shelf board (front lip)
-			cx.fillStyle = mix("#4a3826", "#15100b");
-			cx.fillRect(cx0, cy0 + cellH - 2.5, cellW, 2.5);
+		};
+		// eucalyptus branch with paired round leaves
+		const branch = (cxm: number, topY: number, h: number, seed: number) => {
+			const ex = cxm + (rnd(seed) - 0.3) * 6;
+			const ey = topY - h;
+			cx.strokeStyle = col("#6b6a52", "#24241c");
+			cx.lineWidth = 0.35;
+			cx.beginPath();
+			cx.moveTo(cxm, topY);
+			cx.quadraticCurveTo(cxm + 1, topY - h * 0.5, ex, ey);
+			cx.stroke();
+			for (let k = 1; k <= 6; k++) {
+				const t = k / 7;
+				const bx = ln(cxm, ex, t) + Math.sin(t * 3) * 0.6;
+				const by = ln(topY, ey, t);
+				cx.fillStyle = col("#9fb3a2", "#2c3530");
+				cx.beginPath();
+				cx.ellipse(bx - 1.1, by, 0.95, 0.75, 0, 0, Math.PI * 2);
+				cx.ellipse(bx + 1.1, by - 0.4, 0.95, 0.75, 0, 0, Math.PI * 2);
+				cx.fill();
+			}
+		};
+		// pothos in a ceramic pot, vines trailing over the shelf edge
+		const trailingPlant = (cxm: number, fl: number, potW: number, potH: number, seed: number) => {
+			cx.fillStyle = col("#e6ddcc", "#2b2722");
+			rr(cxm - potW / 2, fl - potH, potW, potH, 1.2);
+			cx.fill();
+			if (!shadowMode) {
+				cx.fillStyle = "rgba(0,0,0,0.18)";
+				cx.fillRect(cxm + potW * 0.2, fl - potH, potW * 0.3, potH);
+			}
+			const leaf = (lx: number, ly: number, sz: number, rot: number, k: number) => {
+				cx.fillStyle = col(rnd(seed + k) > 0.5 ? "#6f9a52" : "#5a8444", "#1d2c17");
+				cx.beginPath();
+				cx.ellipse(lx, ly, sz, sz * 0.62, rot, 0, Math.PI * 2);
+				cx.fill();
+			};
+			// upright crown
+			for (let k = 0; k < 9; k++) {
+				const a2 = -Math.PI / 2 + (rnd(seed + k) - 0.5) * 2.2;
+				const rd = 2 + rnd(seed + k + 3) * 3.5;
+				leaf(cxm + Math.cos(a2) * rd, fl - potH - 1 + Math.sin(a2) * rd * 0.8, 1.5, a2, k);
+			}
+			// two vines draping over the front of the shelf
+			[-1, 1].forEach((side, v) => {
+				const sx = cxm + side * potW * 0.45;
+				const len = 9 + v * 5;
+				cx.strokeStyle = col("#557a3e", "#1a2614");
+				cx.lineWidth = 0.3;
+				cx.beginPath();
+				cx.moveTo(sx, fl - potH + 0.5);
+				cx.quadraticCurveTo(sx + side * 4, fl, sx + side * 3, fl + len);
+				cx.stroke();
+				for (let k = 0; k < 6; k++) {
+					const t = (k + 1) / 7;
+					const lx = ln(sx, sx + side * 3, t) + side * Math.sin(t * Math.PI) * 3;
+					const ly = ln(fl - potH + 0.5, fl + len, t);
+					leaf(lx + side * 0.9, ly, 1.25, side * 0.8, k + 20 + v * 7);
+				}
+			});
+		};
+		// original designer vinyl art toy — a chunky little robot
+		const artToy = (cxm: number, fl: number, h: number) => {
+			const u = h / 20;
+			// feet
+			cx.fillStyle = col("#2a2a2e", "#0e0e10");
+			rr(cxm - 5 * u, fl - 2 * u, 4 * u, 2 * u, u);
+			cx.fill();
+			rr(cxm + 1 * u, fl - 2 * u, 4 * u, 2 * u, u);
+			cx.fill();
+			// body
+			cx.fillStyle = col("#e0613f", "#3a1810");
+			rr(cxm - 4.5 * u, fl - 9 * u, 9 * u, 7.4 * u, 1.6 * u);
+			cx.fill();
+			// arms
+			rr(cxm - 6.6 * u, fl - 8.4 * u, 2 * u, 5 * u, u);
+			cx.fill();
+			rr(cxm + 4.6 * u, fl - 8.4 * u, 2 * u, 5 * u, u);
+			cx.fill();
+			// belly panel
+			cx.fillStyle = col("#efe6d6", "#2e2b26");
+			rr(cxm - 2.6 * u, fl - 7.6 * u, 5.2 * u, 3.6 * u, 0.8 * u);
+			cx.fill();
+			// big head
+			cx.fillStyle = col("#efe6d6", "#2e2b26");
+			rr(cxm - 6 * u, fl - 18 * u, 12 * u, 9.4 * u, 3 * u);
+			cx.fill();
+			// visor + eyes
+			cx.fillStyle = col("#1c2230", "#0a0c10");
+			rr(cxm - 4.4 * u, fl - 15.6 * u, 8.8 * u, 4.4 * u, 2 * u);
+			cx.fill();
+			cx.fillStyle = fx("rgba(140,230,255,0.95)");
+			cx.beginPath();
+			cx.arc(cxm - 1.9 * u, fl - 13.4 * u, 0.9 * u, 0, Math.PI * 2);
+			cx.arc(cxm + 1.9 * u, fl - 13.4 * u, 0.9 * u, 0, Math.PI * 2);
+			cx.fill();
+			// antenna
+			cx.strokeStyle = col("#2a2a2e", "#0e0e10");
+			cx.lineWidth = 0.6 * u;
+			cx.beginPath();
+			cx.moveTo(cxm, fl - 18 * u);
+			cx.lineTo(cxm, fl - 20.4 * u);
+			cx.stroke();
+			cx.fillStyle = col("#e0613f", "#3a1810");
+			cx.beginPath();
+			cx.arc(cxm, fl - 20.6 * u, 1 * u, 0, Math.PI * 2);
+			cx.fill();
+			if (!shadowMode) {
+				// vinyl sheen on the head
+				cx.fillStyle = "rgba(255,255,255,0.22)";
+				rr(cxm - 4.8 * u, fl - 17.3 * u, 3.4 * u, 1 * u, 0.5 * u);
+				cx.fill();
+			}
+		};
+		// brass sphere on a travertine block
+		const sphereSculpture = (cxm: number, fl: number, r: number) => {
+			cx.fillStyle = col("#d9cbb2", "#2c2924");
+			cx.fillRect(cxm - r * 1.1, fl - r * 0.9, r * 2.2, r * 0.9);
+			const top = fl - r * 0.9;
+			if (shadowMode) {
+				cx.fillStyle = shCol;
+			} else {
+				const g = cx.createRadialGradient(cxm - r * 0.35, top - r * 1.35, r * 0.1, cxm, top - r, r);
+				g.addColorStop(0, mixL("#f6e2a8", "#4a3f26"));
+				g.addColorStop(0.5, mixL("#c49a4c", "#3a2c16"));
+				g.addColorStop(1, mixL("#6e5226", "#1c150a"));
+				cx.fillStyle = g;
+			}
+			cx.beginPath();
+			cx.arc(cxm, top - r, r, 0, Math.PI * 2);
+			cx.fill();
+		};
+		// travertine ring on a plinth
+		const ringSculpture = (cxm: number, fl: number, r: number) => {
+			cx.fillStyle = col("#3a3632", "#121110");
+			cx.fillRect(cxm - r * 0.7, fl - r * 0.35, r * 1.4, r * 0.35);
+			cx.strokeStyle = col("#d6c7ab", "#2a2620");
+			cx.lineWidth = r * 0.42;
+			cx.beginPath();
+			cx.arc(cxm, fl - r * 0.35 - r * 0.95, r * 0.75, 0, Math.PI * 2);
+			cx.stroke();
+		};
+		// small framed abstract print, leaning against the back panel
+		const frame = (x: number, fl: number, w: number, h: number) => {
+			cx.save();
+			cx.translate(x, fl);
+			cx.rotate(-0.06);
+			cx.fillStyle = col("#1b1a18", "#0a0a09");
+			cx.fillRect(0, -h, w, h);
+			cx.fillStyle = col("#f1ece2", "#2e2c28");
+			cx.fillRect(0.9, -h + 0.9, w - 1.8, h - 1.8);
+			if (!shadowMode) {
+				// abstract artwork: arch + sun, in earthy tones
+				cx.fillStyle = mixL("#c2714f", "#3a2016");
+				cx.beginPath();
+				cx.arc(w * 0.42, -h * 0.28, w * 0.24, Math.PI, 0);
+				cx.lineTo(w * 0.66, -h * 0.28 + 0.1);
+				cx.fill();
+				cx.fillStyle = mixL("#d9b15e", "#3a301a");
+				cx.beginPath();
+				cx.arc(w * 0.66, -h * 0.66, w * 0.11, 0, Math.PI * 2);
+				cx.fill();
+				cx.fillStyle = mixL("#6f7f6a", "#22281f");
+				cx.fillRect(w * 0.2, -h * 0.28, w * 0.6, h * 0.08);
+			}
+			cx.restore();
+		};
+		const candle = (cxm: number, fl: number, w: number, h: number) => {
+			cx.fillStyle = col("#efe8da", "#2e2c28");
+			rr(cxm - w / 2, fl - h, w, h, 0.6);
+			cx.fill();
+			cx.strokeStyle = col("#2a2622", "#0c0b0a");
+			cx.lineWidth = 0.3;
+			cx.beginPath();
+			cx.moveTo(cxm, fl - h);
+			cx.lineTo(cxm, fl - h - 0.9);
+			cx.stroke();
+		};
+		const bowl = (cxm: number, fl: number, w: number, h: number) => {
+			cx.fillStyle = col("#3b3530", "#121010");
+			cx.beginPath();
+			cx.moveTo(cxm - w / 2, fl - h);
+			cx.quadraticCurveTo(cxm - w * 0.4, fl, cxm - w * 0.14, fl);
+			cx.lineTo(cxm + w * 0.14, fl);
+			cx.quadraticCurveTo(cxm + w * 0.4, fl, cxm + w / 2, fl - h);
+			cx.closePath();
+			cx.fill();
+			cx.fillStyle = fx("rgba(255,255,255,0.12)");
+			cx.fillRect(cxm - w / 2, fl - h, w, 0.35);
+		};
+
+		// ── what sits in each open bay (row, col) ──
+		const bays: Record<string, (x: number, fl: number, w: number, h: number) => void> = {
+			"0-0": (x, fl, w, h) => {
+				booksRow(x + 1.5, x + w - 8, fl, h * 0.84, 11, palA);
+				candle(x + w - 4, fl, 3.4, h * 0.3);
+			},
+			"0-1": (x, fl, w, h) => {
+				const top = vase(x + w * 0.5, fl, w * 0.34, h * 0.4, ["#ece6da", "#2c2a26"]);
+				flowers(x + w * 0.5, top, w * 0.16, h * 0.46, 7, ["#fbf7f0", "#3a3834"], 8);
+			},
+			"0-2": (x, fl, w, h) => {
+				const top = stackFlat(x + 2, fl, w * 0.52, 4, 21, palB);
+				candle(x + 2 + w * 0.26, top, 2.6, h * 0.18);
+				sphereSculpture(x + w * 0.77, fl, h * 0.13);
+			},
+			"1-0": (x, fl, w, h) => {
+				artToy(x + w * 0.33, fl, h * 0.8);
+				stackFlat(x + w * 0.6, fl, w * 0.34, 3, 31, palA);
+			},
+			"1-1": (x, fl, w, h) => {
+				const end = booksRow(x + 1.5, x + w * 0.68, fl, h * 0.82, 23, palB);
+				// one book leaning on the row, as in a real library
+				book(end + 1.8, fl, 2.6, h * 0.7, palA[3], true, -0.3);
+			},
+			"1-2": (x, fl, w, h) => {
+				frame(x + 2.5, fl, w * 0.48, h * 0.68);
+				const top = vase(x + w * 0.79, fl, w * 0.18, h * 0.38, ["#8a8274", "#262420"], 0.4);
+				branch(x + w * 0.79, top, h * 0.42, 5);
+			},
+			"2-0": (x, fl, w, h) => {
+				trailingPlant(x + w * 0.42, fl, w * 0.36, h * 0.32, 13);
+			},
+			"2-1": (x, fl, w, h) => {
+				booksRow(x + 1.5, x + w * 0.48, fl, h * 0.8, 37, palA);
+				bowl(x + w * 0.75, fl, w * 0.38, h * 0.16);
+			},
+			"2-2": (x, fl, w, h) => {
+				// pair of ceramic vessels, tall matte black + short stone
+				vase(x + w * 0.36, fl, w * 0.3, h * 0.62, ["#2a2826", "#0e0d0c"], 0.36);
+				vase(x + w * 0.68, fl, w * 0.28, h * 0.34, ["#cfc3ad", "#2a2722"], 0.5);
+			},
+			"3-0": (x, fl, w, h) => {
+				const top = stackFlat(x + 2.5, fl, w * 0.62, 3, 47, palB);
+				ringSculpture(x + 2.5 + w * 0.31, top, h * 0.18);
+			},
+			"3-1": (x, fl, w, h) => {
+				booksRow(x + 1.5, x + w - 1.5, fl, h * 0.86, 53, [...palA, ...palB]);
+			},
+			"3-2": (x, fl, w, h) => {
+				const top = vase(x + w * 0.4, fl, w * 0.24, h * 0.3, ["#b9a58c", "#2a251e"], 0.42);
+				flowers(x + w * 0.4, top, w * 0.12, h * 0.3, 19, ["#e8b4b0", "#3a2828"], 5);
+				candle(x + w * 0.72, fl, 3.2, h * 0.24);
+				candle(x + w * 0.84, fl, 3.2, h * 0.17);
+			},
+		};
+
+		const walnut = mix("#5c4330", "#1a120c");
+		const walnutDk = mix("#3e2c1e", "#110c08");
+
+		// draw bottom → top so trailing vines and leaning books overlap the bay below
+		for (let r = rows - 1; r >= 0; r--) {
+			for (let c = 0; c < cols; c++) {
+				const x = bsX + fr + c * (colW + div);
+				const y = bsY + fr + r * rowH;
+				const h = rowH - bt;
+				const fl = y + h; // top surface of this bay's shelf board
+
+				if (r === rows - 1) {
+					// closed walnut cabinet door with a slim brass pull
+					const dg = cx.createLinearGradient(x, 0, x + colW, 0);
+					dg.addColorStop(0, walnut);
+					dg.addColorStop(1, walnutDk);
+					cx.fillStyle = dg;
+					cx.fillRect(x, y, colW, rowH);
+					// vertical grain
+					cx.strokeStyle = "rgba(0,0,0,0.12)";
+					cx.lineWidth = 0.3;
+					for (let g = 0; g < 7; g++) {
+						const gx = x + 2 + rnd(r * 31 + c * 7 + g) * (colW - 4);
+						cx.beginPath();
+						cx.moveTo(gx, y + 1);
+						cx.bezierCurveTo(gx + 1, y + rowH * 0.3, gx - 1, y + rowH * 0.7, gx + 0.5, y + rowH - 1);
+						cx.stroke();
+					}
+					cx.fillStyle = mix("#c8a45e", "#3a2e18");
+					cx.fillRect(x + colW / 2 - 4, y + 2.5, 8, 0.8);
+					// reveal between doors
+					cx.fillStyle = "rgba(0,0,0,0.45)";
+					cx.fillRect(x + colW - 0.4, y, 0.4, rowH);
+					// light from the bay above grazing the top of the doors
+					if (L > 0.01) {
+						cx.globalCompositeOperation = "screen";
+						const dl = cx.createLinearGradient(0, y, 0, y + rowH * 0.5);
+						dl.addColorStop(0, `rgba(255,196,128,${0.22 * L})`);
+						dl.addColorStop(1, "rgba(255,196,128,0)");
+						cx.fillStyle = dl;
+						cx.fillRect(x, y, colW, rowH * 0.5);
+						cx.globalCompositeOperation = "source-over";
+					}
+					continue;
+				}
+
+				// ── open bay ──
+				// shelf board (drawn first so trailing vines can hang in front of it)
+				// front edge (walnut), lit surface line when the LED is on
+				cx.fillStyle = walnut;
+				cx.fillRect(x, fl, colW, bt);
+				cx.fillStyle = "rgba(255,255,255,0.07)";
+				cx.fillRect(x, fl, colW, 0.35);
+				if (L > 0.01) {
+					cx.fillStyle = `rgba(255,214,160,${0.35 * L})`;
+					cx.fillRect(x, fl - 0.35, colW, 0.35);
+				}
+				cx.save();
+				cx.beginPath();
+				cx.rect(x, y, colW, h + (r === 2 ? rowH : 0)); // bay 2 lets vines hang over
+				cx.clip();
+
+				// back panel (walnut veneer)
+				const bp = cx.createLinearGradient(0, y, 0, fl);
+				bp.addColorStop(0, mix("#4a3524", "#170f0a"));
+				bp.addColorStop(1, mix("#3a2a1c", "#120c08"));
+				cx.fillStyle = bp;
+				cx.fillRect(x, y, colW, h);
+
+				if (L > 0.01) {
+					// concealed strip under the shelf above: soft wash down the back panel
+					cx.globalCompositeOperation = "screen";
+					const wash = cx.createLinearGradient(0, y, 0, fl);
+					wash.addColorStop(0, `rgba(255,196,128,${0.9 * L})`);
+					wash.addColorStop(0.3, `rgba(255,186,116,${0.48 * L})`);
+					wash.addColorStop(1, `rgba(255,176,104,${0.14 * L})`);
+					cx.fillStyle = wash;
+					cx.fillRect(x, y, colW, h);
+					cx.globalCompositeOperation = "source-over";
+					// light falls off toward the sides of the bay
+					const side = cx.createLinearGradient(x, 0, x + colW, 0);
+					side.addColorStop(0, "rgba(0,0,0,0.26)");
+					side.addColorStop(0.22, "rgba(0,0,0,0)");
+					side.addColorStop(0.78, "rgba(0,0,0,0)");
+					side.addColorStop(1, "rgba(0,0,0,0.26)");
+					cx.fillStyle = side;
+					cx.fillRect(x, y, colW, h);
+				}
+
+				// objects: soft cast shadow first (offset down/right), then the object
+				const draw = bays[`${r}-${c}`];
+				if (draw) {
+					shadowMode = true;
+					cx.save();
+					cx.translate(0.5, 1.3);
+					draw(x, fl, colW, h);
+					cx.restore();
+					shadowMode = false;
+					draw(x, fl, colW, h);
+				}
+
+				if (L > 0.01) {
+					// top light catching the objects, strongest right under the strip
+					cx.globalCompositeOperation = "screen";
+					const tl = cx.createLinearGradient(0, y, 0, y + h * 0.6);
+					tl.addColorStop(0, `rgba(255,208,148,${0.3 * L})`);
+					tl.addColorStop(1, "rgba(255,208,148,0)");
+					cx.fillStyle = tl;
+					cx.fillRect(x, y, colW, h * 0.6);
+					// diffused glow just under the shelf above (the hidden strip itself stays out of view)
+					const ug = cx.createLinearGradient(0, y, 0, y + 1.8);
+					ug.addColorStop(0, `rgba(255,232,192,${0.75 * L})`);
+					ug.addColorStop(1, "rgba(255,232,192,0)");
+					cx.fillStyle = ug;
+					cx.fillRect(x, y, colW, 1.8);
+					cx.globalCompositeOperation = "source-over";
+				}
+				cx.restore();
+
+			}
 		}
-	}
-	// vertical dividers
-	cx.fillStyle = mix("#3e2e1d", "#120d08");
-	for (let c = 0; c <= cols; c++) {
-		cx.fillRect(bsX + c * cellW - 1, bsY, 2, bsH);
-	}
-	// brighter warm glow spilling into the room from the shelf
-	if (s.shelf > 0.02) {
-		const sp = cx.createLinearGradient(bsX + bsW, 0, bsX + bsW + 80, 0);
-		sp.addColorStop(0, `rgba(255,206,150,${0.28 * s.shelf})`);
-		sp.addColorStop(1, "rgba(255,206,150,0)");
-		cx.fillStyle = sp;
-		cx.fillRect(bsX + bsW, bsY, 80, bsH);
+
+		// carcass: sides, top header, plinth and dividers (drawn last, on top)
+		const side = cx.createLinearGradient(bsX, 0, bsX + fr, 0);
+		side.addColorStop(0, walnutDk);
+		side.addColorStop(1, walnut);
+		cx.fillStyle = side;
+		cx.fillRect(bsX, bsY, fr, bsH);
+		cx.fillRect(bsX + bsW - fr, bsY, fr, bsH);
+		cx.fillStyle = walnut;
+		cx.fillRect(bsX, bsY, bsW, fr);
+		cx.fillStyle = walnutDk;
+		cx.fillRect(bsX + 1, bsBot - plinth, bsW - 2, plinth);
+		cx.fillStyle = "rgba(0,0,0,0.35)";
+		cx.fillRect(bsX + 1, bsBot - plinth, bsW - 2, 0.6);
+		for (let c = 1; c < cols; c++) {
+			const dx = bsX + fr + c * (colW + div) - div;
+			cx.fillStyle = walnut;
+			cx.fillRect(dx, bsY + fr, div, bsH - fr - plinth);
+			cx.fillStyle = "rgba(0,0,0,0.25)";
+			cx.fillRect(dx + div - 0.4, bsY + fr, 0.4, bsH - fr - plinth);
+		}
+		// soft edge highlight on the outer right side (faces the room light)
+		cx.fillStyle = "rgba(255,255,255,0.06)";
+		cx.fillRect(bsX + bsW - 0.5, bsY, 0.5, bsH);
+
+		// warm glow spilling from the open bays onto the wall beside the shelf
+		if (L > 0.02) {
+			const sp = cx.createLinearGradient(bsX + bsW, 0, bsX + bsW + 9, 0);
+			sp.addColorStop(0, `rgba(255,206,150,${0.22 * L})`);
+			sp.addColorStop(1, "rgba(255,206,150,0)");
+			cx.fillStyle = sp;
+			cx.fillRect(bsX + bsW, bsY + fr, 9, rowH * (rows - 1));
+		}
 	}
 
 	// ─────────────────────────────────────────────────────────
@@ -1490,10 +2017,11 @@ function drawRoom(
 	// (left sofa faces right, right sofa faces left — parallel, receding
 	//  along each side wall toward the camera, like the reference photo)
 	// ─────────────────────────────────────────────────────────
-	const leatherTop = mix("#54565c", "#26262c");
-	const leatherMid = mix("#42444a", "#1c1c22");
-	const leatherDk = mix("#303238", "#141418");
-	const leatherFront = mix("#3a3c42", "#18181d");
+	// warm mushroom-taupe velvet upholstery (luxury, pairs with walnut + smoked oak)
+	const leatherTop = mix("#7b6b5c", "#302a25");
+	const leatherMid = mix("#64574a", "#25201c");
+	const leatherDk = mix("#483e35", "#1a1714");
+	const leatherFront = mix("#574b3f", "#1f1b18");
 
 	// perspective projection along the room's depth axis.
 	// t: 0 = far (back wall), 1 = near (foreground / camera)
@@ -1511,9 +2039,27 @@ function drawRoom(
 		fill: string | CanvasGradient,
 		stroke?: string,
 	) => {
+		// rounded polygon: each corner is softened with a small arc (upholstery
+		// has no sharp edges); radius is clamped so short edges stay clean
+		const n = pts.length;
+		const radius = 2.4;
 		cx.beginPath();
-		cx.moveTo(pts[0].x, pts[0].y);
-		for (let i = 1; i < pts.length; i++) cx.lineTo(pts[i].x, pts[i].y);
+		const m0 = {
+			x: (pts[n - 1].x + pts[0].x) / 2,
+			y: (pts[n - 1].y + pts[0].y) / 2,
+		};
+		cx.moveTo(m0.x, m0.y);
+		for (let i = 0; i < n; i++) {
+			const cur = pts[i];
+			const nxt = pts[(i + 1) % n];
+			const prv = pts[(i - 1 + n) % n];
+			const r = Math.min(
+				radius,
+				Math.hypot(nxt.x - cur.x, nxt.y - cur.y) * 0.35,
+				Math.hypot(prv.x - cur.x, prv.y - cur.y) * 0.35,
+			);
+			cx.arcTo(cur.x, cur.y, nxt.x, nxt.y, r);
+		}
 		cx.closePath();
 		cx.fillStyle = fill;
 		cx.fill();
@@ -1693,18 +2239,119 @@ function drawRoom(
 		);
 
 		// ── throw pillows seated against the backrest, receding ──
-		const pillowCols = ["#c2b393", "#a89c80", "#d8cdb3", "#9a8e74"];
+		// plump down-filled cushions: pinched corners, bowed edges, piping,
+		// a soft centre dip, shading and a contact shadow on the backrest.
+		// colour + fabric alternate (cream bouclé, camel linen, sage velvet, ivory, rust)
+		const pillowCols: { c: string; boucle: boolean }[] = [
+			{ c: "#e8e0d0", boucle: true },
+			{ c: "#b8915f", boucle: false },
+			{ c: "#8e9a80", boucle: false },
+			{ c: "#efe9dd", boucle: true },
+			{ c: "#a5583a", boucle: false },
+		];
+		const pillowPath = (l: number, t: number, w: number, h: number) => {
+			const r = l + w,
+				b = t + h,
+				mx = l + w / 2,
+				my = t + h / 2;
+			const p = w * 0.07; // pinched corners
+			const bw = w * 0.08; // bowed edges
+			cx.beginPath();
+			cx.moveTo(l + p, t + p);
+			cx.quadraticCurveTo(mx, t - bw, r - p, t + p);
+			cx.quadraticCurveTo(r + bw * 0.8, my, r - p, b - p);
+			cx.quadraticCurveTo(mx, b + bw * 0.5, l + p, b - p);
+			cx.quadraticCurveTo(l - bw * 0.8, my, l + p, t + p);
+			cx.closePath();
+		};
 		for (let i = 0; i < 5; i++) {
 			const tp = ln(tB + 0.08, tF - 0.16, i / 4);
 			const pc = P(ln(uBackFront, uSeatFront, 0.32), tp, seatH + 4);
 			const sc = hScale(tp);
-			cx.fillStyle = mix(pillowCols[i % pillowCols.length], "#2e2a22");
-			rr(pc.x - 13 * sc, pc.y - 22 * sc, 24 * sc, 22 * sc, 5 * sc);
+			const pcol = pillowCols[(i + (sgn > 0 ? 2 : 0)) % pillowCols.length];
+			const w = 24 * sc,
+				h = 22 * sc,
+				l = pc.x - 13 * sc,
+				t = pc.y - 22 * sc;
+			const tilt = (rnd(i * 7 + (sgn > 0 ? 50 : 0)) - 0.5) * 0.16;
+			cx.save();
+			cx.translate(l + w / 2, t + h);
+			cx.rotate(tilt);
+			cx.translate(-(l + w / 2), -(t + h));
+			// contact shadow on the backrest / seat
+			pillowPath(l + 1.2 * sc, t + 1.6 * sc, w, h);
+			cx.fillStyle = "rgba(0,0,0,0.22)";
 			cx.fill();
-			cx.strokeStyle = "rgba(0,0,0,0.12)";
-			cx.lineWidth = 0.5;
-			rr(pc.x - 13 * sc, pc.y - 22 * sc, 24 * sc, 22 * sc, 5 * sc);
+			// cushion body with soft volume shading
+			pillowPath(l, t, w, h);
+			const base = mix(pcol.c, "#2a2620");
+			cx.fillStyle = base;
+			cx.fill();
+			const vol = cx.createRadialGradient(
+				l + w * 0.42,
+				t + h * 0.38,
+				w * 0.05,
+				l + w / 2,
+				t + h / 2,
+				w * 0.62,
+			);
+			vol.addColorStop(0, "rgba(255,255,255,0.16)");
+			vol.addColorStop(0.55, "rgba(255,255,255,0)");
+			vol.addColorStop(1, "rgba(0,0,0,0.28)");
+			cx.fillStyle = vol;
+			cx.fill();
+			cx.save();
+			cx.clip();
+			// bouclé texture: tiny loops
+			if (pcol.boucle) {
+				cx.fillStyle = "rgba(0,0,0,0.07)";
+				for (let k = 0; k < 70; k++) {
+					cx.beginPath();
+					cx.arc(
+						l + rnd(i * 97 + k) * w,
+						t + rnd(i * 53 + k + 7) * h,
+						0.35 * sc + 0.15,
+						0,
+						Math.PI * 2,
+					);
+					cx.fill();
+				}
+			} else {
+				// velvet / linen sheen across the top
+				const sh = cx.createLinearGradient(0, t, 0, t + h * 0.5);
+				sh.addColorStop(0, "rgba(255,255,255,0.12)");
+				sh.addColorStop(1, "rgba(255,255,255,0)");
+				cx.fillStyle = sh;
+				cx.fillRect(l - 2, t - 2, w + 4, h * 0.5);
+			}
+			// soft centre dip (the "karate chop") with folds toward the corners
+			const dip = cx.createRadialGradient(
+				l + w / 2,
+				t + h * 0.32,
+				0,
+				l + w / 2,
+				t + h * 0.32,
+				w * 0.18,
+			);
+			dip.addColorStop(0, "rgba(0,0,0,0.2)");
+			dip.addColorStop(1, "rgba(0,0,0,0)");
+			cx.fillStyle = dip;
+			cx.fillRect(l, t, w, h);
+			cx.strokeStyle = "rgba(0,0,0,0.1)";
+			cx.lineWidth = 0.4 * sc;
+			cx.beginPath();
+			cx.moveTo(l + w / 2, t + h * 0.34);
+			cx.quadraticCurveTo(l + w * 0.32, t + h * 0.3, l + w * 0.12, t + h * 0.14);
+			cx.moveTo(l + w / 2, t + h * 0.34);
+			cx.quadraticCurveTo(l + w * 0.68, t + h * 0.3, l + w * 0.88, t + h * 0.14);
 			cx.stroke();
+			cx.restore();
+			// piping seam around the edge
+			pillowPath(l, t, w, h);
+			cx.strokeStyle = "rgba(0,0,0,0.2)";
+			cx.lineWidth = 0.55 * sc;
+			cx.stroke();
+			cx.restore();
 		}
 
 		// ── draped throw on the near end of the right sofa (like the photo) ──

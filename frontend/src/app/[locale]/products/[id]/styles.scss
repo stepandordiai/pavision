@@ -10,12 +10,36 @@
 
 .product-page-container {
 	display: flex;
+	justify-content: center;
+	gap: 20px;
 	background: #fff;
 	padding: 2.5rem;
 	border-radius: 10px;
 	color: #000;
-	justify-content: center;
-	align-items: flex-start;
+	min-height: calc(50svh - 170px);
+}
+
+.product-page__img-container {
+	width: min(100%, 600px);
+	aspect-ratio: 2/1;
+	display: grid;
+	place-items: center;
+}
+
+.product-page__content {
+	width: min(100%, 600px);
+	display: flex;
+	flex-direction: column;
+	height: auto;
+}
+
+.product-page__btn {
+	background: var(--primary-clr);
+	padding: 10px;
+	border-radius: 10px;
+	color: #fff;
+	align-self: flex-start;
+	margin-top: auto;
 }
 
 @media screen and (width < 900px) {

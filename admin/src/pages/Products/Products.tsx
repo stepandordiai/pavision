@@ -14,7 +14,7 @@ const EMPTY_FORM: ProductSave = {
 	img: null,
 	current_img: null,
 	name: "",
-	type: [] as string[],
+	category: "",
 	technology: "",
 	brand: "",
 	description: "",
@@ -194,25 +194,25 @@ export default function Products({
 		}
 	};
 
-	const [typeInput, setTypeInput] = useState("");
+	// const [typeInput, setTypeInput] = useState("");
 
-	const uniqueProductTypes = [...new Set(products.flatMap((p) => p.type))];
+	// const uniqueProductTypes = [...new Set(products.map((p) => p.type))];
 
-	const addType = (value: string) => {
-		if (!value || formData.type.includes(value)) return;
-		setFormData((prev) => ({ ...prev, type: [...prev.type, value] }));
-		setTypeInput("");
-	};
-	const removeType = (value: string) => {
-		setFormData((prev) => ({
-			...prev,
-			type: prev.type.filter((t) => t !== value),
-		}));
-	};
+	// const addType = (value: string) => {
+	// 	if (!value || formData.type.includes(value)) return;
+	// 	setFormData((prev) => ({ ...prev, type: [...prev.type, value] }));
+	// 	setTypeInput("");
+	// };
+	// const removeType = (value: string) => {
+	// 	setFormData((prev) => ({
+	// 		...prev,
+	// 		type: prev.type.filter((t) => t !== value),
+	// 	}));
+	// };
 
-	const availableTypes = uniqueProductTypes.filter(
-		(t) => !formData.type.includes(t),
-	);
+	// const availableTypes = uniqueProductTypes.filter(
+	// 	(t) => !formData.type.includes(t),
+	// );
 
 	const [detailsVisible, setDetailsVisible] = useState<string | null>(null);
 
@@ -265,7 +265,7 @@ export default function Products({
 				</p>
 				<form className="form" onSubmit={handleForm}>
 					<div>
-						<label htmlFor="">Image</label>
+						<label htmlFor="image">Image</label>
 						{/* TODO: LEARN THIS */}
 						<ImageDropzone
 							onFileSelect={(file) => handleFormData("img", file)}
@@ -277,8 +277,9 @@ export default function Products({
 						/>
 					</div>
 					<div>
-						<label htmlFor="">Name</label>
+						<label htmlFor="productName">Product name</label>
 						<input
+							id="productName"
 							className="input"
 							onChange={(e) => handleFormData(e.target.name, e.target.value)}
 							value={formData.name}
@@ -288,49 +289,18 @@ export default function Products({
 						/>
 					</div>
 					<div>
-						<label htmlFor="">Type</label>
+						<label htmlFor="category">Category</label>
 						<input
+							id="category"
 							className="input"
-							onChange={(e) => setTypeInput(e.target.value)}
-							onKeyDown={(e) => {
-								if (e.key === "Enter") {
-									e.preventDefault();
-									addType(typeInput);
-								}
-							}}
-							value={typeInput}
+							onChange={(e) => handleFormData(e.target.name, e.target.value)}
+							value={formData.category}
+							name="category"
 							type="text"
-							placeholder="Enter new product type or choose existing"
+							placeholder="Enter product technology"
 						/>
-						<div style={{ display: "flex", gap: "2px", flexWrap: "wrap" }}>
-							{formData.type.map((t) => (
-								<span
-									key={t}
-									style={{
-										background: "#e8e8e8",
-										padding: "5px",
-										borderRadius: "5px",
-									}}
-								>
-									{t}
-									<button onClick={() => removeType(t)}>×</button>
-								</span>
-							))}
-						</div>
-						<select
-							className="input"
-							onChange={(e) => addType(e.target.value)}
-							value=""
-						>
-							<option value="">Add</option>
-							{availableTypes.map((t) => (
-								<option key={t} value={t}>
-									{t}
-								</option>
-							))}
-						</select>
 					</div>
-					<div>
+					{/* <div>
 						<label htmlFor="">Technology</label>
 						<input
 							className="input"
@@ -340,10 +310,11 @@ export default function Products({
 							type="text"
 							placeholder="Enter product technology"
 						/>
-					</div>
+					</div> */}
 					<div>
-						<label htmlFor="">Brand</label>
+						<label htmlFor="brand">Brand</label>
 						<input
+							id="brand"
 							className="input"
 							onChange={(e) => handleFormData(e.target.name, e.target.value)}
 							value={formData.brand}
@@ -403,8 +374,8 @@ export default function Products({
 						<th>№</th>
 						<th>Image</th>
 						<th>Name</th>
-						<th className="hide">Type</th>
-						<th className="hide">Technology</th>
+						<th className="hide">Category</th>
+						{/* <th className="hide">Technology</th> */}
 						<th className="hide">Brand</th>
 						<th>Status</th>
 						<th style={{ width: "1%", whiteSpace: "nowrap" }}>Details</th>
@@ -433,49 +404,11 @@ export default function Products({
 										{product.name}
 									</td>
 									<td className="hide">
-										{/* {productEditable && productId === product.id ? (
-												<>
-													<input
-														className="input"
-														onChange={(e) => setTypeInput(e.target.value)}
-														onKeyDown={(e) => {
-															if (e.key === "Enter") {
-																e.preventDefault();
-																addType(typeInput);
-															}
-														}}
-														value={typeInput}
-														type="text"
-														placeholder="New type..."
-													/>
-													<div>
-														{type.map((t) => (
-															<span key={t}>
-																{t}
-																<button onClick={() => removeType(t)}>×</button>
-															</span>
-														))}
-													</div>
-													<select
-														className="input"
-														onChange={(e) => addType(e.target.value)}
-														value=""
-													>
-														<option value="">Add</option>
-														{availableTypes.map((t) => (
-															<option key={t} value={t}>
-																{t}
-															</option>
-														))}
-													</select>
-												</>
-											) : ( */}
-										<span>{product.type.join(", ")}</span>
-										{/* )} */}
+										<span>{product.category}</span>
 									</td>
-									<td className="hide">
+									{/* <td className="hide">
 										<span>{product.technology}</span>
-									</td>
+									</td> */}
 									<td className="hide">
 										<span>{product.brand}</span>
 									</td>

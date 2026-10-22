@@ -4,7 +4,7 @@ export interface Product {
 	name: string;
 	is_active: boolean;
 	created_at: string;
-	type: string[];
+	category: string;
 	technology: string;
 	brand: string;
 	description: string;

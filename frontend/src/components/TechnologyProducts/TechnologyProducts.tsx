@@ -22,7 +22,7 @@ const TechnologyProducts = ({
 		id: number;
 		img: string;
 		name: string;
-		type: string;
+		category: string;
 		technology: string;
 		brand: string;
 	}

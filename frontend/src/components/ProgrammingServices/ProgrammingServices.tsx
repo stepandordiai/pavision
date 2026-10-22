@@ -2,87 +2,46 @@ import { getTranslations } from "next-intl/server";
 import { TransitionLink } from "../TransitionLink";
 import "./styles.scss";
 
+const services = [
+	{
+		label: "Crestron",
+		img: "/services-crestron.jpg",
+	},
+	{
+		label: "Loxone",
+		img: "/services-loxone.jpg",
+	},
+	{
+		label: "Lutron",
+		img: "/services-lutron.jpg",
+	},
+	{
+		label: "Data Engineering",
+		img: "/services-data-engineering.jpg",
+	},
+];
+
 export default async function ProgrammingServices() {
 	const t = await getTranslations("programmingServices");
 	return (
 		<section className="programming-services">
 			<h2 className="section__title">{t("title")}</h2>
-			<div className="programming-services-container">
-				<div className="programming-services-container-inner">
-					<TransitionLink
-						className="programming-services__link"
-						href="/appointment"
-					>
-						<img src="/crestron-logo.png" alt="" />
-					</TransitionLink>
-					<TransitionLink
-						className="programming-services__link"
-						href="/appointment"
-					>
-						<img
-							src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Logo-Loxone-green-Web.png"
-							alt=""
-						/>
-					</TransitionLink>
-					<TransitionLink
-						className="programming-services__link"
-						href="/appointment"
-					>
-						<img
-							src="https://www.blindsanddesignsltd.com/wp-content/uploads/sites/433/2019/04/logo-lutron.png"
-							alt=""
-						/>
-					</TransitionLink>
-					<TransitionLink
-						className="programming-services__link"
-						href="/appointment"
-					>
-						<div
-							style={{
-								display: "flex",
-								flexDirection: "column",
-								justifyContent: "center",
-								alignItems: "center",
-							}}
-						>
-							<img
-								style={{ width: "100px" }}
-								src="/data-engineering.png"
-								alt=""
-							/>
-							<span>Data Engineering</span>
-						</div>
-					</TransitionLink>
-				</div>
-				<div
-					style={{
-						display: "flex",
-						flexDirection: "column",
-						gap: "10px",
-						justifyContent: "space-between",
-					}}
-				>
-					<TransitionLink
-						className="programming-services__link-btn"
-						href="/appointment"
-					>
-						{t("bookTheProgrammer")}
-					</TransitionLink>
-					{/* <div style={{ display: "flex", gap: "10px" }}>
-						<img
-							style={{ borderRadius: "50%", objectFit: "cover" }}
-							src="https://backend.edukee.cz/uploads/U_4f2dbd7443.jpeg"
-							alt=""
-							width={50}
-							height={50}
-						/>
-						<span style={{ display: "flex", flexDirection: "column" }}>
-							<span>Petro</span>
-							<span>Programmer</span>
-						</span>
-					</div> */}
-				</div>
+			<div className="services">
+				{services.map((s, i) => {
+					return (
+						<TransitionLink href="/contacts" className="service" key={i}>
+							<p className="service__label">{s.label}</p>
+							<img className="service__img" src={s.img} alt="" />
+						</TransitionLink>
+					);
+				})}
 			</div>
+			<TransitionLink
+				className="programming-services__link-btn"
+				href="/appointment"
+			>
+				{t("bookTheProgrammer")}
+			</TransitionLink>
 		</section>
 	);
 }
