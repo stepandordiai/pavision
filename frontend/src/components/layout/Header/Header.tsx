@@ -6,10 +6,8 @@ import { usePathname } from "@/i18n/navigation";
 import Lng from "@/components/Lng/Lng";
 import navLinks from "@/data/nav-links.json";
 import { TransitionLink } from "@/components/TransitionLink";
-import PersonIcon from "@/components/icons/PersonIcon";
 import { supabase } from "@/lib/supabase";
 import { User } from "@supabase/supabase-js";
-import PersonFillIcon from "@/components/icons/PersonFillIcon";
 import ChevronRightIcon from "@/components/icons/ChevronRightIcon";
 import "./Header.scss";
 
@@ -114,7 +112,7 @@ const Header = () => {
 							onClick={() => setHeaderExpanded((prev) => !prev)}
 							className={`header-nav__link-btn ${headerExpanded ? "header-nav__link-btn--active" : ""}`}
 						>
-							Brands
+							{t("nav.partners")}
 						</button>
 					</nav>
 					<div
@@ -156,32 +154,48 @@ const Header = () => {
 							className={`header-bottom__link ${headerExpanded ? "header-bottom__link--visible" : ""}`}
 							href="/crestron-integration"
 						>
-							<span
-								style={{
-									display: "flex",
-									justifyContent: "space-between",
-									width: "100%",
-								}}
-							>
-								<span>Crestron</span>
-								<ChevronRightIcon size={24} />
-							</span>
+							<div className="header-bottom__link-content">
+								<div
+									style={{
+										display: "flex",
+										justifyContent: "space-between",
+										width: "100%",
+										marginTop: "auto",
+									}}
+								>
+									<span>Crestron</span>
+									<ChevronRightIcon size={24} />
+								</div>
+							</div>
+							<div className="header-bottom__link-img-wrapper">
+								<img src="/services-crestron.jpg" alt="" />
+							</div>
 						</TransitionLink>
 						<TransitionLink
 							onClick={() => setHeaderExpanded(false)}
 							className={`header-bottom__link ${headerExpanded ? "header-bottom__link--visible" : ""}`}
 							href="/loxone-smart-home"
 						>
-							<span
-								style={{
-									display: "flex",
-									justifyContent: "space-between",
-									width: "100%",
-								}}
-							>
-								<span>Loxone</span>
-								<ChevronRightIcon size={24} />
-							</span>
+							<div className="header-bottom__link-content">
+								<img
+									src="/loxone-partner-logo.svg"
+									width={200}
+									alt="P&A Vision s.r.o. - certified Loxone silver partner"
+								/>
+								<div
+									style={{
+										display: "flex",
+										justifyContent: "space-between",
+										width: "100%",
+									}}
+								>
+									<span>Loxone</span>
+									<ChevronRightIcon size={24} />
+								</div>
+							</div>
+							<div className="header-bottom__link-img-wrapper">
+								<img src="/services-loxone.jpg" alt="" />
+							</div>
 						</TransitionLink>
 					</div>
 				</div>
@@ -226,13 +240,13 @@ const Header = () => {
 										style={
 											menuOpen
 												? {
-														transition: `transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s`,
+														transition: `transform 1s cubic-bezier(0.16, 1, 0.3, 1) ${0.25 + 6 * 0.05}s`,
 													}
 												: undefined
 										}
 										className={`menu-nav__link-btn  ${menuOpen ? "menu-nav__link-btn--visible" : ""} ${menuExpanded ? "menu-nav__link-btn--active" : ""}`}
 									>
-										Brands
+										{t("nav.partners")}
 									</button>
 								</div>
 								<div
@@ -248,16 +262,22 @@ const Header = () => {
 											className={`header-bottom__link ${menuExpanded ? "header-bottom__link--visible" : ""}`}
 											href="/crestron-integration"
 										>
-											<span
-												style={{
-													display: "flex",
-													justifyContent: "space-between",
-													width: "100%",
-												}}
-											>
-												<span>Crestron</span>
-												<ChevronRightIcon size={24} />
-											</span>
+											<div className="header-bottom__link-content">
+												<div
+													style={{
+														display: "flex",
+														justifyContent: "space-between",
+														width: "100%",
+														marginTop: "auto",
+													}}
+												>
+													<span>Crestron</span>
+													<ChevronRightIcon size={24} />
+												</div>
+											</div>
+											<div className="header-bottom__link-img-wrapper">
+												<img src="/services-crestron.jpg" alt="" />
+											</div>
 										</TransitionLink>
 										<TransitionLink
 											onClick={() => {
@@ -267,24 +287,30 @@ const Header = () => {
 											className={`header-bottom__link ${menuExpanded ? "header-bottom__link--visible" : ""}`}
 											href="/loxone-smart-home"
 										>
-											<span
-												style={{
-													display: "flex",
-													justifyContent: "space-between",
-													width: "100%",
-												}}
-											>
-												<span>Loxone</span>
-												<ChevronRightIcon size={24} />
-											</span>
+											<div className="header-bottom__link-content">
+												<img
+													src="/loxone-partner-logo.svg"
+													width={200}
+													alt="P&A Vision s.r.o. - certified Loxone silver partner"
+												/>
+												<div
+													style={{
+														display: "flex",
+														justifyContent: "space-between",
+														width: "100%",
+													}}
+												>
+													<span>Loxone</span>
+													<ChevronRightIcon size={24} />
+												</div>
+											</div>
+											<div className="header-bottom__link-img-wrapper">
+												<img src="/services-loxone.jpg" alt="" />
+											</div>
 										</TransitionLink>
 									</div>
 								</div>
 							</nav>
-							<div
-								style={{ flexShrink: 0, marginTop: "auto" }}
-								className="footer__divider"
-							></div>
 							<div>
 								<div
 									style={{
@@ -297,13 +323,14 @@ const Header = () => {
 										style={
 											menuOpen
 												? {
-														transition: `color 0.24s, transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s`,
+														transition: `color 0.24s, transform 1s cubic-bezier(0.16, 1, 0.3, 1) ${0.25 + 7 * 0.05}s`,
 													}
 												: undefined
 										}
 										className={`menu__link ${menuOpen ? "menu__link--visible" : ""}`}
 										href="https://www.instagram.com/pa_vision.cz"
 										target="_blank"
+										rel="noopener noreferrer"
 									>
 										Instagram
 									</a>
@@ -311,13 +338,14 @@ const Header = () => {
 										style={
 											menuOpen
 												? {
-														transition: `color 0.24s, transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s`,
+														transition: `color 0.24s, transform 1s cubic-bezier(0.16, 1, 0.3, 1)  ${0.25 + 8 * 0.05}s`,
 													}
 												: undefined
 										}
 										className={`menu__link ${menuOpen ? "menu__link--visible" : ""}`}
 										href="https://www.facebook.com/profile.php?id=61581254326915"
 										target="_blank"
+										rel="noopener noreferrer"
 									>
 										Facebook
 									</a>

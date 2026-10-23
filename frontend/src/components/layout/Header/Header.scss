@@ -54,46 +54,51 @@
 .header-bottom-inner {
 	overflow: hidden;
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(2, 1fr);
 	gap: 12px;
 }
 
 .header-bottom__link {
-	position: relative;
 	border-radius: 10px;
-	max-width: 500px;
 	height: 200px;
-	background-image: url(https://biid.org.uk/sites/default/files/Art_2020_Install_TSW-770R_LivingRoom.jpeg);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	padding: 12px;
+	background: rgba(255, 255, 255, 0.2);
+	display: flex;
 	// TODO: learn this
 	clip-path: inset(0 100% 100% 0);
 	transition: clip-path 0.5s;
 
-	&:nth-child(2) {
-		background-image: url(/loxone-header-link.webp);
-	}
-
 	&--visible {
 		clip-path: inset(0);
+		transition: clip-path 0.5s 0.25s;
 	}
+}
+
+.header-bottom__link-content {
+	padding: 0.75rem;
+	width: 50%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 
 	span {
-		margin-top: auto;
 		font-size: 1.5rem;
 	}
 }
 
-.header__logo {
-	// padding: 5px;
-	// border-radius: 5px;
-	// font-size: 20px;
-	// display: flex;
-	// justify-content: center;
-	// align-items: center;
-	// gap: 5px;
+.header-bottom__link-img-wrapper {
+	position: relative;
+	width: 50%;
+	border-radius: inherit;
+	overflow: hidden;
+	height: 100%;
+
+	img {
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
 }
 
 .header-nav {
@@ -328,7 +333,6 @@
 	padding-left: 10px;
 	transform: translateY(100%);
 	transition: transform 0.5s;
-	// margin-bottom: 12px;
 
 	&::before {
 		content: "";
@@ -440,7 +444,7 @@
 	}
 }
 
-@media screen and (width < 550px) {
+@media screen and (width < 700px) {
 	.menu-bottom-inner {
 		grid-template-columns: repeat(1, 1fr);
 	}
