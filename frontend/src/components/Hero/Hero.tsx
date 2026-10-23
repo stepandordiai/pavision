@@ -27,7 +27,6 @@ export default async function Hero() {
 						gap: "10px",
 						flexWrap: "wrap",
 						marginTop: "20px",
-						marginBottom: "100px",
 					}}
 				>
 					<Link href="/#our-solutions" className="hero-sec-btn">

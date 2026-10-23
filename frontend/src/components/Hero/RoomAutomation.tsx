@@ -192,8 +192,7 @@ function drawRoom(
 		const hw = W * 0.36; // half-width of the coffer at the back edge
 		const yTop = -M - 10; // coffer runs past the top of the view (over the camera)
 		// screen x of a ceiling point at lateral offset X (measured at the back edge)
-		const px = (X: number, y: number) =>
-			vpX + (X * (vpY - y)) / (vpY - y0);
+		const px = (X: number, y: number) => vpX + (X * (vpY - y)) / (vpY - y0);
 		// coffer outline inset by `k` steps (k = 0 → the edge itself)
 		const outline = (k: number, dX: number, dY: number) => {
 			const X = hw - k * dX;
@@ -532,7 +531,15 @@ function drawRoom(
 			// soft ground shadow
 			cx.fillStyle = `rgba(30,48,22,${0.22 * (1 - haze)})`;
 			cx.beginPath();
-			cx.ellipse(bx + h * 0.08, by, cw * 0.45, h * 0.035 + 0.5, 0, 0, Math.PI * 2);
+			cx.ellipse(
+				bx + h * 0.08,
+				by,
+				cw * 0.45,
+				h * 0.035 + 0.5,
+				0,
+				0,
+				Math.PI * 2,
+			);
 			cx.fill();
 			// tapered trunk
 			cx.fillStyle = hc([78, 60, 44]);
@@ -621,9 +628,31 @@ function drawRoom(
 		};
 
 		// far snow-capped range, mid forested range, near rolling hills
-		drawRange(0.68, 0.34, (x) => ridge(x, 1.3), [176, 188, 206], [104, 120, 146], 0.42, 1);
-		drawRange(0.75, 0.2, (x) => ridge(x * 1.35 + 300, 4.7), [128, 152, 138], [72, 96, 88], 0.35);
-		const nearY = drawRange(0.8, 0.09, hills, [134, 164, 92], [92, 120, 62], 0.12);
+		drawRange(
+			0.68,
+			0.34,
+			(x) => ridge(x, 1.3),
+			[176, 188, 206],
+			[104, 120, 146],
+			0.42,
+			1,
+		);
+		drawRange(
+			0.75,
+			0.2,
+			(x) => ridge(x * 1.35 + 300, 4.7),
+			[128, 152, 138],
+			[72, 96, 88],
+			0.35,
+		);
+		const nearY = drawRange(
+			0.8,
+			0.09,
+			hills,
+			[134, 164, 92],
+			[92, 120, 62],
+			0.12,
+		);
 
 		// distant forest line along the near hills
 		for (let x = wx - 2; x <= wx + ww + 2; x += 2.2) {
@@ -667,7 +696,13 @@ function drawRoom(
 		for (let i = 0; i < 3; i++) {
 			const seed = 300 + i + (flip ? 20 : 0);
 			const bx = wx + (0.3 + i * 0.2 + (rnd(seed) - 0.5) * 0.1) * ww;
-			broadleaf(bx, mTopY(bx) + 1.5, winH * (0.1 + rnd(seed + 1) * 0.05), seed, 0.25);
+			broadleaf(
+				bx,
+				mTopY(bx) + 1.5,
+				winH * (0.1 + rnd(seed + 1) * 0.05),
+				seed,
+				0.25,
+			);
 		}
 
 		// foreground trees framing each view
@@ -683,14 +718,35 @@ function drawRoom(
 			broadleaf(b1, groundY(b1), winH * 0.44, 501);
 			const s1 = wx + ww * 0.8;
 			fgShadow(s1, groundY(s1) + 1, winH * 0.12);
-			spruce(s1, groundY(s1) + 1, winH * 0.4, "rgb(78,112,70)", "rgb(30,52,38)", 511);
+			spruce(
+				s1,
+				groundY(s1) + 1,
+				winH * 0.4,
+				"rgb(78,112,70)",
+				"rgb(30,52,38)",
+				511,
+			);
 			const s2 = wx + ww * 0.93;
 			fgShadow(s2, groundY(s2) + 2, winH * 0.09);
-			spruce(s2, groundY(s2) + 2, winH * 0.3, "rgb(74,108,66)", "rgb(28,50,36)", 531);
+			spruce(
+				s2,
+				groundY(s2) + 2,
+				winH * 0.3,
+				"rgb(74,108,66)",
+				"rgb(28,50,36)",
+				531,
+			);
 		} else {
 			const s1 = wx + ww * 0.12;
 			fgShadow(s1, groundY(s1) + 1, winH * 0.11);
-			spruce(s1, groundY(s1) + 1, winH * 0.38, "rgb(78,112,70)", "rgb(30,52,38)", 541);
+			spruce(
+				s1,
+				groundY(s1) + 1,
+				winH * 0.38,
+				"rgb(78,112,70)",
+				"rgb(30,52,38)",
+				541,
+			);
 			const b1 = wx + ww * 0.78;
 			broadleaf(b1, groundY(b1), winH * 0.46, 521);
 		}
@@ -704,7 +760,14 @@ function drawRoom(
 				const pr = 2.4 + rnd(seed + k + 9) * 1.6;
 				const px = sxp + (k - 1.5) * 2.6 + (rnd(seed + k) - 0.5) * 1.5;
 				const py = syp - pr * 0.6 - rnd(seed + k + 3) * 1.5;
-				const bg = cx.createRadialGradient(px - pr * 0.4, py - pr * 0.5, 0.2, px, py, pr);
+				const bg = cx.createRadialGradient(
+					px - pr * 0.4,
+					py - pr * 0.5,
+					0.2,
+					px,
+					py,
+					pr,
+				);
 				bg.addColorStop(0, "rgb(132,168,84)");
 				bg.addColorStop(0.7, "rgb(78,112,52)");
 				bg.addColorStop(1, "rgb(52,80,38)");
@@ -888,7 +951,8 @@ function drawRoom(
 
 		// temperature readout
 		cx.fillStyle = "#f4f4f6";
-		cx.font = "600 3.4px system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif";
+		cx.font =
+			"600 3.4px system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif";
 		cx.textAlign = "center";
 		cx.textBaseline = "middle";
 		cx.fillText("21.5", rcx, rcy + 0.15);
@@ -943,7 +1007,8 @@ function drawRoom(
 
 		// faint brand mark in the lower strip
 		cx.fillStyle = "rgba(255,255,255,0.12)";
-		cx.font = "italic 800 1.5px system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif";
+		cx.font =
+			"italic 800 1.5px system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif";
 		cx.textAlign = "right";
 		cx.textBaseline = "middle";
 		cx.fillText("CRESTRON", tx + tw * 0.9, ty + th * 0.91);
@@ -1134,8 +1199,7 @@ function drawRoom(
 		const phase = i * 1.7;
 		const flx = fpX + 6 + (i / (nFl - 1)) * (fpW - 12);
 		// height & lateral lean from layered sines of a fixed phase (no animation)
-		const breathe =
-			0.7 + 0.3 * Math.sin(phase) + 0.15 * Math.sin(phase * 2.3);
+		const breathe = 0.7 + 0.3 * Math.sin(phase) + 0.15 * Math.sin(phase * 2.3);
 		const flh = (10 + rnd(i + 20) * 12) * (0.7 + breathe * 0.6);
 		const sway = Math.sin(phase) * 2.4 + Math.sin(phase) * 1.1;
 		const tipX = flx + sway;
@@ -1510,7 +1574,12 @@ function drawRoom(
 				cx.lineWidth = 0.35;
 				cx.beginPath();
 				cx.moveTo(cxm + t * 1.2, topY);
-				cx.quadraticCurveTo(cxm + t * spread * 0.6, ey + (topY - ey) * 0.5, ex, ey);
+				cx.quadraticCurveTo(
+					cxm + t * spread * 0.6,
+					ey + (topY - ey) * 0.5,
+					ex,
+					ey,
+				);
 				cx.stroke();
 				// a leaf on the stem
 				if (rnd(seed + k + 30) > 0.4) {
@@ -1518,7 +1587,15 @@ function drawRoom(
 					const lx = ln(cxm, ex, 0.5);
 					cx.fillStyle = col("#6f8a58", "#22301c");
 					cx.beginPath();
-					cx.ellipse(lx + (t < 0 ? -1 : 1), ly, 1.4, 0.55, t < 0 ? 0.6 : -0.6, 0, Math.PI * 2);
+					cx.ellipse(
+						lx + (t < 0 ? -1 : 1),
+						ly,
+						1.4,
+						0.55,
+						t < 0 ? 0.6 : -0.6,
+						0,
+						Math.PI * 2,
+					);
 					cx.fill();
 				}
 				// blossom: five petals around a centre
@@ -1527,7 +1604,13 @@ function drawRoom(
 				for (let p = 0; p < 5; p++) {
 					const a2 = (p / 5) * Math.PI * 2 + rnd(seed + k) * 2;
 					cx.beginPath();
-					cx.arc(ex + Math.cos(a2) * pr * 0.8, ey + Math.sin(a2) * pr * 0.8, pr * 0.75, 0, Math.PI * 2);
+					cx.arc(
+						ex + Math.cos(a2) * pr * 0.8,
+						ey + Math.sin(a2) * pr * 0.8,
+						pr * 0.75,
+						0,
+						Math.PI * 2,
+					);
 					cx.fill();
 				}
 				cx.fillStyle = col("#d9b65a", "#3a3018");
@@ -1558,7 +1641,13 @@ function drawRoom(
 			}
 		};
 		// pothos in a ceramic pot, vines trailing over the shelf edge
-		const trailingPlant = (cxm: number, fl: number, potW: number, potH: number, seed: number) => {
+		const trailingPlant = (
+			cxm: number,
+			fl: number,
+			potW: number,
+			potH: number,
+			seed: number,
+		) => {
 			cx.fillStyle = col("#e6ddcc", "#2b2722");
 			rr(cxm - potW / 2, fl - potH, potW, potH, 1.2);
 			cx.fill();
@@ -1566,8 +1655,17 @@ function drawRoom(
 				cx.fillStyle = "rgba(0,0,0,0.18)";
 				cx.fillRect(cxm + potW * 0.2, fl - potH, potW * 0.3, potH);
 			}
-			const leaf = (lx: number, ly: number, sz: number, rot: number, k: number) => {
-				cx.fillStyle = col(rnd(seed + k) > 0.5 ? "#6f9a52" : "#5a8444", "#1d2c17");
+			const leaf = (
+				lx: number,
+				ly: number,
+				sz: number,
+				rot: number,
+				k: number,
+			) => {
+				cx.fillStyle = col(
+					rnd(seed + k) > 0.5 ? "#6f9a52" : "#5a8444",
+					"#1d2c17",
+				);
 				cx.beginPath();
 				cx.ellipse(lx, ly, sz, sz * 0.62, rot, 0, Math.PI * 2);
 				cx.fill();
@@ -1576,7 +1674,13 @@ function drawRoom(
 			for (let k = 0; k < 9; k++) {
 				const a2 = -Math.PI / 2 + (rnd(seed + k) - 0.5) * 2.2;
 				const rd = 2 + rnd(seed + k + 3) * 3.5;
-				leaf(cxm + Math.cos(a2) * rd, fl - potH - 1 + Math.sin(a2) * rd * 0.8, 1.5, a2, k);
+				leaf(
+					cxm + Math.cos(a2) * rd,
+					fl - potH - 1 + Math.sin(a2) * rd * 0.8,
+					1.5,
+					a2,
+					k,
+				);
 			}
 			// two vines draping over the front of the shelf
 			[-1, 1].forEach((side, v) => {
@@ -1590,7 +1694,8 @@ function drawRoom(
 				cx.stroke();
 				for (let k = 0; k < 6; k++) {
 					const t = (k + 1) / 7;
-					const lx = ln(sx, sx + side * 3, t) + side * Math.sin(t * Math.PI) * 3;
+					const lx =
+						ln(sx, sx + side * 3, t) + side * Math.sin(t * Math.PI) * 3;
 					const ly = ln(fl - potH + 0.5, fl + len, t);
 					leaf(lx + side * 0.9, ly, 1.25, side * 0.8, k + 20 + v * 7);
 				}
@@ -1657,7 +1762,14 @@ function drawRoom(
 			if (shadowMode) {
 				cx.fillStyle = shCol;
 			} else {
-				const g = cx.createRadialGradient(cxm - r * 0.35, top - r * 1.35, r * 0.1, cxm, top - r, r);
+				const g = cx.createRadialGradient(
+					cxm - r * 0.35,
+					top - r * 1.35,
+					r * 0.1,
+					cxm,
+					top - r,
+					r,
+				);
 				g.addColorStop(0, mixL("#f6e2a8", "#4a3f26"));
 				g.addColorStop(0.5, mixL("#c49a4c", "#3a2c16"));
 				g.addColorStop(1, mixL("#6e5226", "#1c150a"));
@@ -1727,14 +1839,28 @@ function drawRoom(
 		};
 
 		// ── what sits in each open bay (row, col) ──
-		const bays: Record<string, (x: number, fl: number, w: number, h: number) => void> = {
+		const bays: Record<
+			string,
+			(x: number, fl: number, w: number, h: number) => void
+		> = {
 			"0-0": (x, fl, w, h) => {
 				booksRow(x + 1.5, x + w - 8, fl, h * 0.84, 11, palA);
 				candle(x + w - 4, fl, 3.4, h * 0.3);
 			},
 			"0-1": (x, fl, w, h) => {
-				const top = vase(x + w * 0.5, fl, w * 0.34, h * 0.4, ["#ece6da", "#2c2a26"]);
-				flowers(x + w * 0.5, top, w * 0.16, h * 0.46, 7, ["#fbf7f0", "#3a3834"], 8);
+				const top = vase(x + w * 0.5, fl, w * 0.34, h * 0.4, [
+					"#ece6da",
+					"#2c2a26",
+				]);
+				flowers(
+					x + w * 0.5,
+					top,
+					w * 0.16,
+					h * 0.46,
+					7,
+					["#fbf7f0", "#3a3834"],
+					8,
+				);
 			},
 			"0-2": (x, fl, w, h) => {
 				const top = stackFlat(x + 2, fl, w * 0.52, 4, 21, palB);
@@ -1752,7 +1878,14 @@ function drawRoom(
 			},
 			"1-2": (x, fl, w, h) => {
 				frame(x + 2.5, fl, w * 0.48, h * 0.68);
-				const top = vase(x + w * 0.79, fl, w * 0.18, h * 0.38, ["#8a8274", "#262420"], 0.4);
+				const top = vase(
+					x + w * 0.79,
+					fl,
+					w * 0.18,
+					h * 0.38,
+					["#8a8274", "#262420"],
+					0.4,
+				);
 				branch(x + w * 0.79, top, h * 0.42, 5);
 			},
 			"2-0": (x, fl, w, h) => {
@@ -1775,8 +1908,23 @@ function drawRoom(
 				booksRow(x + 1.5, x + w - 1.5, fl, h * 0.86, 53, [...palA, ...palB]);
 			},
 			"3-2": (x, fl, w, h) => {
-				const top = vase(x + w * 0.4, fl, w * 0.24, h * 0.3, ["#b9a58c", "#2a251e"], 0.42);
-				flowers(x + w * 0.4, top, w * 0.12, h * 0.3, 19, ["#e8b4b0", "#3a2828"], 5);
+				const top = vase(
+					x + w * 0.4,
+					fl,
+					w * 0.24,
+					h * 0.3,
+					["#b9a58c", "#2a251e"],
+					0.42,
+				);
+				flowers(
+					x + w * 0.4,
+					top,
+					w * 0.12,
+					h * 0.3,
+					19,
+					["#e8b4b0", "#3a2828"],
+					5,
+				);
 				candle(x + w * 0.72, fl, 3.2, h * 0.24);
 				candle(x + w * 0.84, fl, 3.2, h * 0.17);
 			},
@@ -1807,7 +1955,14 @@ function drawRoom(
 						const gx = x + 2 + rnd(r * 31 + c * 7 + g) * (colW - 4);
 						cx.beginPath();
 						cx.moveTo(gx, y + 1);
-						cx.bezierCurveTo(gx + 1, y + rowH * 0.3, gx - 1, y + rowH * 0.7, gx + 0.5, y + rowH - 1);
+						cx.bezierCurveTo(
+							gx + 1,
+							y + rowH * 0.3,
+							gx - 1,
+							y + rowH * 0.7,
+							gx + 0.5,
+							y + rowH - 1,
+						);
 						cx.stroke();
 					}
 					cx.fillStyle = mix("#c8a45e", "#3a2e18");
@@ -1900,7 +2055,6 @@ function drawRoom(
 					cx.globalCompositeOperation = "source-over";
 				}
 				cx.restore();
-
 			}
 		}
 
@@ -2341,9 +2495,19 @@ function drawRoom(
 			cx.lineWidth = 0.4 * sc;
 			cx.beginPath();
 			cx.moveTo(l + w / 2, t + h * 0.34);
-			cx.quadraticCurveTo(l + w * 0.32, t + h * 0.3, l + w * 0.12, t + h * 0.14);
+			cx.quadraticCurveTo(
+				l + w * 0.32,
+				t + h * 0.3,
+				l + w * 0.12,
+				t + h * 0.14,
+			);
 			cx.moveTo(l + w / 2, t + h * 0.34);
-			cx.quadraticCurveTo(l + w * 0.68, t + h * 0.3, l + w * 0.88, t + h * 0.14);
+			cx.quadraticCurveTo(
+				l + w * 0.68,
+				t + h * 0.3,
+				l + w * 0.88,
+				t + h * 0.14,
+			);
 			cx.stroke();
 			cx.restore();
 			// piping seam around the edge
@@ -2616,12 +2780,7 @@ export default function RoomAutomation() {
 		const offY = Math.max(0, (ch - H * scale) / 2);
 		ctx.setTransform(scale * dpr, 0, 0, scale * dpr, offX * dpr, offY * dpr);
 
-		drawRoom(
-			ctx,
-			curS.current,
-			tvRef.current,
-			videoRef.current,
-		);
+		drawRoom(ctx, curS.current, tvRef.current, videoRef.current);
 	}
 
 	// single persistent loop: keeps the TV video alive every frame and paints
@@ -2666,16 +2825,33 @@ export default function RoomAutomation() {
 		};
 	}, []);
 
+	// device states each scene recalls (like a real keypad scene)
+	const SCENE_PRESETS: Record<
+		Scene,
+		{ ceil: boolean; shelf: boolean; tv: boolean; shadesClosed: boolean }
+	> = {
+		relax: { ceil: true, shelf: true, tv: false, shadesClosed: false },
+		bright: { ceil: true, shelf: false, tv: false, shadesClosed: false },
+		cinema: { ceil: true, shelf: true, tv: true, shadesClosed: true },
+	};
+
 	function handleScene(s: Scene) {
 		if (transitioning || s === scene) return;
+		const preset = SCENE_PRESETS[s];
 		setScene(s);
 		setTransitioning(true);
+		// update the buttons; the per-device effects skip their own animation
+		// while `transitioning` is true, so everything fades together below
+		setCeilOn(preset.ceil);
+		setShelfOn(preset.shelf);
+		setClosed(preset.shadesClosed);
+		setTvOn(preset.tv);
 		startAnim(
 			{
 				...SCENES[s],
-				shade: curS.current.shade,
-				ceil: curS.current.ceil,
-				shelf: curS.current.shelf,
+				shade: preset.shadesClosed ? 100 : 0,
+				ceil: preset.ceil ? 1 : 0,
+				shelf: preset.shelf ? 1 : 0,
 			},
 			() => setTransitioning(false),
 		);
@@ -2728,7 +2904,7 @@ export default function RoomAutomation() {
 			<canvas ref={canvasRef} className={styles.canvas} />
 			<video
 				ref={videoRef}
-				src="/tv-video.mp4"
+				src="/hero-tv-video.mp4"
 				muted
 				loop
 				playsInline
