@@ -753,5 +753,12 @@
 		"selected": "vybráno",
 		"pickADateHint": "Vyberte datum v kalendáři a zobrazte dostupné časy",
 		"availableHours": "Dostupné časy"
+	},
+
+	"footer": {
+		"allRightsReserved": "Všechna práva vyhrazena.",
+		"solutions": "Řešení",
+		"followUs": "Sledujte nás",
+		"privacyPolicy": "Ochrana osobních údajů"
 	}
 }

@@ -745,5 +745,11 @@
 		"selected": "selected",
 		"pickADateHint": "Pick a date on the calendar to see available hours",
 		"availableHours": "Available hours"
+	},
+	"footer": {
+		"allRightsReserved": "All rights reserved.",
+		"solutions": "Solutions",
+		"followUs": "Follow us",
+		"privacyPolicy": "Privacy Policy"
 	}
 }
