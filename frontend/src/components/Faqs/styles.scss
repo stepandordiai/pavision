@@ -14,10 +14,7 @@
 }
 
 .faqs-list {
-	display: flex;
-	flex-direction: column;
-	gap: 0.75rem;
-	max-width: 700px;
+	width: min(100%, 700px);
 }
 
 .faqs-item {
@@ -30,7 +27,7 @@
 		width: 100%;
 		left: 0;
 		bottom: 0;
-		background: rgba(255, 255, 255, 0.478);
+		background: rgba(255, 255, 255, 0.2);
 	}
 
 	&::after {
@@ -54,7 +51,7 @@
 }
 
 .faqs-q {
-	padding: 10px;
+	padding: 20px;
 	font-size: 1.125rem;
 	font-weight: 600;
 	width: 100%;
@@ -83,14 +80,14 @@
 .faqs-a-container {
 	display: grid;
 	grid-template-rows: 0fr;
-	padding: 0px 10px;
+	padding: 0px 20px;
 	transition:
 		grid-template-rows 0.5s ease,
 		padding 0.5s ease;
 
 	&--expanded {
 		grid-template-rows: 1fr;
-		padding: 0 10px 10px;
+		padding: 0 20px 20px;
 	}
 }
 

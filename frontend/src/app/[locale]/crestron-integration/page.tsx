@@ -66,9 +66,9 @@ export default async function CrestronHome({
 				// FIXME:
 				heading={t("crestronIntegration.heading")}
 				subheading={t("crestronIntegration.subheading")}
-				imgSrc="https://www.strata-gee.com/wp-content/uploads/2024/08/PR_2024_Crestron_Home_OS4_in-app_Updates_1-RS-ADJ2.jpg"
+				imgSrc="/services-crestron.jpg"
 				secondaryBtnTxt={t("crestronIntegration.heroSecondaryBtn")}
-				currentPage="Crestron"
+				currentPage={t("nav.crestron")}
 				locale={locale}
 			/>
 			<section className="section" id="section">

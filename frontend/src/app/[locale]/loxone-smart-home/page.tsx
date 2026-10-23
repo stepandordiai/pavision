@@ -50,6 +50,8 @@ export default async function LoxoneSmartHome({
 }) {
 	const { locale } = await params;
 
+	const t = await getTranslations({ locale });
+
 	return (
 		<main>
 			<HeroParallax
@@ -57,9 +59,9 @@ export default async function LoxoneSmartHome({
 				subheading="Experience complete home automation with Loxone. Control lighting,
 				climate, security, shading, audio, and energy management through one
 				intelligent system designed around your lifestyle."
-				imgSrc="https://www.loxone.com/enen/wp-content/uploads/sites/3/2023/09/The-Forum-experience-automation-open-graph-scaled.jpg"
+				imgSrc="/loxone-smart-home.jpg"
 				secondaryBtnTxt="Explore Loxone Solutions"
-				currentPage="Loxone"
+				currentPage={t("nav.loxone")}
 				locale={locale}
 			/>
 			<section className="section" id="section">
@@ -361,10 +363,7 @@ export default async function LoxoneSmartHome({
 						</li>
 						<li>
 							<span>Professional installation</span>
-							<img
-								src="https://www.loxone.com/int/wp-content/uploads/sites/21/2022/06/PH-ElektrikerSchaltschrank-scaled-1.jpg"
-								alt=""
-							/>
+							<img src="/loxone-smart-home.jpg" alt="" />
 						</li>
 						<li>
 							<span>Programming</span>

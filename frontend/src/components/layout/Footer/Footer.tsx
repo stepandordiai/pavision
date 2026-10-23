@@ -6,6 +6,7 @@ import technologies from "@/data/technologies.json";
 import navLinks from "@/data/nav-links.json";
 import { TransitionLink } from "@/components/TransitionLink";
 import CopyBtn from "@/components/CopyBtn/CopyBtn";
+import socials from "@/data/socials.json";
 import "./Footer.scss";
 
 const Footer = () => {
@@ -111,24 +112,20 @@ const Footer = () => {
 					<div>
 						<p style={{ marginBottom: 10 }}>{t("footer.followUs")}</p>
 						<ul>
-							<li>
-								<a
-									className="link"
-									href="https://www.instagram.com/pa_vision.cz"
-									target="_blank"
-								>
-									Instagram
-								</a>
-							</li>
-							<li>
-								<a
-									className="link"
-									href="https://www.facebook.com/profile.php?id=61581254326915"
-									target="_blank"
-								>
-									Facebook
-								</a>
-							</li>
+							{socials.map((s, i) => {
+								return (
+									<li key={i}>
+										<a
+											className="link"
+											href={s.url}
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											{s.label}
+										</a>
+									</li>
+								);
+							})}
 						</ul>
 					</div>
 				</nav>

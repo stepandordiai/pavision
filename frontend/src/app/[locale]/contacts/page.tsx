@@ -5,7 +5,10 @@ import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 import ContactsClient from "./ContactsClient";
 import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
+import PersonFillIcon from "@/components/icons/PersonFillIcon";
+import socials from "@/data/socials.json";
 import "./Contacts.scss";
+import { Fragment } from "react/jsx-runtime";
 
 const PAGE = "contacts";
 
@@ -71,7 +74,7 @@ export default async function Contacts({
 									style={{
 										display: "flex",
 										alignItems: "center",
-										gap: 10,
+										gap: 5,
 										marginBottom: 10,
 									}}
 								>
@@ -86,25 +89,17 @@ export default async function Contacts({
 								</p>
 							</div>
 							<div className="contacts-card">
-								<p style={{ fontSize: "18px", fontWeight: 500 }}>Petr Fojtů</p>
-								<div
+								<p
 									style={{
+										fontSize: "18px",
+										fontWeight: 500,
 										display: "flex",
-										flexDirection: "column",
-										alignItems: "flex-start",
+										alignItems: "center",
+										gap: 5,
 									}}
 								>
-									<a className="link" href="mailto:petr.fojtu@pavision.cz">
-										petr.fojtu@pavision.cz
-									</a>
-									<a className="link" href="tel:+420775632426">
-										+420 775 632 426
-									</a>
-								</div>
-							</div>
-							<div className="contacts-card">
-								<p style={{ fontSize: "18px", fontWeight: 500 }}>
-									Oleksandr Honcharenko
+									<PersonFillIcon size={16} />
+									<span>Petr Fojtů</span>
 								</p>
 								<div
 									style={{
@@ -113,12 +108,77 @@ export default async function Contacts({
 										alignItems: "flex-start",
 									}}
 								>
-									<a className="link" href="mailto:petr.fojtu@pavision.cz">
-										alex@pavision.cz
-									</a>
-									<a className="link" href="tel:+420777049617">
-										+420 777 049 617
-									</a>
+									<div
+										style={{
+											display: "flex",
+											alignItems: "center",
+											gap: 5,
+										}}
+									>
+										<EnvelopeIcon />
+
+										<a className="link" href="mailto:petr.fojtu@pavision.cz">
+											petr.fojtu@pavision.cz
+										</a>
+									</div>
+									<div
+										style={{
+											display: "flex",
+											alignItems: "center",
+											gap: 5,
+										}}
+									>
+										<TelIcon />
+										<a className="link" href="tel:+420775632426">
+											+420 775 632 426
+										</a>
+									</div>
+								</div>
+							</div>
+							<div className="contacts-card">
+								<p
+									style={{
+										fontSize: "18px",
+										fontWeight: 500,
+										display: "flex",
+										alignItems: "center",
+										gap: 5,
+									}}
+								>
+									<PersonFillIcon size={16} />
+									<span>Oleksandr Honcharenko</span>
+								</p>
+								<div
+									style={{
+										display: "flex",
+										flexDirection: "column",
+										alignItems: "flex-start",
+									}}
+								>
+									<div
+										style={{
+											display: "flex",
+											alignItems: "center",
+											gap: 5,
+										}}
+									>
+										<EnvelopeIcon />
+										<a className="link" href="mailto:petr.fojtu@pavision.cz">
+											alex@pavision.cz
+										</a>
+									</div>
+									<div
+										style={{
+											display: "flex",
+											alignItems: "center",
+											gap: 5,
+										}}
+									>
+										<TelIcon />
+										<a className="link" href="tel:+420777049617">
+											+420 777 049 617
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -135,7 +195,7 @@ export default async function Contacts({
 									style={{
 										display: "flex",
 										alignItems: "center",
-										gap: 10,
+										gap: 5,
 										marginBottom: 10,
 									}}
 								>
@@ -154,14 +214,21 @@ export default async function Contacts({
 					<div style={{ marginTop: "auto" }}>
 						<h2 style={{ fontSize: "18px", fontWeight: 500 }}>Sledujte nas</h2>
 						<div>
-							<a
-								className="contacts-details__link"
-								href="https://www.instagram.com/pa_vision.cz"
-								target="_blank"
-							>
-								Instagram
-							</a>
-							,
+							{socials.map((s, i) => {
+								return (
+									<Fragment key={i}>
+										<a
+											className="contacts-details__link"
+											href={s.label}
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											{s.label}
+										</a>
+										{i < socials.length - 1 && ", "}
+									</Fragment>
+								);
+							})}
 						</div>
 					</div>
 				</div>
