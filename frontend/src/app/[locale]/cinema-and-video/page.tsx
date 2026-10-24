@@ -2,9 +2,10 @@ import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
+import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
 import "./styles.scss";
 
-const PAGE = "video";
+const PAGE = "cinema-and-video";
 
 export async function generateMetadata({
 	params,
@@ -38,7 +39,7 @@ export async function generateMetadata({
 	};
 }
 
-export default async function Video({
+export default async function CinemaAndVideo({
 	params,
 }: {
 	params: Promise<{ locale: string }>;
@@ -54,7 +55,7 @@ export default async function Video({
 				imgSrc="https://images.pexels.com/photos/27562214/pexels-photo-27562214.png"
 				secondaryBtnTxt="Explore Cinema Experiences"
 				imgAlt="Luxury smart home cinema and video entertainment system"
-				currentPage="Video"
+				currentPage={t("video.heading")}
 				locale={locale}
 			/>
 			<section className="section" id="section">
@@ -109,6 +110,7 @@ export default async function Video({
 					/>
 				</div>
 			</section>
+			<ContactUsBanner />
 		</main>
 	);
 }

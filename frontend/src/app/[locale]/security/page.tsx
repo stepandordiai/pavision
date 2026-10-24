@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import "./styles.scss";
+import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
 
 const PAGE = "security";
 
@@ -95,6 +96,7 @@ export default async function Security({
 					</p>
 				</div>
 			</section>
+			<ContactUsBanner />
 		</main>
 	);
 }

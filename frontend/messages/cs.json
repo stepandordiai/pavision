@@ -635,7 +635,7 @@
 			"title": "Domácí kino a multiroom video | Crestron",
 			"description": "Návrh a instalace domácího kina, projekce a chytrých televizí s rozvodem videa do více místností. Jedno ovládání pro celý dům, Crestron."
 		},
-		"heading": "Video",
+		"heading": "Video a domácí kino",
 		"title": "Chytré video a domácí kino systémy",
 		"subtitle": "Prémiová domácí kina, chytré televize a integrovaná zábavní řešení pro moderní luxusní domy."
 	},
@@ -703,12 +703,16 @@
 		},
 		"familyHome": {
 			"badge": "Rodinný dům",
-			"title": "Chytrý rodinný dům a vila",
+			"title": "Chytrý rodinný dům",
 			"description": [
-				"Vytvořte domov, který se postará o celou rodinu. P&A Vision propojuje osvětlení, vytápění, stínění, zabezpečení a zábavu do jednoho intuitivního systému postaveného na značkách Crestron, Loxone a Lutron. Pro náročné vily a rezidence sázíme na Crestron – prémiovou platformu, která spolehlivě sjednotí celý dům od audia/videa přes osvětlení až po klimatizaci do jediného elegantního ovládání.",
-				"Ranní a večerní scény, automatické žaluzie a řízení teploty po zónách zajistí komfort v každé místnosti – od kuchyně přes ložnici až po domácí kino či terasu u bazénu. Domov předvídá vaše potřeby a šetří energii bez jediného ručního zásahu, a to i v rozlehlých vilách s desítkami zón, kde se naplno projeví škálovatelnost systémů Crestron.",
-				"Klid a jistota na prvním místě – kamerové systémy, chytré zámky, brány i správu přístupů ovládáte z telefonu odkudkoli. Mějte přehled o příjezdové cestě, zahradě i vstupech a zůstaňte ve spojení s děním doma, i když jste v jiné zemi.",
-				"Navrhujeme a realizujeme chytré rodinné domy a luxusní vily po celé Evropě – od komplexních instalací Crestron pro rozsáhlé rezidence až po řešení na míru vašemu životnímu stylu, vaší nemovitosti i rozpočtu."
+				"Domov, který se přizpůsobí vám a vašemu životnímu stylu.",
+				"P&A Vision propojuje osvětlení, vytápění, klimatizaci, stínění, zabezpečení i domácí zábavu do jednoho snadno ovladatelného systému. Pracujeme s osvědčenými technologiemi Crestron, Loxone a Lutron, díky kterým dokážeme navrhnout řešení pro běžné rodinné domy i rozsáhlé luxusní rezidence. Pro náročnější projekty využíváme především systém Crestron, který nabízí široké možnosti integrace, vysokou spolehlivost a pohodlné ovládání celého domu.",
+				"Pohodlí, které nemusíte řešit.",
+				"Osvětlení se přizpůsobí denní době, žaluzie reagují na sluneční světlo a teplota se automaticky reguluje podle potřeb jednotlivých místností. Jediným tlačítkem můžete připravit dům na večerní odpočinek, sledování filmu nebo odchod do práce. Chytrá automatizace vám zpříjemní každodenní život a zároveň pomáhá snižovat spotřebu energie. Díky flexibilitě použitých systémů lze snadno řídit i rozsáhlé objekty s desítkami samostatných zón.",
+				"Bezpečí a kontrola, ať jste kdekoli.",
+				"Kamerový systém, zabezpečení, vstupní bránu i chytré zámky můžete mít pod kontrolou přímo ze svého telefonu. Kdykoli se podíváte, co se děje kolem domu, kdo stojí u dveří nebo zda je vše řádně zabezpečeno. Ať už jste v práci, na dovolené nebo na druhém konci světa, o svém domově máte vždy přehled.",
+				"Řešení navržené přímo pro vás.",
+				"Navrhujeme, instalujeme a programujeme systémy chytré domácnosti pro rodinné domy i luxusní vily po celé Evropě. Od jednodušších automatizací až po komplexní řešení Crestron, která propojují veškeré technologie v domě. Každý projekt připravujeme individuálně s ohledem na vaše požadavky, charakter nemovitosti i rozpočet."
 			]
 		},
 		"business": {
@@ -730,9 +734,16 @@
 
 	"contacts": {
 		"meta": {
-			"title": "Kontakty | Konzultace chytré domácnosti zdarma",
-			"description": "Kontaktujte P&A Vision v Kladně: první konzultace chytré domácnosti, AV a automatizace je zdarma. Zavolejte nebo napište, odpovíme do 12 hodin."
+			"title": "Kontakt | Integrátor Crestron a Loxone",
+			"description": "Plánujete chytrou domácnost, AV nebo osvětlení? Kontaktujte P&A Vision, integrátora Crestron, Loxone a Lutron v Kladně u Prahy. První konzultace zdarma."
 		},
+
+		"heading": "Kontaktujte nás – konzultace chytré domácnosti zdarmas",
+		"callUs": "Zavolejte nám",
+		"callUsDescription": "Zavolejte během pracovní doby a získejte bezplatnou konzultaci.",
+		"writeToUs": "Napište nám",
+		"writeToUsDescription": "Odpovíme vám do 12 hodin",
+
 		"title": "Kontaktní formulář",
 		"name": "Jméno",
 		"tel": "Telefonní číslo",
@@ -741,6 +752,11 @@
 		"loading": "Odesílám...",
 		"success": "Úspěšně odesláno!",
 		"required": "povinné"
+	},
+
+	"contactUsBanner": {
+		"heading": "Máte projekt? Ozvěte se nám",
+		"description": "Nechte nám jméno a telefon. Ozveme se vám, probereme váš projekt a navrhneme řešení na míru, nezávazně a bez tlaku na rychlé rozhodnutí. Nemáte rádi formuláře? Napište nám na"
 	},
 
 	"faqs": {

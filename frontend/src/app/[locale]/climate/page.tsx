@@ -2,9 +2,10 @@ import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
 import "./styles.scss";
 
-const PAGE = "thermostat";
+const PAGE = "climate";
 
 export async function generateMetadata({
 	params,
@@ -38,7 +39,7 @@ export async function generateMetadata({
 	};
 }
 
-export default async function Thermostat({
+export default async function Climate({
 	params,
 }: {
 	params: Promise<{ locale: string }>;
@@ -53,7 +54,7 @@ export default async function Thermostat({
 				subheading={t("thermostat.subtitle")}
 				imgSrc="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-thermostat-thumn.jpg"
 				secondaryBtnTxt="Explore Climate Control"
-				currentPage="Thermostat"
+				currentPage={t("thermostat.heading")}
 				locale={locale}
 			/>
 			<section className="technology-section" id="section">
@@ -139,6 +140,7 @@ export default async function Thermostat({
 					</p>
 				</div>
 			</section>
+			<ContactUsBanner />
 		</main>
 	);
 }

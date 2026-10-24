@@ -3,6 +3,7 @@ import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 import "./styles.scss";
+import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
 
 const PAGE = "shades";
 
@@ -98,6 +99,7 @@ export default async function Shades({
 					</p>
 				</div>
 			</section>
+			<ContactUsBanner />
 		</main>
 	);
 }

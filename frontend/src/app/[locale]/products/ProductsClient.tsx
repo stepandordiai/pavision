@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { getProducts } from "@/lib/api/products";
 import ProductCard from "@/components/ProductCard/ProductCard";
 import classNames from "classnames";
+import ChevronDownIcon from "@/components/icons/ChevronDownIcon";
 
 interface Product {
 	id: number;
@@ -65,15 +66,60 @@ export default function ProductsClient() {
 	return (
 		<>
 			<div
+				style={{
+					background: "var(--secondary-clr)",
+					padding: "10px",
+					borderRadius: "10px",
+					display: "flex",
+					flexDirection: "column",
+					gap: "10px",
+				}}
+			>
+				<p>Bundles</p>
+				<div className="products-grid">
+					{products
+						.filter((p) => p.category === "Bundles")
+						// .filter((product) => product.type.includes(type))
+						.map((product, i) => {
+							return <ProductCard key={i} product={product} />;
+						})}
+				</div>
+			</div>
+			<div
+				style={{
+					background: "var(--primary-clr)",
+					padding: "10px",
+					borderRadius: "10px",
+					display: "flex",
+					flexDirection: "column",
+					gap: "10px",
+				}}
+			>
+				<p>Program modules</p>
+				<div className="products-grid">
+					{products
+						.filter((p) => p.category === "Program modules")
+						// .filter((product) => product.type.includes(type))
+						.map((product, i) => {
+							return <ProductCard key={i} product={product} />;
+						})}
+				</div>
+			</div>
+			<div
 				className={classNames("products__filter", {
 					"products__filter--visible": filterVisible,
 				})}
 			>
-				<div style={{ display: "flex", justifyContent: "space-between" }}>
-					<h2>Filter</h2>
-					<button onClick={() => setFilterVisible((prev) => !prev)}>
-						Toggle
-					</button>
+				<div
+					onClick={() => setFilterVisible((prev) => !prev)}
+					className="filter__header"
+				>
+					<p style={{ fontSize: "18px", fontWeight: "500" }}>Filter</p>
+					<span
+						className={`filter__icon ${filterVisible ? "filter__icon--active" : ""}`}
+					>
+						<ChevronDownIcon size={18} />
+					</span>
 				</div>
 
 				<div
@@ -139,7 +185,20 @@ export default function ProductsClient() {
 								})}
 							</div>
 						</div>
-						<button onClick={() => setFilter(initFilter)}>Reset filters</button>
+						<div className="filter__btn-container">
+							<button
+								className="filter__reset-btn"
+								onClick={() => setFilter(initFilter)}
+							>
+								Reset filters
+							</button>
+							<button
+								className="filter__close-btn"
+								onClick={() => setFilterVisible(false)}
+							>
+								Close
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -170,13 +229,16 @@ export default function ProductsClient() {
 			{!filteredProducts.length ? (
 				<p>Žádné produkty neodpovídají zvoleným filtrům.</p>
 			) : (
-				<div className="products-grid">
-					{filteredProducts
-						// .filter((product) => product.type.includes(type))
-						.map((product, i) => {
-							return <ProductCard key={i} product={product} />;
-						})}
-				</div>
+				<>
+					<p>All products</p>
+					<div className="products-grid">
+						{filteredProducts
+							// .filter((product) => product.type.includes(type))
+							.map((product, i) => {
+								return <ProductCard key={i} product={product} />;
+							})}
+					</div>
+				</>
 			)}
 
 			{/* </div> */}

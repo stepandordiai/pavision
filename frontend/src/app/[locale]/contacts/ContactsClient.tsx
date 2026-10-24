@@ -4,13 +4,6 @@ import { useTranslations } from "next-intl";
 import { supabase } from "@/lib/supabase";
 import { useState } from "react";
 
-interface Client {
-	name: string;
-	tel: string;
-	email: string;
-	message: string;
-}
-
 const INIT_FORM = {
 	name: "",
 	tel: "",
@@ -32,11 +25,13 @@ export default function ContactsClient() {
 
 	// TODO: LEARN THIS
 	// Supabase
-	const insertClient = async (data: Client) => {
+	const createClient = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+
 		setFormError(null);
 		setLoading(true);
 
-		const { error } = await supabase.from("clients").insert([data]);
+		const { error } = await supabase.from("clients").insert([form]);
 		if (error) {
 			if (error.code !== "23505") {
 				setFormError(error.message);
@@ -63,14 +58,7 @@ export default function ContactsClient() {
 	};
 
 	return (
-		<form
-			// TODO: learn this
-			onSubmit={async (e) => {
-				e.preventDefault();
-				await insertClient(form);
-			}}
-			className="form"
-		>
+		<form onSubmit={createClient} className="form">
 			<h2 style={{ fontSize: "22px", fontWeight: 500 }}>{t("title")}</h2>
 			{formError && <span style={{ color: "red" }}>{formError}</span>}
 			<div
@@ -126,7 +114,9 @@ export default function ContactsClient() {
 				style={{ height: "100%" }}
 				className={`input-container ${form.message !== "" ? "input-container--active" : ""}`}
 			>
-				<label htmlFor="message">{t("message")}</label>
+				<label htmlFor="message">
+					{t("message")} ({t("required")})
+				</label>
 				<textarea
 					onChange={(e) => handleForm(e.target.name, e.target.value)}
 					value={form.message}
@@ -134,6 +124,7 @@ export default function ContactsClient() {
 					className="textarea"
 					id="message"
 					disabled={success}
+					required
 				></textarea>
 			</div>
 			<button className="form__btn" type="submit" disabled={success}>

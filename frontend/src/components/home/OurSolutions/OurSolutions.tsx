@@ -7,6 +7,7 @@ import TvIcon from "@/components/icons/TvIcon";
 import LockIcon from "@/components/icons/LockIcon";
 import CameraIcon from "@/components/icons/CameraIcon";
 import "./OurSolutions.scss";
+import ThermometerIcon from "@/components/icons/ThermometerIcon";
 
 export default async function OurSolutions() {
 	const t = await getTranslations();
@@ -107,7 +108,10 @@ export default async function OurSolutions() {
 								</span>
 								<span>{t("shades.heading")}</span>
 							</TransitionLink>
-							<TransitionLink href="/video" className="our-solutions__link">
+							<TransitionLink
+								href="/cinema-and-video"
+								className="our-solutions__link"
+							>
 								<span>
 									<TvIcon size={20} />
 								</span>
@@ -120,7 +124,7 @@ export default async function OurSolutions() {
 								<span>{t("audio.heading")}</span>
 							</TransitionLink>
 							<TransitionLink
-								href="/home-access"
+								href="/access-control"
 								className="our-solutions__link"
 							>
 								<span>
@@ -140,16 +144,9 @@ export default async function OurSolutions() {
 								</span>
 								<span>{t("security.heading")}</span>
 							</TransitionLink>
-							<TransitionLink
-								href="/thermostat"
-								className="our-solutions__link"
-							>
+							<TransitionLink href="/climate" className="our-solutions__link">
 								<span>
-									<img
-										src="/technology-icons/thermostat.png"
-										width={20}
-										alt=""
-									/>
+									<ThermometerIcon size={20} />
 								</span>
 								<span>{t("thermostat.heading")}</span>
 							</TransitionLink>
@@ -201,22 +198,18 @@ export default async function OurSolutions() {
 								</span>
 								<span>{t("audio.heading")}</span>
 							</TransitionLink>
-							<TransitionLink href="/video" className="our-solutions__link">
+							<TransitionLink
+								href="/cinema-and-video"
+								className="our-solutions__link"
+							>
 								<span>
 									<TvIcon size={20} />
 								</span>
 								<span>{t("video.heading")}</span>
 							</TransitionLink>
-							<TransitionLink
-								href="/thermostat"
-								className="our-solutions__link"
-							>
+							<TransitionLink href="/climate" className="our-solutions__link">
 								<span>
-									<img
-										src="/technology-icons/thermostat.png"
-										width={20}
-										alt=""
-									/>
+									<ThermometerIcon size={20} />
 								</span>
 								<span>{t("thermostat.heading")}</span>
 							</TransitionLink>
@@ -272,7 +265,7 @@ export default async function OurSolutions() {
 								<span>{t("audio.heading")}</span>
 							</TransitionLink>
 							<TransitionLink
-								href="/home-access"
+								href="/access-control"
 								className="our-solutions__link"
 							>
 								<span>

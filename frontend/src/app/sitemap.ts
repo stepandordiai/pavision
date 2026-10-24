@@ -5,7 +5,7 @@ import { BASE_URL } from "@/lib/constants";
 const pages = [
 	{
 		path: "",
-		changeFrequency: "weekly",
+		changeFrequency: "monthly",
 		priority: 1,
 	},
 	{
@@ -16,17 +16,17 @@ const pages = [
 	{
 		path: "/for-developers",
 		changeFrequency: "monthly",
-		priority: 0.6,
+		priority: 0.7,
 	},
 	{
 		path: "/for-architects",
 		changeFrequency: "monthly",
-		priority: 0.6,
+		priority: 0.7,
 	},
 	{
 		path: "/products",
-		changeFrequency: "weekly",
-		priority: 0.9,
+		changeFrequency: "monthly",
+		priority: 0.6,
 	},
 	{
 		path: "/contacts",
@@ -39,44 +39,44 @@ const pages = [
 		priority: 0.6,
 	},
 	{
-		path: "/home-access",
-		changeFrequency: "weekly",
+		path: "/access-control",
+		changeFrequency: "monthly",
 		priority: 0.8,
 	},
 	{
 		path: "/lighting",
-		changeFrequency: "weekly",
+		changeFrequency: "monthly",
 		priority: 0.8,
 	},
 	{
 		path: "/shades",
-		changeFrequency: "weekly",
+		changeFrequency: "monthly",
 		priority: 0.8,
 	},
 	{
-		path: "/thermostat",
-		changeFrequency: "weekly",
+		path: "/climate",
+		changeFrequency: "monthly",
 		priority: 0.8,
 	},
 	{
-		path: "/video",
-		changeFrequency: "weekly",
+		path: "/cinema-and-video",
+		changeFrequency: "monthly",
 		priority: 0.8,
 	},
 	{
 		path: "/security",
-		changeFrequency: "weekly",
+		changeFrequency: "monthly",
 		priority: 0.8,
 	},
 	{
 		path: "/loxone-smart-home",
-		changeFrequency: "weekly",
-		priority: 0.8,
+		changeFrequency: "monthly",
+		priority: 0.9,
 	},
 	{
 		path: "/crestron-integration",
 		changeFrequency: "monthly",
-		priority: 0.8,
+		priority: 0.9,
 	},
 	{
 		path: "/privacy-policy",

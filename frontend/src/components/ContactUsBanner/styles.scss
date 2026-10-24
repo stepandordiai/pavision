@@ -1,0 +1,119 @@
+.contact-us-banner {
+	background: var(--secondary-clr);
+	padding: 20px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+}
+
+.contact-us-banner__heading {
+	font-size: clamp(1.5rem, 4vw, 2rem);
+	font-weight: 500;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+
+.input-container {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	padding-bottom: 5px;
+
+	&::before {
+		content: "";
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		background: rgba(255, 255, 255, 0.5);
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		background: white;
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 0.5s;
+	}
+
+	label {
+		position: absolute;
+		transition:
+			transform 0.5s,
+			color 0.5s,
+			font-size 0.5s;
+	}
+
+	::placeholder {
+		opacity: 0;
+		transition: opacity 0.5s;
+	}
+
+	&:has(input:disabled, textarea:disabled) {
+		&::after {
+			background: greenyellow;
+		}
+	}
+
+	&:focus-within {
+		&::after {
+			transform: scaleX(1);
+		}
+
+		label {
+			transform: translateY(-20px);
+			color: rgba(255, 255, 255, 0.5);
+			font-size: 14px;
+		}
+
+		::placeholder {
+			opacity: 1;
+		}
+	}
+}
+
+.input-container--active {
+	&::after {
+		transform: scaleX(1);
+	}
+
+	label {
+		transform: translateY(-20px);
+		color: rgba(255, 255, 255, 0.5);
+		font-size: 14px;
+	}
+}
+
+.textarea {
+	flex-grow: 1;
+	resize: none;
+}
+
+.form__btn {
+	background: #fff;
+	font-weight: 500;
+	padding: 10px;
+	color: #000;
+	border-radius: 10px;
+
+	&:disabled {
+		background: greenyellow;
+		color: #000;
+	}
+}
+
+@media screen and (width < 700px) {
+	.contact-us-banner {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}

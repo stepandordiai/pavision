@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 import "./styles.scss";
+import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
 
 const PAGE = "audio";
 
@@ -99,6 +100,7 @@ export default async function Audio({
 					</p>
 				</div>
 			</section>
+			<ContactUsBanner />
 		</main>
 	);
 }

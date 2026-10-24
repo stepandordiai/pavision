@@ -111,7 +111,7 @@
 			"title": "Smart Locks & Access Control for Villas",
 			"description": "Smart locks, keyless entry, video intercoms and gate control integrated with your smart home. Remote access from your phone. Design and installation."
 		},
-		"heading": "Home Access",
+		"heading": "Access control",
 		"title": "Smart Home Access Solutions",
 		"subtitle": "Intelligent smart locks, remote access, and secure entry automation for modern homes in the Czech Republic."
 	},
@@ -121,7 +121,7 @@
 			"title": "Home Cinema & Multiroom Video | Crestron",
 			"description": "Design and installation of home cinemas, projection and smart TVs with video distribution to multiple rooms. One control for the whole house, Crestron."
 		},
-		"heading": "Cinema",
+		"heading": "Video & Cinema",
 		"title": "Smart Home Video & Cinema Systems",
 		"subtitle": "Premium home cinema, smart TV, and integrated entertainment experiences for modern luxury homes."
 	},
@@ -151,7 +151,7 @@
 			"title": "Smart Climate Control | Heating & Thermostats",
 			"description": "Smart heating, cooling and ventilation control room by room. Thermostats, schedules and phone control in one system with Crestron or Loxone."
 		},
-		"heading": "Thermostat",
+		"heading": "Climate",
 		"title": "Smart Climate Control Solutions",
 		"subtitle": "Intelligent thermostat and climate control systems that automate comfort, improve energy efficiency, and integrate seamlessly with your smart home."
 	},
@@ -695,12 +695,16 @@
 		},
 		"familyHome": {
 			"badge": "Family Home",
-			"title": "Smart Family Home & Villa",
+			"title": "Smart Family Home",
 			"description": [
-				"Create a home that takes care of the whole family. P&A Vision connects lighting, heating, shading, security, and entertainment into one intuitive system powered by Crestron, Loxone, and Lutron – whether it's an apartment, a family house, or a multi-storey villa with grounds to match.",
-				"Morning and evening scenes, automated blinds, and zoned temperature control keep every room comfortable – from the kitchen to the master suite, the home cinema to the poolside terrace. The home anticipates your needs and saves energy without any manual adjustment, scaling effortlessly across large villas with dozens of zones.",
-				"Peace of mind comes first – control camera systems, smart locks, gates, and access management from your phone, anywhere. Keep an eye on the driveway, garden, and entrances, and stay in touch with what's happening at home, even from another country.",
-				"We design and deliver smart family homes and luxury villas across Europe, with a solution tailored to your lifestyle, your property, and your budget."
+				"A home that adapts to you and the way you live.",
+				"P&A Vision connects lighting, heating, air conditioning, shading, security and home entertainment into one easy-to-use system. We work with proven Crestron, Loxone and Lutron technologies, which let us design solutions for everything from family homes to large luxury residences. For more demanding projects we mainly use Crestron, which offers extensive integration options, high reliability and convenient control of the entire home.",
+				"Comfort you don't have to think about.",
+				"Lighting adapts to the time of day, blinds respond to sunlight and the temperature adjusts automatically to the needs of each room. With a single button, you can set the house for a relaxing evening, a film or leaving for work. Smart automation makes everyday life more pleasant and helps reduce energy consumption. Thanks to the flexibility of the systems we use, even large properties with dozens of separate zones are easy to control.",
+				"Security and control, wherever you are.",
+				"Keep your cameras, alarm system, entrance gate and smart locks under control straight from your phone. Check at any time what's happening around the house, who's at the door or whether everything is properly secured. Whether you're at work, on holiday or on the other side of the world, you always know what's going on at home.",
+				"A solution designed just for you.",
+				"We design, install and program smart home systems for family homes and luxury villas across Europe. From simple automation to complete Crestron solutions that connect every technology in the house, each project is tailored to your requirements, the character of your property and your budget."
 			]
 		},
 		"business": {
@@ -721,9 +725,15 @@
 	},
 	"contacts": {
 		"meta": {
-			"title": "Contact | Free Smart Home Consultation",
-			"description": "Contact P&A Vision in Kladno: your first smart home, AV and automation consultation is free. Call or write, we reply within 12 hours."
+			"title": "Contact | Crestron & Loxone Integrator",
+			"description": "Planning a smart home, AV or lighting project? Contact P&A Vision, Crestron, Loxone and Lutron integrator in Kladno near Prague. Free first consultation."
 		},
+
+		"heading": "Contact us – free smart home consultation",
+		"callUs": "Call us",
+		"callUsDescription": "Call us during business hours for a free consultation.",
+		"writeToUs": "Write to us",
+		"writeToUsDescription": "We'll reply within 12 hours.",
 		"title": "Contact form",
 		"name": "Full name",
 		"tel": "Phone number",
@@ -732,6 +742,11 @@
 		"loading": "Sending...",
 		"success": "Successfully sent!",
 		"required": "required"
+	},
+
+	"contactUsBanner": {
+		"heading": "Have a project in mind? Let’s talk",
+		"description": "Leave your name and phone number. We'll call you back, talk through your project and suggest a tailored solution, with no obligation and no pressure. Not a fan of forms? Just email us at"
 	},
 
 	"faqs": {

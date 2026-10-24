@@ -4,6 +4,7 @@ import { routing } from "@/i18n/routing";
 import LightingClient from "./LightingClient";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import "./styles.scss";
+import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
 
 const PAGE = "lighting";
 
@@ -117,6 +118,7 @@ export default async function Lightning({
 					</div>
 				</div>
 			</section>
+			<ContactUsBanner />
 		</main>
 	);
 }

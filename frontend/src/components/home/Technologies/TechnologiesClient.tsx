@@ -14,6 +14,7 @@ import LockIcon from "@/components/icons/LockIcon";
 import TvIcon from "@/components/icons/TvIcon";
 import SoundwaveIcon from "@/components/icons/SoundwaveIcon";
 import CameraIcon from "@/components/icons/CameraIcon";
+import ThermometerIcon from "@/components/icons/ThermometerIcon";
 
 export default function TechnologiesClient() {
 	const t = useTranslations();
@@ -81,7 +82,7 @@ export default function TechnologiesClient() {
 				</TransitionLink>
 			</SwiperSlide>
 			<SwiperSlide>
-				<TransitionLink href="/home-access" className="technology">
+				<TransitionLink href="/access-control" className="technology">
 					<div className="technology__img-wrapper">
 						<img
 							src="https://www.lavishautomation.com/images/client/brands/security-header%201.jpg"
@@ -97,9 +98,8 @@ export default function TechnologiesClient() {
 					</div>
 				</TransitionLink>
 			</SwiperSlide>
-
 			<SwiperSlide>
-				<TransitionLink href="/video" className="technology">
+				<TransitionLink href="/cinema-and-video" className="technology">
 					<div className="technology__img-wrapper">
 						<img src="/video/01-c.png" alt="" loading="lazy" />
 					</div>
@@ -111,7 +111,6 @@ export default function TechnologiesClient() {
 					</div>
 				</TransitionLink>
 			</SwiperSlide>
-
 			<SwiperSlide>
 				<TransitionLink href="/audio" className="technology">
 					<div className="technology__img-wrapper">
@@ -129,7 +128,6 @@ export default function TechnologiesClient() {
 					</div>
 				</TransitionLink>
 			</SwiperSlide>
-
 			<SwiperSlide>
 				<TransitionLink href="/shades" className="technology">
 					<div className="technology__img-wrapper">
@@ -152,9 +150,8 @@ export default function TechnologiesClient() {
 					</div>
 				</TransitionLink>
 			</SwiperSlide>
-
 			<SwiperSlide>
-				<TransitionLink href="/thermostat" className="technology">
+				<TransitionLink href="/climate" className="technology">
 					<div className="technology__img-wrapper">
 						<img
 							src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-thermostat-thumn.jpg"
@@ -164,18 +161,12 @@ export default function TechnologiesClient() {
 					</div>
 					<div className="technology__title">
 						<div className="technology__icon-container">
-							<Image
-								src="/technology-icons/thermostat.png"
-								width={24}
-								height={24}
-								alt=""
-							/>
+							<ThermometerIcon size={20} />
 						</div>
 						<h3>{t("thermostat.heading")}</h3>
 					</div>
 				</TransitionLink>
 			</SwiperSlide>
-
 			<SwiperSlide>
 				<TransitionLink href="/security" className="technology">
 					<div className="technology__img-wrapper">

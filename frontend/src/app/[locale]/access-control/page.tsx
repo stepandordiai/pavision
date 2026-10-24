@@ -2,9 +2,10 @@ import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
 import "./styles.scss";
 
-const PAGE = "home-access";
+const PAGE = "access-control";
 
 export async function generateMetadata({
 	params,
@@ -38,7 +39,7 @@ export async function generateMetadata({
 	};
 }
 
-export default async function HomeAccess({
+export default async function AccessControl({
 	params,
 }: {
 	params: Promise<{ locale: string }>;
@@ -54,7 +55,7 @@ export default async function HomeAccess({
 				imgSrc="/home-access/01-c.png"
 				secondaryBtnTxt="Explore Smart Access"
 				imgAlt="Luxury smart home entrance with automated access control system"
-				currentPage="Home Access"
+				currentPage={t("homeAccess.heading")}
 				locale={locale}
 			/>
 			<section className="technology-section" id="section">
@@ -97,6 +98,7 @@ export default async function HomeAccess({
 					</p>
 				</div>
 			</section>
+			<ContactUsBanner />
 		</main>
 	);
 }

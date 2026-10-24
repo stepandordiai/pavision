@@ -11,14 +11,14 @@
 		"description": "Snadný vstup a klid na duši, ať jste kdekoliv",
 		"img": "https://www.lavishautomation.com/images/client/brands/security-header%201.jpg",
 		"icon": "/technology-icons/home-access.png",
-		"path": "/home-access"
+		"path": "/access-control"
 	},
 	{
 		"title": "video.heading",
 		"description": "Snadné ovládání videa",
 		"img": "/video/01-c.png",
 		"icon": "/technology-icons/video.png",
-		"path": "/video"
+		"path": "/cinema-and-video"
 	},
 	{
 		"title": "audio.heading",
@@ -39,7 +39,7 @@
 		"description": "Ideální teplota přesně tehdy, kdy ji potřebujete",
 		"img": "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-thermostat-thumn.jpg",
 		"icon": "/technology-icons/thermostat.png",
-		"path": "/thermostat"
+		"path": "/climate"
 	},
 	{
 		"title": "security.heading",

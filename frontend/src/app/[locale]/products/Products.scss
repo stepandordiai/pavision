@@ -93,7 +93,7 @@
 	top: 70px;
 	z-index: 100;
 	background: rgba(0, 0, 0, 0.2);
-	padding: 20px;
+	// padding: 20px;
 	border-radius: 10px;
 	-webkit-backdrop-filter: blur(10px);
 	backdrop-filter: blur(10px);
@@ -103,6 +103,26 @@
 
 	&--visible {
 		background: rgba(0, 0, 0);
+	}
+}
+
+.filter__header {
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+}
+
+.filter__icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	transition: transform 0.5s ease;
+
+	&--active {
+		transform: rotateX(180deg);
 	}
 }
 
@@ -121,15 +141,39 @@
 .products__filter-inner-parent {
 	display: grid;
 	grid-template-rows: 0fr;
+	padding: 0 20px;
 	transition: all 0.3s;
 
 	&--visible {
 		grid-template-rows: 1fr;
+		padding: 0 20px 20px;
 	}
 }
 
 .products__filter-inner-child {
 	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.filter__btn-container {
+	display: flex;
+	gap: 5px;
+	flex-wrap: wrap;
+	align-self: flex-end;
+}
+
+.filter__reset-btn {
+	background: var(--secondary-clr);
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.filter__close-btn {
+	background: var(--primary-clr);
+	padding: 10px;
+	border-radius: 10px;
 }
 
 @media screen and (width < 1200px) {

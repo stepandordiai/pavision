@@ -7,8 +7,8 @@ import ContactsClient from "./ContactsClient";
 import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
 import PersonFillIcon from "@/components/icons/PersonFillIcon";
 import socials from "@/data/socials.json";
-import "./Contacts.scss";
 import { Fragment } from "react/jsx-runtime";
+import "./Contacts.scss";
 
 const PAGE = "contacts";
 
@@ -57,9 +57,7 @@ export default async function Contacts({
 			<Breadcrumbs links={[{ label: t("nav.contacts") }]} locale={locale} />
 			<div className="contacts-inner">
 				<div className="contacts-details">
-					<h1 className="contacts__title">
-						Rádi s vámi probereme váš projekt – první konzultace je zdarma
-					</h1>
+					<h1 className="contacts__title">{t("contacts.heading")}</h1>
 					<div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
 						<div
 							style={{
@@ -80,13 +78,10 @@ export default async function Contacts({
 								>
 									<TelIcon />
 									<h2 style={{ fontSize: "18px", fontWeight: 500 }}>
-										Zavolejte nam
+										{t("contacts.callUs")}
 									</h2>
 								</div>
-								<p>
-									Zavolejte během pracovní doby a získejte bezplatnou
-									konzultaci.
-								</p>
+								<p>{t("contacts.callUsDescription")}</p>
 							</div>
 							<div className="contacts-card">
 								<p
@@ -201,10 +196,10 @@ export default async function Contacts({
 								>
 									<EnvelopeIcon />
 									<h2 style={{ fontSize: "18px", fontWeight: 500 }}>
-										Napiste nam
+										{t("contacts.writeToUs")}
 									</h2>
 								</div>
-								<p>Odpovíme vám do 12 hodin</p>
+								<p>{t("contacts.writeToUsDescription")}</p>
 							</div>
 							<a className="link" href="mailto:info@pavision.cz">
 								info@pavision.cz
@@ -212,7 +207,9 @@ export default async function Contacts({
 						</div>
 					</div>
 					<div style={{ marginTop: "auto" }}>
-						<h2 style={{ fontSize: "18px", fontWeight: 500 }}>Sledujte nas</h2>
+						<h2 style={{ fontSize: "18px", fontWeight: 500 }}>
+							{t("footer.followUs")}
+						</h2>
 						<div>
 							{socials.map((s, i) => {
 								return (
