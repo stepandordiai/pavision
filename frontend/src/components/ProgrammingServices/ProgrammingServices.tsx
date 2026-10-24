@@ -6,18 +6,27 @@ const services = [
 	{
 		label: "Crestron",
 		img: "/services-crestron.jpg",
+		imgAlt: "Crestron service",
+		path: "/crestron-integration",
 	},
 	{
 		label: "Loxone",
 		img: "/services-loxone.jpg",
+		imgAlt: "Loxone service",
+		path: "/loxone-smart-home",
+		partnerImg: "/loxone-partner-logo.svg",
 	},
 	{
 		label: "Lutron",
 		img: "/services-lutron.jpg",
+		imgAlt: "Lutron service",
+		path: "/lighting",
 	},
 	{
 		label: "Data Engineering",
 		img: "/services-data-engineering.jpg",
+		imgAlt: "Data engineering service",
+		path: "/contacts",
 	},
 ];
 
@@ -29,9 +38,17 @@ export default async function ProgrammingServices() {
 			<div className="services">
 				{services.map((s, i) => {
 					return (
-						<TransitionLink href="/contacts" className="service" key={i}>
+						<TransitionLink href={s.path} className="service" key={i}>
+							{s.partnerImg && (
+								<img
+									style={{ position: "absolute", top: "10px" }}
+									src={s.partnerImg}
+									width={300}
+									alt="P&A Vision s.r.o. - certified Loxone partner"
+								/>
+							)}
 							<p className="service__label">{s.label}</p>
-							<img className="service__img" src={s.img} alt="" />
+							<img className="service__img" src={s.img} alt={s.imgAlt} />
 						</TransitionLink>
 					);
 				})}
