@@ -49,16 +49,37 @@
 			"desc": "Smart home, lighting, audio/video and network installation across the Czech Republic and EU. Crestron, Loxone and Lutron integrator. Book a consultation."
 		},
 
-		"whatWeDoTitle": "What We Do",
 		"whatWeDo": {
-			"title1": "Automation",
-			"desc1": "We offer Crestron, Loxone, and Lutron. Crestron is highly customizable, while Loxone is cost-effective—providing tailor-made solutions for every client.",
-			"title2": "Audio/Video",
-			"desc2": "Installation of Hi-Fi equipment (Denon, Marantz, LG, Sonos, Bowers & Wilkins).",
-			"title3": "Network Infrastructure",
-			"desc3": "Design and installation of metallic and optical networks (Ubiquiti, MikroTik, Cisco).",
-			"title4": "Electrical Installations",
-			"desc4": "Design and implementation of electrical installations, including switchboards and sockets.",
+			"heading": "What We Do",
+
+			"automation": {
+				"title": "Automation",
+				"paragraphs": [
+					"A smart home should make the house simpler, not add more apps. That's why we connect lighting, shading, heating and air conditioning, audio and video, security and home access into one system you control from a wall panel, a keypad by the door or your phone.",
+					"We work with Crestron, Loxone and Lutron. We choose Crestron for large villas and projects that connect dozens of zones and technologies from different manufacturers. Loxone is a more affordable option for family homes and apartments. Lutron offers premium lighting and shading control. We recommend the system based on the size of your home, your needs and your budget.",
+					"We do all the programming ourselves, so scenes and automations match how you actually live: in the morning the lights slowly come up and the blinds open, when you leave everything switches off and the alarm arms, and in the evening one button gets the living room ready for a film. We handle design, installation, programming and long-term service across the Czech Republic and abroad."
+				]
+			},
+			"lightingScenes": "Lighting scenes",
+
+			"av": {
+				"title": "Audio/Video",
+				"paragraphs": [
+					"Music in every room, a home cinema, or a TV that disappears from the wall when you don't need it. We design and install audio and video systems that sound and look great without spoiling the interior: speakers built into ceilings and walls, TVs mounted flush, and cabling hidden in the walls.",
+					"For multiroom audio we use Sonos and Bowers & Wilkins speakers; for home cinema, Denon and Marantz receivers and LG TVs. Listen to something different in each room, or play the same music through the whole house and out onto the terrace. We set up and calibrate home cinema sound for the specific room, not by the book.",
+					"We connect the whole system to a Crestron or Loxone smart home. One press of the \"Cinema\" scene closes the blinds, dims the lights, turns on the projector and starts the film. Instead of a pile of remotes, one panel or your phone is all you need."
+				]
+			},
+
+			"network": {
+				"title": "Síťová infrastruktura",
+				"paragraphs": [
+					"Chytrá domácnost, kamery i streamování ve 4K stojí na jednom základu: spolehlivé síti. Navrhujeme a stavíme datové rozvody pro rodinné domy, vily i firmy, od strukturované kabeláže a optiky přes rozvaděč s rackem až po Wi-Fi, které pokryje celý dům včetně zahrady a garáže.",
+					"Pracujeme hlavně s UniFi od Ubiquiti, protože síť, Wi-Fi, kamery UniFi Protect i přístupový systém UniFi Access spravujete z jedné aplikace. Pro specifické projekty nasazujeme také MikroTik a Cisco. Rozmístění přístupových bodů plánujeme podle půdorysu a materiálů stavby, aby signál nebyl jen „někde“, ale všude, kde ho potřebujete.",
+					"Na bezpečnost myslíme od začátku: chytrá domácnost, kamery a hosté mají v síti oddělené segmenty (VLAN), za firewallem a se zabezpečeným vzdáleným přístupem přes VPN. Síť monitorujeme a díky vzdálené správě vyřešíme většinu problémů dřív, než si jich všimnete."
+				]
+			},
+
 			"scenes": {
 				"relax": "Relax",
 				"cooking": "Cooking",

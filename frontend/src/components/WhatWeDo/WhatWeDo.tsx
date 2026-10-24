@@ -11,24 +11,21 @@ import "./styles.scss";
 
 const whatWeDo = [
 	{
-		title: "home.whatWeDo.title1",
-		desc: "home.whatWeDo.desc1",
-		brands: ["Crestron", "Loxone", "Lutron"],
+		title: "home.whatWeDo.automation.title",
+		desc: "home.whatWeDo.automation.paragraphs",
 		icon: <LightingIcon size={20} />,
 		lightning: true,
 	},
 	{
-		title: "home.whatWeDo.title2",
-		desc: "home.whatWeDo.desc2",
-		brands: ["Denon", "Marantz", "LG", "Sonos", "Bowers & Wilkins"],
+		title: "home.whatWeDo.av.title",
+		desc: "home.whatWeDo.av.paragraphs",
 		icon: <SoundwaveIcon size={20} />,
 		audio: true,
 	},
 
 	{
-		title: "home.whatWeDo.title3",
-		desc: "home.whatWeDo.desc3",
-		brands: ["Ubiquiti", "MikroTik", "Cisco"],
+		title: "home.whatWeDo.network.title",
+		desc: "home.whatWeDo.network.paragraphs",
 		icon: <WifiIcon size={20} />,
 		video: "/what-we-do-unifi-1.mp4",
 		video1: "/what-we-do-unifi-2.mp4",
@@ -105,32 +102,8 @@ const WhatWeDo = () => {
 
 	return (
 		<section className="section">
-			{/* <h2
-				className="home__section-title"
-				style={{
-					position: "sticky",
-					top: "70px",
-					background: "#000",
-					padding: "0 10px",
-					borderRadius: "10px",
-					width: "max-content",
-					height: "40px",
-					display: "flex",
-					justifyContent: "center",
-					alignItems: "center",
-					marginBottom: "10px",
-				}}
-			>
-				
-			</h2> */}
-			<h2
-				style={{
-					position: "sticky",
-					top: "20px",
-				}}
-				className="section__title"
-			>
-				{t("home.whatWeDoTitle")}
+			<h2 className="section__title what-we-do__heading">
+				{t("home.whatWeDo.heading")}
 			</h2>
 			<div className="what-we-do">
 				{whatWeDo.map((item, i) => {
@@ -170,26 +143,32 @@ const WhatWeDo = () => {
 									</div>
 									<h3 style={{ fontSize: "18px" }}>{t(item.title)}</h3>
 								</div>
-								<p>{t(item.desc)}</p>
+								<div className="what-we-do__container-desc">
+									{(t.raw(item.desc) as string[]).map((p, i) => (
+										<p key={i}>{p}</p>
+									))}
+								</div>
 							</div>
 							{item.lightning && (
 								<div
 									style={{
 										width: "100%",
-										// height: "100%",
 										display: "flex",
 										flexDirection: "column",
 										gap: "10px",
-										// flex: "1",
 									}}
 								>
-									<div>
+									<div
+										style={{
+											flex: "1",
+										}}
+									>
 										<p
 											style={{
 												marginBottom: "10px",
 											}}
 										>
-											Lighting Scenes
+											{t("home.whatWeDo.lightingScenes")}
 										</p>
 										<div
 											style={{
@@ -213,21 +192,14 @@ const WhatWeDo = () => {
 									</div>
 									<div
 										style={{
-											height: "100%",
-											position: "relative",
-											flex: 1,
-											flexGrow: "1",
 											overflow: "hidden",
 											borderRadius: 10,
 										}}
 									>
 										<img
 											style={{
-												// position: "absolute",
-												// inset: "0",
 												width: "100%",
 												height: "100%",
-												// flex: 1,
 												objectFit: "cover",
 												objectPosition: "center",
 											}}
@@ -235,10 +207,6 @@ const WhatWeDo = () => {
 											alt=""
 										/>
 									</div>
-									<p>
-										Each scene adjusts lighting, shading, and room temperature
-										at a single touch.
-									</p>
 								</div>
 							)}
 							{item.audio && (
@@ -248,8 +216,7 @@ const WhatWeDo = () => {
 										height: "100%",
 										width: "100%",
 										borderRadius: 10,
-										background:
-											"url(https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/16015943/80143397_7FF2_4584_809D_08E74930277C.jpeg?quality=90&strip=all&crop=0%2C5.5555555555556%2C100%2C88.888888888889&w=2400)",
+										backgroundImage: "url('/what-we-do-av.jpg')",
 										backgroundRepeat: "no-repeat",
 										backgroundPosition: "center",
 										backgroundSize: "cover",
@@ -320,16 +287,6 @@ const WhatWeDo = () => {
 										playsInline
 										onEnded={handleIntroEnded}
 									/>
-									{/* <img
-										src={item.img}
-										style={{
-											width: "100%",
-											height: "100%",
-											objectFit: "cover",
-											borderRadius: "10px",
-										}}
-										alt=""
-									/> */}
 								</div>
 							)}
 						</div>
