@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
-import "./styles.scss";
 import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
+import "./styles.scss";
 
 const PAGE = "security";
 
@@ -52,7 +52,7 @@ export default async function Security({
 			<HeroParallax
 				heading={t("security.title")}
 				subheading={t("security.subtitle")}
-				imgSrc="https://images.pexels.com/photos/35361412/pexels-photo-35361412.jpeg"
+				imgSrc="/security.png"
 				secondaryBtnTxt="Explore Security Solutions"
 				currentPage="Security"
 				locale={locale}

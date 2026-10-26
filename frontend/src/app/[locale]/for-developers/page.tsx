@@ -7,6 +7,7 @@ import Brands from "@/components/Brands/Brands";
 import SmartHomeHub from "./SmartHomeHub";
 import References from "@/components/References/References";
 import "./styles.scss";
+import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
 
 const PAGE = "for-developers";
 
@@ -121,6 +122,7 @@ export default async function ForDevs({
 			<References />
 			<Faqs faqs={"forDevs.faqs"} />
 			<Brands />
+			<ContactUsBanner />
 		</main>
 	);
 }

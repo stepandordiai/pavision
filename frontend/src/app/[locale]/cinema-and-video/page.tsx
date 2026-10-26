@@ -52,7 +52,7 @@ export default async function CinemaAndVideo({
 			<HeroParallax
 				heading={t("video.title")}
 				subheading={t("video.subtitle")}
-				imgSrc="https://images.pexels.com/photos/27562214/pexels-photo-27562214.png"
+				imgSrc="/video/01-c.png"
 				secondaryBtnTxt="Explore Cinema Experiences"
 				imgAlt="Luxury smart home cinema and video entertainment system"
 				currentPage={t("video.heading")}

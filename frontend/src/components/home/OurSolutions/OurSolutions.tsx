@@ -6,8 +6,8 @@ import BulbIcon from "@/components/icons/BulbIcon";
 import TvIcon from "@/components/icons/TvIcon";
 import LockIcon from "@/components/icons/LockIcon";
 import CameraIcon from "@/components/icons/CameraIcon";
-import "./OurSolutions.scss";
 import ThermometerIcon from "@/components/icons/ThermometerIcon";
+import "./OurSolutions.scss";
 
 export default async function OurSolutions() {
 	const t = await getTranslations();
@@ -101,7 +101,7 @@ export default async function OurSolutions() {
 									return <p key={i}>{txt}</p>;
 								})}
 						</div>
-						<div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+						<div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
 							<TransitionLink href="/shades" className="our-solutions__link">
 								<span>
 									<img src="/technology-icons/shades.png" width={20} alt="" />

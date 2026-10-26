@@ -6,6 +6,7 @@ import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import Brands from "@/components/Brands/Brands";
 import Faqs from "@/components/Faqs/Faqs";
 import References from "@/components/References/References";
+import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
 
 const PAGE = "for-architects";
 
@@ -212,6 +213,7 @@ export default async function ForArchitects({
 			<References />
 			<Faqs faqs={"forArchitects.faqs"} />
 			<Brands />
+			<ContactUsBanner />
 		</main>
 	);
 }

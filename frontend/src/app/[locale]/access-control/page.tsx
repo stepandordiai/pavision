@@ -52,7 +52,7 @@ export default async function AccessControl({
 			<HeroParallax
 				heading={t("homeAccess.title")}
 				subheading={t("homeAccess.subtitle")}
-				imgSrc="/home-access/01-c.png"
+				imgSrc="/access-control.jpg"
 				secondaryBtnTxt="Explore Smart Access"
 				imgAlt="Luxury smart home entrance with automated access control system"
 				currentPage={t("homeAccess.heading")}

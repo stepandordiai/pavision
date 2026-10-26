@@ -2,14 +2,14 @@
 	{
 		"title": "lighting.heading",
 		"description": "Osvětlení, které se přizpůsobí vaší náladě a denní rutině",
-		"img": "/lighting/02-c.png",
+		"img": "/lighting/01-c.png",
 		"icon": "/technology-icons/lighting.png",
 		"path": "/lighting"
 	},
 	{
 		"title": "homeAccess.heading",
 		"description": "Snadný vstup a klid na duši, ať jste kdekoliv",
-		"img": "https://www.lavishautomation.com/images/client/brands/security-header%201.jpg",
+		"img": "/access-control.jpg",
 		"icon": "/technology-icons/home-access.png",
 		"path": "/access-control"
 	},
@@ -44,7 +44,7 @@
 	{
 		"title": "security.heading",
 		"description": "Automatická ochrana s monitorováním v reálném čase, chytrými senzory a bezproblémovým ovládáním – váš domov v bezpečí kdykoli a odkudkoli.",
-		"img": "https://images.pexels.com/photos/35361412/pexels-photo-35361412.jpeg",
+		"img": "/security.png",
 		"icon": "/technology-icons/security.png",
 		"path": "/security"
 	}
