@@ -5,6 +5,7 @@ import PersonFillIcon from "@/components/icons/PersonFillIcon";
 import TelIcon from "@/components/icons/TelIcon";
 import EnvelopeIcon from "@/components/icons/EnvelopeIcon";
 import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
+import ScrollFillText from "./ScrollFillText";
 import "./AboutUs.scss";
 
 const team = [
@@ -75,6 +76,7 @@ export default async function AboutUs({
 			<div style={{ padding: "0 20px 20px" }}>
 				<h1 className="main__title">{t("aboutUs.title")}</h1>
 				<section
+					className="about-us__section"
 					style={{
 						display: "flex",
 						flexDirection: "column",
@@ -94,13 +96,14 @@ export default async function AboutUs({
 					>
 						{t("aboutUs.whoWeAre.title")}
 					</h2>
-					{t.raw("aboutUs.whoWeAre.desc").map((txt: string, i: number) => {
-						return (
-							<p style={{ maxWidth: "1000px" }} key={i}>
-								{txt}
-							</p>
-						);
-					})}
+					{/* <div className="about-us__desc">
+						{t.raw("aboutUs.whoWeAre.desc").map((txt: string, i: number) => {
+							return <p key={i}>{txt}</p>;
+						})}
+					</div> */}
+					<ScrollFillText
+						paragraphs={t.raw("aboutUs.whoWeAre.desc") as string[]}
+					/>
 				</section>
 				<section
 					style={{
@@ -131,26 +134,33 @@ export default async function AboutUs({
 									<div
 										style={{
 											display: "flex",
-											justifyContent: "space-between",
+											flexDirection: "column",
+											// justifyContent: "space-between",
 											gap: "10px",
-											flexWrap: "wrap",
+											// flexWrap: "wrap",
 										}}
 									>
 										<div>
 											<p>{member.name}</p>
 											<p>{t(member.position)}</p>
 										</div>
-										<div style={{ display: "flex", gap: 5 }}>
+										<div className="member__link-container">
 											{member.tel && (
-												<a className="member-link" href={`tel:${member.tel}`}>
-													<TelIcon size={20} />
+												<a href={`tel:${member.tel}`} className="member__link">
+													<span>
+														<TelIcon size={20} />
+													</span>
+													<span>{member.tel}</span>
 												</a>
 											)}
 											<a
-												className="member-link"
+												className="member__link"
 												href={`mailto:${member.email}`}
 											>
-												<EnvelopeIcon size={20} />
+												<span>
+													<EnvelopeIcon size={20} />
+												</span>
+												<span>{member.email}</span>
 											</a>
 										</div>
 									</div>
