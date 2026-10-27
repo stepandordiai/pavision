@@ -602,7 +602,7 @@ const Header = () => {
 			</header>
 			<div
 				onClick={() => setMenuOpen(false)}
-				className={`curtain ${menuOpen || partnersExpanded ? "curtain--active" : ""}`}
+				className={`curtain ${menuOpen || partnersExpanded || solutionsExpanded ? "curtain--active" : ""}`}
 			></div>
 		</>
 	);

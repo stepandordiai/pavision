@@ -493,12 +493,19 @@
 		},
 
 		"section3": {
-			"heading": "Luxusní chytrá domácnost bez zbytečné složitosti",
-			"description": [
-				"Moderní domácnosti často využívají desítky samostatných aplikací a zařízení, která spolu nekomunikují.",
-				"Crestron tuto složitost odstraňuje a vytváří jeden propojený ekosystém, ve kterém všechny technologie spolupracují."
+			"heading": "Vlastní grafika ovládacích panelů",
+			"paragraphs": [
+				"Většina instalací Crestron používá stejné předpřipravené šablony. My navrhujeme ovládání na míru: dotykové panely na stěně, tablet i aplikace v telefonu vypadají jako součást vašeho interiéru, ne jako technický displej.",
+				"Grafiku ladíme k barvám, materiálům a stylu domu. Rozložení obrazovek vychází z toho, jak dům skutečně používáte: v obýváku máte po ruce scény a domácí kino, v ložnici noční režim a žaluzie, u vchodu alarm a kameru u brány. Nepotřebné funkce schováme, aby ovládání zvládli i děti nebo prarodiče.",
+				"Návrh vám nejdřív ukážeme na obrazovkách, upravíme ho podle vašich připomínek a teprve potom ho naprogramujeme. Ovládání může být v češtině, angličtině nebo dalších jazycích, takže mu rozumí celá rodina, hosté i personál."
 			],
-			"txt": "Jedna aplikace. Jedno rozhraní. Jedna skutečně inteligentní domácnost."
+			"list": [
+				"Design sladěný s interiérem a stylem domu",
+				"Rozložení podle místností a vašich zvyklostí",
+				"Zjednodušený režim pro děti, prarodiče a hosty",
+				"Stejný vzhled na panelech, tabletu i v telefonu",
+				"Ovládání ve více jazycích"
+			]
 		},
 
 		"section4": {
@@ -556,10 +563,18 @@
 		},
 
 		"section7": {
-			"heading": "Navrženo pro luxusní rezidence",
-			"description": [
-				"Crestron je důvěryhodnou volbou architektů, interiérových designérů i majitelů luxusních domů po celém světě.",
-				"Ať stavíte nový rodinný dům, rekonstruujete vilu nebo modernizujete stávající nemovitost, Crestron nabízí inteligentní řešení připravené na budoucnost a přizpůsobené vašemu životnímu stylu."
+			"heading": "Integrace zařízení jiných výrobců",
+			"paragraphs": [
+				"Ne každé zařízení v domě má hotový ovladač pro Crestron. Klimatizace, bateriové úložiště, střídač fotovoltaiky nebo přístupový systém často komunikují vlastním protokolem a běžný integrátor je nechá stranou, nebo je ovládáte v samostatné aplikaci.",
+				"Moduly pro taková zařízení programujeme sami. Díky tomu je ovládáte stejně jako zbytek domu: klimatizaci nastavíte z panelu v každé místnosti, uvidíte stav baterie a výrobu z fotovoltaiky, a otevření dveří nebo zvonek z intercomu se zobrazí přímo na dotykovém panelu.",
+				"Máte doma zařízení, u kterého si nejste jistí, jestli s Crestronem půjde propojit? Napište nám jeho značku a model a ověříme to."
+			],
+			"list": [
+				"Klimatizace a tepelná čerpadla přes Modbus",
+				"Bateriová úložiště a střídače fotovoltaiky",
+				"Přístupové systémy a intercomy UniFi Access",
+				"Zařízení s rozhraním TCP/IP, RS-232 nebo RS-485",
+				"Moduly dostupné i pro ostatní integrátory"
 			]
 		},
 
@@ -568,12 +583,12 @@
 			"list1": {
 				"title": "P&A Vision zajišťuje kompletní realizaci systému Crestron včetně:",
 				"list": [
-					"odborné konzultace",
-					"návrhu systému",
-					"profesionální instalace",
-					"programování",
-					"uvedení do provozu",
-					"servisu a dlouhodobé podpory"
+					"Odborné konzultace",
+					"Návrhu systému",
+					"Profesionální instalace",
+					"Programování a návrh ovládání",
+					"Uvedení do provozu",
+					"Servisu a dlouhodobé podpory"
 				]
 			},
 			"text": "Navrhujeme inteligentní domácnosti na míru tak, aby byly spolehlivé, snadno rozšiřitelné a poskytovaly maximální uživatelský komfort."

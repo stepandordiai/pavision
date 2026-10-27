@@ -560,12 +560,19 @@
 		},
 
 		"section3": {
-			"heading": "Luxury Home Automation Without Complexity",
-			"description": [
-				"Modern homes often contain dozens of disconnected applications and devices.",
-				"Crestron eliminates this complexity by creating a single ecosystem where every technology works together."
+			"heading": "Custom touch panel design",
+			"paragraphs": [
+				"Most Crestron installations use the same ready-made templates. We design the controls around you instead: wall touch panels, tablets and the phone app look like part of your interior, not like a technical display.",
+				"We match the graphics to the colours, materials and style of your home. The screen layout follows how you actually use the house: scenes and home cinema at hand in the living room, night mode and blinds in the bedroom, the alarm and gate camera by the entrance. We hide what you don't need, so even children or grandparents find it easy.",
+				"We show you the design on screen first, adjust it to your feedback, and only then program it. The controls can be in Czech, English or other languages, so the whole family, guests and staff can use them."
 			],
-			"txt": "One app. One interface. One intelligent home."
+			"list": [
+				"Design matched to your interior and style",
+				"Layout built around rooms and daily habits",
+				"Simplified mode for children, grandparents and guests",
+				"Same look on wall panels, tablets and phone",
+				"Controls in several languages"
+			]
 		},
 
 		"section4": {
@@ -618,10 +625,18 @@
 		},
 
 		"section7": {
-			"heading": "Designed for Luxury Homes",
-			"description": [
-				"Crestron is trusted by architects, interior designers, and homeowners around the world for premium residential projects.",
-				"Whether you're building a new home, renovating a villa, or upgrading an existing property, Crestron delivers a future-ready automation platform built around your lifestyle."
+			"heading": "Integrating third-party devices",
+			"paragraphs": [
+				"Not every device in your home comes with a ready-made Crestron driver. Air conditioners, battery storage, solar inverters and access systems often use their own protocols, so many integrators leave them out, and you end up controlling them in a separate app.",
+				"We write our own modules for these devices, so you control them like the rest of your home: set the air conditioning from the panel in every room, see your battery level and solar production, and get door entry and intercom calls right on the touch panel.",
+				"Not sure if a device in your home can work with Crestron? Send us the brand and model, and we'll check."
+			],
+			"list": [
+				"Air conditioners and heat pumps over Modbus",
+				"Battery storage and solar inverters",
+				"UniFi Access entry systems and intercoms",
+				"Devices with TCP/IP, RS-232 or RS-485 interfaces",
+				"Modules also available to other integrators"
 			]
 		},
 
@@ -633,7 +648,7 @@
 					"Consultation",
 					"System design",
 					"Professional installation",
-					"Programming",
+					"Programming & UI design",
 					"Commissioning",
 					"Ongoing support"
 				]

@@ -5,6 +5,7 @@ import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import { TransitionLink } from "@/components/TransitionLink";
 import Faqs from "@/components/Faqs/Faqs";
 import "./styles.scss";
+import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
 
 const PAGE = "crestron-integration";
 
@@ -46,9 +47,9 @@ export async function generateMetadata({
 const section8Images = [
 	"https://www.loxone.com/enus/wp-content/uploads/sites/13/2021/09/PH-Header-Blog-Smart-Home-Installation-Consulting.jpg",
 	"https://www.loxone.com/enus/wp-content/uploads/sites/13/2026/03/ph_loxone_header_software-scaled-1.jpg",
-	"https://www.loxone.com/int/wp-content/uploads/sites/21/2022/06/PH-ElektrikerSchaltschrank-scaled-1.jpg",
-	"https://www.loxone.com/enen/wp-content/uploads/sites/3/2026/03/PH-Library.jpg",
-	"https://infrastor.de/wp-content/uploads/2024/09/Loxone-App-1.jpg",
+	"/crestron-integration-2.jpg",
+	"/home-page-nosek-15.png",
+	"/crestron-integration-1.jpg",
 	"https://www.loxone.com/enus/wp-content/uploads/sites/13/2026/04/fs-header-support-loxone-desktop-scaled-1.jpg",
 ];
 
@@ -118,7 +119,7 @@ export default async function CrestronHome({
 						<TransitionLink
 							style={{ alignSelf: "flex-end" }}
 							className="link"
-							href="/thermostat"
+							href="/climate"
 						>
 							More
 						</TransitionLink>
@@ -133,7 +134,7 @@ export default async function CrestronHome({
 						<TransitionLink
 							style={{ alignSelf: "flex-end" }}
 							className="link"
-							href="/video"
+							href="/cinema-and-video"
 						>
 							More
 						</TransitionLink>
@@ -204,7 +205,7 @@ export default async function CrestronHome({
 					</div>
 				</div>
 			</section>
-			<section className="section">
+			{/* <section className="section">
 				<h2 className="section__title">
 					{t("crestronIntegration.section3.heading")}
 				</h2>
@@ -220,12 +221,40 @@ export default async function CrestronHome({
 						src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/featured%20pages%20v2/creston%20home%20os4/smart_viewing@2x.png"
 						alt=""
 					/>
-					{/* FIXME: */}
 					<p style={{ textAlign: "center" }}>
 						<span style={{ whiteSpace: "nowrap" }}>One app.</span>{" "}
 						<span style={{ whiteSpace: "nowrap" }}>One interface.</span>{" "}
 						<span style={{ whiteSpace: "nowrap" }}>One intelligent home.</span>
 					</p>
+				</div>
+			</section> */}
+			<section className="section">
+				<h2 className="section__title">
+					{t("crestronIntegration.section3.heading")}
+				</h2>
+				<div className="section-container">
+					<img
+						style={{ borderRadius: "10px" }}
+						src="/crestron-integration-3.png"
+						alt=""
+					/>
+					<div
+						style={{ display: "flex", flexDirection: "column", gap: "12px" }}
+					>
+						{t
+							.raw("crestronIntegration.section3.paragraphs")
+							.map((p: string) => {
+								return <p key={p}>{p}</p>;
+							})}
+
+						<ul className="crestron-home-list">
+							{t
+								.raw("crestronIntegration.section3.list")
+								.map((el: string, i: number) => {
+									return <li key={i}>{el}</li>;
+								})}
+						</ul>
+					</div>
 				</div>
 			</section>
 			<section className="section">
@@ -326,11 +355,30 @@ export default async function CrestronHome({
 				<h2 className="section__title">
 					{t("crestronIntegration.section7.heading")}
 				</h2>
-				{t
-					.raw("crestronIntegration.section7.description")
-					.map((p: string, i: number) => {
-						return <p key={i}>{p}</p>;
-					})}
+				<div className="section-container">
+					<img
+						style={{ borderRadius: "10px" }}
+						src="/crestron-integration-6.png"
+						alt=""
+					/>
+					<div
+						style={{ display: "flex", flexDirection: "column", gap: "12px" }}
+					>
+						{t
+							.raw("crestronIntegration.section7.paragraphs")
+							.map((p: string) => {
+								return <p key={p}>{p}</p>;
+							})}
+
+						<ul className="crestron-home-list">
+							{t
+								.raw("crestronIntegration.section7.list")
+								.map((el: string, i: number) => {
+									return <li key={i}>{el}</li>;
+								})}
+						</ul>
+					</div>
+				</div>
 			</section>
 			<section className="section">
 				<h2 className="section__title">
@@ -383,6 +431,7 @@ export default async function CrestronHome({
 				</div>
 			</section>
 			<Faqs faqs={"crestronIntegration.faqs"} />
+			<ContactUsBanner />
 		</main>
 	);
 }
