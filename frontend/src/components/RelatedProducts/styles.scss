@@ -2,6 +2,15 @@
 
 .technology-products-container {
 	padding: 110px 20px 0;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	align-items: flex-start;
+}
+
+.related-products__heading {
+	font-size: clamp(1.5rem, 4vw, 2rem);
+	font-weight: 500;
 }
 
 .technology__title {

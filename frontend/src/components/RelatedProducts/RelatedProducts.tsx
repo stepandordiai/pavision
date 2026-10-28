@@ -5,27 +5,25 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { useEffect, useState } from "react";
 import { getProducts } from "@/lib/api/products";
-import technologies from "@/data/technologies.json";
 import ProductCard from "../ProductCard/ProductCard";
+import { useTranslations } from "next-intl";
 import "./styles.scss";
 
-type TechnologyProductsProps = {
+interface Product {
+	id: number;
+	img: string;
+	name: string;
+	category: string;
 	technology: string;
-	sectionTitle?: string;
+	brand: string;
+}
+
+type TechnologyProductsProps = {
+	category: string;
 };
 
-const TechnologyProducts = ({
-	technology,
-	sectionTitle = "Products",
-}: TechnologyProductsProps) => {
-	interface Product {
-		id: number;
-		img: string;
-		name: string;
-		category: string;
-		technology: string;
-		brand: string;
-	}
+const RelatedProducts = ({ category }: TechnologyProductsProps) => {
+	const t = useTranslations();
 
 	const [products, setProducts] = useState<Product[]>([]);
 
@@ -37,25 +35,23 @@ const TechnologyProducts = ({
 	return (
 		<section style={{ background: "#333" }}>
 			<div className="technology-products-container">
-				<div className="technology__title">
-					<div className="technology__icon-container">
-						{technologies.find((t) => t.title === technology)?.icon && (
-							<img
-								src="/technology-icons/lighting.png"
-								width={24}
-								height={24}
-								alt=""
-							/>
-						)}
-						<p>{technology}</p>
-					</div>
-				</div>
-				<h2 style={{ fontSize: "2rem" }}>{sectionTitle}</h2>
+				<span
+					style={{
+						background: "#000",
+						padding: "10px",
+						borderRadius: "10px",
+					}}
+				>
+					{category}
+				</span>
+				<h2 className="related-products__heading">
+					{t("products.relatedProducts")}
+				</h2>
 			</div>
 			<Swiper
 				breakpoints={{
 					0: {
-						slidesPerView: 1.5, // mobile
+						slidesPerView: 1, // mobile
 					},
 					600: {
 						slidesPerView: 2.25, // tablet+
@@ -68,7 +64,7 @@ const TechnologyProducts = ({
 				className="technology-products-swiper"
 			>
 				{products
-					.filter((p) => p.technology === technology)
+					.filter((p) => p.category === category)
 					.map((product, i) => {
 						return (
 							<SwiperSlide>
@@ -81,4 +77,4 @@ const TechnologyProducts = ({
 	);
 };
 
-export default TechnologyProducts;
+export default RelatedProducts;

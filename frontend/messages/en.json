@@ -114,7 +114,10 @@
 		"meta": {
 			"title": "Crestron Touch Panels & Program Modules",
 			"description": "Crestron touch panels, control hardware and ready-made program modules for smart home projects. Supplied and programmed by a Crestron integrator."
-		}
+		},
+		"relatedProducts": "You might also like",
+		"askForPricing": "Ask for pricing",
+		"findOutMore": "Find out more"
 	},
 
 	"lighting": {

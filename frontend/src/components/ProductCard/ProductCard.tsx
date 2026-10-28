@@ -1,5 +1,8 @@
+"use client";
+
 import ArrowRightUpIcon from "../icons/ArrowRightUpIcon";
 import { TransitionLink } from "../TransitionLink";
+import { useTranslations } from "next-intl";
 import "./styles.scss";
 
 interface Product {
@@ -16,6 +19,8 @@ type ProductCardProps = {
 };
 
 export default function ProductCard({ product }: ProductCardProps) {
+	const t = useTranslations();
+
 	return (
 		<TransitionLink href={`/products/${product.id}`} className="product-card">
 			<p className="product-card__title">{product.name}</p>
@@ -29,7 +34,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 					alignSelf: "flex-end",
 				}}
 			>
-				<span>Zjistěte více</span>
+				<span>{t("products.findOutMore")}</span>
 				<span className="product-card__icon-wrapper">
 					<ArrowRightUpIcon />
 				</span>

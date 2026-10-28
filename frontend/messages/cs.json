@@ -111,7 +111,11 @@
 		"meta": {
 			"title": "Crestron dotykové panely a programové moduly",
 			"description": "Crestron dotykové panely, řídicí hardware a hotové programové moduly pro chytrou domácnost. Dodáváme a programujeme jako integrátor Crestron."
-		}
+		},
+
+		"relatedProducts": "Mohlo by vás zajímat",
+		"askForPricing": "Poptat cenu",
+		"findOutMore": "Zjistěte více"
 	},
 
 	"aboutUs": {

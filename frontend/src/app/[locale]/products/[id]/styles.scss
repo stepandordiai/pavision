@@ -5,12 +5,12 @@
 .product-page__title {
 	font-size: clamp(1.5rem, 4vw, 2rem);
 	font-weight: 500;
-	margin-bottom: 10px;
 }
 
 .product-page-container {
 	display: flex;
 	justify-content: center;
+	align-items: flex-start;
 	gap: 20px;
 	background: #fff;
 	padding: 2.5rem;
@@ -30,21 +30,20 @@
 	width: min(100%, 600px);
 	display: flex;
 	flex-direction: column;
-	height: auto;
+	gap: 10px;
 }
 
 .product-page__btn {
 	background: var(--primary-clr);
 	padding: 10px;
 	border-radius: 10px;
-	color: #fff;
 	align-self: flex-start;
-	margin-top: auto;
 }
 
 @media screen and (width < 900px) {
 	.product-page-container {
 		flex-direction: column;
+		align-items: center;
 	}
 
 	.product-page-container {

@@ -4,10 +4,9 @@ import { getProductById, getProducts } from "@/lib/api/products";
 import { routing } from "@/i18n/routing";
 import { Metadata } from "next";
 import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
-import TechnologyProducts from "@/components/TechnologyProducts/TechnologyProducts";
-import "./styles.scss";
-import { Link } from "@/i18n/navigation";
 import { TransitionLink } from "@/components/TransitionLink";
+import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
+import "./styles.scss";
 
 const PAGE = "products";
 
@@ -104,18 +103,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
 						/>
 					</div>
 					<div className="product-page__content">
+						<p style={{ fontWeight: "500" }}>{product.brand}</p>
 						<h1 className="product-page__title">{product.name}</h1>
 						<p style={{ whiteSpace: "pre-wrap" }}>{product.description}</p>
 						<TransitionLink href="/contacts" className="product-page__btn">
-							Poptat cenu
+							{t("products.askForPricing")}
 						</TransitionLink>
 					</div>
 				</div>
 			</section>
-			<TechnologyProducts
-				technology={product.technology}
-				sectionTitle="Related Products"
-			/>
+			<RelatedProducts category={product.category} />
 		</main>
 	);
 }
