@@ -42,7 +42,12 @@ body {
 		width: 1%; // shrink to fit content
 		white-space: nowrap; // prevent text wrapping when squeezed
 		padding: 10px;
-		border-bottom: 2px solid var(--bg-clr);
+	}
+
+	tbody {
+		tr:not(:nth-last-child(1)) {
+			border-bottom: 2px solid var(--bg-clr);
+		}
 	}
 
 	thead {
@@ -82,9 +87,9 @@ body {
 	flex-direction: column;
 	gap: 10px;
 	background: #fff;
-	border: 2px solid hsl(0, 0%, 90%);
+	// border: 2px solid hsl(0, 0%, 90%);
 	padding: 20px;
-	width: min(100%, 500px);
+	width: min(calc(100% - 20px), 700px);
 	max-height: calc(100svh - 20px);
 	overflow-y: auto;
 	opacity: 0;

@@ -33,7 +33,6 @@ export default function Products({
 }: ProductsProps) {
 	const [visibleLength, setVisibleLength] = useState(10);
 	const [bannerVisible, setBannerVisible] = useState(false);
-	// const [loading, setLoading] = useState(false);
 	const [productEditable, setProductEditable] = useState(false);
 	const [productId, setProductId] = useState<string | null>(null);
 	const [error, setError] = useState<string | null>(null);
@@ -194,27 +193,18 @@ export default function Products({
 		}
 	};
 
-	// const [typeInput, setTypeInput] = useState("");
-
-	// const uniqueProductTypes = [...new Set(products.map((p) => p.type))];
-
-	// const addType = (value: string) => {
-	// 	if (!value || formData.type.includes(value)) return;
-	// 	setFormData((prev) => ({ ...prev, type: [...prev.type, value] }));
-	// 	setTypeInput("");
-	// };
-	// const removeType = (value: string) => {
-	// 	setFormData((prev) => ({
-	// 		...prev,
-	// 		type: prev.type.filter((t) => t !== value),
-	// 	}));
-	// };
-
-	// const availableTypes = uniqueProductTypes.filter(
-	// 	(t) => !formData.type.includes(t),
-	// );
-
 	const [detailsVisible, setDetailsVisible] = useState<string | null>(null);
+
+	const autoGrowTextArea = useRef<HTMLTextAreaElement | null>(null);
+
+	// TODO: LEARN THIS
+	useEffect(() => {
+		if (autoGrowTextArea.current) {
+			autoGrowTextArea.current.style.height = "auto";
+			autoGrowTextArea.current.style.height =
+				autoGrowTextArea.current.scrollHeight + "px";
+		}
+	}, [formData.description]);
 
 	const handleProductDetails = (id: string) => {
 		setDetailsVisible((prev) => (prev === id ? null : id));
@@ -256,6 +246,7 @@ export default function Products({
 						setProductEditable(false);
 						setProductId(null);
 						setBannerVisible(false);
+						setFormData(EMPTY_FORM);
 					}}
 				>
 					<XIcon />
@@ -326,7 +317,9 @@ export default function Products({
 					<div>
 						<label htmlFor="description">Description</label>
 						<textarea
+							ref={autoGrowTextArea}
 							className="input"
+							style={{ resize: "none" }}
 							id="description"
 							onChange={(e) => handleFormData(e.target.name, e.target.value)}
 							value={formData.description}
@@ -375,7 +368,6 @@ export default function Products({
 						<th>Image</th>
 						<th>Name</th>
 						<th className="hide">Category</th>
-						{/* <th className="hide">Technology</th> */}
 						<th className="hide">Brand</th>
 						<th>Status</th>
 						<th style={{ width: "1%", whiteSpace: "nowrap" }}>Details</th>
@@ -406,9 +398,6 @@ export default function Products({
 									<td className="hide">
 										<span>{product.category}</span>
 									</td>
-									{/* <td className="hide">
-										<span>{product.technology}</span>
-									</td> */}
 									<td className="hide">
 										<span>{product.brand}</span>
 									</td>
@@ -491,17 +480,6 @@ export default function Products({
 											</div>
 										</div>
 									</td>
-									{/* <td>{product.created_at?.split("T")[0]}</td> */}
-									{/* <td>
-									
-									</td> */}
-									{/* <td> */}
-
-									{/* {loading && productId === product.id ? (
-												<SpinLoading />
-											) : (
-												)} */}
-									{/* </td> */}
 								</tr>
 							);
 						})}

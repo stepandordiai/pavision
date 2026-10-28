@@ -102,8 +102,6 @@ function App() {
 										/>
 										<Route path="/bookings" element={<Bookings />} />
 									</Routes>
-
-									{/* <Footer /> */}
 								</main>
 							</div>
 						)
