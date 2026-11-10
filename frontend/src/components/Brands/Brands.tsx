@@ -2,62 +2,20 @@ import { getTranslations } from "next-intl/server";
 import "./styles.scss";
 
 const brands = [
-	{
-		name: "Crestron",
-		bgImg: "/brands/crestron-integrator.png",
-	},
-	{
-		name: "Loxone",
-		bgImg: "/brands/loxone-integrator.png",
-	},
-	{
-		name: "Lutron",
-		bgImg: "/brands/lutron-integrator.png",
-	},
-	{
-		name: "Denon",
-		bgImg: "/brands/denon-integrator.png",
-	},
-	{
-		name: "Marantz",
-		bgImg: "/brands/marantz-integrator.png",
-	},
-	{
-		name: "LG",
-		bgImg: "/brands/lg-integrator.png",
-	},
-	{
-		name: "Sonos",
-		bgImg: "/brands/sonos-integrator.png",
-	},
-	{
-		name: "Bowers & Wilkins",
-		bgImg: "/brands/bowers-wilkins-integrator.png",
-	},
-	{
-		name: "Ubiquiti",
-		bgImg: "/brands/ubiquiti-integrator.png",
-	},
-	{
-		name: "MicroTik",
-		bgImg: "/brands/microtik-integrator.png",
-	},
-	{
-		name: "Cisco",
-		bgImg: "/brands/cisco-integrator.png",
-	},
-	{
-		name: "Jablotron",
-		bgImg: "/brands/jablotron-integrator.png",
-	},
-	{
-		name: "Paradox",
-		bgImg: "/brands/paradox-integrator.png",
-	},
-	{
-		name: "Risco",
-		bgImg: "/brands/risco-integrator.png",
-	},
+	"Crestron",
+	"Loxone",
+	"Lutron",
+	"Denon",
+	"Marantz",
+	"LG",
+	"Sonos",
+	"Bowers & Wilkins",
+	"Ubiquiti",
+	"MikroTik",
+	"Cisco",
+	"Jablotron",
+	"Paradox",
+	"Risco",
 ];
 
 export default async function Brands() {
@@ -66,16 +24,26 @@ export default async function Brands() {
 	return (
 		<section className="section">
 			<h2 className="section__title">{t("heading")}</h2>
-			<div className="brands">
-				{brands.map((brand, i) => {
-					return (
-						<div className="brand-container" key={i}>
-							<p className="brand-name">{brand?.name}</p>
-							<img className="brand-bg" src={brand?.bgImg} alt="" />
-						</div>
-					);
-				})}
-			</div>
+			{/* TODO: learn this */}
+			{[0, 1].map((row) => (
+				<div key={row} className="brands__marquee">
+					<div className="brands__marquee-inner">
+						{[0, 1].map((copy) => (
+							<div
+								key={copy}
+								className="brands__marquee__list"
+								aria-hidden={copy > 0 || undefined}
+							>
+								{brands.map((brand) => (
+									<span key={brand} className="brands__marquee__item">
+										{brand}
+									</span>
+								))}
+							</div>
+						))}
+					</div>
+				</div>
+			))}
 		</section>
 	);
 }

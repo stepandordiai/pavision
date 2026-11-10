@@ -1,74 +1,44 @@
-.brands {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 20px;
-}
-
-.brand-container {
-	position: relative;
-	z-index: 1;
-	height: 200px;
+.brands__marquee {
+	background: var(--sec-accent-clr);
+	font-size: 2rem;
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	border-radius: 10px;
-	padding: 10px;
 	overflow: hidden;
-	background: #000;
-
-	&:hover {
-		.brand-name {
-			opacity: 0;
-			filter: blur(25px);
-			pointer-events: none;
-		}
-
-		.brand-bg {
-			filter: brightness(1);
-		}
-	}
-}
-
-.brand-name {
-	font-size: 1.5rem;
-	font-weight: 600;
-	transition:
-		opacity 0.5s ease,
-		filter 0.5s ease;
-}
-
-// .brand-logo {
-// 	width: 50%;
-// 	object-fit: contain;
-// 	object-position: center;
-// }
-
-.brand-bg {
-	position: absolute;
-	z-index: -1;
-	inset: 0;
 	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	object-position: center;
-	filter: brightness(0.5);
-	transition: filter 0.5s ease;
+	position: relative;
+	overflow: hidden;
+	// TODO: learn this
+	mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
 }
 
-@media screen and (width < 1200px) {
-	.brands {
-		grid-template-columns: repeat(3, 1fr);
+.brands__marquee-inner {
+	display: flex;
+	width: max-content;
+	animation: scroll 60s linear infinite;
+}
+
+.brands__marquee + .brands__marquee .brands__marquee-inner {
+	animation-direction: reverse;
+}
+
+.brands__marquee__list {
+	display: flex;
+	gap: 20px;
+	justify-content: space-between;
+	/* KEY: each item is at minimum the full screen width */
+	min-width: 100vw;
+	padding: 0 10px;
+}
+
+.brands__marquee__item {
+	white-space: nowrap;
+}
+
+@keyframes scroll {
+	from {
+		transform: translateX(0);
 	}
-}
-
-@media screen and (width < 900px) {
-	.brands {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-
-@media screen and (width < 600px) {
-	.brands {
-		grid-template-columns: repeat(1, 1fr);
+	to {
+		transform: translateX(-50%);
 	}
 }
