@@ -1,5 +1,6 @@
 export interface Product {
 	id: string;
+	slug: string;
 	img: string | null;
 	name: string;
 	is_active: boolean;

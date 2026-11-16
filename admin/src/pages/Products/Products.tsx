@@ -10,6 +10,7 @@ import Pagination from "../../components/Pagination/Pagination";
 import "./styles.scss";
 
 const EMPTY_FORM: ProductSave = {
+	slug: "",
 	is_active: true,
 	img: null,
 	current_img: null,
@@ -265,6 +266,17 @@ export default function Products({
 									? URL.createObjectURL(formData.img)
 									: formData.current_img
 							}
+						/>
+					</div>
+					<div>
+						<label htmlFor="productName">Slug *</label>
+						<input
+							id="productName"
+							className="input"
+							onChange={(e) => handleFormData(e.target.name, e.target.value)}
+							value={formData.slug}
+							name="slug"
+							type="text"
 						/>
 					</div>
 					<div>
