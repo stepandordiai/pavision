@@ -8,6 +8,7 @@ import ChevronDownIcon from "@/components/icons/ChevronDownIcon";
 
 interface Product {
 	id: number;
+	slug: string;
 	img: string;
 	name: string;
 	category: string;
@@ -80,8 +81,8 @@ export default function ProductsClient() {
 					{products
 						.filter((p) => p.category === "Bundles")
 						// .filter((product) => product.type.includes(type))
-						.map((product, i) => {
-							return <ProductCard key={i} product={product} />;
+						.map((product) => {
+							return <ProductCard key={product.id} product={product} />;
 						})}
 				</div>
 			</div>
@@ -100,8 +101,8 @@ export default function ProductsClient() {
 					{products
 						.filter((p) => p.category === "Program modules")
 						// .filter((product) => product.type.includes(type))
-						.map((product, i) => {
-							return <ProductCard key={i} product={product} />;
+						.map((product) => {
+							return <ProductCard key={product.id} product={product} />;
 						})}
 				</div>
 			</div>

@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { getProductById, getProducts } from "@/lib/api/products";
+import { getProductBySlug, getProducts } from "@/lib/api/products";
 import { routing } from "@/i18n/routing";
 import { Metadata } from "next";
 import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 	return routing.locales.flatMap((locale) =>
 		products.map((p) => ({
 			locale,
-			id: String(p.id),
+			slug: p.slug,
 		})),
 	);
 }
@@ -26,62 +26,62 @@ export async function generateStaticParams() {
 export async function generateMetadata({
 	params,
 }: {
-	params: Promise<{ locale: string; id: string }>;
+	params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-	const { locale, id } = await params;
+	const { locale, slug } = await params;
 
 	// TODO: learn this
-	const { data: product, error } = await getProductById(id);
+	const { data: product } = await getProductBySlug(slug);
 
-	if (!product || error) {
+	if (!product) {
 		return {
 			title: "Product not found",
-			// TODO: learn this
 			robots: { index: false, follow: false },
 		};
 	}
 
 	const languages = Object.fromEntries(
-		routing.locales.map((l) => [l, `/${l}/${PAGE}/${id}`]),
+		routing.locales.map((l) => [l, `/${l}/${PAGE}/${slug}`]),
 	);
+
+	const description = product.description
+		? product.description.replace(/\s+/g, " ").slice(0, 155)
+		: undefined;
 
 	return {
 		title: product.name,
+		description,
 		alternates: {
-			canonical: `/${locale}/${PAGE}/${id}`,
+			canonical: `/${locale}/${PAGE}/${slug}`,
 			languages: {
 				...languages,
-				"x-default": `/${routing.defaultLocale}/${PAGE}/${id}`,
+				"x-default": `/${routing.defaultLocale}/${PAGE}/${slug}`,
 			},
 		},
 
 		openGraph: {
 			title: product.name,
-			url: `/${locale}/${PAGE}/${id}`,
+			url: `/${locale}/${PAGE}/${slug}`,
 			type: "website",
-			images: "/pavision-og.png",
+			images: product.img || "/pavision-og.png",
 		},
 	};
 }
 
 type ProductPageProps = {
-	params: Promise<{ id: string; locale: string }>;
+	params: Promise<{ slug: string; locale: string }>;
 };
 
 export default async function ProductPage({ params }: ProductPageProps) {
-	const { id, locale } = await params;
-
-	const t = await getTranslations({ locale });
+	const { slug, locale } = await params;
 
 	// TODO: learn this
-	const { data: product, error } = await getProductById(id);
+	const { data: product, error } = await getProductBySlug(slug);
 
-	if (error) return <div>Error loading vacancies</div>;
-	if (!product) return <div>No vacancies found</div>;
+	if (error) throw error;
+	if (!product) notFound();
 
-	if (!product) {
-		return notFound();
-	}
+	const t = await getTranslations({ locale });
 
 	return (
 		<main className="product-page">
@@ -99,7 +99,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 							style={{ margin: "0 auto" }}
 							width={500}
 							src={product.img}
-							alt=""
+							alt={product.name}
 						/>
 					</div>
 					<div className="product-page__content">

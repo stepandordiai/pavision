@@ -131,7 +131,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
 	const productsPages = routing.locales.flatMap((locale) =>
 		products.map((product) => ({
-			url: `${BASE_URL}/${locale}/products/${product.id}`,
+			url: `${BASE_URL}/${locale}/products/${product.slug}`,
 			lastModified: product.updated_at ?? product.created_at,
 			changeFrequency: "monthly" as const,
 			priority: 0.5,
@@ -140,10 +140,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 					...Object.fromEntries(
 						routing.locales.map((l) => [
 							l,
-							`${BASE_URL}/${l}/products/${product.id}`,
+							`${BASE_URL}/${l}/products/${product.slug}`,
 						]),
 					),
-					"x-default": `${BASE_URL}/${routing.defaultLocale}/products/${product.id}`,
+					"x-default": `${BASE_URL}/${routing.defaultLocale}/products/${product.slug}`,
 				},
 			},
 		})),

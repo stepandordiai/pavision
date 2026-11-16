@@ -11,6 +11,7 @@ import "./styles.scss";
 
 interface Product {
 	id: number;
+	slug: string;
 	img: string;
 	name: string;
 	category: string;
@@ -65,10 +66,10 @@ const RelatedProducts = ({ category }: TechnologyProductsProps) => {
 			>
 				{products
 					.filter((p) => p.category === category)
-					.map((product, i) => {
+					.map((product) => {
 						return (
 							<SwiperSlide>
-								<ProductCard key={i} product={product} />
+								<ProductCard key={product.id} product={product} />
 							</SwiperSlide>
 						);
 					})}

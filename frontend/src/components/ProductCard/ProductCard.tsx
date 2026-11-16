@@ -7,6 +7,7 @@ import "./styles.scss";
 
 interface Product {
 	id: number;
+	slug: string;
 	img: string;
 	name: string;
 	category: string;
@@ -22,7 +23,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 	const t = useTranslations();
 
 	return (
-		<TransitionLink href={`/products/${product.id}`} className="product-card">
+		<TransitionLink href={`/products/${product.slug}`} className="product-card">
 			<p className="product-card__title">{product.name}</p>
 			<img src={product.img} alt="" />
 			<p
