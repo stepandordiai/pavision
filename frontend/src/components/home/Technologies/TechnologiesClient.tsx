@@ -77,7 +77,7 @@ export default function TechnologiesClient() {
 						<div className="technology__icon-container">
 							<BulbIcon size={20} />
 						</div>
-						<h3>{t("lighting.heading")}</h3>
+						<h3>{t("nav.lighting")}</h3>
 					</div>
 				</TransitionLink>
 			</SwiperSlide>

@@ -1,36 +1,39 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 import { useState } from "react";
 
-const data = [
-	{
-		state: "Večeře",
-		imgSrc:
-			"https://www.loxone.com/dede/wp-content/uploads/sites/2/2026/03/PH-lighting-scene-2.jpg",
-	},
-	{
-		state: "Vaření",
-		imgSrc:
-			"https://www.loxone.com/dede/wp-content/uploads/sites/2/2026/03/PH-lighting-scene-5.jpg",
-	},
-	{
-		state: "Párty",
-		imgSrc:
-			"https://www.loxone.com/dede/wp-content/uploads/sites/2/2026/03/PH-lighting-scene-3.jpg",
-	},
-	{
-		state: "Relax",
-		imgSrc:
-			"https://www.loxone.com/dede/wp-content/uploads/sites/2/2026/03/PH-lighting-scene-4.jpg",
-	},
-	{
-		state: "Noc",
-		imgSrc:
-			"https://www.loxone.com/dede/wp-content/uploads/sites/2/2026/03/PH-lighting-scene-1.jpg",
-	},
-];
-
 export default function LightingClient() {
+	const t = useTranslations();
+
+	const data = [
+		{
+			state: t("home.whatWeDo.scenes.relax"),
+			imgSrc: "/what-we-do/scenes/relax-scene.png",
+		},
+		{
+			state: t("home.whatWeDo.scenes.cooking"),
+
+			imgSrc: "/what-we-do/scenes/cooking-scene.png",
+		},
+		{
+			state: t("home.whatWeDo.scenes.dinner"),
+
+			imgSrc: "/what-we-do/scenes/dinner-scene.png",
+		},
+		{
+			state: t("home.whatWeDo.scenes.party"),
+
+			imgSrc: "/what-we-do/scenes/party-scene.png",
+		},
+		{
+			state: t("home.whatWeDo.scenes.night"),
+
+			imgSrc: "/what-we-do/scenes/night-scene.png",
+		},
+	];
+
 	const [interiorState, setInteriorState] = useState(data[0]);
 
 	return (

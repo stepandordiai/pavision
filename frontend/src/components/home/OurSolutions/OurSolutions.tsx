@@ -136,7 +136,7 @@ export default async function OurSolutions() {
 								<span>
 									<BulbIcon size={20} />
 								</span>
-								<span>{t("lighting.heading")}</span>
+								<span>{t("nav.lighting")}</span>
 							</TransitionLink>
 							<TransitionLink href="/security" className="our-solutions__link">
 								<span>
@@ -190,7 +190,7 @@ export default async function OurSolutions() {
 								<span>
 									<BulbIcon size={20} />
 								</span>
-								<span>{t("lighting.heading")}</span>
+								<span>{t("nav.lighting")}</span>
 							</TransitionLink>
 							<TransitionLink className="our-solutions__link" href="/audio">
 								<span>
@@ -256,7 +256,7 @@ export default async function OurSolutions() {
 								<span>
 									<BulbIcon size={20} />
 								</span>
-								<span>{t("lighting.heading")}</span>
+								<span>{t("nav.lighting")}</span>
 							</TransitionLink>
 							<TransitionLink href="/audio" className="our-solutions__link">
 								<span>

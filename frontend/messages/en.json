@@ -9,7 +9,8 @@
 		"partners": "Partners",
 		"crestron": "Crestron Integration",
 		"loxone": "Loxone Smart Home",
-		"bookAConsultation": "Free consultation"
+		"bookAConsultation": "Free consultation",
+		"lighting": "Lighting"
 	},
 
 	"homeTitle": "Home",
@@ -125,9 +126,143 @@
 			"title": "Smart Lighting Control | Scenes & DALI",
 			"description": "Smart lighting for villas and homes: lighting scenes, dimming, presence and daylight automation. Crestron, Lutron, Loxone and DALI. Book a consultation."
 		},
-		"heading": "Lighting",
-		"title": "Smart Home Lighting Solutions",
-		"subtitle": "Intelligent lighting automation designed to enhance comfort, ambiance, and energy efficiency in modern luxury homes."
+
+		"hero": {
+			"heading": "Smart lighting for villas and family homes",
+			"subheading": "We design and install Crestron, Lutron and Loxone lighting control. Lighting scenes, smooth dimming and automation based on presence and daylight, without a row of switches on every wall.",
+			"exploreBtn": "How smart lighting works",
+			"imgAlt": "Smart living room lighting with hidden LED strips and lighting scenes"
+		},
+
+		"intro": {
+			"heading": "Light that adapts to you",
+			"paragraphs": [
+				"Good lighting isn't just about whether it's on. It's about how much light a room gets, what colour it is and when it changes. Smart lighting control connects every light in your home into one system, so instead of ten switches you press one button and the whole room sets itself.",
+				"We work with three of the most reliable systems on the market: Crestron, Lutron and Loxone. Each has different strengths, so we choose based on the size of your home, your needs and your budget, not on one brand."
+			]
+		},
+
+		"section1": {
+			"heading": "Lighting scenes at the touch of a button",
+			"paragraphs": [
+				"A scene is a saved setting for every light in a room. \"Dinner\" dims the ceiling lights and keeps the pendant over the table on, \"Cinema\" turns off everything except soft backlighting and closes the blinds, \"Cleaning\" turns everything up to full. You start scenes from a designer keypad on the wall, a touch panel or your phone.",
+				"We set scenes up around how you actually use your home, and we can adjust them at any time later without touching the wiring."
+			],
+			"imgAlt": "Wall keypad for controlling lighting scenes"
+		},
+
+		"section2": {
+			"heading": "Automation based on presence and daylight",
+			"paragraphs": [
+				"Presence sensors turn on the lights in the hallway, walk-in wardrobe or garage when you walk in and turn them off when you leave. Daylight sensors adjust brightness to the light coming through the windows, so the room always feels comfortable and no energy is wasted.",
+				"At night, the path to the bathroom lights up only dimly so it doesn't dazzle you, and a \"Goodnight\" button by the bed turns off the whole house and makes sure nothing is left on."
+			],
+			"imgAlt": "Presence sensor and automatic hallway lighting"
+		},
+
+		"section3": {
+			"heading": "Circadian lighting that follows the day",
+			"paragraphs": [
+				"Tunable white fixtures change the colour of light during the day: cooler, fresher light in the morning, shifting to warm tones in the evening that won't keep you up before bed. It all happens automatically, based on the time of day.",
+				"Circadian lighting works especially well in bedrooms, studies and children's rooms. We choose suitable fixtures and set the colour curve around your daily rhythm."
+			],
+			"imgAlt": "Warm evening light and cool daylight in an interior"
+		},
+
+		"section4": {
+			"heading": "Hidden LED and architectural lighting",
+			"paragraphs": [
+				"In luxury interiors you don't see the fixture, you see the light. LED strips hidden in ceiling coves, shadow gaps, niches or under stairs create soft indirect light that brings out the architecture and materials.",
+				"We work with architects and interior designers from the design stage to plan the profiles, power supplies and cabling properly. That way the result looks as intended, not like an afterthought."
+			],
+			"imgAlt": "Hidden LED lighting in a ceiling cove and shadow gap"
+		},
+
+		"section5": {
+			"heading": "Less energy, longer lifespan",
+			"paragraphs": [
+				"Smart control saves energy naturally: lights don't stay on in empty rooms, brightness adapts to daylight, and one button turns everything off when you leave the house. Dimmed LED fixtures also run at a lower load and last longer."
+			]
+		},
+
+		"section6": {
+			"heading": "Crestron, Lutron, Loxone and DALI: which system to choose",
+			"intro": "All three systems handle lighting scenes, dimming and automation. They differ in scale, integration options and price.",
+			"items": [
+				{
+					"name": "Crestron",
+					"text": "The best choice for large villas where lighting is connected with audio, video, shading, climate and security in one system. It handles dozens of zones and works with DALI fixtures and other technologies from different manufacturers. We design the controls around you, including custom touch panel graphics."
+				},
+				{
+					"name": "Lutron",
+					"text": "A lighting and shading specialist, known for exceptionally smooth, flicker-free dimming and elegant keypads. Its wireless options also suit finished homes where you don't want to open walls for new cabling."
+				},
+				{
+					"name": "Loxone",
+					"text": "A more affordable option for family homes and apartments. It controls lighting together with heating, shading and security from one app. The wireless Loxone Air range lets you add lights and buttons without new cables."
+				},
+				{
+					"name": "DALI",
+					"text": "An open standard for digital lighting control. Every fixture has its own address, so its brightness and colour can be controlled individually. We connect DALI with Crestron, Loxone and other systems, which makes it ideal for demanding projects and commercial spaces."
+				}
+			]
+		},
+
+		"section7": {
+			"heading": "How the project works",
+			"item1": {
+				"title": "Consultation",
+				"description": "We look at your home or project and how you want to use the light."
+			},
+			"item2": {
+				"title": "Design",
+				"description": "Fixture, zone, keypad and sensor layout, system choice and budget."
+			},
+			"item3": {
+				"title": "Installation",
+				"description": "Wiring, distribution board and fitting, coordinated with the other trades."
+			},
+			"item4": {
+				"title": "Programming",
+				"description": "Scenes, automations and control from panels and your phone.."
+			},
+			"item5": {
+				"title": "Testing",
+				"description": "We test everything thoroughly so the system works flawlessly."
+			},
+			"item6": {
+				"title": "Handover and service",
+				"description": "Training, documentation and long-term support."
+			}
+		},
+
+		"faqs": [
+			{
+				"q": "What is smart lighting and how is it different from regular lighting?",
+				"a": "Regular lighting is switched on and off. Smart lighting is run by a central system that can dim, store lighting scenes, react to presence and daylight, and be controlled from a keypad, a panel or your phone."
+			},
+			{
+				"q": "Can smart lighting be added to an existing home?",
+				"a": "Yes. In finished homes we often use wireless systems such as Lutron or Loxone Air, which don't need new cabling. During a renovation it's best to lay cables right away, because a wired system is the most reliable."
+			},
+			{
+				"q": "What is DALI and do I need it?",
+				"a": "DALI is a standard for digital lighting control in which every fixture has its own address. It's useful when you want to control the brightness and colour of individual fixtures or plan a larger lighting installation. Smaller homes are often fine with regular dimmers; we recommend the right solution during design."
+			},
+			{
+				"q": "Crestron, Lutron or Loxone: which is best for my home?",
+				"a": "Crestron suits larger villas where lighting is connected with other technologies. Lutron is a leader in lighting and shading control. Loxone is a more affordable choice for family homes. We recommend a system based on the size of your home, your needs and your budget."
+			},
+			{
+				"q": "Does lighting control work without the internet?",
+				"a": "Yes. Crestron, Lutron and Loxone all control lighting locally in your home, so keypads, scenes and automations keep working during an internet outage. You only need the internet for remote control."
+			},
+			{
+				"q": "How much does smart lighting cost?",
+				"a": "It depends on the size of the house, the number of zones, the system and the fixtures. A few rooms with Loxone are a very different budget from a whole villa with Crestron and DALI. After a free initial consultation, we prepare a design and an indicative budget."
+			}
+		],
+		"faqTitle": "FAQs"
 	},
 
 	"homeAccess": {
@@ -135,11 +270,141 @@
 			"title": "Smart Locks & Access Control for Villas",
 			"description": "Smart locks, keyless entry, video intercoms and gate control integrated with your smart home. Remote access from your phone. Design and installation."
 		},
+		"title": "Smart locks and access control for your home",
+		"subtitle": "We design and install keyless entry, video intercoms and gate control integrated with Crestron and Loxone smart homes. See who's arriving and open the door from anywhere.",
 		"heading": "Access control",
-		"title": "Smart Home Access Solutions",
-		"subtitle": "Intelligent smart locks, remote access, and secure entry automation for modern homes in the Czech Republic."
-	},
+		"exploreBtn": "How smart access works",
+		"imgAlt": "Entrance of a modern home with a smart lock and access control system",
 
+		"intro": {
+			"heading": "Keyless entry to your home",
+			"paragraphs": [
+				"Keys get lost, copied and lent out. A smart access system replaces them with a code, a fob or your phone, and you know exactly who entered and when.",
+				"We connect the front door, garden gate, driveway gate and garage into one system that's part of your smart home. Unlocking can also light the path to the door or disarm the alarm."
+			]
+		},
+
+		"section1": {
+			"heading": "Smart locks and keyless entry",
+			"paragraphs": [
+				"Unlock the door with a code, a fob, a card or your phone. Family members have permanent access, while guests, cleaners or tradespeople get a temporary code that works only on the chosen day and time, then stops working on its own.",
+				"If someone loses a fob, we simply block it. No changing locks and no copying keys."
+			],
+			"imgAlt": "Smart lock and fob reader at the front door"
+		},
+
+		"section2": {
+			"heading": "Video intercom",
+			"paragraphs": [
+				"When someone rings, you see them on the touch panel inside and on your phone, wherever you are. You can talk to them and open the door or gate with one button, for example for a courier when you're not home.",
+				"We connect the intercom to the camera system, so every visit is recorded and easy to find later."
+			],
+			"imgAlt": "Touch panel showing the video intercom at the entrance"
+		},
+
+		"section3": {
+			"heading": "Gates, garage doors and driveways",
+			"paragraphs": [
+				"Control the driveway gate, garden gate and garage doors from your phone, a remote or a panel in the house. The panel shows whether the gate is open, and you can close it from the other side of the world.",
+				"Gate access is set up just like door access: every family member or staff member has their own permissions, and the system logs every entry."
+			],
+			"imgAlt": "Automatic driveway gate controlled from a phone"
+		},
+
+		"section4": {
+			"heading": "Connected to your smart home",
+			"paragraphs": [
+				"Access is most convenient when it works with the rest of the house. When you arrive and unlock, the alarm disarms, the hallway lights up and the heating comes on. When you leave, just lock up and the house switches to \"Away\" mode by itself.",
+				"We connect access systems with Crestron and Loxone, so entry, lighting, security and climate are all controlled from one place."
+			]
+		},
+
+		"section5": {
+			"heading": "Overview and security",
+			"paragraphs": [
+				"The app shows the history of every entry and alerts you when a door opens at an unusual time. You can change or revoke permissions at any time, even remotely.",
+				"We design the system to keep working during an internet outage, with a backup for power cuts. You can always get in."
+			]
+		},
+
+		"section6": {
+			"heading": "Systems we work with",
+			"intro": "We choose based on the type of property, the number of entrances and how you want to manage access.",
+			"items": [
+				{
+					"name": "UniFi Access",
+					"text": "Readers, intercoms and access management in one app, connected to UniFi Protect cameras and the UniFi network. Ideal for homes and small businesses that want network, cameras and access in one ecosystem."
+				},
+				{
+					"name": "Tedee",
+					"text": "A smart lock that fits onto your existing cylinder on the inside of the door, with no door replacement and no cabling. Unlock with your phone, a PIN keypad or automatically when you arrive, with temporary access for guests. Ideal for finished homes and apartments."
+				},
+				{
+					"name": "Crestron",
+					"text": "Access as part of the whole smart home. Video intercom on the touch panels, arrival and departure scenes, and locks, gates and the alarm connected with lighting and climate."
+				},
+				{
+					"name": "Loxone",
+					"text": "A more affordable option for family homes. An intercom with camera and a keypad with NFC reader, controlled from the same app as lighting, shading and heating."
+				}
+			]
+		},
+
+		"section7": {
+			"heading": "How the project works",
+			"item1": {
+				"title": "Consultation",
+				"description": "We go through the entrances and work out who needs access and how."
+			},
+			"item2": {
+				"title": "Design",
+				"description": "Choice of locks, readers, intercom and system, layout and budget."
+			},
+			"item3": {
+				"title": "Installation",
+				"description": "Fitting coordinated with the builder, electricians and door and gate suppliers."
+			},
+			"item4": {
+				"title": "Programming",
+				"description": "Permissions, timed codes, arrival and departure scenes, and control from panels and your phone."
+			},
+			"item5": {
+				"title": "Testing",
+				"description": "We test everything thoroughly, including behaviour during internet and power outages."
+			},
+			"item6": {
+				"title": "Handover and service",
+				"description": "Training, documentation and long-term support."
+			}
+		},
+
+		"faqs": [
+			{
+				"q": "Can a smart lock be fitted to my existing door?",
+				"a": "In most cases, yes. There are locks and door hardware that fit existing doors without replacing the whole door or running complex cabling. We recommend the right option based on your door and lock type."
+			},
+			{
+				"q": "What happens during a power cut or internet outage?",
+				"a": "Locks and readers work locally, so an internet outage doesn't affect entry; only remote control is temporarily unavailable. For power cuts we design backup power or a mechanical override, so you can always get in."
+			},
+			{
+				"q": "Can I give guests or cleaners temporary access?",
+				"a": "Yes. You create a code or mobile key that works only on selected days and hours. It stops working on its own when it expires, and the history shows when it was used."
+			},
+			{
+				"q": "Can the video intercom be connected to my phone?",
+				"a": "Yes. You answer the doorbell on your phone, see who's at the door, talk to them and open the door or gate from anywhere."
+			},
+			{
+				"q": "Is a smart lock more secure than a regular key?",
+				"a": "A quality electronic lock can't be opened with a copied key, a lost fob can be blocked instantly, and you have a record of every entry. Proper installation and a secure network matter, and we take care of both from the design stage."
+			},
+			{
+				"q": "How much does an access control system for a home cost?",
+				"a": "It depends on the number of entrances, the type of locks, the intercom and whether we connect the system to your smart home. After a free initial consultation, we prepare a design and an indicative budget."
+			}
+		]
+	},
 	"video": {
 		"meta": {
 			"title": "Home Cinema & Multiroom Video | Crestron",

@@ -9,7 +9,8 @@
 		"partners": "Partneři",
 		"crestron": "Integrace Crestron",
 		"loxone": "Chytrá domácnost Loxone",
-		"bookAConsultation": "Nezávazná konzultace"
+		"bookAConsultation": "Nezávazná konzultace",
+		"lighting": "Osvětlení"
 	},
 
 	"contactUs": "Kontaktujte nás",
@@ -655,9 +656,138 @@
 			"title": "Chytré osvětlení | Řízení světel, DALI, scény",
 			"description": "Chytré osvětlení pro vily a domy: světelné scény, stmívání, automatika podle přítomnosti a denního světla. Crestron, Lutron, Loxone, DALI."
 		},
-		"heading": "Osvětlení",
-		"title": "Chytré osvětlení pro domácnost",
-		"subtitle": "Inteligentní automatizace osvětlení navržená pro zvýšení komfortu, atmosféry a energetické účinnosti v moderních luxusních domech."
+
+		"hero": {
+			"heading": "Chytré osvětlení pro vily a rodinné domy",
+			"subheading": "Navrhujeme a instalujeme řízení osvětlení Crestron, Lutron a Loxone. Světelné scény, plynulé stmívání a automatika podle přítomnosti a denního světla, bez řady vypínačů na každé stěně.",
+			"exploreBtn": "Jak chytré osvětlení funguje",
+			"imgAlt": "Chytré osvětlení obývacího pokoje se skrytými LED pásky a světelnými scénami"
+		},
+		"intro": {
+			"heading": "Světlo, které se přizpůsobí vám",
+			"paragraphs": [
+				"Dobré osvětlení není jen o tom, jestli svítí. Jde o to, kolik světla v místnosti je, jakou má barvu a kdy se mění. Chytré řízení osvětlení propojí všechna světla v domě do jednoho systému, takže místo deseti vypínačů stisknete jedno tlačítko a celá místnost se nastaví sama.",
+				"Pracujeme se třemi systémy, které patří k nejspolehlivějším na trhu: Crestron, Lutron a Loxone. Každý má jiné silné stránky, a proto vybíráme podle velikosti domu, vašich požadavků a rozpočtu, ne podle jedné značky."
+			]
+		},
+
+		"section1": {
+			"heading": "Světelné scény jedním stiskem",
+			"paragraphs": [
+				"Scéna je uložené nastavení všech světel v místnosti. Scéna „Večeře“ ztlumí stropní světla a nechá svítit lampu nad stolem, „Kino“ zhasne vše kromě jemného podsvícení a zatáhne žaluzie, „Úklid“ rozsvítí naplno. Scény spouštíte z designové klávesnice na stěně, z dotykového panelu nebo z telefonu.",
+				"Scény nastavujeme podle toho, jak dům skutečně používáte, a kdykoli je později upravíme, bez zásahu do elektroinstalace."
+			],
+			"imgAlt": "Klávesnice na stěně pro ovládání světelných scén"
+		},
+
+		"section2": {
+			"heading": "Automatika podle přítomnosti a denního světla",
+			"paragraphs": [
+				"Senzory přítomnosti rozsvítí chodbu, šatnu nebo garáž, když vejdete, a po vašem odchodu světlo zase zhasnou. Senzory denního světla upravují jas podle toho, kolik denního světla proniká okny, takže v místnosti je stále příjemné světlo a nesvítí se zbytečně.",
+				"V noci se cesta do koupelny rozsvítí jen na tlumený jas, aby vás neoslnila, a tlačítko „Dobrou noc“ u postele zhasne celý dům a zkontroluje, že nic nezůstalo svítit."
+			],
+			"imgAlt": "Senzor přítomnosti a automatické osvětlení chodby"
+		},
+
+		"section3": {
+			"heading": "Cirkadiánní osvětlení, které sleduje den",
+			"paragraphs": [
+				"Svítidla s laditelnou bílou (tunable white) mění barvu světla během dne: ráno svítí chladnějším, svěžím světlem, večer přecházejí do teplých odstínů, které vás nerozptylují před spaním. Vše probíhá automaticky podle času, bez vašeho zásahu.",
+				"Cirkadiánní osvětlení se hodí hlavně do ložnic, pracoven a dětských pokojů. Navrhneme vhodná svítidla a nastavíme průběh barvy podle vašeho denního rytmu."
+			],
+			"imgAlt": "Teplé večerní a chladné denní světlo v interiéru"
+		},
+		"section4": {
+			"heading": "Skryté LED a architektonické osvětlení",
+			"paragraphs": [
+				"V luxusních interiérech není vidět svítidlo, ale světlo. LED pásky schované v podhledech, stínových spárách, nikách nebo pod schody vytvoří měkké nepřímé světlo, které zvýrazní architekturu a materiály.",
+				"Spolupracujeme s architekty a interiérovými designéry už ve fázi návrhu, abychom správně naplánovali profily, napájecí zdroje i kabeláž. Díky tomu vypadá výsledek tak, jak byl zamýšlen, a ne jako dodatečné řešení."
+			],
+			"imgAlt": "Skryté LED osvětlení v podhledu a stínové spáře"
+		},
+		"section5": {
+			"heading": "Méně energie, delší životnost",
+			"paragraphs": [
+				"Chytré řízení šetří energii přirozeně: světla nesvítí v prázdných místnostech, jas se přizpůsobí dennímu světlu a při odchodu z domu zhasnete vše jedním tlačítkem. Stmívaná LED svítidla navíc pracují s nižším zatížením a vydrží déle."
+			]
+		},
+
+		"section6": {
+			"heading": "Crestron, Lutron, Loxone a DALI: který systém zvolit",
+			"intro": "Všechny tři systémy umí světelné scény, stmívání i automatiku. Liší se rozsahem, možnostmi propojení a cenou.",
+			"items": [
+				{
+					"name": "Crestron",
+					"text": "Nejlepší volba pro rozsáhlé vily, kde osvětlení propojujeme s audiem, videem, stíněním, klimatizací a zabezpečením do jednoho systému. Umí řídit desítky zón a svítidla DALI i jiné technologie od různých výrobců. Ovládání navrhujeme na míru, včetně vlastní grafiky dotykových panelů."
+				},
+				{
+					"name": "Lutron",
+					"text": "Specialista na osvětlení a stínění. Vyniká mimořádně plynulým stmíváním bez blikání a elegantními klávesnicemi. Bezdrátové varianty se hodí i do hotových domů, kde nechcete bourat stěny kvůli nové kabeláži."
+				},
+				{
+					"name": "Loxone",
+					"text": "Cenově dostupnější řešení pro rodinné domy a byty. Osvětlení řídí spolu s vytápěním, stíněním a zabezpečením z jedné aplikace. Bezdrátová řada Loxone Air umožňuje doplnit světla a tlačítka i bez nových kabelů."
+				},
+				{
+					"name": "DALI",
+					"text": "Otevřený standard pro digitální řízení svítidel. Každé svítidlo má vlastní adresu, takže jeho jas i barvu lze ovládat samostatně. DALI propojujeme s Crestronem, Loxonem i dalšími systémy, a proto se hodí pro náročnější projekty i komerční prostory."
+				}
+			]
+		},
+		"section7": {
+			"heading": "Jak probíhá realizace",
+			"item1": {
+				"title": "Konzultace",
+				"description": "Projdeme váš dům nebo projekt a zjistíme, jak chcete světlo používat."
+			},
+			"item2": {
+				"title": "Návrh",
+				"description": "Rozmístění svítidel, zón, klávesnic a senzorů, výběr systému a rozpočet."
+			},
+			"item3": {
+				"title": "Instalace",
+				"description": "Elektroinstalace, rozvaděč a montáž ve spolupráci s ostatními profesemi."
+			},
+			"item4": {
+				"title": "Programování",
+				"description": "Scény, automatiky a ovládání z panelů i telefonu."
+			},
+			"item5": {
+				"title": "Testování",
+				"description": "Vše důkladně otestujeme, aby systém fungoval bezchybně."
+			},
+			"item6": {
+				"title": "Předání a servis",
+				"description": "Zaškolení, dokumentace a dlouhodobá podpora."
+			}
+		},
+		"faqs": [
+			{
+				"q": "Co je chytré osvětlení a jak se liší od běžného?",
+				"a": "Běžné osvětlení zapínáte vypínačem. Chytré osvětlení řídí centrální systém, který umí stmívat, ukládat světelné scény, reagovat na přítomnost a denní světlo a ovládat světla z klávesnice, panelu nebo telefonu."
+			},
+			{
+				"q": "Lze chytré osvětlení doplnit do hotového domu?",
+				"a": "Ano. U hotových domů často využíváme bezdrátové systémy, například Lutron nebo Loxone Air, které nevyžadují novou kabeláž. Při rekonstrukci je ideální položit kabeláž rovnou, protože drátové řešení je nejspolehlivější."
+			},
+			{
+				"q": "Co je DALI a potřebuji ho?",
+				"a": "DALI je standard pro digitální řízení svítidel, kde má každé svítidlo vlastní adresu. Hodí se, když chcete řídit jas a barvu jednotlivých svítidel samostatně nebo plánujete rozsáhlejší osvětlení. Pro menší domy často stačí běžné stmívače. Vhodné řešení doporučíme při návrhu."
+			},
+			{
+				"q": "Crestron, Lutron, nebo Loxone: co je lepší pro můj dům?",
+				"a": "Crestron se hodí pro větší vily, kde chcete propojit osvětlení s dalšími technologiemi. Lutron je špička v řízení osvětlení a stínění. Loxone je cenově dostupnější volba pro rodinné domy. Systém doporučíme podle velikosti domu, požadavků a rozpočtu."
+			},
+			{
+				"q": "Funguje ovládání osvětlení i bez internetu?",
+				"a": "Ano. Systémy Crestron, Lutron i Loxone řídí osvětlení lokálně v domě, takže klávesnice, scény i automatiky fungují i při výpadku internetu. Internet potřebujete jen pro ovládání na dálku."
+			},
+			{
+				"q": "Kolik stojí chytré osvětlení?",
+				"a": "Cena záleží na velikosti domu, počtu zón, zvoleném systému a svítidlech. Jinak vychází několik místností s Loxone a jinak celá vila s Crestronem a DALI. Po úvodní konzultaci, která je zdarma, připravíme návrh a orientační rozpočet."
+			}
+		],
+		"faqTitle": "Nejčastější dotazy"
 	},
 
 	"homeAccess": {
@@ -665,9 +795,140 @@
 			"title": "Chytré zámky a přístupové systémy pro dům",
 			"description": "Chytré zámky, bezklíčový vstup, videotelefony a ovládání bran propojené s chytrou domácností. Vzdálený přístup z telefonu. Návrh a instalace."
 		},
+		"title": "Chytré zámky a přístupové systémy pro dům",
+		"subtitle": "Navrhujeme a instalujeme bezklíčový vstup, videotelefony a ovládání bran propojené s chytrou domácností Crestron a Loxone. Víte, kdo přichází, a dveře otevřete odkudkoli.",
 		"heading": "Přístupové systémy",
-		"title": "Chytrá řešení pro přístup do domu",
-		"subtitle": "Inteligentní chytré zámky, vzdálený přístup a bezpečná automatizace vstupů pro moderní domovy v České republice."
+		"exploreBtn": "Jak chytrý přístup funguje",
+		"imgAlt": "Vstup do moderního domu s chytrým zámkem a přístupovým systémem",
+
+		"intro": {
+			"heading": "Vstup do domu bez klíčů",
+			"paragraphs": [
+				"Klíče se ztrácejí, kopírují a půjčují. Chytrý přístupový systém je nahradí kódem, čipem nebo telefonem a vy přesně víte, kdo a kdy do domu vstoupil.",
+				"Propojujeme vchodové dveře, branku, vjezdovou bránu i garáž do jednoho systému, který je součástí vaší chytré domácnosti. Odemknutí tak může zároveň rozsvítit cestu ke dveřím nebo vypnout alarm."
+			]
+		},
+
+		"section1": {
+			"heading": "Chytré zámky a bezklíčový vstup",
+			"paragraphs": [
+				"Dveře odemknete kódem, čipem, kartou nebo telefonem. Rodina má trvalý přístup, hosté, úklid nebo řemeslníci dostanou dočasný kód, který platí jen ve zvolený den a čas a poté sám přestane fungovat.",
+				"Když někdo ztratí čip, jednoduše ho zablokujeme. Žádná výměna vložky ani kopírování klíčů."
+			],
+			"imgAlt": "Chytrý zámek a čtečka čipů u vchodových dveří"
+		},
+
+		"section2": {
+			"heading": "Videotelefon a intercom",
+			"paragraphs": [
+				"Když někdo zazvoní, uvidíte ho na dotykovém panelu v domě i v telefonu, ať jste kdekoli. Můžete s ním mluvit a jedním tlačítkem otevřít dveře nebo bránu, třeba kurýrovi, když nejste doma.",
+				"Videotelefon propojujeme s kamerovým systémem, takže záznam z návštěvy máte uložený a kdykoli dohledatelný."
+			],
+			"imgAlt": "Dotykový panel s obrazem z videotelefonu u vchodu"
+		},
+
+		"section3": {
+			"heading": "Brány, garážová vrata a vjezdy",
+			"paragraphs": [
+				"Vjezdovou bránu, branku i garážová vrata ovládáte z telefonu, dálkového ovladače nebo panelu v domě. Na panelu vidíte, jestli je brána otevřená, a zavřete ji i z druhého konce světa.",
+				"Přístup k bráně nastavíme stejně jako ke dveřím: každý člen rodiny nebo personál má vlastní oprávnění a systém zaznamená každý průjezd."
+			],
+			"imgAlt": "Automatická vjezdová brána ovládaná z telefonu"
+		},
+
+		"section4": {
+			"heading": "Propojení s chytrou domácností",
+			"paragraphs": [
+				"Přístup je nejpohodlnější, když spolupracuje se zbytkem domu. Při příchodu se po odemknutí vypne alarm, rozsvítí se chodba a zapne vytápění. Při odchodu stačí zamknout a dům se sám přepne do režimu „Nikdo doma“.",
+				"Přístupové systémy propojujeme s Crestronem i Loxonem, takže vstup, osvětlení, zabezpečení i klima ovládáte z jednoho místa."
+			]
+		},
+
+		"section5": {
+			"heading": "Přehled a bezpečnost",
+			"paragraphs": [
+				"V aplikaci vidíte historii všech vstupů a dostanete upozornění, když se dveře otevřou v neobvyklou dobu. Oprávnění můžete kdykoli změnit nebo zrušit, i na dálku.",
+				"Systém navrhujeme tak, aby fungoval i při výpadku internetu a měl záložní řešení pro případ výpadku proudu. Ke dveřím se tak dostanete vždy."
+			]
+		},
+
+		"section6": {
+			"heading": "Systémy, se kterými pracujeme",
+			"intro": "Vybíráme podle typu objektu, počtu vstupů a toho, jak chcete přístup spravovat.",
+			"items": [
+				{
+					"name": "UniFi Access",
+					"text": "Čtečky, intercomy a správa přístupu v jedné aplikaci, propojená s kamerami UniFi Protect a sítí UniFi. Hodí se pro domy i menší firmy, které chtějí mít síť, kamery a přístup v jednom ekosystému."
+				},
+				{
+					"name": "Tedee",
+					"text": "Chytrý zámek, který se montuje na stávající vložku z vnitřní strany dveří, bez výměny dveří a bez kabeláže. Odemykání telefonem, PIN klávesnicí nebo automaticky při příchodu, s dočasným přístupem pro hosty. Ideální pro hotové domy a byty."
+				},
+				{
+					"name": "Crestron",
+					"text": "Přístup jako součást celé chytré domácnosti. Videotelefon na dotykových panelech, scény při příchodu a odchodu a propojení zámků, bran a alarmu s osvětlením i klimatem."
+				},
+				{
+					"name": "Loxone",
+					"text": "Cenově dostupnější řešení pro rodinné domy. Intercom s kamerou a klávesnice s NFC čtečkou ovládané ze stejné aplikace jako osvětlení, stínění a vytápění."
+				}
+			]
+		},
+
+		"section7": {
+			"heading": "Jak probíhá realizace",
+			"item1": {
+				"title": "Konzultace",
+				"description": "Projdeme vstupy do domu a zjistíme, kdo a jak má mít přístup."
+			},
+			"item2": {
+				"title": "Návrh",
+				"description": "Výběr zámků, čteček, videotelefonu a systému, rozmístění a rozpočet."
+			},
+			"item3": {
+				"title": "Instalace",
+				"description": "Montáž ve spolupráci se stavbou, elektrikáři a dodavateli dveří a bran."
+			},
+			"item4": {
+				"title": "Programování",
+				"description": "Oprávnění, časové kódy, scény příchodu a odchodu a ovládání z panelů i telefonu."
+			},
+			"item5": {
+				"title": "Testování",
+				"description": "Vše důkladně otestujeme, včetně chování při výpadku internetu a proudu."
+			},
+			"item6": {
+				"title": "Předání a servis",
+				"description": "Zaškolení, dokumentace a dlouhodobá podpora."
+			}
+		},
+
+		"faqs": [
+			{
+				"q": "Lze chytrý zámek namontovat do stávajících dveří?",
+				"a": "Ve většině případů ano. Existují zámky a kování, které se montují do stávajících dveří bez výměny celých dveří nebo složité kabeláže. Vhodné řešení doporučíme podle typu dveří a zámku."
+			},
+			{
+				"q": "Co se stane při výpadku proudu nebo internetu?",
+				"a": "Zámky a čtečky pracují lokálně, takže výpadek internetu vstup neovlivní, jen dočasně nepůjde ovládání na dálku. Pro výpadek proudu navrhujeme záložní napájení nebo mechanické odemčení, abyste se do domu dostali vždy."
+			},
+			{
+				"q": "Mohu dát hostům nebo úklidu dočasný přístup?",
+				"a": "Ano. Vytvoříte kód nebo mobilní klíč, který platí jen ve zvolených dnech a hodinách. Po skončení platnosti přestane fungovat sám a v historii vidíte, kdy byl použit."
+			},
+			{
+				"q": "Lze propojit videotelefon s mobilem?",
+				"a": "Ano. Zvonění přijmete v telefonu, uvidíte, kdo stojí u dveří, můžete s ním mluvit a otevřít dveře nebo bránu odkudkoli."
+			},
+			{
+				"q": "Je chytrý zámek bezpečnější než klasický klíč?",
+				"a": "Kvalitní elektronický zámek nelze otevřít okopírovaným klíčem, ztracený čip okamžitě zablokujete a máte přehled o každém vstupu. Důležitá je správná instalace a zabezpečená síť, na kterou dbáme od návrhu."
+			},
+			{
+				"q": "Kolik stojí přístupový systém pro dům?",
+				"a": "Záleží na počtu vstupů, typu zámků, videotelefonu a na tom, zda systém propojujeme s chytrou domácností. Po úvodní konzultaci, která je zdarma, připravíme návrh a orientační rozpočet."
+			}
+		]
 	},
 
 	"video": {

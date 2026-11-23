@@ -53,21 +53,23 @@ export default function Faqs({ faqs }: FaqsProps) {
 								key={i}
 								className={`faqs-item ${expandedFaq[i] ? "faqs-item--expanded" : ""}`}
 							>
-								<button
-									className="faqs-q"
-									onClick={() => handleExpandedFaq(i)}
-									type="button"
-									aria-expanded={expandedFaq[i]}
-									aria-controls={`faq-a-${i}`}
-									id={`faq-q-${i}`}
-								>
-									<h3>{q}</h3>
-									<span
-										className={`faq-q-icon ${expandedFaq[i] ? "faq-q-icon--active" : ""}`}
+								<h3>
+									<button
+										className="faqs-q"
+										onClick={() => handleExpandedFaq(i)}
+										type="button"
+										aria-expanded={expandedFaq[i]}
+										aria-controls={`faq-a-${i}`}
+										id={`faq-q-${i}`}
 									>
-										<ChevronDownIcon />
-									</span>
-								</button>
+										<span>{q}</span>
+										<span
+											className={`faq-q-icon ${expandedFaq[i] ? "faq-q-icon--active" : ""}`}
+										>
+											<ChevronDownIcon />
+										</span>
+									</button>
+								</h3>
 								<div
 									id={`faq-a-${i}`}
 									role="region"
