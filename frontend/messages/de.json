@@ -1,0 +1,1081 @@
+{
+	"nav": {
+		"home": "Startseite",
+		"aboutUs": "Über uns",
+		"forDevs": "Für Bauträger",
+		"forArchitects": "Für Architekten",
+		"products": "Produkte",
+		"contacts": "Kontakt",
+		"partners": "Partner",
+		"crestron": "Crestron-Integration",
+		"loxone": "Loxone Smart Home",
+		"bookAConsultation": "Kostenlose Beratung",
+		"lighting": "Beleuchtung"
+	},
+
+	"homeTitle": "Startseite",
+	"aboutUsTitle": "Über uns",
+	"productsTitle": "Produkte",
+	"contactsTitle": "Kontakt",
+	"contactUs": "Kontakt",
+	"navigation": "Navigation",
+
+	"hero": {
+		"title": "Smart Home & AV-Systeme schlüsselfertig",
+		"subtitle": "Wir planen, installieren und programmieren Crestron-, Loxone- und Lutron-Systeme für Villen, Residenzen und Unternehmen in Deutschland, Österreich, Tschechien und der gesamten EU. Über 15 Jahre internationale Erfahrung und ein Team von der Planung bis zum Service.",
+		"ourSolutions": "Unsere Lösungen",
+		"livingRoom": "Wohnzimmer",
+		"lightingScenes": "Lichtszenen",
+		"relax": "Entspannen",
+		"bright": "Hell",
+		"cinema": "Kino",
+		"roomControls": "Raumsteuerung",
+		"cellingLight": "Deckenlicht",
+		"shelfLight": "Regallicht",
+		"shades": "Beschattung",
+		"on": "Ein",
+		"off": "Aus",
+		"opened": "Offen",
+		"closed": "Geschlossen"
+	},
+
+	"programmingServices": {
+		"title": "Programmierservice",
+		"bookTheProgrammer": "Programmierer buchen"
+	},
+
+	"home": {
+		"meta": {
+			"title": "Smart Home Integrator | Crestron, Loxone | P&A Vision",
+			"desc": "Smart Home, Lichtsteuerung, Audio/Video und Netzwerk für Villen und Häuser in Deutschland, Österreich und der EU. Crestron-, Loxone- und Lutron-Integrator."
+		},
+
+		"whatWeDo": {
+			"heading": "Was wir machen",
+
+			"automation": {
+				"title": "Hausautomation",
+				"paragraphs": [
+					"Ein Smart Home soll das Haus einfacher machen, nicht noch mehr Apps bringen. Deshalb verbinden wir Beleuchtung, Beschattung, Heizung und Klimaanlage, Audio und Video, Sicherheit und Zutritt zu einem System, das Sie über ein Wandpanel, einen Taster an der Tür oder Ihr Smartphone bedienen.",
+					"Wir arbeiten mit Crestron, Loxone und Lutron. Crestron setzen wir bei großen Villen und Projekten ein, in denen Dutzende Zonen und Technik verschiedener Hersteller zusammenkommen. Loxone ist die günstigere Lösung für Einfamilienhäuser und Wohnungen. Lutron bietet erstklassige Licht- und Beschattungssteuerung. Welches System passt, entscheiden wir nach Größe Ihres Hauses, Ihren Wünschen und Ihrem Budget.",
+					"Die gesamte Programmierung machen wir selbst, damit Szenen und Automatiken zu Ihrem Alltag passen: Morgens wird das Licht langsam heller und die Jalousien fahren hoch, beim Verlassen des Hauses schaltet sich alles ab und die Alarmanlage wird scharf, und abends macht ein Tastendruck das Wohnzimmer bereit für einen Film. Planung, Installation, Programmierung und langfristigen Service übernehmen wir in Deutschland, Österreich, Tschechien und darüber hinaus."
+				]
+			},
+			"lightingScenes": "Lichtszenen",
+
+			"av": {
+				"title": "Audio/Video",
+				"paragraphs": [
+					"Musik in jedem Raum, ein Heimkino oder ein Fernseher, der von der Wand verschwindet, wenn Sie ihn nicht brauchen. Wir planen und installieren Audio- und Videosysteme, die hervorragend klingen und aussehen, ohne das Interieur zu stören: Lautsprecher in Decken und Wänden, flächenbündig montierte Fernseher und Kabel unsichtbar in der Wand.",
+					"Für Multiroom-Audio setzen wir auf Sonos und Lautsprecher von Bowers & Wilkins, im Heimkino auf AV-Receiver von Denon und Marantz und Fernseher von LG. Hören Sie in jedem Raum etwas anderes oder dieselbe Musik im ganzen Haus und auf der Terrasse. Den Klang im Heimkino richten wir für den jeweiligen Raum ein und kalibrieren ihn, statt Standardwerte zu übernehmen.",
+					"Das gesamte System binden wir in ein Crestron- oder Loxone-Smart-Home ein. Ein Druck auf die Szene „Kino“ schließt die Jalousien, dimmt das Licht, schaltet den Projektor ein und startet den Film. Statt vieler Fernbedienungen genügt ein Panel oder Ihr Smartphone."
+				]
+			},
+
+			"network": {
+				"title": "Netzwerkinfrastruktur",
+				"paragraphs": [
+					"Smart Home, Überwachungskameras und 4K-Streaming brauchen dieselbe Grundlage: ein zuverlässiges Netzwerk. Wir planen und bauen Datennetze für Einfamilienhäuser, Villen und Unternehmen, von der strukturierten Verkabelung und Glasfaser über den Netzwerkschrank mit Rack bis zum WLAN, das das ganze Grundstück abdeckt, Garten und Garage eingeschlossen.",
+					"Wir arbeiten vor allem mit UniFi von Ubiquiti, denn Netzwerk, WLAN, UniFi-Protect-Kameras und die Zutrittskontrolle UniFi Access verwalten Sie in einer einzigen App. Für spezielle Projekte setzen wir auch MikroTik und Cisco ein. Die Positionen der Access Points planen wir anhand des Grundrisses und der Baumaterialien, damit das Signal nicht nur „irgendwo“, sondern überall dort ist, wo Sie es brauchen.",
+					"Sicherheit planen wir von Anfang an mit: Smart Home, Kameras und Gäste laufen in getrennten Netzwerksegmenten (VLANs), hinter einer Firewall und mit sicherem Fernzugriff per VPN. Wir überwachen das Netzwerk und lösen dank Fernwartung die meisten Probleme, bevor Sie sie bemerken."
+				]
+			},
+
+			"scenes": {
+				"relax": "Entspannen",
+				"cooking": "Kochen",
+				"dinner": "Abendessen",
+				"party": "Party",
+				"night": "Nacht"
+			}
+		},
+		"technologies": "Technologien"
+	},
+
+	"testimonials": {
+		"heading": "Was unsere Kunden sagen",
+		"addTestimonial": "Erfahrung teilen",
+		"leaveTestimonial": "Teilen Sie Ihre Erfahrung",
+		"name": "Name",
+		"nameP": "Max Mustermann",
+		"rating": "Bewertung",
+		"yourMessage": "Ihre Nachricht",
+		"yourMessageP": "Erzählen Sie von Ihren Erfahrungen…",
+		"submit": "Bewertung absenden",
+		"submitting": "Wird gesendet…",
+		"author": "Autor",
+		"signIn": "Stattdessen anmelden"
+	},
+
+	"brands": {
+		"heading": "Die Marken hinter smarteren Häusern"
+	},
+
+	"products": {
+		"meta": {
+			"title": "Crestron Touchpanels & Programmmodule",
+			"description": "Crestron-Touchpanels, Steuerungshardware und fertige Programmmodule für Smart-Home-Projekte. Geliefert und programmiert vom Crestron-Integrator."
+		},
+		"relatedProducts": "Das könnte Sie auch interessieren",
+		"askForPricing": "Preis anfragen",
+		"findOutMore": "Mehr erfahren"
+	},
+
+	"lighting": {
+		"meta": {
+			"title": "Intelligente Lichtsteuerung | Szenen & DALI",
+			"description": "Lichtsteuerung für Villen und Häuser: Lichtszenen, Dimmen, Präsenz- und Tageslichtsteuerung. Crestron, Lutron, Loxone und DALI. Jetzt beraten lassen."
+		},
+
+		"hero": {
+			"heading": "Intelligente Lichtsteuerung für Villen und Einfamilienhäuser",
+			"subheading": "Wir planen und installieren Lichtsteuerung von Crestron, Lutron und Loxone. Lichtszenen, sanftes Dimmen und Automatik nach Anwesenheit und Tageslicht, ohne eine Reihe von Schaltern an jeder Wand.",
+			"exploreBtn": "So funktioniert smarte Beleuchtung",
+			"imgAlt": "Smarte Beleuchtung im Wohnzimmer mit indirekten LED-Streifen und Lichtszenen"
+		},
+
+		"intro": {
+			"heading": "Licht, das sich Ihnen anpasst",
+			"paragraphs": [
+				"Gutes Licht bedeutet mehr als nur an oder aus. Es geht darum, wie viel Licht ein Raum bekommt, welche Farbe es hat und wann es sich ändert. Eine intelligente Lichtsteuerung verbindet alle Leuchten im Haus zu einem System: Statt zehn Schaltern drücken Sie einen Taster, und der ganze Raum stellt sich von selbst ein.",
+				"Wir arbeiten mit drei der zuverlässigsten Systeme am Markt: Crestron, Lutron und Loxone. Jedes hat andere Stärken. Deshalb wählen wir nach Größe Ihres Hauses, Ihren Wünschen und Ihrem Budget, nicht nach einer einzigen Marke."
+			]
+		},
+
+		"section1": {
+			"heading": "Lichtszenen auf Knopfdruck",
+			"paragraphs": [
+				"Eine Szene ist eine gespeicherte Einstellung aller Leuchten im Raum. „Abendessen“ dimmt die Deckenbeleuchtung und lässt die Pendelleuchte über dem Tisch an, „Kino“ schaltet alles bis auf eine sanfte Hintergrundbeleuchtung aus und schließt die Jalousien, „Putzen“ schaltet alles auf volle Helligkeit. Szenen starten Sie über einen Designtaster an der Wand, ein Touchpanel oder Ihr Smartphone.",
+				"Wir richten die Szenen danach ein, wie Sie Ihr Zuhause tatsächlich nutzen, und passen sie jederzeit später an, ohne in die Elektroinstallation einzugreifen."
+			],
+			"imgAlt": "Wandtaster zur Steuerung von Lichtszenen"
+		},
+
+		"section2": {
+			"heading": "Automatik nach Anwesenheit und Tageslicht",
+			"paragraphs": [
+				"Präsenzmelder schalten das Licht in Flur, Ankleide oder Garage ein, wenn Sie den Raum betreten, und wieder aus, wenn Sie ihn verlassen. Tageslichtsensoren passen die Helligkeit an das Licht an, das durch die Fenster fällt. So ist der Raum immer angenehm beleuchtet, und es wird keine Energie verschwendet.",
+				"Nachts leuchtet der Weg ins Bad nur gedimmt, damit Sie nicht geblendet werden, und ein „Gute Nacht“-Taster am Bett schaltet das ganze Haus aus und stellt sicher, dass nirgends mehr Licht brennt."
+			],
+			"imgAlt": "Präsenzmelder und automatische Flurbeleuchtung"
+		},
+
+		"section3": {
+			"heading": "Circadiane Beleuchtung, die dem Tag folgt",
+			"paragraphs": [
+				"Leuchten mit Tunable White verändern die Lichtfarbe im Tagesverlauf: morgens kühleres, frisches Licht, abends warme Töne, die Sie vor dem Schlafengehen nicht wachhalten. Das alles geschieht automatisch nach Tageszeit, ohne dass Sie etwas tun müssen.",
+				"Circadiane Beleuchtung (Human Centric Lighting) eignet sich besonders für Schlafzimmer, Arbeitszimmer und Kinderzimmer. Wir wählen passende Leuchten und stellen den Farbverlauf auf Ihren Tagesrhythmus ein."
+			],
+			"imgAlt": "Warmes Abendlicht und kühles Tageslicht im Interieur"
+		},
+
+		"section4": {
+			"heading": "Indirekte LED- und Architekturbeleuchtung",
+			"paragraphs": [
+				"In hochwertigen Interieurs sieht man nicht die Leuchte, sondern das Licht. LED-Streifen in Lichtvouten, Schattenfugen, Nischen oder unter der Treppe erzeugen weiches indirektes Licht, das Architektur und Materialien zur Geltung bringt.",
+				"Wir arbeiten schon in der Planungsphase mit Architekten und Innenarchitekten zusammen, um Profile, Netzteile und Verkabelung richtig vorzusehen. So sieht das Ergebnis aus wie geplant und nicht wie eine nachträgliche Lösung."
+			],
+			"imgAlt": "Indirekte LED-Beleuchtung in Lichtvoute und Schattenfuge"
+		},
+
+		"section5": {
+			"heading": "Weniger Energie, längere Lebensdauer",
+			"paragraphs": [
+				"Intelligente Steuerung spart ganz natürlich Energie: In leeren Räumen brennt kein Licht, die Helligkeit passt sich dem Tageslicht an, und beim Verlassen des Hauses schalten Sie alles mit einem Tastendruck aus. Gedimmte LED-Leuchten laufen zudem mit geringerer Last und halten länger."
+			]
+		},
+
+		"section6": {
+			"heading": "Crestron, Lutron, Loxone und DALI: welches System passt",
+			"intro": "Alle drei Systeme beherrschen Lichtszenen, Dimmen und Automatik. Sie unterscheiden sich in Umfang, Integrationsmöglichkeiten und Preis.",
+			"items": [
+				{
+					"name": "Crestron",
+					"text": "Die beste Wahl für große Villen, in denen die Beleuchtung mit Audio, Video, Beschattung, Klima und Sicherheit zu einem System verbunden wird. Steuert Dutzende Zonen, DALI-Leuchten und Technik verschiedener Hersteller. Die Bedienung gestalten wir individuell, einschließlich eigener Grafik für die Touchpanels."
+				},
+				{
+					"name": "Lutron",
+					"text": "Spezialist für Licht und Beschattung, bekannt für besonders sanftes, flimmerfreies Dimmen und elegante Taster. Die Funkvarianten eignen sich auch für bestehende Häuser, in denen Sie für neue Kabel keine Wände öffnen möchten."
+				},
+				{
+					"name": "Loxone",
+					"text": "Die günstigere Lösung für Einfamilienhäuser und Wohnungen. Steuert die Beleuchtung zusammen mit Heizung, Beschattung und Sicherheit aus einer App. Mit der Funkserie Loxone Air lassen sich Leuchten und Taster ohne neue Kabel ergänzen."
+				},
+				{
+					"name": "DALI",
+					"text": "Offener Standard für die digitale Lichtsteuerung. Jede Leuchte hat eine eigene Adresse, sodass sich Helligkeit und Farbe einzeln steuern lassen. Wir verbinden DALI mit Crestron, Loxone und anderen Systemen, ideal für anspruchsvolle Projekte und gewerbliche Räume."
+				}
+			]
+		},
+
+		"section7": {
+			"heading": "So läuft ein Projekt ab",
+			"item1": {
+				"title": "Beratung",
+				"description": "Wir sehen uns Ihr Haus oder Projekt an und klären, wie Sie das Licht nutzen möchten."
+			},
+			"item2": {
+				"title": "Planung",
+				"description": "Anordnung von Leuchten, Zonen, Tastern und Sensoren, Systemwahl und Budget."
+			},
+			"item3": {
+				"title": "Installation",
+				"description": "Verkabelung, Verteiler und Montage, abgestimmt mit den anderen Gewerken."
+			},
+			"item4": {
+				"title": "Programmierung",
+				"description": "Szenen, Automatiken und Bedienung über Panels und Smartphone."
+			},
+			"item5": {
+				"title": "Test",
+				"description": "Wir testen alles gründlich, damit das System einwandfrei funktioniert."
+			},
+			"item6": {
+				"title": "Übergabe und Service",
+				"description": "Einweisung, Dokumentation und langfristiger Support."
+			}
+		},
+
+		"faqs": [
+			{
+				"q": "Was ist eine intelligente Lichtsteuerung und was unterscheidet sie von normaler Beleuchtung?",
+				"a": "Normale Beleuchtung wird ein- und ausgeschaltet. Eine intelligente Lichtsteuerung wird von einem zentralen System gesteuert, das dimmen, Lichtszenen speichern, auf Anwesenheit und Tageslicht reagieren und sich über Taster, Panel oder Smartphone bedienen lässt."
+			},
+			{
+				"q": "Lässt sich smarte Beleuchtung in einem bestehenden Haus nachrüsten?",
+				"a": "Ja. In bestehenden Häusern setzen wir oft Funksysteme wie Lutron oder Loxone Air ein, die keine neuen Kabel brauchen. Bei einer Renovierung lohnt es sich, gleich Kabel zu verlegen, denn eine verkabelte Lösung ist am zuverlässigsten."
+			},
+			{
+				"q": "Was ist DALI und brauche ich das?",
+				"a": "DALI ist ein Standard für die digitale Lichtsteuerung, bei dem jede Leuchte eine eigene Adresse hat. Das lohnt sich, wenn Sie Helligkeit und Farbe einzelner Leuchten separat steuern möchten oder eine größere Lichtinstallation planen. Für kleinere Häuser reichen oft normale Dimmer. Die passende Lösung empfehlen wir bei der Planung."
+			},
+			{
+				"q": "Crestron, Lutron oder Loxone: Was ist das Beste für mein Haus?",
+				"a": "Crestron passt zu größeren Villen, in denen das Licht mit weiterer Technik verbunden wird. Lutron ist führend bei Licht- und Beschattungssteuerung. Loxone ist die günstigere Wahl für Einfamilienhäuser. Wir empfehlen ein System nach Größe Ihres Hauses, Ihren Wünschen und Ihrem Budget."
+			},
+			{
+				"q": "Funktioniert die Lichtsteuerung auch ohne Internet?",
+				"a": "Ja. Crestron, Lutron und Loxone steuern die Beleuchtung lokal im Haus, sodass Taster, Szenen und Automatiken auch bei einem Internetausfall weiterlaufen. Das Internet brauchen Sie nur für die Fernsteuerung."
+			},
+			{
+				"q": "Was kostet eine intelligente Lichtsteuerung?",
+				"a": "Das hängt von der Größe des Hauses, der Anzahl der Zonen, dem System und den Leuchten ab. Einige Räume mit Loxone sind ein ganz anderes Budget als eine ganze Villa mit Crestron und DALI. Nach einer kostenlosen Erstberatung erstellen wir eine Planung und ein unverbindliches Budget."
+			}
+		],
+		"faqTitle": "Häufige Fragen"
+	},
+
+	"homeAccess": {
+		"meta": {
+			"title": "Smarte Türschlösser & Zutrittskontrolle",
+			"description": "Smarte Türschlösser, schlüsselloser Zugang, Video-Türsprechanlagen und Torsteuerung im Smart Home. Fernzugriff per Smartphone. Planung und Installation."
+		},
+		"title": "Smarte Türschlösser und Zutrittskontrolle für Ihr Zuhause",
+		"subtitle": "Wir planen und installieren schlüssellosen Zugang, Video-Türsprechanlagen und Torsteuerung, eingebunden in Crestron- und Loxone-Smart-Homes. Sehen Sie, wer kommt, und öffnen Sie die Tür von überall.",
+		"heading": "Zutrittskontrolle",
+		"exploreBtn": "So funktioniert smarter Zutritt",
+		"imgAlt": "Eingang eines modernen Hauses mit smartem Türschloss und Zutrittskontrolle",
+
+		"intro": {
+			"heading": "Schlüssellos ins eigene Haus",
+			"paragraphs": [
+				"Schlüssel gehen verloren, werden kopiert und verliehen. Eine smarte Zutrittskontrolle ersetzt sie durch einen Code, einen Transponder oder Ihr Smartphone, und Sie wissen genau, wer wann ins Haus gekommen ist.",
+				"Wir verbinden Haustür, Gartentor, Einfahrtstor und Garage zu einem System, das Teil Ihres Smart Homes ist. Das Aufschließen kann zugleich den Weg zur Tür beleuchten oder die Alarmanlage unscharf schalten."
+			]
+		},
+
+		"section1": {
+			"heading": "Smarte Türschlösser und schlüsselloser Zugang",
+			"paragraphs": [
+				"Öffnen Sie die Tür per Code, Transponder, Karte oder Smartphone. Die Familie hat dauerhaften Zugang, Gäste, Reinigungskräfte oder Handwerker erhalten einen befristeten Code, der nur am gewählten Tag zur gewählten Zeit gilt und danach von selbst erlischt.",
+				"Geht ein Transponder verloren, sperren wir ihn einfach. Kein Zylindertausch und keine Schlüsselkopien."
+			],
+			"imgAlt": "Smartes Türschloss und Transponderleser an der Haustür"
+		},
+
+		"section2": {
+			"heading": "Video-Türsprechanlage",
+			"paragraphs": [
+				"Klingelt jemand, sehen Sie ihn auf dem Touchpanel im Haus und auf Ihrem Smartphone, egal wo Sie sind. Sie können mit ihm sprechen und Tür oder Tor per Tastendruck öffnen, zum Beispiel für den Paketboten, wenn Sie nicht zu Hause sind.",
+				"Die Türsprechanlage verbinden wir mit dem Kamerasystem, sodass jeder Besuch aufgezeichnet und später leicht auffindbar ist."
+			],
+			"imgAlt": "Touchpanel mit Bild der Video-Türsprechanlage am Eingang"
+		},
+
+		"section3": {
+			"heading": "Tore, Garagentore und Einfahrten",
+			"paragraphs": [
+				"Einfahrtstor, Gartentor und Garagentore steuern Sie per Smartphone, Fernbedienung oder Panel im Haus. Das Panel zeigt, ob das Tor offen ist, und Sie können es auch vom anderen Ende der Welt schließen.",
+				"Den Zugang zum Tor richten wir genauso ein wie an der Tür: Jedes Familienmitglied und jede Hilfskraft hat eigene Berechtigungen, und das System protokolliert jede Durchfahrt."
+			],
+			"imgAlt": "Automatisches Einfahrtstor, gesteuert per Smartphone"
+		},
+
+		"section4": {
+			"heading": "Verbunden mit Ihrem Smart Home",
+			"paragraphs": [
+				"Am bequemsten ist der Zutritt, wenn er mit dem übrigen Haus zusammenarbeitet. Kommen Sie nach Hause und schließen auf, wird die Alarmanlage unscharf, der Flur beleuchtet und die Heizung eingeschaltet. Beim Gehen schließen Sie einfach ab, und das Haus wechselt von selbst in den Modus „Abwesend“.",
+				"Zutrittssysteme verbinden wir mit Crestron und Loxone, sodass Zutritt, Licht, Sicherheit und Klima von einer Stelle aus gesteuert werden."
+			]
+		},
+
+		"section5": {
+			"heading": "Überblick und Sicherheit",
+			"paragraphs": [
+				"Die App zeigt den Verlauf aller Zutritte und benachrichtigt Sie, wenn sich eine Tür zu ungewöhnlicher Zeit öffnet. Berechtigungen ändern oder entziehen Sie jederzeit, auch aus der Ferne.",
+				"Wir planen das System so, dass es auch bei einem Internetausfall funktioniert und eine Notlösung für Stromausfälle hat. So kommen Sie immer ins Haus."
+			]
+		},
+
+		"section6": {
+			"heading": "Systeme, mit denen wir arbeiten",
+			"intro": "Wir wählen nach Art der Immobilie, Anzahl der Zugänge und danach, wie Sie den Zutritt verwalten möchten.",
+			"items": [
+				{
+					"name": "UniFi Access",
+					"text": "Leser, Türsprechanlagen und Zutrittsverwaltung in einer App, verbunden mit UniFi-Protect-Kameras und dem UniFi-Netzwerk. Ideal für Häuser und kleinere Unternehmen, die Netzwerk, Kameras und Zutritt in einem Ökosystem möchten."
+				},
+				{
+					"name": "Tedee",
+					"text": "Ein smartes Türschloss, das von innen auf Ihren vorhandenen Zylinder montiert wird, ohne Türtausch und ohne Verkabelung. Öffnen per Smartphone, PIN-Tastatur oder automatisch beim Ankommen, mit befristetem Zugang für Gäste. Ideal für bestehende Häuser und Wohnungen."
+				},
+				{
+					"name": "Crestron",
+					"text": "Zutritt als Teil des gesamten Smart Homes. Video-Türsprechanlage auf den Touchpanels, Szenen beim Kommen und Gehen sowie Schlösser, Tore und Alarmanlage verbunden mit Licht und Klima."
+				},
+				{
+					"name": "Loxone",
+					"text": "Die günstigere Lösung für Einfamilienhäuser. Türsprechanlage mit Kamera und Tastatur mit NFC-Leser, bedient aus derselben App wie Licht, Beschattung und Heizung."
+				}
+			]
+		},
+
+		"section7": {
+			"heading": "So läuft ein Projekt ab",
+			"item1": {
+				"title": "Beratung",
+				"description": "Wir gehen alle Zugänge durch und klären, wer wie Zutritt haben soll."
+			},
+			"item2": {
+				"title": "Planung",
+				"description": "Auswahl von Schlössern, Lesern, Türsprechanlage und System, Anordnung und Budget."
+			},
+			"item3": {
+				"title": "Installation",
+				"description": "Montage abgestimmt mit Bauleitung, Elektrikern sowie Tür- und Torlieferanten."
+			},
+			"item4": {
+				"title": "Programmierung",
+				"description": "Berechtigungen, befristete Codes, Szenen für Kommen und Gehen und Bedienung über Panels und Smartphone."
+			},
+			"item5": {
+				"title": "Test",
+				"description": "Wir testen alles gründlich, auch das Verhalten bei Internet- und Stromausfall."
+			},
+			"item6": {
+				"title": "Übergabe und Service",
+				"description": "Einweisung, Dokumentation und langfristiger Support."
+			}
+		},
+
+		"faqs": [
+			{
+				"q": "Lässt sich ein smartes Türschloss an meiner vorhandenen Tür montieren?",
+				"a": "In den meisten Fällen ja. Es gibt Schlösser und Beschläge, die an bestehenden Türen montiert werden, ohne die ganze Tür zu tauschen oder aufwendig zu verkabeln. Die passende Lösung empfehlen wir je nach Tür und Schloss."
+			},
+			{
+				"q": "Was passiert bei Stromausfall oder Internetausfall?",
+				"a": "Schlösser und Leser arbeiten lokal, ein Internetausfall beeinträchtigt den Zutritt also nicht; nur die Fernsteuerung ist vorübergehend nicht verfügbar. Für Stromausfälle planen wir eine Notstromversorgung oder eine mechanische Notöffnung, damit Sie immer ins Haus kommen."
+			},
+			{
+				"q": "Kann ich Gästen oder Reinigungskräften befristeten Zugang geben?",
+				"a": "Ja. Sie erstellen einen Code oder digitalen Schlüssel, der nur an ausgewählten Tagen und Uhrzeiten gilt. Nach Ablauf erlischt er von selbst, und im Verlauf sehen Sie, wann er benutzt wurde."
+			},
+			{
+				"q": "Lässt sich die Video-Türsprechanlage mit dem Smartphone verbinden?",
+				"a": "Ja. Sie nehmen das Klingeln auf dem Smartphone an, sehen, wer vor der Tür steht, sprechen mit der Person und öffnen Tür oder Tor von überall."
+			},
+			{
+				"q": "Ist ein smartes Türschloss sicherer als ein normaler Schlüssel?",
+				"a": "Ein hochwertiges elektronisches Schloss lässt sich nicht mit einem kopierten Schlüssel öffnen, ein verlorener Transponder ist sofort gesperrt, und jeder Zutritt wird protokolliert. Entscheidend sind eine fachgerechte Installation und ein sicheres Netzwerk, darauf achten wir von der Planung an."
+			},
+			{
+				"q": "Was kostet eine Zutrittskontrolle für ein Haus?",
+				"a": "Das hängt von der Anzahl der Zugänge, der Art der Schlösser, der Türsprechanlage und davon ab, ob wir das System ins Smart Home einbinden. Nach einer kostenlosen Erstberatung erstellen wir eine Planung und ein unverbindliches Budget."
+			}
+		]
+	},
+	"video": {
+		"meta": {
+			"title": "Heimkino & Multiroom-Video | Crestron",
+			"description": "Planung und Installation von Heimkinos, Projektion und Smart-TVs mit Videoverteilung in mehrere Räume. Eine Bedienung für das ganze Haus mit Crestron."
+		},
+		"heading": "Video & Heimkino",
+		"title": "Heimkino- und Videosysteme für Ihr Smart Home",
+		"subtitle": "Erstklassiges Heimkino, Smart-TVs und integriertes Entertainment für moderne Luxusimmobilien."
+	},
+
+	"audio": {
+		"meta": {
+			"title": "Multiroom-Audio & Beschallung fürs Haus",
+			"description": "Multiroom-Audio, HiFi und Deckenlautsprecher für Villen und Häuser. Sonos, Denon, Marantz, Bowers & Wilkins. Planung und Installation."
+		},
+		"heading": "Audio",
+		"title": "Multiroom-Audio und Beschallung für Ihr Zuhause",
+		"subtitle": "Professionelle Planung und Installation hochwertiger Audiosysteme, mit Musik in jedem Raum und eingebunden in Ihr Smart Home."
+	},
+
+	"shades": {
+		"meta": {
+			"title": "Elektrische Jalousien & smarte Beschattung",
+			"description": "Smarte Beschattung für Villen und Häuser: elektrische Jalousien, Rollos und Markisen in einem System mit Licht und Klima. Planung und Installation."
+		},
+		"heading": "Beschattung",
+		"title": "Smarte Beschattung und Jalousien",
+		"subtitle": "Motorisierte Beschattung für Komfort, Privatsphäre und ein angenehmes Raumklima, eingebunden in Ihr Smart Home."
+	},
+
+	"thermostat": {
+		"meta": {
+			"title": "Smarte Klimasteuerung | Heizung & Thermostate",
+			"description": "Heizung, Kühlung und Lüftung raumweise smart steuern. Thermostate, Zeitpläne und Bedienung per App in einem System mit Crestron oder Loxone."
+		},
+		"heading": "Klima",
+		"title": "Smarte Klimasteuerung",
+		"subtitle": "Intelligente Steuerung von Heizung, Kühlung und Lüftung für mehr Komfort und weniger Energieverbrauch, eingebunden in Ihr Smart Home."
+	},
+
+	"security": {
+		"meta": {
+			"title": "Smart Home Sicherheit | Alarmanlagen & Kameras",
+			"description": "Sicherheit für Villen und Häuser: Alarmanlagen von Jablotron, Paradox und Risco, Ubiquiti-Kameras und Zutrittskontrolle in einem System."
+		},
+		"heading": "Sicherheit",
+		"title": "Smarte Sicherheitstechnik",
+		"subtitle": "Alarmanlage, Kameras und Sensoren in einem System, mit Benachrichtigungen und Kontrolle von überall."
+	},
+
+	"aboutUs": {
+		"meta": {
+			"title": "Über uns | Crestron & Loxone Smart-Home-Experten",
+			"desc": "P&A Vision: Smart-Home-Programmierer mit über 15 Jahren internationaler Erfahrung mit Crestron, Loxone und Lutron. Sitz in Kladno, tätig in der ganzen EU."
+		},
+
+		"title": "Über uns",
+
+		"whoWeAre": {
+			"title": "Wer wir sind",
+			"desc": [
+				"Wir bringen über 15 Jahre internationale Erfahrung (Großbritannien) mit Smart-Home-Systemen, hochwertigen AV-Installationen und moderner Gebäudeautomation mit.",
+				"Wir planen und realisieren exklusive Lösungen, die Technik zu einem einheitlichen System verbinden, mit Fokus auf Komfort, Design und absolute Zuverlässigkeit. Wir arbeiten mit Premium-Plattformen wie Crestron, Crestron Home, Loxone und Lutron und ermöglichen eine intuitive Steuerung von Beleuchtung, Audio, Video, Beschattung und der gesamten Immobilie.",
+				"Wir integrieren alle Technologien, von Multimedia und Beleuchtung bis zum Energiemanagement, in eine einzige elegante und einfach zu bedienende Plattform. Das Ergebnis ist ein Zuhause, das auf die Bedürfnisse seiner Bewohner reagiert.",
+				"Zu unseren Projekten gehören auch professionelle Sicherheitslösungen. Wir installieren Systeme von Marken wie Jablotron, Paradox und Risco, Zutrittslösungen wie Salto sowie moderne Kamera- und Netzwerktechnik von Ubiquiti.",
+				"Jedes Projekt ist für uns einzigartig. Wir entwickeln maßgeschneiderte Lösungen, die höchsten Ansprüchen an Sicherheit, Ästhetik und Technik gerecht werden."
+			]
+		},
+
+		"ourTeam": {
+			"title": "Unser Team",
+			"programmer": "Programmierer"
+		}
+	},
+
+	"forDevs": {
+		"meta": {
+			"title": "Smart Home für Bauträger & Wohnanlagen",
+			"description": "Gebäudeautomation für Bauträger und Mehrfamilienhäuser. Geringere Baukosten, höherer Wohnungswert. Loxone, Crestron, Lutron: von Planung bis Übergabe."
+		},
+		"heading": "Smarte Automation für Bauträger",
+		"subheading": "höhere Verkaufspreise · geringere Umsetzungskosten · schnellerer Verkauf",
+
+		"faqs": [
+			{
+				"q": "Wann sollte die Smart-Home-Verkabelung in einem Bauprojekt geplant werden?",
+				"a": "Idealerweise in der Planungsphase. Wenn Verkabelung und Systemtopologie vor Baubeginn feststehen, vermeiden Sie teure Nachrüstungen und halten den Preis pro Einheit planbar."
+			},
+			{
+				"q": "Wie senkt Automation die Baukosten?",
+				"a": "Loxone Tree nutzt einen frei verlegbaren Bus statt sternförmiger Verkabelung und reduziert den Verkabelungsaufwand gegenüber einer klassischen Neubauinstallation um bis zu 80 %. Ein integriertes System ersetzt zudem mehrere Einzelsysteme und reduziert Material und Anzahl der Gewerke auf der Baustelle."
+			},
+			{
+				"q": "Erstellen Sie Projektdokumentation und Prüfprotokolle?",
+				"a": "Ja. Wir liefern Planunterlagen, Materiallisten, Prüfprotokolle und die vollständige Übergabedokumentation und stimmen uns mit TGA, Bauleitung und IT ab."
+			},
+			{
+				"q": "Was kostet Smart-Home-Automation pro Wohneinheit?",
+				"a": "Das hängt von Umfang und Ausstattungsstufe ab. Wir definieren einen wiederholbaren Standard pro Wohnungstyp, sodass Sie einen festen Preis pro Einheit erhalten, der sich planbar auf das ganze Gebäude übertragen lässt."
+			},
+			{
+				"q": "Funktioniert ein System für verschiedene Wohnungstypen?",
+				"a": "Ja. Dieselbe Plattform reicht vom Apartment bis zum Penthouse. Sie zahlen nur den Umfang, den jede Einheit braucht, mit einheitlichem Standard im gesamten Projekt."
+			},
+			{
+				"q": "Können Käufer ihre Wohnung nach dem Einzug erweitern?",
+				"a": "Ja. Mit Loxone Air lassen sich Funkgeräte ohne Bauarbeiten ergänzen, sodass Bewohner Licht, Sensoren oder Bedienelemente später ohne neue Kabel erweitern können."
+			},
+			{
+				"q": "Unterstützt das System Energiemessung und Fernablesung?",
+				"a": "Ja. Wir integrieren Energiemonitoring und die Fernablesung von Wärme-, Warmwasser- und Kaltwasserzählern, zunehmend wichtig, da EU-Vorgaben fernablesbare Zähler in Gebäuden verlangen."
+			},
+			{
+				"q": "Stimmen Sie sich mit dem Bauzeitenplan und anderen Gewerken ab?",
+				"a": "Ja. Wir arbeiten in Phasen parallel zum Bau, von Planung, Rohinstallation und Endmontage über Konfiguration und Prüfung bis zur Übergabe, und stimmen uns direkt mit den anderen Gewerken ab."
+			},
+			{
+				"q": "Hilft Automation beim Verkauf der Wohnungen?",
+				"a": "Smarte Funktionen werden im Neubau zunehmend erwartet. Sie heben Wohnungen vom Wettbewerb ab, stützen höhere Preise und sprechen energiebewusste Käufer an."
+			},
+			{
+				"q": "Wo sind Sie tätig?",
+				"a": "In Deutschland, Österreich, Tschechien und der gesamten EU, für Wohnprojekte, Mehrfamilienhäuser und gewerbliche Objekte."
+			}
+		],
+
+		"exploreBtn": "Lösungen für Bauträger",
+
+		"section1": {
+			"heading": "Warum Crestron-Gebäudetechnik den Immobilienwert steigert",
+			"list": [
+				"Käufer und Mieter erwarten in hochwertigen Wohn- und Gewerbeprojekten intelligente Automation als Standard.",
+				"Immobilien mit Crestron-Automation erzielen einen höheren Marktwert und heben sich am Immobilienmarkt ab.",
+				"Skalierbare Infrastruktur, vorbereitet auf künftige Technologien, Upgrades und veränderte Nutzeranforderungen.",
+				"Höhere Energieeffizienz und Unterstützung bei der Erfüllung europäischer Nachhaltigkeits- und Gebäudeeffizienzstandards."
+			]
+		},
+
+		"section2": {
+			"heading": "Was wir für Bauträger leisten",
+			"list": [
+				"Komplette Systemplanung, technische Dokumentation, Zeichnungen, Spezifikationen, Stücklisten und Abstimmung mit Bau, TGA und IT.",
+				"Schwachstrom- und Elektroinstallationen für Luxushäuser, Wohnanlagen, Bürogebäude, Hotels und Gewerbeimmobilien.",
+				"Professionelle Crestron-Integration für Beleuchtung, Klima, Beschattung, Zutrittskontrolle, Sicherheit und AV-Technik.",
+				"Netzwerkinfrastruktur auf Enterprise-Niveau mit Ubiquiti, MikroTik und Cisco.",
+				"Smartes Energiemonitoring und Zählertechnik, vorbereitet auf aktuelle und künftige europäische Vorgaben.",
+				"Test, Inbetriebnahme, Bestandsdokumentation und Projektübergabe.",
+				"Gewährleistung, Wartung, Fernüberwachung und langfristiger technischer Support."
+			]
+		},
+
+		"section3": {
+			"heading": "Wie wir Projektkosten senken",
+			"list": [
+				"Eine integrierte Crestron-Plattform ersetzt mehrere Einzelsysteme für Licht, Klima, Beschattung, Sicherheit und AV-Steuerung.",
+				"Standardisierte Automation über viele Wohneinheiten senkt die Installationskosten und vereinfacht die spätere Wartung.",
+				"Die modulare Architektur wächst vom Luxusapartment bis zur großen Wohnanlage, ohne das gesamte System neu zu planen.",
+				"Zentrales Gebäudemanagement senkt die Betriebskosten und erhöht die langfristige Zuverlässigkeit.",
+				"Ein Partner für Planung, Programmierung, Inbetriebnahme und Support verringert Abstimmungsverzögerungen und Projektrisiken."
+			]
+		},
+
+		"section4": {
+			"heading": "Energiemanagement & Photovoltaik",
+			"subheading": "Crestron verbindet Photovoltaik, Batteriespeicher, Heizung und Kühlung, Beleuchtung und Energiemanagement zu einer intelligenten Plattform, die Betriebskosten senkt und die Energieeffizienz maximiert.",
+			"list": [
+				"Automatische Optimierung des Eigenverbrauchs anhand der aktuellen PV-Erzeugung.",
+				"Intelligentes Batteriemanagement für effizientes Laden, Entladen und Energieoptimierung.",
+				"Abstimmung von Heizung, Kühlung, Beschattung, Beleuchtung und E-Auto-Laden für maximale Nutzung erneuerbarer Energie.",
+				"Energiemonitoring und Berichte in Echtzeit für Eigentümer, Facility Manager und Bewohner.",
+				"Geringere Betriebskosten bei höherer Nachhaltigkeit und höherem Marktwert von Wohn- und Gewerbeprojekten."
+			]
+		},
+
+		"section5": {
+			"heading": "Projektphasen",
+			"list": [
+				"Systemplanung & Engineering",
+				"Elektroinfrastruktur & Verkabelung",
+				"Montage der Geräte",
+				"Crestron-Programmierung & Inbetriebnahme",
+				"Test, Übergabe & laufender Support"
+			]
+		},
+
+		"section6": {
+			"heading": "Unser Ablauf",
+			"list": [
+				"Senden Sie uns Ihre Projektunterlagen (PDF, DWG oder BIM).",
+				"Wir erstellen eine vollständige Crestron-Systemplanung und ein Projektangebot.",
+				"Unser Team übernimmt Installation, Integration und Koordination während der Bauphase.",
+				"Wir nehmen das System in Betrieb, weisen die Nutzer ein und bieten langfristigen technischen Support."
+			]
+		}
+	},
+
+	"forArchitects": {
+		"meta": {
+			"title": "Smart-Home-Partner für Architekten | Villen",
+			"description": "Für Architekten von Villen und Luxushäusern: P&A Vision, Crestron-, Loxone- und Lutron-Integrator. Begleitung vom Entwurf bis zur Übergabe in der EU."
+		},
+		"heading": "Ihr Entwurf, vollständig integriert. Technischer Partner für Architekten von Villen und Luxusresidenzen.",
+		"subheading": "Wir arbeiten mit Architekten ab der frühen Entwurfsphase, damit Beleuchtung, Beschattung, Audio/Video und Klima von Anfang an in den Entwurf eingeplant sind, statt nachträglich hinzugefügt zu werden.",
+
+		"faqs": [
+			{
+				"q": "Wann sollte ein Architekt einen Smart-Home-Integrator hinzuziehen?",
+				"a": "Idealerweise in der Entwurfs- oder Vorplanungsphase. Nischen für die Beschattung, Kabelwege, der Technikraum und die Tiefe abgehängter Decken lassen sich dann direkt im Entwurf berücksichtigen. Das vermeidet teure Änderungen auf der Baustelle und bewahrt Ihre Entwurfsidee."
+			},
+			{
+				"q": "Welche Unterlagen brauchen Sie für ein erstes Konzept?",
+				"a": "Für den Anfang genügen Grundrisse, Schnitte, das Innenraumkonzept und die Wünsche des Bauherrn zur Bedienung des Hauses. Wir arbeiten mit PDF, DWG oder BIM und können schon mit einem frühen Entwurf beginnen."
+			},
+			{
+				"q": "Arbeiten Sie mit BIM- und DWG-Dateien?",
+				"a": "Ja. Wir tragen Systemplanung, Kabelwege, Positionen der Bedienelemente und die Anordnung des Technikraums in Ihre Pläne ein, sodass alles mit Ihrem Projekt übereinstimmt."
+			},
+			{
+				"q": "Stimmen Sie sich mit unserem Innenarchitekten ab?",
+				"a": "Ja. Die Positionen von Tastern, Lautsprechern, Bildschirmen und Leuchten stimmen wir mit Ihnen und dem Innenarchitekten ab, damit sich die Technik ins Gesamtdesign einfügt."
+			},
+			{
+				"q": "Lässt sich die Technik so verbergen, dass sie das Interieur nicht stört?",
+				"a": "Ja. Wir setzen unsichtbare Deckenlautsprecher, versteckte Bildschirme und Projektion sowie integrierte Beschattung und Beleuchtung ohne sichtbare Hardware ein. Entscheidend ist eine frühe Planung, idealerweise schon im Entwurf."
+			},
+			{
+				"q": "Crestron, Loxone oder Lutron: Was sollen wir dem Bauherrn empfehlen?",
+				"a": "Crestron passt zu großen, anspruchsvollen Villen mit maximalem Individualisierungsbedarf. Lutron überzeugt bei hochwertiger Licht- und Beschattungssteuerung. Loxone ist die kosteneffiziente Wahl für kleine bis mittlere Häuser. Wir helfen bei der Auswahl nach Projektgröße, Budget und Anforderungen des Bauherrn."
+			},
+			{
+				"q": "Übernehmen Sie Dokumentation, Tests und Übergabe?",
+				"a": "Ja. Wir liefern technische Dokumentation, Materiallisten, Prüfprotokolle und die vollständige Übergabedokumentation. Außerdem testen wir das System, nehmen es in Betrieb und weisen den Bauherrn vor der Übergabe ein."
+			},
+			{
+				"q": "Wer betreut das System nach der Übergabe?",
+				"a": "Wir. Wir bieten Gewährleistung und Service danach, Fernwartung und technischen Support, sodass Ihr Bauherr immer einen festen Ansprechpartner hat."
+			},
+			{
+				"q": "Sind Sie auch in Deutschland und Österreich tätig?",
+				"a": "Ja. Wir arbeiten in Deutschland, Österreich, Tschechien, in der gesamten EU und darüber hinaus an Villen, Luxusresidenzen und gewerblichen Projekten. Senden Sie uns die Eckdaten Ihres Projekts, und wir bestätigen, wie wir Sie unterstützen können."
+			}
+		],
+
+		"exploreBtn": "Zusammenarbeit mit Architekten",
+
+		"section1": {
+			"heading": "Warum Architekten früh mit einem Integrator zusammenarbeiten",
+			"list": [
+				"Fehlende Nischen für Jalousien und Vorhangschienen in den Wänden",
+				"Nicht geplante Kabelwege und Leerrohre, sodass verdeckte Lösungen unmöglich werden",
+				"Kein eigener Technikraum oder Platz für das Rack",
+				"Zu geringe Deckenhohlräume für Einbaulautsprecher und Lichtnetzteile",
+				"Willkürlich platzierte Taster und Panels, die die Raumgestaltung stören",
+				"Bauherren, die „smarte“ Funktionen erst spät wünschen, wenn Änderungen teuer sind"
+			],
+			"txt1": "Wir lösen diese Punkte auf dem Papier, bevor sie zu Problemen auf der Baustelle werden."
+		},
+
+		"section2": {
+			"heading": "So arbeiten wir mit Ihrem Büro",
+			"list": [
+				"Beratung in der Entwurfsphase: Wir prüfen Ihr Konzept und zeigen, was im Entwurf vorzusehen ist.",
+				"Technischer Input: Systemarchitektur, Kabelpläne und Eintragungen in Ihre DWG-, PDF- oder BIM-Pläne.",
+				"Abstimmung mit dem Interieur: Wir koordinieren Taster, Lautsprecher und Bildschirme mit Ihnen und dem Innenarchitekten.",
+				"Koordination der Gewerke: Wir arbeiten mit Elektro-, HLK-, IT- und Beschattungsfirmen, damit Ihre Entwurfsidee auf der Baustelle erhalten bleibt.",
+				"Sie behalten die Führung: Wir passen uns Ihrer Designsprache an und drängen Ihnen nicht unsere auf."
+			]
+		},
+
+		"section3": {
+			"heading": "Was wir in Ihre Projekte einbringen",
+			"list": [
+				"Über 15 Jahre internationale Erfahrung mit Smart Homes, hochwertiger AV-Technik und Gebäudeautomation",
+				"Premium-Plattformen: Crestron, Crestron Home, Loxone, Lutron",
+				"Kompletter Leistungsumfang aus einer Hand: Planung, Programmierung, Inbetriebnahme, Übergabe und Service",
+				"Dokumentation, Prüfprotokolle und vollständige Übergabedokumentation",
+				"Projekte in Deutschland, Österreich, Tschechien und der gesamten EU"
+			]
+		},
+
+		"section4": {
+			"heading": "Technik, die Ihr Design respektiert",
+			"list": [
+				"Beleuchtung: architektonische Lichtszenen, DALI, Dimmen ohne sichtbare Hardware",
+				"Audio: unsichtbare und Einbau-Deckenlautsprecher",
+				"Video: Heimkino, versteckte Bildschirme und Projektion",
+				"Beschattung: motorisierte Jalousien und Vorhänge, in die Architektur integriert",
+				"Klima: zonenweise Heizung und Kühlung",
+				"Sicherheit und Zutritt: Kameras, Schlösser, Tore",
+				"Netzwerk: die Infrastruktur dahinter (Ubiquiti, MikroTik, Cisco)"
+			]
+		},
+
+		"section5": {
+			"heading": "Die richtige Plattform für Ihren Bauherrn",
+			"bestFor": "Ideal für",
+			"scale": "Umfang",
+			"customization": "Individualisierung",
+			"crestronBestFor": "Große, anspruchsvolle Villen und vollständig individuelle Steuerung",
+			"lutronBestFor": "Hochwertige Licht- und Beschattungssteuerung",
+			"loxoneBestFor": "Kosteneffiziente Smart Homes",
+			"crestronScale": "Sehr groß, Dutzende Zonen",
+			"lutronScale": "Schwerpunkt Beleuchtung",
+			"loxoneScale": "Klein bis mittel",
+			"crestronCustomization": "Am höchsten",
+			"lutronCustomization": "Hoch bei Beleuchtung",
+			"loxoneCustomization": "Mittel"
+		},
+
+		"section6": {
+			"heading": "Typische Villenszenarien, die wir umsetzen",
+			"list": [
+				"Villa mit mehreren Zonen und Lichtszenen im ganzen Haus",
+				"Heimkino und Medienraum",
+				"Poolterrasse und Außenbereiche",
+				"Gästehaus oder Anbau im selben System",
+				"Planung von Technikraum und Rack"
+			]
+		},
+		"section7": {
+			"heading": "Ablauf der Zusammenarbeit",
+			"list": [
+				"Erstgespräch zu Ihrem aktuellen oder geplanten Projekt",
+				"Sie senden uns Ihre Pläne (PDF, DWG, BIM)",
+				"Wir erstellen ein technisches Konzept und tragen es in die Pläne ein",
+				"Gemeinsame Abstimmung mit Ihnen und dem Innenarchitekten",
+				"Koordination während der Bauphase",
+				"Programmierung, Inbetriebnahme und Übergabe",
+				"Laufender Service und Support"
+			]
+		},
+		"section8": {
+			"heading": "Was wir von Ihnen brauchen / was Sie erhalten",
+			"list": [
+				"Sie senden: Grundrisse, Schnitte, Innenraumkonzept, Anforderungen des Bauherrn",
+				"Sie erhalten: Systemkonzept, Eintragungen in die Pläne, Materialliste, Kostenschätzung, Input für den Bauzeitenplan"
+			]
+		}
+	},
+
+	"loxoneSmartHome": {
+		"meta": {
+			"title": "Loxone Smart Home Partner | Installation",
+			"description": "Loxone-Partner für Deutschland, Österreich und Tschechien: Planung, Installation, Programmierung und Support. Licht, Heizung, Beschattung, Sicherheit, PV."
+		},
+
+		"faqs": [
+			{
+				"q": "Ist Loxone besser als klassische Smart-Home-Systeme?",
+				"a": "Loxone setzt auf echte Automation statt bloßer Fernbedienung, sodass Sie im Alltag deutlich weniger selbst schalten müssen."
+			},
+			{
+				"q": "Lässt sich Loxone mit einer Photovoltaikanlage verbinden?",
+				"a": "Ja. Loxone unterstützt ein umfassendes Energiemanagement und die Einbindung von Photovoltaik."
+			},
+			{
+				"q": "Funktioniert Loxone mit smarter Beleuchtung?",
+				"a": "Ja. Die Lichtsteuerung gehört zu den größten Stärken von Loxone."
+			},
+			{
+				"q": "Kann Loxone Heizung und Kühlung steuern?",
+				"a": "Ja. Loxone regelt das Raumklima intelligent im ganzen Haus."
+			},
+			{
+				"q": "Eignet sich Loxone für Luxusimmobilien?",
+				"a": "Ja. Loxone wird in vielen hochwertigen Wohnprojekten in ganz Europa eingesetzt."
+			}
+		]
+	},
+
+	"crestronIntegration": {
+		"meta": {
+			"title": "Crestron Integrator | Smart Home für Villen",
+			"description": "Crestron-Integrator für Villen und Luxusimmobilien: Planung, Installation, Programmierung und Service. Licht, AV, Beschattung, Klima und Sicherheit."
+		},
+		"heading": "Crestron Hausautomation & Smart Living",
+		"subheading": "Steuern Sie Ihr ganzes Haus über eine intelligente Plattform. Crestron verbindet Beleuchtung, Klima, Sicherheit, Entertainment, Beschattung und Zutritt zu einem einzigen Smart-Home-Erlebnis.",
+		"heroSecondaryBtn": "Crestron-Lösungen entdecken",
+
+		"section1": {
+			"heading": "Warum Crestron?",
+
+			"description": [
+				"Crestron gehört weltweit zu den bewährtesten Automationsplattformen für Luxushäuser, hochwertige Residenzen und intelligente Gebäude.",
+				"Crestron ist auf Zuverlässigkeit, Leistung und eine hervorragende Bedienung ausgelegt und vereint alle Systeme Ihrer Immobilie unter einer intuitiven Oberfläche.",
+				"Anders als einzelne Smart-Home-Geräte bietet Crestron ein vollständig integriertes System, das den Alltag vereinfacht und gleichzeitig Komfort, Sicherheit und Effizienz erhöht."
+			]
+		},
+
+		"section2": {
+			"heading": "Was kann Crestron steuern?",
+
+			"item1": {
+				"title": "Lichtsteuerung",
+				"description": "Persönliche Lichtszenen, die sich automatisch Ihren Aktivitäten und Ihrem Lebensstil anpassen."
+			},
+			"item2": {
+				"title": "Klimasteuerung",
+				"description": "Ideale Behaglichkeit dank intelligenter Steuerung von Heizung, Kühlung und Lüftung."
+			},
+			"item3": {
+				"title": "Heimkino",
+				"description": "Ihr gesamtes Entertainment mit einem einzigen Tastendruck."
+			},
+			"item4": {
+				"title": "Multiroom-Audio",
+				"description": "Synchronisierte Musik im ganzen Haus."
+			},
+			"item5": {
+				"title": "Sicherheit & Videoüberwachung",
+				"description": "Alarmanlagen, Kameras, Sensoren und Zutrittskontrolle in einem System."
+			},
+			"item6": {
+				"title": "Motorisierte Beschattung",
+				"description": "Automatisch optimierte Privatsphäre, Behaglichkeit und Tageslicht."
+			},
+			"item7": {
+				"title": "Energiemanagement",
+				"description": "Mehr Effizienz bei geringeren Betriebskosten."
+			}
+		},
+
+		"section3": {
+			"heading": "Individuelles Touchpanel-Design",
+			"paragraphs": [
+				"Die meisten Crestron-Installationen nutzen dieselben fertigen Vorlagen. Wir gestalten die Bedienung stattdessen für Sie: Wand-Touchpanels, Tablets und die App auf dem Smartphone sehen aus wie ein Teil Ihres Interieurs, nicht wie ein technisches Display.",
+				"Die Grafik stimmen wir auf Farben, Materialien und Stil Ihres Hauses ab. Die Bildschirme folgen dem, wie Sie das Haus tatsächlich nutzen: im Wohnzimmer Szenen und Heimkino griffbereit, im Schlafzimmer Nachtmodus und Jalousien, am Eingang Alarmanlage und Torkamera. Was Sie nicht brauchen, blenden wir aus, damit auch Kinder und Großeltern gut zurechtkommen.",
+				"Wir zeigen Ihnen das Design zuerst am Bildschirm, passen es nach Ihrem Feedback an und programmieren es erst dann. Die Bedienung kann auf Deutsch, Englisch, Tschechisch oder in weiteren Sprachen sein, sodass die ganze Familie, Gäste und Personal sie nutzen können."
+			],
+			"list": [
+				"Design passend zu Interieur und Stil",
+				"Aufbau nach Räumen und Ihren Gewohnheiten",
+				"Vereinfachter Modus für Kinder, Großeltern und Gäste",
+				"Gleiches Erscheinungsbild auf Wandpanels, Tablet und Smartphone",
+				"Bedienung in mehreren Sprachen"
+			]
+		},
+
+		"section4": {
+			"heading": "Intelligente Beleuchtung & Beschattung",
+			"list1": {
+				"title": "Crestron passt Licht und Beschattung automatisch an:",
+				"list": [
+					"Anwesenheit",
+					"Tageslicht",
+					"Zeitpläne",
+					"persönliche Vorlieben"
+				]
+			},
+			"list2": {
+				"title": "Ihre Vorteile:",
+				"list": [
+					"mehr Komfort",
+					"geringerer Energieverbrauch",
+					"stimmungsvolle Atmosphäre",
+					"mehr Sicherheit"
+				]
+			}
+		},
+
+		"section5": {
+			"heading": "Heimkino & Entertainment",
+			"description": "Crestron ist weltweit eine der ersten Adressen für die Steuerung hochwertiger AV-Technik und Heimkinos.",
+			"list1": {
+				"title": "Schaffen Sie ein beeindruckendes Entertainment-Erlebnis mit zentraler Steuerung von:",
+				"list": [
+					"Projektoren",
+					"Fernsehern",
+					"Surround-Sound",
+					"Medienservern",
+					"Streaming-Diensten"
+				]
+			},
+			"text": "Ein Tastendruck bereitet Ihr komplettes Kinoerlebnis vor."
+		},
+
+		"section6": {
+			"heading": "Sicherheit & Zutrittskontrolle",
+			"description": "Überwachen und steuern Sie Ihre Immobilie von überall.",
+			"list1": {
+				"title": "Integrieren Sie:",
+				"list": [
+					"smarte Türschlösser",
+					"Türsprechanlagen",
+					"Überwachungskameras",
+					"Alarmanlagen",
+					"Torsteuerung"
+				]
+			},
+			"text": "in eine einzige Plattform."
+		},
+
+		"section7": {
+			"heading": "Integration von Geräten anderer Hersteller",
+			"paragraphs": [
+				"Nicht jedes Gerät im Haus hat einen fertigen Crestron-Treiber. Klimaanlagen, Batteriespeicher, Wechselrichter und Zutrittssysteme nutzen oft eigene Protokolle. Viele Integratoren lassen sie deshalb außen vor, und Sie bedienen sie am Ende in einer separaten App.",
+				"Wir programmieren eigene Module für diese Geräte, damit Sie sie wie den Rest des Hauses bedienen: die Klimaanlage über das Panel in jedem Raum einstellen, Batteriestand und PV-Ertrag sehen und Türöffnung und Türklingel direkt auf dem Touchpanel erhalten.",
+				"Sie sind nicht sicher, ob ein Gerät in Ihrem Haus mit Crestron zusammenarbeitet? Nennen Sie uns Marke und Modell, und wir prüfen es."
+			],
+			"list": [
+				"Klimaanlagen und Wärmepumpen über Modbus",
+				"Batteriespeicher und PV-Wechselrichter",
+				"Zutrittssysteme und Türsprechanlagen von UniFi Access",
+				"Geräte mit TCP/IP-, RS-232- oder RS-485-Schnittstelle",
+				"Module auch für andere Integratoren erhältlich"
+			]
+		},
+
+		"section8": {
+			"heading": "Warum P&A Vision?",
+			"list1": {
+				"title": "Als Ihr Crestron-Integrator bietet P&A Vision:",
+				"list": [
+					"Beratung",
+					"Systemplanung",
+					"Professionelle Installation",
+					"Programmierung & UI-Design",
+					"Inbetriebnahme",
+					"Laufender Support"
+				]
+			},
+			"text": "Wir schaffen intelligente Häuser, die auf den Lebensstil jedes Kunden zugeschnitten sind: zuverlässig, erweiterbar und einfach zu bedienen."
+		},
+
+		"section9": {
+			"heading": "Unser Ablauf bei Crestron-Projekten",
+			"item1": {
+				"title": "Analyse",
+				"description": "Wir lernen Ihren Lebensstil und die Anforderungen Ihres Projekts kennen."
+			},
+			"item2": {
+				"title": "Planung",
+				"description": "Wir entwickeln ein maßgeschneidertes Automationskonzept."
+			},
+			"item3": {
+				"title": "Integration",
+				"description": "Professionelle Installation aller angebundenen Systeme."
+			},
+			"item4": {
+				"title": "Programmierung",
+				"description": "Automationslogik und Bedienung nach Ihren Wünschen."
+			},
+			"item5": {
+				"title": "Test",
+				"description": "Wir stellen einen einwandfreien Betrieb sicher."
+			},
+			"item6": {
+				"title": "Support",
+				"description": "Langfristige Wartung und Optimierung."
+			}
+		},
+
+		"faqs": [
+			{
+				"q": "Was ist Crestron Home?",
+				"a": "Crestron Home ist eine Premium-Automationsplattform, die Beleuchtung, Klima, Entertainment, Sicherheit und Beschattung zu einem intelligenten System verbindet."
+			},
+			{
+				"q": "Eignet sich Crestron für Luxushäuser?",
+				"a": "Ja. Crestron wird weltweit in Luxuswohnprojekten, Villen, Penthäusern und hochwertigen Bauprojekten eingesetzt."
+			},
+			{
+				"q": "Lässt sich Crestron mit vorhandenen Systemen verbinden?",
+				"a": "In vielen Fällen ja. Crestron unterstützt die Integration einer großen Bandbreite von Technik anderer Hersteller."
+			},
+			{
+				"q": "Kann ich mein Haus aus der Ferne steuern?",
+				"a": "Ja. Crestron ermöglicht einen sicheren Fernzugriff über mobile Geräte."
+			},
+			{
+				"q": "Ist Crestron besser als viele einzelne Smart-Home-Apps?",
+				"a": "Der Vorteil von Crestron ist die Zentralisierung. Statt viele Apps zu verwalten, steuern Sie alle Systeme über eine Plattform."
+			}
+		]
+	},
+
+	"ourSolutions": {
+		"title": "Unsere intelligenten Lösungen",
+		"showroom": {
+			"badge": "Showroom",
+			"title": "Smart-Home-Showroom",
+			"description": [
+				"Wir prüfen derzeit mehrere Richtungen: einen Markenshowroom in Partnerschaft mit Herstellern wie Samsung, ein professionelles Tonstudio und einen multifunktionalen Raum, der Smart Home und gewerbliche Integration verbindet. Wir wählen das Konzept, das unseren Kunden in der EU den größten Mehrwert bietet.",
+				"Bis zur Eröffnung des Showrooms planen unsere Spezialisten eine Lösung, die genau auf Ihr Haus oder Projekt zugeschnitten ist. In einer unverbindlichen Beratung erklären wir Ihnen Systemintegration, Budget und Installation, verständlich und ohne Druck.",
+				"Möchten Sie den Showroom als Erste sehen? Melden Sie sich bei uns, und wir halten Sie über die Eröffnung und die Neuheiten im Bereich intelligentes Wohnen auf dem Laufenden."
+			]
+		},
+		"office": {
+			"badge": "Büro",
+			"title": "Smart Office & Arbeitsplatz",
+			"description": [
+				"Machen Sie Ihren Arbeitsplatz zu einer produktiven, professionellen Umgebung. P&A Vision verbindet Raumbuchung, Videokonferenzen, DALI-Beleuchtung, Beschattung, Klima und Audio/Video zu einem System, das sich der Arbeitsweise Ihres Teams anpasst.",
+				"Ihr Team bucht einen Besprechungsraum mit einem Fingertipp, und der Raum bereitet sich selbst vor: Zoom oder Microsoft Teams startet auf dem Raumdisplay, Leinwand oder Bildschirm fahren herunter, Mikrofone und Lautsprecher schalten sich ein, die DALI-Beleuchtung wählt die passende Szene, und die Jalousien verhindern Blendung im Kamerabild. Ein Panel an der Tür zeigt auf einen Blick, ob der Raum frei oder belegt ist, sodass sich Besprechungen nie überschneiden.",
+				"Führen Sie Videokonferenzen ohne Aufwand, mit automatischer Kameraausrichtung und eingemessenem Raumklang, ohne vor jedem Call an der Technik herumzuprobieren. Adressierbare DALI-Beleuchtung bietet Tunable White und Human Centric Lighting pro Leuchte, Szenen für Präsentation und konzentriertes Arbeiten sowie Dimmen jeder einzelnen Leuchte, das den Energieverbrauch senkt. Zusammen mit effizienter Klimasteuerung sinken die Betriebskosten bei hohem Komfort, und alles wird von einer Stelle aus überwacht und gesteuert.",
+				"Wir planen und realisieren Raumbuchung, Videokonferenzen, professionelles Audio und DALI-Beleuchtung für Büros und Unternehmen in der gesamten EU. Zuverlässig, elegant und mit Liebe zum Detail."
+			]
+		},
+		"familyHome": {
+			"badge": "Einfamilienhaus",
+			"title": "Smartes Zuhause für die Familie",
+			"description": [
+				"Ein Zuhause, das sich Ihnen und Ihrem Leben anpasst.",
+				"P&A Vision verbindet Beleuchtung, Heizung, Klimaanlage, Beschattung, Sicherheit und Home Entertainment zu einem einfach bedienbaren System. Wir arbeiten mit bewährten Technologien von Crestron, Loxone und Lutron und planen damit Lösungen vom Einfamilienhaus bis zur großen Luxusresidenz. Für anspruchsvollere Projekte setzen wir vor allem auf Crestron, das umfangreiche Integrationsmöglichkeiten, hohe Zuverlässigkeit und eine komfortable Steuerung des ganzen Hauses bietet.",
+				"Komfort, um den Sie sich nicht kümmern müssen.",
+				"Das Licht passt sich der Tageszeit an, die Jalousien reagieren auf die Sonne, und die Temperatur regelt sich automatisch nach dem Bedarf jedes Raums. Mit einem Tastendruck stellen Sie das Haus auf einen entspannten Abend, einen Film oder den Weg zur Arbeit ein. Intelligente Automation macht den Alltag angenehmer und senkt den Energieverbrauch. Dank der Flexibilität der eingesetzten Systeme lassen sich auch große Immobilien mit Dutzenden Zonen einfach steuern.",
+				"Sicherheit und Kontrolle, wo immer Sie sind.",
+				"Kameras, Alarmanlage, Einfahrtstor und smarte Türschlösser haben Sie direkt auf Ihrem Smartphone im Blick. Sehen Sie jederzeit nach, was rund ums Haus passiert, wer vor der Tür steht oder ob alles gesichert ist. Ob im Büro, im Urlaub oder am anderen Ende der Welt: Sie wissen immer, was zu Hause los ist.",
+				"Eine Lösung, die für Sie geplant wird.",
+				"Wir planen, installieren und programmieren Smart-Home-Systeme für Einfamilienhäuser und Luxusvillen in ganz Europa. Von einfacher Automation bis zu kompletten Crestron-Lösungen, die alle Technik im Haus verbinden, ist jedes Projekt auf Ihre Anforderungen, den Charakter Ihrer Immobilie und Ihr Budget abgestimmt."
+			]
+		},
+		"business": {
+			"badge": "Gewerbe",
+			"title": "Smarte Lösungen für Unternehmen & Gewerbeflächen",
+			"description": [
+				"Von Hotels und Restaurants bis zu Einzelhandel und Showrooms: P&A Vision liefert professionelle Automation und Netzwerkinfrastruktur für Gewerbeflächen. Strukturierte Verkabelung, WLAN, Videoüberwachung, Sicherheitssysteme und Zutrittskontrolle arbeiten als ein zuverlässiges Ganzes zusammen.",
+				"Ein verlässliches Netzwerk ist die Grundlage jedes Betriebs. Wir planen und bauen Netzwerkinfrastruktur mit Sicherheit im Kern, mit Netzwerksegmentierung, Firewall, Monitoring und Backup, und verbinden sie mit Kameras, Zutrittssystemen und Alarmanlagen in einer übersichtlichen Oberfläche.",
+				"Senken Sie den Stromverbrauch mit intelligentem Energiemanagement: automatische Abschaltung von Geräten sowie Licht- und Klimasteuerung nach Belegung und Zeitplan. Sie sehen die Kosten in Echtzeit, und das System wächst mit Ihrem Unternehmen.",
+				"Wir planen und integrieren Netzwerke, Sicherheitstechnik und Energiesparlösungen für Unternehmen in der gesamten EU, mit Fokus auf Zuverlässigkeit, Sicherheit und einen professionellen Auftritt."
+			]
+		}
+	},
+
+	"crestronApp": {
+		"title": "Laden Sie die Crestron Home® App für Ihre Geräte herunter.",
+		"hint": "Demo-Modus nur unter iOS verfügbar, unter Android ist ein installiertes System erforderlich"
+	},
+	"contacts": {
+		"meta": {
+			"title": "Kontakt | Crestron & Loxone Integrator",
+			"description": "Sie planen ein Smart-Home-, AV- oder Lichtprojekt? Kontaktieren Sie P&A Vision, Crestron-, Loxone- und Lutron-Integrator. Kostenlose Erstberatung."
+		},
+
+		"heading": "Kontakt – kostenlose Smart-Home-Beratung",
+		"callUs": "Rufen Sie uns an",
+		"callUsDescription": "Rufen Sie uns während der Geschäftszeiten an und erhalten Sie eine kostenlose Beratung.",
+		"writeToUs": "Schreiben Sie uns",
+		"writeToUsDescription": "Wir antworten innerhalb von 12 Stunden.",
+		"title": "Kontaktformular",
+		"name": "Vollständiger Name",
+		"tel": "Telefonnummer",
+		"message": "Nachricht",
+		"submit": "Absenden",
+		"loading": "Wird gesendet...",
+		"success": "Erfolgreich gesendet!",
+		"required": "Pflichtfeld"
+	},
+
+	"contactUsBanner": {
+		"heading": "Sie haben ein Projekt? Sprechen wir darüber",
+		"description": "Hinterlassen Sie Ihren Namen und Ihre Telefonnummer. Wir rufen Sie zurück, besprechen Ihr Projekt und schlagen eine maßgeschneiderte Lösung vor, unverbindlich und ohne Druck. Sie mögen keine Formulare? Schreiben Sie uns einfach an"
+	},
+
+	"faqs": {
+		"heading": "Häufige Fragen"
+	},
+
+	"appointment": {
+		"meta": {
+			"title": "Termin buchen | Kostenlose Smart-Home-Beratung",
+			"description": "Buchen Sie eine unverbindliche Smart-Home- und AV-Beratung. Wählen Sie einen Termin im Kalender; die Erstberatung ist kostenlos. Crestron, Loxone, Lutron."
+		},
+
+		"selected": "ausgewählt",
+		"pickADateHint": "Wählen Sie ein Datum im Kalender, um verfügbare Zeiten zu sehen",
+		"availableHours": "Verfügbare Zeiten"
+	},
+	"footer": {
+		"allRightsReserved": "Alle Rechte vorbehalten.",
+		"solutions": "Lösungen",
+		"followUs": "Folgen Sie uns",
+		"privacyPolicy": "Datenschutzerklärung"
+	}
+}
