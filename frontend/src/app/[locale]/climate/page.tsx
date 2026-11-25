@@ -1,7 +1,7 @@
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
 import "./styles.scss";
 
@@ -45,7 +45,8 @@ export default async function Climate({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
-	const t = await getTranslations({ locale });
+	setRequestLocale(locale);
+	const t = await getTranslations();
 
 	return (
 		<main>

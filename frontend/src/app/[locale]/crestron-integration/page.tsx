@@ -1,11 +1,11 @@
 import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import { TransitionLink } from "@/components/TransitionLink";
 import Faqs from "@/components/Faqs/Faqs";
-import "./styles.scss";
 import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
+import "./styles.scss";
 
 const PAGE = "crestron-integration";
 
@@ -59,7 +59,8 @@ export default async function CrestronHome({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
-	const t = await getTranslations({ locale });
+	setRequestLocale(locale);
+	const t = await getTranslations();
 
 	return (
 		<main>

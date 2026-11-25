@@ -7,7 +7,7 @@ import Testimonials from "@/components/Testimonials/Testimonials";
 import Brands from "@/components/Brands/Brands";
 import ProgrammingServices from "@/components/ProgrammingServices/ProgrammingServices";
 import { routing } from "@/i18n/routing";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import socials from "@/data/socials.json";
 import { BASE_URL } from "@/lib/constants";
 import "./Home.scss";
@@ -44,7 +44,13 @@ export async function generateMetadata({
 	};
 }
 
-export default async function Home() {
+export default async function Home({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+	setRequestLocale(locale);
 	const t = await getTranslations();
 
 	// TODO: learn this

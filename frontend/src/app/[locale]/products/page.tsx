@@ -1,7 +1,7 @@
 import ProductsClient from "./ProductsClient";
 import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
 import { routing } from "@/i18n/routing";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import "./Products.scss";
 
@@ -45,7 +45,8 @@ export default async function Products({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
-	const t = await getTranslations({ locale });
+	setRequestLocale(locale);
+	const t = await getTranslations();
 
 	return (
 		<main className="products">

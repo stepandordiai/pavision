@@ -11,11 +11,12 @@ import { BASE_URL } from "@/lib/constants";
 import { TransitionProvider } from "@/providers/TransitionProvider";
 import ScrollToTopBtn from "@/components/ScrollToTopBtn/ScrollToTopBtn";
 import FloatContact from "@/components/FloatContact/FloatContact";
+import { setRequestLocale } from "next-intl/server";
 import "@/scss/globals.scss";
 
 const poppins = Poppins({
 	variable: "--font-poppins",
-	weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+	weight: ["300", "400", "500", "600"],
 	subsets: ["latin"],
 });
 
@@ -33,6 +34,14 @@ export const metadata: Metadata = {
 		default: "P&A Vision",
 	},
 };
+
+// TODO: LEARN THIS
+export function generateStaticParams() {
+	return routing.locales.map((locale) => ({ locale }));
+}
+
+// TODO: LEARN THIS
+export const dynamicParams = false;
 
 // TODO: learn this
 export function generateJsonLd(locale: string) {
@@ -118,9 +127,9 @@ export default async function LocaleLayout({
 	params: Promise<{ locale: string }>;
 }>) {
 	const { locale } = await params;
-	if (!hasLocale(routing.locales, locale)) {
-		return notFound();
-	}
+	if (!hasLocale(routing.locales, locale)) notFound();
+
+	setRequestLocale(locale);
 
 	const jsonLd = generateJsonLd(locale);
 

@@ -1,6 +1,14 @@
+import { setRequestLocale } from "next-intl/server";
 import "./styles.scss";
 
-export default function PrivacyPolicy() {
+export default async function PrivacyPolicy({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+	setRequestLocale(locale);
+
 	return (
 		<main className="main">
 			{/* FIXME: */}

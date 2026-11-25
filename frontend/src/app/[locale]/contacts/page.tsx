@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import EnvelopeIcon from "@/components/icons/EnvelopeIcon";
 import TelIcon from "@/components/icons/TelIcon";
 import type { Metadata } from "next";
@@ -7,7 +7,7 @@ import ContactsClient from "./ContactsClient";
 import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
 import PersonFillIcon from "@/components/icons/PersonFillIcon";
 import socials from "@/data/socials.json";
-import { Fragment } from "react/jsx-runtime";
+import { Fragment } from "react";
 import "./Contacts.scss";
 
 const PAGE = "contacts";
@@ -50,7 +50,8 @@ export default async function Contacts({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
-	const t = await getTranslations({ locale });
+	setRequestLocale(locale);
+	const t = await getTranslations();
 
 	return (
 		<main className="contacts">
@@ -158,7 +159,7 @@ export default async function Contacts({
 										}}
 									>
 										<EnvelopeIcon />
-										<a className="link" href="mailto:petr.fojtu@pavision.cz">
+										<a className="link" href="mailto:alex@pavision.cz">
 											alex@pavision.cz
 										</a>
 									</div>
@@ -216,7 +217,7 @@ export default async function Contacts({
 									<Fragment key={i}>
 										<a
 											className="contacts-details__link"
-											href={s.label}
+											href={s.url}
 											target="_blank"
 											rel="noopener noreferrer"
 										>

@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { getProductBySlug, getProducts } from "@/lib/api/products";
 import { routing } from "@/i18n/routing";
@@ -7,6 +7,8 @@ import Breadcrumbs from "@/components/common/Breadcrumbs/Breadcrumbs";
 import { TransitionLink } from "@/components/TransitionLink";
 import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
 import "./styles.scss";
+
+export const revalidate = 3600;
 
 const PAGE = "products";
 
@@ -74,6 +76,7 @@ type ProductPageProps = {
 
 export default async function ProductPage({ params }: ProductPageProps) {
 	const { slug, locale } = await params;
+	setRequestLocale(locale);
 
 	// TODO: learn this
 	const { data: product, error } = await getProductBySlug(slug);
@@ -81,7 +84,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 	if (error) throw error;
 	if (!product) notFound();
 
-	const t = await getTranslations({ locale });
+	const t = await getTranslations();
 
 	return (
 		<main className="product-page">

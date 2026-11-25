@@ -1,12 +1,12 @@
 import { Metadata } from "next";
-import "./styles.scss";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import Brands from "@/components/Brands/Brands";
 import Faqs from "@/components/Faqs/Faqs";
 import References from "@/components/References/References";
 import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
+import "./styles.scss";
 
 const PAGE = "for-architects";
 
@@ -48,7 +48,8 @@ export default async function ForArchitects({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
-	const t = await getTranslations({ locale });
+	setRequestLocale(locale);
+	const t = await getTranslations();
 
 	return (
 		<main>

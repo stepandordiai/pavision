@@ -1,5 +1,5 @@
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
@@ -45,7 +45,8 @@ export default async function CinemaAndVideo({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
-	const t = await getTranslations({ locale });
+	setRequestLocale(locale);
+	const t = await getTranslations();
 
 	return (
 		<main>

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import AppointmentClient from "./AppointmentClient";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import "./styles.scss";
 
@@ -38,6 +38,13 @@ export async function generateMetadata({
 	};
 }
 
-export default function Appointment() {
+export default async function Appointment({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+	setRequestLocale(locale);
+
 	return <AppointmentClient />;
 }

@@ -1,13 +1,13 @@
 import { routing } from "@/i18n/routing";
 import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import Faqs from "@/components/Faqs/Faqs";
 import Brands from "@/components/Brands/Brands";
 import SmartHomeHub from "./SmartHomeHub";
 import References from "@/components/References/References";
-import "./styles.scss";
 import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
+import "./styles.scss";
 
 const PAGE = "for-developers";
 
@@ -49,7 +49,8 @@ export default async function ForDevs({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
-	const t = await getTranslations({ locale });
+	setRequestLocale(locale);
+	const t = await getTranslations();
 
 	return (
 		<main>

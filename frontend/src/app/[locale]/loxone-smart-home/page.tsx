@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import { TransitionLink } from "@/components/TransitionLink";
@@ -49,8 +49,8 @@ export default async function LoxoneSmartHome({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
-
-	const t = await getTranslations({ locale });
+	setRequestLocale(locale);
+	const t = await getTranslations();
 
 	return (
 		<main>
@@ -124,7 +124,7 @@ export default async function LoxoneSmartHome({
 						<TransitionLink
 							style={{ alignSelf: "flex-end" }}
 							className="link"
-							href="/thermostat"
+							href="/climate"
 						>
 							More
 						</TransitionLink>
@@ -154,7 +154,7 @@ export default async function LoxoneSmartHome({
 						<TransitionLink
 							style={{ alignSelf: "flex-end" }}
 							className="link"
-							href="/home-access"
+							href="/access-control"
 						>
 							More
 						</TransitionLink>

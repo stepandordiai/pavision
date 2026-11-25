@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import PersonFillIcon from "@/components/icons/PersonFillIcon";
 import TelIcon from "@/components/icons/TelIcon";
@@ -68,7 +68,8 @@ export default async function AboutUs({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
-	const t = await getTranslations({ locale });
+	setRequestLocale(locale);
+	const t = await getTranslations();
 
 	return (
 		<main className="about-us">

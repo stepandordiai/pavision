@@ -1,9 +1,9 @@
 import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
-import { getTranslations } from "next-intl/server";
-import "./styles.scss";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
+import "./styles.scss";
 
 const PAGE = "audio";
 
@@ -45,7 +45,8 @@ export default async function Audio({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
-	const t = await getTranslations({ locale });
+	setRequestLocale(locale);
+	const t = await getTranslations();
 
 	return (
 		<main style={{ overflow: "hidden" }}>
