@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
+import Faqs from "@/components/Faqs/Faqs"; // NEW
 import "./styles.scss";
 
 const PAGE = "audio";
@@ -53,54 +54,95 @@ export default async function Audio({
 			<HeroParallax
 				heading={t("audio.title")}
 				subheading={t("audio.subtitle")}
+				// TODO: hotlinked Bowers & Wilkins image — replace with your own photo in /public
 				imgSrc="https://www.bowerswilkins.com/on/demandware.static/-/Sites-master-catalog-soundunited/default/dw0b413071/bowers/Rich-Content/bandw_formationbar_be_desktop.jpg"
-				secondaryBtnTxt="Explore Audio Solutions"
-				currentPage="Audio"
+				secondaryBtnTxt={t("audio.exploreBtn")}
+				imgAlt={t("audio.imgAlt")}
+				currentPage={t("audio.heading")}
 				locale={locale}
 			/>
 			<section className="technology-section" id="section">
-				<h2 className="section__title">| Soothing sounds</h2>
+				<h2 className="section__title">{t("audio.intro.heading")}</h2>
+				{(t.raw("audio.intro.paragraphs") as string[]).map((p, i) => (
+					<p key={i}>{p}</p>
+				))}
+			</section>
+			<section className="technology-section">
+				<h2 className="section__title">{t("audio.section1.heading")}</h2>
 				<div className="technology-section-container">
-					<p>
-						With a Crestron audio system, every room of your home can be filled
-						with the sounds of nature. This can help reduce anxiety, blood
-						pressure, and pain, as well as improve focus and promote restorative
-						sleep.
-					</p>
+					<div>
+						{(t.raw("audio.section1.paragraphs") as string[]).map((p, i) => (
+							<p key={i}>{p}</p>
+						))}
+					</div>
 					<img
 						style={{
 							borderRadius: 10,
 						}}
-						src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-audio-hero.jpg"
-						alt=""
+						src="/audio/01.png"
+						alt={t("audio.section1.imgAlt")}
 					/>
 				</div>
 			</section>
 			<section className="technology-section">
-				<h2 className="section__title">
-					Listen passively or take control of your musical experience.
-				</h2>
-				<div
-					style={{
-						display: "grid",
-						gridTemplateColumns: "repeat(1, 1fr)",
-						gap: 20,
-					}}
-				>
+				<h2 className="section__title">{t("audio.section2.heading")}</h2>
+				{(t.raw("audio.section2.paragraphs") as string[]).map((p, i) => (
+					<p key={i}>{p}</p>
+				))}
+			</section>
+			<section className="technology-section">
+				<h2 className="section__title">{t("audio.section3.heading")}</h2>
+				{(t.raw("audio.section3.paragraphs") as string[]).map((p, i) => (
+					<p key={i}>{p}</p>
+				))}
+			</section>
+			<section className="technology-section">
+				<h2 className="section__title">{t("audio.section4.heading")}</h2>
+				<div className="technology-section-container">
 					<img
 						style={{
 							borderRadius: 10,
 						}}
-						src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-audio-sonos.jpg"
-						alt=""
+						src="/audio/02.png"
+						alt={t("audio.section4.imgAlt")}
 					/>
-					<p>
-						If you have Sonos® devices, you can access and control your system
-						within Crestron Home. For power-users, the full Sonos S2 app can run
-						natively on our touch screens.
-					</p>
+					<div>
+						{(t.raw("audio.section4.paragraphs") as string[]).map((p, i) => (
+							<p key={i}>{p}</p>
+						))}
+					</div>
 				</div>
 			</section>
+			<section className="technology-section">
+				<h2 className="section__title">{t("audio.section5.heading")}</h2>
+				{(t.raw("audio.section5.paragraphs") as string[]).map((p, i) => (
+					<p key={i}>{p}</p>
+				))}
+			</section>
+			<section className="technology-section">
+				<h2 className="section__title">{t("audio.section6.heading")}</h2>
+				<p>{t("audio.section6.intro")}</p>
+				{(
+					t.raw("audio.section6.items") as { name: string; text: string }[]
+				).map((item) => (
+					<div key={item.name}>
+						<h3>{item.name}</h3>
+						<p>{item.text}</p>
+					</div>
+				))}
+			</section>
+			<section className="technology-section">
+				<h2 className="section__title">{t("audio.section7.heading")}</h2>
+				<ol>
+					{[1, 2, 3, 4, 5, 6].map((n) => (
+						<li key={n}>
+							<h3>{t(`audio.section7.item${n}.title`)}</h3>
+							<p>{t(`audio.section7.item${n}.description`)}</p>
+						</li>
+					))}
+				</ol>
+			</section>
+			<Faqs faqs="audio.faqs" />
 			<ContactUsBanner />
 		</main>
 	);

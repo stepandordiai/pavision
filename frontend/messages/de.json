@@ -553,8 +553,139 @@
 			"description": "Multiroom-Audio, HiFi und Deckenlautsprecher für Villen und Häuser. Sonos, Denon, Marantz, Bowers & Wilkins. Planung und Installation."
 		},
 		"heading": "Audio",
-		"title": "Multiroom-Audio und Beschallung für Ihr Zuhause",
-		"subtitle": "Professionelle Planung und Installation hochwertiger Audiosysteme, mit Musik in jedem Raum und eingebunden in Ihr Smart Home."
+		"title": "Multiroom-Audio und Beschallung für das ganze Haus",
+		"subtitle": "Wir planen und installieren Multiroom-Audio, HiFi und Lautsprecher, die unsichtbar in Decken und Wänden verschwinden. Musik in jedem Raum und auf der Terrasse, bedient per Smartphone, Taster oder Touchpanel.",
+		"exploreBtn": "So funktioniert die Hausbeschallung",
+		"imgAlt": "Wohnzimmer mit unsichtbaren Deckenlautsprechern und Multiroom-Audio",
+
+		"intro": {
+			"heading": "Musik in jedem Raum",
+			"paragraphs": [
+				"Multiroom-Audio bringt Musik ins ganze Haus: in der Küche das Radio, im Wohnzimmer eine Playlist und im Bad ein Podcast, oder dieselbe Musik überall gleichzeitig, wenn Gäste da sind.",
+				"Die Lautsprecher verschwinden in Decken und Wänden, die Verstärker im Technikraum, und Sie bedienen alles aus einer App. Sie sehen keine Technik, Sie hören nur Musik."
+			]
+		},
+
+		"section1": {
+			"heading": "Multiroom-Audio für das ganze Haus",
+			"paragraphs": [
+				"Jeder Raum ist eine eigene Zone mit eigener Lautstärke und Quelle. Starten Sie die Musik in der Küche und nehmen Sie Wohnzimmer und Terrasse mit einem Fingertipp dazu, oder lassen Sie jeden hören, was er möchte.",
+				"Alle gängigen Dienste funktionieren, etwa Spotify, Apple Music, Internetradio und AirPlay. Für kleinere Häuser reicht oft Sonos, für große Villen planen wir zentrale Verstärker im Rack."
+			],
+			"imgAlt": "Multiroom-Audio, per Smartphone in mehreren Räumen gesteuert"
+		},
+
+		"section2": {
+			"heading": "Unsichtbare Lautsprecher",
+			"paragraphs": [
+				"Einbaulautsprecher in Decke oder Wand verschwinden im Interieur. Die Abdeckungen lassen sich in Wandfarbe streichen, manche Modelle sogar komplett überputzen, sodass Sie sie gar nicht mehr sehen.",
+				"Wir arbeiten mit Lautsprechern von Bowers & Wilkins und weiteren Premium-Marken. Die Positionen planen wir nach Raumform und Möblierung, damit der Klang im ganzen Raum gleichmäßig ist und nicht nur direkt unter dem Lautsprecher."
+			],
+			"imgAlt": "Einbau-Deckenlautsprecher in einem modernen Interieur"
+		},
+
+		"section3": {
+			"heading": "HiFi für anspruchsvolles Hören",
+			"paragraphs": [
+				"Für einen Hörraum oder das Wohnzimmer planen wir eine Stereoanlage mit Verstärker von Denon oder Marantz und Standlautsprechern. Neben Streaming schließen wir auch Plattenspieler oder CD-Player an.",
+				"Die HiFi-Anlage verbinden wir mit der übrigen Beschallung, sodass dieselbe Musik auch in anderen Räumen laufen kann."
+			],
+			"imgAlt": "HiFi-Anlage mit Standlautsprechern im Wohnzimmer"
+		},
+
+		"section4": {
+			"heading": "Bedienung und Einbindung ins Smart Home",
+			"paragraphs": [
+				"Musik steuern Sie per App, über einen Designtaster an der Wand oder ein Touchpanel. Mit Crestron oder Loxone wird die Beschallung Teil Ihrer Szenen: Morgens weckt Sie leise Musik, beim Klingeln wird die Musik leiser, und die Szene „Abwesend“ schaltet den Ton im ganzen Haus aus.",
+				"Sonos lässt sich direkt über Crestron-Touchpanels bedienen, Sie brauchen also keine weitere App."
+			],
+			"imgAlt": "Touchpanel mit Musiksteuerung für einzelne Räume"
+		},
+
+		"section5": {
+			"heading": "Beschallung für Terrasse und Garten",
+			"paragraphs": [
+				"Wetterfeste Außenlautsprecher bringen Ihre Musik auf die Terrasse, an den Pool oder in den Garten. Wir richten sie so ein, dass sie bei Ihnen gut klingen, ohne die Nachbarn zu stören, und Sie bedienen sie wie die Beschallung im Haus."
+			]
+		},
+
+		"section6": {
+			"heading": "Marken, mit denen wir arbeiten",
+			"intro": "Wir wählen die Ausstattung nach Hausgröße, Klangansprüchen und Budget.",
+			"items": [
+				{
+					"name": "Sonos",
+					"text": "Einfaches, zuverlässiges Multiroom-Audio mit allen Streamingdiensten. Ideal für Einfamilienhäuser und Wohnungen und auch über Crestron-Panels bedienbar."
+				},
+				{
+					"name": "Bowers & Wilkins",
+					"text": "Premium-Lautsprecher, auch als Einbaumodelle für Decke und Wand und als Außenlautsprecher. Für alle, die erstklassigen Klang ohne sichtbare Technik möchten."
+				},
+				{
+					"name": "Denon und Marantz",
+					"text": "Verstärker und AV-Receiver für HiFi und Heimkino, mit Streaming- und Multiroom-Unterstützung."
+				},
+				{
+					"name": "Crestron",
+					"text": "Zentrale Multiroom-Verstärker für große Villen und Musiksteuerung als Teil des gesamten Smart Homes, mit Szenen und Touchpanels."
+				}
+			]
+		},
+
+		"section7": {
+			"heading": "So läuft ein Projekt ab",
+			"item1": {
+				"title": "Beratung",
+				"description": "Wir klären, in welchen Räumen Sie Musik möchten und wie Sie hören."
+			},
+			"item2": {
+				"title": "Planung",
+				"description": "Zonen, Lautsprecheranordnung, Verstärker und Budget."
+			},
+			"item3": {
+				"title": "Installation",
+				"description": "Verkabelung, Montage der Lautsprecher und Abstimmung mit der Bauleitung."
+			},
+			"item4": {
+				"title": "Programmierung",
+				"description": "Zonen, Bedienung per App und Panels sowie Verknüpfung mit Ihren Szenen."
+			},
+			"item5": {
+				"title": "Klangabstimmung",
+				"description": "Lautstärke und Klang in jeder Zone passend zum Raum einstellen."
+			},
+			"item6": {
+				"title": "Übergabe und Service",
+				"description": "Einweisung, Dokumentation und langfristiger Support."
+			}
+		},
+
+		"faqs": [
+			{
+				"q": "Kann ich in jedem Raum etwas anderes hören?",
+				"a": "Ja. Jeder Raum ist eine eigene Zone mit eigener Lautstärke und Quelle. Zonen lassen sich jederzeit zusammenfassen, um dieselbe Musik im ganzen Haus zu hören."
+			},
+			{
+				"q": "Funktionieren Spotify, Apple Music und andere Dienste?",
+				"a": "Ja. Multiroom-Systeme unterstützen die gängigen Streamingdienste, Internetradio und AirPlay. Sie starten die Musik direkt aus der App, die Sie bereits kennen."
+			},
+			{
+				"q": "Lassen sich die Lautsprecher komplett verstecken?",
+				"a": "Ja. Einbaulautsprecher für Decke und Wand haben Abdeckungen, die sich in Wandfarbe streichen lassen, und manche Modelle können vollständig überputzt werden. Im Interieur sind sie dann nicht zu sehen."
+			},
+			{
+				"q": "Lässt sich die Beschallung in einem bestehenden Haus nachrüsten?",
+				"a": "Ja. In bestehenden Häusern setzen wir oft kabellose Lautsprecher wie Sonos ein oder Deckenlautsprecher in Gipskartondecken. Die meisten Möglichkeiten haben Sie, wenn die Beschallung bei Neubau oder Renovierung mitgeplant wird."
+			},
+			{
+				"q": "Ist Sonos oder ein zentrales System besser?",
+				"a": "Sonos ist einfach und preiswert, ideal für Einfamilienhäuser. Zentrale Verstärker im Rack passen zu großen Villen mit vielen Zonen und im ganzen Haus verbauten Lautsprechern. Wir empfehlen nach Hausgröße und Ihren Ansprüchen."
+			},
+			{
+				"q": "Was kostet eine Hausbeschallung?",
+				"a": "Das hängt von der Anzahl der Zonen, der Art der Lautsprecher und Verstärker und davon ab, ob Sie auch Außenbeschallung oder einen HiFi-Raum wünschen. Nach einer kostenlosen Erstberatung erstellen wir eine Planung und ein unverbindliches Budget."
+			}
+		]
 	},
 
 	"shades": {

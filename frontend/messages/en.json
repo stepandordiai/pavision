@@ -553,8 +553,139 @@
 			"description": "Multiroom audio, Hi-Fi and in-ceiling speakers for villas and homes. Sonos, Denon, Marantz, Bowers & Wilkins. Design and installation."
 		},
 		"heading": "Audio",
-		"title": "Smart Home Audio & Multi-Room Sound Systems",
-		"subtitle": "Professional design and installation of premium audio systems, distributed music, and seamless smart home integration for every room."
+		"title": "Multiroom audio and whole-home sound",
+		"subtitle": "We design and install multiroom audio, Hi-Fi and speakers hidden in ceilings and walls. Music in every room and out on the terrace, controlled from your phone, a keypad or a touch panel.",
+		"exploreBtn": "How whole-home audio works",
+		"imgAlt": "Living room with hidden in-ceiling speakers and multiroom audio",
+
+		"intro": {
+			"heading": "Music in every room",
+			"paragraphs": [
+				"Multiroom audio brings music to the whole house: the radio in the kitchen, a playlist in the living room and a podcast in the bathroom, or the same music everywhere at once when you have guests.",
+				"We hide the speakers in ceilings and walls and the amplifiers in the technical room, and you control everything from one app. You don't see the equipment, you just hear the music."
+			]
+		},
+
+		"section1": {
+			"heading": "Multiroom audio for the whole house",
+			"paragraphs": [
+				"Every room is its own zone with its own volume and source. Start music in the kitchen and add the living room and terrace with one tap, or let everyone listen to their own thing.",
+				"All the usual services work, such as Spotify, Apple Music, internet radio and AirPlay. Sonos is often enough for smaller homes; for large villas we design central amplifiers in the rack."
+			],
+			"imgAlt": "Multiroom audio controlled from a phone across several rooms"
+		},
+
+		"section2": {
+			"heading": "Invisible speakers",
+			"paragraphs": [
+				"In-ceiling and in-wall speakers disappear into the interior. The grilles can be painted to match the wall, and some models can be plastered over completely so you don't see them at all.",
+				"We work with Bowers & Wilkins and other premium brands. We plan speaker placement around the room's shape and furniture, so the sound is even across the whole space, not just under the speaker."
+			],
+			"imgAlt": "In-ceiling speaker in a modern interior"
+		},
+
+		"section3": {
+			"heading": "Hi-Fi for serious listening",
+			"paragraphs": [
+				"For a listening room or living room, we design a stereo system with a Denon or Marantz amplifier and floor-standing speakers. Besides streaming, we connect a turntable or CD player too.",
+				"We link the Hi-Fi system with the rest of your audio, so the same music can also play in other rooms."
+			],
+			"imgAlt": "Hi-Fi system with floor-standing speakers in a living room"
+		},
+
+		"section4": {
+			"heading": "Control and smart home integration",
+			"paragraphs": [
+				"You control music from the app, a designer wall keypad or a touch panel. Connected to Crestron or Loxone, audio becomes part of your scenes: soft music wakes you in the morning, the music dims when the doorbell rings, and the \"Away\" scene turns off sound throughout the house.",
+				"Sonos can be controlled straight from Crestron touch panels, so you don't need another app."
+			],
+			"imgAlt": "Touch panel with music controls for individual rooms"
+		},
+
+		"section5": {
+			"heading": "Sound for the terrace and garden",
+			"paragraphs": [
+				"Weatherproof outdoor speakers extend your music to the terrace, the pool or the garden. We set them up to sound great where you are without disturbing the neighbours, and you control them just like the audio inside."
+			]
+		},
+
+		"section6": {
+			"heading": "Brands we work with",
+			"intro": "We choose the setup based on the size of your home, your expectations for sound and your budget.",
+			"items": [
+				{
+					"name": "Sonos",
+					"text": "Simple, reliable multiroom audio that supports all streaming services. Ideal for family homes and apartments, and controllable from Crestron panels too."
+				},
+				{
+					"name": "Bowers & Wilkins",
+					"text": "Premium speakers, including in-ceiling, in-wall and outdoor models. For those who want top-class sound with no visible equipment."
+				},
+				{
+					"name": "Denon and Marantz",
+					"text": "Amplifiers and AV receivers for Hi-Fi listening and home cinema, with streaming and multiroom support."
+				},
+				{
+					"name": "Crestron",
+					"text": "Central multiroom amplifiers for large villas, with music control as part of the whole smart home, including scenes and touch panels."
+				}
+			]
+		},
+
+		"section7": {
+			"heading": "How the project works",
+			"item1": {
+				"title": "Consultation",
+				"description": "We find out which rooms you want music in and how you listen."
+			},
+			"item2": {
+				"title": "Design",
+				"description": "Zones, speaker layout, amplifiers and budget."
+			},
+			"item3": {
+				"title": "Installation",
+				"description": "Cabling, fitting the speakers and coordination with the builder."
+			},
+			"item4": {
+				"title": "Programming",
+				"description": "Zones, control from the app and panels, and links to your scenes."
+			},
+			"item5": {
+				"title": "Sound tuning",
+				"description": "Adjusting volume and sound in every zone to suit the room."
+			},
+			"item6": {
+				"title": "Handover and service",
+				"description": "Training, documentation and long-term support."
+			}
+		},
+
+		"faqs": [
+			{
+				"q": "Can I listen to something different in every room?",
+				"a": "Yes. Every room is its own zone with its own volume and source. You can group zones at any time to play the same music throughout the house."
+			},
+			{
+				"q": "Will Spotify, Apple Music and other services work?",
+				"a": "Yes. Multiroom systems support the usual streaming services, internet radio and AirPlay. You play music straight from the app you already know."
+			},
+			{
+				"q": "Can the speakers be completely hidden?",
+				"a": "Yes. In-ceiling and in-wall speakers have grilles that can be painted to match the wall, and some models can be plastered over completely. The speakers are then invisible in the interior."
+			},
+			{
+				"q": "Can audio be added to an existing house?",
+				"a": "Yes. In finished homes we often use wireless speakers such as Sonos, or in-ceiling speakers in plasterboard ceilings. You have the most options when audio is planned during construction or renovation."
+			},
+			{
+				"q": "Is Sonos or a central system better?",
+				"a": "Sonos is simple and affordable, ideal for family homes. Central amplifiers in a rack suit large villas with many zones and speakers hidden throughout the house. We recommend based on the size of your home and your expectations."
+			},
+			{
+				"q": "How much does whole-home audio cost?",
+				"a": "It depends on the number of zones, the type of speakers and amplifiers, and whether you also want outdoor audio or a Hi-Fi room. After a free initial consultation, we prepare a design and an indicative budget."
+			}
+		]
 	},
 
 	"shades": {

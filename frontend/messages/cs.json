@@ -1078,8 +1078,139 @@
 			"description": "Multiroom ozvučení, Hi-Fi a stropní reproduktory pro vily a domy. Sonos, Denon, Marantz, Bowers & Wilkins. Návrh a instalace. Domluvte konzultaci."
 		},
 		"heading": "Audio",
-		"title": "Chytré domácí audio systémy a multiroom ozvučení",
-		"subtitle": "Profesionální návrh a instalace prémiových audio systémů, multiroom ozvučení a bezproblémová integrace do chytré domácnosti pro dokonalý zvuk v každé místnosti."
+		"title": "Multiroom audio a ozvučení domu",
+		"subtitle": "Navrhujeme a instalujeme multiroom ozvučení, Hi-Fi a reproduktory skryté ve stropech a stěnách. Hudba v každé místnosti i na terase, ovládaná z telefonu, klávesnice nebo dotykového panelu.",
+		"exploreBtn": "Jak funguje ozvučení domu",
+		"imgAlt": "Obývací pokoj se skrytými stropními reproduktory a multiroom audiem",
+
+		"intro": {
+			"heading": "Hudba v každé místnosti",
+			"paragraphs": [
+				"Multiroom audio rozvede hudbu do celého domu: v kuchyni hraje rádio, v obýváku playlist a v koupelně podcast, nebo stejná hudba všude najednou, když máte hosty.",
+				"Reproduktory schováme do stropů a stěn, zesilovače do technické místnosti a vše ovládáte z jedné aplikace. V interiéru tak nevidíte techniku, jen slyšíte hudbu."
+			]
+		},
+
+		"section1": {
+			"heading": "Multiroom ozvučení celého domu",
+			"paragraphs": [
+				"Každá místnost je samostatná zóna s vlastní hlasitostí a vlastním zdrojem. Hudbu spustíte v kuchyni a jedním dotykem ji přidáte do obýváku a na terasu, nebo necháte každého poslouchat to své.",
+				"Fungují všechny běžné služby, například Spotify, Apple Music, internetová rádia nebo AirPlay. Pro menší domy často stačí Sonos, pro rozsáhlé vily navrhujeme centrální zesilovače v racku."
+			],
+			"imgAlt": "Multiroom audio ovládané z telefonu v několika místnostech"
+		},
+
+		"section2": {
+			"heading": "Neviditelné reproduktory",
+			"paragraphs": [
+				"Zapuštěné reproduktory do stropu nebo stěny zmizí v interiéru. Mřížky lze přetřít barvou stěny a některé modely se dají omítnout úplně, takže je nevidíte vůbec.",
+				"Pracujeme s reproduktory Bowers & Wilkins a dalšími prémiovými značkami. Rozmístění plánujeme podle tvaru místnosti a nábytku, aby zvuk zněl rovnoměrně v celém prostoru, ne jen pod reproduktorem."
+			],
+			"imgAlt": "Zapuštěný stropní reproduktor v moderním interiéru"
+		},
+
+		"section3": {
+			"heading": "Hi-Fi pro náročný poslech",
+			"paragraphs": [
+				"Pro poslechovou místnost nebo obývák navrhneme stereo sestavu se zesilovačem Denon nebo Marantz a sloupovými reproduktory. Kromě streamování připojíme i gramofon nebo CD přehrávač.",
+				"Hi-Fi sestavu propojíme s ostatním ozvučením, takže stejnou hudbu můžete pustit i do dalších místností."
+			],
+			"imgAlt": "Hi-Fi sestava se sloupovými reproduktory v obývacím pokoji"
+		},
+
+		"section4": {
+			"heading": "Ovládání a propojení s chytrou domácností",
+			"paragraphs": [
+				"Hudbu ovládáte z aplikace, designové klávesnice na stěně nebo dotykového panelu. Při propojení s Crestronem nebo Loxonem se ozvučení stane součástí scén: ráno vás vzbudí tichá hudba, při zazvonění se hudba ztlumí a scéna „Odchod“ vypne zvuk v celém domě.",
+				"Sonos lze ovládat přímo z dotykových panelů Crestron, takže nepotřebujete další aplikaci."
+			],
+			"imgAlt": "Dotykový panel s ovládáním hudby v jednotlivých místnostech"
+		},
+
+		"section5": {
+			"heading": "Ozvučení terasy a zahrady",
+			"paragraphs": [
+				"Venkovní reproduktory odolné vůči počasí rozšíří hudbu na terasu, k bazénu nebo do zahrady. Nastavíme je tak, aby zněly příjemně u vás a nerušily sousedy, a ovládáte je stejně jako ozvučení v domě."
+			]
+		},
+
+		"section6": {
+			"heading": "Značky, se kterými pracujeme",
+			"intro": "Sestavu vybíráme podle velikosti domu, nároků na zvuk a rozpočtu.",
+			"items": [
+				{
+					"name": "Sonos",
+					"text": "Jednoduché a spolehlivé multiroom audio s podporou všech streamovacích služeb. Ideální pro rodinné domy a byty, ovladatelné i z panelů Crestron."
+				},
+				{
+					"name": "Bowers & Wilkins",
+					"text": "Prémiové reproduktory, včetně zapuštěných modelů do stropu a stěn a venkovních reproduktorů. Pro ty, kdo chtějí špičkový zvuk bez viditelné techniky."
+				},
+				{
+					"name": "Denon a Marantz",
+					"text": "Zesilovače a AV receivery pro Hi-Fi poslech a domácí kino, s podporou streamování a multiroom."
+				},
+				{
+					"name": "Crestron",
+					"text": "Centrální multiroom zesilovače pro rozsáhlé vily a ovládání hudby v rámci celé chytré domácnosti, včetně scén a dotykových panelů."
+				}
+			]
+		},
+
+		"section7": {
+			"heading": "Jak probíhá realizace",
+			"item1": {
+				"title": "Konzultace",
+				"description": "Zjistíme, v kterých místnostech chcete hudbu a jak ji posloucháte."
+			},
+			"item2": {
+				"title": "Návrh",
+				"description": "Zóny, rozmístění reproduktorů, zesilovače a rozpočet."
+			},
+			"item3": {
+				"title": "Instalace",
+				"description": "Kabeláž, montáž reproduktorů a koordinace se stavbou."
+			},
+			"item4": {
+				"title": "Programování",
+				"description": "Zóny, ovládání z aplikace a panelů a propojení se scénami."
+			},
+			"item5": {
+				"title": "Nastavení zvuku",
+				"description": "Ladění hlasitosti a zvuku v každé zóně podle místnosti."
+			},
+			"item6": {
+				"title": "Předání a servis",
+				"description": "Zaškolení, dokumentace a dlouhodobá podpora."
+			}
+		},
+
+		"faqs": [
+			{
+				"q": "Mohu v každé místnosti poslouchat něco jiného?",
+				"a": "Ano. Každá místnost je samostatná zóna s vlastní hlasitostí a zdrojem. Kdykoli můžete zóny spojit a pustit stejnou hudbu v celém domě."
+			},
+			{
+				"q": "Bude fungovat Spotify, Apple Music a další služby?",
+				"a": "Ano. Multiroom systémy podporují běžné streamovací služby, internetová rádia i AirPlay. Hudbu pouštíte přímo z aplikace, kterou už znáte."
+			},
+			{
+				"q": "Lze reproduktory úplně schovat?",
+				"a": "Ano. Zapuštěné reproduktory do stropu a stěn mají mřížky, které lze přetřít barvou stěny, a některé modely se dají zcela omítnout. V interiéru pak reproduktory nejsou vidět."
+			},
+			{
+				"q": "Lze ozvučení doplnit do hotového domu?",
+				"a": "Ano. V hotových domech často využíváme bezdrátové reproduktory, například Sonos, nebo stropní reproduktory do sádrokartonových podhledů. Nejvíc možností je při plánování během stavby nebo rekonstrukce."
+			},
+			{
+				"q": "Je Sonos, nebo centrální systém lepší?",
+				"a": "Sonos je jednoduchý a cenově dostupný, ideální pro rodinné domy. Centrální zesilovače v racku se hodí pro velké vily s mnoha zónami a reproduktory skrytými v celém domě. Doporučíme podle velikosti domu a vašich nároků."
+			},
+			{
+				"q": "Kolik stojí ozvučení domu?",
+				"a": "Záleží na počtu zón, typu reproduktorů a zesilovačů a na tom, zda chcete i venkovní ozvučení nebo Hi-Fi místnost. Po úvodní konzultaci, která je zdarma, připravíme návrh a orientační rozpočet."
+			}
+		]
 	},
 
 	"shades": {
