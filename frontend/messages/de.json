@@ -967,12 +967,144 @@
 
 	"security": {
 		"meta": {
-			"title": "Smart Home Sicherheit | Alarmanlagen & Kameras",
-			"description": "Sicherheit für Villen und Häuser: Alarmanlagen von Jablotron, Paradox und Risco, Ubiquiti-Kameras und Zutrittskontrolle in einem System."
+			"title": "Alarmanlage & Videoüberwachung für Ihr Haus",
+			"description": "Sicherheit für Haus und Villa: Alarmanlagen von Jablotron, Paradox und Risco, Ubiquiti-Kameras und Zutritt in einem System. Planung und Installation."
 		},
 		"heading": "Sicherheit",
-		"title": "Smarte Sicherheitstechnik",
-		"subtitle": "Alarmanlage, Kameras und Sensoren in einem System, mit Benachrichtigungen und Kontrolle von überall."
+		"title": "Sicherheit für Haus und Villa: Alarmanlage, Kameras und Melder in einem System",
+		"subtitle": "Wir planen und installieren Alarmanlagen, Kameras und Gefahrenmelder, verbunden mit Licht, Beschattung und Zutritt, damit Sie Ihr Haus von überall im Blick haben.",
+		"exploreBtn": "So funktioniert smarte Sicherheit",
+		"imgAlt": "Moderne Villa mit Videoüberwachung und Außenbeleuchtung",
+
+		"intro": {
+			"heading": "Sicherheit als Teil des Hauses, nicht als Zusatz",
+			"paragraphs": [
+				"Alarmanlage, Kameras und Melder funktionieren am besten, wenn sie nicht jeder für sich arbeiten. Verbunden mit Licht, Beschattung und Zutritt reagieren sie auf das, was passiert, und Sie sehen den Zustand des Hauses an einem Ort.",
+				"Wenn Sie gehen, schalten Sie mit einem Tastendruck die Alarmanlage scharf, das Licht aus und schließen die Beschattung. Passiert etwas, bekommen Sie eine Benachrichtigung aufs Smartphone und sehen sofort das Kamerabild."
+			],
+			"imgAlt": "Bedienteil der Alarmanlage am Hauseingang"
+		},
+
+		"section1": {
+			"heading": "Alarmanlagen von Jablotron, Paradox und Risco",
+			"paragraphs": [
+				"Wir planen die Position von Bewegungs-, Öffnungs- und Glasbruchmeldern so, dass das ganze Haus ohne tote Winkel überwacht wird. Wir teilen es in Bereiche auf, sodass Sie nachts das Erdgeschoss scharf schalten und sich oben frei bewegen können.",
+				"Die Anlage wird über Bedienteil, Funkschlüssel, App oder direkt über das Smart-Home-Panel bedient und kann auf die Notruf- und Serviceleitstelle eines Sicherheitsdienstes aufgeschaltet werden."
+			],
+			"imgAlt": "Bewegungsmelder der Alarmanlage im Innenraum"
+		},
+
+		"section2": {
+			"heading": "Videoüberwachung mit Livebild von überall",
+			"paragraphs": [
+				"Wir installieren Kamerasysteme Ubiquiti UniFi Protect mit Aufzeichnung direkt im Haus. Die Aufnahmen bleiben auf Ihrem eigenen Rekorder, nicht in einer fremden Cloud.",
+				"Livebilder sehen Sie auf dem Smartphone, auf Touchpanels und am Fernseher. PTZ-Kameras steuern Sie über das Panel, und die smarte Erkennung unterscheidet Mensch oder Auto von einem Ast im Wind."
+			],
+			"imgAlt": "Ubiquiti-Außenkamera an der Hausfassade"
+		},
+
+		"section3": {
+			"heading": "Ein Haus, das auf Alarm reagiert",
+			"paragraphs": [
+				"Bei einem Einbruch geht im Haus und im Garten das Licht an, die Beschattung öffnet sich, damit man hineinsehen kann, und Sie erhalten eine Benachrichtigung mit Kamerabild. Klingelt jemand, erscheint das Kamerabild automatisch auf dem Panel.",
+				"Während Ihrer Abwesenheit simuliert das System Anwesenheit, schaltet Licht und bewegt die Beschattung, sodass das Haus nie leer wirkt."
+			],
+			"imgAlt": "Touchpanel mit Sicherheitsstatus und Kamerabildern"
+		},
+
+		"section4": {
+			"heading": "Schutz vor Wasser, Feuer und Gas",
+			"paragraphs": [
+				"Sicherheit heißt nicht nur Schutz vor Einbrechern. Rauch-, Wasser- und Gasmelder überwachen das Haus rund um die Uhr. Bei einem Wasserschaden schließt das System selbst das Hauptventil, bei einem Brand beleuchtet es die Fluchtwege und öffnet die Beschattung.",
+				"Sie werden sofort benachrichtigt, wo immer Sie sind, und wissen, was passiert ist und wo."
+			],
+			"imgAlt": "Wassermelder neben der Waschmaschine im Hauswirtschaftsraum"
+		},
+
+		"section5": {
+			"heading": "Gemeinsam mit Architekten geplant",
+			"paragraphs": [
+				"Melder, Kameras und Verkabelung planen wir schon in der Entwurfsphase, damit sie unauffällig bleiben und alle wichtigen Stellen abdecken. Bei Sanierungen setzen wir Funkmelder ein, für die keine Wände aufgestemmt werden müssen."
+			]
+		},
+
+		"section6": {
+			"heading": "Systeme, mit denen wir arbeiten",
+			"intro": "Wir wählen nach Größe des Hauses, Ihren Sicherheitsanforderungen und danach, was Sie zusätzlich verbinden möchten.",
+			"items": [
+				{
+					"name": "Jablotron",
+					"text": "Alarmsystem aus Tschechien mit der App MyJABLOTRON, Draht- und Funkmeldern und Aufschaltung auf eine Leitstelle."
+				},
+				{
+					"name": "Paradox und Risco",
+					"text": "Professionelle Alarmzentralen für größere Häuser und Villen, die wir mit Licht und Smart-Home-Steuerung verbinden."
+				},
+				{
+					"name": "Ubiquiti UniFi",
+					"text": "UniFi-Protect-Kameras mit lokaler Aufzeichnung und smarter Erkennung, zusammen mit UniFi-Netzwerk und UniFi Access in einem Ökosystem."
+				},
+				{
+					"name": "Crestron und Loxone",
+					"text": "Ein Steuerungssystem, das Alarmanlage, Kameras, Licht und Beschattung zu Szenen verbindet und alles auf einem Panel oder in einer App zeigt."
+				}
+			]
+		},
+
+		"section7": {
+			"heading": "So läuft ein Projekt ab",
+			"item1": {
+				"title": "Beratung",
+				"description": "Wir gehen Haus, Grundstück und die Risiken durch, auf die Sie vorbereitet sein möchten."
+			},
+			"item2": {
+				"title": "Planung",
+				"description": "Position von Meldern und Kameras, Bereiche, Anbindung weiterer Systeme und Budget."
+			},
+			"item3": {
+				"title": "Installation",
+				"description": "Verkabelung und Montage, abgestimmt mit der Bauleitung."
+			},
+			"item4": {
+				"title": "Programmierung",
+				"description": "Bereiche, Szenen, Benachrichtigungen und Bedienung über Panels und Smartphone."
+			},
+			"item5": {
+				"title": "Test",
+				"description": "Prüfung aller Melder, Kameras, Sirenen und der Alarmübertragung."
+			},
+			"item6": {
+				"title": "Übergabe und Service",
+				"description": "Einweisung, Dokumentation und langfristiger Support."
+			}
+		},
+
+		"faqs": [
+			{
+				"q": "Kann die Alarmanlage auf eine Leitstelle aufgeschaltet werden?",
+				"a": "Ja. Wir schalten die Alarmanlage auf die Leitstelle eines Sicherheitsdienstes auf, der im Alarmfall die Lage prüft und einen Interventionsdienst schickt. Den Vertrag schließen Sie direkt mit dem Sicherheitsdienst."
+			},
+			{
+				"q": "Was passiert bei Strom- oder Internetausfall?",
+				"a": "Die Alarmzentrale hat einen Notstromakku und schützt das Haus auch ohne Strom. Alarme kann sie über ein GSM-Modul senden, sodass sie auch ohne Internet funktioniert."
+			},
+			{
+				"q": "Wo werden die Kameraaufnahmen gespeichert?",
+				"a": "Bei UniFi Protect werden die Aufnahmen auf einem Rekorder bei Ihnen zu Hause gespeichert. Zugriff haben nur Sie und die Personen, denen Sie ihn erlauben."
+			},
+			{
+				"q": "Lösen Hund oder Katze den Alarm aus?",
+				"a": "Wir verwenden tierimmune Bewegungsmelder und platzieren sie so, dass Haustiere keine Fehlalarme verursachen."
+			},
+			{
+				"q": "Lässt sich Sicherheitstechnik im bestehenden Haus nachrüsten?",
+				"a": "Ja. Im Bestand setzen wir Funkmelder und Kameras mit Stromversorgung über das Netzwerkkabel ein, sodass die Installation schnell und ohne große Bauarbeiten geht."
+			},
+			{
+				"q": "Was kostet die Sicherheitstechnik für ein Haus?",
+				"a": "Das hängt von der Größe des Hauses, der Anzahl der Melder und Kameras, dem gewählten System und davon ab, was wir zusätzlich verbinden. Nach einer kostenlosen Erstberatung erstellen wir eine Planung und ein unverbindliches Budget."
+			}
+		]
 	},
 
 	"aboutUs": {

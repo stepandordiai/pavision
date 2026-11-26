@@ -967,12 +967,144 @@
 
 	"security": {
 		"meta": {
-			"title": "Smart Home Security | Alarms & Cameras",
-			"description": "Home security for villas and homes: Jablotron, Paradox and Risco alarms, Ubiquiti cameras and access control in one system. Design and installation."
+			"title": "Home Security | Alarm Systems & Cameras",
+			"description": "Home and villa security: Jablotron, Paradox and Risco alarm systems, Ubiquiti cameras and access control in one system. Design and installation."
 		},
 		"heading": "Security",
-		"title": "Smart Security Automation",
-		"subtitle": "Automated protection with real-time monitoring, smart sensors, and seamless control—keeping your home safe anytime, anywhere."
+		"title": "Home and villa security: alarm, cameras and sensors in one system",
+		"subtitle": "We design and install alarm systems, cameras and safety sensors connected with lighting, shading and access control, so you have your home under control from anywhere.",
+		"exploreBtn": "How smart security works",
+		"imgAlt": "Modern villa with security cameras and outdoor lighting",
+
+		"intro": {
+			"heading": "Security as part of the house, not an add-on",
+			"paragraphs": [
+				"Alarms, cameras and sensors work best when they don't work alone. Connected with lighting, shading and access control, they respond to what's happening, and you see the status of the house in one place.",
+				"When you leave, one button arms the alarm, turns off the lights and closes the shading. When something happens, you get a notification on your phone and see the camera feed right away."
+			],
+			"imgAlt": "Alarm system keypad at the entrance of a house"
+		},
+
+		"section1": {
+			"heading": "Jablotron, Paradox and Risco alarm systems",
+			"paragraphs": [
+				"We plan the placement of motion, door and glass-break sensors so the whole house is covered without blind spots. We split it into zones, so you can arm the ground floor at night and move freely upstairs.",
+				"The system is controlled from a keypad, key fob, app or directly from the smart home panel, and it can be connected to a security company's monitoring centre."
+			],
+			"imgAlt": "Alarm system motion sensor in an interior"
+		},
+
+		"section2": {
+			"heading": "Camera system with live view anywhere",
+			"paragraphs": [
+				"We install Ubiquiti UniFi Protect camera systems with recording in the house. The footage stays on your own recorder, not in someone else's cloud.",
+				"See live camera feeds on your phone, touch panels and TV. Control PTZ cameras from a panel, and smart detection tells a person or a car apart from a branch in the wind."
+			],
+			"imgAlt": "Ubiquiti outdoor camera on the façade of a house"
+		},
+
+		"section3": {
+			"heading": "A house that responds to an alarm",
+			"paragraphs": [
+				"In case of a break-in, lights turn on inside and in the garden, the shading opens so the inside is visible, and you get a notification with the camera feed. When someone rings the doorbell, the camera image appears on the panel automatically.",
+				"While you're away, the system simulates presence by switching lights and moving the shading, so the house never looks empty."
+			],
+			"imgAlt": "Touch panel showing security status and camera feeds"
+		},
+
+		"section4": {
+			"heading": "Protection against water, fire and gas leaks",
+			"paragraphs": [
+				"Security isn't only about burglars. Smoke, flood and gas detectors watch the house around the clock. If water leaks, the system closes the main valve by itself; in case of fire, it lights the escape routes and opens the shading.",
+				"You get notified immediately wherever you are, and you know what happened and where."
+			],
+			"imgAlt": "Flood detector next to a washing machine in a utility room"
+		},
+
+		"section5": {
+			"heading": "Planned together with architects",
+			"paragraphs": [
+				"We plan sensors, cameras and cabling at the design stage so they stay discreet and cover every important spot. For renovations we use wireless sensors that don't require chasing walls."
+			]
+		},
+
+		"section6": {
+			"heading": "Systems we work with",
+			"intro": "We choose based on the size of the house, your security requirements and what else you want to connect.",
+			"items": [
+				{
+					"name": "Jablotron",
+					"text": "A Czech alarm system with the MyJABLOTRON app, wired and wireless sensors, and connection to a monitoring centre."
+				},
+				{
+					"name": "Paradox and Risco",
+					"text": "Professional alarm panels for larger homes and villas, which we connect with lighting and smart home control."
+				},
+				{
+					"name": "Ubiquiti UniFi",
+					"text": "UniFi Protect cameras with local recording and smart detection, together with UniFi networking and UniFi Access in one ecosystem."
+				},
+				{
+					"name": "Crestron and Loxone",
+					"text": "A control system that combines alarm, cameras, lighting and shading into scenes and shows everything on one panel or in one app."
+				}
+			]
+		},
+
+		"section7": {
+			"heading": "How the project works",
+			"item1": {
+				"title": "Consultation",
+				"description": "We go through the house, the property and the risks you want to prepare for."
+			},
+			"item2": {
+				"title": "Design",
+				"description": "Sensor and camera placement, zones, integration with other systems and budget."
+			},
+			"item3": {
+				"title": "Installation",
+				"description": "Cabling and fitting coordinated with the builder."
+			},
+			"item4": {
+				"title": "Programming",
+				"description": "Zones, scenes, notifications and control from panels and your phone."
+			},
+			"item5": {
+				"title": "Testing",
+				"description": "Checking every sensor, camera, siren and alarm transmission."
+			},
+			"item6": {
+				"title": "Handover and service",
+				"description": "Training, documentation and long-term support."
+			}
+		},
+
+		"faqs": [
+			{
+				"q": "Can the alarm be connected to a monitoring centre?",
+				"a": "Yes. We connect the alarm system to a security company's monitoring centre, which verifies the situation and dispatches a response unit when the alarm goes off. You sign the contract directly with the security company."
+			},
+			{
+				"q": "What happens during a power or internet outage?",
+				"a": "The alarm panel has a backup battery and keeps protecting the house without power. It can send alarms through a GSM communicator, so it works without internet too."
+			},
+			{
+				"q": "Where are camera recordings stored?",
+				"a": "With UniFi Protect, recordings are stored on a recorder in your home. Only you and the people you allow have access to them."
+			},
+			{
+				"q": "Will our dog or cat set off the alarm?",
+				"a": "We use pet-immune motion sensors and place them so animals don't cause false alarms."
+			},
+			{
+				"q": "Can security be added to an existing house?",
+				"a": "Yes. In existing houses we use wireless sensors and cameras powered over the network cable, so installation is quick and without major building work."
+			},
+			{
+				"q": "How much does home security cost?",
+				"a": "It depends on the size of the house, the number of sensors and cameras, the chosen system and what else we connect. After a free initial consultation, we prepare a design and an indicative budget."
+			}
+		]
 	},
 
 	"aboutUs": {

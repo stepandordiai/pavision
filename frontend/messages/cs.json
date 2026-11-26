@@ -1496,8 +1496,140 @@
 			"description": "Zabezpečení domu a vily: zabezpečovací systémy Jablotron, Paradox a Risco, kamery Ubiquiti a přístupy v jednom systému. Návrh a instalace."
 		},
 		"heading": "Zabezpečení",
-		"title": "Chytré zabezpečení domácnosti",
-		"subtitle": "Automatická ochrana s monitorováním v reálném čase, chytrými senzory a bezproblémovým ovládáním – váš domov v bezpečí kdykoli a odkudkoli."
+		"title": "Zabezpečení domu a vily: alarm, kamery a čidla v jednom systému",
+		"subtitle": "Navrhujeme a instalujeme zabezpečovací systémy, kamery a bezpečnostní čidla, propojené s osvětlením, stíněním a přístupy, abyste měli dům pod kontrolou odkudkoli.",
+		"exploreBtn": "Jak funguje chytré zabezpečení",
+		"imgAlt": "Moderní vila s kamerovým systémem a venkovním osvětlením",
+
+		"intro": {
+			"heading": "Zabezpečení jako součást domu, ne doplněk",
+			"paragraphs": [
+				"Alarm, kamery a čidla fungují nejlépe, když nejsou každý sám za sebe. Propojené s osvětlením, stíněním a přístupy reagují na to, co se děje, a vy vidíte stav domu na jednom místě.",
+				"Když odcházíte, jedním tlačítkem zapnete alarm, zhasnete a zavřete stínění. Když se něco stane, dostanete upozornění v telefonu a hned vidíte záběr z kamery."
+			],
+			"imgAlt": "Klávesnice zabezpečovacího systému u vstupu do domu"
+		},
+
+		"section1": {
+			"heading": "Zabezpečovací systémy Jablotron, Paradox a Risco",
+			"paragraphs": [
+				"Navrhneme rozmístění pohybových, magnetických a tříštivých čidel tak, aby byl hlídaný celý dům bez slepých míst. Rozdělíme ho do sekcí, takže můžete večer zastřežit přízemí a v patře se volně pohybovat.",
+				"Systém se ovládá z klávesnice, přívěsku, aplikace nebo přímo z panelu chytré domácnosti a lze ho připojit na pult centralizované ochrany bezpečnostní agentury."
+			],
+			"imgAlt": "Pohybové čidlo zabezpečovacího systému v interiéru"
+		},
+
+		"section2": {
+			"heading": "Kamerový systém s živým obrazem kdekoli",
+			"paragraphs": [
+				"Instalujeme kamerové systémy Ubiquiti UniFi Protect s nahráváním přímo v domě. Záznam zůstává ve vašem rekordéru, ne v cizím cloudu.",
+				"Živý obraz z kamer vidíte v telefonu, na dotykových panelech i na televizi. Otočné PTZ kamery ovládáte z panelu a chytrá detekce rozliší člověka nebo auto od větve ve větru."
+			],
+			"imgAlt": "Venkovní kamera Ubiquiti na fasádě domu"
+		},
+
+		"section3": {
+			"heading": "Dům, který na poplach reaguje",
+			"paragraphs": [
+				"Při narušení se rozsvítí světla v domě i na zahradě, otevře se stínění, aby bylo vidět dovnitř, a vám přijde upozornění se záběrem z kamery. Když někdo zazvoní, obraz z kamery se sám zobrazí na panelu.",
+				"Když jste pryč, systém simuluje přítomnost: rozsvěcí a zhasíná světla a pohybuje stíněním, takže dům nevypadá prázdný."
+			],
+			"imgAlt": "Dotykový panel se stavem zabezpečení a obrazem z kamer"
+		},
+
+		"section4": {
+			"heading": "Ochrana proti vodě, ohni a úniku plynu",
+			"paragraphs": [
+				"Zabezpečení není jen o zlodějích. Detektory kouře, zaplavení a plynu hlídají dům nonstop. Při úniku vody systém sám zavře hlavní ventil, při požáru rozsvítí únikové cesty a otevře stínění.",
+				"Upozornění dostanete okamžitě, ať jste kdekoli, a víte, co se stalo a kde."
+			],
+			"imgAlt": "Detektor zaplavení u pračky v technické místnosti"
+		},
+
+		"section5": {
+			"heading": "Plánujeme spolu s architekty",
+			"paragraphs": [
+				"Čidla, kamery a kabeláž plánujeme už ve fázi projektu, aby byly nenápadné a kryly všechna důležitá místa. Do rekonstrukcí volíme bezdrátová čidla, která nevyžadují sekání zdí."
+			]
+		},
+
+		"section6": {
+			"heading": "Systémy, se kterými pracujeme",
+			"intro": "Vybíráme podle velikosti domu, požadavků na zabezpečení a toho, co dalšího chcete propojit.",
+			"items": [
+				{
+					"name": "Jablotron",
+					"text": "Český zabezpečovací systém s aplikací MyJABLOTRON, drátovými i bezdrátovými čidly a možností připojení na pult centralizované ochrany."
+				},
+				{
+					"name": "Paradox a Risco",
+					"text": "Profesionální zabezpečovací ústředny pro větší domy a vily, které propojujeme s osvětlením a ovládáním chytré domácnosti."
+				},
+				{
+					"name": "Ubiquiti UniFi",
+					"text": "Kamery UniFi Protect s místním nahráváním a chytrou detekcí, spolu se sítí UniFi a přístupy UniFi Access v jednom ekosystému."
+				},
+				{
+					"name": "Crestron a Loxone",
+					"text": "Řídicí systém, který spojí alarm, kamery, osvětlení a stínění do scén a ukáže vše na jednom panelu nebo v jedné aplikaci."
+				}
+			]
+		},
+
+		"section7": {
+			"heading": "Jak probíhá realizace",
+			"item1": {
+				"title": "Konzultace",
+				"description": "Projdeme dům, pozemek a rizika, na která se chcete připravit."
+			},
+			"item2": {
+				"title": "Návrh",
+				"description": "Rozmístění čidel a kamer, sekce, napojení na další systémy a rozpočet."
+			},
+			"item3": {
+				"title": "Instalace",
+				"description": "Kabeláž a montáž ve spolupráci se stavbou."
+			},
+			"item4": {
+				"title": "Programování",
+				"description": "Sekce, scény, upozornění a ovládání z panelů i telefonu."
+			},
+			"item5": {
+				"title": "Testování",
+				"description": "Kontrola všech čidel, kamer, sirén a přenosu poplachů."
+			},
+			"item6": {
+				"title": "Předání a servis",
+				"description": "Zaškolení, dokumentace a dlouhodobá podpora."
+			}
+		},
+
+		"faqs": [
+			{
+				"q": "Lze alarm připojit na pult centralizované ochrany?",
+				"a": "Ano. Zabezpečovací systém připojíme na pult bezpečnostní agentury, která při poplachu ověří situaci a vyšle zásahovou jednotku. Smlouvu uzavíráte přímo s agenturou."
+			},
+			{
+				"q": "Co se stane při výpadku proudu nebo internetu?",
+				"a": "Ústředna má záložní akumulátor a hlídá dům i bez elektřiny. Poplach může odeslat přes GSM komunikátor, takže funguje i bez internetu."
+			},
+			{
+				"q": "Kde se ukládají záznamy z kamer?",
+				"a": "U systémů UniFi Protect se záznam ukládá do rekordéru přímo u vás doma. Přístup k němu máte jen vy a ti, kterým ho povolíte."
+			},
+			{
+				"q": "Nebude alarm spouštět náš pes nebo kočka?",
+				"a": "Používáme pohybová čidla odolná vůči domácím zvířatům a rozmístíme je tak, aby zvířata nezpůsobovala falešné poplachy."
+			},
+			{
+				"q": "Dá se zabezpečení doplnit do hotového domu?",
+				"a": "Ano. Do hotových domů používáme bezdrátová čidla a kamery napájené přes síťový kabel, takže instalace je rychlá a bez velkých zásahů."
+			},
+			{
+				"q": "Kolik stojí zabezpečení domu?",
+				"a": "Záleží na velikosti domu, počtu čidel a kamer, zvoleném systému a na tom, co dalšího propojujeme. Po úvodní konzultaci, která je zdarma, připravíme návrh a orientační rozpočet."
+			}
+		]
 	},
 
 	"ourSolutions": {

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
-import Faqs from "@/components/Faqs/Faqs"; // NEW
+import Faqs from "@/components/Faqs/Faqs";
 import "./styles.scss";
 
 const PAGE = "audio";
