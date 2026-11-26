@@ -105,7 +105,7 @@
 	},
 
 	"brands": {
-		"heading": "Špičkové značky pro chytrý domov"
+		"heading": "Systémy a značky, se kterými pracujeme"
 	},
 
 	"products": {
@@ -1219,8 +1219,139 @@
 			"description": "Chytré stínění pro vily a domy: motorické žaluzie, rolety, markýzy a plisé v jednom systému s osvětlením a klimatem. Návrh a instalace v celé ČR."
 		},
 		"heading": "Stínění",
-		"title": "Chytré stínění a žaluzie",
-		"subtitle": "Inteligentní motorické stínicí systémy navržené pro komfort, soukromí a bezproblémovou integraci do chytré domácnosti."
+		"title": "Chytré stínění a elektrické žaluzie pro vily a domy",
+		"subtitle": "Navrhujeme a instalujeme motorické žaluzie, rolety, markýzy a závěsy řízené automaticky podle slunce, větru a denní doby, propojené s osvětlením a vytápěním do jednoho systému.",
+		"exploreBtn": "Jak funguje chytré stínění",
+		"imgAlt": "Moderní obývací pokoj s motorickými žaluziemi a denním světlem",
+
+		"intro": {
+			"heading": "Světlo, teplo a soukromí pod kontrolou",
+			"paragraphs": [
+				"Stínění ovlivňuje víc než jen soukromí. Rozhoduje o tom, kolik světla a tepla jde do domu, jak moc se v létě přehřívají místnosti a jestli na televizi nebo monitor nesvítí slunce.",
+				"Chytré stínění tyto věci hlídá za vás. Žaluzie a rolety reagují na slunce, vítr a denní dobu, spolupracují s osvětlením a vytápěním a vy je ovládáte jedním tlačítkem, z panelu nebo z telefonu."
+			]
+		},
+
+		"section1": {
+			"heading": "Všechny typy stínění v jednom systému",
+			"paragraphs": [
+				"Propojíme venkovní žaluzie, rolety, screenové rolety, markýzy, pergoly, vnitřní plisé i motorické závěsy. Každé okno může mít jiný typ stínění, a přesto je ovládáte stejně.",
+				"Pro každou stavbu navrhujeme řešení na míru: jinak se stíní prosklená obývací stěna, jinak ložnice, kde je potřeba úplné zatemnění, a jinak terasa s markýzou."
+			],
+			"imgAlt": "Venkovní žaluzie a markýza na moderní vile"
+		},
+
+		"section2": {
+			"heading": "Automatika podle slunce, větru a teploty",
+			"paragraphs": [
+				"Meteostanice na střeše sleduje slunce, vítr a teplotu. V létě se žaluzie na osluněné straně domu natočí nebo stáhnou dřív, než se místnosti přehřejí, a v zimě naopak pustí slunce dovnitř, aby pomohlo s vytápěním.",
+				"Při silném větru se venkovní žaluzie a markýzy samy vytáhnou, aby se nepoškodily, i když nejste doma."
+			],
+			"imgAlt": "Meteostanice a automatické venkovní žaluzie"
+		},
+
+		"section3": {
+			"heading": "Scény a ovládání jedním stiskem",
+			"paragraphs": [
+				"Ráno se žaluzie v ložnici pomalu otevřou spolu se světlem, scéna „Kino“ zatemní obývák a „Dobrou noc“ zavře stínění v celém domě. Ovládáte jednotlivá okna, místnosti i celá patra, z klávesnice na stěně, dotykového panelu nebo telefonu.",
+				"Stínění můžete ovládat i na dálku, takže když odjíždíte na dovolenou, nemusíte obcházet všechna okna."
+			],
+			"imgAlt": "Dotykový panel s ovládáním žaluzií po místnostech"
+		},
+
+		"section4": {
+			"heading": "Stínění jako součást architektury",
+			"paragraphs": [
+				"Nejlepší stínění není vidět. Kastlíky, vodicí lišty a kolejnice závěsů schováme do fasády, podhledů nebo nik, takže v interiéru zůstávají čisté linie.",
+				"S architekty spolupracujeme už ve fázi návrhu, abychom správně naplánovali místo pro stínění, napájení i kabeláž. Tiché motory pak stínění ovládají tak, že o něm ani nevíte."
+			],
+			"imgAlt": "Skrytá kolejnice motorických závěsů v podhledu"
+		},
+
+		"section5": {
+			"heading": "Soukromí a bezpečí",
+			"paragraphs": [
+				"Večer se stínění zavře samo, aby nebylo vidět dovnitř. Když jste pryč, systém může stínění během dne otevírat a zavírat, jako byste byli doma, a dům tak nevypadá opuštěně."
+			]
+		},
+
+		"section6": {
+			"heading": "Systémy, se kterými pracujeme",
+			"intro": "Vybíráme podle typu stínění, velikosti domu a toho, co dalšího chcete propojit.",
+			"items": [
+				{
+					"name": "Lutron",
+					"text": "Specialista na stínění a osvětlení. Mimořádně tiché motory a přesné, synchronizované pojezdy, které se hodí pro luxusní interiéry a velké prosklené plochy."
+				},
+				{
+					"name": "Crestron",
+					"text": "Stínění jako součást celé chytré domácnosti. Scény se světlem, audiem a videem, automatika podle meteostanice a ovládání z dotykových panelů."
+				},
+				{
+					"name": "Loxone",
+					"text": "Cenově dostupnější řešení pro rodinné domy. Automatické stínění podle slunce a teploty, propojené s vytápěním a ovládané ze stejné aplikace jako zbytek domu."
+				},
+				{
+					"name": "Motory pro stínění",
+					"text": "Do systému zapojíme motory a pohony běžných výrobců venkovních žaluzií, rolet a markýz, takže si stínění můžete vybrat podle designu."
+				}
+			]
+		},
+
+		"section7": {
+			"heading": "Jak probíhá realizace",
+			"item1": {
+				"title": "Konzultace",
+				"description": "Projdeme okna, světové strany a to, co od stínění čekáte."
+			},
+			"item2": {
+				"title": "Návrh",
+				"description": "Typy stínění, motory, senzory, ovládání a rozpočet."
+			},
+			"item3": {
+				"title": "Instalace",
+				"description": "Kabeláž a montáž ve spolupráci se stavbou a dodavatelem stínění."
+			},
+			"item4": {
+				"title": "Programování",
+				"description": "Automatika podle slunce a větru, scény a ovládání z panelů i telefonu."
+			},
+			"item5": {
+				"title": "Testování",
+				"description": "Kontrola koncových poloh, synchronizace a ochrany proti větru."
+			},
+			"item6": {
+				"title": "Předání a servis",
+				"description": "Zaškolení, dokumentace a dlouhodobá podpora."
+			}
+		},
+
+		"faqs": [
+			{
+				"q": "Lze motorizovat stávající žaluzie nebo rolety?",
+				"a": "Často ano. Mnoho venkovních žaluzií, rolet a závěsových kolejnic lze dovybavit motorem. Zda to jde u vašeho stínění, ověříme na místě podle typu a stavu."
+			},
+			{
+				"q": "Co se stane při silném větru?",
+				"a": "Meteostanice měří rychlost větru a při překročení nastavené hodnoty se venkovní žaluzie a markýzy automaticky vytáhnou. Do té doby je nelze spustit, aby se nepoškodily."
+			},
+			{
+				"q": "Mohu stínění ovládat i ručně?",
+				"a": "Ano. Vedle automatiky máte vždy klávesnici na stěně, dotykový panel nebo telefon. Automatiku můžete kdykoli přerušit a pro jednotlivé místnosti ji i vypnout."
+			},
+			{
+				"q": "Pomůže chytré stínění proti přehřívání?",
+				"a": "Ano. Venkovní stínění zastavené ještě před sklem je proti přehřívání nejúčinnější. Automatika ho spouští podle slunce a teploty, takže funguje i ve chvíli, kdy nejste doma."
+			},
+			{
+				"q": "Jsou motory hlučné?",
+				"a": "Moderní motory, zvlášť u vnitřních závěsů a rolet, jsou velmi tiché. U ložnic a obývacích pokojů volíme modely, které neruší."
+			},
+			{
+				"q": "Kolik stojí chytré stínění?",
+				"a": "Záleží na počtu a velikosti oken, typu stínění, motorech a na tom, zda stínění propojujeme s dalšími systémy v domě. Po úvodní konzultaci, která je zdarma, připravíme návrh a orientační rozpočet."
+			}
+		]
 	},
 
 	"thermostat": {

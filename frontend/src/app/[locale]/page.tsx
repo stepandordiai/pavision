@@ -11,6 +11,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import socials from "@/data/socials.json";
 import { BASE_URL } from "@/lib/constants";
 import "./Home.scss";
+import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
 
 export async function generateMetadata({
 	params,
@@ -136,6 +137,7 @@ export default async function Home({
 				<Testimonials />
 				<Technologies />
 				<Brands />
+				<ContactUsBanner />
 			</main>
 		</>
 	);

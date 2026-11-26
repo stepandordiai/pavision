@@ -68,13 +68,7 @@ export default async function CinemaAndVideo({
 			</section>
 			<section className="section">
 				<h2 className="section__title">{t("video.section1.heading")}</h2>
-				<div
-					style={{
-						display: "grid",
-						gridTemplateColumns: "repeat(2, 1fr)",
-						gap: 40,
-					}}
-				>
+				<div className="technology-section-container">
 					<div>
 						{(t.raw("video.section1.paragraphs") as string[]).map((p, i) => (
 							<p key={i}>{p}</p>
@@ -97,13 +91,7 @@ export default async function CinemaAndVideo({
 			</section>
 			<section className="section">
 				<h2 className="section__title">{t("video.section3.heading")}</h2>
-				<div
-					style={{
-						display: "grid",
-						gridTemplateColumns: "repeat(2, 1fr)",
-						gap: 40,
-					}}
-				>
+				<div className="technology-section-container">
 					<img
 						style={{
 							borderRadius: 10,

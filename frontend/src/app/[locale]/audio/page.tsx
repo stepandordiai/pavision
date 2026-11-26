@@ -133,14 +133,32 @@ export default async function Audio({
 			</section>
 			<section className="technology-section">
 				<h2 className="section__title">{t("audio.section7.heading")}</h2>
-				<ol>
-					{[1, 2, 3, 4, 5, 6].map((n) => (
-						<li key={n}>
-							<h3>{t(`audio.section7.item${n}.title`)}</h3>
-							<p>{t(`audio.section7.item${n}.description`)}</p>
-						</li>
-					))}
-				</ol>
+				<div className="audio-flex-process">
+					<div>
+						<h3>{t("audio.section7.item1.title")}</h3>
+						<p>{t("audio.section7.item1.description")}</p>
+					</div>
+					<div>
+						<h3>{t("audio.section7.item2.title")}</h3>
+						<p>{t("audio.section7.item2.description")}</p>
+					</div>
+					<div>
+						<h3>{t("audio.section7.item3.title")}</h3>
+						<p>{t("audio.section7.item3.description")}</p>
+					</div>
+					<div>
+						<h3>{t("audio.section7.item4.title")}</h3>
+						<p>{t("audio.section7.item4.description")}</p>
+					</div>
+					<div>
+						<h3>{t("audio.section7.item5.title")}</h3>
+						<p>{t("audio.section7.item5.description")}</p>
+					</div>
+					<div>
+						<h3>{t("audio.section7.item6.title")}</h3>
+						<p>{t("audio.section7.item6.description")}</p>
+					</div>
+				</div>
 			</section>
 			<Faqs faqs="audio.faqs" />
 			<ContactUsBanner />

@@ -108,7 +108,7 @@
 	},
 
 	"brands": {
-		"heading": "Die Marken hinter smarteren Häusern"
+		"heading": "Systeme und Marken, mit denen wir arbeiten"
 	},
 
 	"products": {
@@ -694,8 +694,139 @@
 			"description": "Smarte Beschattung für Villen und Häuser: elektrische Jalousien, Rollos und Markisen in einem System mit Licht und Klima. Planung und Installation."
 		},
 		"heading": "Beschattung",
-		"title": "Smarte Beschattung und Jalousien",
-		"subtitle": "Motorisierte Beschattung für Komfort, Privatsphäre und ein angenehmes Raumklima, eingebunden in Ihr Smart Home."
+		"title": "Smarte Beschattung und elektrische Jalousien für Villen und Häuser",
+		"subtitle": "Wir planen und installieren motorisierte Raffstores, Rollos, Markisen und Vorhänge, die automatisch auf Sonne, Wind und Tageszeit reagieren und mit Licht und Heizung zu einem System verbunden sind.",
+		"exploreBtn": "So funktioniert smarte Beschattung",
+		"imgAlt": "Modernes Wohnzimmer mit motorisierten Jalousien und Tageslicht",
+
+		"intro": {
+			"heading": "Licht, Wärme und Privatsphäre im Griff",
+			"paragraphs": [
+				"Beschattung leistet mehr als Sichtschutz. Sie entscheidet, wie viel Licht und Wärme ins Haus kommt, wie stark sich die Räume im Sommer aufheizen und ob die Sonne auf Fernseher oder Monitor blendet.",
+				"Smarte Beschattung übernimmt das für Sie. Raffstores und Rollos reagieren auf Sonne, Wind und Tageszeit, arbeiten mit Licht und Heizung zusammen, und Sie bedienen sie per Tastendruck, Panel oder Smartphone."
+			]
+		},
+
+		"section1": {
+			"heading": "Alle Arten von Beschattung in einem System",
+			"paragraphs": [
+				"Wir binden Raffstores, Rollläden, Screens, Markisen, Pergolen, Plissees innen und motorisierte Vorhänge ein. Jedes Fenster kann eine andere Beschattung haben, und trotzdem bedienen Sie alles gleich.",
+				"Für jedes Gebäude planen wir eine eigene Lösung: Eine verglaste Wohnzimmerfront wird anders beschattet als ein Schlafzimmer, das vollständig verdunkelt werden soll, oder eine Terrasse mit Markise."
+			],
+			"imgAlt": "Raffstores und Markise an einer modernen Villa"
+		},
+
+		"section2": {
+			"heading": "Automatik nach Sonne, Wind und Temperatur",
+			"paragraphs": [
+				"Eine Wetterstation auf dem Dach misst Sonne, Wind und Temperatur. Im Sommer wenden oder schließen sich die Raffstores auf der Sonnenseite, bevor sich die Räume aufheizen, im Winter lassen sie die Sonne herein, damit sie beim Heizen hilft.",
+				"Bei starkem Wind fahren Raffstores und Markisen von selbst hoch, damit sie nicht beschädigt werden, auch wenn Sie nicht zu Hause sind."
+			],
+			"imgAlt": "Wetterstation und automatische Raffstores"
+		},
+
+		"section3": {
+			"heading": "Szenen und Bedienung per Tastendruck",
+			"paragraphs": [
+				"Morgens öffnen sich die Jalousien im Schlafzimmer langsam zusammen mit dem Licht, die Szene „Kino“ verdunkelt das Wohnzimmer, und „Gute Nacht“ schließt die Beschattung im ganzen Haus. Bedienen Sie einzelne Fenster, Räume oder ganze Etagen über Wandtaster, Touchpanel oder Smartphone.",
+				"Die Beschattung lässt sich auch aus der Ferne steuern, sodass Sie vor dem Urlaub nicht jedes Fenster einzeln abgehen müssen."
+			],
+			"imgAlt": "Touchpanel mit Jalousiesteuerung pro Raum"
+		},
+
+		"section4": {
+			"heading": "Beschattung als Teil der Architektur",
+			"paragraphs": [
+				"Die beste Beschattung sieht man nicht. Kästen, Führungsschienen und Vorhangschienen verschwinden in Fassade, Decke oder Nischen, sodass das Interieur klare Linien behält.",
+				"Wir arbeiten schon in der Entwurfsphase mit Architekten zusammen, um Platz für die Beschattung, Stromversorgung und Verkabelung richtig einzuplanen. Leise Motoren bewegen die Beschattung dann so ruhig, dass Sie es kaum bemerken."
+			],
+			"imgAlt": "Versteckte motorisierte Vorhangschiene in einer Deckennische"
+		},
+
+		"section5": {
+			"heading": "Privatsphäre und Sicherheit",
+			"paragraphs": [
+				"Abends schließt sich die Beschattung von selbst, damit niemand hineinsehen kann. Während Ihrer Abwesenheit kann das System die Beschattung tagsüber öffnen und schließen, als wären Sie zu Hause, sodass das Haus nie verlassen wirkt."
+			]
+		},
+
+		"section6": {
+			"heading": "Systeme, mit denen wir arbeiten",
+			"intro": "Wir wählen nach Art der Beschattung, Größe des Hauses und danach, was Sie zusätzlich verbinden möchten.",
+			"items": [
+				{
+					"name": "Lutron",
+					"text": "Spezialist für Beschattung und Licht. Besonders leise Motoren und präzise, synchrone Bewegung, ideal für Luxusinterieurs und große Glasflächen."
+				},
+				{
+					"name": "Crestron",
+					"text": "Beschattung als Teil des gesamten Smart Homes. Szenen mit Licht, Audio und Video, Automatik über die Wetterstation und Bedienung per Touchpanel."
+				},
+				{
+					"name": "Loxone",
+					"text": "Die günstigere Lösung für Einfamilienhäuser. Automatische Beschattung nach Sonne und Temperatur, verbunden mit der Heizung und bedient aus derselben App wie das übrige Haus."
+				},
+				{
+					"name": "Antriebe für Beschattung",
+					"text": "Wir binden Motoren und Antriebe gängiger Hersteller von Raffstores, Rollläden und Markisen ein, sodass Sie die Beschattung nach Design auswählen können."
+				}
+			]
+		},
+
+		"section7": {
+			"heading": "So läuft ein Projekt ab",
+			"item1": {
+				"title": "Beratung",
+				"description": "Wir gehen Fenster, Himmelsrichtungen und Ihre Erwartungen an die Beschattung durch."
+			},
+			"item2": {
+				"title": "Planung",
+				"description": "Beschattungsarten, Motoren, Sensoren, Bedienung und Budget."
+			},
+			"item3": {
+				"title": "Installation",
+				"description": "Verkabelung und Montage, abgestimmt mit Bauleitung und Beschattungslieferant."
+			},
+			"item4": {
+				"title": "Programmierung",
+				"description": "Sonnen- und Windautomatik, Szenen und Bedienung über Panels und Smartphone."
+			},
+			"item5": {
+				"title": "Test",
+				"description": "Prüfung der Endlagen, der Synchronisation und des Windschutzes."
+			},
+			"item6": {
+				"title": "Übergabe und Service",
+				"description": "Einweisung, Dokumentation und langfristiger Support."
+			}
+		},
+
+		"faqs": [
+			{
+				"q": "Lassen sich vorhandene Jalousien oder Rollläden motorisieren?",
+				"a": "Oft ja. Viele Raffstores, Rollläden und Vorhangschienen lassen sich mit einem Motor nachrüsten. Ob das bei Ihrer Beschattung möglich ist, prüfen wir vor Ort je nach Art und Zustand."
+			},
+			{
+				"q": "Was passiert bei starkem Wind?",
+				"a": "Die Wetterstation misst die Windgeschwindigkeit. Wird ein eingestellter Grenzwert überschritten, fahren Raffstores und Markisen automatisch hoch und bleiben gesperrt, bis der Wind nachlässt, damit sie nicht beschädigt werden."
+			},
+			{
+				"q": "Kann ich die Beschattung auch manuell bedienen?",
+				"a": "Ja. Neben der Automatik haben Sie immer Wandtaster, Touchpanel oder Smartphone. Die Automatik lässt sich jederzeit übersteuern und für einzelne Räume abschalten."
+			},
+			{
+				"q": "Hilft smarte Beschattung gegen Überhitzung?",
+				"a": "Ja. Außenliegende Beschattung, die die Sonne vor dem Glas abhält, ist der wirksamste Schutz gegen Überhitzung. Die Automatik fährt sie nach Sonne und Temperatur herunter, auch wenn Sie nicht zu Hause sind."
+			},
+			{
+				"q": "Sind die Motoren laut?",
+				"a": "Moderne Motoren, besonders für Vorhänge und Rollos innen, sind sehr leise. Für Schlaf- und Wohnzimmer wählen wir Modelle, die nicht stören."
+			},
+			{
+				"q": "Was kostet smarte Beschattung?",
+				"a": "Das hängt von Anzahl und Größe der Fenster, der Art der Beschattung, den Motoren und davon ab, ob wir die Beschattung mit weiteren Systemen im Haus verbinden. Nach einer kostenlosen Erstberatung erstellen wir eine Planung und ein unverbindliches Budget."
+			}
+		]
 	},
 
 	"thermostat": {

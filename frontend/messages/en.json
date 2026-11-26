@@ -108,7 +108,7 @@
 	},
 
 	"brands": {
-		"heading": "The brands behind smarter homes"
+		"heading": "Systems and brands we work with"
 	},
 
 	"products": {
@@ -694,8 +694,139 @@
 			"description": "Smart shading for villas and homes: motorized blinds, roller shades and awnings in one system with lighting and climate. Design and installation."
 		},
 		"heading": "Shades",
-		"title": "Smart Shades & Blinds",
-		"subtitle": "Intelligent motorized shading systems designed for comfort, privacy, and seamless smart home integration."
+		"title": "Smart shading and motorised blinds for villas and homes",
+		"subtitle": "We design and install motorised blinds, roller shades, awnings and curtains that respond automatically to sun, wind and time of day, connected with lighting and heating in one system.",
+		"exploreBtn": "How smart shading works",
+		"imgAlt": "Modern living room with motorised blinds and daylight",
+
+		"intro": {
+			"heading": "Light, heat and privacy under control",
+			"paragraphs": [
+				"Shading does more than provide privacy. It decides how much light and heat comes into the house, how hot the rooms get in summer, and whether the sun glares on your TV or monitor.",
+				"Smart shading takes care of this for you. Blinds and shades respond to sun, wind and time of day, work together with lighting and heating, and you control them with one button, a panel or your phone."
+			]
+		},
+
+		"section1": {
+			"heading": "Every type of shading in one system",
+			"paragraphs": [
+				"We connect external venetian blinds, roller shades, screen blinds, awnings, pergolas, indoor pleated blinds and motorised curtains. Every window can have a different type of shading, and you still control them all the same way.",
+				"We design a custom solution for each building: a glazed living room wall is shaded differently from a bedroom that needs full blackout, or a terrace with an awning."
+			],
+			"imgAlt": "External venetian blinds and an awning on a modern villa"
+		},
+
+		"section2": {
+			"heading": "Automation based on sun, wind and temperature",
+			"paragraphs": [
+				"A weather station on the roof tracks sun, wind and temperature. In summer, blinds on the sunny side of the house tilt or close before the rooms overheat; in winter they let the sun in to help with heating.",
+				"In strong wind, external blinds and awnings retract by themselves to avoid damage, even when you're not home."
+			],
+			"imgAlt": "Weather station and automatic external blinds"
+		},
+
+		"section3": {
+			"heading": "Scenes and one-touch control",
+			"paragraphs": [
+				"In the morning the bedroom blinds open slowly together with the lights, the \"Cinema\" scene darkens the living room, and \"Goodnight\" closes the shading throughout the house. Control single windows, rooms or whole floors from a wall keypad, a touch panel or your phone.",
+				"You can also control the shading remotely, so when you leave for a holiday you don't have to go round every window."
+			],
+			"imgAlt": "Touch panel with blind controls for each room"
+		},
+
+		"section4": {
+			"heading": "Shading as part of the architecture",
+			"paragraphs": [
+				"The best shading is the shading you don't see. We hide headboxes, guide rails and curtain tracks in the façade, ceilings or niches, so the interior keeps clean lines.",
+				"We work with architects from the design stage to plan space for the shading, power and cabling properly. Quiet motors then move the shading so smoothly you barely notice it."
+			],
+			"imgAlt": "Hidden motorised curtain track in a ceiling recess"
+		},
+
+		"section5": {
+			"heading": "Privacy and security",
+			"paragraphs": [
+				"In the evening the shading closes by itself so no one can see in. While you're away, the system can open and close the shading during the day as if you were home, so the house never looks empty."
+			]
+		},
+
+		"section6": {
+			"heading": "Systems we work with",
+			"intro": "We choose based on the type of shading, the size of the house and what else you want to connect.",
+			"items": [
+				{
+					"name": "Lutron",
+					"text": "A shading and lighting specialist. Exceptionally quiet motors and precise, synchronised movement, ideal for luxury interiors and large glazed areas."
+				},
+				{
+					"name": "Crestron",
+					"text": "Shading as part of the whole smart home. Scenes with lighting, audio and video, weather-station automation and control from touch panels."
+				},
+				{
+					"name": "Loxone",
+					"text": "A more affordable option for family homes. Automatic shading based on sun and temperature, connected with heating and controlled from the same app as the rest of the house."
+				},
+				{
+					"name": "Shading motors",
+					"text": "We connect motors and drives from the usual manufacturers of external blinds, roller shades and awnings, so you can choose your shading by design."
+				}
+			]
+		},
+
+		"section7": {
+			"heading": "How the project works",
+			"item1": {
+				"title": "Consultation",
+				"description": "We go through the windows, orientation and what you expect from the shading."
+			},
+			"item2": {
+				"title": "Design",
+				"description": "Shading types, motors, sensors, controls and budget."
+			},
+			"item3": {
+				"title": "Installation",
+				"description": "Cabling and fitting coordinated with the builder and shading supplier."
+			},
+			"item4": {
+				"title": "Programming",
+				"description": "Sun and wind automation, scenes and control from panels and your phone."
+			},
+			"item5": {
+				"title": "Testing",
+				"description": "Checking end positions, synchronisation and wind protection."
+			},
+			"item6": {
+				"title": "Handover and service",
+				"description": "Training, documentation and long-term support."
+			}
+		},
+
+		"faqs": [
+			{
+				"q": "Can existing blinds or shades be motorised?",
+				"a": "Often, yes. Many external blinds, roller shades and curtain tracks can be fitted with a motor. We check on site whether it's possible for your shading, depending on its type and condition."
+			},
+			{
+				"q": "What happens in strong wind?",
+				"a": "The weather station measures wind speed, and above a set limit external blinds and awnings retract automatically. They stay locked until the wind drops, so they don't get damaged."
+			},
+			{
+				"q": "Can I still control the shading manually?",
+				"a": "Yes. Alongside the automation you always have a wall keypad, a touch panel or your phone. You can override the automation at any time and switch it off for individual rooms."
+			},
+			{
+				"q": "Does smart shading help against overheating?",
+				"a": "Yes. External shading that stops the sun before it reaches the glass is the most effective protection against overheating. The automation lowers it based on sun and temperature, so it works even when you're not home."
+			},
+			{
+				"q": "Are the motors noisy?",
+				"a": "Modern motors, especially for indoor curtains and shades, are very quiet. For bedrooms and living rooms we choose models that won't disturb you."
+			},
+			{
+				"q": "How much does smart shading cost?",
+				"a": "It depends on the number and size of the windows, the type of shading, the motors, and whether we connect the shading with other systems in the house. After a free initial consultation, we prepare a design and an indicative budget."
+			}
+		]
 	},
 
 	"thermostat": {

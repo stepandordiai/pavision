@@ -3,6 +3,7 @@ import HeroParallax from "@/components/HeroParallax/HeroParallax";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 import ContactUsBanner from "@/components/ContactUsBanner/ContactUsBanner";
+import Faqs from "@/components/Faqs/Faqs";
 import "./styles.scss";
 
 const PAGE = "shades";
@@ -53,21 +54,22 @@ export default async function Shades({
 			<HeroParallax
 				heading={t("shades.title")}
 				subheading={t("shades.subtitle")}
+				// TODO: hotlinked Pexels image, replace with your own photo in /public
 				imgSrc="https://images.pexels.com/photos/36353407/pexels-photo-36353407.png"
-				secondaryBtnTxt="Explore Automated Shades"
-				imgAlt="Luxury bedroom with smart motorized shades and automated blinds"
-				currentPage="Shades"
+				secondaryBtnTxt={t("shades.exploreBtn")}
+				imgAlt={t("shades.imgAlt")}
+				currentPage={t("shades.heading")}
 				locale={locale}
 			/>
 			<section className="section" id="section">
-				<h2 className="section__title">Get closer to nature</h2>
+				<h2 className="section__title">{t("shades.intro.heading")}</h2>
 				<div className="shades-section-container">
-					<p>
-						Being in nature feels good. Crestron automated shades can work in
-						concert with our lighting solutions to help you control light in
-						your home in a way that mimics the patterns of nature and uses
-						natural light to awaken your senses.
-					</p>
+					<div>
+						{(t.raw("shades.intro.paragraphs") as string[]).map((p, i) => (
+							<p key={i}>{p}</p>
+						))}
+					</div>
+					{/* TODO: hotlinked Crestron video, replace with your own video in /public */}
 					<video
 						style={{ width: "100%", borderRadius: 10 }}
 						autoPlay
@@ -80,26 +82,114 @@ export default async function Shades({
 				</div>
 			</section>
 			<section className="section">
-				<h2 className="section__title">
-					Flexibilní ochrana před sluncem pro všechny potřeby
-				</h2>
+				<h2 className="section__title">{t("shades.section1.heading")}</h2>
 				<div className="shades-section-container">
+					{/* TODO: hotlinked Crestron image, replace with your own photo in /public */}
 					<img
 						style={{
 							borderRadius: 10,
 						}}
 						src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-shades-reliable.jpg"
-						alt=""
+						alt={t("shades.section1.imgAlt")}
 					/>
-					<p>
-						Ať už jde o žaluzie, rolety, markýzy nebo plisé – jakýkoli typ
-						stínění lze snadno integrovat do celého systému. Řešení na míru se
-						flexibilně přizpůsobí architektuře budovy, jejímu využití i
-						individuálním požadavkům. Právě tak mohou fungovat nejen automatické
-						venkovní žaluzie.
-					</p>
+					<div>
+						{(t.raw("shades.section1.paragraphs") as string[]).map((p, i) => (
+							<p key={i}>{p}</p>
+						))}
+					</div>
 				</div>
 			</section>
+			<section className="section">
+				<h2 className="section__title">{t(`shades.section2.heading`)}</h2>
+				<div className="shades-section-container">
+					<div>
+						{(t.raw(`shades.section2.paragraphs`) as string[]).map((p, i) => (
+							<p key={i}>{p}</p>
+						))}
+					</div>
+				</div>
+			</section>
+			<section className="section">
+				<h2 className="section__title">{t(`shades.section3.heading`)}</h2>
+				<div className="technology-section-container">
+					<div>
+						{(t.raw(`shades.section3.paragraphs`) as string[]).map((p, i) => (
+							<p key={i}>{p}</p>
+						))}
+					</div>
+					<img
+						style={{
+							borderRadius: 10,
+						}}
+						src="/shades/01.png"
+						alt=""
+					/>
+				</div>
+			</section>
+			<section className="section">
+				<h2 className="section__title">{t(`shades.section4.heading`)}</h2>
+				<div className="shades-section-container">
+					<div>
+						{(t.raw(`shades.section4.paragraphs`) as string[]).map((p, i) => (
+							<p key={i}>{p}</p>
+						))}
+					</div>
+				</div>
+			</section>
+			<section className="section">
+				<h2 className="section__title">{t(`shades.section5.heading`)}</h2>
+				<div className="shades-section-container">
+					<div>
+						{(t.raw(`shades.section5.paragraphs`) as string[]).map((p, i) => (
+							<p key={i}>{p}</p>
+						))}
+					</div>
+				</div>
+			</section>
+			<section className="section technology-section">
+				<h2 className="section__title">{t("shades.section6.heading")}</h2>
+				<p>{t("shades.section6.intro")}</p>
+				<div className="technology-section-container">
+					{(
+						t.raw("shades.section6.items") as { name: string; text: string }[]
+					).map((item) => (
+						<div key={item.name}>
+							<h3>{item.name}</h3>
+							<p>{item.text}</p>
+						</div>
+					))}
+				</div>
+			</section>
+			<section className="section">
+				<h2 className="section__title">{t("shades.section7.heading")}</h2>
+				<div className="shades-flex-process">
+					<div>
+						<h3>{t("shades.section7.item1.title")}</h3>
+						<p>{t("shades.section7.item1.description")}</p>
+					</div>
+					<div>
+						<h3>{t("shades.section7.item2.title")}</h3>
+						<p>{t("shades.section7.item2.description")}</p>
+					</div>
+					<div>
+						<h3>{t("shades.section7.item3.title")}</h3>
+						<p>{t("shades.section7.item3.description")}</p>
+					</div>
+					<div>
+						<h3>{t("shades.section7.item4.title")}</h3>
+						<p>{t("shades.section7.item4.description")}</p>
+					</div>
+					<div>
+						<h3>{t("shades.section7.item5.title")}</h3>
+						<p>{t("shades.section7.item5.description")}</p>
+					</div>
+					<div>
+						<h3>{t("shades.section7.item6.title")}</h3>
+						<p>{t("shades.section7.item6.description")}</p>
+					</div>
+				</div>
+			</section>
+			<Faqs faqs="shades.faqs" />
 			<ContactUsBanner />
 		</main>
 	);
