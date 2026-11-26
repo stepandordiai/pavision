@@ -1,7 +1,6 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { useSearchParams } from "next/navigation";
 import { useTransition } from "react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import classNames from "classnames";
@@ -17,17 +16,12 @@ const Lng = () => {
 	const pathname = usePathname();
 	const router = useRouter();
 	const locale = useLocale();
-	const searchParams = useSearchParams();
 	const [isPending, startTransition] = useTransition();
 
 	const handleLng = (lngCode: string) => {
 		if (lngCode === locale) return;
-
-		const query = searchParams.toString();
-		const href = query ? `${pathname}?${query}` : pathname;
-
 		startTransition(() => {
-			router.replace(href, { locale: lngCode });
+			router.replace(pathname, { locale: lngCode });
 		});
 	};
 
