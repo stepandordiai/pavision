@@ -35,7 +35,7 @@
 		"path": "/shades"
 	},
 	{
-		"title": "thermostat.heading",
+		"title": "nav.climate",
 		"description": "Ideální teplota přesně tehdy, kdy ji potřebujete",
 		"img": "https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/residential_enduser_new/product-thermostat-thumn.jpg",
 		"icon": "/technology-icons/thermostat.png",

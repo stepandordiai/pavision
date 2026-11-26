@@ -10,7 +10,8 @@
 		"crestron": "Integrace Crestron",
 		"loxone": "Chytrá domácnost Loxone",
 		"bookAConsultation": "Nezávazná konzultace",
-		"lighting": "Osvětlení"
+		"lighting": "Osvětlení",
+		"climate": "Klima"
 	},
 
 	"contactUs": "Kontaktujte nás",
@@ -1354,14 +1355,139 @@
 		]
 	},
 
-	"thermostat": {
+	"climate": {
 		"meta": {
 			"title": "Chytré vytápění a klimatizace | Termostaty",
-			"description": "Chytré řízení vytápění, klimatizace a větrání po místnostech. Termostaty, časové plány a ovládání z telefonu v jednom systému s Crestron nebo Loxone."
+			"description": "Chytré řízení vytápění, chlazení a větrání po místnostech. Termostaty, rozvrhy a ovládání z telefonu v jednom systému Crestron nebo Loxone. Celá ČR."
 		},
-		"heading": "Klimatizace a vytápění",
-		"title": "Chytré řízení klimatu a teploty",
-		"subtitle": "Inteligentní termostaty a systémy řízení klimatu, které automatizují komfort, zvyšují energetickou efektivitu a bezproblémově se integrují do chytré domácnosti."
+		"heading": "Klima",
+		"title": "Chytré vytápění, chlazení a větrání pro vily a domy",
+		"subtitle": "Navrhujeme a instalujeme řízení teploty po místnostech: podlahové topení, tepelná čerpadla, klimatizace i rekuperace v jednom systému s termostaty, rozvrhy a ovládáním z telefonu.",
+		"exploreBtn": "Jak funguje chytré klima",
+		"imgAlt": "Nástěnný termostat v moderním interiéru vily",
+		"intro": {
+			"heading": "Správná teplota v každé místnosti",
+			"paragraphs": [
+				"Každá místnost potřebuje jinou teplotu. V ložnici se lépe spí v chladnějším, koupelna má být ráno teplá a obývák s velkými okny se v létě přehřívá dřív než zbytek domu.",
+				"Chytré řízení klimatu hlídá teplotu v každé zóně zvlášť, spojí vytápění, chlazení a větrání do jednoho systému a přizpůsobí se tomu, kdy jste doma a co zrovna děláte."
+			],
+			"imgAlt": "Termostat a řízení teploty v obývacím pokoji"
+		},
+		"section1": {
+			"heading": "Vytápění a chlazení po místnostech",
+			"paragraphs": [
+				"Každá místnost má vlastní čidlo a vlastní nastavení. Systém řídí podlahové topení, radiátory, fancoily i klimatizační jednotky, takže v každé zóně je přesně tolik tepla nebo chladu, kolik potřebujete.",
+				"Místo jednoho termostatu pro celý dům tak máte komfort v každé místnosti a netopí se tam, kde to není potřeba."
+			],
+			"imgAlt": "Řízení teploty po zónách v rodinném domě"
+		},
+		"section2": {
+			"heading": "Tepelné čerpadlo, klimatizace a rekuperace v jednom systému",
+			"paragraphs": [
+				"Propojíme tepelné čerpadlo, kotel, klimatizace i rekuperační jednotku, aby spolu spolupracovaly. Systém hlídá, aby se v jedné místnosti netopilo a nechladilo zároveň, a přepíná mezi topením a chlazením podle ročního období.",
+				"Rekuperace větrá podle kvality vzduchu a vlhkosti, takže v domě je čerstvý vzduch bez otevírání oken."
+			],
+			"imgAlt": "Tepelné čerpadlo a rekuperační jednotka propojené se systémem chytré domácnosti"
+		},
+		"section3": {
+			"heading": "Rozvrhy, přítomnost a spolupráce se stíněním",
+			"paragraphs": [
+				"Nastavíte si rozvrhy pro ráno, den, večer i noc. Když odjedete, dům přejde do útlumu, a když otevřete okno, topení v místnosti se samo vypne.",
+				"Klima spolupracuje se stíněním: v létě se žaluzie na osluněné straně zavřou dřív, než se místnost přehřeje, a v zimě pustí slunce dovnitř, aby pomohlo s vytápěním."
+			],
+			"imgAlt": "Rozvrh teplot na dotykovém panelu chytré domácnosti"
+		},
+		"section4": {
+			"heading": "Termostaty, které ladí s interiérem",
+			"paragraphs": [
+				"Používáme designové termostaty jako Crestron Horizon nebo Loxone Touch, které ladí s vypínači a klávesnicemi v domě. Pokud nechcete na stěně žádné ovládání, schováme čidla teploty a vlhkosti a teplotu ovládáte z panelu nebo telefonu.",
+				"Hodí se do novostaveb i rekonstrukcí. S architekty plánujeme umístění termostatů a čidel už ve fázi návrhu."
+			],
+			"imgAlt": "Designový termostat Crestron Horizon na stěně"
+		},
+		"section5": {
+			"heading": "Ovládání odkudkoli a přehled o spotřebě",
+			"paragraphs": [
+				"Teplotu měníte z telefonu, dotykového panelu nebo klávesnice. Před příjezdem z dovolené dům vytopíte na dálku a chatu nebo apartmán nahřejete ještě před příjezdem hostů.",
+				"V aplikaci vidíte teploty ve všech místnostech a spotřebu energie. Pokud máte fotovoltaiku, systém může přebytky využít k ohřevu vody nebo předtopení domu."
+			],
+			"imgAlt": "Ovládání teploty v domě z telefonu"
+		},
+		"section6": {
+			"heading": "Systémy, se kterými pracujeme",
+			"intro": "Vybíráme podle typu vytápění, velikosti domu a toho, co dalšího chcete propojit.",
+			"items": [
+				{
+					"name": "Crestron",
+					"text": "Termostaty Horizon a řízení klimatu jako součást celé chytré domácnosti. Scény se světlem a stíněním a ovládání z dotykových panelů."
+				},
+				{
+					"name": "Loxone",
+					"text": "Řízení vytápění a chlazení po místnostech pro rodinné domy. Rozvrhy, detekce otevřeného okna a spolupráce se stíněním v jedné aplikaci."
+				},
+				{
+					"name": "Tepelná čerpadla a klimatizace",
+					"text": "Tepelná čerpadla, kotle a klimatizační jednotky připojujeme přes Modbus, KNX nebo rozhraní výrobce, takže je ovládáte ze stejného systému."
+				},
+				{
+					"name": "Rekuperace a větrání",
+					"text": "Rekuperační jednotky řídíme podle CO₂, vlhkosti a přítomnosti, aby byl vzduch v domě čerstvý bez zbytečných ztrát tepla."
+				}
+			]
+		},
+		"section7": {
+			"heading": "Jak probíhá realizace",
+			"item1": {
+				"title": "Konzultace",
+				"description": "Projdeme zdroje tepla, místnosti a to, jak dům používáte."
+			},
+			"item2": {
+				"title": "Návrh",
+				"description": "Zóny, termostaty, čidla, napojení technologií a rozpočet."
+			},
+			"item3": {
+				"title": "Instalace",
+				"description": "Kabeláž a montáž ve spolupráci s topenáři a dodavateli technologií."
+			},
+			"item4": {
+				"title": "Programování",
+				"description": "Rozvrhy, režimy domu, spolupráce se stíněním a ovládání z telefonu."
+			},
+			"item5": {
+				"title": "Ladění",
+				"description": "Kontrola teplot v zónách a doladění regulace v provozu."
+			},
+			"item6": {
+				"title": "Předání a servis",
+				"description": "Zaškolení, dokumentace a dlouhodobá podpora."
+			}
+		},
+		"faqs": [
+			{
+				"q": "Lze napojit stávající vytápění?",
+				"a": "Většinou ano. Podlahové topení, radiátory, kotle i tepelná čerpadla lze do systému připojit přes termoelektrické hlavice, reléové výstupy nebo komunikační rozhraní. Možnosti ověříme na místě."
+			},
+			{
+				"q": "Které klimatizace a tepelná čerpadla umíte připojit?",
+				"a": "Připojujeme jednotky s rozhraním Modbus, KNX nebo s vlastní bránou výrobce. Konkrétní model ověříme ještě před návrhem, aby bylo jasné, které funkce půjde ovládat."
+			},
+			{
+				"q": "Ušetří chytré řízení energii?",
+				"a": "Pomáhá tím, že netopí v prázdných místnostech, vypíná topení při otevřeném okně, snižuje teplotu, když nejste doma, a spolupracuje se stíněním. Výsledek závisí na domě, zdroji tepla a tom, jak dům používáte."
+			},
+			{
+				"q": "Co když vypadne internet?",
+				"a": "Regulace běží na řídicí jednotce přímo v domě, takže topení i rozvrhy fungují dál. Bez internetu jen nejde ovládání na dálku mimo domov."
+			},
+			{
+				"q": "Musí být v každé místnosti termostat na stěně?",
+				"a": "Nemusí. Čidlo teploty může být skryté a teplotu pak ovládáte z panelu nebo telefonu. Termostat na stěně dáváme tam, kde chcete mít ovládání po ruce."
+			},
+			{
+				"q": "Kolik stojí chytré řízení klimatu?",
+				"a": "Záleží na počtu zón, typu vytápění a chlazení, zvolených termostatech a na tom, co dalšího v domě propojujeme. Po úvodní konzultaci, která je zdarma, připravíme návrh a orientační rozpočet."
+			}
+		]
 	},
 
 	"security": {

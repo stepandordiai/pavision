@@ -10,7 +10,8 @@
 		"crestron": "Crestron-Integration",
 		"loxone": "Loxone Smart Home",
 		"bookAConsultation": "Kostenlose Beratung",
-		"lighting": "Beleuchtung"
+		"lighting": "Beleuchtung",
+		"climate": "Klima"
 	},
 
 	"homeTitle": "Startseite",
@@ -829,14 +830,139 @@
 		]
 	},
 
-	"thermostat": {
+	"climate": {
 		"meta": {
 			"title": "Smarte Klimasteuerung | Heizung & Thermostate",
-			"description": "Heizung, Kühlung und Lüftung raumweise smart steuern. Thermostate, Zeitpläne und Bedienung per App in einem System mit Crestron oder Loxone."
+			"description": "Smarte Steuerung von Heizung, Kühlung und Lüftung pro Raum. Thermostate, Zeitpläne und Bedienung per Smartphone in einem System mit Crestron oder Loxone."
 		},
 		"heading": "Klima",
-		"title": "Smarte Klimasteuerung",
-		"subtitle": "Intelligente Steuerung von Heizung, Kühlung und Lüftung für mehr Komfort und weniger Energieverbrauch, eingebunden in Ihr Smart Home."
+		"title": "Smarte Heizung, Kühlung und Lüftung für Villen und Häuser",
+		"subtitle": "Wir planen und installieren Einzelraumregelung: Fußbodenheizung, Wärmepumpe, Klimaanlage und Lüftung mit Wärmerückgewinnung in einem System mit Thermostaten, Zeitplänen und Bedienung per Smartphone.",
+		"exploreBtn": "So funktioniert smarte Klimasteuerung",
+		"imgAlt": "Wandthermostat in einem modernen Villeninterieur",
+		"intro": {
+			"heading": "Die richtige Temperatur in jedem Raum",
+			"paragraphs": [
+				"Jeder Raum braucht eine andere Temperatur. Im Schlafzimmer schläft man kühler besser, das Bad soll morgens warm sein, und ein Wohnzimmer mit großen Fenstern heizt sich im Sommer schneller auf als der Rest des Hauses.",
+				"Smarte Klimasteuerung regelt die Temperatur in jeder Zone einzeln, verbindet Heizung, Kühlung und Lüftung in einem System und passt sich daran an, wann Sie zu Hause sind und was Sie gerade tun."
+			],
+			"imgAlt": "Thermostat und Temperaturregelung im Wohnzimmer"
+		},
+		"section1": {
+			"heading": "Heizen und Kühlen pro Raum",
+			"paragraphs": [
+				"Jeder Raum hat einen eigenen Sensor und eigene Einstellungen. Das System steuert Fußbodenheizung, Heizkörper, Gebläsekonvektoren und Klimageräte, sodass jede Zone genau so viel Wärme oder Kühlung bekommt, wie Sie brauchen.",
+				"Statt eines Thermostats für das ganze Haus haben Sie Komfort in jedem Raum, und es wird nicht dort geheizt, wo es nicht nötig ist."
+			],
+			"imgAlt": "Zonenweise Temperaturregelung in einem Einfamilienhaus"
+		},
+		"section2": {
+			"heading": "Wärmepumpe, Klimaanlage und Lüftung in einem System",
+			"paragraphs": [
+				"Wir verbinden Wärmepumpe, Heizkessel, Klimaanlage und Lüftungsgerät, damit sie zusammenarbeiten. Das System sorgt dafür, dass ein Raum nie gleichzeitig geheizt und gekühlt wird, und wechselt je nach Jahreszeit zwischen Heizen und Kühlen.",
+				"Die Lüftung mit Wärmerückgewinnung arbeitet nach Luftqualität und Feuchte, sodass im Haus frische Luft ist, ohne die Fenster zu öffnen."
+			],
+			"imgAlt": "Wärmepumpe und Lüftungsgerät mit dem Smart-Home-System verbunden"
+		},
+		"section3": {
+			"heading": "Zeitpläne, Anwesenheit und Beschattung",
+			"paragraphs": [
+				"Legen Sie Zeitpläne für Morgen, Tag, Abend und Nacht fest. Wenn Sie das Haus verlassen, wechselt es in den Absenkbetrieb, und wenn Sie ein Fenster öffnen, schaltet sich die Heizung im Raum von selbst ab.",
+				"Das Klima arbeitet mit der Beschattung zusammen: Im Sommer schließen sich die Raffstores auf der Sonnenseite, bevor sich der Raum aufheizt, im Winter lassen sie die Sonne herein, damit sie beim Heizen hilft."
+			],
+			"imgAlt": "Temperaturzeitplan auf einem Smart-Home-Touchpanel"
+		},
+		"section4": {
+			"heading": "Thermostate, die zu Ihrem Interieur passen",
+			"paragraphs": [
+				"Wir setzen Designthermostate wie Crestron Horizon oder Loxone Touch ein, die zu den Schaltern und Tastern im Haus passen. Wenn Sie keine Bedienung an der Wand möchten, verstecken wir die Temperatur- und Feuchtesensoren und Sie steuern das Klima über Panel oder Smartphone.",
+				"Geeignet für Neubau und Sanierung. Die Positionen von Thermostaten und Sensoren planen wir schon in der Entwurfsphase mit den Architekten."
+			],
+			"imgAlt": "Designthermostat Crestron Horizon an der Wand"
+		},
+		"section5": {
+			"heading": "Bedienung von überall und Überblick über den Verbrauch",
+			"paragraphs": [
+				"Ändern Sie die Temperatur per Smartphone, Touchpanel oder Taster. Heizen Sie das Haus vor der Rückkehr aus dem Urlaub aus der Ferne auf oder wärmen Sie ein Ferienhaus oder Apartment vor, bevor die Gäste ankommen.",
+				"Die App zeigt die Temperaturen in allen Räumen und Ihren Energieverbrauch. Mit einer Photovoltaikanlage kann das System Überschüsse für Warmwasser oder das Vorheizen des Hauses nutzen."
+			],
+			"imgAlt": "Temperatur im Haus per Smartphone steuern"
+		},
+		"section6": {
+			"heading": "Systeme, mit denen wir arbeiten",
+			"intro": "Wir wählen nach Art der Heizung, Größe des Hauses und danach, was Sie zusätzlich verbinden möchten.",
+			"items": [
+				{
+					"name": "Crestron",
+					"text": "Horizon-Thermostate und Klimasteuerung als Teil des gesamten Smart Homes. Szenen mit Licht und Beschattung und Bedienung per Touchpanel."
+				},
+				{
+					"name": "Loxone",
+					"text": "Einzelraumregelung für Heizen und Kühlen in Einfamilienhäusern. Zeitpläne, Fenster-offen-Erkennung und Beschattung in einer App."
+				},
+				{
+					"name": "Wärmepumpen und Klimaanlagen",
+					"text": "Wärmepumpen, Heizkessel und Klimageräte binden wir über Modbus, KNX oder die Schnittstelle des Herstellers ein, sodass Sie sie im selben System bedienen."
+				},
+				{
+					"name": "Lüftung mit Wärmerückgewinnung",
+					"text": "Lüftungsgeräte steuern wir nach CO₂, Feuchte und Anwesenheit, damit die Luft frisch bleibt, ohne unnötige Wärmeverluste."
+				}
+			]
+		},
+		"section7": {
+			"heading": "So läuft ein Projekt ab",
+			"item1": {
+				"title": "Beratung",
+				"description": "Wir gehen Wärmequellen, Räume und Ihre Nutzung des Hauses durch."
+			},
+			"item2": {
+				"title": "Planung",
+				"description": "Zonen, Thermostate, Sensoren, Anbindung der Technik und Budget."
+			},
+			"item3": {
+				"title": "Installation",
+				"description": "Verkabelung und Montage, abgestimmt mit Heizungsbauern und Lieferanten."
+			},
+			"item4": {
+				"title": "Programmierung",
+				"description": "Zeitpläne, Hausmodi, Zusammenspiel mit der Beschattung und Bedienung per Smartphone."
+			},
+			"item5": {
+				"title": "Feinabstimmung",
+				"description": "Prüfung der Zonentemperaturen und Feinabstimmung der Regelung im Betrieb."
+			},
+			"item6": {
+				"title": "Übergabe und Service",
+				"description": "Einweisung, Dokumentation und langfristiger Support."
+			}
+		},
+		"faqs": [
+			{
+				"q": "Lässt sich die vorhandene Heizung einbinden?",
+				"a": "In der Regel ja. Fußbodenheizung, Heizkörper, Heizkessel und Wärmepumpen lassen sich über thermoelektrische Stellantriebe, Relaisausgänge oder Kommunikationsschnittstellen einbinden. Die Möglichkeiten prüfen wir vor Ort."
+			},
+			{
+				"q": "Welche Klimaanlagen und Wärmepumpen können Sie einbinden?",
+				"a": "Wir binden Geräte mit Modbus- oder KNX-Schnittstelle oder einem eigenen Gateway des Herstellers ein. Das konkrete Modell prüfen wir vor der Planung, damit klar ist, welche Funktionen sich steuern lassen."
+			},
+			{
+				"q": "Spart smarte Klimasteuerung Energie?",
+				"a": "Sie hilft, indem sie leere Räume nicht heizt, die Heizung bei offenem Fenster abschaltet, die Temperatur bei Abwesenheit absenkt und mit der Beschattung zusammenarbeitet. Das Ergebnis hängt vom Haus, der Wärmequelle und Ihrer Nutzung ab."
+			},
+			{
+				"q": "Was passiert, wenn das Internet ausfällt?",
+				"a": "Die Regelung läuft auf einem Controller im Haus, sodass Heizung und Zeitpläne weiter funktionieren. Ohne Internet ist nur die Fernbedienung von unterwegs nicht möglich."
+			},
+			{
+				"q": "Braucht jeder Raum ein Thermostat an der Wand?",
+				"a": "Nein. Der Temperatursensor kann versteckt sein, und Sie steuern das Klima über Panel oder Smartphone. Ein Wandthermostat kommt dorthin, wo Sie die Bedienung griffbereit haben möchten."
+			},
+			{
+				"q": "Was kostet smarte Klimasteuerung?",
+				"a": "Das hängt von der Anzahl der Zonen, der Art von Heizung und Kühlung, den gewählten Thermostaten und davon ab, was wir sonst im Haus verbinden. Nach einer kostenlosen Erstberatung erstellen wir eine Planung und ein unverbindliches Budget."
+			}
+		]
 	},
 
 	"security": {

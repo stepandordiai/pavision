@@ -10,7 +10,8 @@
 		"crestron": "Crestron Integration",
 		"loxone": "Loxone Smart Home",
 		"bookAConsultation": "Free consultation",
-		"lighting": "Lighting"
+		"lighting": "Lighting",
+		"climate": "Climate"
 	},
 
 	"homeTitle": "Home",
@@ -829,14 +830,139 @@
 		]
 	},
 
-	"thermostat": {
+	"climate": {
 		"meta": {
 			"title": "Smart Climate Control | Heating & Thermostats",
 			"description": "Smart heating, cooling and ventilation control room by room. Thermostats, schedules and phone control in one system with Crestron or Loxone."
 		},
 		"heading": "Climate",
-		"title": "Smart Climate Control Solutions",
-		"subtitle": "Intelligent thermostat and climate control systems that automate comfort, improve energy efficiency, and integrate seamlessly with your smart home."
+		"title": "Smart heating, cooling and ventilation for villas and homes",
+		"subtitle": "We design and install room-by-room temperature control: underfloor heating, heat pumps, air conditioning and heat recovery ventilation in one system with thermostats, schedules and phone control.",
+		"exploreBtn": "How smart climate works",
+		"imgAlt": "Wall thermostat in a modern villa interior",
+		"intro": {
+			"heading": "The right temperature in every room",
+			"paragraphs": [
+				"Every room needs a different temperature. Bedrooms are better for sleep when cooler, the bathroom should be warm in the morning, and a living room with large windows overheats in summer before the rest of the house.",
+				"Smart climate control manages the temperature in each zone separately, connects heating, cooling and ventilation in one system, and adapts to when you're home and what you're doing."
+			],
+			"imgAlt": "Thermostat and temperature control in a living room"
+		},
+		"section1": {
+			"heading": "Room-by-room heating and cooling",
+			"paragraphs": [
+				"Every room has its own sensor and its own settings. The system controls underfloor heating, radiators, fan coils and air conditioning units, so each zone gets exactly as much heat or cooling as you need.",
+				"Instead of one thermostat for the whole house, you get comfort in every room, and no energy is spent heating rooms that don't need it."
+			],
+			"imgAlt": "Zoned temperature control in a family home"
+		},
+		"section2": {
+			"heading": "Heat pump, air conditioning and ventilation in one system",
+			"paragraphs": [
+				"We connect the heat pump, boiler, air conditioning and heat recovery unit so they work together. The system makes sure a room is never heated and cooled at the same time, and switches between heating and cooling with the seasons.",
+				"Heat recovery ventilation runs based on air quality and humidity, so the house has fresh air without opening the windows."
+			],
+			"imgAlt": "Heat pump and heat recovery unit connected to the smart home system"
+		},
+		"section3": {
+			"heading": "Schedules, presence and shading",
+			"paragraphs": [
+				"Set schedules for morning, day, evening and night. When you leave, the house switches to setback mode, and when you open a window, the heating in that room turns off by itself.",
+				"Climate works together with shading: in summer, blinds on the sunny side close before the room overheats, and in winter they let the sun in to help with heating."
+			],
+			"imgAlt": "Temperature schedule on a smart home touch panel"
+		},
+		"section4": {
+			"heading": "Thermostats that match your interior",
+			"paragraphs": [
+				"We use design thermostats such as Crestron Horizon or Loxone Touch that match the switches and keypads in the house. If you don't want any controls on the wall, we hide the temperature and humidity sensors and you control the climate from a panel or your phone.",
+				"Suitable for new builds and renovations. We plan thermostat and sensor positions with architects from the design stage."
+			],
+			"imgAlt": "Crestron Horizon design thermostat on a wall"
+		},
+		"section5": {
+			"heading": "Control from anywhere and an overview of energy use",
+			"paragraphs": [
+				"Change the temperature from your phone, a touch panel or a keypad. Heat the house remotely before you return from holiday, or warm up a cottage or apartment before guests arrive.",
+				"The app shows temperatures in every room and your energy use. If you have solar panels, the system can use surplus power to heat water or pre-heat the house."
+			],
+			"imgAlt": "Controlling the home's temperature from a phone"
+		},
+		"section6": {
+			"heading": "Systems we work with",
+			"intro": "We choose based on the type of heating, the size of the house and what else you want to connect.",
+			"items": [
+				{
+					"name": "Crestron",
+					"text": "Horizon thermostats and climate control as part of the whole smart home. Scenes with lighting and shading and control from touch panels."
+				},
+				{
+					"name": "Loxone",
+					"text": "Room-by-room heating and cooling control for family homes. Schedules, open-window detection and shading integration in one app."
+				},
+				{
+					"name": "Heat pumps and air conditioning",
+					"text": "We connect heat pumps, boilers and AC units via Modbus, KNX or the manufacturer's interface, so you control them from the same system."
+				},
+				{
+					"name": "Heat recovery ventilation",
+					"text": "We control heat recovery units based on CO₂, humidity and presence, keeping the air fresh without unnecessary heat loss."
+				}
+			]
+		},
+		"section7": {
+			"heading": "How the project works",
+			"item1": {
+				"title": "Consultation",
+				"description": "We go through your heat sources, rooms and how you use the house."
+			},
+			"item2": {
+				"title": "Design",
+				"description": "Zones, thermostats, sensors, equipment connections and budget."
+			},
+			"item3": {
+				"title": "Installation",
+				"description": "Cabling and fitting coordinated with heating engineers and equipment suppliers."
+			},
+			"item4": {
+				"title": "Programming",
+				"description": "Schedules, house modes, shading integration and phone control."
+			},
+			"item5": {
+				"title": "Fine-tuning",
+				"description": "Checking zone temperatures and fine-tuning the control in operation."
+			},
+			"item6": {
+				"title": "Handover and service",
+				"description": "Training, documentation and long-term support."
+			}
+		},
+		"faqs": [
+			{
+				"q": "Can my existing heating be connected?",
+				"a": "Usually, yes. Underfloor heating, radiators, boilers and heat pumps can be connected through thermoelectric actuators, relay outputs or communication interfaces. We check the options on site."
+			},
+			{
+				"q": "Which air conditioners and heat pumps can you connect?",
+				"a": "We connect units with a Modbus or KNX interface or the manufacturer's own gateway. We check the specific model before the design, so it's clear which functions can be controlled."
+			},
+			{
+				"q": "Does smart climate control save energy?",
+				"a": "It helps by not heating empty rooms, turning off the heating when a window is open, lowering the temperature when you're away and working together with shading. The result depends on the house, the heat source and how you use it."
+			},
+			{
+				"q": "What if the internet goes down?",
+				"a": "The control runs on a processor in the house, so heating and schedules keep working. Without internet, only remote control from outside the home is unavailable."
+			},
+			{
+				"q": "Does every room need a thermostat on the wall?",
+				"a": "No. The temperature sensor can be hidden, and you control the climate from a panel or your phone. We put a wall thermostat where you want the control at hand."
+			},
+			{
+				"q": "How much does smart climate control cost?",
+				"a": "It depends on the number of zones, the type of heating and cooling, the thermostats you choose and what else we connect in the house. After a free initial consultation, we prepare a design and an indicative budget."
+			}
+		]
 	},
 
 	"security": {
