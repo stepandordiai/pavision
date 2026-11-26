@@ -7,6 +7,7 @@ import navLinks from "@/data/nav-links.json";
 import { TransitionLink } from "@/components/TransitionLink";
 import CopyBtn from "@/components/CopyBtn/CopyBtn";
 import socials from "@/data/socials.json";
+import Lng from "@/components/common/Lng/Lng";
 import "./Footer.scss";
 
 const Footer = () => {
@@ -151,6 +152,7 @@ const Footer = () => {
 						</a>
 					</p>
 				</div>
+				<Lng />
 			</div>
 			<TransitionLink className="footer__logo" href="/">
 				<img src="/footer-logo.svg" alt="P&A Vision s.r.o. logo" />

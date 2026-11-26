@@ -3,8 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "@/i18n/navigation";
-import Lng from "@/components/Lng/Lng";
-import navLinks from "@/data/nav-links.json";
+import Lng from "@/components/common/Lng/Lng";
 import { TransitionLink } from "@/components/TransitionLink";
 import { supabase } from "@/lib/supabase";
 import { User } from "@supabase/supabase-js";
@@ -185,7 +184,6 @@ const Header = () => {
 						{/* <TransitionLink href={user ? "/my-profile" : "/login"}>
 							{user ? <PersonFillIcon size={32} /> : <PersonIcon size={32} />}
 						</TransitionLink> */}
-						<Lng />
 						<TransitionLink
 							className={`header-nav__link header__link ${pathname === "/appointment" ? "header-nav__link--active" : ""}`}
 							href="/appointment"
@@ -596,6 +594,7 @@ const Header = () => {
 									</a>
 								</div>
 							</div>
+							<Lng />
 						</div>
 					</div>
 				</div>
