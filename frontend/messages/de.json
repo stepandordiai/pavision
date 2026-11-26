@@ -405,14 +405,146 @@
 			}
 		]
 	},
+
 	"video": {
 		"meta": {
 			"title": "Heimkino & Multiroom-Video | Crestron",
 			"description": "Planung und Installation von Heimkinos, Projektion und Smart-TVs mit Videoverteilung in mehrere Räume. Eine Bedienung für das ganze Haus mit Crestron."
 		},
 		"heading": "Video & Heimkino",
-		"title": "Heimkino- und Videosysteme für Ihr Smart Home",
-		"subtitle": "Erstklassiges Heimkino, Smart-TVs und integriertes Entertainment für moderne Luxusimmobilien."
+		"title": "Heimkino und Videosysteme nach Maß",
+		"subtitle": "Wir planen und installieren Heimkinos, Projektion und Videoverteilung im ganzen Haus. Erstklassiges Bild und Surround-Sound, Bedienung per Tastendruck und keine sichtbaren Kabel oder Geräte.",
+		"exploreBtn": "So sieht Ihr Heimkino mit uns aus",
+		"imgAlt": "Heimkino mit Projektion, Surround-Sound und gedimmtem Licht",
+
+		"intro": {
+			"heading": "Echtes Kinoerlebnis zu Hause, ohne Fernbedienungschaos",
+			"paragraphs": [
+				"Ein gutes Heimkino ist mehr als ein großer Fernseher. Bild, Ton, Licht und Beschattung müssen zusammenspielen, und Sie sollten alles mit einem Tastendruck bedienen, nicht mit fünf Fernbedienungen.",
+				"Wir planen eigene Kinoräume, Heimkinos im Wohnzimmer, Medienräume und die Videoverteilung im ganzen Haus. Die Technik kommt in ein Rack oder den Technikraum, sodass Sie im Interieur nur das Bild sehen."
+			]
+		},
+
+		"section1": {
+			"heading": "Heimkino nach Maß",
+			"paragraphs": [
+				"Je nach Raum planen wir einen Projektor mit Leinwand oder einen großformatigen Fernseher, Surround-Sound mit Decken- und Wandlautsprechern und einen AV-Receiver, der alles verbindet. Für einen eigenen Kinoraum kümmern wir uns auch um Akustik, Sitzanordnung und vollständige Verdunkelung.",
+				"Wir arbeiten mit AV-Receivern von Denon und Marantz, Fernsehern von LG und Lautsprechern von Bowers & Wilkins. Die genaue Ausstattung wählen wir nach Raumgröße und danach, ob Sie vor allem Filme, Sport oder Gaming möchten."
+			],
+			"imgAlt": "Heimkinoraum mit Projektionsleinwand und Kinosesseln"
+		},
+
+		"section2": {
+			"heading": "Die Szene „Kino“ per Tastendruck",
+			"paragraphs": [
+				"Drücken Sie „Kino“, und das Haus bereitet sich selbst vor: Die Jalousien schließen, das Licht wird gedimmt, Projektor und Receiver schalten sich ein, und der Film startet. Danach schaltet ein Tastendruck alles aus, und das Licht wird langsam wieder heller.",
+				"Sie bedienen alles über ein Touchpanel, eine einzige Fernbedienung oder Ihr Smartphone. Gäste und Kinder müssen nicht lernen, welche Fernbedienung zu welchem Gerät gehört."
+			],
+			"imgAlt": "Touchpanel mit der Szene Kino"
+		},
+
+		"section3": {
+			"heading": "Videoverteilung im ganzen Haus",
+			"paragraphs": [
+				"Ein Apple TV, Satellitenreceiver oder eine Spielkonsole kann auf jedem Fernseher im Haus laufen. 4K-Video verteilen wir über Crestron DigitalMedia und DM NVX, sodass die Quellen im Rack stehen und in den Räumen nur die Bildschirme bleiben.",
+				"Sehen Sie den Film im Schlafzimmer genau dort weiter, wo Sie im Wohnzimmer aufgehört haben, oder die Nachrichten in der Küche, während die Kinder in ihrem Zimmer spielen, jeder mit seiner eigenen Quelle."
+			],
+			"imgAlt": "4K-Videoverteilung in mehrere Räume eines Einfamilienhauses"
+		},
+
+		"section4": {
+			"heading": "Versteckte Fernseher und ein aufgeräumtes Interieur",
+			"paragraphs": [
+				"Ein Fernseher muss kein schwarzes Rechteck an der Wand sein. Wir bauen ihn flächenbündig in die Wand ein, verstecken ihn mit motorisiertem Lift im Möbel oder setzen ihn in einen Rahmen, der ausgeschaltet wie ein Gemälde aussieht.",
+				"Die Kabel verlaufen in der Wand, Zuspieler, Receiver und Verteiler kommen in den Technikraum. Im Wohnzimmer bleibt kein Gerät und kein sichtbares Kabel."
+			],
+			"imgAlt": "Flächenbündig in die Wand eingebauter Fernseher in einem modernen Wohnzimmer"
+		},
+
+		"section5": {
+			"heading": "Klang, abgestimmt auf Ihren Raum",
+			"paragraphs": [
+				"Jeder Raum klingt anders. Wir platzieren die Lautsprecher passend zur Raumform und zu den Sitzplätzen und messen und kalibrieren den Klang vor Ort, statt Standardwerte zu übernehmen. Das Ergebnis: verständliche Dialoge, voller Bass und ein Surround-Effekt, der wirklich das ganze Sofa umhüllt."
+			]
+		},
+
+		"section6": {
+			"heading": "Technologien, mit denen wir arbeiten",
+			"intro": "Wir wählen die Ausstattung nach Raum, Budget und danach, wie Sie das Kino nutzen.",
+			"items": [
+				{
+					"name": "Crestron",
+					"text": "Steuerung des gesamten Kinos und Videoverteilung im Haus. Szenen, Touchpanels und eine Fernbedienung für Projektor, Receiver, Licht und Beschattung."
+				},
+				{
+					"name": "Denon und Marantz",
+					"text": "AV-Receiver als Herzstück des Heimkinos. Sie verarbeiten den Surround-Sound, schalten zwischen Quellen um und treiben die Lautsprecher an."
+				},
+				{
+					"name": "LG",
+					"text": "OLED-Fernseher mit tiefem Schwarz und hervorragendem Kontrast, ideal für Wohnzimmer und Medienräume."
+				},
+				{
+					"name": "Bowers & Wilkins",
+					"text": "Lautsprecher für anspruchsvolle Hörer, auch als Einbaumodelle für Decke und Wand für ein aufgeräumtes Interieur."
+				}
+			]
+		},
+
+		"section7": {
+			"heading": "So läuft ein Projekt ab",
+			"item1": {
+				"title": "Beratung",
+				"description": "Wir sehen uns den Raum an und klären, was und wie Sie schauen möchten."
+			},
+			"item2": {
+				"title": "Planung",
+				"description": "Bild, Ton, Lautsprecheranordnung, Videoverteilung und Budget."
+			},
+			"item3": {
+				"title": "Installation",
+				"description": "Verkabelung, Montage der Technik und Abstimmung mit Bauleitung und Innenarchitekt."
+			},
+			"item4": {
+				"title": "Programmierung",
+				"description": "Szenen, Bedienung über Panels und Smartphone sowie Verknüpfung mit Licht und Beschattung."
+			},
+			"item5": {
+				"title": "Kalibrierung und Test",
+				"description": "Einmessen und Einstellen von Ton und Bild für Ihren Raum."
+			},
+			"item6": {
+				"title": "Übergabe und Service",
+				"description": "Einweisung, Dokumentation und langfristiger Support."
+			}
+		},
+
+		"faqs": [
+			{
+				"q": "Projektor oder großer Fernseher: Was ist besser fürs Heimkino?",
+				"a": "Projektor und Leinwand bieten das größte Bild und echtes Kinogefühl, brauchen aber einen abdunkelbaren Raum. Ein großer Fernseher ist heller und passt in Wohnzimmer mit Tageslicht. Wir empfehlen je nach Raum und Nutzung."
+			},
+			{
+				"q": "Brauche ich für ein Heimkino einen eigenen Raum?",
+				"a": "Nein. Auch im Wohnzimmer bauen wir ein hochwertiges Heimkino mit Einbaulautsprechern und versteckter Technik. Ein eigener Kinoraum bietet zusätzlich vollständige Verdunkelung und Akustikmaßnahmen, ist aber keine Voraussetzung."
+			},
+			{
+				"q": "Lässt sich ein Heimkino in einem bestehenden Haus nachrüsten?",
+				"a": "Ja. In bestehenden Häusern wählen wir Lösungen mit möglichst wenig Bauarbeiten, etwa Deckenlautsprecher, Kabelkanäle oder kabellose Rücklautsprecher. Die meisten Möglichkeiten haben Sie, wenn das Kino bei Neubau oder Renovierung mitgeplant wird."
+			},
+			{
+				"q": "Funktionieren Netflix, YouTube und andere Streamingdienste?",
+				"a": "Ja. Streaming-Player wie Apple TV, Satellitenreceiver und Spielkonsolen binden wir ins System ein und bedienen sie genauso wie das übrige Kino."
+			},
+			{
+				"q": "Kann ich eine Quelle in mehreren Räumen sehen?",
+				"a": "Ja, genau dafür gibt es die Videoverteilung. Ein Player oder Receiver kann auf jedem Fernseher im Haus laufen, und in jedem Raum kann gleichzeitig etwas anderes laufen."
+			},
+			{
+				"q": "Was kostet ein Heimkino?",
+				"a": "Das hängt von Raumgröße, Projektor oder Fernseher, Anzahl der Lautsprecher und davon ab, ob Sie eine Videoverteilung im ganzen Haus wünschen. Nach einer kostenlosen Erstberatung erstellen wir eine Planung und ein unverbindliches Budget."
+			}
+		]
 	},
 
 	"audio": {

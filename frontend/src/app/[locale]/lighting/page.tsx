@@ -131,15 +131,34 @@ export default async function Lighting({
 			</section>
 			<section className="section">
 				<h2 className="section__title">{t("lighting.section6.heading")}</h2>
-				<p>{t("lighting.section6.intro")}</p>
-				{t
-					.raw("lighting.section6.items")
-					.map((item: { name: string; text: string }) => (
-						<div key={item.name}>
-							<h3>{item.name}</h3>
-							<p>{item.text}</p>
-						</div>
-					))}
+				<div className="lightning-section-container">
+					<div>
+						<p>{t("lighting.section6.intro")}</p>
+						{t
+							.raw("lighting.section6.items")
+							.map((item: { name: string; text: string }) => (
+								<div key={item.name}>
+									<h3
+										style={{
+											fontWeight: "500",
+											fontSize: "20px",
+											marginTop: "10px",
+										}}
+									>
+										{item.name}
+									</h3>
+									<p>{item.text}</p>
+								</div>
+							))}
+					</div>
+					<img
+						style={{
+							borderRadius: 10,
+						}}
+						src="/lighting/05.png"
+						alt=""
+					/>
+				</div>
 			</section>
 			<section className="section">
 				<h2 className="section__title">{t("lighting.section7.heading")}</h2>

@@ -405,14 +405,146 @@
 			}
 		]
 	},
+
 	"video": {
 		"meta": {
 			"title": "Home Cinema & Multiroom Video | Crestron",
 			"description": "Design and installation of home cinemas, projection and smart TVs with video distribution to multiple rooms. One control for the whole house, Crestron."
 		},
 		"heading": "Video & Cinema",
-		"title": "Smart Home Video & Cinema Systems",
-		"subtitle": "Premium home cinema, smart TV, and integrated entertainment experiences for modern luxury homes."
+		"title": "Custom home cinema and video systems",
+		"subtitle": "We design and install home cinemas, projection and whole-house video distribution. Superb picture and surround sound, one-button control and no cables or boxes in sight.",
+		"exploreBtn": "What a home cinema with us looks like",
+		"imgAlt": "Home cinema with projection, surround sound and dimmed lighting",
+
+		"intro": {
+			"heading": "A real cinema experience at home, without a pile of remotes",
+			"paragraphs": [
+				"A good home cinema is more than a big TV. Picture, sound, lighting and shading need to work together, and you should control them with one button, not five remotes.",
+				"We design dedicated cinema rooms, home cinemas in the living room, media rooms and video distribution for the whole house. The equipment goes into a rack or technical room, so all you see in the interior is the picture."
+			]
+		},
+
+		"section1": {
+			"heading": "Custom home cinema",
+			"paragraphs": [
+				"Depending on the room, we design a projector and screen or a large-format TV, surround sound with in-ceiling and in-wall speakers, and an AV receiver that ties it all together. For a dedicated cinema room we also handle acoustics, seating layout and full blackout.",
+				"We work with Denon and Marantz AV receivers, LG TVs and Bowers & Wilkins speakers. We choose the exact setup based on the size of the room and whether you mainly want films, sport or gaming."
+			],
+			"imgAlt": "Home cinema room with a projection screen and seating"
+		},
+
+		"section2": {
+			"heading": "The \"Cinema\" scene at one touch",
+			"paragraphs": [
+				"Press \"Cinema\" and the house gets ready by itself: the blinds close, the lights dim, the projector and receiver turn on and the film starts. When it's over, one press switches everything off and the lights slowly come back up.",
+				"You control everything from a touch panel, a single remote or your phone. Guests and children don't have to learn which remote belongs to which box."
+			],
+			"imgAlt": "Touch panel showing the Cinema scene"
+		},
+
+		"section3": {
+			"heading": "Video distribution for the whole house",
+			"paragraphs": [
+				"One Apple TV, satellite receiver or games console can play on any TV in the house. We distribute 4K video using Crestron DigitalMedia and DM NVX, so the sources sit in the rack and only the screens stay in the rooms.",
+				"Finish a film in the bedroom right where you left off in the living room, or watch the news in the kitchen while the kids play in their room, each from their own source."
+			],
+			"imgAlt": "4K video distribution to several rooms in a family home"
+		},
+
+		"section4": {
+			"heading": "Hidden TVs and a clean interior",
+			"paragraphs": [
+				"A TV doesn't have to be a black rectangle on the wall. We recess it flush into the wall, hide it in furniture with a motorised lift, or put it in a frame that looks like a painting when it's off.",
+				"Cables run inside the walls, and players, receivers and splitters go into the technical room. No boxes and no visible cables are left in the living room."
+			],
+			"imgAlt": "TV recessed flush into the wall of a modern living room"
+		},
+
+		"section5": {
+			"heading": "Sound tuned to your room",
+			"paragraphs": [
+				"Every room sounds different. We place the speakers according to the room's shape and the seating, then measure and calibrate the sound on site, not by the book. The result is clear dialogue, full bass and a surround effect that really wraps around the whole sofa."
+			]
+		},
+
+		"section6": {
+			"heading": "Technologies we work with",
+			"intro": "We choose the setup based on the room, your budget and how you'll use the cinema.",
+			"items": [
+				{
+					"name": "Crestron",
+					"text": "Control of the whole cinema and video distribution around the house. Scenes, touch panels and one remote for the projector, receiver, lights and shading."
+				},
+				{
+					"name": "Denon and Marantz",
+					"text": "AV receivers that are the heart of the home cinema. They process surround sound, switch sources and drive the speakers."
+				},
+				{
+					"name": "LG",
+					"text": "OLED TVs with deep blacks and excellent contrast, ideal for living rooms and media rooms."
+				},
+				{
+					"name": "Bowers & Wilkins",
+					"text": "Speakers for demanding listeners, including in-ceiling and in-wall models for a clean interior."
+				}
+			]
+		},
+
+		"section7": {
+			"heading": "How the project works",
+			"item1": {
+				"title": "Consultation",
+				"description": "We look at the room and find out what you want to watch and how."
+			},
+			"item2": {
+				"title": "Design",
+				"description": "Picture, sound, speaker layout, video distribution and budget."
+			},
+			"item3": {
+				"title": "Installation",
+				"description": "Cabling, fitting the equipment and coordination with the builder and interior designer."
+			},
+			"item4": {
+				"title": "Programming",
+				"description": "Scenes, control from panels and your phone, and links to lighting and shading."
+			},
+			"item5": {
+				"title": "Calibration and testing",
+				"description": "Measuring and setting up sound and picture for your specific room."
+			},
+			"item6": {
+				"title": "Handover and service",
+				"description": "Training, documentation and long-term support."
+			}
+		},
+
+		"faqs": [
+			{
+				"q": "Projector or large TV: which is better for a home cinema?",
+				"a": "A projector and screen give you the biggest picture and a true cinema experience, but the room needs to be darkened. A large TV is brighter and suits living rooms with daylight. We recommend based on the room and how you'll use it."
+			},
+			{
+				"q": "Do I need a separate room for a home cinema?",
+				"a": "No. We can build a high-quality home cinema in the living room too, with recessed speakers and hidden equipment. A dedicated cinema room adds full blackout and acoustic treatment, but it isn't required."
+			},
+			{
+				"q": "Can a home cinema be added to an existing house?",
+				"a": "Yes. In finished homes we choose solutions with minimal building work, such as speakers in the ceiling, cables in trunking or wireless rear speakers. You have the most options when the cinema is planned during construction or renovation."
+			},
+			{
+				"q": "Will Netflix, YouTube and other streaming services work?",
+				"a": "Yes. Streaming players such as Apple TV, satellite receivers and games consoles are connected to the system and controlled the same way as the rest of the cinema."
+			},
+			{
+				"q": "Can I watch one source in several rooms?",
+				"a": "Yes, that's what video distribution is for. One player or receiver can play on any TV in the house, and each room can watch something different at the same time."
+			},
+			{
+				"q": "How much does a home cinema cost?",
+				"a": "It depends on the size of the room, the projector or TV, the number of speakers and whether you want video distribution around the whole house. After a free initial consultation, we prepare a design and an indicative budget."
+			}
+		]
 	},
 
 	"audio": {

@@ -937,8 +937,139 @@
 			"description": "Návrh a instalace domácího kina, projekce a chytrých televizí s rozvodem videa do více místností. Jedno ovládání pro celý dům, Crestron."
 		},
 		"heading": "Video a domácí kino",
-		"title": "Chytré video a domácí kino systémy",
-		"subtitle": "Prémiová domácí kina, chytré televize a integrovaná zábavní řešení pro moderní luxusní domy."
+		"title": "Domácí kino a video systémy na míru",
+		"subtitle": "Navrhujeme a instalujeme domácí kina, projekci a rozvod videa po celém domě. Špičkový obraz a prostorový zvuk, ovládání jedním tlačítkem a žádné kabely ani krabičky na očích.",
+		"exploreBtn": "Jak vypadá domácí kino s námi",
+		"imgAlt": "Domácí kino s projekcí, prostorovým zvukem a tlumeným osvětlením",
+
+		"intro": {
+			"heading": "Kino zážitek doma, bez hromady ovladačů",
+			"paragraphs": [
+				"Dobré domácí kino není jen velká televize. Jde o to, aby obraz, zvuk, světlo a stínění fungovaly společně a abyste je ovládali jedním tlačítkem, ne pěti ovladači.",
+				"Navrhujeme samostatná kinosály i domácí kina v obývacím pokoji, mediální místnosti a rozvod videa do celého domu. Techniku schováme do rozvaděče nebo technické místnosti, takže v interiéru vidíte jen obraz."
+			]
+		},
+
+		"section1": {
+			"heading": "Domácí kino na míru",
+			"paragraphs": [
+				"Podle místnosti navrhneme projektor s plátnem nebo velkoformátovou televizi, prostorový zvuk s reproduktory ve stropě a stěnách a AV receiver, který vše propojí. Pro samostatný kinosál řešíme i akustiku, rozmístění sedadel a úplné zatemnění.",
+				"Pracujeme s AV receivery Denon a Marantz, televizemi LG a reproduktory Bowers & Wilkins. Konkrétní sestavu vybíráme podle velikosti místnosti a toho, jestli chcete hlavně filmy, sport, nebo hry."
+			],
+			"imgAlt": "Domácí kinosál s projekčním plátnem a sedačkami"
+		},
+
+		"section2": {
+			"heading": "Scéna „Kino“ jedním stiskem",
+			"paragraphs": [
+				"Stisknete „Kino“ a dům se připraví sám: zatáhnou se žaluzie, ztlumí světla, zapne projektor a receiver a spustí se film. Po skončení filmu se jedním stiskem vše vypne a světla se pomalu rozsvítí.",
+				"Ovládáte vše z dotykového panelu, jednoho dálkového ovladače nebo telefonu. Hosté ani děti se nemusí učit, který ovladač patří ke které krabičce."
+			],
+			"imgAlt": "Dotykový panel se scénou Kino"
+		},
+
+		"section3": {
+			"heading": "Rozvod videa do celého domu",
+			"paragraphs": [
+				"Jeden Apple TV, satelitní přijímač nebo herní konzole může vysílat do kterékoli televize v domě. Rozvod videa v kvalitě 4K řešíme přes systémy Crestron DigitalMedia a DM NVX, takže zdroje stojí v racku a v místnostech zůstanou jen obrazovky.",
+				"Rozehraný film si pustíte v ložnici tam, kde jste skončili v obýváku, a v kuchyni sledujete zprávy, zatímco děti hrají v pokoji, každý ze svého zdroje."
+			],
+			"imgAlt": "Rozvod videa 4K do více místností v rodinném domě"
+		},
+
+		"section4": {
+			"heading": "Skryté televize a čistý interiér",
+			"paragraphs": [
+				"Televize nemusí být černý obdélník na stěně. Zapustíme ji do stěny v rovině s povrchem, schováme ji do nábytku s motorickým výsuvem nebo do rámu, který mimo provoz vypadá jako obraz.",
+				"Kabeláž vedeme ve zdech a přehrávače, receivery a rozbočovače umístíme do technické místnosti. V obýváku tak nezůstane žádná krabička ani viditelný kabel."
+			],
+			"imgAlt": "Televize zapuštěná do stěny v moderním obývacím pokoji"
+		},
+
+		"section5": {
+			"heading": "Zvuk nastavený pro vaši místnost",
+			"paragraphs": [
+				"Každá místnost zní jinak. Reproduktory rozmístíme podle tvaru místnosti a míst k sezení a zvuk změříme a zkalibrujeme přímo na místě, ne podle tabulky. Výsledkem jsou srozumitelné dialogy, plné basy a prostorový efekt, který opravdu obklopí celou sedačku."
+			]
+		},
+
+		"section6": {
+			"heading": "Technologie, se kterými pracujeme",
+			"intro": "Sestavu vybíráme podle místnosti, rozpočtu a toho, jak budete kino používat.",
+			"items": [
+				{
+					"name": "Crestron",
+					"text": "Ovládání celého kina i rozvod videa po domě. Scény, dotykové panely a jeden ovladač pro projektor, receiver, světla i stínění."
+				},
+				{
+					"name": "Denon a Marantz",
+					"text": "AV receivery, které jsou srdcem domácího kina. Zpracují prostorový zvuk, přepínají zdroje a pohánějí reproduktory."
+				},
+				{
+					"name": "LG",
+					"text": "OLED televize s hlubokou černou a výborným kontrastem, ideální do obývacích pokojů a mediálních místností."
+				},
+				{
+					"name": "Bowers & Wilkins",
+					"text": "Reproduktory pro náročné posluchače, včetně zapuštěných modelů do stropu a stěn pro čistý interiér."
+				}
+			]
+		},
+
+		"section7": {
+			"heading": "Jak probíhá realizace",
+			"item1": {
+				"title": "Konzultace",
+				"description": "Projdeme místnost a zjistíme, co chcete sledovat a jak."
+			},
+			"item2": {
+				"title": "Návrh",
+				"description": "Obraz, zvuk, rozmístění reproduktorů, rozvod videa a rozpočet."
+			},
+			"item3": {
+				"title": "Instalace",
+				"description": "Kabeláž, montáž techniky a koordinace se stavbou a interiérovým designérem."
+			},
+			"item4": {
+				"title": "Programování",
+				"description": "Scény, ovládání z panelů a telefonu a propojení se světly a stíněním."
+			},
+			"item5": {
+				"title": "Kalibrace a testování",
+				"description": "Měření a nastavení zvuku i obrazu pro konkrétní místnost."
+			},
+			"item6": {
+				"title": "Předání a servis",
+				"description": "Zaškolení, dokumentace a dlouhodobá podpora."
+			}
+		},
+
+		"faqs": [
+			{
+				"q": "Projektor, nebo velká televize: co je lepší do domácího kina?",
+				"a": "Projektor s plátnem nabídne největší obraz a skutečný kino zážitek, potřebuje ale zatemnitelnou místnost. Velká televize je jasnější a hodí se do obývacích pokojů s denním světlem. Doporučíme podle místnosti a toho, jak ji budete používat."
+			},
+			{
+				"q": "Potřebuji pro domácí kino samostatnou místnost?",
+				"a": "Ne. Kvalitní domácí kino uděláme i v obývacím pokoji, se zapuštěnými reproduktory a skrytou technikou. Samostatný kinosál přidává úplné zatemnění a akustické úpravy, ale není podmínkou."
+			},
+			{
+				"q": "Lze domácí kino udělat i v hotovém domě?",
+				"a": "Ano. V hotových domech volíme řešení s minimem stavebních zásahů, například reproduktory do podhledu, kabely v lištách nebo bezdrátové zadní reproduktory. Nejvíc možností je, když se kino plánuje už při stavbě nebo rekonstrukci."
+			},
+			{
+				"q": "Budou fungovat Netflix, YouTube a další streamovací služby?",
+				"a": "Ano. Streamovací přehrávače, například Apple TV, satelitní přijímače i herní konzole zapojíme do systému a pustíte je stejným ovládáním jako zbytek kina."
+			},
+			{
+				"q": "Mohu sledovat jeden zdroj ve více místnostech?",
+				"a": "Ano, to je smysl rozvodu videa. Jeden přehrávač nebo přijímač může vysílat do kterékoli televize v domě a v každé místnosti můžete zároveň sledovat něco jiného."
+			},
+			{
+				"q": "Kolik stojí domácí kino?",
+				"a": "Záleží na velikosti místnosti, projektoru nebo televizi, počtu reproduktorů a na tom, zda chcete rozvod videa po celém domě. Po úvodní konzultaci, která je zdarma, připravíme návrh a orientační rozpočet."
+			}
+		]
 	},
 
 	"audio": {
